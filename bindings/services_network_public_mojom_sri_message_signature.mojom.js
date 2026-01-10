@@ -8,6 +8,13 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.TypeSpec = { $: mojo.internal.Enum() };
+network.mojom.SRIMessageSignatureErrorSpec = { $: mojo.internal.Enum() };
+network.mojom.SRIMessageSignatureComponentParameterSpec = { $: {} };
+network.mojom.SRIMessageSignatureComponentSpec = { $: {} };
+network.mojom.SRIMessageSignatureSpec = { $: {} };
+network.mojom.SRIMessageSignatureIssueSpec = { $: {} };
+network.mojom.SRIMessageSignaturesSpec = { $: {} };
 
 // Enum: Type
 network.mojom.Type = {
@@ -16,7 +23,6 @@ network.mojom.Type = {
   kStrictStructuredFieldSerialization: 2,
   kBinaryRepresentation: 3,
 };
-network.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SRIMessageSignatureError
 network.mojom.SRIMessageSignatureError = {
@@ -42,88 +48,52 @@ network.mojom.SRIMessageSignatureError = {
   kValidationFailedSignatureMismatch: 19,
   kValidationFailedIntegrityMismatch: 20,
 };
-network.mojom.SRIMessageSignatureErrorSpec = { $: mojo.internal.Enum() };
 
 // Struct: SRIMessageSignatureComponentParameter
-network.mojom.SRIMessageSignatureComponentParameterSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.SRIMessageSignatureComponentParameter',
-      packedSize: 16,
-      fields: [
-        { name: 'kName', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.SRIMessageSignatureComponentParameterSpec, 'network.mojom.SRIMessageSignatureComponentParameter', [
+      mojo.internal.StructField('kName', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: SRIMessageSignatureComponent
-network.mojom.SRIMessageSignatureComponentSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.SRIMessageSignatureComponent',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.SRIMessageSignatureComponentParameterSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.SRIMessageSignatureComponentSpec, 'network.mojom.SRIMessageSignatureComponent', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('params', 8, 0, mojo.internal.Array(network.mojom.SRIMessageSignatureComponentParameterSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: SRIMessageSignature
-network.mojom.SRIMessageSignatureSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.SRIMessageSignature',
-      packedSize: 88,
-      fields: [
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'signature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'components', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.SRIMessageSignatureComponentSpec, false), nullable: false, minVersion: 0 },
-        { name: 'created_$flag', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'created_$value', originalFieldName: 'created' } },
-        { name: 'created_$value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'created_$flag', originalFieldName: 'created' } },
-        { name: 'expires_$flag', packedOffset: 72, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'expires_$value', originalFieldName: 'expires' } },
-        { name: 'expires_$value', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'expires_$flag', originalFieldName: 'expires' } },
-        { name: 'keyid', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
-        { name: 'nonce', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'tag', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'serialized_signature_params', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 88}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.SRIMessageSignatureSpec, 'network.mojom.SRIMessageSignature', [
+      mojo.internal.StructField('label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('signature', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('components', 16, 0, mojo.internal.Array(network.mojom.SRIMessageSignatureComponentSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('created_$flag', 72, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'created_$value', originalFieldName: 'created' }),
+      mojo.internal.StructField('created_$value', 24, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'created_$flag', originalFieldName: 'created' }),
+      mojo.internal.StructField('expires_$flag', 72, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'expires_$value', originalFieldName: 'expires' }),
+      mojo.internal.StructField('expires_$value', 32, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'expires_$flag', originalFieldName: 'expires' }),
+      mojo.internal.StructField('keyid', 40, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('nonce', 48, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('tag', 56, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('serialized_signature_params', 64, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 88]]);
 
 // Struct: SRIMessageSignatureIssue
-network.mojom.SRIMessageSignatureIssueSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.SRIMessageSignatureIssue',
-      packedSize: 32,
-      fields: [
-        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: network.mojom.SRIMessageSignatureErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'signature_base', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'integrity_assertions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.SRIMessageSignatureIssueSpec, 'network.mojom.SRIMessageSignatureIssue', [
+      mojo.internal.StructField('error', 16, 0, network.mojom.SRIMessageSignatureErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('signature_base', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('integrity_assertions', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: SRIMessageSignatures
-network.mojom.SRIMessageSignaturesSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.SRIMessageSignatures',
-      packedSize: 24,
-      fields: [
-        { name: 'signatures', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.SRIMessageSignatureSpec, false), nullable: false, minVersion: 0 },
-        { name: 'issues', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.SRIMessageSignatureIssueSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.SRIMessageSignaturesSpec, 'network.mojom.SRIMessageSignatures', [
+      mojo.internal.StructField('signatures', 0, 0, mojo.internal.Array(network.mojom.SRIMessageSignatureSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('issues', 8, 0, mojo.internal.Array(network.mojom.SRIMessageSignatureIssueSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);

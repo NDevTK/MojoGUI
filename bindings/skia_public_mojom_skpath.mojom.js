@@ -8,17 +8,11 @@
 var skia = skia || {};
 skia.mojom = skia.mojom || {};
 
+skia.mojom.SkPathSpec = { $: {} };
 
 // Struct: SkPath
-skia.mojom.SkPathSpec = {
-  $: {
-    structSpec: {
-      name: 'skia.mojom.SkPath',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    skia.mojom.SkPathSpec, 'skia.mojom.SkPath', [
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);

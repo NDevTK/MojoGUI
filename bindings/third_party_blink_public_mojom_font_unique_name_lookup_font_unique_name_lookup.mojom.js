@@ -8,33 +8,36 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.FontUniqueNameLookup = {};
+blink.mojom.FontUniqueNameLookup.$interfaceName = 'blink.mojom.FontUniqueNameLookup';
+blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ParamsSpec = { $: {} };
+blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ResponseParamsSpec = { $: {} };
+blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ParamsSpec = { $: {} };
+blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ResponseParamsSpec = { $: {} };
 
 // Interface: FontUniqueNameLookup
-blink.mojom.FontUniqueNameLookup = {};
+mojo.internal.Struct(
+    blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ParamsSpec, 'blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ResponseParamsSpec, 'blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ResponseParams', [
+      mojo.internal.StructField('sync_available', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('font_lookup_table', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ParamsSpec, 'blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ResponseParamsSpec, 'blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ResponseParams', [
+      mojo.internal.StructField('font_lookup_table', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.FontUniqueNameLookupPendingReceiver = class {
   constructor(handle) {
@@ -98,60 +101,6 @@ blink.mojom.FontUniqueNameLookup.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetUniqueNameLookupTableIfAvailable
-blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FontUniqueNameLookup.GetUniqueNameLookupTableIfAvailable_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FontUniqueNameLookup.GetUniqueNameLookupTableIfAvailable_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'sync_available', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'font_lookup_table', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GetUniqueNameLookupTable
-blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FontUniqueNameLookup.GetUniqueNameLookupTable_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FontUniqueNameLookup.GetUniqueNameLookupTable_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'font_lookup_table', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.FontUniqueNameLookupPtr = blink.mojom.FontUniqueNameLookupRemote;
 blink.mojom.FontUniqueNameLookupRequest = blink.mojom.FontUniqueNameLookupPendingReceiver;
 

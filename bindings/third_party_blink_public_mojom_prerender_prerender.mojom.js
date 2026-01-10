@@ -12,58 +12,40 @@ var ui = ui || {};
 var gfx = gfx || {};
 var url = url || {};
 
+blink.mojom.PrerenderTriggerTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.PrerenderAttributesSpec = { $: {} };
+blink.mojom.NoStatePrefetchProcessor = {};
+blink.mojom.NoStatePrefetchProcessor.$interfaceName = 'blink.mojom.NoStatePrefetchProcessor';
+blink.mojom.NoStatePrefetchProcessor_Start_ParamsSpec = { $: {} };
+blink.mojom.NoStatePrefetchProcessor_Cancel_ParamsSpec = { $: {} };
 
 // Enum: PrerenderTriggerType
 blink.mojom.PrerenderTriggerType = {
   kLinkRelPrerender: 0,
   kLinkRelNext: 1,
 };
-blink.mojom.PrerenderTriggerTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: PrerenderAttributes
-blink.mojom.PrerenderAttributesSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PrerenderAttributes',
-      packedSize: 40,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'trigger_type', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.PrerenderTriggerTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'referrer', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ReferrerSpec, nullable: false, minVersion: 0 },
-        { name: 'view_size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PrerenderAttributesSpec, 'blink.mojom.PrerenderAttributes', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('trigger_type', 24, 0, blink.mojom.PrerenderTriggerTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('referrer', 8, 0, blink.mojom.ReferrerSpec, null, false, 0, undefined),
+      mojo.internal.StructField('view_size', 16, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: NoStatePrefetchProcessor
-blink.mojom.NoStatePrefetchProcessor = {};
+mojo.internal.Struct(
+    blink.mojom.NoStatePrefetchProcessor_Start_ParamsSpec, 'blink.mojom.NoStatePrefetchProcessor_Start_Params', [
+      mojo.internal.StructField('prerender_attribute', 0, 0, blink.mojom.PrerenderAttributesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.NoStatePrefetchProcessor_Start_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NoStatePrefetchProcessor_Start_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'prerender_attribute', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PrerenderAttributesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.NoStatePrefetchProcessor_Cancel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NoStatePrefetchProcessor_Cancel_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.NoStatePrefetchProcessor_Cancel_ParamsSpec, 'blink.mojom.NoStatePrefetchProcessor_Cancel_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 blink.mojom.NoStatePrefetchProcessorPendingReceiver = class {
   constructor(handle) {
@@ -127,34 +109,6 @@ blink.mojom.NoStatePrefetchProcessor.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Start
-blink.mojom.NoStatePrefetchProcessor_Start_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NoStatePrefetchProcessor.Start_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'prerender_attribute', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PrerenderAttributesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Cancel
-blink.mojom.NoStatePrefetchProcessor_Cancel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NoStatePrefetchProcessor.Cancel_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.NoStatePrefetchProcessorPtr = blink.mojom.NoStatePrefetchProcessorRemote;
 blink.mojom.NoStatePrefetchProcessorRequest = blink.mojom.NoStatePrefetchProcessorPendingReceiver;
 

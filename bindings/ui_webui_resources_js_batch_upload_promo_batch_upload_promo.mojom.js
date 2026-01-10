@@ -8,23 +8,25 @@
 var batch_upload_promo = batch_upload_promo || {};
 batch_upload_promo.mojom = batch_upload_promo.mojom || {};
 
+batch_upload_promo.mojom.PageHandlerFactory = {};
+batch_upload_promo.mojom.PageHandlerFactory.$interfaceName = 'batch_upload_promo.mojom.PageHandlerFactory';
+batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_ParamsSpec = { $: {} };
+batch_upload_promo.mojom.PageHandler = {};
+batch_upload_promo.mojom.PageHandler.$interfaceName = 'batch_upload_promo.mojom.PageHandler';
+batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ParamsSpec = { $: {} };
+batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ResponseParamsSpec = { $: {} };
+batch_upload_promo.mojom.PageHandler_OnBatchUploadPromoClicked_ParamsSpec = { $: {} };
+batch_upload_promo.mojom.Page = {};
+batch_upload_promo.mojom.Page.$interfaceName = 'batch_upload_promo.mojom.Page';
+batch_upload_promo.mojom.Page_OnLocalDataCountChanged_ParamsSpec = { $: {} };
 
 // Interface: PageHandlerFactory
-batch_upload_promo.mojom.PageHandlerFactory = {};
-
-batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(batch_upload_promo.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(batch_upload_promo.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_ParamsSpec, 'batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(batch_upload_promo.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(batch_upload_promo.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 batch_upload_promo.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -79,52 +81,26 @@ batch_upload_promo.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateBatchUploadPromoHandler
-batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'batch_upload_promo.mojom.PageHandlerFactory.CreateBatchUploadPromoHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(batch_upload_promo.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(batch_upload_promo.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 batch_upload_promo.mojom.PageHandlerFactoryPtr = batch_upload_promo.mojom.PageHandlerFactoryRemote;
 batch_upload_promo.mojom.PageHandlerFactoryRequest = batch_upload_promo.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-batch_upload_promo.mojom.PageHandler = {};
+mojo.internal.Struct(
+    batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ParamsSpec, 'batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ResponseParamsSpec, 'batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ResponseParams', [
+      mojo.internal.StructField('local_data_count', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-batch_upload_promo.mojom.PageHandler_OnBatchUploadPromoClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'batch_upload_promo.mojom.PageHandler_OnBatchUploadPromoClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    batch_upload_promo.mojom.PageHandler_OnBatchUploadPromoClicked_ParamsSpec, 'batch_upload_promo.mojom.PageHandler_OnBatchUploadPromoClicked_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 batch_upload_promo.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -188,65 +164,16 @@ batch_upload_promo.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetBatchUploadPromoLocalDataCount
-batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'batch_upload_promo.mojom.PageHandler.GetBatchUploadPromoLocalDataCount_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'batch_upload_promo.mojom.PageHandler.GetBatchUploadPromoLocalDataCount_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'local_data_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnBatchUploadPromoClicked
-batch_upload_promo.mojom.PageHandler_OnBatchUploadPromoClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'batch_upload_promo.mojom.PageHandler.OnBatchUploadPromoClicked_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 batch_upload_promo.mojom.PageHandlerPtr = batch_upload_promo.mojom.PageHandlerRemote;
 batch_upload_promo.mojom.PageHandlerRequest = batch_upload_promo.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-batch_upload_promo.mojom.Page = {};
-
-batch_upload_promo.mojom.Page_OnLocalDataCountChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'batch_upload_promo.mojom.Page_OnLocalDataCountChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'local_data_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    batch_upload_promo.mojom.Page_OnLocalDataCountChanged_ParamsSpec, 'batch_upload_promo.mojom.Page_OnLocalDataCountChanged_Params', [
+      mojo.internal.StructField('local_data_count', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 batch_upload_promo.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -301,21 +228,6 @@ batch_upload_promo.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnLocalDataCountChanged
-batch_upload_promo.mojom.Page_OnLocalDataCountChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'batch_upload_promo.mojom.Page.OnLocalDataCountChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'local_data_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 batch_upload_promo.mojom.PagePtr = batch_upload_promo.mojom.PageRemote;
 batch_upload_promo.mojom.PageRequest = batch_upload_promo.mojom.PagePendingReceiver;
 

@@ -8,11 +8,12 @@
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
 
+crosapi.mojom.ResourceScaleFactorSpec = { $: mojo.internal.Enum() };
 
 // Enum: ResourceScaleFactor
 crosapi.mojom.ResourceScaleFactor = {
-  k100Percent: 0,
-  k200Percent: 1,
-  k300Percent: 2,
+  kScaleFactorNone: 0,
+  k100Percent: 1,
+  k200Percent: 2,
+  k300Percent: 3,
 };
-crosapi.mojom.ResourceScaleFactorSpec = { $: mojo.internal.Enum() };

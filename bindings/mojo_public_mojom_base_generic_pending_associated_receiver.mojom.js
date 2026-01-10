@@ -8,25 +8,19 @@
 var mojo_base = mojo_base || {};
 mojo_base.mojom = mojo_base.mojom || {};
 
+mojo_base.mojom.GenericPendingAssociatedReceiverSpec = { $: {} };
+mojo_base.mojom.GenericAssociatedInterface = {};
+mojo_base.mojom.GenericAssociatedInterface.$interfaceName = 'mojo_base.mojom.GenericAssociatedInterface';
 
 // Struct: GenericPendingAssociatedReceiver
-mojo_base.mojom.GenericPendingAssociatedReceiverSpec = {
-  $: {
-    structSpec: {
-      name: 'mojo_base.mojom.GenericPendingAssociatedReceiver',
-      packedSize: 24,
-      fields: [
-        { name: 'interface_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(mojo_base.mojom.GenericAssociatedInterfaceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojo_base.mojom.GenericPendingAssociatedReceiverSpec, 'mojo_base.mojom.GenericPendingAssociatedReceiver', [
+      mojo.internal.StructField('interface_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo_base.mojom.GenericAssociatedInterfaceRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: GenericAssociatedInterface
-mojo_base.mojom.GenericAssociatedInterface = {};
-
 mojo_base.mojom.GenericAssociatedInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -71,7 +65,6 @@ mojo_base.mojom.GenericAssociatedInterface.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 mojo_base.mojom.GenericAssociatedInterfacePtr = mojo_base.mojom.GenericAssociatedInterfaceRemote;
 mojo_base.mojom.GenericAssociatedInterfaceRequest = mojo_base.mojom.GenericAssociatedInterfacePendingReceiver;
 

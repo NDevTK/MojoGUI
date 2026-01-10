@@ -8,6 +8,7 @@
 var device = device || {};
 device.mojom = device.mojom || {};
 
+device.mojom.OpenXrInteractionProfileTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: OpenXrInteractionProfileType
 device.mojom.OpenXrInteractionProfileType = {
@@ -24,4 +25,3 @@ device.mojom.OpenXrInteractionProfileType = {
   kMetaHandAim: 10,
   kInvalid: 11,
 };
-device.mojom.OpenXrInteractionProfileTypeSpec = { $: mojo.internal.Enum() };

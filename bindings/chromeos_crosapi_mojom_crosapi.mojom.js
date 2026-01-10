@@ -7,270 +7,179 @@
 // Module namespace
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
+var chromeos = chromeos || {};
+var components = components || {};
+var chromeos = chromeos || {};
+var components = components || {};
+var chromeos = chromeos || {};
+var components = components || {};
+var chromeos = chromeos || {};
+var chromeos = chromeos || {};
+var chromeos = chromeos || {};
+var chromeos = chromeos || {};
+var chromeos = chromeos || {};
+var chromeos = chromeos || {};
+var chromeos = chromeos || {};
+var chromeos = chromeos || {};
+var chromeos = chromeos || {};
+var chromeos = chromeos || {};
+var chromeos = chromeos || {};
+var chromeos = chromeos || {};
+var chromeos = chromeos || {};
+var chromeos = chromeos || {};
+var chromeos = chromeos || {};
+var chromeos = chromeos || {};
+var services = services || {};
+var chromeos = chromeos || {};
+var services = services || {};
+var chromeos = chromeos || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 
+crosapi.mojom.Crosapi = {};
+crosapi.mojom.Crosapi.$interfaceName = 'crosapi.mojom.Crosapi';
+crosapi.mojom.Crosapi_BindAccountManager_ParamsSpec = { $: {} };
+crosapi.mojom.Crosapi_BindBrowserCdmFactory_ParamsSpec = { $: {} };
+crosapi.mojom.Crosapi_BindCfmServiceContext_ParamsSpec = { $: {} };
+crosapi.mojom.Crosapi_BindCrosDisplayConfigController_ParamsSpec = { $: {} };
+crosapi.mojom.Crosapi_BindDiagnosticsService_ParamsSpec = { $: {} };
+crosapi.mojom.Crosapi_BindDocumentScan_ParamsSpec = { $: {} };
+crosapi.mojom.Crosapi_BindInSessionAuth_ParamsSpec = { $: {} };
+crosapi.mojom.Crosapi_BindKeystoreService_ParamsSpec = { $: {} };
+crosapi.mojom.Crosapi_BindLocalPrinter_ParamsSpec = { $: {} };
+crosapi.mojom.Crosapi_BindMachineLearningService_ParamsSpec = { $: {} };
+crosapi.mojom.Crosapi_BindSensorHalClient_ParamsSpec = { $: {} };
+crosapi.mojom.Crosapi_BindHidManager_ParamsSpec = { $: {} };
+crosapi.mojom.Crosapi_BindMediaSessionController_ParamsSpec = { $: {} };
+crosapi.mojom.Crosapi_BindMediaSessionAudioFocus_ParamsSpec = { $: {} };
+crosapi.mojom.Crosapi_BindMediaSessionAudioFocusDebug_ParamsSpec = { $: {} };
+crosapi.mojom.Crosapi_BindTelemetryDiagnosticRoutinesService_ParamsSpec = { $: {} };
+crosapi.mojom.Crosapi_BindTelemetryManagementService_ParamsSpec = { $: {} };
+crosapi.mojom.Crosapi_BindTelemetryProbeService_ParamsSpec = { $: {} };
+crosapi.mojom.Crosapi_BindVideoCaptureDeviceFactory_ParamsSpec = { $: {} };
+crosapi.mojom.Crosapi_BindGuestOsSkForwarderFactory_ParamsSpec = { $: {} };
 
 // Interface: Crosapi
-crosapi.mojom.Crosapi = {};
+mojo.internal.Struct(
+    crosapi.mojom.Crosapi_BindAccountManager_ParamsSpec, 'crosapi.mojom.Crosapi_BindAccountManager_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(crosapi.mojom.AccountManagerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.Crosapi_BindAccountManager_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi_BindAccountManager_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.AccountManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.Crosapi_BindBrowserCdmFactory_ParamsSpec, 'crosapi.mojom.Crosapi_BindBrowserCdmFactory_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo_base.mojom.GenericPendingReceiverSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.Crosapi_BindBrowserCdmFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi_BindBrowserCdmFactory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingReceiverSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.Crosapi_BindCfmServiceContext_ParamsSpec, 'crosapi.mojom.Crosapi_BindCfmServiceContext_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(chromeos.cfm.mojom.CfmServiceContextRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.Crosapi_BindCfmServiceContext_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi_BindCfmServiceContext_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.cfm.mojom.CfmServiceContextRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.Crosapi_BindCrosDisplayConfigController_ParamsSpec, 'crosapi.mojom.Crosapi_BindCrosDisplayConfigController_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(crosapi.mojom.CrosDisplayConfigControllerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.Crosapi_BindCrosDisplayConfigController_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi_BindCrosDisplayConfigController_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.CrosDisplayConfigControllerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.Crosapi_BindDiagnosticsService_ParamsSpec, 'crosapi.mojom.Crosapi_BindDiagnosticsService_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(crosapi.mojom.DiagnosticsServiceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.Crosapi_BindDiagnosticsService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi_BindDiagnosticsService_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.DiagnosticsServiceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.Crosapi_BindDocumentScan_ParamsSpec, 'crosapi.mojom.Crosapi_BindDocumentScan_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(crosapi.mojom.DocumentScanRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.Crosapi_BindDocumentScan_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi_BindDocumentScan_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.DocumentScanRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.Crosapi_BindInSessionAuth_ParamsSpec, 'crosapi.mojom.Crosapi_BindInSessionAuth_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(chromeos.auth.mojom.InSessionAuthRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.Crosapi_BindInSessionAuth_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi_BindInSessionAuth_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.auth.mojom.InSessionAuthRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.Crosapi_BindKeystoreService_ParamsSpec, 'crosapi.mojom.Crosapi_BindKeystoreService_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(crosapi.mojom.KeystoreServiceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.Crosapi_BindKeystoreService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi_BindKeystoreService_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.KeystoreServiceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.Crosapi_BindLocalPrinter_ParamsSpec, 'crosapi.mojom.Crosapi_BindLocalPrinter_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(crosapi.mojom.LocalPrinterRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.Crosapi_BindLocalPrinter_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi_BindLocalPrinter_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.LocalPrinterRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.Crosapi_BindMachineLearningService_ParamsSpec, 'crosapi.mojom.Crosapi_BindMachineLearningService_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(chromeos.machine_learning.mojom.MachineLearningServiceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.Crosapi_BindMachineLearningService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi_BindMachineLearningService_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.machine_learning.mojom.MachineLearningServiceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.Crosapi_BindSensorHalClient_ParamsSpec, 'crosapi.mojom.Crosapi_BindSensorHalClient_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceProxy(chromeos.sensors.mojom.SensorHalClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.Crosapi_BindSensorHalClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi_BindSensorHalClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.sensors.mojom.SensorHalClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.Crosapi_BindHidManager_ParamsSpec, 'crosapi.mojom.Crosapi_BindHidManager_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.HidManagerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.Crosapi_BindHidManager_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi_BindHidManager_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.HidManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.Crosapi_BindMediaSessionController_ParamsSpec, 'crosapi.mojom.Crosapi_BindMediaSessionController_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(media_session.mojom.MediaControllerManagerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.Crosapi_BindMediaSessionController_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi_BindMediaSessionController_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_session.mojom.MediaControllerManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.Crosapi_BindMediaSessionAudioFocus_ParamsSpec, 'crosapi.mojom.Crosapi_BindMediaSessionAudioFocus_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(media_session.mojom.AudioFocusManagerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.Crosapi_BindMediaSessionAudioFocus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi_BindMediaSessionAudioFocus_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_session.mojom.AudioFocusManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.Crosapi_BindMediaSessionAudioFocusDebug_ParamsSpec, 'crosapi.mojom.Crosapi_BindMediaSessionAudioFocusDebug_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(media_session.mojom.AudioFocusManagerDebugRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.Crosapi_BindMediaSessionAudioFocusDebug_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi_BindMediaSessionAudioFocusDebug_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_session.mojom.AudioFocusManagerDebugRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.Crosapi_BindTelemetryDiagnosticRoutinesService_ParamsSpec, 'crosapi.mojom.Crosapi_BindTelemetryDiagnosticRoutinesService_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(crosapi.mojom.TelemetryDiagnosticRoutinesServiceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.Crosapi_BindTelemetryDiagnosticRoutinesService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi_BindTelemetryDiagnosticRoutinesService_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.TelemetryDiagnosticRoutinesServiceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.Crosapi_BindTelemetryManagementService_ParamsSpec, 'crosapi.mojom.Crosapi_BindTelemetryManagementService_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(crosapi.mojom.TelemetryManagementServiceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.Crosapi_BindTelemetryManagementService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi_BindTelemetryManagementService_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.TelemetryManagementServiceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.Crosapi_BindTelemetryProbeService_ParamsSpec, 'crosapi.mojom.Crosapi_BindTelemetryProbeService_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(crosapi.mojom.TelemetryProbeServiceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.Crosapi_BindTelemetryProbeService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi_BindTelemetryProbeService_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.TelemetryProbeServiceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.Crosapi_BindVideoCaptureDeviceFactory_ParamsSpec, 'crosapi.mojom.Crosapi_BindVideoCaptureDeviceFactory_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(crosapi.mojom.VideoCaptureDeviceFactoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.Crosapi_BindVideoCaptureDeviceFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi_BindVideoCaptureDeviceFactory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.VideoCaptureDeviceFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-crosapi.mojom.Crosapi_BindGuestOsSkForwarderFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi_BindGuestOsSkForwarderFactory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.GuestOsSkForwarderFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.Crosapi_BindGuestOsSkForwarderFactory_ParamsSpec, 'crosapi.mojom.Crosapi_BindGuestOsSkForwarderFactory_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(crosapi.mojom.GuestOsSkForwarderFactoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 crosapi.mojom.CrosapiPendingReceiver = class {
   constructor(handle) {
@@ -496,287 +405,6 @@ crosapi.mojom.Crosapi.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BindAccountManager
-crosapi.mojom.Crosapi_BindAccountManager_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi.BindAccountManager_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.AccountManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindBrowserCdmFactory
-crosapi.mojom.Crosapi_BindBrowserCdmFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi.BindBrowserCdmFactory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingReceiverSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindCfmServiceContext
-crosapi.mojom.Crosapi_BindCfmServiceContext_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi.BindCfmServiceContext_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.cfm.mojom.CfmServiceContextRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindCrosDisplayConfigController
-crosapi.mojom.Crosapi_BindCrosDisplayConfigController_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi.BindCrosDisplayConfigController_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.CrosDisplayConfigControllerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindDiagnosticsService
-crosapi.mojom.Crosapi_BindDiagnosticsService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi.BindDiagnosticsService_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.DiagnosticsServiceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindDocumentScan
-crosapi.mojom.Crosapi_BindDocumentScan_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi.BindDocumentScan_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.DocumentScanRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindInSessionAuth
-crosapi.mojom.Crosapi_BindInSessionAuth_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi.BindInSessionAuth_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.auth.mojom.InSessionAuthRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindKeystoreService
-crosapi.mojom.Crosapi_BindKeystoreService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi.BindKeystoreService_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.KeystoreServiceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindLocalPrinter
-crosapi.mojom.Crosapi_BindLocalPrinter_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi.BindLocalPrinter_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.LocalPrinterRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindMachineLearningService
-crosapi.mojom.Crosapi_BindMachineLearningService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi.BindMachineLearningService_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.machine_learning.mojom.MachineLearningServiceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindSensorHalClient
-crosapi.mojom.Crosapi_BindSensorHalClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi.BindSensorHalClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.sensors.mojom.SensorHalClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindHidManager
-crosapi.mojom.Crosapi_BindHidManager_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi.BindHidManager_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.HidManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindMediaSessionController
-crosapi.mojom.Crosapi_BindMediaSessionController_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi.BindMediaSessionController_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_session.mojom.MediaControllerManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindMediaSessionAudioFocus
-crosapi.mojom.Crosapi_BindMediaSessionAudioFocus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi.BindMediaSessionAudioFocus_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_session.mojom.AudioFocusManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindMediaSessionAudioFocusDebug
-crosapi.mojom.Crosapi_BindMediaSessionAudioFocusDebug_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi.BindMediaSessionAudioFocusDebug_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_session.mojom.AudioFocusManagerDebugRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindTelemetryDiagnosticRoutinesService
-crosapi.mojom.Crosapi_BindTelemetryDiagnosticRoutinesService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi.BindTelemetryDiagnosticRoutinesService_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.TelemetryDiagnosticRoutinesServiceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindTelemetryManagementService
-crosapi.mojom.Crosapi_BindTelemetryManagementService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi.BindTelemetryManagementService_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.TelemetryManagementServiceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindTelemetryProbeService
-crosapi.mojom.Crosapi_BindTelemetryProbeService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi.BindTelemetryProbeService_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.TelemetryProbeServiceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindVideoCaptureDeviceFactory
-crosapi.mojom.Crosapi_BindVideoCaptureDeviceFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi.BindVideoCaptureDeviceFactory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.VideoCaptureDeviceFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindGuestOsSkForwarderFactory
-crosapi.mojom.Crosapi_BindGuestOsSkForwarderFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Crosapi.BindGuestOsSkForwarderFactory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.GuestOsSkForwarderFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 crosapi.mojom.CrosapiPtr = crosapi.mojom.CrosapiRemote;
 crosapi.mojom.CrosapiRequest = crosapi.mojom.CrosapiPendingReceiver;
 

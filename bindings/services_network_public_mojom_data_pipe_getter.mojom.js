@@ -8,35 +8,31 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.DataPipeGetter = {};
+network.mojom.DataPipeGetter.$interfaceName = 'network.mojom.DataPipeGetter';
+network.mojom.DataPipeGetter_Read_ParamsSpec = { $: {} };
+network.mojom.DataPipeGetter_Read_ResponseParamsSpec = { $: {} };
+network.mojom.DataPipeGetter_Clone_ParamsSpec = { $: {} };
 
 // Interface: DataPipeGetter
-network.mojom.DataPipeGetter = {};
+mojo.internal.Struct(
+    network.mojom.DataPipeGetter_Read_ParamsSpec, 'network.mojom.DataPipeGetter_Read_Params', [
+      mojo.internal.StructField('pipe', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.DataPipeGetter_Read_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DataPipeGetter_Read_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.DataPipeGetter_Read_ResponseParamsSpec, 'network.mojom.DataPipeGetter_Read_ResponseParams', [
+      mojo.internal.StructField('status', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('size', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-network.mojom.DataPipeGetter_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DataPipeGetter_Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.DataPipeGetterRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.DataPipeGetter_Clone_ParamsSpec, 'network.mojom.DataPipeGetter_Clone_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(network.mojom.DataPipeGetterRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.DataPipeGetterPendingReceiver = class {
   constructor(handle) {
@@ -100,49 +96,6 @@ network.mojom.DataPipeGetter.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Read
-network.mojom.DataPipeGetter_Read_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DataPipeGetter.Read_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-network.mojom.DataPipeGetter_Read_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DataPipeGetter.Read_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Clone
-network.mojom.DataPipeGetter_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DataPipeGetter.Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.DataPipeGetterRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.DataPipeGetterPtr = network.mojom.DataPipeGetterRemote;
 network.mojom.DataPipeGetterRequest = network.mojom.DataPipeGetterPendingReceiver;
 

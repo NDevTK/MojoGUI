@@ -9,6 +9,13 @@ var page_image_service = page_image_service || {};
 page_image_service.mojom = page_image_service.mojom || {};
 var url = url || {};
 
+page_image_service.mojom.ClientIdSpec = { $: mojo.internal.Enum() };
+page_image_service.mojom.OptionsSpec = { $: {} };
+page_image_service.mojom.ImageResultSpec = { $: {} };
+page_image_service.mojom.PageImageServiceHandler = {};
+page_image_service.mojom.PageImageServiceHandler.$interfaceName = 'page_image_service.mojom.PageImageServiceHandler';
+page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec = { $: {} };
+page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec = { $: {} };
 
 // Enum: ClientId
 page_image_service.mojom.ClientId = {
@@ -20,54 +27,36 @@ page_image_service.mojom.ClientId = {
   NtpTabResumption: 5,
   HistoryEmbeddings: 6,
 };
-page_image_service.mojom.ClientIdSpec = { $: mojo.internal.Enum() };
 
 // Struct: Options
-page_image_service.mojom.OptionsSpec = {
-  $: {
-    structSpec: {
-      name: 'page_image_service.mojom.Options',
-      packedSize: 16,
-      fields: [
-        { name: 'suggest_images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'optimization_guide_images', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    page_image_service.mojom.OptionsSpec, 'page_image_service.mojom.Options', [
+      mojo.internal.StructField('suggest_images', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('optimization_guide_images', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: ImageResult
-page_image_service.mojom.ImageResultSpec = {
-  $: {
-    structSpec: {
-      name: 'page_image_service.mojom.ImageResult',
-      packedSize: 16,
-      fields: [
-        { name: 'image_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    page_image_service.mojom.ImageResultSpec, 'page_image_service.mojom.ImageResult', [
+      mojo.internal.StructField('image_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: PageImageServiceHandler
-page_image_service.mojom.PageImageServiceHandler = {};
+mojo.internal.Struct(
+    page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec, 'page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_Params', [
+      mojo.internal.StructField('client_id', 16, 0, page_image_service.mojom.ClientIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('page_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 8, 0, page_image_service.mojom.OptionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'client_id', packedOffset: 16, packedBitOffset: 0, type: page_image_service.mojom.ClientIdSpec, nullable: false, minVersion: 0 },
-        { name: 'page_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: page_image_service.mojom.OptionsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec, 'page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, page_image_service.mojom.ImageResultSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 page_image_service.mojom.PageImageServiceHandlerPendingReceiver = class {
   constructor(handle) {
@@ -122,36 +111,6 @@ page_image_service.mojom.PageImageServiceHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetPageImageUrl
-page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'page_image_service.mojom.PageImageServiceHandler.GetPageImageUrl_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'client_id', packedOffset: 16, packedBitOffset: 0, type: page_image_service.mojom.ClientIdSpec, nullable: false, minVersion: 0 },
-        { name: 'page_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: page_image_service.mojom.OptionsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'page_image_service.mojom.PageImageServiceHandler.GetPageImageUrl_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: page_image_service.mojom.ImageResultSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 page_image_service.mojom.PageImageServiceHandlerPtr = page_image_service.mojom.PageImageServiceHandlerRemote;
 page_image_service.mojom.PageImageServiceHandlerRequest = page_image_service.mojom.PageImageServiceHandlerPendingReceiver;
 

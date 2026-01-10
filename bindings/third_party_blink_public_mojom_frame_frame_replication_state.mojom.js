@@ -7,31 +7,27 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
+var services = services || {};
 var blink = blink || {};
 var blink = blink || {};
 var blink = blink || {};
 var url = url || {};
 
+blink.mojom.FrameReplicationStateSpec = { $: {} };
 
 // Struct: FrameReplicationState
-blink.mojom.FrameReplicationStateSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameReplicationState',
-      packedSize: 64,
-      fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'unique_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'permissions_policy_header', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.ParsedPermissionsPolicyDeclarationSpec, false), nullable: false, minVersion: 0 },
-        { name: 'frame_policy', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.FramePolicySpec, nullable: false, minVersion: 0 },
-        { name: 'insecure_navigations_set', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
-        { name: 'has_potentially_trustworthy_unique_origin', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_active_user_gesture', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_received_user_gesture_before_nav', packedOffset: 48, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_ad_frame', packedOffset: 48, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameReplicationStateSpec, 'blink.mojom.FrameReplicationState', [
+      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('unique_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('permissions_policy_header', 24, 0, mojo.internal.Array(network.mojom.ParsedPermissionsPolicyDeclarationSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('frame_policy', 32, 0, blink.mojom.FramePolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('insecure_navigations_set', 40, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('has_potentially_trustworthy_unique_origin', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_active_user_gesture', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_received_user_gesture_before_nav', 48, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_ad_frame', 48, 3, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 64]]);

@@ -8,21 +8,22 @@
 var content = content || {};
 content.mojom = content.mojom || {};
 
+content.mojom.MainFrameCounterTest = {};
+content.mojom.MainFrameCounterTest.$interfaceName = 'content.mojom.MainFrameCounterTest';
+content.mojom.MainFrameCounterTest_HasMainFrame_ParamsSpec = { $: {} };
+content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec = { $: {} };
 
 // Interface: MainFrameCounterTest
-content.mojom.MainFrameCounterTest = {};
+mojo.internal.Struct(
+    content.mojom.MainFrameCounterTest_HasMainFrame_ParamsSpec, 'content.mojom.MainFrameCounterTest_HasMainFrame_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.MainFrameCounterTest_HasMainFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MainFrameCounterTest_HasMainFrame_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec, 'content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParams', [
+      mojo.internal.StructField('has_main_frame', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 content.mojom.MainFrameCounterTestPendingReceiver = class {
   constructor(handle) {
@@ -77,33 +78,6 @@ content.mojom.MainFrameCounterTest.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for HasMainFrame
-content.mojom.MainFrameCounterTest_HasMainFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MainFrameCounterTest.HasMainFrame_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MainFrameCounterTest.HasMainFrame_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'has_main_frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.MainFrameCounterTestPtr = content.mojom.MainFrameCounterTestRemote;
 content.mojom.MainFrameCounterTestRequest = content.mojom.MainFrameCounterTestPendingReceiver;
 

@@ -9,6 +9,11 @@ var remoting = remoting || {};
 remoting.mojom = remoting.mojom || {};
 var url = url || {};
 
+remoting.mojom.OpenUrlResultSpec = { $: mojo.internal.Enum() };
+remoting.mojom.RemoteUrlOpener = {};
+remoting.mojom.RemoteUrlOpener.$interfaceName = 'remoting.mojom.RemoteUrlOpener';
+remoting.mojom.RemoteUrlOpener_OpenUrl_ParamsSpec = { $: {} };
+remoting.mojom.RemoteUrlOpener_OpenUrl_ResponseParamsSpec = { $: {} };
 
 // Enum: OpenUrlResult
 remoting.mojom.OpenUrlResult = {
@@ -17,23 +22,19 @@ remoting.mojom.OpenUrlResult = {
   FAILURE: 2,
   LOCAL_FALLBACK: 3,
 };
-remoting.mojom.OpenUrlResultSpec = { $: mojo.internal.Enum() };
 
 // Interface: RemoteUrlOpener
-remoting.mojom.RemoteUrlOpener = {};
+mojo.internal.Struct(
+    remoting.mojom.RemoteUrlOpener_OpenUrl_ParamsSpec, 'remoting.mojom.RemoteUrlOpener_OpenUrl_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remoting.mojom.RemoteUrlOpener_OpenUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.RemoteUrlOpener_OpenUrl_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.RemoteUrlOpener_OpenUrl_ResponseParamsSpec, 'remoting.mojom.RemoteUrlOpener_OpenUrl_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, remoting.mojom.OpenUrlResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 remoting.mojom.RemoteUrlOpenerPendingReceiver = class {
   constructor(handle) {
@@ -88,34 +89,6 @@ remoting.mojom.RemoteUrlOpener.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OpenUrl
-remoting.mojom.RemoteUrlOpener_OpenUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.RemoteUrlOpener.OpenUrl_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-remoting.mojom.RemoteUrlOpener_OpenUrl_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.RemoteUrlOpener.OpenUrl_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.OpenUrlResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 remoting.mojom.RemoteUrlOpenerPtr = remoting.mojom.RemoteUrlOpenerRemote;
 remoting.mojom.RemoteUrlOpenerRequest = remoting.mojom.RemoteUrlOpenerPendingReceiver;
 

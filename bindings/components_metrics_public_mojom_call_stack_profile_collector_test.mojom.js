@@ -7,23 +7,25 @@
 // Module namespace
 var metrics = metrics || {};
 metrics.mojom = metrics.mojom || {};
+var components = components || {};
 
+metrics.mojom.CallStackProfileCollectorTest = {};
+metrics.mojom.CallStackProfileCollectorTest.$interfaceName = 'metrics.mojom.CallStackProfileCollectorTest';
+metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ParamsSpec = { $: {} };
+metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParamsSpec = { $: {} };
 
 // Interface: CallStackProfileCollectorTest
-metrics.mojom.CallStackProfileCollectorTest = {};
+mojo.internal.Struct(
+    metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ParamsSpec, 'metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_Params', [
+      mojo.internal.StructField('in', 0, 0, metrics.mojom.SampledProfileSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: metrics.mojom.SampledProfileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParamsSpec, 'metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParams', [
+      mojo.internal.StructField('out', 0, 0, metrics.mojom.SampledProfileSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 metrics.mojom.CallStackProfileCollectorTestPendingReceiver = class {
   constructor(handle) {
@@ -78,34 +80,6 @@ metrics.mojom.CallStackProfileCollectorTest.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BounceSampledProfile
-metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics.mojom.CallStackProfileCollectorTest.BounceSampledProfile_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: metrics.mojom.SampledProfileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics.mojom.CallStackProfileCollectorTest.BounceSampledProfile_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: metrics.mojom.SampledProfileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 metrics.mojom.CallStackProfileCollectorTestPtr = metrics.mojom.CallStackProfileCollectorTestRemote;
 metrics.mojom.CallStackProfileCollectorTestRequest = metrics.mojom.CallStackProfileCollectorTestPendingReceiver;
 

@@ -8,17 +8,11 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.CookieSettingOverridesSpec = { $: {} };
 
 // Struct: CookieSettingOverrides
-network.mojom.CookieSettingOverridesSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.CookieSettingOverrides',
-      packedSize: 16,
-      fields: [
-        { name: 'overrides_bitmask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.CookieSettingOverridesSpec, 'network.mojom.CookieSettingOverrides', [
+      mojo.internal.StructField('overrides_bitmask', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);

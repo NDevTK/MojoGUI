@@ -7,38 +7,31 @@
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
+var components = components || {};
+var services = services || {};
 
+chrome.mojom.ZipListener = {};
+chrome.mojom.ZipListener.$interfaceName = 'chrome.mojom.ZipListener';
+chrome.mojom.ZipListener_OnProgress_ParamsSpec = { $: {} };
+chrome.mojom.ZipListener_OnFinished_ParamsSpec = { $: {} };
+chrome.mojom.ZipFileCreator = {};
+chrome.mojom.ZipFileCreator.$interfaceName = 'chrome.mojom.ZipFileCreator';
+chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec = { $: {} };
 
 // Interface: ZipListener
-chrome.mojom.ZipListener = {};
+mojo.internal.Struct(
+    chrome.mojom.ZipListener_OnProgress_ParamsSpec, 'chrome.mojom.ZipListener_OnProgress_Params', [
+      mojo.internal.StructField('bytes', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('files', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('directories', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chrome.mojom.ZipListener_OnProgress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ZipListener_OnProgress_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'files', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'directories', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-chrome.mojom.ZipListener_OnFinished_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ZipListener_OnFinished_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ZipListener_OnFinished_ParamsSpec, 'chrome.mojom.ZipListener_OnFinished_Params', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chrome.mojom.ZipListenerPendingReceiver = class {
   constructor(handle) {
@@ -102,59 +95,19 @@ chrome.mojom.ZipListener.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnProgress
-chrome.mojom.ZipListener_OnProgress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ZipListener.OnProgress_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'files', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'directories', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnFinished
-chrome.mojom.ZipListener_OnFinished_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ZipListener.OnFinished_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chrome.mojom.ZipListenerPtr = chrome.mojom.ZipListenerRemote;
 chrome.mojom.ZipListenerRequest = chrome.mojom.ZipListenerPendingReceiver;
 
 
 // Interface: ZipFileCreator
-chrome.mojom.ZipFileCreator = {};
-
-chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ZipFileCreator_CreateZipFile_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'src_dir', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(filesystem.mojom.DirectoryRemote), nullable: false, minVersion: 0 },
-        { name: 'relative_paths', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), nullable: false, minVersion: 0 },
-        { name: 'zip_file', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
-        { name: 'listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome.mojom.ZipListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec, 'chrome.mojom.ZipFileCreator_CreateZipFile_Params', [
+      mojo.internal.StructField('src_dir', 0, 0, mojo.internal.InterfaceProxy(filesystem.mojom.DirectoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('relative_paths', 8, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('zip_file', 16, 0, mojo_base.mojom.FileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('listener', 24, 0, mojo.internal.InterfaceProxy(chrome.mojom.ZipListenerRemote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 chrome.mojom.ZipFileCreatorPendingReceiver = class {
   constructor(handle) {
@@ -209,24 +162,6 @@ chrome.mojom.ZipFileCreator.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateZipFile
-chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ZipFileCreator.CreateZipFile_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'src_dir', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(filesystem.mojom.DirectoryRemote), nullable: false, minVersion: 0 },
-        { name: 'relative_paths', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), nullable: false, minVersion: 0 },
-        { name: 'zip_file', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
-        { name: 'listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome.mojom.ZipListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// Legacy compatibility
 chrome.mojom.ZipFileCreatorPtr = chrome.mojom.ZipFileCreatorRemote;
 chrome.mojom.ZipFileCreatorRequest = chrome.mojom.ZipFileCreatorPendingReceiver;
 

@@ -7,7 +7,45 @@
 // Module namespace
 var on_device_model = on_device_model || {};
 on_device_model.mojom = on_device_model.mojom || {};
+var services = services || {};
 
+on_device_model.mojom.ModelBackendTypeSpec = { $: mojo.internal.Enum() };
+on_device_model.mojom.ModelPerformanceHintSpec = { $: mojo.internal.Enum() };
+on_device_model.mojom.PlatformModelStateSpec = { $: mojo.internal.Enum() };
+on_device_model.mojom.FormatFeatureSpec = { $: mojo.internal.Enum() };
+on_device_model.mojom.SafetyFeatureSpec = { $: mojo.internal.Enum() };
+on_device_model.mojom.ModelFileSpec = { $: {} };
+on_device_model.mojom.SafetyModelAssetsSpec = { $: {} };
+on_device_model.mojom.ModelAssetsSpec = { $: {} };
+on_device_model.mojom.LoadModelParamsSpec = { $: {} };
+on_device_model.mojom.TextSafetyModelAssetsSpec = { $: {} };
+on_device_model.mojom.BertSafetyModelAssetsSpec = { $: {} };
+on_device_model.mojom.LanguageModelAssetsSpec = { $: {} };
+on_device_model.mojom.TextSafetyModelParamsSpec = { $: {} };
+on_device_model.mojom.PlatformModelProgressObserver = {};
+on_device_model.mojom.PlatformModelProgressObserver.$interfaceName = 'on_device_model.mojom.PlatformModelProgressObserver';
+on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec = { $: {} };
+on_device_model.mojom.OnDeviceModelService = {};
+on_device_model.mojom.OnDeviceModelService.$interfaceName = 'on_device_model.mojom.OnDeviceModelService';
+on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec = { $: {} };
+on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec = { $: {} };
+on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec = { $: {} };
+on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec = { $: {} };
+on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec = { $: {} };
+on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec = { $: {} };
+on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec = { $: {} };
+on_device_model.mojom.OnDeviceModelPlatformService = {};
+on_device_model.mojom.OnDeviceModelPlatformService.$interfaceName = 'on_device_model.mojom.OnDeviceModelPlatformService';
+on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec = { $: {} };
+on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParamsSpec = { $: {} };
+on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec = { $: {} };
+on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParamsSpec = { $: {} };
+on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec = { $: {} };
+on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParamsSpec = { $: {} };
+on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec = { $: {} };
+on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParamsSpec = { $: {} };
+on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec = { $: {} };
+on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParamsSpec = { $: {} };
 
 // Enum: ModelBackendType
 on_device_model.mojom.ModelBackendType = {
@@ -15,183 +53,134 @@ on_device_model.mojom.ModelBackendType = {
   kApu: 1,
   kCpu: 2,
 };
-on_device_model.mojom.ModelBackendTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ModelPerformanceHint
 on_device_model.mojom.ModelPerformanceHint = {
   kHighestQuality: 0,
   kFastestInference: 1,
 };
-on_device_model.mojom.ModelPerformanceHintSpec = { $: mojo.internal.Enum() };
 
 // Enum: PlatformModelState
 on_device_model.mojom.PlatformModelState = {
-  kInstalledOnDisk: 0,
-  kInvalidUuid: 1,
-  kInvalidDlcClient: 2,
-  kInvalidDlcPackage: 3,
-  kInvalidDlcVerifiedState: 4,
-  kInvalidDlcInstall: 5,
-  kInvalidModelFormat: 6,
-  kInvalidModelDescriptor: 7,
-  kInvalidBaseModelDescriptor: 8,
+  kUnknownState: 0,
+  kInstalledOnDisk: 1,
+  kInvalidUuid: 2,
+  kInvalidDlcClient: 3,
+  kInvalidDlcPackage: 4,
+  kInvalidDlcVerifiedState: 5,
+  kInvalidDlcInstall: 6,
+  kInvalidModelFormat: 7,
+  kInvalidModelDescriptor: 8,
+  kInvalidBaseModelDescriptor: 9,
 };
-on_device_model.mojom.PlatformModelStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: FormatFeature
 on_device_model.mojom.FormatFeature = {
-  kPrompt: 0,
-  kAudioSummary: 1,
-  kAudioTitle: 2,
+  kNone: 0,
+  kPrompt: 1,
+  kAudioSummary: 2,
+  kAudioTitle: 3,
 };
-on_device_model.mojom.FormatFeatureSpec = { $: mojo.internal.Enum() };
 
 // Enum: SafetyFeature
 on_device_model.mojom.SafetyFeature = {
-  kAudioSummaryRequest: 0,
-  kAudioTitleRequest: 1,
-  kAudioSummaryResponse: 2,
-  kAudioTitleResponse: 3,
+  kGeneral: 0,
+  kAudioSummaryRequest: 1,
+  kAudioTitleRequest: 2,
+  kAudioSummaryResponse: 3,
+  kAudioTitleResponse: 4,
+  MinVersion: 4,
+  MinVersion: 4,
 };
-on_device_model.mojom.SafetyFeatureSpec = { $: mojo.internal.Enum() };
 
 // Union: ModelFile
-on_device_model.mojom.ModelFileSpec = { $: mojo.internal.Union(
-    'on_device_model.mojom.ModelFile', {
+mojo.internal.Union(
+    on_device_model.mojom.ModelFileSpec, 'on_device_model.mojom.ModelFile', {
       'file': {
         'ordinal': 0,
         'type': mojo_base.mojom.FileSpec,
-      }},
+        'nullable': false,
+      },
       'path': {
         'ordinal': 1,
         'type': mojo_base.mojom.FilePathSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Union: SafetyModelAssets
-on_device_model.mojom.SafetyModelAssetsSpec = { $: mojo.internal.Union(
-    'on_device_model.mojom.SafetyModelAssets', {
+mojo.internal.Union(
+    on_device_model.mojom.SafetyModelAssetsSpec, 'on_device_model.mojom.SafetyModelAssets', {
       'ts_assets': {
         'ordinal': 0,
         'type': on_device_model.mojom.TextSafetyModelAssetsSpec,
-      }},
+        'nullable': false,
+      },
       'bs_assets': {
         'ordinal': 1,
         'type': on_device_model.mojom.BertSafetyModelAssetsSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: ModelAssets
-on_device_model.mojom.ModelAssetsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.ModelAssets',
-      packedSize: 56,
-      fields: [
-        { name: 'weights', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.ModelFileSpec, nullable: false, minVersion: 0 },
-        { name: 'sp_model_path', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: true, minVersion: 0 },
-        { name: 'cache', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true, minVersion: 0 },
-        { name: 'encoder_cache', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true, minVersion: 0 },
-        { name: 'adapter_cache', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_model.mojom.ModelAssetsSpec, 'on_device_model.mojom.ModelAssets', [
+      mojo.internal.StructField('weights', 0, 0, on_device_model.mojom.ModelFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sp_model_path', 16, 0, mojo_base.mojom.FilePathSpec, null, true, 0, undefined),
+      mojo.internal.StructField('cache', 24, 0, mojo_base.mojom.FileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('encoder_cache', 32, 0, mojo_base.mojom.FileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('adapter_cache', 40, 0, mojo_base.mojom.FileSpec, null, true, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: LoadModelParams
-on_device_model.mojom.LoadModelParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.LoadModelParams',
-      packedSize: 40,
-      fields: [
-        { name: 'backend_type', packedOffset: 16, packedBitOffset: 0, type: on_device_model.mojom.ModelBackendTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'assets', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.ModelAssetsSpec, nullable: false, minVersion: 0 },
-        { name: 'max_tokens', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'adaptation_ranks', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
-        { name: 'performance_hint', packedOffset: 24, packedBitOffset: 0, type: on_device_model.mojom.ModelPerformanceHintSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_model.mojom.LoadModelParamsSpec, 'on_device_model.mojom.LoadModelParams', [
+      mojo.internal.StructField('backend_type', 16, 0, on_device_model.mojom.ModelBackendTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('assets', 0, 0, on_device_model.mojom.ModelAssetsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('max_tokens', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('adaptation_ranks', 8, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('performance_hint', 24, 0, on_device_model.mojom.ModelPerformanceHintSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: TextSafetyModelAssets
-on_device_model.mojom.TextSafetyModelAssetsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.TextSafetyModelAssets',
-      packedSize: 24,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'sp_model', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_model.mojom.TextSafetyModelAssetsSpec, 'on_device_model.mojom.TextSafetyModelAssets', [
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sp_model', 8, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: BertSafetyModelAssets
-on_device_model.mojom.BertSafetyModelAssetsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.BertSafetyModelAssets',
-      packedSize: 16,
-      fields: [
-        { name: 'model', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_model.mojom.BertSafetyModelAssetsSpec, 'on_device_model.mojom.BertSafetyModelAssets', [
+      mojo.internal.StructField('model', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: LanguageModelAssets
-on_device_model.mojom.LanguageModelAssetsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.LanguageModelAssets',
-      packedSize: 16,
-      fields: [
-        { name: 'model', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_model.mojom.LanguageModelAssetsSpec, 'on_device_model.mojom.LanguageModelAssets', [
+      mojo.internal.StructField('model', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: TextSafetyModelParams
-on_device_model.mojom.TextSafetyModelParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.TextSafetyModelParams',
-      packedSize: 32,
-      fields: [
-        { name: 'safety_assets', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.SafetyModelAssetsSpec, nullable: true, minVersion: 0 },
-        { name: 'language_assets', packedOffset: 16, packedBitOffset: 0, type: on_device_model.mojom.LanguageModelAssetsSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_model.mojom.TextSafetyModelParamsSpec, 'on_device_model.mojom.TextSafetyModelParams', [
+      mojo.internal.StructField('safety_assets', 0, 0, on_device_model.mojom.SafetyModelAssetsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('language_assets', 16, 0, on_device_model.mojom.LanguageModelAssetsSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: PlatformModelProgressObserver
-on_device_model.mojom.PlatformModelProgressObserver = {};
-
-on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.PlatformModelProgressObserver_Progress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'progress', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec, 'on_device_model.mojom.PlatformModelProgressObserver_Progress_Params', [
+      mojo.internal.StructField('progress', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 on_device_model.mojom.PlatformModelProgressObserverPendingReceiver = class {
   constructor(handle) {
@@ -246,80 +235,54 @@ on_device_model.mojom.PlatformModelProgressObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Progress
-on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.PlatformModelProgressObserver.Progress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'progress', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 on_device_model.mojom.PlatformModelProgressObserverPtr = on_device_model.mojom.PlatformModelProgressObserverRemote;
 on_device_model.mojom.PlatformModelProgressObserverRequest = on_device_model.mojom.PlatformModelProgressObserverPendingReceiver;
 
 
 // Interface: OnDeviceModelService
-on_device_model.mojom.OnDeviceModelService = {};
+mojo.internal.Struct(
+    on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec, 'on_device_model.mojom.OnDeviceModelService_LoadModel_Params', [
+      mojo.internal.StructField('params', 0, 0, on_device_model.mojom.LoadModelParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('model', 8, 0, mojo.internal.InterfaceRequest(on_device_model.mojom.OnDeviceModelRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.OnDeviceModelService_LoadModel_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.LoadModelParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(on_device_model.mojom.OnDeviceModelRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec, 'on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, on_device_model.mojom.LoadModelResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.OnDeviceModelService_GetCapabilities_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'weights', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.ModelFileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec, 'on_device_model.mojom.OnDeviceModelService_GetCapabilities_Params', [
+      mojo.internal.StructField('weights', 0, 0, on_device_model.mojom.ModelFileSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.TextSafetyModelParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(on_device_model.mojom.TextSafetyModelRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec, 'on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParams', [
+      mojo.internal.StructField('capabilities', 0, 0, on_device_model.mojom.CapabilitiesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec, 'on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_Params', [
+      mojo.internal.StructField('params', 0, 0, on_device_model.mojom.TextSafetyModelParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('model', 8, 0, mojo.internal.InterfaceRequest(on_device_model.mojom.TextSafetyModelRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec, 'on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec, 'on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParams', [
+      mojo.internal.StructField('performanceInfo', 0, 0, on_device_model.mojom.DevicePerformanceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_info', 8, 0, on_device_model.mojom.DeviceInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 on_device_model.mojom.OnDeviceModelServicePendingReceiver = class {
   constructor(handle) {
@@ -401,180 +364,75 @@ on_device_model.mojom.OnDeviceModelService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for LoadModel
-on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.OnDeviceModelService.LoadModel_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.LoadModelParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(on_device_model.mojom.OnDeviceModelRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.OnDeviceModelService.LoadModel_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.LoadModelResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetCapabilities
-on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.OnDeviceModelService.GetCapabilities_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'weights', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.ModelFileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.OnDeviceModelService.GetCapabilities_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.CapabilitiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for LoadTextSafetyModel
-on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.OnDeviceModelService.LoadTextSafetyModel_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.TextSafetyModelParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(on_device_model.mojom.TextSafetyModelRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GetDeviceAndPerformanceInfo
-on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.OnDeviceModelService.GetDeviceAndPerformanceInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.OnDeviceModelService.GetDeviceAndPerformanceInfo_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'performanceInfo', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.DevicePerformanceInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'device_info', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.DeviceInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 on_device_model.mojom.OnDeviceModelServicePtr = on_device_model.mojom.OnDeviceModelServiceRemote;
 on_device_model.mojom.OnDeviceModelServiceRequest = on_device_model.mojom.OnDeviceModelServicePendingReceiver;
 
 
 // Interface: OnDeviceModelPlatformService
-on_device_model.mojom.OnDeviceModelPlatformService = {};
+mojo.internal.Struct(
+    on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_Params', [
+      mojo.internal.StructField('uuid', 0, 0, mojo_base.mojom.UuidSpec, null, false, 0, undefined),
+      mojo.internal.StructField('model', 8, 0, mojo.internal.InterfaceRequest(on_device_model.mojom.OnDeviceModelRemote), null, false, 0, undefined),
+      mojo.internal.StructField('progress_observer', 16, 0, mojo.internal.InterfaceProxy(on_device_model.mojom.PlatformModelProgressObserverRemote), null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
-on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false, minVersion: 0 },
-        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(on_device_model.mojom.OnDeviceModelRemote), nullable: false, minVersion: 0 },
-        { name: 'progress_observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(on_device_model.mojom.PlatformModelProgressObserverRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, on_device_model.mojom.LoadModelResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_Params', [
+      mojo.internal.StructField('uuid', 0, 0, mojo_base.mojom.UuidSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, on_device_model.mojom.PlatformModelStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false, minVersion: 0 },
-        { name: 'feature', packedOffset: 16, packedBitOffset: 0, type: on_device_model.mojom.FormatFeatureSpec, nullable: false, minVersion: 0 },
-        { name: 'fields', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'safety_feature', packedOffset: 16, packedBitOffset: 0, type: on_device_model.mojom.SafetyFeatureSpec, nullable: false, minVersion: 0 },
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'safety_info', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.SafetyInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParams', [
+      mojo.internal.StructField('performance_class', 0, 0, on_device_model.mojom.PerformanceClassSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_Params', [
+      mojo.internal.StructField('uuid', 0, 0, mojo_base.mojom.UuidSpec, null, false, 0, undefined),
+      mojo.internal.StructField('feature', 16, 0, on_device_model.mojom.FormatFeatureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('fields', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_Params', [
+      mojo.internal.StructField('safety_feature', 16, 0, on_device_model.mojom.SafetyFeatureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('safety_info', 8, 0, on_device_model.mojom.SafetyInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 on_device_model.mojom.OnDeviceModelPlatformServicePendingReceiver = class {
   constructor(handle) {
@@ -665,147 +523,6 @@ on_device_model.mojom.OnDeviceModelPlatformService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for LoadPlatformModel
-on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.OnDeviceModelPlatformService.LoadPlatformModel_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false, minVersion: 0 },
-        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(on_device_model.mojom.OnDeviceModelRemote), nullable: false, minVersion: 0 },
-        { name: 'progress_observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(on_device_model.mojom.PlatformModelProgressObserverRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.OnDeviceModelPlatformService.LoadPlatformModel_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.LoadModelResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetPlatformModelState
-on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.OnDeviceModelPlatformService.GetPlatformModelState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.OnDeviceModelPlatformService.GetPlatformModelState_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.PlatformModelStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetEstimatedPerformanceClass
-on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.OnDeviceModelPlatformService.GetEstimatedPerformanceClass_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.OnDeviceModelPlatformService.GetEstimatedPerformanceClass_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'performance_class', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.PerformanceClassSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for FormatInput
-on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.OnDeviceModelPlatformService.FormatInput_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false, minVersion: 0 },
-        { name: 'feature', packedOffset: 16, packedBitOffset: 0, type: on_device_model.mojom.FormatFeatureSpec, nullable: false, minVersion: 0 },
-        { name: 'fields', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.OnDeviceModelPlatformService.FormatInput_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ValidateSafetyResult
-on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.OnDeviceModelPlatformService.ValidateSafetyResult_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'safety_feature', packedOffset: 16, packedBitOffset: 0, type: on_device_model.mojom.SafetyFeatureSpec, nullable: false, minVersion: 0 },
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'safety_info', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.SafetyInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_model.mojom.OnDeviceModelPlatformService.ValidateSafetyResult_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 on_device_model.mojom.OnDeviceModelPlatformServicePtr = on_device_model.mojom.OnDeviceModelPlatformServiceRemote;
 on_device_model.mojom.OnDeviceModelPlatformServiceRequest = on_device_model.mojom.OnDeviceModelPlatformServicePendingReceiver;
 

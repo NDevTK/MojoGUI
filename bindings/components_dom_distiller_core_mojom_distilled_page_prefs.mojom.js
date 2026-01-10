@@ -8,6 +8,8 @@
 var dom_distiller = dom_distiller || {};
 dom_distiller.mojom = dom_distiller.mojom || {};
 
+dom_distiller.mojom.ThemeSpec = { $: mojo.internal.Enum() };
+dom_distiller.mojom.FontFamilySpec = { $: mojo.internal.Enum() };
 
 // Enum: Theme
 dom_distiller.mojom.Theme = {
@@ -15,7 +17,6 @@ dom_distiller.mojom.Theme = {
   kDark: 1,
   kSepia: 2,
 };
-dom_distiller.mojom.ThemeSpec = { $: mojo.internal.Enum() };
 
 // Enum: FontFamily
 dom_distiller.mojom.FontFamily = {
@@ -24,4 +25,3 @@ dom_distiller.mojom.FontFamily = {
   kMonospace: 2,
   kLexend: 3,
 };
-dom_distiller.mojom.FontFamilySpec = { $: mojo.internal.Enum() };

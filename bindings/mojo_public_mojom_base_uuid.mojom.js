@@ -8,17 +8,11 @@
 var mojo_base = mojo_base || {};
 mojo_base.mojom = mojo_base.mojom || {};
 
+mojo_base.mojom.UuidSpec = { $: {} };
 
 // Struct: Uuid
-mojo_base.mojom.UuidSpec = {
-  $: {
-    structSpec: {
-      name: 'mojo_base.mojom.Uuid',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojo_base.mojom.UuidSpec, 'mojo_base.mojom.Uuid', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);

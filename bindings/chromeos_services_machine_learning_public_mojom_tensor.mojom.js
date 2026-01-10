@@ -9,78 +9,57 @@ var chromeos = chromeos || {};
 chromeos.machine_learning = chromeos.machine_learning || {};
 chromeos.machine_learning.mojom = chromeos.machine_learning.mojom || {};
 
+chromeos.machine_learning.mojom.ValueListSpec = { $: {} };
+chromeos.machine_learning.mojom.StringListSpec = { $: {} };
+chromeos.machine_learning.mojom.FloatListSpec = { $: {} };
+chromeos.machine_learning.mojom.Int64ListSpec = { $: {} };
+chromeos.machine_learning.mojom.TensorSpec = { $: {} };
 
 // Union: ValueList
-chromeos.machine_learning.mojom.ValueListSpec = { $: mojo.internal.Union(
-    'chromeos.machine_learning.mojom.ValueList', {
+mojo.internal.Union(
+    chromeos.machine_learning.mojom.ValueListSpec, 'chromeos.machine_learning.mojom.ValueList', {
       'string_list': {
         'ordinal': 0,
         'type': chromeos.machine_learning.mojom.StringListSpec,
-      }},
+        'nullable': false,
+      },
       'float_list': {
         'ordinal': 1,
         'type': chromeos.machine_learning.mojom.FloatListSpec,
-      }},
+        'nullable': false,
+      },
       'int64_list': {
         'ordinal': 2,
         'type': chromeos.machine_learning.mojom.Int64ListSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: StringList
-chromeos.machine_learning.mojom.StringListSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.machine_learning.mojom.StringList',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.machine_learning.mojom.StringListSpec, 'chromeos.machine_learning.mojom.StringList', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: FloatList
-chromeos.machine_learning.mojom.FloatListSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.machine_learning.mojom.FloatList',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Double, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.machine_learning.mojom.FloatListSpec, 'chromeos.machine_learning.mojom.FloatList', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Array(mojo.internal.Double, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: Int64List
-chromeos.machine_learning.mojom.Int64ListSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.machine_learning.mojom.Int64List',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int64, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.machine_learning.mojom.Int64ListSpec, 'chromeos.machine_learning.mojom.Int64List', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: Tensor
-chromeos.machine_learning.mojom.TensorSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.machine_learning.mojom.Tensor',
-      packedSize: 32,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.ValueListSpec, nullable: false, minVersion: 0 },
-        { name: 'shape', packedOffset: 16, packedBitOffset: 0, type: chromeos.machine_learning.mojom.Int64ListSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.machine_learning.mojom.TensorSpec, 'chromeos.machine_learning.mojom.Tensor', [
+      mojo.internal.StructField('data', 0, 0, chromeos.machine_learning.mojom.ValueListSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shape', 16, 0, chromeos.machine_learning.mojom.Int64ListSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);

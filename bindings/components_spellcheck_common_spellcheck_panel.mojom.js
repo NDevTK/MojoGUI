@@ -8,34 +8,26 @@
 var spellcheck = spellcheck || {};
 spellcheck.mojom = spellcheck.mojom || {};
 
+spellcheck.mojom.SpellCheckPanel = {};
+spellcheck.mojom.SpellCheckPanel.$interfaceName = 'spellcheck.mojom.SpellCheckPanel';
+spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec = { $: {} };
+spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_ParamsSpec = { $: {} };
+spellcheck.mojom.SpellCheckPanelHost = {};
+spellcheck.mojom.SpellCheckPanelHost.$interfaceName = 'spellcheck.mojom.SpellCheckPanelHost';
+spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec = { $: {} };
+spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_ParamsSpec = { $: {} };
 
 // Interface: SpellCheckPanel
-spellcheck.mojom.SpellCheckPanel = {};
+mojo.internal.Struct(
+    spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec, 'spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_Params', [
+      mojo.internal.StructField('visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_ParamsSpec, 'spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 spellcheck.mojom.SpellCheckPanelPendingReceiver = class {
   constructor(handle) {
@@ -99,66 +91,22 @@ spellcheck.mojom.SpellCheckPanel.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ToggleSpellPanel
-spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'spellcheck.mojom.SpellCheckPanel.ToggleSpellPanel_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AdvanceToNextMisspelling
-spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'spellcheck.mojom.SpellCheckPanel.AdvanceToNextMisspelling_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 spellcheck.mojom.SpellCheckPanelPtr = spellcheck.mojom.SpellCheckPanelRemote;
 spellcheck.mojom.SpellCheckPanelRequest = spellcheck.mojom.SpellCheckPanelPendingReceiver;
 
 
 // Interface: SpellCheckPanelHost
-spellcheck.mojom.SpellCheckPanelHost = {};
+mojo.internal.Struct(
+    spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec, 'spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_Params', [
+      mojo.internal.StructField('show', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'word', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_ParamsSpec, 'spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_Params', [
+      mojo.internal.StructField('word', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 spellcheck.mojom.SpellCheckPanelHostPendingReceiver = class {
   constructor(handle) {
@@ -222,35 +170,6 @@ spellcheck.mojom.SpellCheckPanelHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ShowSpellingPanel
-spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'spellcheck.mojom.SpellCheckPanelHost.ShowSpellingPanel_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateSpellingPanelWithMisspelledWord
-spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'spellcheck.mojom.SpellCheckPanelHost.UpdateSpellingPanelWithMisspelledWord_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'word', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 spellcheck.mojom.SpellCheckPanelHostPtr = spellcheck.mojom.SpellCheckPanelHostRemote;
 spellcheck.mojom.SpellCheckPanelHostRequest = spellcheck.mojom.SpellCheckPanelHostPendingReceiver;
 

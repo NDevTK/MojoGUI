@@ -8,20 +8,14 @@
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
+viz.mojom.TreesInVizTimingSpec = { $: {} };
 
 // Struct: TreesInVizTiming
-viz.mojom.TreesInVizTimingSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.TreesInVizTiming',
-      packedSize: 40,
-      fields: [
-        { name: 'start_update_display_tree', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'start_prepare_to_draw', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'start_draw_layers', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'submit_compositor_frame', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.TreesInVizTimingSpec, 'viz.mojom.TreesInVizTiming', [
+      mojo.internal.StructField('start_update_display_tree', 0, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('start_prepare_to_draw', 8, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('start_draw_layers', 16, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('submit_compositor_frame', 24, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);

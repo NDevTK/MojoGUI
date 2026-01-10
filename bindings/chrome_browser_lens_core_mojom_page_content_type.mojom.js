@@ -8,6 +8,7 @@
 var lens = lens || {};
 lens.mojom = lens.mojom || {};
 
+lens.mojom.PageContentTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PageContentType
 lens.mojom.PageContentType = {
@@ -15,4 +16,3 @@ lens.mojom.PageContentType = {
   kPdf: 1,
   kHtml: 2,
 };
-lens.mojom.PageContentTypeSpec = { $: mojo.internal.Enum() };

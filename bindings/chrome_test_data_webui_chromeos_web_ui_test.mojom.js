@@ -8,22 +8,16 @@
 var web_ui_test = web_ui_test || {};
 web_ui_test.mojom = web_ui_test.mojom || {};
 
+web_ui_test.mojom.TestRunner = {};
+web_ui_test.mojom.TestRunner.$interfaceName = 'web_ui_test.mojom.TestRunner';
+web_ui_test.mojom.TestRunner_TestComplete_ParamsSpec = { $: {} };
 
 // Interface: TestRunner
-web_ui_test.mojom.TestRunner = {};
-
-web_ui_test.mojom.TestRunner_TestComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'web_ui_test.mojom.TestRunner_TestComplete_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'failureMessage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    web_ui_test.mojom.TestRunner_TestComplete_ParamsSpec, 'web_ui_test.mojom.TestRunner_TestComplete_Params', [
+      mojo.internal.StructField('failureMessage', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 web_ui_test.mojom.TestRunnerPendingReceiver = class {
   constructor(handle) {
@@ -78,21 +72,6 @@ web_ui_test.mojom.TestRunner.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for TestComplete
-web_ui_test.mojom.TestRunner_TestComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'web_ui_test.mojom.TestRunner.TestComplete_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'failureMessage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 web_ui_test.mojom.TestRunnerPtr = web_ui_test.mojom.TestRunnerRemote;
 web_ui_test.mojom.TestRunnerRequest = web_ui_test.mojom.TestRunnerPendingReceiver;
 

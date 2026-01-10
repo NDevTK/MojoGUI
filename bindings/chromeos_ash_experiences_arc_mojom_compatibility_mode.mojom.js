@@ -8,6 +8,12 @@
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
+arc.mojom.ArcResizeLockStateSpec = { $: mojo.internal.Enum() };
+arc.mojom.CompatibilityModeInstance = {};
+arc.mojom.CompatibilityModeInstance.$interfaceName = 'arc.mojom.CompatibilityModeInstance';
+arc.mojom.CompatibilityModeInstance_SetResizeLockState_ParamsSpec = { $: {} };
+arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ParamsSpec = { $: {} };
+arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ResponseParamsSpec = { $: {} };
 
 // Enum: ArcResizeLockState
 arc.mojom.ArcResizeLockState = {
@@ -17,37 +23,26 @@ arc.mojom.ArcResizeLockState = {
   OFF: 3,
   FULLY_LOCKED: 4,
 };
-arc.mojom.ArcResizeLockStateSpec = { $: mojo.internal.Enum() };
 
 // Interface: CompatibilityModeInstance
-arc.mojom.CompatibilityModeInstance = {};
+mojo.internal.Struct(
+    arc.mojom.CompatibilityModeInstance_SetResizeLockState_ParamsSpec, 'arc.mojom.CompatibilityModeInstance_SetResizeLockState_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('state', 8, 0, arc.mojom.ArcResizeLockStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.CompatibilityModeInstance_SetResizeLockState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.CompatibilityModeInstance_SetResizeLockState_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ArcResizeLockStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ParamsSpec, 'arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ResponseParamsSpec, 'arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ResponseParams', [
+      mojo.internal.StructField('is_o4c_app', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.CompatibilityModeInstancePendingReceiver = class {
   constructor(handle) {
@@ -111,49 +106,6 @@ arc.mojom.CompatibilityModeInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetResizeLockState
-arc.mojom.CompatibilityModeInstance_SetResizeLockState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.CompatibilityModeInstance.SetResizeLockState_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ArcResizeLockStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for IsOptimizedForCrosApp
-arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.CompatibilityModeInstance.IsOptimizedForCrosApp_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.CompatibilityModeInstance.IsOptimizedForCrosApp_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'is_o4c_app', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.CompatibilityModeInstancePtr = arc.mojom.CompatibilityModeInstanceRemote;
 arc.mojom.CompatibilityModeInstanceRequest = arc.mojom.CompatibilityModeInstancePendingReceiver;
 

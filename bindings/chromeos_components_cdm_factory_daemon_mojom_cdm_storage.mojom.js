@@ -9,75 +9,82 @@ var chromeos = chromeos || {};
 chromeos.cdm = chromeos.cdm || {};
 chromeos.cdm.mojom = chromeos.cdm.mojom || {};
 
+chromeos.cdm.mojom.CdmStorage = {};
+chromeos.cdm.mojom.CdmStorage.$interfaceName = 'chromeos.cdm.mojom.CdmStorage';
+chromeos.cdm.mojom.CdmStorage_Read_ParamsSpec = { $: {} };
+chromeos.cdm.mojom.CdmStorage_Read_ResponseParamsSpec = { $: {} };
+chromeos.cdm.mojom.CdmStorage_Write_ParamsSpec = { $: {} };
+chromeos.cdm.mojom.CdmStorage_Write_ResponseParamsSpec = { $: {} };
+chromeos.cdm.mojom.CdmStorage_Exists_ParamsSpec = { $: {} };
+chromeos.cdm.mojom.CdmStorage_Exists_ResponseParamsSpec = { $: {} };
+chromeos.cdm.mojom.CdmStorage_GetSize_ParamsSpec = { $: {} };
+chromeos.cdm.mojom.CdmStorage_GetSize_ResponseParamsSpec = { $: {} };
+chromeos.cdm.mojom.CdmStorage_Remove_ParamsSpec = { $: {} };
+chromeos.cdm.mojom.CdmStorage_Remove_ResponseParamsSpec = { $: {} };
 
 // Interface: CdmStorage
-chromeos.cdm.mojom.CdmStorage = {};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.CdmStorage_Read_ParamsSpec, 'chromeos.cdm.mojom.CdmStorage_Read_Params', [
+      mojo.internal.StructField('file_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.cdm.mojom.CdmStorage_Read_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmStorage_Read_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'file_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.CdmStorage_Read_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmStorage_Read_ResponseParams', [
+      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chromeos.cdm.mojom.CdmStorage_Write_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmStorage_Write_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'file_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.CdmStorage_Write_ParamsSpec, 'chromeos.cdm.mojom.CdmStorage_Write_Params', [
+      mojo.internal.StructField('file_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chromeos.cdm.mojom.CdmStorage_Exists_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmStorage_Exists_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'file_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.CdmStorage_Write_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmStorage_Write_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.cdm.mojom.CdmStorage_GetSize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmStorage_GetSize_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'file_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.CdmStorage_Exists_ParamsSpec, 'chromeos.cdm.mojom.CdmStorage_Exists_Params', [
+      mojo.internal.StructField('file_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.cdm.mojom.CdmStorage_Remove_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmStorage_Remove_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'file_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.CdmStorage_Exists_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmStorage_Exists_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.cdm.mojom.CdmStorage_GetSize_ParamsSpec, 'chromeos.cdm.mojom.CdmStorage_GetSize_Params', [
+      mojo.internal.StructField('file_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.cdm.mojom.CdmStorage_GetSize_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmStorage_GetSize_ResponseParams', [
+      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('size', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    chromeos.cdm.mojom.CdmStorage_Remove_ParamsSpec, 'chromeos.cdm.mojom.CdmStorage_Remove_Params', [
+      mojo.internal.StructField('file_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.cdm.mojom.CdmStorage_Remove_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmStorage_Remove_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromeos.cdm.mojom.CdmStoragePendingReceiver = class {
   constructor(handle) {
@@ -168,145 +175,6 @@ chromeos.cdm.mojom.CdmStorage.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Read
-chromeos.cdm.mojom.CdmStorage_Read_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmStorage.Read_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'file_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.cdm.mojom.CdmStorage_Read_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmStorage.Read_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Write
-chromeos.cdm.mojom.CdmStorage_Write_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmStorage.Write_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'file_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-chromeos.cdm.mojom.CdmStorage_Write_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmStorage.Write_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Exists
-chromeos.cdm.mojom.CdmStorage_Exists_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmStorage.Exists_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'file_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.cdm.mojom.CdmStorage_Exists_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmStorage.Exists_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetSize
-chromeos.cdm.mojom.CdmStorage_GetSize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmStorage.GetSize_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'file_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.cdm.mojom.CdmStorage_GetSize_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmStorage.GetSize_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Remove
-chromeos.cdm.mojom.CdmStorage_Remove_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmStorage.Remove_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'file_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.cdm.mojom.CdmStorage_Remove_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmStorage.Remove_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.cdm.mojom.CdmStoragePtr = chromeos.cdm.mojom.CdmStorageRemote;
 chromeos.cdm.mojom.CdmStorageRequest = chromeos.cdm.mojom.CdmStoragePendingReceiver;
 

@@ -7,9 +7,15 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 var blink = blink || {};
 var url = url || {};
 
+blink.mojom.CacheStateSpec = { $: mojo.internal.Enum() };
+blink.mojom.ServerTimingInfoSpec = { $: {} };
+blink.mojom.ResourceTimingInfoSpec = { $: {} };
 
 // Enum: CacheState
 blink.mojom.CacheState = {
@@ -17,55 +23,40 @@ blink.mojom.CacheState = {
   kLocal: 1,
   kValidated: 2,
 };
-blink.mojom.CacheStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: ServerTimingInfo
-blink.mojom.ServerTimingInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServerTimingInfo',
-      packedSize: 32,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'duration', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServerTimingInfoSpec, 'blink.mojom.ServerTimingInfo', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('duration', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('description', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: ResourceTimingInfo
-blink.mojom.ResourceTimingInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ResourceTimingInfo',
-      packedSize: 136,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'start_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'alpn_negotiated_protocol', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'connection_info', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'timing', packedOffset: 32, packedBitOffset: 0, type: network.mojom.LoadTimingInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'last_redirect_end_time', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'response_end', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'cache_state', packedOffset: 112, packedBitOffset: 0, type: blink.mojom.CacheStateSpec, nullable: false, minVersion: 0 },
-        { name: 'encoded_body_size', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'decoded_body_size', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'did_reuse_connection', packedOffset: 122, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_secure_transport', packedOffset: 122, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'allow_timing_details', packedOffset: 122, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'allow_negative_values', packedOffset: 122, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'server_timing', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.ServerTimingInfoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'render_blocking_status', packedOffset: 122, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'response_status', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'content_type', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'content_encoding', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'initiator_url', packedOffset: 96, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'service_worker_router_info', packedOffset: 104, packedBitOffset: 0, type: network.mojom.ServiceWorkerRouterInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'service_worker_response_source', packedOffset: 116, packedBitOffset: 0, type: network.mojom.FetchResponseSourceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 136}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ResourceTimingInfoSpec, 'blink.mojom.ResourceTimingInfo', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('start_time', 8, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('alpn_negotiated_protocol', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('connection_info', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('timing', 32, 0, network.mojom.LoadTimingInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('last_redirect_end_time', 40, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response_end', 48, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cache_state', 112, 0, blink.mojom.CacheStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('encoded_body_size', 56, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('decoded_body_size', 64, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('did_reuse_connection', 122, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_secure_transport', 122, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_timing_details', 122, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_negative_values', 122, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('server_timing', 72, 0, mojo.internal.Array(blink.mojom.ServerTimingInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('render_blocking_status', 122, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('response_status', 120, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('content_type', 80, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('content_encoding', 88, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('initiator_url', 96, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('service_worker_router_info', 104, 0, network.mojom.ServiceWorkerRouterInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('service_worker_response_source', 116, 0, network.mojom.FetchResponseSourceSpec, null, false, 0, undefined),
+    ],
+    [[0, 136]]);

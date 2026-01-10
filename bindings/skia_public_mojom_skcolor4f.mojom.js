@@ -8,20 +8,14 @@
 var skia = skia || {};
 skia.mojom = skia.mojom || {};
 
+skia.mojom.SkColor4fSpec = { $: {} };
 
 // Struct: SkColor4f
-skia.mojom.SkColor4fSpec = {
-  $: {
-    structSpec: {
-      name: 'skia.mojom.SkColor4f',
-      packedSize: 24,
-      fields: [
-        { name: 'r', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'g', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'b', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'a', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    skia.mojom.SkColor4fSpec, 'skia.mojom.SkColor4f', [
+      mojo.internal.StructField('r', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('g', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('b', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('a', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);

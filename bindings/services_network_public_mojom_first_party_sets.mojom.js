@@ -7,7 +7,15 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
 
+network.mojom.SiteTypeSpec = { $: mojo.internal.Enum() };
+network.mojom.FirstPartySetEntrySpec = { $: {} };
+network.mojom.FirstPartySetMetadataSpec = { $: {} };
+network.mojom.FirstPartySetEntryOverrideSpec = { $: {} };
+network.mojom.FirstPartySetsContextConfigSpec = { $: {} };
+network.mojom.FirstPartySetsCacheFilterSpec = { $: {} };
+network.mojom.GlobalFirstPartySetsSpec = { $: {} };
 
 // Enum: SiteType
 network.mojom.SiteType = {
@@ -15,95 +23,52 @@ network.mojom.SiteType = {
   kAssociated: 1,
   kService: 2,
 };
-network.mojom.SiteTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: FirstPartySetEntry
-network.mojom.FirstPartySetEntrySpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.FirstPartySetEntry',
-      packedSize: 24,
-      fields: [
-        { name: 'primary', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SchemefulSiteSpec, nullable: false, minVersion: 0 },
-        { name: 'site_type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.SiteTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.FirstPartySetEntrySpec, 'network.mojom.FirstPartySetEntry', [
+      mojo.internal.StructField('primary', 0, 0, network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
+      mojo.internal.StructField('site_type', 8, 0, network.mojom.SiteTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: FirstPartySetMetadata
-network.mojom.FirstPartySetMetadataSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.FirstPartySetMetadata',
-      packedSize: 24,
-      fields: [
-        { name: 'frame_entry', packedOffset: 0, packedBitOffset: 0, type: network.mojom.FirstPartySetEntrySpec, nullable: true, minVersion: 0 },
-        { name: 'top_frame_entry', packedOffset: 8, packedBitOffset: 0, type: network.mojom.FirstPartySetEntrySpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.FirstPartySetMetadataSpec, 'network.mojom.FirstPartySetMetadata', [
+      mojo.internal.StructField('frame_entry', 0, 0, network.mojom.FirstPartySetEntrySpec, null, true, 0, undefined),
+      mojo.internal.StructField('top_frame_entry', 8, 0, network.mojom.FirstPartySetEntrySpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: FirstPartySetEntryOverride
-network.mojom.FirstPartySetEntryOverrideSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.FirstPartySetEntryOverride',
-      packedSize: 16,
-      fields: [
-        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: network.mojom.FirstPartySetEntrySpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.FirstPartySetEntryOverrideSpec, 'network.mojom.FirstPartySetEntryOverride', [
+      mojo.internal.StructField('entry', 0, 0, network.mojom.FirstPartySetEntrySpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: FirstPartySetsContextConfig
-network.mojom.FirstPartySetsContextConfigSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.FirstPartySetsContextConfig',
-      packedSize: 24,
-      fields: [
-        { name: 'customizations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(network.mojom.SchemefulSiteSpec, network.mojom.FirstPartySetEntryOverrideSpec, false), nullable: false, minVersion: 0 },
-        { name: 'aliases', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(network.mojom.SchemefulSiteSpec, network.mojom.SchemefulSiteSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.FirstPartySetsContextConfigSpec, 'network.mojom.FirstPartySetsContextConfig', [
+      mojo.internal.StructField('customizations', 0, 0, mojo.internal.Map(network.mojom.SchemefulSiteSpec, network.mojom.FirstPartySetEntryOverrideSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('aliases', 8, 0, mojo.internal.Map(network.mojom.SchemefulSiteSpec, network.mojom.SchemefulSiteSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: FirstPartySetsCacheFilter
-network.mojom.FirstPartySetsCacheFilterSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.FirstPartySetsCacheFilter',
-      packedSize: 24,
-      fields: [
-        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(network.mojom.SchemefulSiteSpec, mojo.internal.Int64, false), nullable: false, minVersion: 0 },
-        { name: 'browser_run_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.FirstPartySetsCacheFilterSpec, 'network.mojom.FirstPartySetsCacheFilter', [
+      mojo.internal.StructField('filter', 0, 0, mojo.internal.Map(network.mojom.SchemefulSiteSpec, mojo.internal.Int64, false), null, false, 0, undefined),
+      mojo.internal.StructField('browser_run_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: GlobalFirstPartySets
-network.mojom.GlobalFirstPartySetsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.GlobalFirstPartySets',
-      packedSize: 40,
-      fields: [
-        { name: 'public_sets_version', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.VersionSpec, nullable: false, minVersion: 0 },
-        { name: 'sets', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(network.mojom.SchemefulSiteSpec, network.mojom.FirstPartySetEntrySpec, false), nullable: false, minVersion: 0 },
-        { name: 'aliases', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(network.mojom.SchemefulSiteSpec, network.mojom.SchemefulSiteSpec, false), nullable: false, minVersion: 0 },
-        { name: 'manual_config', packedOffset: 24, packedBitOffset: 0, type: network.mojom.FirstPartySetsContextConfigSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.GlobalFirstPartySetsSpec, 'network.mojom.GlobalFirstPartySets', [
+      mojo.internal.StructField('public_sets_version', 0, 0, mojo_base.mojom.VersionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sets', 8, 0, mojo.internal.Map(network.mojom.SchemefulSiteSpec, network.mojom.FirstPartySetEntrySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('aliases', 16, 0, mojo.internal.Map(network.mojom.SchemefulSiteSpec, network.mojom.SchemefulSiteSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('manual_config', 24, 0, network.mojom.FirstPartySetsContextConfigSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);

@@ -8,24 +8,18 @@
 var variations = variations || {};
 variations.mojom = variations.mojom || {};
 
+variations.mojom.GoogleWebVisibilitySpec = { $: mojo.internal.Enum() };
+variations.mojom.VariationsHeadersSpec = { $: {} };
 
 // Enum: GoogleWebVisibility
 variations.mojom.GoogleWebVisibility = {
   ANY: 0,
   FIRST_PARTY: 1,
 };
-variations.mojom.GoogleWebVisibilitySpec = { $: mojo.internal.Enum() };
 
 // Struct: VariationsHeaders
-variations.mojom.VariationsHeadersSpec = {
-  $: {
-    structSpec: {
-      name: 'variations.mojom.VariationsHeaders',
-      packedSize: 16,
-      fields: [
-        { name: 'headers_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(variations.mojom.GoogleWebVisibilitySpec, mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    variations.mojom.VariationsHeadersSpec, 'variations.mojom.VariationsHeaders', [
+      mojo.internal.StructField('headers_map', 0, 0, mojo.internal.Map(variations.mojom.GoogleWebVisibilitySpec, mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);

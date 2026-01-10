@@ -8,21 +8,22 @@
 var media = media || {};
 media.mojom = media.mojom || {};
 
+media.mojom.MediaFoundationPreferences = {};
+media.mojom.MediaFoundationPreferences.$interfaceName = 'media.mojom.MediaFoundationPreferences';
+media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ParamsSpec = { $: {} };
+media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ResponseParamsSpec = { $: {} };
 
 // Interface: MediaFoundationPreferences
-media.mojom.MediaFoundationPreferences = {};
+mojo.internal.Struct(
+    media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ParamsSpec, 'media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ResponseParamsSpec, 'media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ResponseParams', [
+      mojo.internal.StructField('allowed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.MediaFoundationPreferencesPendingReceiver = class {
   constructor(handle) {
@@ -77,33 +78,6 @@ media.mojom.MediaFoundationPreferences.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for IsHardwareSecureDecryptionAllowed
-media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaFoundationPreferences.IsHardwareSecureDecryptionAllowed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaFoundationPreferences.IsHardwareSecureDecryptionAllowed_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.MediaFoundationPreferencesPtr = media.mojom.MediaFoundationPreferencesRemote;
 media.mojom.MediaFoundationPreferencesRequest = media.mojom.MediaFoundationPreferencesPendingReceiver;
 

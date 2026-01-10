@@ -8,6 +8,15 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.IdleManagerErrorSpec = { $: mojo.internal.Enum() };
+blink.mojom.IdleStateSpec = { $: {} };
+blink.mojom.IdleMonitor = {};
+blink.mojom.IdleMonitor.$interfaceName = 'blink.mojom.IdleMonitor';
+blink.mojom.IdleMonitor_Update_ParamsSpec = { $: {} };
+blink.mojom.IdleManager = {};
+blink.mojom.IdleManager.$interfaceName = 'blink.mojom.IdleManager';
+blink.mojom.IdleManager_AddMonitor_ParamsSpec = { $: {} };
+blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec = { $: {} };
 
 blink.mojom.kUserInputThresholdMs = 60000;
 
@@ -16,39 +25,22 @@ blink.mojom.IdleManagerError = {
   kSuccess: 0,
   kPermissionDisabled: 1,
 };
-blink.mojom.IdleManagerErrorSpec = { $: mojo.internal.Enum() };
 
 // Struct: IdleState
-blink.mojom.IdleStateSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.IdleState',
-      packedSize: 24,
-      fields: [
-        { name: 'idle_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 0 },
-        { name: 'screen_locked', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.IdleStateSpec, 'blink.mojom.IdleState', [
+      mojo.internal.StructField('idle_time', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('screen_locked', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: IdleMonitor
-blink.mojom.IdleMonitor = {};
-
-blink.mojom.IdleMonitor_Update_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.IdleMonitor_Update_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IdleStateSpec, nullable: false, minVersion: 0 },
-        { name: 'is_overridden_by_devtools', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.IdleMonitor_Update_ParamsSpec, 'blink.mojom.IdleMonitor_Update_Params', [
+      mojo.internal.StructField('state', 0, 0, blink.mojom.IdleStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_overridden_by_devtools', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.IdleMonitorPendingReceiver = class {
   constructor(handle) {
@@ -103,41 +95,23 @@ blink.mojom.IdleMonitor.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Update
-blink.mojom.IdleMonitor_Update_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.IdleMonitor.Update_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IdleStateSpec, nullable: false, minVersion: 0 },
-        { name: 'is_overridden_by_devtools', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.IdleMonitorPtr = blink.mojom.IdleMonitorRemote;
 blink.mojom.IdleMonitorRequest = blink.mojom.IdleMonitorPendingReceiver;
 
 
 // Interface: IdleManager
-blink.mojom.IdleManager = {};
+mojo.internal.Struct(
+    blink.mojom.IdleManager_AddMonitor_ParamsSpec, 'blink.mojom.IdleManager_AddMonitor_Params', [
+      mojo.internal.StructField('monitor', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.IdleMonitorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.IdleManager_AddMonitor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.IdleManager_AddMonitor_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.IdleMonitorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec, 'blink.mojom.IdleManager_AddMonitor_ResponseParams', [
+      mojo.internal.StructField('error', 8, 0, blink.mojom.IdleManagerErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, blink.mojom.IdleStateSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.IdleManagerPendingReceiver = class {
   constructor(handle) {
@@ -192,35 +166,6 @@ blink.mojom.IdleManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddMonitor
-blink.mojom.IdleManager_AddMonitor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.IdleManager.AddMonitor_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.IdleMonitorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.IdleManager.AddMonitor_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.IdleManagerErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IdleStateSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.IdleManagerPtr = blink.mojom.IdleManagerRemote;
 blink.mojom.IdleManagerRequest = blink.mojom.IdleManagerPendingReceiver;
 

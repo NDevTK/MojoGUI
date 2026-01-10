@@ -10,12 +10,33 @@ handwriting.mojom = handwriting.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+handwriting.mojom.HandwritingRecognitionTypeSpec = { $: mojo.internal.Enum() };
+handwriting.mojom.HandwritingInputTypeSpec = { $: mojo.internal.Enum() };
+handwriting.mojom.CreateHandwritingRecognizerResultSpec = { $: mojo.internal.Enum() };
+handwriting.mojom.HandwritingPointSpec = { $: {} };
+handwriting.mojom.HandwritingStrokeSpec = { $: {} };
+handwriting.mojom.HandwritingDrawingSegmentSpec = { $: {} };
+handwriting.mojom.HandwritingSegmentSpec = { $: {} };
+handwriting.mojom.HandwritingPredictionSpec = { $: {} };
+handwriting.mojom.HandwritingHintsSpec = { $: {} };
+handwriting.mojom.HandwritingHintsQueryResultSpec = { $: {} };
+handwriting.mojom.QueryHandwritingRecognizerResultSpec = { $: {} };
+handwriting.mojom.HandwritingModelConstraintSpec = { $: {} };
+handwriting.mojom.HandwritingRecognizer = {};
+handwriting.mojom.HandwritingRecognizer.$interfaceName = 'handwriting.mojom.HandwritingRecognizer';
+handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec = { $: {} };
+handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec = { $: {} };
+handwriting.mojom.HandwritingRecognitionService = {};
+handwriting.mojom.HandwritingRecognitionService.$interfaceName = 'handwriting.mojom.HandwritingRecognitionService';
+handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec = { $: {} };
+handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec = { $: {} };
+handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ParamsSpec = { $: {} };
+handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ResponseParamsSpec = { $: {} };
 
 // Enum: HandwritingRecognitionType
 handwriting.mojom.HandwritingRecognitionType = {
   kText: 0,
 };
-handwriting.mojom.HandwritingRecognitionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: HandwritingInputType
 handwriting.mojom.HandwritingInputType = {
@@ -23,7 +44,6 @@ handwriting.mojom.HandwritingInputType = {
   kStylus: 1,
   kTouch: 2,
 };
-handwriting.mojom.HandwritingInputTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CreateHandwritingRecognizerResult
 handwriting.mojom.CreateHandwritingRecognizerResult = {
@@ -31,165 +51,98 @@ handwriting.mojom.CreateHandwritingRecognizerResult = {
   kError: 1,
   kNotSupported: 2,
 };
-handwriting.mojom.CreateHandwritingRecognizerResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: HandwritingPoint
-handwriting.mojom.HandwritingPointSpec = {
-  $: {
-    structSpec: {
-      name: 'handwriting.mojom.HandwritingPoint',
-      packedSize: 24,
-      fields: [
-        { name: 'location', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 't', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    handwriting.mojom.HandwritingPointSpec, 'handwriting.mojom.HandwritingPoint', [
+      mojo.internal.StructField('location', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('t', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: HandwritingStroke
-handwriting.mojom.HandwritingStrokeSpec = {
-  $: {
-    structSpec: {
-      name: 'handwriting.mojom.HandwritingStroke',
-      packedSize: 16,
-      fields: [
-        { name: 'points', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(handwriting.mojom.HandwritingPointSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    handwriting.mojom.HandwritingStrokeSpec, 'handwriting.mojom.HandwritingStroke', [
+      mojo.internal.StructField('points', 0, 0, mojo.internal.Array(handwriting.mojom.HandwritingPointSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: HandwritingDrawingSegment
-handwriting.mojom.HandwritingDrawingSegmentSpec = {
-  $: {
-    structSpec: {
-      name: 'handwriting.mojom.HandwritingDrawingSegment',
-      packedSize: 24,
-      fields: [
-        { name: 'stroke_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'begin_point_index', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'end_point_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    handwriting.mojom.HandwritingDrawingSegmentSpec, 'handwriting.mojom.HandwritingDrawingSegment', [
+      mojo.internal.StructField('stroke_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('begin_point_index', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('end_point_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: HandwritingSegment
-handwriting.mojom.HandwritingSegmentSpec = {
-  $: {
-    structSpec: {
-      name: 'handwriting.mojom.HandwritingSegment',
-      packedSize: 32,
-      fields: [
-        { name: 'grapheme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'begin_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'end_index', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'drawing_segments', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(handwriting.mojom.HandwritingDrawingSegmentSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    handwriting.mojom.HandwritingSegmentSpec, 'handwriting.mojom.HandwritingSegment', [
+      mojo.internal.StructField('grapheme', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('begin_index', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('end_index', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('drawing_segments', 8, 0, mojo.internal.Array(handwriting.mojom.HandwritingDrawingSegmentSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: HandwritingPrediction
-handwriting.mojom.HandwritingPredictionSpec = {
-  $: {
-    structSpec: {
-      name: 'handwriting.mojom.HandwritingPrediction',
-      packedSize: 24,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'segmentation_result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(handwriting.mojom.HandwritingSegmentSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    handwriting.mojom.HandwritingPredictionSpec, 'handwriting.mojom.HandwritingPrediction', [
+      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('segmentation_result', 8, 0, mojo.internal.Array(handwriting.mojom.HandwritingSegmentSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: HandwritingHints
-handwriting.mojom.HandwritingHintsSpec = {
-  $: {
-    structSpec: {
-      name: 'handwriting.mojom.HandwritingHints',
-      packedSize: 40,
-      fields: [
-        { name: 'recognition_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'input_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'text_context', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'alternatives', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    handwriting.mojom.HandwritingHintsSpec, 'handwriting.mojom.HandwritingHints', [
+      mojo.internal.StructField('recognition_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('input_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('text_context', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('alternatives', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: HandwritingHintsQueryResult
-handwriting.mojom.HandwritingHintsQueryResultSpec = {
-  $: {
-    structSpec: {
-      name: 'handwriting.mojom.HandwritingHintsQueryResult',
-      packedSize: 32,
-      fields: [
-        { name: 'recognition_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(handwriting.mojom.HandwritingRecognitionTypeSpec, false), nullable: false, minVersion: 0 },
-        { name: 'input_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(handwriting.mojom.HandwritingInputTypeSpec, false), nullable: false, minVersion: 0 },
-        { name: 'text_context', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'alternatives', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    handwriting.mojom.HandwritingHintsQueryResultSpec, 'handwriting.mojom.HandwritingHintsQueryResult', [
+      mojo.internal.StructField('recognition_type', 0, 0, mojo.internal.Array(handwriting.mojom.HandwritingRecognitionTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('input_type', 8, 0, mojo.internal.Array(handwriting.mojom.HandwritingInputTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('text_context', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('alternatives', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: QueryHandwritingRecognizerResult
-handwriting.mojom.QueryHandwritingRecognizerResultSpec = {
-  $: {
-    structSpec: {
-      name: 'handwriting.mojom.QueryHandwritingRecognizerResult',
-      packedSize: 24,
-      fields: [
-        { name: 'text_alternatives', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'text_segmentation', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'hints', packedOffset: 0, packedBitOffset: 0, type: handwriting.mojom.HandwritingHintsQueryResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    handwriting.mojom.QueryHandwritingRecognizerResultSpec, 'handwriting.mojom.QueryHandwritingRecognizerResult', [
+      mojo.internal.StructField('text_alternatives', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('text_segmentation', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('hints', 0, 0, handwriting.mojom.HandwritingHintsQueryResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: HandwritingModelConstraint
-handwriting.mojom.HandwritingModelConstraintSpec = {
-  $: {
-    structSpec: {
-      name: 'handwriting.mojom.HandwritingModelConstraint',
-      packedSize: 16,
-      fields: [
-        { name: 'languages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    handwriting.mojom.HandwritingModelConstraintSpec, 'handwriting.mojom.HandwritingModelConstraint', [
+      mojo.internal.StructField('languages', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: HandwritingRecognizer
-handwriting.mojom.HandwritingRecognizer = {};
+mojo.internal.Struct(
+    handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec, 'handwriting.mojom.HandwritingRecognizer_GetPrediction_Params', [
+      mojo.internal.StructField('strokes', 0, 0, mojo.internal.Array(handwriting.mojom.HandwritingStrokeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('hints', 8, 0, handwriting.mojom.HandwritingHintsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'handwriting.mojom.HandwritingRecognizer_GetPrediction_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'strokes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(handwriting.mojom.HandwritingStrokeSpec, false), nullable: false, minVersion: 0 },
-        { name: 'hints', packedOffset: 8, packedBitOffset: 0, type: handwriting.mojom.HandwritingHintsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec, 'handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParams', [
+      mojo.internal.StructField('prediction', 0, 0, mojo.internal.Array(handwriting.mojom.HandwritingPredictionSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 handwriting.mojom.HandwritingRecognizerPendingReceiver = class {
   constructor(handle) {
@@ -244,67 +197,35 @@ handwriting.mojom.HandwritingRecognizer.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetPrediction
-handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'handwriting.mojom.HandwritingRecognizer.GetPrediction_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'strokes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(handwriting.mojom.HandwritingStrokeSpec, false), nullable: false, minVersion: 0 },
-        { name: 'hints', packedOffset: 8, packedBitOffset: 0, type: handwriting.mojom.HandwritingHintsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'handwriting.mojom.HandwritingRecognizer.GetPrediction_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'prediction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(handwriting.mojom.HandwritingPredictionSpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 handwriting.mojom.HandwritingRecognizerPtr = handwriting.mojom.HandwritingRecognizerRemote;
 handwriting.mojom.HandwritingRecognizerRequest = handwriting.mojom.HandwritingRecognizerPendingReceiver;
 
 
 // Interface: HandwritingRecognitionService
-handwriting.mojom.HandwritingRecognitionService = {};
+mojo.internal.Struct(
+    handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec, 'handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_Params', [
+      mojo.internal.StructField('constraint', 0, 0, handwriting.mojom.HandwritingModelConstraintSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'constraint', packedOffset: 0, packedBitOffset: 0, type: handwriting.mojom.HandwritingModelConstraintSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec, 'handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParams', [
+      mojo.internal.StructField('result', 8, 0, handwriting.mojom.CreateHandwritingRecognizerResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('handwriting_recognizer', 0, 0, mojo.internal.InterfaceProxy(handwriting.mojom.HandwritingRecognizerRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'constraint', packedOffset: 0, packedBitOffset: 0, type: handwriting.mojom.HandwritingModelConstraintSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ParamsSpec, 'handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_Params', [
+      mojo.internal.StructField('constraint', 0, 0, handwriting.mojom.HandwritingModelConstraintSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ResponseParamsSpec, 'handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, handwriting.mojom.QueryHandwritingRecognizerResultSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 handwriting.mojom.HandwritingRecognitionServicePendingReceiver = class {
   constructor(handle) {
@@ -368,62 +289,6 @@ handwriting.mojom.HandwritingRecognitionService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateHandwritingRecognizer
-handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'handwriting.mojom.HandwritingRecognitionService.CreateHandwritingRecognizer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'constraint', packedOffset: 0, packedBitOffset: 0, type: handwriting.mojom.HandwritingModelConstraintSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'handwriting.mojom.HandwritingRecognitionService.CreateHandwritingRecognizer_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: handwriting.mojom.CreateHandwritingRecognizerResultSpec, nullable: false, minVersion: 0 },
-        { name: 'handwriting_recognizer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(handwriting.mojom.HandwritingRecognizerRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for QueryHandwritingRecognizer
-handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'handwriting.mojom.HandwritingRecognitionService.QueryHandwritingRecognizer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'constraint', packedOffset: 0, packedBitOffset: 0, type: handwriting.mojom.HandwritingModelConstraintSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'handwriting.mojom.HandwritingRecognitionService.QueryHandwritingRecognizer_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: handwriting.mojom.QueryHandwritingRecognizerResultSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 handwriting.mojom.HandwritingRecognitionServicePtr = handwriting.mojom.HandwritingRecognitionServiceRemote;
 handwriting.mojom.HandwritingRecognitionServiceRequest = handwriting.mojom.HandwritingRecognitionServicePendingReceiver;
 

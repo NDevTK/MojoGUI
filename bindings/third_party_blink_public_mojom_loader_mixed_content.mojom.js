@@ -8,6 +8,7 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.MixedContentContextTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: MixedContentContextType
 blink.mojom.MixedContentContextType = {
@@ -16,4 +17,3 @@ blink.mojom.MixedContentContextType = {
   kOptionallyBlockable: 2,
   kShouldBeBlockable: 3,
 };
-blink.mojom.MixedContentContextTypeSpec = { $: mojo.internal.Enum() };

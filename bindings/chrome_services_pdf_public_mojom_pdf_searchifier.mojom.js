@@ -8,22 +8,23 @@
 var pdf = pdf || {};
 pdf.mojom = pdf.mojom || {};
 
+pdf.mojom.PdfSearchifier = {};
+pdf.mojom.PdfSearchifier.$interfaceName = 'pdf.mojom.PdfSearchifier';
+pdf.mojom.PdfSearchifier_Searchify_ParamsSpec = { $: {} };
+pdf.mojom.PdfSearchifier_Searchify_ResponseParamsSpec = { $: {} };
 
 // Interface: PdfSearchifier
-pdf.mojom.PdfSearchifier = {};
+mojo.internal.Struct(
+    pdf.mojom.PdfSearchifier_Searchify_ParamsSpec, 'pdf.mojom.PdfSearchifier_Searchify_Params', [
+      mojo.internal.StructField('pdf', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-pdf.mojom.PdfSearchifier_Searchify_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfSearchifier_Searchify_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pdf', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    pdf.mojom.PdfSearchifier_Searchify_ResponseParamsSpec, 'pdf.mojom.PdfSearchifier_Searchify_ResponseParams', [
+      mojo.internal.StructField('searchified_pdf', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 pdf.mojom.PdfSearchifierPendingReceiver = class {
   constructor(handle) {
@@ -78,34 +79,6 @@ pdf.mojom.PdfSearchifier.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Searchify
-pdf.mojom.PdfSearchifier_Searchify_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfSearchifier.Searchify_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pdf', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-pdf.mojom.PdfSearchifier_Searchify_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfSearchifier.Searchify_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'searchified_pdf', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 pdf.mojom.PdfSearchifierPtr = pdf.mojom.PdfSearchifierRemote;
 pdf.mojom.PdfSearchifierRequest = pdf.mojom.PdfSearchifierPendingReceiver;
 

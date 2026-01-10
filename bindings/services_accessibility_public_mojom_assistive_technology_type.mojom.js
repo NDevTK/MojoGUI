@@ -8,14 +8,15 @@
 var ax = ax || {};
 ax.mojom = ax.mojom || {};
 
+ax.mojom.AssistiveTechnologyTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AssistiveTechnologyType
 ax.mojom.AssistiveTechnologyType = {
-  kChromeVox: 0,
-  kSelectToSpeak: 1,
-  kSwitchAccess: 2,
-  kAutoClick: 3,
-  kMagnifier: 4,
-  kDictation: 5,
+  kUnknown: 0,
+  kChromeVox: 1,
+  kSelectToSpeak: 2,
+  kSwitchAccess: 3,
+  kAutoClick: 4,
+  kMagnifier: 5,
+  kDictation: 6,
 };
-ax.mojom.AssistiveTechnologyTypeSpec = { $: mojo.internal.Enum() };

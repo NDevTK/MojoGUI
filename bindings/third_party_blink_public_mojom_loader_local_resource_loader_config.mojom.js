@@ -9,48 +9,38 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var url = url || {};
 
+blink.mojom.LocalResourceValueSpec = { $: {} };
+blink.mojom.LocalResourceSourceSpec = { $: {} };
+blink.mojom.LocalResourceLoaderConfigSpec = { $: {} };
 
 // Union: LocalResourceValue
-blink.mojom.LocalResourceValueSpec = { $: mojo.internal.Union(
-    'blink.mojom.LocalResourceValue', {
+mojo.internal.Union(
+    blink.mojom.LocalResourceValueSpec, 'blink.mojom.LocalResourceValue', {
       'resource_id': {
         'ordinal': 0,
         'type': mojo.internal.Int32,
-      }},
+        'nullable': false,
+      },
       'response_body': {
         'ordinal': 1,
         'type': mojo.internal.String,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: LocalResourceSource
-blink.mojom.LocalResourceSourceSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.LocalResourceSource',
-      packedSize: 40,
-      fields: [
-        { name: 'headers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'should_replace_i18n_in_js', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'path_to_resource_map', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, blink.mojom.LocalResourceValueSpec, false), nullable: false, minVersion: 0 },
-        { name: 'replacement_strings', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.LocalResourceSourceSpec, 'blink.mojom.LocalResourceSource', [
+      mojo.internal.StructField('headers', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('should_replace_i18n_in_js', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('path_to_resource_map', 8, 0, mojo.internal.Map(mojo.internal.String, blink.mojom.LocalResourceValueSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('replacement_strings', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: LocalResourceLoaderConfig
-blink.mojom.LocalResourceLoaderConfigSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.LocalResourceLoaderConfig',
-      packedSize: 16,
-      fields: [
-        { name: 'sources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(url.mojom.OriginSpec, blink.mojom.LocalResourceSourceSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.LocalResourceLoaderConfigSpec, 'blink.mojom.LocalResourceLoaderConfig', [
+      mojo.internal.StructField('sources', 0, 0, mojo.internal.Map(url.mojom.OriginSpec, blink.mojom.LocalResourceSourceSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);

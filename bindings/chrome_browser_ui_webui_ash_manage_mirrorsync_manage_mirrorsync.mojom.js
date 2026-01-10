@@ -9,6 +9,16 @@ var ash = ash || {};
 ash.manage_mirrorsync = ash.manage_mirrorsync || {};
 ash.manage_mirrorsync.mojom = ash.manage_mirrorsync.mojom || {};
 
+ash.manage_mirrorsync.mojom.GetSyncPathErrorSpec = { $: mojo.internal.Enum() };
+ash.manage_mirrorsync.mojom.PageHandlerFactory = {};
+ash.manage_mirrorsync.mojom.PageHandlerFactory.$interfaceName = 'ash.manage_mirrorsync.mojom.PageHandlerFactory';
+ash.manage_mirrorsync.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+ash.manage_mirrorsync.mojom.PageHandler = {};
+ash.manage_mirrorsync.mojom.PageHandler.$interfaceName = 'ash.manage_mirrorsync.mojom.PageHandler';
+ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ParamsSpec = { $: {} };
+ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParamsSpec = { $: {} };
+ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ParamsSpec = { $: {} };
+ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec = { $: {} };
 
 // Enum: GetSyncPathError
 ash.manage_mirrorsync.mojom.GetSyncPathError = {
@@ -16,23 +26,13 @@ ash.manage_mirrorsync.mojom.GetSyncPathError = {
   kSuccess: 1,
   kFailed: 2,
 };
-ash.manage_mirrorsync.mojom.GetSyncPathErrorSpec = { $: mojo.internal.Enum() };
 
 // Interface: PageHandlerFactory
-ash.manage_mirrorsync.mojom.PageHandlerFactory = {};
-
-ash.manage_mirrorsync.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.manage_mirrorsync.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.manage_mirrorsync.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.manage_mirrorsync.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.manage_mirrorsync.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.manage_mirrorsync.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.manage_mirrorsync.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -87,52 +87,34 @@ ash.manage_mirrorsync.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-ash.manage_mirrorsync.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.manage_mirrorsync.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.manage_mirrorsync.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.manage_mirrorsync.mojom.PageHandlerFactoryPtr = ash.manage_mirrorsync.mojom.PageHandlerFactoryRemote;
 ash.manage_mirrorsync.mojom.PageHandlerFactoryRequest = ash.manage_mirrorsync.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-ash.manage_mirrorsync.mojom.PageHandler = {};
+mojo.internal.Struct(
+    ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ParamsSpec, 'ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_Params', [
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParamsSpec, 'ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParams', [
+      mojo.internal.StructField('paths', 0, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ParamsSpec, 'ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec, 'ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParams', [
+      mojo.internal.StructField('error', 8, 0, ash.manage_mirrorsync.mojom.GetSyncPathErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('syncing_paths', 0, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ash.manage_mirrorsync.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -196,61 +178,6 @@ ash.manage_mirrorsync.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetChildFolders
-ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.manage_mirrorsync.mojom.PageHandler.GetChildFolders_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.manage_mirrorsync.mojom.PageHandler.GetChildFolders_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetSyncingPaths
-ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.manage_mirrorsync.mojom.PageHandler.GetSyncingPaths_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.manage_mirrorsync.mojom.PageHandler.GetSyncingPaths_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: ash.manage_mirrorsync.mojom.GetSyncPathErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'syncing_paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.manage_mirrorsync.mojom.PageHandlerPtr = ash.manage_mirrorsync.mojom.PageHandlerRemote;
 ash.manage_mirrorsync.mojom.PageHandlerRequest = ash.manage_mirrorsync.mojom.PageHandlerPendingReceiver;
 

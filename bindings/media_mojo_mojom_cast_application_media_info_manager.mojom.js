@@ -8,37 +8,32 @@
 var media = media || {};
 media.mojom = media.mojom || {};
 
+media.mojom.CastApplicationMediaInfoSpec = { $: {} };
+media.mojom.CastApplicationMediaInfoManager = {};
+media.mojom.CastApplicationMediaInfoManager.$interfaceName = 'media.mojom.CastApplicationMediaInfoManager';
+media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ParamsSpec = { $: {} };
+media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParamsSpec = { $: {} };
 
 // Struct: CastApplicationMediaInfo
-media.mojom.CastApplicationMediaInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CastApplicationMediaInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'application_session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'mixer_audio_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_audio_only_session', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.CastApplicationMediaInfoSpec, 'media.mojom.CastApplicationMediaInfo', [
+      mojo.internal.StructField('application_session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('mixer_audio_enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_audio_only_session', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: CastApplicationMediaInfoManager
-media.mojom.CastApplicationMediaInfoManager = {};
+mojo.internal.Struct(
+    media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ParamsSpec, 'media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParamsSpec, 'media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParams', [
+      mojo.internal.StructField('cast_application_media_info', 0, 0, media.mojom.CastApplicationMediaInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.CastApplicationMediaInfoManagerPendingReceiver = class {
   constructor(handle) {
@@ -93,33 +88,6 @@ media.mojom.CastApplicationMediaInfoManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetCastApplicationMediaInfo
-media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CastApplicationMediaInfoManager.GetCastApplicationMediaInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CastApplicationMediaInfoManager.GetCastApplicationMediaInfo_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'cast_application_media_info', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CastApplicationMediaInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.CastApplicationMediaInfoManagerPtr = media.mojom.CastApplicationMediaInfoManagerRemote;
 media.mojom.CastApplicationMediaInfoManagerRequest = media.mojom.CastApplicationMediaInfoManagerPendingReceiver;
 

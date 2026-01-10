@@ -13,74 +13,50 @@ var ui = ui || {};
 var gfx = gfx || {};
 var url = url || {};
 
+ax.mojom.AssistantTreeSpec = { $: {} };
+ax.mojom.AssistantNodeSpec = { $: {} };
+ax.mojom.AssistantExtraSpec = { $: {} };
+ax.mojom.AssistantStructureSpec = { $: {} };
 
 // Struct: AssistantTree
-ax.mojom.AssistantTreeSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AssistantTree',
-      packedSize: 16,
-      fields: [
-        { name: 'nodes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.AssistantNodeSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.AssistantTreeSpec, 'ax.mojom.AssistantTree', [
+      mojo.internal.StructField('nodes', 0, 0, mojo.internal.Array(ax.mojom.AssistantNodeSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: AssistantNode
-ax.mojom.AssistantNodeSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AssistantNode',
-      packedSize: 72,
-      fields: [
-        { name: 'children_indices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
-        { name: 'rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'text', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'text_size', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'color', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'bgcolor', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'bold', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'italic', packedOffset: 60, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'underline', packedOffset: 60, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'line_through', packedOffset: 60, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'selection', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: true, minVersion: 0 },
-        { name: 'class_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'role', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 72}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.AssistantNodeSpec, 'ax.mojom.AssistantNode', [
+      mojo.internal.StructField('children_indices', 0, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
+      mojo.internal.StructField('rect', 8, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('text', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('text_size', 48, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('color', 52, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('bgcolor', 56, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('bold', 60, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('italic', 60, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('underline', 60, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('line_through', 60, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('selection', 24, 0, gfx.mojom.RangeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('class_name', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('role', 40, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 72]]);
 
 // Struct: AssistantExtra
-ax.mojom.AssistantExtraSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AssistantExtra',
-      packedSize: 32,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'bounds_pixel', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.AssistantExtraSpec, 'ax.mojom.AssistantExtra', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bounds_pixel', 8, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('title', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: AssistantStructure
-ax.mojom.AssistantStructureSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AssistantStructure',
-      packedSize: 24,
-      fields: [
-        { name: 'assistant_tree', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AssistantTreeSpec, nullable: true, minVersion: 0 },
-        { name: 'assistant_extra', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.AssistantExtraSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.AssistantStructureSpec, 'ax.mojom.AssistantStructure', [
+      mojo.internal.StructField('assistant_tree', 0, 0, ax.mojom.AssistantTreeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('assistant_extra', 8, 0, ax.mojom.AssistantExtraSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);

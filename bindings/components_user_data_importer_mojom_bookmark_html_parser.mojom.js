@@ -9,91 +9,68 @@ var user_data_importer = user_data_importer || {};
 user_data_importer.mojom = user_data_importer.mojom || {};
 var url = url || {};
 
+user_data_importer.mojom.ImportedBookmarkEntrySpec = { $: {} };
+user_data_importer.mojom.SearchEngineInfoSpec = { $: {} };
+user_data_importer.mojom.FaviconUsageDataSpec = { $: {} };
+user_data_importer.mojom.ParsedBookmarksSpec = { $: {} };
+user_data_importer.mojom.BookmarkHtmlParser = {};
+user_data_importer.mojom.BookmarkHtmlParser.$interfaceName = 'user_data_importer.mojom.BookmarkHtmlParser';
+user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec = { $: {} };
+user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec = { $: {} };
 
 // Struct: ImportedBookmarkEntry
-user_data_importer.mojom.ImportedBookmarkEntrySpec = {
-  $: {
-    structSpec: {
-      name: 'user_data_importer.mojom.ImportedBookmarkEntry',
-      packedSize: 56,
-      fields: [
-        { name: 'is_folder', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.String16Spec, false), nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'creation_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'last_visit_time', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true, minVersion: 0 },
-        { name: 'in_toolbar', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    user_data_importer.mojom.ImportedBookmarkEntrySpec, 'user_data_importer.mojom.ImportedBookmarkEntry', [
+      mojo.internal.StructField('is_folder', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('path', 8, 0, mojo.internal.Array(mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('title', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('creation_time', 24, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('last_visit_time', 32, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('in_toolbar', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: SearchEngineInfo
-user_data_importer.mojom.SearchEngineInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'user_data_importer.mojom.SearchEngineInfo',
-      packedSize: 32,
-      fields: [
-        { name: 'display_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'keyword', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    user_data_importer.mojom.SearchEngineInfoSpec, 'user_data_importer.mojom.SearchEngineInfo', [
+      mojo.internal.StructField('display_name', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('keyword', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: FaviconUsageData
-user_data_importer.mojom.FaviconUsageDataSpec = {
-  $: {
-    structSpec: {
-      name: 'user_data_importer.mojom.FaviconUsageData',
-      packedSize: 32,
-      fields: [
-        { name: 'favicon_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'png_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'urls', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    user_data_importer.mojom.FaviconUsageDataSpec, 'user_data_importer.mojom.FaviconUsageData', [
+      mojo.internal.StructField('favicon_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('png_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('urls', 16, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: ParsedBookmarks
-user_data_importer.mojom.ParsedBookmarksSpec = {
-  $: {
-    structSpec: {
-      name: 'user_data_importer.mojom.ParsedBookmarks',
-      packedSize: 40,
-      fields: [
-        { name: 'bookmarks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(user_data_importer.mojom.ImportedBookmarkEntrySpec, false), nullable: false, minVersion: 0 },
-        { name: 'reading_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(user_data_importer.mojom.ImportedBookmarkEntrySpec, false), nullable: false, minVersion: 0 },
-        { name: 'search_engines', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(user_data_importer.mojom.SearchEngineInfoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'favicons', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(user_data_importer.mojom.FaviconUsageDataSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    user_data_importer.mojom.ParsedBookmarksSpec, 'user_data_importer.mojom.ParsedBookmarks', [
+      mojo.internal.StructField('bookmarks', 0, 0, mojo.internal.Array(user_data_importer.mojom.ImportedBookmarkEntrySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('reading_list', 8, 0, mojo.internal.Array(user_data_importer.mojom.ImportedBookmarkEntrySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('search_engines', 16, 0, mojo.internal.Array(user_data_importer.mojom.SearchEngineInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('favicons', 24, 0, mojo.internal.Array(user_data_importer.mojom.FaviconUsageDataSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: BookmarkHtmlParser
-user_data_importer.mojom.BookmarkHtmlParser = {};
+mojo.internal.Struct(
+    user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec, 'user_data_importer.mojom.BookmarkHtmlParser_Parse_Params', [
+      mojo.internal.StructField('raw_html', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'user_data_importer.mojom.BookmarkHtmlParser_Parse_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'raw_html', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec, 'user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, user_data_importer.mojom.ParsedBookmarksSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 user_data_importer.mojom.BookmarkHtmlParserPendingReceiver = class {
   constructor(handle) {
@@ -148,34 +125,6 @@ user_data_importer.mojom.BookmarkHtmlParser.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Parse
-user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'user_data_importer.mojom.BookmarkHtmlParser.Parse_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'raw_html', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'user_data_importer.mojom.BookmarkHtmlParser.Parse_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: user_data_importer.mojom.ParsedBookmarksSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 user_data_importer.mojom.BookmarkHtmlParserPtr = user_data_importer.mojom.BookmarkHtmlParserRemote;
 user_data_importer.mojom.BookmarkHtmlParserRequest = user_data_importer.mojom.BookmarkHtmlParserPendingReceiver;
 

@@ -8,28 +8,28 @@
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
+arc.mojom.ArcPipEventSpec = { $: mojo.internal.Enum() };
+arc.mojom.PipHost = {};
+arc.mojom.PipHost.$interfaceName = 'arc.mojom.PipHost';
+arc.mojom.PipHost_OnPipEvent_ParamsSpec = { $: {} };
+arc.mojom.PipInstance = {};
+arc.mojom.PipInstance.$interfaceName = 'arc.mojom.PipInstance';
+arc.mojom.PipInstance_Init_ParamsSpec = { $: {} };
+arc.mojom.PipInstance_Init_ResponseParamsSpec = { $: {} };
+arc.mojom.PipInstance_ClosePip_ParamsSpec = { $: {} };
+arc.mojom.PipInstance_SetPipSuppressionStatus_ParamsSpec = { $: {} };
 
 // Enum: ArcPipEvent
 arc.mojom.ArcPipEvent = {
   ENTER: 0,
 };
-arc.mojom.ArcPipEventSpec = { $: mojo.internal.Enum() };
 
 // Interface: PipHost
-arc.mojom.PipHost = {};
-
-arc.mojom.PipHost_OnPipEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PipHost_OnPipEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcPipEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PipHost_OnPipEvent_ParamsSpec, 'arc.mojom.PipHost_OnPipEvent_Params', [
+      mojo.internal.StructField('event', 0, 0, arc.mojom.ArcPipEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.PipHostPendingReceiver = class {
   constructor(handle) {
@@ -84,65 +84,32 @@ arc.mojom.PipHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnPipEvent
-arc.mojom.PipHost_OnPipEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PipHost.OnPipEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcPipEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.PipHostPtr = arc.mojom.PipHostRemote;
 arc.mojom.PipHostRequest = arc.mojom.PipHostPendingReceiver;
 
 
 // Interface: PipInstance
-arc.mojom.PipInstance = {};
+mojo.internal.Struct(
+    arc.mojom.PipInstance_Init_ParamsSpec, 'arc.mojom.PipInstance_Init_Params', [
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.PipHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.PipInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PipInstance_Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.PipHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PipInstance_Init_ResponseParamsSpec, 'arc.mojom.PipInstance_Init_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.PipInstance_ClosePip_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PipInstance_ClosePip_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PipInstance_ClosePip_ParamsSpec, 'arc.mojom.PipInstance_ClosePip_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.PipInstance_SetPipSuppressionStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PipInstance_SetPipSuppressionStatus_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'suppressed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PipInstance_SetPipSuppressionStatus_ParamsSpec, 'arc.mojom.PipInstance_SetPipSuppressionStatus_Params', [
+      mojo.internal.StructField('suppressed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.PipInstancePendingReceiver = class {
   constructor(handle) {
@@ -181,7 +148,7 @@ arc.mojom.PipInstanceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       arc.mojom.PipInstance_Init_ParamsSpec,
-      null,
+      arc.mojom.PipInstance_Init_ResponseParamsSpec,
       [host_remote]);
   }
 
@@ -215,48 +182,6 @@ arc.mojom.PipInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Init
-arc.mojom.PipInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PipInstance.Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.PipHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ClosePip
-arc.mojom.PipInstance_ClosePip_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PipInstance.ClosePip_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetPipSuppressionStatus
-arc.mojom.PipInstance_SetPipSuppressionStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PipInstance.SetPipSuppressionStatus_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'suppressed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.PipInstancePtr = arc.mojom.PipInstanceRemote;
 arc.mojom.PipInstanceRequest = arc.mojom.PipInstancePendingReceiver;
 

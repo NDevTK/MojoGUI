@@ -8,33 +8,21 @@
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
 
+gfx.mojom.RangeSpec = { $: {} };
+gfx.mojom.RangeFSpec = { $: {} };
 
 // Struct: Range
-gfx.mojom.RangeSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.Range',
-      packedSize: 16,
-      fields: [
-        { name: 'start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'end', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.RangeSpec, 'gfx.mojom.Range', [
+      mojo.internal.StructField('start', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('end', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: RangeF
-gfx.mojom.RangeFSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.RangeF',
-      packedSize: 16,
-      fields: [
-        { name: 'start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'end', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.RangeFSpec, 'gfx.mojom.RangeF', [
+      mojo.internal.StructField('start', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('end', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);

@@ -8,62 +8,50 @@
 var metrics_reporter = metrics_reporter || {};
 metrics_reporter.mojom = metrics_reporter.mojom || {};
 
+metrics_reporter.mojom.PageMetricsHost = {};
+metrics_reporter.mojom.PageMetricsHost.$interfaceName = 'metrics_reporter.mojom.PageMetricsHost';
+metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec = { $: {} };
+metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec = { $: {} };
+metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec = { $: {} };
+metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec = { $: {} };
+metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec = { $: {} };
+metrics_reporter.mojom.PageMetrics = {};
+metrics_reporter.mojom.PageMetrics.$interfaceName = 'metrics_reporter.mojom.PageMetrics';
+metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec = { $: {} };
+metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec = { $: {} };
+metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec = { $: {} };
 
 // Interface: PageMetricsHost
-metrics_reporter.mojom.PageMetricsHost = {};
+mojo.internal.Struct(
+    metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec, 'metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(metrics_reporter.mojom.PageMetricsRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(metrics_reporter.mojom.PageMetricsRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec, 'metrics_reporter.mojom.PageMetricsHost_OnGetMark_Params', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics_reporter.mojom.PageMetricsHost_OnGetMark_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec, 'metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParams', [
+      mojo.internal.StructField('marked_time', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics_reporter.mojom.PageMetricsHost_OnClearMark_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec, 'metrics_reporter.mojom.PageMetricsHost_OnClearMark_Params', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec, 'metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_Params', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('time', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 metrics_reporter.mojom.PageMetricsHostPendingReceiver = class {
   constructor(handle) {
@@ -145,109 +133,28 @@ metrics_reporter.mojom.PageMetricsHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnPageRemoteCreated
-metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics_reporter.mojom.PageMetricsHost.OnPageRemoteCreated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(metrics_reporter.mojom.PageMetricsRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnGetMark
-metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics_reporter.mojom.PageMetricsHost.OnGetMark_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics_reporter.mojom.PageMetricsHost.OnGetMark_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'marked_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnClearMark
-metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics_reporter.mojom.PageMetricsHost.OnClearMark_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnUmaReportTime
-metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics_reporter.mojom.PageMetricsHost.OnUmaReportTime_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 metrics_reporter.mojom.PageMetricsHostPtr = metrics_reporter.mojom.PageMetricsHostRemote;
 metrics_reporter.mojom.PageMetricsHostRequest = metrics_reporter.mojom.PageMetricsHostPendingReceiver;
 
 
 // Interface: PageMetrics
-metrics_reporter.mojom.PageMetrics = {};
+mojo.internal.Struct(
+    metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec, 'metrics_reporter.mojom.PageMetrics_OnGetMark_Params', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics_reporter.mojom.PageMetrics_OnGetMark_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec, 'metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParams', [
+      mojo.internal.StructField('marked_time', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics_reporter.mojom.PageMetrics_OnClearMark_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec, 'metrics_reporter.mojom.PageMetrics_OnClearMark_Params', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 metrics_reporter.mojom.PageMetricsPendingReceiver = class {
   constructor(handle) {
@@ -311,48 +218,6 @@ metrics_reporter.mojom.PageMetrics.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnGetMark
-metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics_reporter.mojom.PageMetrics.OnGetMark_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics_reporter.mojom.PageMetrics.OnGetMark_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'marked_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnClearMark
-metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics_reporter.mojom.PageMetrics.OnClearMark_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 metrics_reporter.mojom.PageMetricsPtr = metrics_reporter.mojom.PageMetricsRemote;
 metrics_reporter.mojom.PageMetricsRequest = metrics_reporter.mojom.PageMetricsPendingReceiver;
 

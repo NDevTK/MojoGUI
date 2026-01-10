@@ -8,6 +8,7 @@
 var gl = gl || {};
 gl.mojom = gl.mojom || {};
 
+gl.mojom.GpuPreferenceSpec = { $: mojo.internal.Enum() };
 
 // Enum: GpuPreference
 gl.mojom.GpuPreference = {
@@ -16,4 +17,3 @@ gl.mojom.GpuPreference = {
   kLowPower: 2,
   kHighPerformance: 3,
 };
-gl.mojom.GpuPreferenceSpec = { $: mojo.internal.Enum() };

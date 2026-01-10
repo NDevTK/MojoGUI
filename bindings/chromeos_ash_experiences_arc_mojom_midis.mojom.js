@@ -8,70 +8,60 @@
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
+arc.mojom.MidisDeviceInfoSpec = { $: {} };
+arc.mojom.MidisRequestSpec = { $: {} };
+arc.mojom.MidisClient = {};
+arc.mojom.MidisClient.$interfaceName = 'arc.mojom.MidisClient';
+arc.mojom.MidisClient_OnDeviceAdded_ParamsSpec = { $: {} };
+arc.mojom.MidisClient_OnDeviceRemoved_ParamsSpec = { $: {} };
+arc.mojom.MidisServer = {};
+arc.mojom.MidisServer.$interfaceName = 'arc.mojom.MidisServer';
+arc.mojom.MidisServer_ListDevices_ParamsSpec = { $: {} };
+arc.mojom.MidisServer_ListDevices_ResponseParamsSpec = { $: {} };
+arc.mojom.MidisServer_RequestPort_ParamsSpec = { $: {} };
+arc.mojom.MidisServer_RequestPort_ResponseParamsSpec = { $: {} };
+arc.mojom.MidisServer_CloseDevice_ParamsSpec = { $: {} };
+arc.mojom.MidisHost = {};
+arc.mojom.MidisHost.$interfaceName = 'arc.mojom.MidisHost';
+arc.mojom.MidisHost_Connect_ParamsSpec = { $: {} };
+arc.mojom.MidisInstance = {};
+arc.mojom.MidisInstance.$interfaceName = 'arc.mojom.MidisInstance';
+arc.mojom.MidisInstance_Init_ParamsSpec = { $: {} };
+arc.mojom.MidisInstance_Init_ResponseParamsSpec = { $: {} };
 
 // Struct: MidisDeviceInfo
-arc.mojom.MidisDeviceInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MidisDeviceInfo',
-      packedSize: 40,
-      fields: [
-        { name: 'card', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'device_num', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'num_subdevices', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'flags', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'manufacturer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MidisDeviceInfoSpec, 'arc.mojom.MidisDeviceInfo', [
+      mojo.internal.StructField('card', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('device_num', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('num_subdevices', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('flags', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('manufacturer', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: MidisRequest
-arc.mojom.MidisRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MidisRequest',
-      packedSize: 24,
-      fields: [
-        { name: 'card', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'device_num', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'subdevice_num', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MidisRequestSpec, 'arc.mojom.MidisRequest', [
+      mojo.internal.StructField('card', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('device_num', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('subdevice_num', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: MidisClient
-arc.mojom.MidisClient = {};
+mojo.internal.Struct(
+    arc.mojom.MidisClient_OnDeviceAdded_ParamsSpec, 'arc.mojom.MidisClient_OnDeviceAdded_Params', [
+      mojo.internal.StructField('device', 0, 0, arc.mojom.MidisDeviceInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MidisClient_OnDeviceAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MidisClient_OnDeviceAdded_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.MidisDeviceInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.MidisClient_OnDeviceRemoved_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MidisClient_OnDeviceRemoved_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.MidisDeviceInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MidisClient_OnDeviceRemoved_ParamsSpec, 'arc.mojom.MidisClient_OnDeviceRemoved_Params', [
+      mojo.internal.StructField('device', 0, 0, arc.mojom.MidisDeviceInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.MidisClientPendingReceiver = class {
   constructor(handle) {
@@ -135,79 +125,39 @@ arc.mojom.MidisClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnDeviceAdded
-arc.mojom.MidisClient_OnDeviceAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MidisClient.OnDeviceAdded_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.MidisDeviceInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnDeviceRemoved
-arc.mojom.MidisClient_OnDeviceRemoved_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MidisClient.OnDeviceRemoved_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.MidisDeviceInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.MidisClientPtr = arc.mojom.MidisClientRemote;
 arc.mojom.MidisClientRequest = arc.mojom.MidisClientPendingReceiver;
 
 
 // Interface: MidisServer
-arc.mojom.MidisServer = {};
+mojo.internal.Struct(
+    arc.mojom.MidisServer_ListDevices_ParamsSpec, 'arc.mojom.MidisServer_ListDevices_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.MidisServer_ListDevices_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MidisServer_ListDevices_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MidisServer_ListDevices_ResponseParamsSpec, 'arc.mojom.MidisServer_ListDevices_ResponseParams', [
+      mojo.internal.StructField('devices', 0, 0, mojo.internal.Array(arc.mojom.MidisDeviceInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MidisServer_RequestPort_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MidisServer_RequestPort_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.MidisRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MidisServer_RequestPort_ParamsSpec, 'arc.mojom.MidisServer_RequestPort_Params', [
+      mojo.internal.StructField('request', 0, 0, arc.mojom.MidisRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MidisServer_CloseDevice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MidisServer_CloseDevice_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.MidisRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MidisServer_RequestPort_ResponseParamsSpec, 'arc.mojom.MidisServer_RequestPort_ResponseParams', [
+      mojo.internal.StructField('port_handle', 0, 0, mojo.internal.Handle, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.MidisServer_CloseDevice_ParamsSpec, 'arc.mojom.MidisServer_CloseDevice_Params', [
+      mojo.internal.StructField('request', 0, 0, arc.mojom.MidisRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.MidisServerPendingReceiver = class {
   constructor(handle) {
@@ -280,94 +230,17 @@ arc.mojom.MidisServer.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ListDevices
-arc.mojom.MidisServer_ListDevices_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MidisServer.ListDevices_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-arc.mojom.MidisServer_ListDevices_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MidisServer.ListDevices_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.MidisDeviceInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestPort
-arc.mojom.MidisServer_RequestPort_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MidisServer.RequestPort_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.MidisRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.MidisServer_RequestPort_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MidisServer.RequestPort_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'port_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CloseDevice
-arc.mojom.MidisServer_CloseDevice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MidisServer.CloseDevice_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.MidisRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.MidisServerPtr = arc.mojom.MidisServerRemote;
 arc.mojom.MidisServerRequest = arc.mojom.MidisServerPendingReceiver;
 
 
 // Interface: MidisHost
-arc.mojom.MidisHost = {};
-
-arc.mojom.MidisHost_Connect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MidisHost_Connect_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'server', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(arc.mojom.MidisServerRemote), nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.MidisClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MidisHost_Connect_ParamsSpec, 'arc.mojom.MidisHost_Connect_Params', [
+      mojo.internal.StructField('server', 0, 0, mojo.internal.InterfaceRequest(arc.mojom.MidisServerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(arc.mojom.MidisClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 arc.mojom.MidisHostPendingReceiver = class {
   constructor(handle) {
@@ -422,41 +295,21 @@ arc.mojom.MidisHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Connect
-arc.mojom.MidisHost_Connect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MidisHost.Connect_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'server', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(arc.mojom.MidisServerRemote), nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.MidisClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.MidisHostPtr = arc.mojom.MidisHostRemote;
 arc.mojom.MidisHostRequest = arc.mojom.MidisHostPendingReceiver;
 
 
 // Interface: MidisInstance
-arc.mojom.MidisInstance = {};
+mojo.internal.Struct(
+    arc.mojom.MidisInstance_Init_ParamsSpec, 'arc.mojom.MidisInstance_Init_Params', [
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.MidisHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MidisInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MidisInstance_Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.MidisHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MidisInstance_Init_ResponseParamsSpec, 'arc.mojom.MidisInstance_Init_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 arc.mojom.MidisInstancePendingReceiver = class {
   constructor(handle) {
@@ -495,7 +348,7 @@ arc.mojom.MidisInstanceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       arc.mojom.MidisInstance_Init_ParamsSpec,
-      null,
+      arc.mojom.MidisInstance_Init_ResponseParamsSpec,
       [host_remote]);
   }
 
@@ -511,21 +364,6 @@ arc.mojom.MidisInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Init
-arc.mojom.MidisInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MidisInstance.Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.MidisHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.MidisInstancePtr = arc.mojom.MidisInstanceRemote;
 arc.mojom.MidisInstanceRequest = arc.mojom.MidisInstancePendingReceiver;
 

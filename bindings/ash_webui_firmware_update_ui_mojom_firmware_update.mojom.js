@@ -9,6 +9,37 @@ var ash = ash || {};
 ash.firmware_update = ash.firmware_update || {};
 ash.firmware_update.mojom = ash.firmware_update.mojom || {};
 
+ash.firmware_update.mojom.UpdatePrioritySpec = { $: mojo.internal.Enum() };
+ash.firmware_update.mojom.UpdateStateSpec = { $: mojo.internal.Enum() };
+ash.firmware_update.mojom.DeviceRequestIdSpec = { $: mojo.internal.Enum() };
+ash.firmware_update.mojom.DeviceRequestKindSpec = { $: mojo.internal.Enum() };
+ash.firmware_update.mojom.FirmwareUpdateSpec = { $: {} };
+ash.firmware_update.mojom.InstallationProgressSpec = { $: {} };
+ash.firmware_update.mojom.DeviceRequestSpec = { $: {} };
+ash.firmware_update.mojom.UpdateObserver = {};
+ash.firmware_update.mojom.UpdateObserver.$interfaceName = 'ash.firmware_update.mojom.UpdateObserver';
+ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec = { $: {} };
+ash.firmware_update.mojom.DeviceRequestObserver = {};
+ash.firmware_update.mojom.DeviceRequestObserver.$interfaceName = 'ash.firmware_update.mojom.DeviceRequestObserver';
+ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec = { $: {} };
+ash.firmware_update.mojom.UpdateProgressObserver = {};
+ash.firmware_update.mojom.UpdateProgressObserver.$interfaceName = 'ash.firmware_update.mojom.UpdateProgressObserver';
+ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec = { $: {} };
+ash.firmware_update.mojom.UpdateProvider = {};
+ash.firmware_update.mojom.UpdateProvider.$interfaceName = 'ash.firmware_update.mojom.UpdateProvider';
+ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec = { $: {} };
+ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec = { $: {} };
+ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParamsSpec = { $: {} };
+ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec = { $: {} };
+ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParamsSpec = { $: {} };
+ash.firmware_update.mojom.InstallController = {};
+ash.firmware_update.mojom.InstallController.$interfaceName = 'ash.firmware_update.mojom.InstallController';
+ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec = { $: {} };
+ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec = { $: {} };
+ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec = { $: {} };
+ash.firmware_update.mojom.SystemUtils = {};
+ash.firmware_update.mojom.SystemUtils.$interfaceName = 'ash.firmware_update.mojom.SystemUtils';
+ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec = { $: {} };
 
 // Enum: UpdatePriority
 ash.firmware_update.mojom.UpdatePriority = {
@@ -17,7 +48,6 @@ ash.firmware_update.mojom.UpdatePriority = {
   kHigh: 2,
   kCritical: 3,
 };
-ash.firmware_update.mojom.UpdatePrioritySpec = { $: mojo.internal.Enum() };
 
 // Enum: UpdateState
 ash.firmware_update.mojom.UpdateState = {
@@ -29,7 +59,6 @@ ash.firmware_update.mojom.UpdateState = {
   kSuccess: 5,
   kWaitingForUser: 6,
 };
-ash.firmware_update.mojom.UpdateStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: DeviceRequestId
 ash.firmware_update.mojom.DeviceRequestId = {
@@ -41,7 +70,6 @@ ash.firmware_update.mojom.DeviceRequestId = {
   kRemoveReplug: 5,
   kReplugPower: 6,
 };
-ash.firmware_update.mojom.DeviceRequestIdSpec = { $: mojo.internal.Enum() };
 
 // Enum: DeviceRequestKind
 ash.firmware_update.mojom.DeviceRequestKind = {
@@ -49,74 +77,43 @@ ash.firmware_update.mojom.DeviceRequestKind = {
   kPost: 1,
   kImmediate: 2,
 };
-ash.firmware_update.mojom.DeviceRequestKindSpec = { $: mojo.internal.Enum() };
 
 // Struct: FirmwareUpdate
-ash.firmware_update.mojom.FirmwareUpdateSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.firmware_update.mojom.FirmwareUpdate',
-      packedSize: 64,
-      fields: [
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'device_name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'needs_reboot', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'device_version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'device_description', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'priority', packedOffset: 48, packedBitOffset: 0, type: ash.firmware_update.mojom.UpdatePrioritySpec, nullable: false, minVersion: 0 },
-        { name: 'filepath', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'checksum', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.firmware_update.mojom.FirmwareUpdateSpec, 'ash.firmware_update.mojom.FirmwareUpdate', [
+      mojo.internal.StructField('device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('device_name', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('needs_reboot', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('device_version', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('device_description', 24, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('priority', 48, 0, ash.firmware_update.mojom.UpdatePrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('filepath', 32, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('checksum', 40, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 64]]);
 
 // Struct: InstallationProgress
-ash.firmware_update.mojom.InstallationProgressSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.firmware_update.mojom.InstallationProgress',
-      packedSize: 16,
-      fields: [
-        { name: 'percentage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'state', packedOffset: 4, packedBitOffset: 0, type: ash.firmware_update.mojom.UpdateStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.firmware_update.mojom.InstallationProgressSpec, 'ash.firmware_update.mojom.InstallationProgress', [
+      mojo.internal.StructField('percentage', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('state', 4, 0, ash.firmware_update.mojom.UpdateStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: DeviceRequest
-ash.firmware_update.mojom.DeviceRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.firmware_update.mojom.DeviceRequest',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: ash.firmware_update.mojom.DeviceRequestIdSpec, nullable: false, minVersion: 0 },
-        { name: 'kind', packedOffset: 4, packedBitOffset: 0, type: ash.firmware_update.mojom.DeviceRequestKindSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.firmware_update.mojom.DeviceRequestSpec, 'ash.firmware_update.mojom.DeviceRequest', [
+      mojo.internal.StructField('id', 0, 0, ash.firmware_update.mojom.DeviceRequestIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('kind', 4, 0, ash.firmware_update.mojom.DeviceRequestKindSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: UpdateObserver
-ash.firmware_update.mojom.UpdateObserver = {};
-
-ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'firmware_updates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.firmware_update.mojom.FirmwareUpdateSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec, 'ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_Params', [
+      mojo.internal.StructField('firmware_updates', 0, 0, mojo.internal.Array(ash.firmware_update.mojom.FirmwareUpdateSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.firmware_update.mojom.UpdateObserverPendingReceiver = class {
   constructor(handle) {
@@ -171,40 +168,16 @@ ash.firmware_update.mojom.UpdateObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnUpdateListChanged
-ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.firmware_update.mojom.UpdateObserver.OnUpdateListChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'firmware_updates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.firmware_update.mojom.FirmwareUpdateSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.firmware_update.mojom.UpdateObserverPtr = ash.firmware_update.mojom.UpdateObserverRemote;
 ash.firmware_update.mojom.UpdateObserverRequest = ash.firmware_update.mojom.UpdateObserverPendingReceiver;
 
 
 // Interface: DeviceRequestObserver
-ash.firmware_update.mojom.DeviceRequestObserver = {};
-
-ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: ash.firmware_update.mojom.DeviceRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec, 'ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_Params', [
+      mojo.internal.StructField('request', 0, 0, ash.firmware_update.mojom.DeviceRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.firmware_update.mojom.DeviceRequestObserverPendingReceiver = class {
   constructor(handle) {
@@ -259,40 +232,16 @@ ash.firmware_update.mojom.DeviceRequestObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnDeviceRequest
-ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.firmware_update.mojom.DeviceRequestObserver.OnDeviceRequest_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: ash.firmware_update.mojom.DeviceRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.firmware_update.mojom.DeviceRequestObserverPtr = ash.firmware_update.mojom.DeviceRequestObserverRemote;
 ash.firmware_update.mojom.DeviceRequestObserverRequest = ash.firmware_update.mojom.DeviceRequestObserverPendingReceiver;
 
 
 // Interface: UpdateProgressObserver
-ash.firmware_update.mojom.UpdateProgressObserver = {};
-
-ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: ash.firmware_update.mojom.InstallationProgressSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec, 'ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_Params', [
+      mojo.internal.StructField('update', 0, 0, ash.firmware_update.mojom.InstallationProgressSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.firmware_update.mojom.UpdateProgressObserverPendingReceiver = class {
   constructor(handle) {
@@ -347,65 +296,39 @@ ash.firmware_update.mojom.UpdateProgressObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnStatusChanged
-ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.firmware_update.mojom.UpdateProgressObserver.OnStatusChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: ash.firmware_update.mojom.InstallationProgressSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.firmware_update.mojom.UpdateProgressObserverPtr = ash.firmware_update.mojom.UpdateProgressObserverRemote;
 ash.firmware_update.mojom.UpdateProgressObserverRequest = ash.firmware_update.mojom.UpdateProgressObserverPendingReceiver;
 
 
 // Interface: UpdateProvider
-ash.firmware_update.mojom.UpdateProvider = {};
+mojo.internal.Struct(
+    ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec, 'ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.firmware_update.mojom.UpdateObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.firmware_update.mojom.UpdateObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec, 'ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_Params', [
+      mojo.internal.StructField('device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParamsSpec, 'ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParams', [
+      mojo.internal.StructField('controller', 0, 0, mojo.internal.InterfaceProxy(ash.firmware_update.mojom.InstallControllerRemote), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec, 'ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParamsSpec, 'ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParams', [
+      mojo.internal.StructField('update', 0, 0, ash.firmware_update.mojom.FirmwareUpdateSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.firmware_update.mojom.UpdateProviderPendingReceiver = class {
   constructor(handle) {
@@ -478,120 +401,29 @@ ash.firmware_update.mojom.UpdateProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ObservePeripheralUpdates
-ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.firmware_update.mojom.UpdateProvider.ObservePeripheralUpdates_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.firmware_update.mojom.UpdateObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for PrepareForUpdate
-ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.firmware_update.mojom.UpdateProvider.PrepareForUpdate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.firmware_update.mojom.UpdateProvider.PrepareForUpdate_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.firmware_update.mojom.InstallControllerRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for FetchInProgressUpdate
-ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.firmware_update.mojom.UpdateProvider.FetchInProgressUpdate_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.firmware_update.mojom.UpdateProvider.FetchInProgressUpdate_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: ash.firmware_update.mojom.FirmwareUpdateSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.firmware_update.mojom.UpdateProviderPtr = ash.firmware_update.mojom.UpdateProviderRemote;
 ash.firmware_update.mojom.UpdateProviderRequest = ash.firmware_update.mojom.UpdateProviderPendingReceiver;
 
 
 // Interface: InstallController
-ash.firmware_update.mojom.InstallController = {};
+mojo.internal.Struct(
+    ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec, 'ash.firmware_update.mojom.InstallController_BeginUpdate_Params', [
+      mojo.internal.StructField('device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('filepath', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.firmware_update.mojom.InstallController_BeginUpdate_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'filepath', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec, 'ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.firmware_update.mojom.DeviceRequestObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.firmware_update.mojom.DeviceRequestObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.firmware_update.mojom.UpdateProgressObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec, 'ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.firmware_update.mojom.UpdateProgressObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.firmware_update.mojom.InstallControllerPendingReceiver = class {
   constructor(handle) {
@@ -664,68 +496,15 @@ ash.firmware_update.mojom.InstallController.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BeginUpdate
-ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.firmware_update.mojom.InstallController.BeginUpdate_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'filepath', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for AddDeviceRequestObserver
-ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.firmware_update.mojom.InstallController.AddDeviceRequestObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.firmware_update.mojom.DeviceRequestObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AddUpdateProgressObserver
-ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.firmware_update.mojom.InstallController.AddUpdateProgressObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.firmware_update.mojom.UpdateProgressObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.firmware_update.mojom.InstallControllerPtr = ash.firmware_update.mojom.InstallControllerRemote;
 ash.firmware_update.mojom.InstallControllerRequest = ash.firmware_update.mojom.InstallControllerPendingReceiver;
 
 
 // Interface: SystemUtils
-ash.firmware_update.mojom.SystemUtils = {};
-
-ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.firmware_update.mojom.SystemUtils_Restart_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec, 'ash.firmware_update.mojom.SystemUtils_Restart_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.firmware_update.mojom.SystemUtilsPendingReceiver = class {
   constructor(handle) {
@@ -780,20 +559,6 @@ ash.firmware_update.mojom.SystemUtils.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Restart
-ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.firmware_update.mojom.SystemUtils.Restart_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.firmware_update.mojom.SystemUtilsPtr = ash.firmware_update.mojom.SystemUtilsRemote;
 ash.firmware_update.mojom.SystemUtilsRequest = ash.firmware_update.mojom.SystemUtilsPendingReceiver;
 

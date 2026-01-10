@@ -7,28 +7,24 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
+var services = services || {};
 
+network.mojom.TLSClientSocketOptionsSpec = { $: {} };
+network.mojom.TLSClientSocket = {};
+network.mojom.TLSClientSocket.$interfaceName = 'network.mojom.TLSClientSocket';
 
 // Struct: TLSClientSocketOptions
-network.mojom.TLSClientSocketOptionsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.TLSClientSocketOptions',
-      packedSize: 24,
-      fields: [
-        { name: 'version_min', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SSLVersionSpec, nullable: false, minVersion: 0 },
-        { name: 'version_max', packedOffset: 4, packedBitOffset: 0, type: network.mojom.SSLVersionSpec, nullable: false, minVersion: 0 },
-        { name: 'send_ssl_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'unsafely_skip_cert_verification', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.TLSClientSocketOptionsSpec, 'network.mojom.TLSClientSocketOptions', [
+      mojo.internal.StructField('version_min', 0, 0, network.mojom.SSLVersionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('version_max', 4, 0, network.mojom.SSLVersionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('send_ssl_info', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('unsafely_skip_cert_verification', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: TLSClientSocket
-network.mojom.TLSClientSocket = {};
-
 network.mojom.TLSClientSocketPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -73,7 +69,6 @@ network.mojom.TLSClientSocket.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 network.mojom.TLSClientSocketPtr = network.mojom.TLSClientSocketRemote;
 network.mojom.TLSClientSocketRequest = network.mojom.TLSClientSocketPendingReceiver;
 

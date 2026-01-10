@@ -9,37 +9,25 @@ var chromecast = chromecast || {};
 chromecast.shell = chromecast.shell || {};
 chromecast.shell.mojom = chromecast.shell.mojom || {};
 
+chromecast.shell.mojom.FeatureSpec = { $: {} };
+chromecast.shell.mojom.FeatureManager = {};
+chromecast.shell.mojom.FeatureManager.$interfaceName = 'chromecast.shell.mojom.FeatureManager';
+chromecast.shell.mojom.FeatureManager_ConfigureFeatures_ParamsSpec = { $: {} };
 
 // Struct: Feature
-chromecast.shell.mojom.FeatureSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.Feature',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.shell.mojom.FeatureSpec, 'chromecast.shell.mojom.Feature', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('config', 8, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: FeatureManager
-chromecast.shell.mojom.FeatureManager = {};
-
-chromecast.shell.mojom.FeatureManager_ConfigureFeatures_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.FeatureManager_ConfigureFeatures_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromecast.shell.mojom.FeatureSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.shell.mojom.FeatureManager_ConfigureFeatures_ParamsSpec, 'chromecast.shell.mojom.FeatureManager_ConfigureFeatures_Params', [
+      mojo.internal.StructField('features', 0, 0, mojo.internal.Array(chromecast.shell.mojom.FeatureSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromecast.shell.mojom.FeatureManagerPendingReceiver = class {
   constructor(handle) {
@@ -94,21 +82,6 @@ chromecast.shell.mojom.FeatureManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ConfigureFeatures
-chromecast.shell.mojom.FeatureManager_ConfigureFeatures_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.FeatureManager.ConfigureFeatures_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromecast.shell.mojom.FeatureSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.shell.mojom.FeatureManagerPtr = chromecast.shell.mojom.FeatureManagerRemote;
 chromecast.shell.mojom.FeatureManagerRequest = chromecast.shell.mojom.FeatureManagerPendingReceiver;
 

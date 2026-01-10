@@ -7,46 +7,41 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
 var blink = blink || {};
 var ui = ui || {};
 var ui = ui || {};
 var gfx = gfx || {};
 var ui = ui || {};
 
+blink.mojom.VisualPropertiesSpec = { $: {} };
 
 // Struct: VisualProperties
-blink.mojom.VisualPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.VisualProperties',
-      packedSize: 136,
-      fields: [
-        { name: 'screen_infos', packedOffset: 0, packedBitOffset: 0, type: display.mojom.ScreenInfosSpec, nullable: false, minVersion: 0 },
-        { name: 'auto_resize_enabled', packedOffset: 124, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'resizable', packedOffset: 124, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'min_size_for_auto_resize', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'max_size_for_auto_resize', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'new_size_device_px', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'visible_viewport_size_device_px', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'compositor_viewport_pixel_rect', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'browser_controls_params', packedOffset: 48, packedBitOffset: 0, type: cc.mojom.BrowserControlsParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'scroll_focused_node_into_view', packedOffset: 124, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'local_surface_id', packedOffset: 56, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: true, minVersion: 0 },
-        { name: 'is_fullscreen_granted', packedOffset: 124, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'display_mode', packedOffset: 96, packedBitOffset: 0, type: blink.mojom.DisplayModeSpec, nullable: false, minVersion: 0 },
-        { name: 'window_show_state', packedOffset: 100, packedBitOffset: 0, type: ui.mojom.WindowShowStateSpec, nullable: false, minVersion: 0 },
-        { name: 'capture_sequence_number', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'zoom_level', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'css_zoom_factor', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'page_scale_factor', packedOffset: 108, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'compositing_scale_factor', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'cursor_accessibility_scale_factor', packedOffset: 116, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'root_widget_viewport_segments', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.RectSpec, false), nullable: false, minVersion: 0 },
-        { name: 'is_pinch_gesture_active', packedOffset: 124, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'window_controls_overlay_rect', packedOffset: 88, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'virtual_keyboard_resize_height_device_px', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 136}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.VisualPropertiesSpec, 'blink.mojom.VisualProperties', [
+      mojo.internal.StructField('screen_infos', 0, 0, display.mojom.ScreenInfosSpec, null, false, 0, undefined),
+      mojo.internal.StructField('auto_resize_enabled', 124, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('resizable', 124, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('min_size_for_auto_resize', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('max_size_for_auto_resize', 16, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('new_size_device_px', 24, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('visible_viewport_size_device_px', 32, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('compositor_viewport_pixel_rect', 40, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('browser_controls_params', 48, 0, cc.mojom.BrowserControlsParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scroll_focused_node_into_view', 124, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('local_surface_id', 56, 0, viz.mojom.LocalSurfaceIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('is_fullscreen_granted', 124, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('display_mode', 96, 0, blink.mojom.DisplayModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('window_show_state', 100, 0, ui.mojom.WindowShowStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('capture_sequence_number', 104, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('zoom_level', 64, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('css_zoom_factor', 72, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('page_scale_factor', 108, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('compositing_scale_factor', 112, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('cursor_accessibility_scale_factor', 116, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('root_widget_viewport_segments', 80, 0, mojo.internal.Array(gfx.mojom.RectSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('is_pinch_gesture_active', 124, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('window_controls_overlay_rect', 88, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('virtual_keyboard_resize_height_device_px', 120, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 136]]);

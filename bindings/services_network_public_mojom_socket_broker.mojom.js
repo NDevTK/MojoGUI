@@ -7,36 +7,42 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
+var services = services || {};
 
+network.mojom.SocketBroker = {};
+network.mojom.SocketBroker.$interfaceName = 'network.mojom.SocketBroker';
+network.mojom.SocketBroker_CreateTcpSocket_ParamsSpec = { $: {} };
+network.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec = { $: {} };
+network.mojom.SocketBroker_CreateUdpSocket_ParamsSpec = { $: {} };
+network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec = { $: {} };
 
 // Interface: SocketBroker
-network.mojom.SocketBroker = {};
+mojo.internal.Struct(
+    network.mojom.SocketBroker_CreateTcpSocket_ParamsSpec, 'network.mojom.SocketBroker_CreateTcpSocket_Params', [
+      mojo.internal.StructField('address_family', 0, 0, network.mojom.AddressFamilySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.SocketBroker_CreateTcpSocket_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.SocketBroker_CreateTcpSocket_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'address_family', packedOffset: 0, packedBitOffset: 0, type: network.mojom.AddressFamilySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec, 'network.mojom.SocketBroker_CreateTcpSocket_ResponseParams', [
+      mojo.internal.StructField('created_socket', 0, 0, network.mojom.TransferableSocketSpec, null, false, 0, undefined),
+      mojo.internal.StructField('rv', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-network.mojom.SocketBroker_CreateUdpSocket_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.SocketBroker_CreateUdpSocket_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'address_family', packedOffset: 0, packedBitOffset: 0, type: network.mojom.AddressFamilySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.SocketBroker_CreateUdpSocket_ParamsSpec, 'network.mojom.SocketBroker_CreateUdpSocket_Params', [
+      mojo.internal.StructField('address_family', 0, 0, network.mojom.AddressFamilySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec, 'network.mojom.SocketBroker_CreateUdpSocket_ResponseParams', [
+      mojo.internal.StructField('created_socket', 0, 0, network.mojom.TransferableSocketSpec, null, false, 0, undefined),
+      mojo.internal.StructField('rv', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 network.mojom.SocketBrokerPendingReceiver = class {
   constructor(handle) {
@@ -100,63 +106,6 @@ network.mojom.SocketBroker.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateTcpSocket
-network.mojom.SocketBroker_CreateTcpSocket_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.SocketBroker.CreateTcpSocket_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'address_family', packedOffset: 0, packedBitOffset: 0, type: network.mojom.AddressFamilySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-network.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.SocketBroker.CreateTcpSocket_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'created_socket', packedOffset: 0, packedBitOffset: 0, type: network.mojom.TransferableSocketSpec, nullable: false, minVersion: 0 },
-        { name: 'rv', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for CreateUdpSocket
-network.mojom.SocketBroker_CreateUdpSocket_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.SocketBroker.CreateUdpSocket_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'address_family', packedOffset: 0, packedBitOffset: 0, type: network.mojom.AddressFamilySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.SocketBroker.CreateUdpSocket_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'created_socket', packedOffset: 0, packedBitOffset: 0, type: network.mojom.TransferableSocketSpec, nullable: false, minVersion: 0 },
-        { name: 'rv', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.SocketBrokerPtr = network.mojom.SocketBrokerRemote;
 network.mojom.SocketBrokerRequest = network.mojom.SocketBrokerPendingReceiver;
 

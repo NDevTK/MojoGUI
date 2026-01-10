@@ -8,28 +8,22 @@
 var gpu = gpu || {};
 gpu.mojom = gpu.mojom || {};
 
+gpu.mojom.SharedImageCapabilitiesSpec = { $: {} };
 
 // Struct: SharedImageCapabilities
-gpu.mojom.SharedImageCapabilitiesSpec = {
-  $: {
-    structSpec: {
-      name: 'gpu.mojom.SharedImageCapabilities',
-      packedSize: 16,
-      fields: [
-        { name: 'supports_scanout_shared_images', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'supports_scanout_shared_images_for_software_video_frames', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'supports_luminance_shared_images', packedOffset: 4, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'supports_r16_shared_images', packedOffset: 4, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'supports_native_nv12_mappable_shared_images', packedOffset: 4, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_r16f_supported', packedOffset: 4, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'disable_r8_shared_images', packedOffset: 4, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'disable_webgpu_shared_images', packedOffset: 4, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'disable_one_component_textures', packedOffset: 5, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'shared_image_d3d', packedOffset: 5, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'shared_image_swap_chain', packedOffset: 5, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'texture_target_for_io_surfaces', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gpu.mojom.SharedImageCapabilitiesSpec, 'gpu.mojom.SharedImageCapabilities', [
+      mojo.internal.StructField('supports_scanout_shared_images', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('supports_scanout_shared_images_for_software_video_frames', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('supports_luminance_shared_images', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('supports_r16_shared_images', 4, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('supports_native_nv12_mappable_shared_images', 4, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_r16f_supported', 4, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('disable_r8_shared_images', 4, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('disable_webgpu_shared_images', 4, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('disable_one_component_textures', 5, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('shared_image_d3d', 5, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('shared_image_swap_chain', 5, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('texture_target_for_io_surfaces', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);

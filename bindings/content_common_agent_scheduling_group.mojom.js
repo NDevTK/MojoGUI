@@ -16,22 +16,22 @@ var blink = blink || {};
 var blink = blink || {};
 var blink = blink || {};
 
+content.mojom.AgentSchedulingGroupHost = {};
+content.mojom.AgentSchedulingGroupHost.$interfaceName = 'content.mojom.AgentSchedulingGroupHost';
+content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec = { $: {} };
+content.mojom.AgentSchedulingGroup = {};
+content.mojom.AgentSchedulingGroup.$interfaceName = 'content.mojom.AgentSchedulingGroup';
+content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec = { $: {} };
+content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec = { $: {} };
+content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec = { $: {} };
+content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec = { $: {} };
 
 // Interface: AgentSchedulingGroupHost
-content.mojom.AgentSchedulingGroupHost = {};
-
-content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec, 'content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_Params', [
+      mojo.internal.StructField('frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 content.mojom.AgentSchedulingGroupHostPendingReceiver = class {
   constructor(handle) {
@@ -86,81 +86,36 @@ content.mojom.AgentSchedulingGroupHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for DidUnloadRenderFrame
-content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.AgentSchedulingGroupHost.DidUnloadRenderFrame_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.AgentSchedulingGroupHostPtr = content.mojom.AgentSchedulingGroupHostRemote;
 content.mojom.AgentSchedulingGroupHostRequest = content.mojom.AgentSchedulingGroupHostPendingReceiver;
 
 
 // Interface: AgentSchedulingGroup
-content.mojom.AgentSchedulingGroup = {};
+mojo.internal.Struct(
+    content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec, 'content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_Params', [
+      mojo.internal.StructField('remote_host', 0, 0, mojo.internal.AssociatedInterfaceProxy(content.mojom.AgentSchedulingGroupHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('route_provider_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(content.mojom.RouteProviderRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'remote_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(content.mojom.AgentSchedulingGroupHostRemote), nullable: false, minVersion: 0 },
-        { name: 'route_provider_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(content.mojom.RouteProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec, 'content.mojom.AgentSchedulingGroup_CreateView_Params', [
+      mojo.internal.StructField('params', 0, 0, content.mojom.CreateViewParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.AgentSchedulingGroup_CreateView_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: content.mojom.CreateViewParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec, 'content.mojom.AgentSchedulingGroup_CreateFrame_Params', [
+      mojo.internal.StructField('params', 0, 0, content.mojom.CreateFrameParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.AgentSchedulingGroup_CreateFrame_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: content.mojom.CreateFrameParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.SharedStorageWorkletServiceRemote), nullable: false, minVersion: 0 },
-        { name: 'global_scope_creation_params', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WorkletGlobalScopeCreationParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec, 'content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.SharedStorageWorkletServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('global_scope_creation_params', 8, 0, blink.mojom.WorkletGlobalScopeCreationParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 content.mojom.AgentSchedulingGroupPendingReceiver = class {
   constructor(handle) {
@@ -242,65 +197,6 @@ content.mojom.AgentSchedulingGroup.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BindAssociatedInterfaces
-content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.AgentSchedulingGroup.BindAssociatedInterfaces_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'remote_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(content.mojom.AgentSchedulingGroupHostRemote), nullable: false, minVersion: 0 },
-        { name: 'route_provider_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(content.mojom.RouteProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for CreateView
-content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.AgentSchedulingGroup.CreateView_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: content.mojom.CreateViewParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CreateFrame
-content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.AgentSchedulingGroup.CreateFrame_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: content.mojom.CreateFrameParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CreateSharedStorageWorkletService
-content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.AgentSchedulingGroup.CreateSharedStorageWorkletService_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.SharedStorageWorkletServiceRemote), nullable: false, minVersion: 0 },
-        { name: 'global_scope_creation_params', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WorkletGlobalScopeCreationParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.AgentSchedulingGroupPtr = content.mojom.AgentSchedulingGroupRemote;
 content.mojom.AgentSchedulingGroupRequest = content.mojom.AgentSchedulingGroupPendingReceiver;
 

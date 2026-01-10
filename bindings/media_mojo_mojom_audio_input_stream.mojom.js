@@ -8,6 +8,18 @@
 var media = media || {};
 media.mojom = media.mojom || {};
 
+media.mojom.DisconnectReasonSpec = { $: mojo.internal.Enum() };
+media.mojom.AudioInputStream = {};
+media.mojom.AudioInputStream.$interfaceName = 'media.mojom.AudioInputStream';
+media.mojom.AudioInputStream_Record_ParamsSpec = { $: {} };
+media.mojom.AudioInputStream_SetVolume_ParamsSpec = { $: {} };
+media.mojom.AudioInputStreamClient = {};
+media.mojom.AudioInputStreamClient.$interfaceName = 'media.mojom.AudioInputStreamClient';
+media.mojom.AudioInputStreamClient_OnError_ParamsSpec = { $: {} };
+media.mojom.AudioInputStreamClient_OnMutedStateChanged_ParamsSpec = { $: {} };
+media.mojom.AudioInputStreamObserver = {};
+media.mojom.AudioInputStreamObserver.$interfaceName = 'media.mojom.AudioInputStreamObserver';
+media.mojom.AudioInputStreamObserver_DidStartRecording_ParamsSpec = { $: {} };
 
 // Enum: DisconnectReason
 media.mojom.DisconnectReason = {
@@ -19,35 +31,18 @@ media.mojom.DisconnectReason = {
   kSystemPermissions: 5,
   kDeviceInUse: 6,
 };
-media.mojom.DisconnectReasonSpec = { $: mojo.internal.Enum() };
 
 // Interface: AudioInputStream
-media.mojom.AudioInputStream = {};
+mojo.internal.Struct(
+    media.mojom.AudioInputStream_Record_ParamsSpec, 'media.mojom.AudioInputStream_Record_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.AudioInputStream_Record_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AudioInputStream_Record_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-media.mojom.AudioInputStream_SetVolume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AudioInputStream_SetVolume_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.AudioInputStream_SetVolume_ParamsSpec, 'media.mojom.AudioInputStream_SetVolume_Params', [
+      mojo.internal.StructField('volume', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.AudioInputStreamPendingReceiver = class {
   constructor(handle) {
@@ -111,66 +106,22 @@ media.mojom.AudioInputStream.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Record
-media.mojom.AudioInputStream_Record_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AudioInputStream.Record_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetVolume
-media.mojom.AudioInputStream_SetVolume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AudioInputStream.SetVolume_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.AudioInputStreamPtr = media.mojom.AudioInputStreamRemote;
 media.mojom.AudioInputStreamRequest = media.mojom.AudioInputStreamPendingReceiver;
 
 
 // Interface: AudioInputStreamClient
-media.mojom.AudioInputStreamClient = {};
+mojo.internal.Struct(
+    media.mojom.AudioInputStreamClient_OnError_ParamsSpec, 'media.mojom.AudioInputStreamClient_OnError_Params', [
+      mojo.internal.StructField('code', 0, 0, media.mojom.InputStreamErrorCodeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.AudioInputStreamClient_OnError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AudioInputStreamClient_OnError_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: media.mojom.InputStreamErrorCodeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-media.mojom.AudioInputStreamClient_OnMutedStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AudioInputStreamClient_OnMutedStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_muted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.AudioInputStreamClient_OnMutedStateChanged_ParamsSpec, 'media.mojom.AudioInputStreamClient_OnMutedStateChanged_Params', [
+      mojo.internal.StructField('is_muted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.AudioInputStreamClientPendingReceiver = class {
   constructor(handle) {
@@ -234,53 +185,15 @@ media.mojom.AudioInputStreamClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnError
-media.mojom.AudioInputStreamClient_OnError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AudioInputStreamClient.OnError_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: media.mojom.InputStreamErrorCodeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnMutedStateChanged
-media.mojom.AudioInputStreamClient_OnMutedStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AudioInputStreamClient.OnMutedStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_muted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.AudioInputStreamClientPtr = media.mojom.AudioInputStreamClientRemote;
 media.mojom.AudioInputStreamClientRequest = media.mojom.AudioInputStreamClientPendingReceiver;
 
 
 // Interface: AudioInputStreamObserver
-media.mojom.AudioInputStreamObserver = {};
-
-media.mojom.AudioInputStreamObserver_DidStartRecording_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AudioInputStreamObserver_DidStartRecording_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.AudioInputStreamObserver_DidStartRecording_ParamsSpec, 'media.mojom.AudioInputStreamObserver_DidStartRecording_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 media.mojom.AudioInputStreamObserverPendingReceiver = class {
   constructor(handle) {
@@ -335,20 +248,6 @@ media.mojom.AudioInputStreamObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for DidStartRecording
-media.mojom.AudioInputStreamObserver_DidStartRecording_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.AudioInputStreamObserver.DidStartRecording_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.AudioInputStreamObserverPtr = media.mojom.AudioInputStreamObserverRemote;
 media.mojom.AudioInputStreamObserverRequest = media.mojom.AudioInputStreamObserverPendingReceiver;
 

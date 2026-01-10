@@ -9,6 +9,7 @@ var chrome = chrome || {};
 chrome.file_util = chrome.file_util || {};
 chrome.file_util.mojom = chrome.file_util.mojom || {};
 
+chrome.file_util.mojom.ExtractionResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: ExtractionResult
 chrome.file_util.mojom.ExtractionResult = {
@@ -17,4 +18,3 @@ chrome.file_util.mojom.ExtractionResult = {
   kInvalidSrcFile: 2,
   kDstFileError: 3,
 };
-chrome.file_util.mojom.ExtractionResultSpec = { $: mojo.internal.Enum() };

@@ -8,6 +8,9 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.ConsoleMessageLevelSpec = { $: mojo.internal.Enum() };
+blink.mojom.ConsoleMessageSourceSpec = { $: mojo.internal.Enum() };
+blink.mojom.ConsoleMessageCategorySpec = { $: mojo.internal.Enum() };
 
 // Enum: ConsoleMessageLevel
 blink.mojom.ConsoleMessageLevel = {
@@ -16,7 +19,6 @@ blink.mojom.ConsoleMessageLevel = {
   kWarning: 2,
   kError: 3,
 };
-blink.mojom.ConsoleMessageLevelSpec = { $: mojo.internal.Enum() };
 
 // Enum: ConsoleMessageSource
 blink.mojom.ConsoleMessageSource = {
@@ -34,10 +36,8 @@ blink.mojom.ConsoleMessageSource = {
   kIntervention: 11,
   kRecommendation: 12,
 };
-blink.mojom.ConsoleMessageSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: ConsoleMessageCategory
 blink.mojom.ConsoleMessageCategory = {
   Cors: 0,
 };
-blink.mojom.ConsoleMessageCategorySpec = { $: mojo.internal.Enum() };

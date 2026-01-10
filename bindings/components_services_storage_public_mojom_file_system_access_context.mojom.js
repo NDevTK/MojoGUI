@@ -10,50 +10,39 @@ storage.mojom = storage.mojom || {};
 var blink = blink || {};
 var blink = blink || {};
 
+storage.mojom.FileSystemAccessContext = {};
+storage.mojom.FileSystemAccessContext.$interfaceName = 'storage.mojom.FileSystemAccessContext';
+storage.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec = { $: {} };
+storage.mojom.FileSystemAccessContext_SerializeHandle_ResponseParamsSpec = { $: {} };
+storage.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec = { $: {} };
+storage.mojom.FileSystemAccessContext_Clone_ParamsSpec = { $: {} };
 
 // Interface: FileSystemAccessContext
-storage.mojom.FileSystemAccessContext = {};
+mojo.internal.Struct(
+    storage.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec, 'storage.mojom.FileSystemAccessContext_SerializeHandle_Params', [
+      mojo.internal.StructField('token', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-storage.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.FileSystemAccessContext_SerializeHandle_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.FileSystemAccessContext_SerializeHandle_ResponseParamsSpec, 'storage.mojom.FileSystemAccessContext_SerializeHandle_ResponseParams', [
+      mojo.internal.StructField('bits', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-storage.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.FileSystemAccessContext_DeserializeHandle_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
-        { name: 'bits', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.FileSystemAccessTransferTokenRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec, 'storage.mojom.FileSystemAccessContext_DeserializeHandle_Params', [
+      mojo.internal.StructField('storage_key', 0, 0, blink.mojom.StorageKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('bits', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('token', 16, 0, mojo.internal.InterfaceRequest(blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-storage.mojom.FileSystemAccessContext_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.FileSystemAccessContext_Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiever', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(storage.mojom.FileSystemAccessContextRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.FileSystemAccessContext_Clone_ParamsSpec, 'storage.mojom.FileSystemAccessContext_Clone_Params', [
+      mojo.internal.StructField('receiever', 0, 0, mojo.internal.InterfaceRequest(storage.mojom.FileSystemAccessContextRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 storage.mojom.FileSystemAccessContextPendingReceiver = class {
   constructor(handle) {
@@ -126,64 +115,6 @@ storage.mojom.FileSystemAccessContext.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SerializeHandle
-storage.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.FileSystemAccessContext.SerializeHandle_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-storage.mojom.FileSystemAccessContext_SerializeHandle_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.FileSystemAccessContext.SerializeHandle_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'bits', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DeserializeHandle
-storage.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.FileSystemAccessContext.DeserializeHandle_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
-        { name: 'bits', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.FileSystemAccessTransferTokenRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for Clone
-storage.mojom.FileSystemAccessContext_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.FileSystemAccessContext.Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiever', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(storage.mojom.FileSystemAccessContextRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 storage.mojom.FileSystemAccessContextPtr = storage.mojom.FileSystemAccessContextRemote;
 storage.mojom.FileSystemAccessContextRequest = storage.mojom.FileSystemAccessContextPendingReceiver;
 

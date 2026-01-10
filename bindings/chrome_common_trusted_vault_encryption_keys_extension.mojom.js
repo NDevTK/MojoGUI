@@ -8,53 +8,47 @@
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
 
+chrome.mojom.TrustedVaultKeySpec = { $: {} };
+chrome.mojom.TrustedVaultEncryptionKeysExtension = {};
+chrome.mojom.TrustedVaultEncryptionKeysExtension.$interfaceName = 'chrome.mojom.TrustedVaultEncryptionKeysExtension';
+chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec = { $: {} };
+chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ResponseParamsSpec = { $: {} };
+chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ParamsSpec = { $: {} };
+chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ResponseParamsSpec = { $: {} };
 
 // Struct: TrustedVaultKey
-chrome.mojom.TrustedVaultKeySpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.TrustedVaultKey',
-      packedSize: 24,
-      fields: [
-        { name: 'version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.TrustedVaultKeySpec, 'chrome.mojom.TrustedVaultKey', [
+      mojo.internal.StructField('version', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('bytes', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: TrustedVaultEncryptionKeysExtension
-chrome.mojom.TrustedVaultEncryptionKeysExtension = {};
+mojo.internal.Struct(
+    chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec, 'chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_Params', [
+      mojo.internal.StructField('gaia_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('encryption_keys', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Array(chrome.mojom.TrustedVaultKeySpec, false), false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'gaia_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'encryption_keys', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.Array(chrome.mojom.TrustedVaultKeySpec, false), false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ResponseParamsSpec, 'chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'gaia_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'public_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'method_type_hint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ParamsSpec, 'chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_Params', [
+      mojo.internal.StructField('gaia_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('public_key', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('method_type_hint', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ResponseParamsSpec, 'chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 chrome.mojom.TrustedVaultEncryptionKeysExtensionPendingReceiver = class {
   constructor(handle) {
@@ -93,7 +87,7 @@ chrome.mojom.TrustedVaultEncryptionKeysExtensionRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec,
-      null,
+      chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ResponseParamsSpec,
       [gaia_id, encryption_keys]);
   }
 
@@ -102,7 +96,7 @@ chrome.mojom.TrustedVaultEncryptionKeysExtensionRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ParamsSpec,
-      null,
+      chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ResponseParamsSpec,
       [gaia_id, public_key, method_type_hint]);
   }
 
@@ -118,38 +112,6 @@ chrome.mojom.TrustedVaultEncryptionKeysExtension.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetEncryptionKeys
-chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.TrustedVaultEncryptionKeysExtension.SetEncryptionKeys_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'gaia_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'encryption_keys', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.Array(chrome.mojom.TrustedVaultKeySpec, false), false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for AddTrustedRecoveryMethod
-chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.TrustedVaultEncryptionKeysExtension.AddTrustedRecoveryMethod_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'gaia_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'public_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'method_type_hint', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 chrome.mojom.TrustedVaultEncryptionKeysExtensionPtr = chrome.mojom.TrustedVaultEncryptionKeysExtensionRemote;
 chrome.mojom.TrustedVaultEncryptionKeysExtensionRequest = chrome.mojom.TrustedVaultEncryptionKeysExtensionPendingReceiver;
 

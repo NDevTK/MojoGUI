@@ -8,6 +8,11 @@
 var filesystem = filesystem || {};
 filesystem.mojom = filesystem.mojom || {};
 
+filesystem.mojom.WhenceSpec = { $: mojo.internal.Enum() };
+filesystem.mojom.FsFileTypeSpec = { $: mojo.internal.Enum() };
+filesystem.mojom.TimespecOrNowSpec = { $: {} };
+filesystem.mojom.FileInformationSpec = { $: {} };
+filesystem.mojom.DirectoryEntrySpec = { $: {} };
 
 filesystem.mojom.kFlagOpen = 0x1;
 
@@ -37,7 +42,6 @@ filesystem.mojom.Whence = {
   FROM_CURRENT: 1,
   FROM_END: 2,
 };
-filesystem.mojom.WhenceSpec = { $: mojo.internal.Enum() };
 
 // Enum: FsFileType
 filesystem.mojom.FsFileType = {
@@ -45,53 +49,31 @@ filesystem.mojom.FsFileType = {
   REGULAR_FILE: 1,
   DIRECTORY: 2,
 };
-filesystem.mojom.FsFileTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: TimespecOrNow
-filesystem.mojom.TimespecOrNowSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.TimespecOrNow',
-      packedSize: 24,
-      fields: [
-        { name: 'now', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'seconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    filesystem.mojom.TimespecOrNowSpec, 'filesystem.mojom.TimespecOrNow', [
+      mojo.internal.StructField('now', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('seconds', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: FileInformation
-filesystem.mojom.FileInformationSpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.FileInformation',
-      packedSize: 48,
-      fields: [
-        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: filesystem.mojom.FsFileTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'atime', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'mtime', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'ctime', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    filesystem.mojom.FileInformationSpec, 'filesystem.mojom.FileInformation', [
+      mojo.internal.StructField('type', 32, 0, filesystem.mojom.FsFileTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('size', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('atime', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('mtime', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('ctime', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: DirectoryEntry
-filesystem.mojom.DirectoryEntrySpec = {
-  $: {
-    structSpec: {
-      name: 'filesystem.mojom.DirectoryEntry',
-      packedSize: 32,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.SafeBaseNameSpec, nullable: false, minVersion: 0 },
-        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: filesystem.mojom.FsFileTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    filesystem.mojom.DirectoryEntrySpec, 'filesystem.mojom.DirectoryEntry', [
+      mojo.internal.StructField('name', 0, 0, mojo_base.mojom.SafeBaseNameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('display_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('type', 16, 0, filesystem.mojom.FsFileTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);

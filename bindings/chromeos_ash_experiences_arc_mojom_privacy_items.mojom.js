@@ -7,79 +7,58 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
 
+arc.mojom.PrivacyApplicationSpec = { $: {} };
+arc.mojom.PrivacyItemSpec = { $: {} };
+arc.mojom.PrivacyItemsHost = {};
+arc.mojom.PrivacyItemsHost.$interfaceName = 'arc.mojom.PrivacyItemsHost';
+arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_ParamsSpec = { $: {} };
+arc.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_ParamsSpec = { $: {} };
+arc.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_ParamsSpec = { $: {} };
+arc.mojom.PrivacyItemsInstance = {};
+arc.mojom.PrivacyItemsInstance.$interfaceName = 'arc.mojom.PrivacyItemsInstance';
+arc.mojom.PrivacyItemsInstance_Init_ParamsSpec = { $: {} };
+arc.mojom.PrivacyItemsInstance_Init_ResponseParamsSpec = { $: {} };
+arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_ParamsSpec = { $: {} };
 
 // Struct: PrivacyApplication
-arc.mojom.PrivacyApplicationSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PrivacyApplication',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'uid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PrivacyApplicationSpec, 'arc.mojom.PrivacyApplication', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('uid', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: PrivacyItem
-arc.mojom.PrivacyItemSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PrivacyItem',
-      packedSize: 24,
-      fields: [
-        { name: 'permission_group', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.AppPermissionGroupSpec, nullable: false, minVersion: 0 },
-        { name: 'privacy_application', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.PrivacyApplicationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PrivacyItemSpec, 'arc.mojom.PrivacyItem', [
+      mojo.internal.StructField('permission_group', 8, 0, arc.mojom.AppPermissionGroupSpec, null, false, 0, undefined),
+      mojo.internal.StructField('privacy_application', 0, 0, arc.mojom.PrivacyApplicationSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: PrivacyItemsHost
-arc.mojom.PrivacyItemsHost = {};
+mojo.internal.Struct(
+    arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_ParamsSpec, 'arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_Params', [
+      mojo.internal.StructField('privacy_items', 0, 0, mojo.internal.Array(arc.mojom.PrivacyItemSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'privacy_items', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.PrivacyItemSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_ParamsSpec, 'arc.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_Params', [
+      mojo.internal.StructField('flag', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_ParamsSpec, 'arc.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_Params', [
+      mojo.internal.StructField('flag', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.PrivacyItemsHostPendingReceiver = class {
   constructor(handle) {
@@ -152,82 +131,28 @@ arc.mojom.PrivacyItemsHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnPrivacyItemsChanged
-arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PrivacyItemsHost.OnPrivacyItemsChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'privacy_items', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.PrivacyItemSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnMicCameraIndicatorRequirementChanged
-arc.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PrivacyItemsHost.OnMicCameraIndicatorRequirementChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnLocationIndicatorRequirementChanged
-arc.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PrivacyItemsHost.OnLocationIndicatorRequirementChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.PrivacyItemsHostPtr = arc.mojom.PrivacyItemsHostRemote;
 arc.mojom.PrivacyItemsHostRequest = arc.mojom.PrivacyItemsHostPendingReceiver;
 
 
 // Interface: PrivacyItemsInstance
-arc.mojom.PrivacyItemsInstance = {};
+mojo.internal.Struct(
+    arc.mojom.PrivacyItemsInstance_Init_ParamsSpec, 'arc.mojom.PrivacyItemsInstance_Init_Params', [
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.PrivacyItemsHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.PrivacyItemsInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PrivacyItemsInstance_Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.PrivacyItemsHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PrivacyItemsInstance_Init_ResponseParamsSpec, 'arc.mojom.PrivacyItemsInstance_Init_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'displayId', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.RectSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_ParamsSpec, 'arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_Params', [
+      mojo.internal.StructField('displayId', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('bounds', 0, 0, mojo.internal.Array(arc.mojom.RectSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 arc.mojom.PrivacyItemsInstancePendingReceiver = class {
   constructor(handle) {
@@ -266,7 +191,7 @@ arc.mojom.PrivacyItemsInstanceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       arc.mojom.PrivacyItemsInstance_Init_ParamsSpec,
-      null,
+      arc.mojom.PrivacyItemsInstance_Init_ResponseParamsSpec,
       [host_remote]);
   }
 
@@ -291,36 +216,6 @@ arc.mojom.PrivacyItemsInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Init
-arc.mojom.PrivacyItemsInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PrivacyItemsInstance.Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.PrivacyItemsHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnStaticPrivacyIndicatorBoundsChanged
-arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PrivacyItemsInstance.OnStaticPrivacyIndicatorBoundsChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'displayId', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.RectSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.PrivacyItemsInstancePtr = arc.mojom.PrivacyItemsInstanceRemote;
 arc.mojom.PrivacyItemsInstanceRequest = arc.mojom.PrivacyItemsInstancePendingReceiver;
 

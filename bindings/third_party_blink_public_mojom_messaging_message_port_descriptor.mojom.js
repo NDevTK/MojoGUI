@@ -8,19 +8,13 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.MessagePortDescriptorSpec = { $: {} };
 
 // Struct: MessagePortDescriptor
-blink.mojom.MessagePortDescriptorSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MessagePortDescriptor',
-      packedSize: 32,
-      fields: [
-        { name: 'pipe_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'sequence_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MessagePortDescriptorSpec, 'blink.mojom.MessagePortDescriptor', [
+      mojo.internal.StructField('pipe_handle', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('id', 8, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sequence_number', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);

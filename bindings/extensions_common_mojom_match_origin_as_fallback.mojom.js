@@ -8,6 +8,7 @@
 var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
 
+extensions.mojom.MatchOriginAsFallbackBehaviorSpec = { $: mojo.internal.Enum() };
 
 // Enum: MatchOriginAsFallbackBehavior
 extensions.mojom.MatchOriginAsFallbackBehavior = {
@@ -15,4 +16,3 @@ extensions.mojom.MatchOriginAsFallbackBehavior = {
   kMatchForAboutSchemeAndClimbTree: 1,
   kAlways: 2,
 };
-extensions.mojom.MatchOriginAsFallbackBehaviorSpec = { $: mojo.internal.Enum() };

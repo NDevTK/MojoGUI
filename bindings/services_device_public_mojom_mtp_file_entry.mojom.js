@@ -8,35 +8,29 @@
 var device = device || {};
 device.mojom = device.mojom || {};
 
+device.mojom.FileTypeSpec = { $: mojo.internal.Enum() };
+device.mojom.MtpFileEntrySpec = { $: {} };
 
 // Enum: FileType
 device.mojom.FileType = {
   FILE_TYPE_FOLDER: 0,
-  FILE_TYPE_JPEG: 1,
-  FILE_TYPE_JFIF: 2,
-  FILE_TYPE_TIFF: 3,
-  FILE_TYPE_BMP: 4,
-  FILE_TYPE_GIF: 5,
-  FILE_TYPE_PICT: 6,
-  FILE_TYPE_PNG: 7,
-  FILE_TYPE_WINDOWSIMAGEFORMAT: 8,
-  FILE_TYPE_JP2: 9,
-  FILE_TYPE_JPX: 10,
-  FILE_TYPE_UNKNOWN: 11,
-  FILE_TYPE_OTHER: 12,
+  FILE_TYPE_JPEG: 14,
+  FILE_TYPE_JFIF: 15,
+  FILE_TYPE_TIFF: 16,
+  FILE_TYPE_BMP: 17,
+  FILE_TYPE_GIF: 18,
+  FILE_TYPE_PICT: 19,
+  FILE_TYPE_PNG: 20,
+  FILE_TYPE_WINDOWSIMAGEFORMAT: 25,
+  FILE_TYPE_JP2: 40,
+  FILE_TYPE_JPX: 41,
+  FILE_TYPE_UNKNOWN: 44,
+  FILE_TYPE_OTHER: 9999,
 };
-device.mojom.FileTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: MtpFileEntry
-device.mojom.MtpFileEntrySpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.MtpFileEntry',
-      packedSize: 16,
-      fields: [
-        { name: 'FILE_TYPE_FOLDER', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.MtpFileEntrySpec, 'device.mojom.MtpFileEntry', [
+      mojo.internal.StructField('FILE_TYPE_FOLDER', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);

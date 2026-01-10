@@ -8,18 +8,12 @@
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
 
+gfx.mojom.FrameDataSpec = { $: {} };
 
 // Struct: FrameData
-gfx.mojom.FrameDataSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.FrameData',
-      packedSize: 24,
-      fields: [
-        { name: 'seq', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'swap_trace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.FrameDataSpec, 'gfx.mojom.FrameData', [
+      mojo.internal.StructField('seq', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('swap_trace_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);

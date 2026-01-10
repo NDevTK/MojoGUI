@@ -8,23 +8,23 @@
 var updater_ui = updater_ui || {};
 updater_ui.mojom = updater_ui.mojom || {};
 
+updater_ui.mojom.PageHandlerFactory = {};
+updater_ui.mojom.PageHandlerFactory.$interfaceName = 'updater_ui.mojom.PageHandlerFactory';
+updater_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+updater_ui.mojom.PageHandler = {};
+updater_ui.mojom.PageHandler.$interfaceName = 'updater_ui.mojom.PageHandler';
+updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ParamsSpec = { $: {} };
+updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ResponseParamsSpec = { $: {} };
+updater_ui.mojom.Page = {};
+updater_ui.mojom.Page.$interfaceName = 'updater_ui.mojom.Page';
 
 // Interface: PageHandlerFactory
-updater_ui.mojom.PageHandlerFactory = {};
-
-updater_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'updater_ui.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(updater_ui.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(updater_ui.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    updater_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'updater_ui.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(updater_ui.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(updater_ui.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 updater_ui.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -79,40 +79,21 @@ updater_ui.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-updater_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'updater_ui.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(updater_ui.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(updater_ui.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 updater_ui.mojom.PageHandlerFactoryPtr = updater_ui.mojom.PageHandlerFactoryRemote;
 updater_ui.mojom.PageHandlerFactoryRequest = updater_ui.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-updater_ui.mojom.PageHandler = {};
+mojo.internal.Struct(
+    updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ParamsSpec, 'updater_ui.mojom.PageHandler_GetAllUpdaterEvents_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'updater_ui.mojom.PageHandler_GetAllUpdaterEvents_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ResponseParamsSpec, 'updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ResponseParams', [
+      mojo.internal.StructField('events', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 updater_ui.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -167,40 +148,11 @@ updater_ui.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetAllUpdaterEvents
-updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'updater_ui.mojom.PageHandler.GetAllUpdaterEvents_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'updater_ui.mojom.PageHandler.GetAllUpdaterEvents_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 updater_ui.mojom.PageHandlerPtr = updater_ui.mojom.PageHandlerRemote;
 updater_ui.mojom.PageHandlerRequest = updater_ui.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-updater_ui.mojom.Page = {};
-
 updater_ui.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -245,7 +197,6 @@ updater_ui.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 updater_ui.mojom.PagePtr = updater_ui.mojom.PageRemote;
 updater_ui.mojom.PageRequest = updater_ui.mojom.PagePendingReceiver;
 

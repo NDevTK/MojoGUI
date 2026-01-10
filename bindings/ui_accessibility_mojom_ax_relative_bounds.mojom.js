@@ -12,19 +12,13 @@ var gfx = gfx || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+ax.mojom.AXRelativeBoundsSpec = { $: {} };
 
 // Struct: AXRelativeBounds
-ax.mojom.AXRelativeBoundsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AXRelativeBounds',
-      packedSize: 32,
-      fields: [
-        { name: 'offset_container_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-        { name: 'transform', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.AXRelativeBoundsSpec, 'ax.mojom.AXRelativeBounds', [
+      mojo.internal.StructField('offset_container_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('bounds', 0, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('transform', 8, 0, gfx.mojom.TransformSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);

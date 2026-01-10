@@ -8,114 +8,118 @@
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
 
+chrome.mojom.ObfuscatedFileUtilHeaderDataSpec = { $: {} };
+chrome.mojom.SafeArchiveAnalyzer = {};
+chrome.mojom.SafeArchiveAnalyzer.$interfaceName = 'chrome.mojom.SafeArchiveAnalyzer';
+chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec = { $: {} };
+chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec = { $: {} };
+chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec = { $: {} };
+chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec = { $: {} };
+chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec = { $: {} };
+chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec = { $: {} };
+chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec = { $: {} };
+chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec = { $: {} };
+chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec = { $: {} };
+chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec = { $: {} };
+chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec = { $: {} };
+chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec = { $: {} };
+chrome.mojom.TemporaryFileGetter = {};
+chrome.mojom.TemporaryFileGetter.$interfaceName = 'chrome.mojom.TemporaryFileGetter';
+chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec = { $: {} };
+chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec = { $: {} };
 
 // Struct: ObfuscatedFileUtilHeaderData
-chrome.mojom.ObfuscatedFileUtilHeaderDataSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ObfuscatedFileUtilHeaderData',
-      packedSize: 24,
-      fields: [
-        { name: 'derived_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
-        { name: 'nonce_prefix', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ObfuscatedFileUtilHeaderDataSpec, 'chrome.mojom.ObfuscatedFileUtilHeaderData', [
+      mojo.internal.StructField('derived_key', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('nonce_prefix', 8, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: SafeArchiveAnalyzer
-chrome.mojom.SafeArchiveAnalyzer = {};
+mojo.internal.Struct(
+    chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_Params', [
+      mojo.internal.StructField('zip_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('password', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('temp_file_getter', 16, 0, mojo.internal.InterfaceProxy(chrome.mojom.TemporaryFileGetterRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'zip_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'temp_file_getter', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome.mojom.TemporaryFileGetterRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParams', [
+      mojo.internal.StructField('results', 0, 0, chrome.mojom.SafeArchiveAnalyzerResultsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'dmg_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'temp_file_getter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome.mojom.TemporaryFileGetterRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_Params', [
+      mojo.internal.StructField('dmg_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('temp_file_getter', 8, 0, mojo.internal.InterfaceProxy(chrome.mojom.TemporaryFileGetterRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'rar_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'temp_file_getter', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome.mojom.TemporaryFileGetterRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParams', [
+      mojo.internal.StructField('results', 0, 0, chrome.mojom.SafeArchiveAnalyzerResultsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'seven_zip_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'temp_file_getter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome.mojom.TemporaryFileGetterRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_Params', [
+      mojo.internal.StructField('rar_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('password', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('temp_file_getter', 16, 0, mojo.internal.InterfaceProxy(chrome.mojom.TemporaryFileGetterRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'zip_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'header_data', packedOffset: 16, packedBitOffset: 0, type: chrome.mojom.ObfuscatedFileUtilHeaderDataSpec, nullable: false, minVersion: 0 },
-        { name: 'temp_file_getter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome.mojom.TemporaryFileGetterRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParams', [
+      mojo.internal.StructField('results', 0, 0, chrome.mojom.SafeArchiveAnalyzerResultsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'rar_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'header_data', packedOffset: 16, packedBitOffset: 0, type: chrome.mojom.ObfuscatedFileUtilHeaderDataSpec, nullable: false, minVersion: 0 },
-        { name: 'temp_file_getter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome.mojom.TemporaryFileGetterRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_Params', [
+      mojo.internal.StructField('seven_zip_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('temp_file_getter', 8, 0, mojo.internal.InterfaceProxy(chrome.mojom.TemporaryFileGetterRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParams', [
+      mojo.internal.StructField('results', 0, 0, chrome.mojom.SafeArchiveAnalyzerResultsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_Params', [
+      mojo.internal.StructField('zip_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('password', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('header_data', 16, 0, chrome.mojom.ObfuscatedFileUtilHeaderDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('temp_file_getter', 24, 0, mojo.internal.InterfaceProxy(chrome.mojom.TemporaryFileGetterRemote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParams', [
+      mojo.internal.StructField('results', 0, 0, chrome.mojom.SafeArchiveAnalyzerResultsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_Params', [
+      mojo.internal.StructField('rar_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('password', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('header_data', 16, 0, chrome.mojom.ObfuscatedFileUtilHeaderDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('temp_file_getter', 24, 0, mojo.internal.InterfaceProxy(chrome.mojom.TemporaryFileGetterRemote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParams', [
+      mojo.internal.StructField('results', 0, 0, chrome.mojom.SafeArchiveAnalyzerResultsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chrome.mojom.SafeArchiveAnalyzerPendingReceiver = class {
   constructor(handle) {
@@ -215,199 +219,21 @@ chrome.mojom.SafeArchiveAnalyzer.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AnalyzeZipFile
-chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeZipFile_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'zip_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'temp_file_getter', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome.mojom.TemporaryFileGetterRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeZipFile_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.SafeArchiveAnalyzerResultsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AnalyzeDmgFile
-chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeDmgFile_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'dmg_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'temp_file_getter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome.mojom.TemporaryFileGetterRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeDmgFile_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.SafeArchiveAnalyzerResultsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AnalyzeRarFile
-chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeRarFile_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'rar_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'temp_file_getter', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome.mojom.TemporaryFileGetterRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeRarFile_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.SafeArchiveAnalyzerResultsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AnalyzeSevenZipFile
-chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeSevenZipFile_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'seven_zip_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'temp_file_getter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome.mojom.TemporaryFileGetterRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeSevenZipFile_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.SafeArchiveAnalyzerResultsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AnalyzeObfuscatedZipFile
-chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeObfuscatedZipFile_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'zip_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'header_data', packedOffset: 16, packedBitOffset: 0, type: chrome.mojom.ObfuscatedFileUtilHeaderDataSpec, nullable: false, minVersion: 0 },
-        { name: 'temp_file_getter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome.mojom.TemporaryFileGetterRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeObfuscatedZipFile_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.SafeArchiveAnalyzerResultsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AnalyzeObfuscatedRarFile
-chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeObfuscatedRarFile_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'rar_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'header_data', packedOffset: 16, packedBitOffset: 0, type: chrome.mojom.ObfuscatedFileUtilHeaderDataSpec, nullable: false, minVersion: 0 },
-        { name: 'temp_file_getter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome.mojom.TemporaryFileGetterRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeObfuscatedRarFile_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.SafeArchiveAnalyzerResultsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chrome.mojom.SafeArchiveAnalyzerPtr = chrome.mojom.SafeArchiveAnalyzerRemote;
 chrome.mojom.SafeArchiveAnalyzerRequest = chrome.mojom.SafeArchiveAnalyzerPendingReceiver;
 
 
 // Interface: TemporaryFileGetter
-chrome.mojom.TemporaryFileGetter = {};
+mojo.internal.Struct(
+    chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec, 'chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec, 'chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParams', [
+      mojo.internal.StructField('temp_file', 0, 0, mojo_base.mojom.FileSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chrome.mojom.TemporaryFileGetterPendingReceiver = class {
   constructor(handle) {
@@ -462,33 +288,6 @@ chrome.mojom.TemporaryFileGetter.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RequestTemporaryFile
-chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.TemporaryFileGetter.RequestTemporaryFile_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.TemporaryFileGetter.RequestTemporaryFile_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'temp_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chrome.mojom.TemporaryFileGetterPtr = chrome.mojom.TemporaryFileGetterRemote;
 chrome.mojom.TemporaryFileGetterRequest = chrome.mojom.TemporaryFileGetterPendingReceiver;
 

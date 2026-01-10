@@ -8,23 +8,17 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.ModelDownloadProgressObserver = {};
+blink.mojom.ModelDownloadProgressObserver.$interfaceName = 'blink.mojom.ModelDownloadProgressObserver';
+blink.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_ParamsSpec = { $: {} };
 
 // Interface: ModelDownloadProgressObserver
-blink.mojom.ModelDownloadProgressObserver = {};
-
-blink.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'downloaded_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'total_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_ParamsSpec, 'blink.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_Params', [
+      mojo.internal.StructField('downloaded_bytes', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('total_bytes', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.ModelDownloadProgressObserverPendingReceiver = class {
   constructor(handle) {
@@ -79,22 +73,6 @@ blink.mojom.ModelDownloadProgressObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnDownloadProgressUpdate
-blink.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ModelDownloadProgressObserver.OnDownloadProgressUpdate_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'downloaded_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'total_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.ModelDownloadProgressObserverPtr = blink.mojom.ModelDownloadProgressObserverRemote;
 blink.mojom.ModelDownloadProgressObserverRequest = blink.mojom.ModelDownloadProgressObserverPendingReceiver;
 

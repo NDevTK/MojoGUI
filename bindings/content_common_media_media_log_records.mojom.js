@@ -8,22 +8,16 @@
 var content = content || {};
 content.mojom = content.mojom || {};
 
+content.mojom.MediaInternalLogRecords = {};
+content.mojom.MediaInternalLogRecords.$interfaceName = 'content.mojom.MediaInternalLogRecords';
+content.mojom.MediaInternalLogRecords_Log_ParamsSpec = { $: {} };
 
 // Interface: MediaInternalLogRecords
-content.mojom.MediaInternalLogRecords = {};
-
-content.mojom.MediaInternalLogRecords_Log_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MediaInternalLogRecords_Log_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.MediaLogRecordSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MediaInternalLogRecords_Log_ParamsSpec, 'content.mojom.MediaInternalLogRecords_Log_Params', [
+      mojo.internal.StructField('events', 0, 0, mojo.internal.Array(media.mojom.MediaLogRecordSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 content.mojom.MediaInternalLogRecordsPendingReceiver = class {
   constructor(handle) {
@@ -78,21 +72,6 @@ content.mojom.MediaInternalLogRecords.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Log
-content.mojom.MediaInternalLogRecords_Log_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MediaInternalLogRecords.Log_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.MediaLogRecordSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.MediaInternalLogRecordsPtr = content.mojom.MediaInternalLogRecordsRemote;
 content.mojom.MediaInternalLogRecordsRequest = content.mojom.MediaInternalLogRecordsPendingReceiver;
 

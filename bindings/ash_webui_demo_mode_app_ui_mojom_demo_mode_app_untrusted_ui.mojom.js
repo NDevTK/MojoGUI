@@ -9,22 +9,20 @@ var ash = ash || {};
 ash.mojom = ash.mojom || {};
 ash.mojom.demo_mode = ash.mojom.demo_mode || {};
 
+ash.mojom.demo_mode.UntrustedPageHandlerFactory = {};
+ash.mojom.demo_mode.UntrustedPageHandlerFactory.$interfaceName = 'ash.mojom.demo_mode.UntrustedPageHandlerFactory';
+ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+ash.mojom.demo_mode.UntrustedPageHandler = {};
+ash.mojom.demo_mode.UntrustedPageHandler.$interfaceName = 'ash.mojom.demo_mode.UntrustedPageHandler';
+ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec = { $: {} };
+ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec = { $: {} };
 
 // Interface: UntrustedPageHandlerFactory
-ash.mojom.demo_mode.UntrustedPageHandlerFactory = {};
-
-ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.mojom.demo_mode.UntrustedPageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.mojom.demo_mode.UntrustedPageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.mojom.demo_mode.UntrustedPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -79,52 +77,21 @@ ash.mojom.demo_mode.UntrustedPageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.demo_mode.UntrustedPageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.mojom.demo_mode.UntrustedPageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.mojom.demo_mode.UntrustedPageHandlerFactoryPtr = ash.mojom.demo_mode.UntrustedPageHandlerFactoryRemote;
 ash.mojom.demo_mode.UntrustedPageHandlerFactoryRequest = ash.mojom.demo_mode.UntrustedPageHandlerFactoryPendingReceiver;
 
 
 // Interface: UntrustedPageHandler
-ash.mojom.demo_mode.UntrustedPageHandler = {};
+mojo.internal.Struct(
+    ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec, 'ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec, 'ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_Params', [
+      mojo.internal.StructField('app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.mojom.demo_mode.UntrustedPageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -188,34 +155,6 @@ ash.mojom.demo_mode.UntrustedPageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ToggleFullscreen
-ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.demo_mode.UntrustedPageHandler.ToggleFullscreen_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for LaunchApp
-ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.demo_mode.UntrustedPageHandler.LaunchApp_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.mojom.demo_mode.UntrustedPageHandlerPtr = ash.mojom.demo_mode.UntrustedPageHandlerRemote;
 ash.mojom.demo_mode.UntrustedPageHandlerRequest = ash.mojom.demo_mode.UntrustedPageHandlerPendingReceiver;
 

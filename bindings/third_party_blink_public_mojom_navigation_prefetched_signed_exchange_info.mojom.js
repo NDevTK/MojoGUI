@@ -7,37 +7,28 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 var url = url || {};
 
+blink.mojom.SHA256HashValueSpec = { $: {} };
+blink.mojom.PrefetchedSignedExchangeInfoSpec = { $: {} };
 
 // Struct: SHA256HashValue
-blink.mojom.SHA256HashValueSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SHA256HashValue',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SHA256HashValueSpec, 'blink.mojom.SHA256HashValue', [
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: PrefetchedSignedExchangeInfo
-blink.mojom.PrefetchedSignedExchangeInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PrefetchedSignedExchangeInfo',
-      packedSize: 48,
-      fields: [
-        { name: 'outer_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'header_integrity', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SHA256HashValueSpec, nullable: false, minVersion: 0 },
-        { name: 'inner_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'inner_response', packedOffset: 24, packedBitOffset: 0, type: network.mojom.URLResponseHeadSpec, nullable: false, minVersion: 0 },
-        { name: 'loader_factory_handle', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.URLLoaderFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PrefetchedSignedExchangeInfoSpec, 'blink.mojom.PrefetchedSignedExchangeInfo', [
+      mojo.internal.StructField('outer_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('header_integrity', 8, 0, blink.mojom.SHA256HashValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('inner_url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('inner_response', 24, 0, network.mojom.URLResponseHeadSpec, null, false, 0, undefined),
+      mojo.internal.StructField('loader_factory_handle', 32, 0, mojo.internal.InterfaceProxy(network.mojom.URLLoaderFactoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 48]]);

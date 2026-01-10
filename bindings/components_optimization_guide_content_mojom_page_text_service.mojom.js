@@ -8,56 +8,41 @@
 var optimization_guide = optimization_guide || {};
 optimization_guide.mojom = optimization_guide.mojom || {};
 
+optimization_guide.mojom.TextDumpEventSpec = { $: mojo.internal.Enum() };
+optimization_guide.mojom.PageTextDumpRequestSpec = { $: {} };
+optimization_guide.mojom.PageTextConsumer = {};
+optimization_guide.mojom.PageTextConsumer.$interfaceName = 'optimization_guide.mojom.PageTextConsumer';
+optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec = { $: {} };
+optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec = { $: {} };
+optimization_guide.mojom.PageTextService = {};
+optimization_guide.mojom.PageTextService.$interfaceName = 'optimization_guide.mojom.PageTextService';
+optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec = { $: {} };
 
 // Enum: TextDumpEvent
 optimization_guide.mojom.TextDumpEvent = {
   kFirstLayout: 0,
   kFinishedLoad: 1,
 };
-optimization_guide.mojom.TextDumpEventSpec = { $: mojo.internal.Enum() };
 
 // Struct: PageTextDumpRequest
-optimization_guide.mojom.PageTextDumpRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'optimization_guide.mojom.PageTextDumpRequest',
-      packedSize: 16,
-      fields: [
-        { name: 'max_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'event', packedOffset: 4, packedBitOffset: 0, type: optimization_guide.mojom.TextDumpEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    optimization_guide.mojom.PageTextDumpRequestSpec, 'optimization_guide.mojom.PageTextDumpRequest', [
+      mojo.internal.StructField('max_size', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('event', 4, 0, optimization_guide.mojom.TextDumpEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: PageTextConsumer
-optimization_guide.mojom.PageTextConsumer = {};
+mojo.internal.Struct(
+    optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec, 'optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_Params', [
+      mojo.internal.StructField('chunk', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'chunk', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'optimization_guide.mojom.PageTextConsumer_OnChunksEnd_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec, 'optimization_guide.mojom.PageTextConsumer_OnChunksEnd_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 optimization_guide.mojom.PageTextConsumerPendingReceiver = class {
   constructor(handle) {
@@ -121,54 +106,17 @@ optimization_guide.mojom.PageTextConsumer.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnTextDumpChunk
-optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'optimization_guide.mojom.PageTextConsumer.OnTextDumpChunk_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'chunk', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnChunksEnd
-optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'optimization_guide.mojom.PageTextConsumer.OnChunksEnd_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 optimization_guide.mojom.PageTextConsumerPtr = optimization_guide.mojom.PageTextConsumerRemote;
 optimization_guide.mojom.PageTextConsumerRequest = optimization_guide.mojom.PageTextConsumerPendingReceiver;
 
 
 // Interface: PageTextService
-optimization_guide.mojom.PageTextService = {};
-
-optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'optimization_guide.mojom.PageTextService_RequestPageTextDump_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: optimization_guide.mojom.PageTextDumpRequestSpec, nullable: false, minVersion: 0 },
-        { name: 'consumer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(optimization_guide.mojom.PageTextConsumerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec, 'optimization_guide.mojom.PageTextService_RequestPageTextDump_Params', [
+      mojo.internal.StructField('request', 0, 0, optimization_guide.mojom.PageTextDumpRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('consumer', 8, 0, mojo.internal.InterfaceProxy(optimization_guide.mojom.PageTextConsumerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 optimization_guide.mojom.PageTextServicePendingReceiver = class {
   constructor(handle) {
@@ -223,22 +171,6 @@ optimization_guide.mojom.PageTextService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RequestPageTextDump
-optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'optimization_guide.mojom.PageTextService.RequestPageTextDump_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: optimization_guide.mojom.PageTextDumpRequestSpec, nullable: false, minVersion: 0 },
-        { name: 'consumer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(optimization_guide.mojom.PageTextConsumerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 optimization_guide.mojom.PageTextServicePtr = optimization_guide.mojom.PageTextServiceRemote;
 optimization_guide.mojom.PageTextServiceRequest = optimization_guide.mojom.PageTextServicePendingReceiver;
 

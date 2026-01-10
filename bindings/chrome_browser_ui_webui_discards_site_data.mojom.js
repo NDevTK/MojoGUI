@@ -8,128 +8,94 @@
 var discards = discards || {};
 discards.mojom = discards.mojom || {};
 
+discards.mojom.SiteDataFeatureSpec = { $: {} };
+discards.mojom.SiteDataPerformanceMeasurementSpec = { $: {} };
+discards.mojom.SiteDataDatabaseSizeSpec = { $: {} };
+discards.mojom.SiteDataValueSpec = { $: {} };
+discards.mojom.SiteDataEntrySpec = { $: {} };
+discards.mojom.SiteDataArraySpec = { $: {} };
+discards.mojom.SiteDataProvider = {};
+discards.mojom.SiteDataProvider.$interfaceName = 'discards.mojom.SiteDataProvider';
+discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec = { $: {} };
+discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec = { $: {} };
+discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec = { $: {} };
+discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec = { $: {} };
 
 // Struct: SiteDataFeature
-discards.mojom.SiteDataFeatureSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.SiteDataFeature',
-      packedSize: 24,
-      fields: [
-        { name: 'observation_duration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'use_timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.SiteDataFeatureSpec, 'discards.mojom.SiteDataFeature', [
+      mojo.internal.StructField('observation_duration', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('use_timestamp', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: SiteDataPerformanceMeasurement
-discards.mojom.SiteDataPerformanceMeasurementSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.SiteDataPerformanceMeasurement',
-      packedSize: 24,
-      fields: [
-        { name: 'avg_cpu_usage_us', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'avg_footprint_kb', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'avg_load_duration_us', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.SiteDataPerformanceMeasurementSpec, 'discards.mojom.SiteDataPerformanceMeasurement', [
+      mojo.internal.StructField('avg_cpu_usage_us', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('avg_footprint_kb', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('avg_load_duration_us', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: SiteDataDatabaseSize
-discards.mojom.SiteDataDatabaseSizeSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.SiteDataDatabaseSize',
-      packedSize: 24,
-      fields: [
-        { name: 'num_rows', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'on_disk_size_kb', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.SiteDataDatabaseSizeSpec, 'discards.mojom.SiteDataDatabaseSize', [
+      mojo.internal.StructField('num_rows', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('on_disk_size_kb', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: SiteDataValue
-discards.mojom.SiteDataValueSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.SiteDataValue',
-      packedSize: 48,
-      fields: [
-        { name: 'last_loaded', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'updates_favicon_in_background', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.SiteDataFeatureSpec, nullable: false, minVersion: 0 },
-        { name: 'updates_title_in_background', packedOffset: 8, packedBitOffset: 0, type: discards.mojom.SiteDataFeatureSpec, nullable: false, minVersion: 0 },
-        { name: 'uses_audio_in_background', packedOffset: 16, packedBitOffset: 0, type: discards.mojom.SiteDataFeatureSpec, nullable: false, minVersion: 0 },
-        { name: 'load_time_estimates', packedOffset: 24, packedBitOffset: 0, type: discards.mojom.SiteDataPerformanceMeasurementSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.SiteDataValueSpec, 'discards.mojom.SiteDataValue', [
+      mojo.internal.StructField('last_loaded', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('updates_favicon_in_background', 0, 0, discards.mojom.SiteDataFeatureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('updates_title_in_background', 8, 0, discards.mojom.SiteDataFeatureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('uses_audio_in_background', 16, 0, discards.mojom.SiteDataFeatureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('load_time_estimates', 24, 0, discards.mojom.SiteDataPerformanceMeasurementSpec, null, true, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: SiteDataEntry
-discards.mojom.SiteDataEntrySpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.SiteDataEntry',
-      packedSize: 32,
-      fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_dirty', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: discards.mojom.SiteDataValueSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.SiteDataEntrySpec, 'discards.mojom.SiteDataEntry', [
+      mojo.internal.StructField('origin', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_dirty', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, discards.mojom.SiteDataValueSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: SiteDataArray
-discards.mojom.SiteDataArraySpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.SiteDataArray',
-      packedSize: 16,
-      fields: [
-        { name: 'db_rows', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(discards.mojom.SiteDataEntrySpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.SiteDataArraySpec, 'discards.mojom.SiteDataArray', [
+      mojo.internal.StructField('db_rows', 0, 0, mojo.internal.Array(discards.mojom.SiteDataEntrySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: SiteDataProvider
-discards.mojom.SiteDataProvider = {};
+mojo.internal.Struct(
+    discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec, 'discards.mojom.SiteDataProvider_GetSiteDataArray_Params', [
+      mojo.internal.StructField('explicitly_requested_origins', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.SiteDataProvider_GetSiteDataArray_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'explicitly_requested_origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec, 'discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, discards.mojom.SiteDataArraySpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec, 'discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec, 'discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParams', [
+      mojo.internal.StructField('db_size', 0, 0, discards.mojom.SiteDataDatabaseSizeSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 discards.mojom.SiteDataProviderPendingReceiver = class {
   constructor(handle) {
@@ -193,60 +159,6 @@ discards.mojom.SiteDataProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetSiteDataArray
-discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.SiteDataProvider.GetSiteDataArray_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'explicitly_requested_origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.SiteDataProvider.GetSiteDataArray_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.SiteDataArraySpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetSiteDataDatabaseSize
-discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.SiteDataProvider.GetSiteDataDatabaseSize_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.SiteDataProvider.GetSiteDataDatabaseSize_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'db_size', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.SiteDataDatabaseSizeSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 discards.mojom.SiteDataProviderPtr = discards.mojom.SiteDataProviderRemote;
 discards.mojom.SiteDataProviderRequest = discards.mojom.SiteDataProviderPendingReceiver;
 

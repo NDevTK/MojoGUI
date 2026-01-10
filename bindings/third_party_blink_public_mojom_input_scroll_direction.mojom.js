@@ -8,6 +8,7 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.ScrollDirectionSpec = { $: mojo.internal.Enum() };
 
 // Enum: ScrollDirection
 blink.mojom.ScrollDirection = {
@@ -20,4 +21,3 @@ blink.mojom.ScrollDirection = {
   kScrollInlineDirectionBackward: 6,
   kScrollInlineDirectionForward: 7,
 };
-blink.mojom.ScrollDirectionSpec = { $: mojo.internal.Enum() };

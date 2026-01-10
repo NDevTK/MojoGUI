@@ -8,10 +8,14 @@
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
+arc.mojom.SharesheetHost = {};
+arc.mojom.SharesheetHost.$interfaceName = 'arc.mojom.SharesheetHost';
+arc.mojom.SharesheetInstance = {};
+arc.mojom.SharesheetInstance.$interfaceName = 'arc.mojom.SharesheetInstance';
+arc.mojom.SharesheetInstance_Init_ParamsSpec = { $: {} };
+arc.mojom.SharesheetInstance_Init_ResponseParamsSpec = { $: {} };
 
 // Interface: SharesheetHost
-arc.mojom.SharesheetHost = {};
-
 arc.mojom.SharesheetHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -56,26 +60,21 @@ arc.mojom.SharesheetHost.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 arc.mojom.SharesheetHostPtr = arc.mojom.SharesheetHostRemote;
 arc.mojom.SharesheetHostRequest = arc.mojom.SharesheetHostPendingReceiver;
 
 
 // Interface: SharesheetInstance
-arc.mojom.SharesheetInstance = {};
+mojo.internal.Struct(
+    arc.mojom.SharesheetInstance_Init_ParamsSpec, 'arc.mojom.SharesheetInstance_Init_Params', [
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.SharesheetHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.SharesheetInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.SharesheetInstance_Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.SharesheetHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.SharesheetInstance_Init_ResponseParamsSpec, 'arc.mojom.SharesheetInstance_Init_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 arc.mojom.SharesheetInstancePendingReceiver = class {
   constructor(handle) {
@@ -114,7 +113,7 @@ arc.mojom.SharesheetInstanceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       arc.mojom.SharesheetInstance_Init_ParamsSpec,
-      null,
+      arc.mojom.SharesheetInstance_Init_ResponseParamsSpec,
       [host_remote]);
   }
 
@@ -130,21 +129,6 @@ arc.mojom.SharesheetInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Init
-arc.mojom.SharesheetInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.SharesheetInstance.Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.SharesheetHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.SharesheetInstancePtr = arc.mojom.SharesheetInstanceRemote;
 arc.mojom.SharesheetInstanceRequest = arc.mojom.SharesheetInstancePendingReceiver;
 

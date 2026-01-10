@@ -8,6 +8,17 @@
 var sensor = sensor || {};
 sensor.mojom = sensor.mojom || {};
 
+sensor.mojom.SensorTypeSpec = { $: mojo.internal.Enum() };
+sensor.mojom.SensorUpdateInfoSpec = { $: {} };
+sensor.mojom.NonLidAngleUpdateInfoSpec = { $: {} };
+sensor.mojom.LidAngleUpdateInfoSpec = { $: {} };
+sensor.mojom.PageHandlerFactory = {};
+sensor.mojom.PageHandlerFactory.$interfaceName = 'sensor.mojom.PageHandlerFactory';
+sensor.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+sensor.mojom.PageHandler = {};
+sensor.mojom.PageHandler.$interfaceName = 'sensor.mojom.PageHandler';
+sensor.mojom.PageHandler_StartRecordingUpdate_ParamsSpec = { $: {} };
+sensor.mojom.PageHandler_StopRecordingUpdate_ParamsSpec = { $: {} };
 
 // Enum: SensorType
 sensor.mojom.SensorType = {
@@ -18,69 +29,46 @@ sensor.mojom.SensorType = {
   kGyroscopeLid: 4,
   kSensorTypeCount: 5,
 };
-sensor.mojom.SensorTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: SensorUpdateInfo
-sensor.mojom.SensorUpdateInfoSpec = { $: mojo.internal.Union(
-    'sensor.mojom.SensorUpdateInfo', {
+mojo.internal.Union(
+    sensor.mojom.SensorUpdateInfoSpec, 'sensor.mojom.SensorUpdateInfo', {
       'lid_angle_update_info': {
         'ordinal': 0,
         'type': sensor.mojom.LidAngleUpdateInfoSpec,
-      }},
+        'nullable': false,
+      },
       'update_info': {
         'ordinal': 1,
         'type': sensor.mojom.NonLidAngleUpdateInfoSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: NonLidAngleUpdateInfo
-sensor.mojom.NonLidAngleUpdateInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'sensor.mojom.NonLidAngleUpdateInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'sensor_type', packedOffset: 0, packedBitOffset: 0, type: sensor.mojom.SensorTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'x', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'y', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'z', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    sensor.mojom.NonLidAngleUpdateInfoSpec, 'sensor.mojom.NonLidAngleUpdateInfo', [
+      mojo.internal.StructField('sensor_type', 0, 0, sensor.mojom.SensorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('x', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('y', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('z', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: LidAngleUpdateInfo
-sensor.mojom.LidAngleUpdateInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'sensor.mojom.LidAngleUpdateInfo',
-      packedSize: 16,
-      fields: [
-        { name: 'sensor_type', packedOffset: 0, packedBitOffset: 0, type: sensor.mojom.SensorTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'x', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    sensor.mojom.LidAngleUpdateInfoSpec, 'sensor.mojom.LidAngleUpdateInfo', [
+      mojo.internal.StructField('sensor_type', 0, 0, sensor.mojom.SensorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('x', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: PageHandlerFactory
-sensor.mojom.PageHandlerFactory = {};
-
-sensor.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sensor.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(sensor.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    sensor.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'sensor.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(sensor.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 sensor.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -135,51 +123,20 @@ sensor.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-sensor.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sensor.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(sensor.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 sensor.mojom.PageHandlerFactoryPtr = sensor.mojom.PageHandlerFactoryRemote;
 sensor.mojom.PageHandlerFactoryRequest = sensor.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-sensor.mojom.PageHandler = {};
+mojo.internal.Struct(
+    sensor.mojom.PageHandler_StartRecordingUpdate_ParamsSpec, 'sensor.mojom.PageHandler_StartRecordingUpdate_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-sensor.mojom.PageHandler_StartRecordingUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sensor.mojom.PageHandler_StartRecordingUpdate_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-sensor.mojom.PageHandler_StopRecordingUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sensor.mojom.PageHandler_StopRecordingUpdate_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    sensor.mojom.PageHandler_StopRecordingUpdate_ParamsSpec, 'sensor.mojom.PageHandler_StopRecordingUpdate_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 sensor.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -243,33 +200,6 @@ sensor.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for StartRecordingUpdate
-sensor.mojom.PageHandler_StartRecordingUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sensor.mojom.PageHandler.StartRecordingUpdate_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for StopRecordingUpdate
-sensor.mojom.PageHandler_StopRecordingUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sensor.mojom.PageHandler.StopRecordingUpdate_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 sensor.mojom.PageHandlerPtr = sensor.mojom.PageHandlerRemote;
 sensor.mojom.PageHandlerRequest = sensor.mojom.PageHandlerPendingReceiver;
 

@@ -7,19 +7,14 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
 
+network.mojom.AddressListSpec = { $: {} };
 
 // Struct: AddressList
-network.mojom.AddressListSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.AddressList',
-      packedSize: 24,
-      fields: [
-        { name: 'addresses', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.IPEndPointSpec, false), nullable: false, minVersion: 0 },
-        { name: 'dns_aliases', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.AddressListSpec, 'network.mojom.AddressList', [
+      mojo.internal.StructField('addresses', 0, 0, mojo.internal.Array(network.mojom.IPEndPointSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('dns_aliases', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);

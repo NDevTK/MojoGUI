@@ -7,29 +7,123 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
 
+arc.mojom.WindowSizeTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.InstallPrioritySpec = { $: mojo.internal.Enum() };
+arc.mojom.ShowPackageInfoPageSpec = { $: mojo.internal.Enum() };
+arc.mojom.AppDiscoveryRequestStateSpec = { $: mojo.internal.Enum() };
+arc.mojom.AppShortcutItemTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.PaiFlowStateSpec = { $: mojo.internal.Enum() };
+arc.mojom.AppCategorySpec = { $: mojo.internal.Enum() };
+arc.mojom.InstallationResultSpec = { $: {} };
+arc.mojom.AppStorageSpec = { $: {} };
+arc.mojom.AppInfoSpec = { $: {} };
+arc.mojom.WebAppInfoSpec = { $: {} };
+arc.mojom.WindowLayoutSpec = { $: {} };
+arc.mojom.PackageLocaleInfoSpec = { $: {} };
+arc.mojom.ArcPackageInfoSpec = { $: {} };
+arc.mojom.ShortcutInfoSpec = { $: {} };
+arc.mojom.RawIconPngDataSpec = { $: {} };
+arc.mojom.WindowInfoSpec = { $: {} };
+arc.mojom.AppDiscoveryResultSpec = { $: {} };
+arc.mojom.AppShortcutItemSpec = { $: {} };
+arc.mojom.AppHost = {};
+arc.mojom.AppHost.$interfaceName = 'arc.mojom.AppHost';
+arc.mojom.AppHost_OnAppAddedDeprecated_ParamsSpec = { $: {} };
+arc.mojom.AppHost_OnAppListRefreshed_ParamsSpec = { $: {} };
+arc.mojom.AppHost_OnPackageAdded_ParamsSpec = { $: {} };
+arc.mojom.AppHost_OnPackageAppListRefreshed_ParamsSpec = { $: {} };
+arc.mojom.AppHost_OnPackageListRefreshed_ParamsSpec = { $: {} };
+arc.mojom.AppHost_OnPackageModified_ParamsSpec = { $: {} };
+arc.mojom.AppHost_OnPackageRemoved_ParamsSpec = { $: {} };
+arc.mojom.AppHost_OnTaskCreated_ParamsSpec = { $: {} };
+arc.mojom.AppHost_OnTaskDescriptionUpdated_ParamsSpec = { $: {} };
+arc.mojom.AppHost_OnTaskDescriptionChanged_ParamsSpec = { $: {} };
+arc.mojom.AppHost_OnTaskDestroyed_ParamsSpec = { $: {} };
+arc.mojom.AppHost_OnTaskSetActive_ParamsSpec = { $: {} };
+arc.mojom.AppHost_OnNotificationsEnabledChanged_ParamsSpec = { $: {} };
+arc.mojom.AppHost_OnInstallShortcut_ParamsSpec = { $: {} };
+arc.mojom.AppHost_OnInstallationStarted_ParamsSpec = { $: {} };
+arc.mojom.AppHost_OnInstallationFinished_ParamsSpec = { $: {} };
+arc.mojom.AppHost_OnUninstallShortcut_ParamsSpec = { $: {} };
+arc.mojom.AppHost_OnInstallationProgressChanged_ParamsSpec = { $: {} };
+arc.mojom.AppHost_OnInstallationActiveChanged_ParamsSpec = { $: {} };
+arc.mojom.AppInstance = {};
+arc.mojom.AppInstance.$interfaceName = 'arc.mojom.AppInstance';
+arc.mojom.AppInstance_Init_ParamsSpec = { $: {} };
+arc.mojom.AppInstance_Init_ResponseParamsSpec = { $: {} };
+arc.mojom.AppInstance_CloseTask_ParamsSpec = { $: {} };
+arc.mojom.AppInstance_InstallPackage_ParamsSpec = { $: {} };
+arc.mojom.AppInstance_LaunchAppWithWindowInfo_ParamsSpec = { $: {} };
+arc.mojom.AppInstance_LaunchAppShortcutItem_ParamsSpec = { $: {} };
+arc.mojom.AppInstance_LaunchIntentWithWindowInfo_ParamsSpec = { $: {} };
+arc.mojom.AppInstance_UpdateWindowInfo_ParamsSpec = { $: {} };
+arc.mojom.AppInstance_RequestAppIcon_ParamsSpec = { $: {} };
+arc.mojom.AppInstance_RequestAppIcon_ResponseParamsSpec = { $: {} };
+arc.mojom.AppInstance_GetAppIcon_ParamsSpec = { $: {} };
+arc.mojom.AppInstance_GetAppIcon_ResponseParamsSpec = { $: {} };
+arc.mojom.AppInstance_RequestShortcutIcon_ParamsSpec = { $: {} };
+arc.mojom.AppInstance_RequestShortcutIcon_ResponseParamsSpec = { $: {} };
+arc.mojom.AppInstance_GetAppShortcutIcon_ParamsSpec = { $: {} };
+arc.mojom.AppInstance_GetAppShortcutIcon_ResponseParamsSpec = { $: {} };
+arc.mojom.AppInstance_RequestPackageIcon_ParamsSpec = { $: {} };
+arc.mojom.AppInstance_RequestPackageIcon_ResponseParamsSpec = { $: {} };
+arc.mojom.AppInstance_GetPackageIcon_ParamsSpec = { $: {} };
+arc.mojom.AppInstance_GetPackageIcon_ResponseParamsSpec = { $: {} };
+arc.mojom.AppInstance_RemoveCachedIcon_ParamsSpec = { $: {} };
+arc.mojom.AppInstance_SetTaskActive_ParamsSpec = { $: {} };
+arc.mojom.AppInstance_ShowPackageInfoDeprecated_ParamsSpec = { $: {} };
+arc.mojom.AppInstance_ShowPackageInfoOnPageDeprecated_ParamsSpec = { $: {} };
+arc.mojom.AppInstance_ShowPackageInfoOnPage_ParamsSpec = { $: {} };
+arc.mojom.AppInstance_SetNotificationsEnabled_ParamsSpec = { $: {} };
+arc.mojom.AppInstance_StartPaiFlow_ParamsSpec = { $: {} };
+arc.mojom.AppInstance_StartPaiFlow_ResponseParamsSpec = { $: {} };
+arc.mojom.AppInstance_StartFastAppReinstallFlow_ParamsSpec = { $: {} };
+arc.mojom.AppInstance_UninstallPackage_ParamsSpec = { $: {} };
+arc.mojom.AppInstance_UpdateAppDetails_ParamsSpec = { $: {} };
+arc.mojom.AppInstance_GetAndroidId_ParamsSpec = { $: {} };
+arc.mojom.AppInstance_GetAndroidId_ResponseParamsSpec = { $: {} };
+arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ParamsSpec = { $: {} };
+arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ResponseParamsSpec = { $: {} };
+arc.mojom.AppInstance_GetAppShortcutItems_ParamsSpec = { $: {} };
+arc.mojom.AppInstance_GetAppShortcutItems_ResponseParamsSpec = { $: {} };
+arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ParamsSpec = { $: {} };
+arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ResponseParamsSpec = { $: {} };
+arc.mojom.AppInstance_IsInstallable_ParamsSpec = { $: {} };
+arc.mojom.AppInstance_IsInstallable_ResponseParamsSpec = { $: {} };
+arc.mojom.AppInstance_GetAppCategory_ParamsSpec = { $: {} };
+arc.mojom.AppInstance_GetAppCategory_ResponseParamsSpec = { $: {} };
+arc.mojom.AppInstance_SetAppLocale_ParamsSpec = { $: {} };
 
 // Enum: WindowSizeType
 arc.mojom.WindowSizeType = {
-  kPhoneSize: 0,
-  kTabletSize: 1,
-  kMaximize: 2,
+  kUnknown: 0,
+  kPhoneSize: 1,
+  kTabletSize: 2,
+  kMaximize: 3,
 };
-arc.mojom.WindowSizeTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: InstallPriority
 arc.mojom.InstallPriority = {
-  kMedium: 0,
-  kLow: 1,
+  kUndefined: 0,
+  kMedium: 1,
+  kLow: 2,
 };
-arc.mojom.InstallPrioritySpec = { $: mojo.internal.Enum() };
 
 // Enum: ShowPackageInfoPage
 arc.mojom.ShowPackageInfoPage = {
   MAIN: 0,
   MANAGE_LINKS: 1,
+  MinVersion: 1,
 };
-arc.mojom.ShowPackageInfoPageSpec = { $: mojo.internal.Enum() };
 
 // Enum: AppDiscoveryRequestState
 arc.mojom.AppDiscoveryRequestState = {
@@ -51,14 +145,12 @@ arc.mojom.AppDiscoveryRequestState = {
   PHONESKY_INTERNAL_ERROR: 15,
   PHONESKY_RESULT_INVALID_DATA: 16,
 };
-arc.mojom.AppDiscoveryRequestStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: AppShortcutItemType
 arc.mojom.AppShortcutItemType = {
   kStatic: 0,
   kDynamic: 1,
 };
-arc.mojom.AppShortcutItemTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PaiFlowState
 arc.mojom.PaiFlowState = {
@@ -73,10 +165,10 @@ arc.mojom.PaiFlowState = {
   PROXY_NO_ACCESS: 8,
   TIMEOUT: 9,
 };
-arc.mojom.PaiFlowStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: AppCategory
 arc.mojom.AppCategory = {
+  kUndefined: -1,
   kGame: 0,
   kAudio: 1,
   kVideo: 2,
@@ -87,502 +179,282 @@ arc.mojom.AppCategory = {
   kProductivity: 7,
   kAccessibility: 8,
 };
-arc.mojom.AppCategorySpec = { $: mojo.internal.Enum() };
 
 // Struct: InstallationResult
-arc.mojom.InstallationResultSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.InstallationResult',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_launchable_app', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 62 },
-      ],
-      versions: [{version: 0, packedSize: 24}, {version: 62, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.InstallationResultSpec, 'arc.mojom.InstallationResult', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_launchable_app', 8, 1, mojo.internal.Bool, false, false, 62, undefined),
+    ],
+    [[0, 24], [62, 24]]);
 
 // Struct: AppStorage
-arc.mojom.AppStorageSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppStorage',
-      packedSize: 24,
-      fields: [
-        { name: 'app_size_in_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'data_size_in_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppStorageSpec, 'arc.mojom.AppStorage', [
+      mojo.internal.StructField('app_size_in_bytes', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('data_size_in_bytes', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: AppInfo
-arc.mojom.AppInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInfo',
-      packedSize: 72,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'package_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'activity', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'sticky', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 2 },
-        { name: 'notifications_enabled', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 7 },
-        { name: 'suspended', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 35 },
-        { name: 'resize_lock_state', packedOffset: 28, packedBitOffset: 0, type: arc.mojom.ArcResizeLockStateSpec, nullable: false, minVersion: 47 },
-        { name: 'initial_layout', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.WindowLayoutSpec, nullable: true, minVersion: 50 },
-        { name: 'version_name', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 51 },
-        { name: 'app_storage', packedOffset: 48, packedBitOffset: 0, type: arc.mojom.AppStorageSpec, nullable: true, minVersion: 52 },
-        { name: 'need_fixup', packedOffset: 24, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 54 },
-        { name: 'app_category', packedOffset: 56, packedBitOffset: 0, type: arc.mojom.AppCategorySpec, nullable: false, minVersion: 57 },
-      ],
-      versions: [{version: 0, packedSize: 32}, {version: 2, packedSize: 40}, {version: 7, packedSize: 40}, {version: 35, packedSize: 40}, {version: 47, packedSize: 40}, {version: 50, packedSize: 48}, {version: 51, packedSize: 56}, {version: 52, packedSize: 64}, {version: 54, packedSize: 64}, {version: 57, packedSize: 72}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppInfoSpec, 'arc.mojom.AppInfo', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('package_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('activity', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('sticky', 24, 0, mojo.internal.Bool, false, false, 2, undefined),
+      mojo.internal.StructField('notifications_enabled', 24, 1, mojo.internal.Bool, false, false, 7, undefined),
+      mojo.internal.StructField('suspended', 24, 2, mojo.internal.Bool, false, false, 35, undefined),
+      mojo.internal.StructField('resize_lock_state', 28, 0, arc.mojom.ArcResizeLockStateSpec, null, false, 47, undefined),
+      mojo.internal.StructField('initial_layout', 32, 0, arc.mojom.WindowLayoutSpec, null, true, 50, undefined),
+      mojo.internal.StructField('version_name', 40, 0, mojo.internal.String, null, true, 51, undefined),
+      mojo.internal.StructField('app_storage', 48, 0, arc.mojom.AppStorageSpec, null, true, 52, undefined),
+      mojo.internal.StructField('need_fixup', 24, 3, mojo.internal.Bool, false, false, 54, undefined),
+      mojo.internal.StructField('app_category', 56, 0, arc.mojom.AppCategorySpec, null, false, 57, undefined),
+    ],
+    [[0, 32], [2, 40], [7, 40], [35, 40], [47, 40], [50, 48], [51, 56], [52, 64], [54, 40], [57, 72]]);
 
 // Struct: WebAppInfo
-arc.mojom.WebAppInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WebAppInfo',
-      packedSize: 56,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'start_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'scope_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'theme_color', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'is_web_only_twa', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 44 },
-        { name: 'certificate_sha256_fingerprint', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 45 },
-      ],
-      versions: [{version: 0, packedSize: 40}, {version: 44, packedSize: 48}, {version: 45, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.WebAppInfoSpec, 'arc.mojom.WebAppInfo', [
+      mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('start_url', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('scope_url', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('theme_color', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('is_web_only_twa', 32, 0, mojo.internal.Bool, false, false, 44, undefined),
+      mojo.internal.StructField('certificate_sha256_fingerprint', 40, 0, mojo.internal.String, null, true, 45, undefined),
+    ],
+    [[0, 40], [44, 48], [45, 56]]);
 
 // Struct: WindowLayout
-arc.mojom.WindowLayoutSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WindowLayout',
-      packedSize: 24,
-      fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.WindowSizeTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'resizable', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.RectSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.WindowLayoutSpec, 'arc.mojom.WindowLayout', [
+      mojo.internal.StructField('type', 8, 0, arc.mojom.WindowSizeTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('resizable', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('bounds', 0, 0, arc.mojom.RectSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: PackageLocaleInfo
-arc.mojom.PackageLocaleInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PackageLocaleInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'supported_locales', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'selected_locale', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PackageLocaleInfoSpec, 'arc.mojom.PackageLocaleInfo', [
+      mojo.internal.StructField('supported_locales', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('selected_locale', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: ArcPackageInfo
-arc.mojom.ArcPackageInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcPackageInfo',
-      packedSize: 88,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'package_version', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'last_backup_android_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'last_backup_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'sync', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'deprecated_system', packedOffset: 28, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 11 },
-        { name: 'vpn_provider', packedOffset: 28, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 25 },
-        { name: 'web_app_info', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.WebAppInfoSpec, nullable: true, minVersion: 38 },
-        { name: 'deprecated_permissions', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Map(arc.mojom.AppPermissionSpec, mojo.internal.Bool, false), nullable: true, minVersion: 41 },
-        { name: 'permission_states', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Map(arc.mojom.AppPermissionSpec, arc.mojom.PermissionStateSpec, false), nullable: true, minVersion: 43 },
-        { name: 'version_name', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 51 },
-        { name: 'preinstalled', packedOffset: 28, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 55 },
-        { name: 'priority', packedOffset: 64, packedBitOffset: 0, type: arc.mojom.InstallPrioritySpec, nullable: false, minVersion: 56 },
-        { name: 'locale_info', packedOffset: 72, packedBitOffset: 0, type: arc.mojom.PackageLocaleInfoSpec, nullable: true, minVersion: 60 },
-        { name: 'game_controls_opt_out', packedOffset: 28, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 61 },
-      ],
-      versions: [{version: 0, packedSize: 40}, {version: 11, packedSize: 40}, {version: 25, packedSize: 40}, {version: 38, packedSize: 48}, {version: 41, packedSize: 56}, {version: 43, packedSize: 64}, {version: 51, packedSize: 72}, {version: 55, packedSize: 72}, {version: 56, packedSize: 80}, {version: 60, packedSize: 88}, {version: 61, packedSize: 88}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcPackageInfoSpec, 'arc.mojom.ArcPackageInfo', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('package_version', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('last_backup_android_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('last_backup_time', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('sync', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('deprecated_system', 28, 1, mojo.internal.Bool, false, false, 11, undefined),
+      mojo.internal.StructField('vpn_provider', 28, 2, mojo.internal.Bool, false, false, 25, undefined),
+      mojo.internal.StructField('web_app_info', 32, 0, arc.mojom.WebAppInfoSpec, null, true, 38, undefined),
+      mojo.internal.StructField('deprecated_permissions', 40, 0, mojo.internal.Map(arc.mojom.AppPermissionSpec, mojo.internal.Bool, false), null, true, 41, undefined),
+      mojo.internal.StructField('permission_states', 48, 0, mojo.internal.Map(arc.mojom.AppPermissionSpec, arc.mojom.PermissionStateSpec, false), null, true, 43, undefined),
+      mojo.internal.StructField('version_name', 56, 0, mojo.internal.String, null, true, 51, undefined),
+      mojo.internal.StructField('preinstalled', 28, 3, mojo.internal.Bool, false, false, 55, undefined),
+      mojo.internal.StructField('priority', 64, 0, arc.mojom.InstallPrioritySpec, null, false, 56, undefined),
+      mojo.internal.StructField('locale_info', 72, 0, arc.mojom.PackageLocaleInfoSpec, null, true, 60, undefined),
+      mojo.internal.StructField('game_controls_opt_out', 28, 4, mojo.internal.Bool, false, false, 61, undefined),
+    ],
+    [[0, 40], [11, 40], [25, 40], [38, 48], [41, 56], [43, 64], [51, 72], [55, 40], [56, 80], [60, 88], [61, 40]]);
 
 // Struct: ShortcutInfo
-arc.mojom.ShortcutInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ShortcutInfo',
-      packedSize: 40,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'package_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'icon_resource_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'intent_uri', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ShortcutInfoSpec, 'arc.mojom.ShortcutInfo', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('package_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('icon_resource_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('intent_uri', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: RawIconPngData
-arc.mojom.RawIconPngDataSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.RawIconPngData',
-      packedSize: 40,
-      fields: [
-        { name: 'is_adaptive_icon', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'icon_png_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
-        { name: 'foreground_icon_png_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
-        { name: 'background_icon_png_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.RawIconPngDataSpec, 'arc.mojom.RawIconPngData', [
+      mojo.internal.StructField('is_adaptive_icon', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('icon_png_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('foreground_icon_png_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('background_icon_png_data', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: WindowInfo
-arc.mojom.WindowInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WindowInfo',
-      packedSize: 32,
-      fields: [
-        { name: 'window_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'state', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.RectSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.WindowInfoSpec, 'arc.mojom.WindowInfo', [
+      mojo.internal.StructField('window_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('state', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('bounds', 8, 0, arc.mojom.RectSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: AppDiscoveryResult
-arc.mojom.AppDiscoveryResultSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppDiscoveryResult',
-      packedSize: 80,
-      fields: [
-        { name: 'launch_intent_uri', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'install_intent_uri', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'label', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'is_instant_app', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_recent', packedOffset: 52, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'publisher_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'formatted_price', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'review_score', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'icon_png_data', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'package_name', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 22 },
-        { name: 'icon', packedOffset: 64, packedBitOffset: 0, type: arc.mojom.RawIconPngDataSpec, nullable: true, minVersion: 46 },
-      ],
-      versions: [{version: 0, packedSize: 64}, {version: 22, packedSize: 72}, {version: 46, packedSize: 80}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppDiscoveryResultSpec, 'arc.mojom.AppDiscoveryResult', [
+      mojo.internal.StructField('launch_intent_uri', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('install_intent_uri', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('label', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('is_instant_app', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_recent', 52, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('publisher_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('formatted_price', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('review_score', 48, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('icon_png_data', 40, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('package_name', 56, 0, mojo.internal.String, null, true, 22, undefined),
+      mojo.internal.StructField('icon', 64, 0, arc.mojom.RawIconPngDataSpec, null, true, 46, undefined),
+    ],
+    [[0, 64], [22, 72], [46, 80]]);
 
 // Struct: AppShortcutItem
-arc.mojom.AppShortcutItemSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppShortcutItem',
-      packedSize: 56,
-      fields: [
-        { name: 'shortcut_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'short_label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'icon_png', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'package_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 31 },
-        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.AppShortcutItemTypeSpec, nullable: false, minVersion: 32 },
-        { name: 'rank', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 32 },
-        { name: 'icon', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.RawIconPngDataSpec, nullable: true, minVersion: 46 },
-      ],
-      versions: [{version: 0, packedSize: 32}, {version: 31, packedSize: 40}, {version: 32, packedSize: 48}, {version: 46, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppShortcutItemSpec, 'arc.mojom.AppShortcutItem', [
+      mojo.internal.StructField('shortcut_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('short_label', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('icon_png', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('package_name', 24, 0, mojo.internal.String, null, true, 31, undefined),
+      mojo.internal.StructField('type', 32, 0, arc.mojom.AppShortcutItemTypeSpec, null, false, 32, undefined),
+      mojo.internal.StructField('rank', 36, 0, mojo.internal.Int32, 0, false, 32, undefined),
+      mojo.internal.StructField('icon', 40, 0, arc.mojom.RawIconPngDataSpec, null, true, 46, undefined),
+    ],
+    [[0, 32], [31, 40], [32, 48], [46, 56]]);
 
 // Interface: AppHost
-arc.mojom.AppHost = {};
+mojo.internal.Struct(
+    arc.mojom.AppHost_OnAppAddedDeprecated_ParamsSpec, 'arc.mojom.AppHost_OnAppAddedDeprecated_Params', [
+      mojo.internal.StructField('app', 0, 0, arc.mojom.AppInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AppHost_OnAppAddedDeprecated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost_OnAppAddedDeprecated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AppInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppHost_OnAppListRefreshed_ParamsSpec, 'arc.mojom.AppHost_OnAppListRefreshed_Params', [
+      mojo.internal.StructField('apps', 0, 0, mojo.internal.Array(arc.mojom.AppInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AppHost_OnAppListRefreshed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost_OnAppListRefreshed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.AppInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppHost_OnPackageAdded_ParamsSpec, 'arc.mojom.AppHost_OnPackageAdded_Params', [
+      mojo.internal.StructField('arcPackageInfo', 0, 0, arc.mojom.ArcPackageInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AppHost_OnPackageAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost_OnPackageAdded_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'arcPackageInfo', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcPackageInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppHost_OnPackageAppListRefreshed_ParamsSpec, 'arc.mojom.AppHost_OnPackageAppListRefreshed_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('apps', 8, 0, mojo.internal.Array(arc.mojom.AppInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.AppHost_OnPackageAppListRefreshed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost_OnPackageAppListRefreshed_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'apps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.AppInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppHost_OnPackageListRefreshed_ParamsSpec, 'arc.mojom.AppHost_OnPackageListRefreshed_Params', [
+      mojo.internal.StructField('packages', 0, 0, mojo.internal.Array(arc.mojom.ArcPackageInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AppHost_OnPackageListRefreshed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost_OnPackageListRefreshed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'packages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.ArcPackageInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppHost_OnPackageModified_ParamsSpec, 'arc.mojom.AppHost_OnPackageModified_Params', [
+      mojo.internal.StructField('arcPackageInfo', 0, 0, arc.mojom.ArcPackageInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AppHost_OnPackageModified_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost_OnPackageModified_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'arcPackageInfo', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcPackageInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppHost_OnPackageRemoved_ParamsSpec, 'arc.mojom.AppHost_OnPackageRemoved_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AppHost_OnPackageRemoved_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost_OnPackageRemoved_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppHost_OnTaskCreated_ParamsSpec, 'arc.mojom.AppHost_OnTaskCreated_Params', [
+      mojo.internal.StructField('task_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('activity', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('name', 24, 0, mojo.internal.String, null, true, 13, undefined),
+      mojo.internal.StructField('intent', 32, 0, mojo.internal.String, null, true, 15, undefined),
+      mojo.internal.StructField('session_id', 20, 0, mojo.internal.Int32, 0, false, 48, undefined),
+    ],
+    [[0, 32], [13, 40], [15, 48], [48, 32]]);
 
-arc.mojom.AppHost_OnTaskCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost_OnTaskCreated_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'task_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'activity', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 13 },
-        { name: 'intent', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 15 },
-        { name: 'session_id', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 48 },
-      ],
-      versions: [{version: 0, packedSize: 32}, {version: 13, packedSize: 40}, {version: 15, packedSize: 48}, {version: 48, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppHost_OnTaskDescriptionUpdated_ParamsSpec, 'arc.mojom.AppHost_OnTaskDescriptionUpdated_Params', [
+      mojo.internal.StructField('task_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('icon_png_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-arc.mojom.AppHost_OnTaskDescriptionUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost_OnTaskDescriptionUpdated_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'task_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'icon_png_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppHost_OnTaskDescriptionChanged_ParamsSpec, 'arc.mojom.AppHost_OnTaskDescriptionChanged_Params', [
+      mojo.internal.StructField('task_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('icon', 8, 0, arc.mojom.RawIconPngDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('primary_color', 20, 0, mojo.internal.Uint32, 0, false, 49, undefined),
+      mojo.internal.StructField('status_bar_color', 24, 0, mojo.internal.Uint32, 0, false, 49, undefined),
+    ],
+    [[0, 32], [49, 40]]);
 
-arc.mojom.AppHost_OnTaskDescriptionChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost_OnTaskDescriptionChanged_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'task_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'icon', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.RawIconPngDataSpec, nullable: false, minVersion: 0 },
-        { name: 'primary_color', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 49 },
-        { name: 'status_bar_color', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 49 },
-      ],
-      versions: [{version: 0, packedSize: 32}, {version: 49, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppHost_OnTaskDestroyed_ParamsSpec, 'arc.mojom.AppHost_OnTaskDestroyed_Params', [
+      mojo.internal.StructField('task_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AppHost_OnTaskDestroyed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost_OnTaskDestroyed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppHost_OnTaskSetActive_ParamsSpec, 'arc.mojom.AppHost_OnTaskSetActive_Params', [
+      mojo.internal.StructField('task_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AppHost_OnTaskSetActive_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost_OnTaskSetActive_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppHost_OnNotificationsEnabledChanged_ParamsSpec, 'arc.mojom.AppHost_OnNotificationsEnabledChanged_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.AppHost_OnNotificationsEnabledChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost_OnNotificationsEnabledChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppHost_OnInstallShortcut_ParamsSpec, 'arc.mojom.AppHost_OnInstallShortcut_Params', [
+      mojo.internal.StructField('shortcut', 0, 0, arc.mojom.ShortcutInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AppHost_OnInstallShortcut_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost_OnInstallShortcut_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'shortcut', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ShortcutInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppHost_OnInstallationStarted_ParamsSpec, 'arc.mojom.AppHost_OnInstallationStarted_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, true, 17, undefined),
+    ],
+    [[0, 8], [17, 16]]);
 
-arc.mojom.AppHost_OnInstallationStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost_OnInstallationStarted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 17 },
-      ],
-      versions: [{version: 17, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppHost_OnInstallationFinished_ParamsSpec, 'arc.mojom.AppHost_OnInstallationFinished_Params', [
+      mojo.internal.StructField('result', 0, 0, arc.mojom.InstallationResultSpec, null, true, 17, undefined),
+    ],
+    [[0, 8], [17, 16]]);
 
-arc.mojom.AppHost_OnInstallationFinished_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost_OnInstallationFinished_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.InstallationResultSpec, nullable: true, minVersion: 17 },
-      ],
-      versions: [{version: 17, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppHost_OnUninstallShortcut_ParamsSpec, 'arc.mojom.AppHost_OnUninstallShortcut_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('intent_uri', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.AppHost_OnUninstallShortcut_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost_OnUninstallShortcut_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'intent_uri', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppHost_OnInstallationProgressChanged_ParamsSpec, 'arc.mojom.AppHost_OnInstallationProgressChanged_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('progress', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.AppHost_OnInstallationProgressChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost_OnInstallationProgressChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'progress', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.AppHost_OnInstallationActiveChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost_OnInstallationActiveChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'active', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppHost_OnInstallationActiveChanged_ParamsSpec, 'arc.mojom.AppHost_OnInstallationActiveChanged_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('active', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 arc.mojom.AppHostPendingReceiver = class {
   constructor(handle) {
@@ -799,707 +671,296 @@ arc.mojom.AppHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnAppAddedDeprecated
-arc.mojom.AppHost_OnAppAddedDeprecated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost.OnAppAddedDeprecated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AppInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnAppListRefreshed
-arc.mojom.AppHost_OnAppListRefreshed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost.OnAppListRefreshed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.AppInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnPackageAdded
-arc.mojom.AppHost_OnPackageAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost.OnPackageAdded_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'arcPackageInfo', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcPackageInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnPackageAppListRefreshed
-arc.mojom.AppHost_OnPackageAppListRefreshed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost.OnPackageAppListRefreshed_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'apps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.AppInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnPackageListRefreshed
-arc.mojom.AppHost_OnPackageListRefreshed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost.OnPackageListRefreshed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'packages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.ArcPackageInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnPackageModified
-arc.mojom.AppHost_OnPackageModified_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost.OnPackageModified_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'arcPackageInfo', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcPackageInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnPackageRemoved
-arc.mojom.AppHost_OnPackageRemoved_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost.OnPackageRemoved_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnTaskCreated
-arc.mojom.AppHost_OnTaskCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost.OnTaskCreated_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'task_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'activity', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 13 },
-        { name: 'intent', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 15 },
-        { name: 'session_id', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 48 },
-      ],
-      versions: [{version: 0, packedSize: 32}, {version: 13, packedSize: 40}, {version: 15, packedSize: 48}, {version: 48, packedSize: 48}]
-    }
-  }
-};
-
-// ParamsSpec for OnTaskDescriptionUpdated
-arc.mojom.AppHost_OnTaskDescriptionUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost.OnTaskDescriptionUpdated_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'task_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'icon_png_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for OnTaskDescriptionChanged
-arc.mojom.AppHost_OnTaskDescriptionChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost.OnTaskDescriptionChanged_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'task_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'icon', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.RawIconPngDataSpec, nullable: false, minVersion: 0 },
-        { name: 'primary_color', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 49 },
-        { name: 'status_bar_color', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 49 },
-      ],
-      versions: [{version: 0, packedSize: 32}, {version: 49, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for OnTaskDestroyed
-arc.mojom.AppHost_OnTaskDestroyed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost.OnTaskDestroyed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnTaskSetActive
-arc.mojom.AppHost_OnTaskSetActive_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost.OnTaskSetActive_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnNotificationsEnabledChanged
-arc.mojom.AppHost_OnNotificationsEnabledChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost.OnNotificationsEnabledChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnInstallShortcut
-arc.mojom.AppHost_OnInstallShortcut_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost.OnInstallShortcut_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'shortcut', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ShortcutInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnInstallationStarted
-arc.mojom.AppHost_OnInstallationStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost.OnInstallationStarted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 17 },
-      ],
-      versions: [{version: 17, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnInstallationFinished
-arc.mojom.AppHost_OnInstallationFinished_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost.OnInstallationFinished_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.InstallationResultSpec, nullable: true, minVersion: 17 },
-      ],
-      versions: [{version: 17, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnUninstallShortcut
-arc.mojom.AppHost_OnUninstallShortcut_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost.OnUninstallShortcut_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'intent_uri', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnInstallationProgressChanged
-arc.mojom.AppHost_OnInstallationProgressChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost.OnInstallationProgressChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'progress', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnInstallationActiveChanged
-arc.mojom.AppHost_OnInstallationActiveChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppHost.OnInstallationActiveChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'active', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.AppHostPtr = arc.mojom.AppHostRemote;
 arc.mojom.AppHostRequest = arc.mojom.AppHostPendingReceiver;
 
 
 // Interface: AppInstance
-arc.mojom.AppInstance = {};
+mojo.internal.Struct(
+    arc.mojom.AppInstance_Init_ParamsSpec, 'arc.mojom.AppInstance_Init_Params', [
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.AppHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AppInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance_Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AppHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppInstance_Init_ResponseParamsSpec, 'arc.mojom.AppInstance_Init_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.AppInstance_CloseTask_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance_CloseTask_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppInstance_CloseTask_ParamsSpec, 'arc.mojom.AppInstance_CloseTask_Params', [
+      mojo.internal.StructField('task_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AppInstance_InstallPackage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance_InstallPackage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'arcPackageInfo', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcPackageInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppInstance_InstallPackage_ParamsSpec, 'arc.mojom.AppInstance_InstallPackage_Params', [
+      mojo.internal.StructField('arcPackageInfo', 0, 0, arc.mojom.ArcPackageInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AppInstance_LaunchAppWithWindowInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance_LaunchAppWithWindowInfo_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'activity', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'window_info', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.WindowInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppInstance_LaunchAppWithWindowInfo_ParamsSpec, 'arc.mojom.AppInstance_LaunchAppWithWindowInfo_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('activity', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('window_info', 16, 0, arc.mojom.WindowInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-arc.mojom.AppInstance_LaunchAppShortcutItem_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance_LaunchAppShortcutItem_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'shortcut_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'display_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppInstance_LaunchAppShortcutItem_ParamsSpec, 'arc.mojom.AppInstance_LaunchAppShortcutItem_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('shortcut_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('display_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-arc.mojom.AppInstance_LaunchIntentWithWindowInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance_LaunchIntentWithWindowInfo_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'intent_uri', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'window_info', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.WindowInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppInstance_LaunchIntentWithWindowInfo_ParamsSpec, 'arc.mojom.AppInstance_LaunchIntentWithWindowInfo_Params', [
+      mojo.internal.StructField('intent_uri', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('window_info', 8, 0, arc.mojom.WindowInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.AppInstance_UpdateWindowInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance_UpdateWindowInfo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'window_info', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.WindowInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppInstance_UpdateWindowInfo_ParamsSpec, 'arc.mojom.AppInstance_UpdateWindowInfo_Params', [
+      mojo.internal.StructField('window_info', 0, 0, arc.mojom.WindowInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AppInstance_RequestAppIcon_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance_RequestAppIcon_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'activity', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pixel_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppInstance_RequestAppIcon_ParamsSpec, 'arc.mojom.AppInstance_RequestAppIcon_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('activity', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('pixel_size', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-arc.mojom.AppInstance_GetAppIcon_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance_GetAppIcon_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'activity', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pixel_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppInstance_RequestAppIcon_ResponseParamsSpec, 'arc.mojom.AppInstance_RequestAppIcon_ResponseParams', [
+      mojo.internal.StructField('icon_png_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AppInstance_RequestShortcutIcon_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance_RequestShortcutIcon_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'icon_resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pixel_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppInstance_GetAppIcon_ParamsSpec, 'arc.mojom.AppInstance_GetAppIcon_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('activity', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('pixel_size', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-arc.mojom.AppInstance_GetAppShortcutIcon_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance_GetAppShortcutIcon_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'icon_resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pixel_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppInstance_GetAppIcon_ResponseParamsSpec, 'arc.mojom.AppInstance_GetAppIcon_ResponseParams', [
+      mojo.internal.StructField('icon', 0, 0, arc.mojom.RawIconPngDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AppInstance_RequestPackageIcon_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance_RequestPackageIcon_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pixel_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'normalize', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppInstance_RequestShortcutIcon_ParamsSpec, 'arc.mojom.AppInstance_RequestShortcutIcon_Params', [
+      mojo.internal.StructField('icon_resource_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('pixel_size', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.AppInstance_GetPackageIcon_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance_GetPackageIcon_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pixel_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'normalize', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppInstance_RequestShortcutIcon_ResponseParamsSpec, 'arc.mojom.AppInstance_RequestShortcutIcon_ResponseParams', [
+      mojo.internal.StructField('icon_png_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AppInstance_RemoveCachedIcon_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance_RemoveCachedIcon_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'icon_resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppInstance_GetAppShortcutIcon_ParamsSpec, 'arc.mojom.AppInstance_GetAppShortcutIcon_Params', [
+      mojo.internal.StructField('icon_resource_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('pixel_size', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.AppInstance_SetTaskActive_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance_SetTaskActive_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppInstance_GetAppShortcutIcon_ResponseParamsSpec, 'arc.mojom.AppInstance_GetAppShortcutIcon_ResponseParams', [
+      mojo.internal.StructField('icon', 0, 0, arc.mojom.RawIconPngDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AppInstance_ShowPackageInfoDeprecated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance_ShowPackageInfoDeprecated_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'dimension_on_screen', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.RectSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppInstance_RequestPackageIcon_ParamsSpec, 'arc.mojom.AppInstance_RequestPackageIcon_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('pixel_size', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('normalize', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.AppInstance_ShowPackageInfoOnPageDeprecated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance_ShowPackageInfoOnPageDeprecated_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'page', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.ShowPackageInfoPageSpec, nullable: false, minVersion: 0 },
-        { name: 'dimension_on_screen', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.RectSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppInstance_RequestPackageIcon_ResponseParamsSpec, 'arc.mojom.AppInstance_RequestPackageIcon_ResponseParams', [
+      mojo.internal.StructField('icon_png_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AppInstance_ShowPackageInfoOnPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance_ShowPackageInfoOnPage_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'page', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.ShowPackageInfoPageSpec, nullable: false, minVersion: 0 },
-        { name: 'display_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppInstance_GetPackageIcon_ParamsSpec, 'arc.mojom.AppInstance_GetPackageIcon_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('pixel_size', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('normalize', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.AppInstance_SetNotificationsEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance_SetNotificationsEnabled_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppInstance_GetPackageIcon_ResponseParamsSpec, 'arc.mojom.AppInstance_GetPackageIcon_ResponseParams', [
+      mojo.internal.StructField('icon', 0, 0, arc.mojom.RawIconPngDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AppInstance_StartPaiFlow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance_StartPaiFlow_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppInstance_RemoveCachedIcon_ParamsSpec, 'arc.mojom.AppInstance_RemoveCachedIcon_Params', [
+      mojo.internal.StructField('icon_resource_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AppInstance_StartFastAppReinstallFlow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance_StartFastAppReinstallFlow_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'arc_package_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppInstance_SetTaskActive_ParamsSpec, 'arc.mojom.AppInstance_SetTaskActive_Params', [
+      mojo.internal.StructField('task_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AppInstance_UninstallPackage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance_UninstallPackage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppInstance_ShowPackageInfoDeprecated_ParamsSpec, 'arc.mojom.AppInstance_ShowPackageInfoDeprecated_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('dimension_on_screen', 8, 0, arc.mojom.RectSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.AppInstance_UpdateAppDetails_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance_UpdateAppDetails_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppInstance_ShowPackageInfoOnPageDeprecated_ParamsSpec, 'arc.mojom.AppInstance_ShowPackageInfoOnPageDeprecated_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('page', 16, 0, arc.mojom.ShowPackageInfoPageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('dimension_on_screen', 8, 0, arc.mojom.RectSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-arc.mojom.AppInstance_GetAndroidId_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance_GetAndroidId_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppInstance_ShowPackageInfoOnPage_ParamsSpec, 'arc.mojom.AppInstance_ShowPackageInfoOnPage_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('page', 16, 0, arc.mojom.ShowPackageInfoPageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('display_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'max_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppInstance_SetNotificationsEnabled_ParamsSpec, 'arc.mojom.AppInstance_SetNotificationsEnabled_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.AppInstance_GetAppShortcutItems_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance_GetAppShortcutItems_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppInstance_StartPaiFlow_ParamsSpec, 'arc.mojom.AppInstance_StartPaiFlow_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'max_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppInstance_StartPaiFlow_ResponseParamsSpec, 'arc.mojom.AppInstance_StartPaiFlow_ResponseParams', [
+      mojo.internal.StructField('state', 0, 0, arc.mojom.PaiFlowStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AppInstance_IsInstallable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance_IsInstallable_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppInstance_StartFastAppReinstallFlow_ParamsSpec, 'arc.mojom.AppInstance_StartFastAppReinstallFlow_Params', [
+      mojo.internal.StructField('arc_package_names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AppInstance_GetAppCategory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance_GetAppCategory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppInstance_UninstallPackage_ParamsSpec, 'arc.mojom.AppInstance_UninstallPackage_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AppInstance_SetAppLocale_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance_SetAppLocale_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'locale_tag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppInstance_UpdateAppDetails_ParamsSpec, 'arc.mojom.AppInstance_UpdateAppDetails_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.AppInstance_GetAndroidId_ParamsSpec, 'arc.mojom.AppInstance_GetAndroidId_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    arc.mojom.AppInstance_GetAndroidId_ResponseParamsSpec, 'arc.mojom.AppInstance_GetAndroidId_ResponseParams', [
+      mojo.internal.StructField('android_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ParamsSpec, 'arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_Params', [
+      mojo.internal.StructField('query', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('max_results', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ResponseParamsSpec, 'arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ResponseParams', [
+      mojo.internal.StructField('shortcut_items', 0, 0, mojo.internal.Array(arc.mojom.AppShortcutItemSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.AppInstance_GetAppShortcutItems_ParamsSpec, 'arc.mojom.AppInstance_GetAppShortcutItems_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.AppInstance_GetAppShortcutItems_ResponseParamsSpec, 'arc.mojom.AppInstance_GetAppShortcutItems_ResponseParams', [
+      mojo.internal.StructField('shortcut_items', 0, 0, mojo.internal.Array(arc.mojom.AppShortcutItemSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ParamsSpec, 'arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_Params', [
+      mojo.internal.StructField('query', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('max_results', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ResponseParamsSpec, 'arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ResponseParams', [
+      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(arc.mojom.AppDiscoveryResultSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('state', 8, 0, arc.mojom.AppDiscoveryRequestStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    arc.mojom.AppInstance_IsInstallable_ParamsSpec, 'arc.mojom.AppInstance_IsInstallable_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.AppInstance_IsInstallable_ResponseParamsSpec, 'arc.mojom.AppInstance_IsInstallable_ResponseParams', [
+      mojo.internal.StructField('is_installable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.AppInstance_GetAppCategory_ParamsSpec, 'arc.mojom.AppInstance_GetAppCategory_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.AppInstance_GetAppCategory_ResponseParamsSpec, 'arc.mojom.AppInstance_GetAppCategory_ResponseParams', [
+      mojo.internal.StructField('category', 0, 0, arc.mojom.AppCategorySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.AppInstance_SetAppLocale_ParamsSpec, 'arc.mojom.AppInstance_SetAppLocale_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('locale_tag', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 arc.mojom.AppInstancePendingReceiver = class {
   constructor(handle) {
@@ -1538,7 +999,7 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       21,  // ordinal
       arc.mojom.AppInstance_Init_ParamsSpec,
-      null,
+      arc.mojom.AppInstance_Init_ResponseParamsSpec,
       [host_remote]);
   }
 
@@ -1815,619 +1276,6 @@ arc.mojom.AppInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Init
-arc.mojom.AppInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AppHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CloseTask
-arc.mojom.AppInstance_CloseTask_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.CloseTask_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for InstallPackage
-arc.mojom.AppInstance_InstallPackage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.InstallPackage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'arcPackageInfo', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcPackageInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for LaunchAppWithWindowInfo
-arc.mojom.AppInstance_LaunchAppWithWindowInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.LaunchAppWithWindowInfo_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'activity', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'window_info', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.WindowInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for LaunchAppShortcutItem
-arc.mojom.AppInstance_LaunchAppShortcutItem_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.LaunchAppShortcutItem_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'shortcut_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'display_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for LaunchIntentWithWindowInfo
-arc.mojom.AppInstance_LaunchIntentWithWindowInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.LaunchIntentWithWindowInfo_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'intent_uri', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'window_info', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.WindowInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateWindowInfo
-arc.mojom.AppInstance_UpdateWindowInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.UpdateWindowInfo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'window_info', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.WindowInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestAppIcon
-arc.mojom.AppInstance_RequestAppIcon_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.RequestAppIcon_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'activity', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pixel_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-arc.mojom.AppInstance_RequestAppIcon_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.RequestAppIcon_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'icon_png_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetAppIcon
-arc.mojom.AppInstance_GetAppIcon_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.GetAppIcon_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'activity', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pixel_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-arc.mojom.AppInstance_GetAppIcon_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.GetAppIcon_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'icon', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.RawIconPngDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestShortcutIcon
-arc.mojom.AppInstance_RequestShortcutIcon_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.RequestShortcutIcon_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'icon_resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pixel_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.AppInstance_RequestShortcutIcon_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.RequestShortcutIcon_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'icon_png_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetAppShortcutIcon
-arc.mojom.AppInstance_GetAppShortcutIcon_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.GetAppShortcutIcon_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'icon_resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pixel_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.AppInstance_GetAppShortcutIcon_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.GetAppShortcutIcon_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'icon', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.RawIconPngDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestPackageIcon
-arc.mojom.AppInstance_RequestPackageIcon_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.RequestPackageIcon_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pixel_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'normalize', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.AppInstance_RequestPackageIcon_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.RequestPackageIcon_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'icon_png_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetPackageIcon
-arc.mojom.AppInstance_GetPackageIcon_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.GetPackageIcon_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pixel_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'normalize', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.AppInstance_GetPackageIcon_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.GetPackageIcon_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'icon', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.RawIconPngDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RemoveCachedIcon
-arc.mojom.AppInstance_RemoveCachedIcon_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.RemoveCachedIcon_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'icon_resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetTaskActive
-arc.mojom.AppInstance_SetTaskActive_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.SetTaskActive_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ShowPackageInfoDeprecated
-arc.mojom.AppInstance_ShowPackageInfoDeprecated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.ShowPackageInfoDeprecated_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'dimension_on_screen', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.RectSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ShowPackageInfoOnPageDeprecated
-arc.mojom.AppInstance_ShowPackageInfoOnPageDeprecated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.ShowPackageInfoOnPageDeprecated_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'page', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.ShowPackageInfoPageSpec, nullable: false, minVersion: 0 },
-        { name: 'dimension_on_screen', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.RectSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for ShowPackageInfoOnPage
-arc.mojom.AppInstance_ShowPackageInfoOnPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.ShowPackageInfoOnPage_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'page', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.ShowPackageInfoPageSpec, nullable: false, minVersion: 0 },
-        { name: 'display_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for SetNotificationsEnabled
-arc.mojom.AppInstance_SetNotificationsEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.SetNotificationsEnabled_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for StartPaiFlow
-arc.mojom.AppInstance_StartPaiFlow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.StartPaiFlow_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-arc.mojom.AppInstance_StartPaiFlow_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.StartPaiFlow_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.PaiFlowStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StartFastAppReinstallFlow
-arc.mojom.AppInstance_StartFastAppReinstallFlow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.StartFastAppReinstallFlow_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'arc_package_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UninstallPackage
-arc.mojom.AppInstance_UninstallPackage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.UninstallPackage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateAppDetails
-arc.mojom.AppInstance_UpdateAppDetails_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.UpdateAppDetails_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetAndroidId
-arc.mojom.AppInstance_GetAndroidId_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.GetAndroidId_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-arc.mojom.AppInstance_GetAndroidId_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.GetAndroidId_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'android_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetAppShortcutGlobalQueryItems
-arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.GetAppShortcutGlobalQueryItems_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'max_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.GetAppShortcutGlobalQueryItems_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'shortcut_items', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.AppShortcutItemSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetAppShortcutItems
-arc.mojom.AppInstance_GetAppShortcutItems_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.GetAppShortcutItems_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.AppInstance_GetAppShortcutItems_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.GetAppShortcutItems_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'shortcut_items', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.AppShortcutItemSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetRecentAndSuggestedAppsFromPlayStore
-arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.GetRecentAndSuggestedAppsFromPlayStore_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'max_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.GetRecentAndSuggestedAppsFromPlayStore_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.AppDiscoveryResultSpec, false), nullable: false, minVersion: 0 },
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.AppDiscoveryRequestStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for IsInstallable
-arc.mojom.AppInstance_IsInstallable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.IsInstallable_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.AppInstance_IsInstallable_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.IsInstallable_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'is_installable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetAppCategory
-arc.mojom.AppInstance_GetAppCategory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.GetAppCategory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.AppInstance_GetAppCategory_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.GetAppCategory_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AppCategorySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetAppLocale
-arc.mojom.AppInstance_SetAppLocale_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppInstance.SetAppLocale_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'locale_tag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.AppInstancePtr = arc.mojom.AppInstanceRemote;
 arc.mojom.AppInstanceRequest = arc.mojom.AppInstancePendingReceiver;
 

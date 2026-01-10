@@ -7,54 +7,67 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+arc.mojom.ScreenCaptureHost = {};
+arc.mojom.ScreenCaptureHost.$interfaceName = 'arc.mojom.ScreenCaptureHost';
+arc.mojom.ScreenCaptureHost_RequestPermission_ParamsSpec = { $: {} };
+arc.mojom.ScreenCaptureHost_RequestPermission_ResponseParamsSpec = { $: {} };
+arc.mojom.ScreenCaptureHost_TestModeAcceptPermission_ParamsSpec = { $: {} };
+arc.mojom.ScreenCaptureHost_OpenSession_ParamsSpec = { $: {} };
+arc.mojom.ScreenCaptureHost_OpenSession_ResponseParamsSpec = { $: {} };
+arc.mojom.ScreenCaptureSession = {};
+arc.mojom.ScreenCaptureSession.$interfaceName = 'arc.mojom.ScreenCaptureSession';
+arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ParamsSpec = { $: {} };
+arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ResponseParamsSpec = { $: {} };
+arc.mojom.ScreenCaptureSession_SetOutputBuffer_ParamsSpec = { $: {} };
+arc.mojom.ScreenCaptureSession_SetOutputBuffer_ResponseParamsSpec = { $: {} };
+arc.mojom.ScreenCaptureInstance = {};
+arc.mojom.ScreenCaptureInstance.$interfaceName = 'arc.mojom.ScreenCaptureInstance';
+arc.mojom.ScreenCaptureInstance_Init_ParamsSpec = { $: {} };
+arc.mojom.ScreenCaptureInstance_Init_ResponseParamsSpec = { $: {} };
+arc.mojom.ScreenCaptureSessionNotifier = {};
+arc.mojom.ScreenCaptureSessionNotifier.$interfaceName = 'arc.mojom.ScreenCaptureSessionNotifier';
+arc.mojom.ScreenCaptureSessionNotifier_ForceUpdate_ParamsSpec = { $: {} };
 
 // Interface: ScreenCaptureHost
-arc.mojom.ScreenCaptureHost = {};
+mojo.internal.Struct(
+    arc.mojom.ScreenCaptureHost_RequestPermission_ParamsSpec, 'arc.mojom.ScreenCaptureHost_RequestPermission_Params', [
+      mojo.internal.StructField('display_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('package_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.ScreenCaptureHost_RequestPermission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ScreenCaptureHost_RequestPermission_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'display_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'package_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ScreenCaptureHost_RequestPermission_ResponseParamsSpec, 'arc.mojom.ScreenCaptureHost_RequestPermission_ResponseParams', [
+      mojo.internal.StructField('granted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ScreenCaptureHost_TestModeAcceptPermission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ScreenCaptureHost_TestModeAcceptPermission_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ScreenCaptureHost_TestModeAcceptPermission_ParamsSpec, 'arc.mojom.ScreenCaptureHost_TestModeAcceptPermission_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ScreenCaptureHost_OpenSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ScreenCaptureHost_OpenSession_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'notifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ScreenCaptureSessionNotifierRemote), nullable: false, minVersion: 0 },
-        { name: 'package_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ScreenCaptureHost_OpenSession_ParamsSpec, 'arc.mojom.ScreenCaptureHost_OpenSession_Params', [
+      mojo.internal.StructField('notifier', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.ScreenCaptureSessionNotifierRemote), null, false, 0, undefined),
+      mojo.internal.StructField('package_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('size', 16, 0, arc.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    arc.mojom.ScreenCaptureHost_OpenSession_ResponseParamsSpec, 'arc.mojom.ScreenCaptureHost_OpenSession_ResponseParams', [
+      mojo.internal.StructField('session', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.ScreenCaptureSessionRemote), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.ScreenCaptureHostPendingReceiver = class {
   constructor(handle) {
@@ -127,114 +140,36 @@ arc.mojom.ScreenCaptureHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RequestPermission
-arc.mojom.ScreenCaptureHost_RequestPermission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ScreenCaptureHost.RequestPermission_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'display_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'package_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.ScreenCaptureHost_RequestPermission_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ScreenCaptureHost.RequestPermission_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'granted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for TestModeAcceptPermission
-arc.mojom.ScreenCaptureHost_TestModeAcceptPermission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ScreenCaptureHost.TestModeAcceptPermission_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OpenSession
-arc.mojom.ScreenCaptureHost_OpenSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ScreenCaptureHost.OpenSession_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'notifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ScreenCaptureSessionNotifierRemote), nullable: false, minVersion: 0 },
-        { name: 'package_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-arc.mojom.ScreenCaptureHost_OpenSession_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ScreenCaptureHost.OpenSession_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ScreenCaptureSessionRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.ScreenCaptureHostPtr = arc.mojom.ScreenCaptureHostRemote;
 arc.mojom.ScreenCaptureHostRequest = arc.mojom.ScreenCaptureHostPendingReceiver;
 
 
 // Interface: ScreenCaptureSession
-arc.mojom.ScreenCaptureSession = {};
+mojo.internal.Struct(
+    arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ParamsSpec, 'arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_Params', [
+      mojo.internal.StructField('graphics_buffer', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('stride', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'graphics_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-        { name: 'stride', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ResponseParamsSpec, 'arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.ScreenCaptureSession_SetOutputBuffer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ScreenCaptureSession_SetOutputBuffer_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'graphics_buffer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-        { name: 'buffer_format', packedOffset: 12, packedBitOffset: 0, type: gfx.mojom.BufferFormatSpec, nullable: false, minVersion: 0 },
-        { name: 'buffer_format_modifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'stride', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ScreenCaptureSession_SetOutputBuffer_ParamsSpec, 'arc.mojom.ScreenCaptureSession_SetOutputBuffer_Params', [
+      mojo.internal.StructField('graphics_buffer', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('buffer_format', 12, 0, gfx.mojom.BufferFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('buffer_format_modifier', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('stride', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    arc.mojom.ScreenCaptureSession_SetOutputBuffer_ResponseParamsSpec, 'arc.mojom.ScreenCaptureSession_SetOutputBuffer_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 arc.mojom.ScreenCaptureSessionPendingReceiver = class {
   constructor(handle) {
@@ -273,7 +208,7 @@ arc.mojom.ScreenCaptureSessionRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ParamsSpec,
-      null,
+      arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ResponseParamsSpec,
       [graphics_buffer, stride]);
   }
 
@@ -282,7 +217,7 @@ arc.mojom.ScreenCaptureSessionRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       arc.mojom.ScreenCaptureSession_SetOutputBuffer_ParamsSpec,
-      null,
+      arc.mojom.ScreenCaptureSession_SetOutputBuffer_ResponseParamsSpec,
       [graphics_buffer, buffer_format, buffer_format_modifier, stride]);
   }
 
@@ -298,58 +233,21 @@ arc.mojom.ScreenCaptureSession.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetOutputBufferDeprecated
-arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ScreenCaptureSession.SetOutputBufferDeprecated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'graphics_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-        { name: 'stride', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetOutputBuffer
-arc.mojom.ScreenCaptureSession_SetOutputBuffer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ScreenCaptureSession.SetOutputBuffer_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'graphics_buffer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-        { name: 'buffer_format', packedOffset: 12, packedBitOffset: 0, type: gfx.mojom.BufferFormatSpec, nullable: false, minVersion: 0 },
-        { name: 'buffer_format_modifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'stride', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.ScreenCaptureSessionPtr = arc.mojom.ScreenCaptureSessionRemote;
 arc.mojom.ScreenCaptureSessionRequest = arc.mojom.ScreenCaptureSessionPendingReceiver;
 
 
 // Interface: ScreenCaptureInstance
-arc.mojom.ScreenCaptureInstance = {};
+mojo.internal.Struct(
+    arc.mojom.ScreenCaptureInstance_Init_ParamsSpec, 'arc.mojom.ScreenCaptureInstance_Init_Params', [
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.ScreenCaptureHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ScreenCaptureInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ScreenCaptureInstance_Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ScreenCaptureHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ScreenCaptureInstance_Init_ResponseParamsSpec, 'arc.mojom.ScreenCaptureInstance_Init_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 arc.mojom.ScreenCaptureInstancePendingReceiver = class {
   constructor(handle) {
@@ -388,7 +286,7 @@ arc.mojom.ScreenCaptureInstanceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       arc.mojom.ScreenCaptureInstance_Init_ParamsSpec,
-      null,
+      arc.mojom.ScreenCaptureInstance_Init_ResponseParamsSpec,
       [host_remote]);
   }
 
@@ -404,39 +302,15 @@ arc.mojom.ScreenCaptureInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Init
-arc.mojom.ScreenCaptureInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ScreenCaptureInstance.Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ScreenCaptureHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.ScreenCaptureInstancePtr = arc.mojom.ScreenCaptureInstanceRemote;
 arc.mojom.ScreenCaptureInstanceRequest = arc.mojom.ScreenCaptureInstancePendingReceiver;
 
 
 // Interface: ScreenCaptureSessionNotifier
-arc.mojom.ScreenCaptureSessionNotifier = {};
-
-arc.mojom.ScreenCaptureSessionNotifier_ForceUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ScreenCaptureSessionNotifier_ForceUpdate_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ScreenCaptureSessionNotifier_ForceUpdate_ParamsSpec, 'arc.mojom.ScreenCaptureSessionNotifier_ForceUpdate_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 arc.mojom.ScreenCaptureSessionNotifierPendingReceiver = class {
   constructor(handle) {
@@ -491,20 +365,6 @@ arc.mojom.ScreenCaptureSessionNotifier.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ForceUpdate
-arc.mojom.ScreenCaptureSessionNotifier_ForceUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ScreenCaptureSessionNotifier.ForceUpdate_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.ScreenCaptureSessionNotifierPtr = arc.mojom.ScreenCaptureSessionNotifierRemote;
 arc.mojom.ScreenCaptureSessionNotifierRequest = arc.mojom.ScreenCaptureSessionNotifierPendingReceiver;
 

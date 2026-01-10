@@ -10,6 +10,29 @@ ash.help_app = ash.help_app || {};
 ash.help_app.mojom = ash.help_app.mojom || {};
 var url = url || {};
 
+ash.help_app.mojom.ActionTypeIdSpec = { $: mojo.internal.Enum() };
+ash.help_app.mojom.SettingsComponentSpec = { $: mojo.internal.Enum() };
+ash.help_app.mojom.DeviceInfoSpec = { $: {} };
+ash.help_app.mojom.PageHandlerFactory = {};
+ash.help_app.mojom.PageHandlerFactory.$interfaceName = 'ash.help_app.mojom.PageHandlerFactory';
+ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+ash.help_app.mojom.PageHandler = {};
+ash.help_app.mojom.PageHandler.$interfaceName = 'ash.help_app.mojom.PageHandler';
+ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec = { $: {} };
+ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec = { $: {} };
+ash.help_app.mojom.PageHandler_ShowOnDeviceAppControls_ParamsSpec = { $: {} };
+ash.help_app.mojom.PageHandler_ShowParentalControls_ParamsSpec = { $: {} };
+ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec = { $: {} };
+ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ParamsSpec = { $: {} };
+ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ResponseParamsSpec = { $: {} };
+ash.help_app.mojom.PageHandler_LaunchMicrosoft365Setup_ParamsSpec = { $: {} };
+ash.help_app.mojom.PageHandler_MaybeShowReleaseNotesNotification_ParamsSpec = { $: {} };
+ash.help_app.mojom.PageHandler_GetDeviceInfo_ParamsSpec = { $: {} };
+ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParamsSpec = { $: {} };
+ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpec = { $: {} };
+ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec = { $: {} };
+ash.help_app.mojom.PageHandler_SetHasCompletedNewDeviceChecklist_ParamsSpec = { $: {} };
+ash.help_app.mojom.PageHandler_SetHasVisitedHowToPage_ParamsSpec = { $: {} };
 
 // Enum: ActionTypeId
 ash.help_app.mojom.ActionTypeId = {
@@ -25,7 +48,6 @@ ash.help_app.mojom.ActionTypeId = {
   OPEN_YOUTUBE: 9,
   OPEN_FILE_MANAGER: 10,
 };
-ash.help_app.mojom.ActionTypeIdSpec = { $: mojo.internal.Enum() };
 
 // Enum: SettingsComponent
 ash.help_app.mojom.SettingsComponent = {
@@ -44,40 +66,23 @@ ash.help_app.mojom.SettingsComponent = {
   TOUCHPAD_REVERSE_SCROLLING: 12,
   TOUCHPAD_SIMULATE_RIGHT_CLICK: 13,
 };
-ash.help_app.mojom.SettingsComponentSpec = { $: mojo.internal.Enum() };
 
 // Struct: DeviceInfo
-ash.help_app.mojom.DeviceInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.DeviceInfo',
-      packedSize: 40,
-      fields: [
-        { name: 'board', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'user_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_steam_allowed', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.help_app.mojom.DeviceInfoSpec, 'ash.help_app.mojom.DeviceInfo', [
+      mojo.internal.StructField('board', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('model', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('user_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_steam_allowed', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: PageHandlerFactory
-ash.help_app.mojom.PageHandlerFactory = {};
-
-ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.help_app.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.help_app.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.help_app.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -132,174 +137,91 @@ ash.help_app.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.help_app.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.help_app.mojom.PageHandlerFactoryPtr = ash.help_app.mojom.PageHandlerFactoryRemote;
 ash.help_app.mojom.PageHandlerFactoryRequest = ash.help_app.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-ash.help_app.mojom.PageHandler = {};
+mojo.internal.Struct(
+    ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec, 'ash.help_app.mojom.PageHandler_OpenFeedbackDialog_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.PageHandler_OpenFeedbackDialog_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec, 'ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ResponseParams', [
+      mojo.internal.StructField('error_message', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.help_app.mojom.PageHandler_ShowOnDeviceAppControls_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.PageHandler_ShowOnDeviceAppControls_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.help_app.mojom.PageHandler_ShowOnDeviceAppControls_ParamsSpec, 'ash.help_app.mojom.PageHandler_ShowOnDeviceAppControls_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.help_app.mojom.PageHandler_ShowParentalControls_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.PageHandler_ShowParentalControls_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.help_app.mojom.PageHandler_ShowParentalControls_ParamsSpec, 'ash.help_app.mojom.PageHandler_ShowParentalControls_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action_type_id', packedOffset: 0, packedBitOffset: 0, type: ash.help_app.mojom.ActionTypeIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec, 'ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_Params', [
+      mojo.internal.StructField('action_type_id', 0, 0, ash.help_app.mojom.ActionTypeIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ParamsSpec, 'ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.help_app.mojom.PageHandler_LaunchMicrosoft365Setup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.PageHandler_LaunchMicrosoft365Setup_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ResponseParamsSpec, 'ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ResponseParams', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.help_app.mojom.PageHandler_MaybeShowReleaseNotesNotification_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.PageHandler_MaybeShowReleaseNotesNotification_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.help_app.mojom.PageHandler_LaunchMicrosoft365Setup_ParamsSpec, 'ash.help_app.mojom.PageHandler_LaunchMicrosoft365Setup_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.help_app.mojom.PageHandler_GetDeviceInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.PageHandler_GetDeviceInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.help_app.mojom.PageHandler_MaybeShowReleaseNotesNotification_ParamsSpec, 'ash.help_app.mojom.PageHandler_MaybeShowReleaseNotesNotification_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.help_app.mojom.PageHandler_GetDeviceInfo_ParamsSpec, 'ash.help_app.mojom.PageHandler_GetDeviceInfo_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.PageHandler_OpenSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'component', packedOffset: 0, packedBitOffset: 0, type: ash.help_app.mojom.SettingsComponentSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParamsSpec, 'ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParams', [
+      mojo.internal.StructField('device_info', 0, 0, ash.help_app.mojom.DeviceInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.help_app.mojom.PageHandler_SetHasCompletedNewDeviceChecklist_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.PageHandler_SetHasCompletedNewDeviceChecklist_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpec, 'ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.help_app.mojom.PageHandler_SetHasVisitedHowToPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.PageHandler_SetHasVisitedHowToPage_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec, 'ash.help_app.mojom.PageHandler_OpenSettings_Params', [
+      mojo.internal.StructField('component', 0, 0, ash.help_app.mojom.SettingsComponentSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.help_app.mojom.PageHandler_SetHasCompletedNewDeviceChecklist_ParamsSpec, 'ash.help_app.mojom.PageHandler_SetHasCompletedNewDeviceChecklist_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.help_app.mojom.PageHandler_SetHasVisitedHowToPage_ParamsSpec, 'ash.help_app.mojom.PageHandler_SetHasVisitedHowToPage_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.help_app.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -453,205 +375,6 @@ ash.help_app.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OpenFeedbackDialog
-ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.PageHandler.OpenFeedbackDialog_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.PageHandler.OpenFeedbackDialog_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ShowOnDeviceAppControls
-ash.help_app.mojom.PageHandler_ShowOnDeviceAppControls_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.PageHandler.ShowOnDeviceAppControls_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ShowParentalControls
-ash.help_app.mojom.PageHandler_ShowParentalControls_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.PageHandler.ShowParentalControls_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for TriggerWelcomeTipCallToAction
-ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.PageHandler.TriggerWelcomeTipCallToAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action_type_id', packedOffset: 0, packedBitOffset: 0, type: ash.help_app.mojom.ActionTypeIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for IsLauncherSearchEnabled
-ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.PageHandler.IsLauncherSearchEnabled_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.PageHandler.IsLauncherSearchEnabled_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for LaunchMicrosoft365Setup
-ash.help_app.mojom.PageHandler_LaunchMicrosoft365Setup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.PageHandler.LaunchMicrosoft365Setup_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for MaybeShowReleaseNotesNotification
-ash.help_app.mojom.PageHandler_MaybeShowReleaseNotesNotification_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.PageHandler.MaybeShowReleaseNotesNotification_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for GetDeviceInfo
-ash.help_app.mojom.PageHandler_GetDeviceInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.PageHandler.GetDeviceInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.PageHandler.GetDeviceInfo_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: ash.help_app.mojom.DeviceInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OpenUrlInBrowserAndTriggerInstallDialog
-ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.PageHandler.OpenUrlInBrowserAndTriggerInstallDialog_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OpenSettings
-ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.PageHandler.OpenSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'component', packedOffset: 0, packedBitOffset: 0, type: ash.help_app.mojom.SettingsComponentSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetHasCompletedNewDeviceChecklist
-ash.help_app.mojom.PageHandler_SetHasCompletedNewDeviceChecklist_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.PageHandler.SetHasCompletedNewDeviceChecklist_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetHasVisitedHowToPage
-ash.help_app.mojom.PageHandler_SetHasVisitedHowToPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.PageHandler.SetHasVisitedHowToPage_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.help_app.mojom.PageHandlerPtr = ash.help_app.mojom.PageHandlerRemote;
 ash.help_app.mojom.PageHandlerRequest = ash.help_app.mojom.PageHandlerPendingReceiver;
 

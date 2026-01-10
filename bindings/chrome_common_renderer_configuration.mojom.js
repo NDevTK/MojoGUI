@@ -7,84 +7,77 @@
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
+var components = components || {};
+var components = components || {};
 var url = url || {};
 
+chrome.mojom.ResumeBlockedRequestsTriggerSpec = { $: mojo.internal.Enum() };
+chrome.mojom.BoundSessionThrottlerParamsSpec = { $: {} };
+chrome.mojom.DynamicParamsSpec = { $: {} };
+chrome.mojom.StaticParamsSpec = { $: {} };
+chrome.mojom.BoundSessionRequestThrottledHandler = {};
+chrome.mojom.BoundSessionRequestThrottledHandler.$interfaceName = 'chrome.mojom.BoundSessionRequestThrottledHandler';
+chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec = { $: {} };
+chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParamsSpec = { $: {} };
+chrome.mojom.ChromeOSListener = {};
+chrome.mojom.ChromeOSListener.$interfaceName = 'chrome.mojom.ChromeOSListener';
+chrome.mojom.ChromeOSListener_MergeSessionComplete_ParamsSpec = { $: {} };
+chrome.mojom.RendererConfiguration = {};
+chrome.mojom.RendererConfiguration.$interfaceName = 'chrome.mojom.RendererConfiguration';
+chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec = { $: {} };
+chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec = { $: {} };
+chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec = { $: {} };
 
 // Enum: ResumeBlockedRequestsTrigger
 chrome.mojom.ResumeBlockedRequestsTrigger = {
   kObservedFreshCookies: 0,
   kCookieRefreshFetchSuccess: 1,
   kCookieRefreshFetchFailure: 2,
-  kTimeout: 3,
-  kShutdownOrSessionTermination: 4,
-  kCookieAlreadyFresh: 5,
-  kRendererDisconnected: 6,
-  kThrottlingRequestsPaused: 7,
+  kTimeout: 4,
+  kShutdownOrSessionTermination: 5,
+  kCookieAlreadyFresh: 6,
+  kRendererDisconnected: 7,
+  kThrottlingRequestsPaused: 8,
 };
-chrome.mojom.ResumeBlockedRequestsTriggerSpec = { $: mojo.internal.Enum() };
 
 // Struct: BoundSessionThrottlerParams
-chrome.mojom.BoundSessionThrottlerParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.BoundSessionThrottlerParams',
-      packedSize: 32,
-      fields: [
-        { name: 'domain', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'cookie_expiry_date', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.BoundSessionThrottlerParamsSpec, 'chrome.mojom.BoundSessionThrottlerParams', [
+      mojo.internal.StructField('domain', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('path', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('cookie_expiry_date', 16, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: DynamicParams
-chrome.mojom.DynamicParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.DynamicParams',
-      packedSize: 32,
-      fields: [
-        { name: 'bound_session_throttler_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chrome.mojom.BoundSessionThrottlerParamsSpec, false), nullable: false, minVersion: 0 },
-        { name: 'force_safe_search', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'youtube_restrict', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'allowed_domains_for_apps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.DynamicParamsSpec, 'chrome.mojom.DynamicParams', [
+      mojo.internal.StructField('bound_session_throttler_params', 0, 0, mojo.internal.Array(chrome.mojom.BoundSessionThrottlerParamsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('force_safe_search', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('youtube_restrict', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('allowed_domains_for_apps', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: StaticParams
-chrome.mojom.StaticParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.StaticParams',
-      packedSize: 16,
-      fields: [
-        { name: 'is_instant_process', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.StaticParamsSpec, 'chrome.mojom.StaticParams', [
+      mojo.internal.StructField('is_instant_process', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: BoundSessionRequestThrottledHandler
-chrome.mojom.BoundSessionRequestThrottledHandler = {};
+mojo.internal.Struct(
+    chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec, 'chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_Params', [
+      mojo.internal.StructField('untrusted_request_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'untrusted_request_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParamsSpec, 'chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParams', [
+      mojo.internal.StructField('resume_trigger', 0, 0, chrome.mojom.ResumeBlockedRequestsTriggerSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chrome.mojom.BoundSessionRequestThrottledHandlerPendingReceiver = class {
   constructor(handle) {
@@ -139,52 +132,15 @@ chrome.mojom.BoundSessionRequestThrottledHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for HandleRequestBlockedOnCookie
-chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.BoundSessionRequestThrottledHandler.HandleRequestBlockedOnCookie_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'untrusted_request_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.BoundSessionRequestThrottledHandler.HandleRequestBlockedOnCookie_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'resume_trigger', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.ResumeBlockedRequestsTriggerSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chrome.mojom.BoundSessionRequestThrottledHandlerPtr = chrome.mojom.BoundSessionRequestThrottledHandlerRemote;
 chrome.mojom.BoundSessionRequestThrottledHandlerRequest = chrome.mojom.BoundSessionRequestThrottledHandlerPendingReceiver;
 
 
 // Interface: ChromeOSListener
-chrome.mojom.ChromeOSListener = {};
-
-chrome.mojom.ChromeOSListener_MergeSessionComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeOSListener_MergeSessionComplete_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.ChromeOSListener_MergeSessionComplete_ParamsSpec, 'chrome.mojom.ChromeOSListener_MergeSessionComplete_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 chrome.mojom.ChromeOSListenerPendingReceiver = class {
   constructor(handle) {
@@ -239,68 +195,31 @@ chrome.mojom.ChromeOSListener.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for MergeSessionComplete
-chrome.mojom.ChromeOSListener_MergeSessionComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.ChromeOSListener.MergeSessionComplete_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 chrome.mojom.ChromeOSListenerPtr = chrome.mojom.ChromeOSListenerRemote;
 chrome.mojom.ChromeOSListenerRequest = chrome.mojom.ChromeOSListenerPendingReceiver;
 
 
 // Interface: RendererConfiguration
-chrome.mojom.RendererConfiguration = {};
+mojo.internal.Struct(
+    chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec, 'chrome.mojom.RendererConfiguration_SetInitialConfiguration_Params', [
+      mojo.internal.StructField('is_incognito_process', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('chromeos_listener', 0, 0, mojo.internal.InterfaceRequest(chrome.mojom.ChromeOSListenerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('content_settings_manager', 8, 0, mojo.internal.InterfaceProxy(content_settings.mojom.ContentSettingsManagerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('bound_session_request_throttled_handler', 16, 0, mojo.internal.InterfaceProxy(chrome.mojom.BoundSessionRequestThrottledHandlerRemote), null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
-chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.RendererConfiguration_SetInitialConfiguration_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'is_incognito_process', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'chromeos_listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chrome.mojom.ChromeOSListenerRemote), nullable: true, minVersion: 0 },
-        { name: 'content_settings_manager', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(content_settings.mojom.ContentSettingsManagerRemote), nullable: true, minVersion: 0 },
-        { name: 'bound_session_request_throttled_handler', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome.mojom.BoundSessionRequestThrottledHandlerRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec, 'chrome.mojom.RendererConfiguration_SetConfiguration_Params', [
+      mojo.internal.StructField('params', 0, 0, chrome.mojom.DynamicParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.RendererConfiguration_SetConfiguration_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.DynamicParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.StaticParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec, 'chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_Params', [
+      mojo.internal.StructField('params', 0, 0, chrome.mojom.StaticParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chrome.mojom.RendererConfigurationPendingReceiver = class {
   constructor(handle) {
@@ -373,52 +292,6 @@ chrome.mojom.RendererConfiguration.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetInitialConfiguration
-chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.RendererConfiguration.SetInitialConfiguration_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'is_incognito_process', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'chromeos_listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chrome.mojom.ChromeOSListenerRemote), nullable: true, minVersion: 0 },
-        { name: 'content_settings_manager', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(content_settings.mojom.ContentSettingsManagerRemote), nullable: true, minVersion: 0 },
-        { name: 'bound_session_request_throttled_handler', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome.mojom.BoundSessionRequestThrottledHandlerRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for SetConfiguration
-chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.RendererConfiguration.SetConfiguration_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.DynamicParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetConfigurationOnProcessLockUpdate
-chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.RendererConfiguration.SetConfigurationOnProcessLockUpdate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.StaticParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chrome.mojom.RendererConfigurationPtr = chrome.mojom.RendererConfigurationRemote;
 chrome.mojom.RendererConfigurationRequest = chrome.mojom.RendererConfigurationPendingReceiver;
 

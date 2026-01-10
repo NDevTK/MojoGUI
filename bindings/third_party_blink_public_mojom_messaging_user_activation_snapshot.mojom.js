@@ -8,18 +8,12 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.UserActivationSnapshotSpec = { $: {} };
 
 // Struct: UserActivationSnapshot
-blink.mojom.UserActivationSnapshotSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.UserActivationSnapshot',
-      packedSize: 16,
-      fields: [
-        { name: 'has_been_active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'was_active', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.UserActivationSnapshotSpec, 'blink.mojom.UserActivationSnapshot', [
+      mojo.internal.StructField('has_been_active', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('was_active', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);

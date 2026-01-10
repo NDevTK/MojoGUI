@@ -7,23 +7,25 @@
 // Module namespace
 var media_router = media_router || {};
 media_router.mojom = media_router.mojom || {};
+var components = components || {};
 
+media_router.mojom.MediaRouterTraitsTestService = {};
+media_router.mojom.MediaRouterTraitsTestService.$interfaceName = 'media_router.mojom.MediaRouterTraitsTestService';
+media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ParamsSpec = { $: {} };
+media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec = { $: {} };
 
 // Interface: MediaRouterTraitsTestService
-media_router.mojom.MediaRouterTraitsTestService = {};
+mojo.internal.Struct(
+    media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ParamsSpec, 'media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_Params', [
+      mojo.internal.StructField('s', 0, 0, media_router.mojom.MediaSinkSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_Params',
-      packedSize: 16,
-      fields: [
-        { name: 's', packedOffset: 0, packedBitOffset: 0, type: media_router.mojom.MediaSinkSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec, 'media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParams', [
+      mojo.internal.StructField('sink', 0, 0, media_router.mojom.MediaSinkSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media_router.mojom.MediaRouterTraitsTestServicePendingReceiver = class {
   constructor(handle) {
@@ -78,34 +80,6 @@ media_router.mojom.MediaRouterTraitsTestService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for EchoMediaSink
-media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouterTraitsTestService.EchoMediaSink_Params',
-      packedSize: 16,
-      fields: [
-        { name: 's', packedOffset: 0, packedBitOffset: 0, type: media_router.mojom.MediaSinkSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouterTraitsTestService.EchoMediaSink_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'sink', packedOffset: 0, packedBitOffset: 0, type: media_router.mojom.MediaSinkSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media_router.mojom.MediaRouterTraitsTestServicePtr = media_router.mojom.MediaRouterTraitsTestServiceRemote;
 media_router.mojom.MediaRouterTraitsTestServiceRequest = media_router.mojom.MediaRouterTraitsTestServicePendingReceiver;
 

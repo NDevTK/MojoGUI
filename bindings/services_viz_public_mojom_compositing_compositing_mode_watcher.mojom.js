@@ -8,21 +8,18 @@
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
+viz.mojom.CompositingModeWatcher = {};
+viz.mojom.CompositingModeWatcher.$interfaceName = 'viz.mojom.CompositingModeWatcher';
+viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec = { $: {} };
+viz.mojom.CompositingModeReporter = {};
+viz.mojom.CompositingModeReporter.$interfaceName = 'viz.mojom.CompositingModeReporter';
+viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec = { $: {} };
 
 // Interface: CompositingModeWatcher
-viz.mojom.CompositingModeWatcher = {};
-
-viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec, 'viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 viz.mojom.CompositingModeWatcherPendingReceiver = class {
   constructor(handle) {
@@ -77,39 +74,16 @@ viz.mojom.CompositingModeWatcher.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CompositingModeFallbackToSoftware
-viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.CompositingModeWatcher.CompositingModeFallbackToSoftware_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 viz.mojom.CompositingModeWatcherPtr = viz.mojom.CompositingModeWatcherRemote;
 viz.mojom.CompositingModeWatcherRequest = viz.mojom.CompositingModeWatcherPendingReceiver;
 
 
 // Interface: CompositingModeReporter
-viz.mojom.CompositingModeReporter = {};
-
-viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'watcher', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(viz.mojom.CompositingModeWatcherRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec, 'viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_Params', [
+      mojo.internal.StructField('watcher', 0, 0, mojo.internal.InterfaceProxy(viz.mojom.CompositingModeWatcherRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 viz.mojom.CompositingModeReporterPendingReceiver = class {
   constructor(handle) {
@@ -164,21 +138,6 @@ viz.mojom.CompositingModeReporter.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddCompositingModeWatcher
-viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.CompositingModeReporter.AddCompositingModeWatcher_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'watcher', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(viz.mojom.CompositingModeWatcherRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 viz.mojom.CompositingModeReporterPtr = viz.mojom.CompositingModeReporterRemote;
 viz.mojom.CompositingModeReporterRequest = viz.mojom.CompositingModeReporterPendingReceiver;
 

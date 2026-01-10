@@ -7,12 +7,15 @@
 // Module namespace
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
+var services = services || {};
 var skia = skia || {};
 var ui = ui || {};
 var gfx = gfx || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+gfx.mojom.ContentColorUsageSpec = { $: mojo.internal.Enum() };
+gfx.mojom.DisplayColorSpacesSpec = { $: {} };
 
 // Enum: ContentColorUsage
 gfx.mojom.ContentColorUsage = {
@@ -20,22 +23,14 @@ gfx.mojom.ContentColorUsage = {
   kWideColorGamut: 1,
   kHDR: 2,
 };
-gfx.mojom.ContentColorUsageSpec = { $: mojo.internal.Enum() };
 
 // Struct: DisplayColorSpaces
-gfx.mojom.DisplayColorSpacesSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.DisplayColorSpaces',
-      packedSize: 40,
-      fields: [
-        { name: 'color_spaces', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.ColorSpace, 6Spec, false), nullable: false, minVersion: 0 },
-        { name: 'formats', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.SharedImageFormat, 6Spec, false), nullable: false, minVersion: 0 },
-        { name: 'primaries', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColorSpacePrimariesSpec, nullable: false, minVersion: 0 },
-        { name: 'sdr_max_luminance_nits', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'hdr_max_luminance_relative', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.DisplayColorSpacesSpec, 'gfx.mojom.DisplayColorSpaces', [
+      mojo.internal.StructField('color_spaces', 0, 0, mojo.internal.Array(gfx.mojom.ColorSpace, 6Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('formats', 8, 0, mojo.internal.Array(viz.mojom.SharedImageFormat, 6Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('primaries', 16, 0, skia.mojom.SkColorSpacePrimariesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sdr_max_luminance_nits', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('hdr_max_luminance_relative', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);

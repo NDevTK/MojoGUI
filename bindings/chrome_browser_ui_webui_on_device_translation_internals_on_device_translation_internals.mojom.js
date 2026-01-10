@@ -8,6 +8,18 @@
 var on_device_translation_internals = on_device_translation_internals || {};
 on_device_translation_internals.mojom = on_device_translation_internals.mojom || {};
 
+on_device_translation_internals.mojom.LanguagePackStatusSpec = { $: mojo.internal.Enum() };
+on_device_translation_internals.mojom.LanguagePackInfoSpec = { $: {} };
+on_device_translation_internals.mojom.PageHandlerFactory = {};
+on_device_translation_internals.mojom.PageHandlerFactory.$interfaceName = 'on_device_translation_internals.mojom.PageHandlerFactory';
+on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+on_device_translation_internals.mojom.PageHandler = {};
+on_device_translation_internals.mojom.PageHandler.$interfaceName = 'on_device_translation_internals.mojom.PageHandler';
+on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_ParamsSpec = { $: {} };
+on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_ParamsSpec = { $: {} };
+on_device_translation_internals.mojom.Page = {};
+on_device_translation_internals.mojom.Page.$interfaceName = 'on_device_translation_internals.mojom.Page';
+on_device_translation_internals.mojom.Page_OnLanguagePackStatus_ParamsSpec = { $: {} };
 
 // Enum: LanguagePackStatus
 on_device_translation_internals.mojom.LanguagePackStatus = {
@@ -15,39 +27,22 @@ on_device_translation_internals.mojom.LanguagePackStatus = {
   kInstalling: 1,
   kInstalled: 2,
 };
-on_device_translation_internals.mojom.LanguagePackStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: LanguagePackInfo
-on_device_translation_internals.mojom.LanguagePackInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_translation_internals.mojom.LanguagePackInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: on_device_translation_internals.mojom.LanguagePackStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_translation_internals.mojom.LanguagePackInfoSpec, 'on_device_translation_internals.mojom.LanguagePackInfo', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, on_device_translation_internals.mojom.LanguagePackStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: PageHandlerFactory
-on_device_translation_internals.mojom.PageHandlerFactory = {};
-
-on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(on_device_translation_internals.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(on_device_translation_internals.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(on_device_translation_internals.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(on_device_translation_internals.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 on_device_translation_internals.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -102,54 +97,22 @@ on_device_translation_internals.mojom.PageHandlerFactory.getRemote = function() 
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_translation_internals.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(on_device_translation_internals.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(on_device_translation_internals.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 on_device_translation_internals.mojom.PageHandlerFactoryPtr = on_device_translation_internals.mojom.PageHandlerFactoryRemote;
 on_device_translation_internals.mojom.PageHandlerFactoryRequest = on_device_translation_internals.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-on_device_translation_internals.mojom.PageHandler = {};
+mojo.internal.Struct(
+    on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_ParamsSpec, 'on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_Params', [
+      mojo.internal.StructField('package_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_ParamsSpec, 'on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_Params', [
+      mojo.internal.StructField('package_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 on_device_translation_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -213,54 +176,16 @@ on_device_translation_internals.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for InstallLanguagePackage
-on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_translation_internals.mojom.PageHandler.InstallLanguagePackage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UninstallLanguagePackage
-on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_translation_internals.mojom.PageHandler.UninstallLanguagePackage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 on_device_translation_internals.mojom.PageHandlerPtr = on_device_translation_internals.mojom.PageHandlerRemote;
 on_device_translation_internals.mojom.PageHandlerRequest = on_device_translation_internals.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-on_device_translation_internals.mojom.Page = {};
-
-on_device_translation_internals.mojom.Page_OnLanguagePackStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_translation_internals.mojom.Page_OnLanguagePackStatus_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(on_device_translation_internals.mojom.LanguagePackInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_translation_internals.mojom.Page_OnLanguagePackStatus_ParamsSpec, 'on_device_translation_internals.mojom.Page_OnLanguagePackStatus_Params', [
+      mojo.internal.StructField('status', 0, 0, mojo.internal.Array(on_device_translation_internals.mojom.LanguagePackInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 on_device_translation_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -315,21 +240,6 @@ on_device_translation_internals.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnLanguagePackStatus
-on_device_translation_internals.mojom.Page_OnLanguagePackStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_translation_internals.mojom.Page.OnLanguagePackStatus_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(on_device_translation_internals.mojom.LanguagePackInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 on_device_translation_internals.mojom.PagePtr = on_device_translation_internals.mojom.PageRemote;
 on_device_translation_internals.mojom.PageRequest = on_device_translation_internals.mojom.PagePendingReceiver;
 

@@ -8,6 +8,8 @@
 var tabs = tabs || {};
 tabs.mojom = tabs.mojom || {};
 
+tabs.mojom.TabAlertStateSpec = { $: mojo.internal.Enum() };
+tabs.mojom.TabNetworkStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: TabAlertState
 tabs.mojom.TabAlertState = {
@@ -30,7 +32,6 @@ tabs.mojom.TabAlertState = {
   kVideoRecording: 16,
   kVrPresentingInHeadset: 17,
 };
-tabs.mojom.TabAlertStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: TabNetworkState
 tabs.mojom.TabNetworkState = {
@@ -39,4 +40,3 @@ tabs.mojom.TabNetworkState = {
   kLoading: 2,
   kError: 3,
 };
-tabs.mojom.TabNetworkStateSpec = { $: mojo.internal.Enum() };

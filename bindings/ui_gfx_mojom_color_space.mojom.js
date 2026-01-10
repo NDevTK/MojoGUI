@@ -8,6 +8,11 @@
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
 
+gfx.mojom.ColorSpacePrimaryIDSpec = { $: mojo.internal.Enum() };
+gfx.mojom.ColorSpaceTransferIDSpec = { $: mojo.internal.Enum() };
+gfx.mojom.ColorSpaceMatrixIDSpec = { $: mojo.internal.Enum() };
+gfx.mojom.ColorSpaceRangeIDSpec = { $: mojo.internal.Enum() };
+gfx.mojom.ColorSpaceSpec = { $: {} };
 
 // Enum: ColorSpacePrimaryID
 gfx.mojom.ColorSpacePrimaryID = {
@@ -29,7 +34,6 @@ gfx.mojom.ColorSpacePrimaryID = {
   CUSTOM: 15,
   EBU_3213_E: 16,
 };
-gfx.mojom.ColorSpacePrimaryIDSpec = { $: mojo.internal.Enum() };
 
 // Enum: ColorSpaceTransferID
 gfx.mojom.ColorSpaceTransferID = {
@@ -59,7 +63,6 @@ gfx.mojom.ColorSpaceTransferID = {
   CUSTOM_HDR: 23,
   SCRGB_LINEAR_80_NITS: 24,
 };
-gfx.mojom.ColorSpaceTransferIDSpec = { $: mojo.internal.Enum() };
 
 // Enum: ColorSpaceMatrixID
 gfx.mojom.ColorSpaceMatrixID = {
@@ -75,7 +78,6 @@ gfx.mojom.ColorSpaceMatrixID = {
   YDZDX: 9,
   GBR: 10,
 };
-gfx.mojom.ColorSpaceMatrixIDSpec = { $: mojo.internal.Enum() };
 
 // Enum: ColorSpaceRangeID
 gfx.mojom.ColorSpaceRangeID = {
@@ -84,23 +86,15 @@ gfx.mojom.ColorSpaceRangeID = {
   FULL: 2,
   DERIVED: 3,
 };
-gfx.mojom.ColorSpaceRangeIDSpec = { $: mojo.internal.Enum() };
 
 // Struct: ColorSpace
-gfx.mojom.ColorSpaceSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.ColorSpace',
-      packedSize: 40,
-      fields: [
-        { name: 'primaries', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.ColorSpacePrimaryIDSpec, nullable: false, minVersion: 0 },
-        { name: 'transfer', packedOffset: 20, packedBitOffset: 0, type: gfx.mojom.ColorSpaceTransferIDSpec, nullable: false, minVersion: 0 },
-        { name: 'matrix', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.ColorSpaceMatrixIDSpec, nullable: false, minVersion: 0 },
-        { name: 'range', packedOffset: 28, packedBitOffset: 0, type: gfx.mojom.ColorSpaceRangeIDSpec, nullable: false, minVersion: 0 },
-        { name: 'custom_primary_matrix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
-        { name: 'transfer_params', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.ColorSpaceSpec, 'gfx.mojom.ColorSpace', [
+      mojo.internal.StructField('primaries', 16, 0, gfx.mojom.ColorSpacePrimaryIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('transfer', 20, 0, gfx.mojom.ColorSpaceTransferIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('matrix', 24, 0, gfx.mojom.ColorSpaceMatrixIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('range', 28, 0, gfx.mojom.ColorSpaceRangeIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('custom_primary_matrix', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('transfer_params', 8, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);

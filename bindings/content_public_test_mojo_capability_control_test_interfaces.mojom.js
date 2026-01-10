@@ -8,21 +8,30 @@
 var content = content || {};
 content.mojom = content.mojom || {};
 
+content.mojom.TestInterfaceForDefer = {};
+content.mojom.TestInterfaceForDefer.$interfaceName = 'content.mojom.TestInterfaceForDefer';
+content.mojom.TestInterfaceForDefer_Ping_ParamsSpec = { $: {} };
+content.mojom.TestInterfaceForDefer_Ping_ResponseParamsSpec = { $: {} };
+content.mojom.TestInterfaceForGrant = {};
+content.mojom.TestInterfaceForGrant.$interfaceName = 'content.mojom.TestInterfaceForGrant';
+content.mojom.TestInterfaceForCancel = {};
+content.mojom.TestInterfaceForCancel.$interfaceName = 'content.mojom.TestInterfaceForCancel';
+content.mojom.TestInterfaceForUnexpected = {};
+content.mojom.TestInterfaceForUnexpected.$interfaceName = 'content.mojom.TestInterfaceForUnexpected';
+content.mojom.MojoContextProvider = {};
+content.mojom.MojoContextProvider.$interfaceName = 'content.mojom.MojoContextProvider';
+content.mojom.MojoContextProvider_GrantAll_ParamsSpec = { $: {} };
 
 // Interface: TestInterfaceForDefer
-content.mojom.TestInterfaceForDefer = {};
+mojo.internal.Struct(
+    content.mojom.TestInterfaceForDefer_Ping_ParamsSpec, 'content.mojom.TestInterfaceForDefer_Ping_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.TestInterfaceForDefer_Ping_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.TestInterfaceForDefer_Ping_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.TestInterfaceForDefer_Ping_ResponseParamsSpec, 'content.mojom.TestInterfaceForDefer_Ping_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 content.mojom.TestInterfaceForDeferPendingReceiver = class {
   constructor(handle) {
@@ -61,7 +70,7 @@ content.mojom.TestInterfaceForDeferRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       content.mojom.TestInterfaceForDefer_Ping_ParamsSpec,
-      null,
+      content.mojom.TestInterfaceForDefer_Ping_ResponseParamsSpec,
       []);
   }
 
@@ -77,27 +86,11 @@ content.mojom.TestInterfaceForDefer.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Ping
-content.mojom.TestInterfaceForDefer_Ping_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.TestInterfaceForDefer.Ping_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.TestInterfaceForDeferPtr = content.mojom.TestInterfaceForDeferRemote;
 content.mojom.TestInterfaceForDeferRequest = content.mojom.TestInterfaceForDeferPendingReceiver;
 
 
 // Interface: TestInterfaceForGrant
-content.mojom.TestInterfaceForGrant = {};
-
 content.mojom.TestInterfaceForGrantPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -142,14 +135,11 @@ content.mojom.TestInterfaceForGrant.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 content.mojom.TestInterfaceForGrantPtr = content.mojom.TestInterfaceForGrantRemote;
 content.mojom.TestInterfaceForGrantRequest = content.mojom.TestInterfaceForGrantPendingReceiver;
 
 
 // Interface: TestInterfaceForCancel
-content.mojom.TestInterfaceForCancel = {};
-
 content.mojom.TestInterfaceForCancelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -194,14 +184,11 @@ content.mojom.TestInterfaceForCancel.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 content.mojom.TestInterfaceForCancelPtr = content.mojom.TestInterfaceForCancelRemote;
 content.mojom.TestInterfaceForCancelRequest = content.mojom.TestInterfaceForCancelPendingReceiver;
 
 
 // Interface: TestInterfaceForUnexpected
-content.mojom.TestInterfaceForUnexpected = {};
-
 content.mojom.TestInterfaceForUnexpectedPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -246,25 +233,15 @@ content.mojom.TestInterfaceForUnexpected.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 content.mojom.TestInterfaceForUnexpectedPtr = content.mojom.TestInterfaceForUnexpectedRemote;
 content.mojom.TestInterfaceForUnexpectedRequest = content.mojom.TestInterfaceForUnexpectedPendingReceiver;
 
 
 // Interface: MojoContextProvider
-content.mojom.MojoContextProvider = {};
-
-content.mojom.MojoContextProvider_GrantAll_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoContextProvider_GrantAll_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MojoContextProvider_GrantAll_ParamsSpec, 'content.mojom.MojoContextProvider_GrantAll_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 content.mojom.MojoContextProviderPendingReceiver = class {
   constructor(handle) {
@@ -319,20 +296,6 @@ content.mojom.MojoContextProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GrantAll
-content.mojom.MojoContextProvider_GrantAll_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MojoContextProvider.GrantAll_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.MojoContextProviderPtr = content.mojom.MojoContextProviderRemote;
 content.mojom.MojoContextProviderRequest = content.mojom.MojoContextProviderPendingReceiver;
 

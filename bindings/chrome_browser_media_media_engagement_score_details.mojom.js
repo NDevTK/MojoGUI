@@ -9,77 +9,67 @@ var media = media || {};
 media.mojom = media.mojom || {};
 var url = url || {};
 
+media.mojom.MediaEngagementScoreDetailsSpec = { $: {} };
+media.mojom.MediaEngagementConfigSpec = { $: {} };
+media.mojom.MediaEngagementScoreDetailsProvider = {};
+media.mojom.MediaEngagementScoreDetailsProvider.$interfaceName = 'media.mojom.MediaEngagementScoreDetailsProvider';
+media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ParamsSpec = { $: {} };
+media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ResponseParamsSpec = { $: {} };
+media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ParamsSpec = { $: {} };
+media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ResponseParamsSpec = { $: {} };
 
 // Struct: MediaEngagementScoreDetails
-media.mojom.MediaEngagementScoreDetailsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaEngagementScoreDetails',
-      packedSize: 48,
-      fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'total_score', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'visits', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'media_playbacks', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'last_media_playback_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'is_high', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaEngagementScoreDetailsSpec, 'media.mojom.MediaEngagementScoreDetails', [
+      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('total_score', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('visits', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('media_playbacks', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('last_media_playback_time', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('is_high', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: MediaEngagementConfig
-media.mojom.MediaEngagementConfigSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaEngagementConfig',
-      packedSize: 48,
-      fields: [
-        { name: 'score_min_visits', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'high_score_lower_threshold', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'high_score_upper_threshold', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'feature_record_data', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'feature_bypass_autoplay', packedOffset: 36, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'feature_preload_data', packedOffset: 36, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'feature_https_only', packedOffset: 36, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'feature_autoplay_disable_settings', packedOffset: 36, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'pref_disable_unified_autoplay', packedOffset: 36, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_custom_autoplay_policy', packedOffset: 36, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'autoplay_policy', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'preload_version', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaEngagementConfigSpec, 'media.mojom.MediaEngagementConfig', [
+      mojo.internal.StructField('score_min_visits', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('high_score_lower_threshold', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('high_score_upper_threshold', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('feature_record_data', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('feature_bypass_autoplay', 36, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('feature_preload_data', 36, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('feature_https_only', 36, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('feature_autoplay_disable_settings', 36, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('pref_disable_unified_autoplay', 36, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_custom_autoplay_policy', 36, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('autoplay_policy', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('preload_version', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Interface: MediaEngagementScoreDetailsProvider
-media.mojom.MediaEngagementScoreDetailsProvider = {};
+mojo.internal.Struct(
+    media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ParamsSpec, 'media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ResponseParamsSpec, 'media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ResponseParams', [
+      mojo.internal.StructField('info', 0, 0, mojo.internal.Array(media.mojom.MediaEngagementScoreDetailsSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ParamsSpec, 'media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ResponseParamsSpec, 'media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ResponseParams', [
+      mojo.internal.StructField('config', 0, 0, media.mojom.MediaEngagementConfigSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.MediaEngagementScoreDetailsProviderPendingReceiver = class {
   constructor(handle) {
@@ -143,59 +133,6 @@ media.mojom.MediaEngagementScoreDetailsProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetMediaEngagementScoreDetails
-media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaEngagementScoreDetailsProvider.GetMediaEngagementScoreDetails_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaEngagementScoreDetailsProvider.GetMediaEngagementScoreDetails_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.MediaEngagementScoreDetailsSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetMediaEngagementConfig
-media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaEngagementScoreDetailsProvider.GetMediaEngagementConfig_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaEngagementScoreDetailsProvider.GetMediaEngagementConfig_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: media.mojom.MediaEngagementConfigSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.MediaEngagementScoreDetailsProviderPtr = media.mojom.MediaEngagementScoreDetailsProviderRemote;
 media.mojom.MediaEngagementScoreDetailsProviderRequest = media.mojom.MediaEngagementScoreDetailsProviderPendingReceiver;
 

@@ -8,22 +8,19 @@
 var device = device || {};
 device.mojom = device.mojom || {};
 
+device.mojom.TimeZoneMonitor = {};
+device.mojom.TimeZoneMonitor.$interfaceName = 'device.mojom.TimeZoneMonitor';
+device.mojom.TimeZoneMonitor_AddClient_ParamsSpec = { $: {} };
+device.mojom.TimeZoneMonitorClient = {};
+device.mojom.TimeZoneMonitorClient.$interfaceName = 'device.mojom.TimeZoneMonitorClient';
+device.mojom.TimeZoneMonitorClient_OnTimeZoneChange_ParamsSpec = { $: {} };
 
 // Interface: TimeZoneMonitor
-device.mojom.TimeZoneMonitor = {};
-
-device.mojom.TimeZoneMonitor_AddClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.TimeZoneMonitor_AddClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.TimeZoneMonitorClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.TimeZoneMonitor_AddClient_ParamsSpec, 'device.mojom.TimeZoneMonitor_AddClient_Params', [
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(device.mojom.TimeZoneMonitorClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 device.mojom.TimeZoneMonitorPendingReceiver = class {
   constructor(handle) {
@@ -78,40 +75,16 @@ device.mojom.TimeZoneMonitor.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddClient
-device.mojom.TimeZoneMonitor_AddClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.TimeZoneMonitor.AddClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.TimeZoneMonitorClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 device.mojom.TimeZoneMonitorPtr = device.mojom.TimeZoneMonitorRemote;
 device.mojom.TimeZoneMonitorRequest = device.mojom.TimeZoneMonitorPendingReceiver;
 
 
 // Interface: TimeZoneMonitorClient
-device.mojom.TimeZoneMonitorClient = {};
-
-device.mojom.TimeZoneMonitorClient_OnTimeZoneChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.TimeZoneMonitorClient_OnTimeZoneChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tz_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.TimeZoneMonitorClient_OnTimeZoneChange_ParamsSpec, 'device.mojom.TimeZoneMonitorClient_OnTimeZoneChange_Params', [
+      mojo.internal.StructField('tz_info', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 device.mojom.TimeZoneMonitorClientPendingReceiver = class {
   constructor(handle) {
@@ -166,21 +139,6 @@ device.mojom.TimeZoneMonitorClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnTimeZoneChange
-device.mojom.TimeZoneMonitorClient_OnTimeZoneChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.TimeZoneMonitorClient.OnTimeZoneChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tz_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 device.mojom.TimeZoneMonitorClientPtr = device.mojom.TimeZoneMonitorClientRemote;
 device.mojom.TimeZoneMonitorClientRequest = device.mojom.TimeZoneMonitorClientPendingReceiver;
 

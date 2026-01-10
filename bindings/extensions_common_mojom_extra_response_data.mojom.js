@@ -9,17 +9,11 @@ var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
 var blink = blink || {};
 
+extensions.mojom.ExtraResponseDataSpec = { $: {} };
 
 // Struct: ExtraResponseData
-extensions.mojom.ExtraResponseDataSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.ExtraResponseData',
-      packedSize: 16,
-      fields: [
-        { name: 'blobs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SerializedBlobSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mojom.ExtraResponseDataSpec, 'extensions.mojom.ExtraResponseData', [
+      mojo.internal.StructField('blobs', 0, 0, mojo.internal.Array(blink.mojom.SerializedBlobSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);

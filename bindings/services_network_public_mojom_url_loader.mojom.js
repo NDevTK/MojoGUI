@@ -7,58 +7,54 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 var url = url || {};
 
+network.mojom.URLLoaderClientEndpointsSpec = { $: {} };
+network.mojom.URLLoader = {};
+network.mojom.URLLoader.$interfaceName = 'network.mojom.URLLoader';
+network.mojom.URLLoader_FollowRedirect_ParamsSpec = { $: {} };
+network.mojom.URLLoader_SetPriority_ParamsSpec = { $: {} };
+network.mojom.URLLoaderClient = {};
+network.mojom.URLLoaderClient.$interfaceName = 'network.mojom.URLLoaderClient';
+network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec = { $: {} };
+network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec = { $: {} };
+network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec = { $: {} };
+network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec = { $: {} };
+network.mojom.URLLoaderClient_OnUploadProgress_ResponseParamsSpec = { $: {} };
+network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec = { $: {} };
+network.mojom.URLLoaderClient_OnComplete_ParamsSpec = { $: {} };
 
 network.mojom.kClientDisconnectReason = 1;
 
 // Struct: URLLoaderClientEndpoints
-network.mojom.URLLoaderClientEndpointsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.URLLoaderClientEndpoints',
-      packedSize: 24,
-      fields: [
-        { name: 'url_loader', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.URLLoaderRemote), nullable: false, minVersion: 0 },
-        { name: 'url_loader_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.URLLoaderClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.URLLoaderClientEndpointsSpec, 'network.mojom.URLLoaderClientEndpoints', [
+      mojo.internal.StructField('url_loader', 0, 0, mojo.internal.InterfaceProxy(network.mojom.URLLoaderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('url_loader_client', 8, 0, mojo.internal.InterfaceRequest(network.mojom.URLLoaderClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: URLLoader
-network.mojom.URLLoader = {};
+mojo.internal.Struct(
+    network.mojom.URLLoader_FollowRedirect_ParamsSpec, 'network.mojom.URLLoader_FollowRedirect_Params', [
+      mojo.internal.StructField('removed_headers', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('modified_headers', 8, 0, network.mojom.HttpRequestHeadersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('modified_cors_exempt_headers', 16, 0, network.mojom.HttpRequestHeadersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('new_url', 24, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
-network.mojom.URLLoader_FollowRedirect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.URLLoader_FollowRedirect_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'removed_headers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'modified_headers', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HttpRequestHeadersSpec, nullable: false, minVersion: 0 },
-        { name: 'modified_cors_exempt_headers', packedOffset: 16, packedBitOffset: 0, type: network.mojom.HttpRequestHeadersSpec, nullable: false, minVersion: 0 },
-        { name: 'new_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-network.mojom.URLLoader_SetPriority_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.URLLoader_SetPriority_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'priority', packedOffset: 0, packedBitOffset: 0, type: network.mojom.RequestPrioritySpec, nullable: false, minVersion: 0 },
-        { name: 'intra_priority_value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.URLLoader_SetPriority_ParamsSpec, 'network.mojom.URLLoader_SetPriority_Params', [
+      mojo.internal.StructField('priority', 0, 0, network.mojom.RequestPrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('intra_priority_value', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.URLLoaderPendingReceiver = class {
   constructor(handle) {
@@ -122,127 +118,55 @@ network.mojom.URLLoader.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for FollowRedirect
-network.mojom.URLLoader_FollowRedirect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.URLLoader.FollowRedirect_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'removed_headers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'modified_headers', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HttpRequestHeadersSpec, nullable: false, minVersion: 0 },
-        { name: 'modified_cors_exempt_headers', packedOffset: 16, packedBitOffset: 0, type: network.mojom.HttpRequestHeadersSpec, nullable: false, minVersion: 0 },
-        { name: 'new_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for SetPriority
-network.mojom.URLLoader_SetPriority_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.URLLoader.SetPriority_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'priority', packedOffset: 0, packedBitOffset: 0, type: network.mojom.RequestPrioritySpec, nullable: false, minVersion: 0 },
-        { name: 'intra_priority_value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.URLLoaderPtr = network.mojom.URLLoaderRemote;
 network.mojom.URLLoaderRequest = network.mojom.URLLoaderPendingReceiver;
 
 
 // Interface: URLLoaderClient
-network.mojom.URLLoaderClient = {};
+mojo.internal.Struct(
+    network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec, 'network.mojom.URLLoaderClient_OnReceiveEarlyHints_Params', [
+      mojo.internal.StructField('early_hints', 0, 0, network.mojom.EarlyHintsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.URLLoaderClient_OnReceiveEarlyHints_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'early_hints', packedOffset: 0, packedBitOffset: 0, type: network.mojom.EarlyHintsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec, 'network.mojom.URLLoaderClient_OnReceiveResponse_Params', [
+      mojo.internal.StructField('head', 16, 0, network.mojom.URLResponseHeadSpec, null, false, 0, undefined),
+      mojo.internal.StructField('body', 24, 0, mojo.internal.Pointer, null, true, 0, undefined),
+      mojo.internal.StructField('cached_metadata', 0, 0, mojo_base.mojom.BigBufferSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
-network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.URLLoaderClient_OnReceiveResponse_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'head', packedOffset: 16, packedBitOffset: 0, type: network.mojom.URLResponseHeadSpec, nullable: false, minVersion: 0 },
-        { name: 'body', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
-        { name: 'cached_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec, 'network.mojom.URLLoaderClient_OnReceiveRedirect_Params', [
+      mojo.internal.StructField('redirect_info', 0, 0, network.mojom.URLRequestRedirectInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('head', 8, 0, network.mojom.URLResponseHeadSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.URLLoaderClient_OnReceiveRedirect_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'redirect_info', packedOffset: 0, packedBitOffset: 0, type: network.mojom.URLRequestRedirectInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'head', packedOffset: 8, packedBitOffset: 0, type: network.mojom.URLResponseHeadSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec, 'network.mojom.URLLoaderClient_OnUploadProgress_Params', [
+      mojo.internal.StructField('current_position', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('total_size', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.URLLoaderClient_OnUploadProgress_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'current_position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'total_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.URLLoaderClient_OnUploadProgress_ResponseParamsSpec, 'network.mojom.URLLoaderClient_OnUploadProgress_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.URLLoaderClient_OnTransferSizeUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'transfer_size_diff', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec, 'network.mojom.URLLoaderClient_OnTransferSizeUpdated_Params', [
+      mojo.internal.StructField('transfer_size_diff', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.URLLoaderClient_OnComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.URLLoaderClient_OnComplete_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: network.mojom.URLLoaderCompletionStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.URLLoaderClient_OnComplete_ParamsSpec, 'network.mojom.URLLoaderClient_OnComplete_Params', [
+      mojo.internal.StructField('status', 0, 0, network.mojom.URLLoaderCompletionStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.URLLoaderClientPendingReceiver = class {
   constructor(handle) {
@@ -308,7 +232,7 @@ network.mojom.URLLoaderClientRemoteCallHandler = class {
     return this.proxy.sendMessage(
       3,  // ordinal
       network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec,
-      null,
+      network.mojom.URLLoaderClient_OnUploadProgress_ResponseParamsSpec,
       [current_position, total_size]);
   }
 
@@ -342,95 +266,6 @@ network.mojom.URLLoaderClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnReceiveEarlyHints
-network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.URLLoaderClient.OnReceiveEarlyHints_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'early_hints', packedOffset: 0, packedBitOffset: 0, type: network.mojom.EarlyHintsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnReceiveResponse
-network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.URLLoaderClient.OnReceiveResponse_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'head', packedOffset: 16, packedBitOffset: 0, type: network.mojom.URLResponseHeadSpec, nullable: false, minVersion: 0 },
-        { name: 'body', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
-        { name: 'cached_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for OnReceiveRedirect
-network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.URLLoaderClient.OnReceiveRedirect_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'redirect_info', packedOffset: 0, packedBitOffset: 0, type: network.mojom.URLRequestRedirectInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'head', packedOffset: 8, packedBitOffset: 0, type: network.mojom.URLResponseHeadSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnUploadProgress
-network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.URLLoaderClient.OnUploadProgress_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'current_position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'total_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnTransferSizeUpdated
-network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.URLLoaderClient.OnTransferSizeUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'transfer_size_diff', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnComplete
-network.mojom.URLLoaderClient_OnComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.URLLoaderClient.OnComplete_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: network.mojom.URLLoaderCompletionStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.URLLoaderClientPtr = network.mojom.URLLoaderClientRemote;
 network.mojom.URLLoaderClientRequest = network.mojom.URLLoaderClientPendingReceiver;
 

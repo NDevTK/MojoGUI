@@ -9,6 +9,18 @@ var action_chips = action_chips || {};
 action_chips.mojom = action_chips.mojom || {};
 var url = url || {};
 
+action_chips.mojom.ChipTypeSpec = { $: mojo.internal.Enum() };
+action_chips.mojom.TabInfoSpec = { $: {} };
+action_chips.mojom.ActionChipSpec = { $: {} };
+action_chips.mojom.ActionChipsHandler = {};
+action_chips.mojom.ActionChipsHandler.$interfaceName = 'action_chips.mojom.ActionChipsHandler';
+action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec = { $: {} };
+action_chips.mojom.Page = {};
+action_chips.mojom.Page.$interfaceName = 'action_chips.mojom.Page';
+action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec = { $: {} };
+action_chips.mojom.ActionChipsHandlerFactory = {};
+action_chips.mojom.ActionChipsHandlerFactory.$interfaceName = 'action_chips.mojom.ActionChipsHandlerFactory';
+action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec = { $: {} };
 
 // Enum: ChipType
 action_chips.mojom.ChipType = {
@@ -17,56 +29,32 @@ action_chips.mojom.ChipType = {
   kRecentTab: 2,
   kDeepDive: 3,
 };
-action_chips.mojom.ChipTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: TabInfo
-action_chips.mojom.TabInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'action_chips.mojom.TabInfo',
-      packedSize: 40,
-      fields: [
-        { name: 'tab_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'last_active_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    action_chips.mojom.TabInfoSpec, 'action_chips.mojom.TabInfo', [
+      mojo.internal.StructField('tab_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('last_active_time', 16, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: ActionChip
-action_chips.mojom.ActionChipSpec = {
-  $: {
-    structSpec: {
-      name: 'action_chips.mojom.ActionChip',
-      packedSize: 40,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'suggestion', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: action_chips.mojom.ChipTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'tab', packedOffset: 16, packedBitOffset: 0, type: action_chips.mojom.TabInfoSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    action_chips.mojom.ActionChipSpec, 'action_chips.mojom.ActionChip', [
+      mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('suggestion', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('type', 24, 0, action_chips.mojom.ChipTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tab', 16, 0, action_chips.mojom.TabInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: ActionChipsHandler
-action_chips.mojom.ActionChipsHandler = {};
-
-action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec, 'action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 action_chips.mojom.ActionChipsHandlerPendingReceiver = class {
   constructor(handle) {
@@ -121,39 +109,16 @@ action_chips.mojom.ActionChipsHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for StartActionChipsRetrieval
-action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'action_chips.mojom.ActionChipsHandler.StartActionChipsRetrieval_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 action_chips.mojom.ActionChipsHandlerPtr = action_chips.mojom.ActionChipsHandlerRemote;
 action_chips.mojom.ActionChipsHandlerRequest = action_chips.mojom.ActionChipsHandlerPendingReceiver;
 
 
 // Interface: Page
-action_chips.mojom.Page = {};
-
-action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'action_chips.mojom.Page_OnActionChipsChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action_chips', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(action_chips.mojom.ActionChipSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec, 'action_chips.mojom.Page_OnActionChipsChanged_Params', [
+      mojo.internal.StructField('action_chips', 0, 0, mojo.internal.Array(action_chips.mojom.ActionChipSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 action_chips.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -208,41 +173,17 @@ action_chips.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnActionChipsChanged
-action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'action_chips.mojom.Page.OnActionChipsChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action_chips', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(action_chips.mojom.ActionChipSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 action_chips.mojom.PagePtr = action_chips.mojom.PageRemote;
 action_chips.mojom.PageRequest = action_chips.mojom.PagePendingReceiver;
 
 
 // Interface: ActionChipsHandlerFactory
-action_chips.mojom.ActionChipsHandlerFactory = {};
-
-action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(action_chips.mojom.ActionChipsHandlerRemote), nullable: false, minVersion: 0 },
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(action_chips.mojom.PageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec, 'action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(action_chips.mojom.ActionChipsHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 8, 0, mojo.internal.InterfaceProxy(action_chips.mojom.PageRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 action_chips.mojom.ActionChipsHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -297,22 +238,6 @@ action_chips.mojom.ActionChipsHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateActionChipsHandler
-action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'action_chips.mojom.ActionChipsHandlerFactory.CreateActionChipsHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(action_chips.mojom.ActionChipsHandlerRemote), nullable: false, minVersion: 0 },
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(action_chips.mojom.PageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 action_chips.mojom.ActionChipsHandlerFactoryPtr = action_chips.mojom.ActionChipsHandlerFactoryRemote;
 action_chips.mojom.ActionChipsHandlerFactoryRequest = action_chips.mojom.ActionChipsHandlerFactoryPendingReceiver;
 

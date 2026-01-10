@@ -10,44 +10,38 @@ new_tab_page_third_party.mojom = new_tab_page_third_party.mojom || {};
 var skia = skia || {};
 var ui = ui || {};
 
+new_tab_page_third_party.mojom.ThemeSpec = { $: {} };
+new_tab_page_third_party.mojom.PageHandlerFactory = {};
+new_tab_page_third_party.mojom.PageHandlerFactory.$interfaceName = 'new_tab_page_third_party.mojom.PageHandlerFactory';
+new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+new_tab_page_third_party.mojom.PageHandler = {};
+new_tab_page_third_party.mojom.PageHandler.$interfaceName = 'new_tab_page_third_party.mojom.PageHandler';
+new_tab_page_third_party.mojom.PageHandler_UpdateTheme_ParamsSpec = { $: {} };
+new_tab_page_third_party.mojom.Page = {};
+new_tab_page_third_party.mojom.Page.$interfaceName = 'new_tab_page_third_party.mojom.Page';
+new_tab_page_third_party.mojom.Page_SetTheme_ParamsSpec = { $: {} };
 
 // Struct: Theme
-new_tab_page_third_party.mojom.ThemeSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_page_third_party.mojom.Theme',
-      packedSize: 64,
-      fields: [
-        { name: 'text_color', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-        { name: 'is_dark', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'color_background', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'background_tiling', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'background_position', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'has_custom_background', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'most_visited', packedOffset: 40, packedBitOffset: 0, type: most_visited.mojom.MostVisitedThemeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    new_tab_page_third_party.mojom.ThemeSpec, 'new_tab_page_third_party.mojom.Theme', [
+      mojo.internal.StructField('text_color', 0, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_dark', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('color_background', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('background_tiling', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('background_position', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('has_custom_background', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('most_visited', 40, 0, most_visited.mojom.MostVisitedThemeSpec, null, false, 0, undefined),
+    ],
+    [[0, 64]]);
 
 // Interface: PageHandlerFactory
-new_tab_page_third_party.mojom.PageHandlerFactory = {};
-
-new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(new_tab_page_third_party.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(new_tab_page_third_party.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(new_tab_page_third_party.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(new_tab_page_third_party.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 new_tab_page_third_party.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -102,40 +96,15 @@ new_tab_page_third_party.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_page_third_party.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(new_tab_page_third_party.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(new_tab_page_third_party.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 new_tab_page_third_party.mojom.PageHandlerFactoryPtr = new_tab_page_third_party.mojom.PageHandlerFactoryRemote;
 new_tab_page_third_party.mojom.PageHandlerFactoryRequest = new_tab_page_third_party.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-new_tab_page_third_party.mojom.PageHandler = {};
-
-new_tab_page_third_party.mojom.PageHandler_UpdateTheme_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_page_third_party.mojom.PageHandler_UpdateTheme_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    new_tab_page_third_party.mojom.PageHandler_UpdateTheme_ParamsSpec, 'new_tab_page_third_party.mojom.PageHandler_UpdateTheme_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 new_tab_page_third_party.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -190,39 +159,16 @@ new_tab_page_third_party.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for UpdateTheme
-new_tab_page_third_party.mojom.PageHandler_UpdateTheme_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_page_third_party.mojom.PageHandler.UpdateTheme_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 new_tab_page_third_party.mojom.PageHandlerPtr = new_tab_page_third_party.mojom.PageHandlerRemote;
 new_tab_page_third_party.mojom.PageHandlerRequest = new_tab_page_third_party.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-new_tab_page_third_party.mojom.Page = {};
-
-new_tab_page_third_party.mojom.Page_SetTheme_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_page_third_party.mojom.Page_SetTheme_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: new_tab_page_third_party.mojom.ThemeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    new_tab_page_third_party.mojom.Page_SetTheme_ParamsSpec, 'new_tab_page_third_party.mojom.Page_SetTheme_Params', [
+      mojo.internal.StructField('theme', 0, 0, new_tab_page_third_party.mojom.ThemeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 new_tab_page_third_party.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -277,21 +223,6 @@ new_tab_page_third_party.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetTheme
-new_tab_page_third_party.mojom.Page_SetTheme_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_page_third_party.mojom.Page.SetTheme_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: new_tab_page_third_party.mojom.ThemeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 new_tab_page_third_party.mojom.PagePtr = new_tab_page_third_party.mojom.PageRemote;
 new_tab_page_third_party.mojom.PageRequest = new_tab_page_third_party.mojom.PagePendingReceiver;
 

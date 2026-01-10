@@ -9,6 +9,7 @@ var ash = ash || {};
 ash.settings = ash.settings || {};
 ash.settings.mojom = ash.settings.mojom || {};
 
+ash.settings.mojom.SearchResultIconSpec = { $: mojo.internal.Enum() };
 
 // Enum: SearchResultIcon
 ash.settings.mojom.SearchResultIcon = {
@@ -94,4 +95,3 @@ ash.settings.mojom.SearchResultIcon = {
   kWifi: 79,
   kZoomIn: 80,
 };
-ash.settings.mojom.SearchResultIconSpec = { $: mojo.internal.Enum() };

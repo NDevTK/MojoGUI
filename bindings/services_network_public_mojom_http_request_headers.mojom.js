@@ -8,32 +8,20 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.HttpRequestHeaderKeyValuePairSpec = { $: {} };
+network.mojom.HttpRequestHeadersSpec = { $: {} };
 
 // Struct: HttpRequestHeaderKeyValuePair
-network.mojom.HttpRequestHeaderKeyValuePairSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HttpRequestHeaderKeyValuePair',
-      packedSize: 24,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.HttpRequestHeaderKeyValuePairSpec, 'network.mojom.HttpRequestHeaderKeyValuePair', [
+      mojo.internal.StructField('key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: HttpRequestHeaders
-network.mojom.HttpRequestHeadersSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HttpRequestHeaders',
-      packedSize: 16,
-      fields: [
-        { name: 'headers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.HttpRequestHeaderKeyValuePairSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.HttpRequestHeadersSpec, 'network.mojom.HttpRequestHeaders', [
+      mojo.internal.StructField('headers', 0, 0, mojo.internal.Array(network.mojom.HttpRequestHeaderKeyValuePairSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);

@@ -8,69 +8,49 @@
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
+arc.mojom.CrashCollectorHost = {};
+arc.mojom.CrashCollectorHost.$interfaceName = 'arc.mojom.CrashCollectorHost';
+arc.mojom.CrashCollectorHost_DumpCrash_ParamsSpec = { $: {} };
+arc.mojom.CrashCollectorHost_SetBuildProperties_ParamsSpec = { $: {} };
+arc.mojom.CrashCollectorHost_DumpNativeCrash_ParamsSpec = { $: {} };
+arc.mojom.CrashCollectorHost_DumpKernelCrash_ParamsSpec = { $: {} };
+arc.mojom.CrashCollectorInstance = {};
+arc.mojom.CrashCollectorInstance.$interfaceName = 'arc.mojom.CrashCollectorInstance';
+arc.mojom.CrashCollectorInstance_Init_ParamsSpec = { $: {} };
+arc.mojom.CrashCollectorInstance_Init_ResponseParamsSpec = { $: {} };
 
 // Interface: CrashCollectorHost
-arc.mojom.CrashCollectorHost = {};
+mojo.internal.Struct(
+    arc.mojom.CrashCollectorHost_DumpCrash_ParamsSpec, 'arc.mojom.CrashCollectorHost_DumpCrash_Params', [
+      mojo.internal.StructField('type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('pipe', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('uptime', 16, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 6, undefined),
+    ],
+    [[0, 24], [6, 32]]);
 
-arc.mojom.CrashCollectorHost_DumpCrash_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.CrashCollectorHost_DumpCrash_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-        { name: 'uptime', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 6 },
-      ],
-      versions: [{version: 0, packedSize: 24}, {version: 6, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.CrashCollectorHost_SetBuildProperties_ParamsSpec, 'arc.mojom.CrashCollectorHost_SetBuildProperties_Params', [
+      mojo.internal.StructField('device', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('board', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('cpu_abi', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('fingerprint', 24, 0, mojo.internal.String, null, true, 3, undefined),
+    ],
+    [[0, 32], [3, 40]]);
 
-arc.mojom.CrashCollectorHost_SetBuildProperties_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.CrashCollectorHost_SetBuildProperties_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'board', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'cpu_abi', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'fingerprint', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 3 },
-      ],
-      versions: [{version: 0, packedSize: 32}, {version: 3, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.CrashCollectorHost_DumpNativeCrash_ParamsSpec, 'arc.mojom.CrashCollectorHost_DumpNativeCrash_Params', [
+      mojo.internal.StructField('exec_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('pid', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('minidump_fd', 20, 0, mojo.internal.Handle, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-arc.mojom.CrashCollectorHost_DumpNativeCrash_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.CrashCollectorHost_DumpNativeCrash_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'exec_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'minidump_fd', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-arc.mojom.CrashCollectorHost_DumpKernelCrash_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.CrashCollectorHost_DumpKernelCrash_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'ramoops_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.CrashCollectorHost_DumpKernelCrash_ParamsSpec, 'arc.mojom.CrashCollectorHost_DumpKernelCrash_Params', [
+      mojo.internal.StructField('ramoops_handle', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.CrashCollectorHostPendingReceiver = class {
   constructor(handle) {
@@ -152,90 +132,21 @@ arc.mojom.CrashCollectorHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for DumpCrash
-arc.mojom.CrashCollectorHost_DumpCrash_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.CrashCollectorHost.DumpCrash_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-        { name: 'uptime', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 6 },
-      ],
-      versions: [{version: 0, packedSize: 24}, {version: 6, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for SetBuildProperties
-arc.mojom.CrashCollectorHost_SetBuildProperties_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.CrashCollectorHost.SetBuildProperties_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'device', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'board', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'cpu_abi', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'fingerprint', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 3 },
-      ],
-      versions: [{version: 0, packedSize: 32}, {version: 3, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for DumpNativeCrash
-arc.mojom.CrashCollectorHost_DumpNativeCrash_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.CrashCollectorHost.DumpNativeCrash_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'exec_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'minidump_fd', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for DumpKernelCrash
-arc.mojom.CrashCollectorHost_DumpKernelCrash_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.CrashCollectorHost.DumpKernelCrash_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'ramoops_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.CrashCollectorHostPtr = arc.mojom.CrashCollectorHostRemote;
 arc.mojom.CrashCollectorHostRequest = arc.mojom.CrashCollectorHostPendingReceiver;
 
 
 // Interface: CrashCollectorInstance
-arc.mojom.CrashCollectorInstance = {};
+mojo.internal.Struct(
+    arc.mojom.CrashCollectorInstance_Init_ParamsSpec, 'arc.mojom.CrashCollectorInstance_Init_Params', [
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.CrashCollectorHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.CrashCollectorInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.CrashCollectorInstance_Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.CrashCollectorHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.CrashCollectorInstance_Init_ResponseParamsSpec, 'arc.mojom.CrashCollectorInstance_Init_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 arc.mojom.CrashCollectorInstancePendingReceiver = class {
   constructor(handle) {
@@ -274,7 +185,7 @@ arc.mojom.CrashCollectorInstanceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       arc.mojom.CrashCollectorInstance_Init_ParamsSpec,
-      null,
+      arc.mojom.CrashCollectorInstance_Init_ResponseParamsSpec,
       [host_remote]);
   }
 
@@ -290,21 +201,6 @@ arc.mojom.CrashCollectorInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Init
-arc.mojom.CrashCollectorInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.CrashCollectorInstance.Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.CrashCollectorHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.CrashCollectorInstancePtr = arc.mojom.CrashCollectorInstanceRemote;
 arc.mojom.CrashCollectorInstanceRequest = arc.mojom.CrashCollectorInstancePendingReceiver;
 

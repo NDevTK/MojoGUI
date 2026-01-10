@@ -8,6 +8,16 @@
 var mirroring = mirroring || {};
 mirroring.mojom = mirroring.mojom || {};
 
+mirroring.mojom.SessionErrorSpec = { $: mojo.internal.Enum() };
+mirroring.mojom.SessionObserver = {};
+mirroring.mojom.SessionObserver.$interfaceName = 'mirroring.mojom.SessionObserver';
+mirroring.mojom.SessionObserver_OnError_ParamsSpec = { $: {} };
+mirroring.mojom.SessionObserver_DidStart_ParamsSpec = { $: {} };
+mirroring.mojom.SessionObserver_DidStop_ParamsSpec = { $: {} };
+mirroring.mojom.SessionObserver_LogInfoMessage_ParamsSpec = { $: {} };
+mirroring.mojom.SessionObserver_LogErrorMessage_ParamsSpec = { $: {} };
+mirroring.mojom.SessionObserver_OnSourceChanged_ParamsSpec = { $: {} };
+mirroring.mojom.SessionObserver_OnRemotingStateChanged_ParamsSpec = { $: {} };
 
 // Enum: SessionError
 mirroring.mojom.SessionError = {
@@ -26,98 +36,46 @@ mirroring.mojom.SessionError = {
   CAST_TRANSPORT_ERROR: 12,
   OPENSCREEN_SESSION_ERROR: 13,
 };
-mirroring.mojom.SessionErrorSpec = { $: mojo.internal.Enum() };
 
 // Interface: SessionObserver
-mirroring.mojom.SessionObserver = {};
+mojo.internal.Struct(
+    mirroring.mojom.SessionObserver_OnError_ParamsSpec, 'mirroring.mojom.SessionObserver_OnError_Params', [
+      mojo.internal.StructField('error', 0, 0, mirroring.mojom.SessionErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-mirroring.mojom.SessionObserver_OnError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.SessionObserver_OnError_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mirroring.mojom.SessionErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mirroring.mojom.SessionObserver_DidStart_ParamsSpec, 'mirroring.mojom.SessionObserver_DidStart_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-mirroring.mojom.SessionObserver_DidStart_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.SessionObserver_DidStart_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mirroring.mojom.SessionObserver_DidStop_ParamsSpec, 'mirroring.mojom.SessionObserver_DidStop_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-mirroring.mojom.SessionObserver_DidStop_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.SessionObserver_DidStop_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mirroring.mojom.SessionObserver_LogInfoMessage_ParamsSpec, 'mirroring.mojom.SessionObserver_LogInfoMessage_Params', [
+      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-mirroring.mojom.SessionObserver_LogInfoMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.SessionObserver_LogInfoMessage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mirroring.mojom.SessionObserver_LogErrorMessage_ParamsSpec, 'mirroring.mojom.SessionObserver_LogErrorMessage_Params', [
+      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-mirroring.mojom.SessionObserver_LogErrorMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.SessionObserver_LogErrorMessage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mirroring.mojom.SessionObserver_OnSourceChanged_ParamsSpec, 'mirroring.mojom.SessionObserver_OnSourceChanged_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-mirroring.mojom.SessionObserver_OnSourceChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.SessionObserver_OnSourceChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-mirroring.mojom.SessionObserver_OnRemotingStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.SessionObserver_OnRemotingStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_remoting', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mirroring.mojom.SessionObserver_OnRemotingStateChanged_ParamsSpec, 'mirroring.mojom.SessionObserver_OnRemotingStateChanged_Params', [
+      mojo.internal.StructField('is_remoting', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 mirroring.mojom.SessionObserverPendingReceiver = class {
   constructor(handle) {
@@ -226,102 +184,6 @@ mirroring.mojom.SessionObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnError
-mirroring.mojom.SessionObserver_OnError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.SessionObserver.OnError_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mirroring.mojom.SessionErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DidStart
-mirroring.mojom.SessionObserver_DidStart_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.SessionObserver.DidStart_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for DidStop
-mirroring.mojom.SessionObserver_DidStop_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.SessionObserver.DidStop_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for LogInfoMessage
-mirroring.mojom.SessionObserver_LogInfoMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.SessionObserver.LogInfoMessage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for LogErrorMessage
-mirroring.mojom.SessionObserver_LogErrorMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.SessionObserver.LogErrorMessage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnSourceChanged
-mirroring.mojom.SessionObserver_OnSourceChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.SessionObserver.OnSourceChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnRemotingStateChanged
-mirroring.mojom.SessionObserver_OnRemotingStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.SessionObserver.OnRemotingStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_remoting', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 mirroring.mojom.SessionObserverPtr = mirroring.mojom.SessionObserverRemote;
 mirroring.mojom.SessionObserverRequest = mirroring.mojom.SessionObserverPendingReceiver;
 

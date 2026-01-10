@@ -7,20 +7,45 @@
 // Module namespace
 var paint_preview = paint_preview || {};
 paint_preview.mojom = paint_preview.mojom || {};
+var components = components || {};
+var components = components || {};
 var skia = skia || {};
 var ui = ui || {};
 var gfx = gfx || {};
 var url = url || {};
 
+paint_preview.mojom.BeginCompositeStatusSpec = { $: mojo.internal.Enum() };
+paint_preview.mojom.BitmapStatusSpec = { $: mojo.internal.Enum() };
+paint_preview.mojom.PaintPreviewBeginCompositeRequestSpec = { $: {} };
+paint_preview.mojom.SubframeClipRectSpec = { $: {} };
+paint_preview.mojom.FrameDataSpec = { $: {} };
+paint_preview.mojom.PaintPreviewBeginCompositeResponseSpec = { $: {} };
+paint_preview.mojom.PaintPreviewCompositor = {};
+paint_preview.mojom.PaintPreviewCompositor.$interfaceName = 'paint_preview.mojom.PaintPreviewCompositor';
+paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSpec = { $: {} };
+paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec = { $: {} };
+paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec = { $: {} };
+paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec = { $: {} };
+paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec = { $: {} };
+paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec = { $: {} };
+paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec = { $: {} };
+paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec = { $: {} };
+paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec = { $: {} };
+paint_preview.mojom.PaintPreviewCompositorCollection = {};
+paint_preview.mojom.PaintPreviewCompositorCollection.$interfaceName = 'paint_preview.mojom.PaintPreviewCompositorCollection';
+paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryManager_ParamsSpec = { $: {} };
+paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec = { $: {} };
+paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParamsSpec = { $: {} };
+paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ParamsSpec = { $: {} };
+paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec = { $: {} };
 
 // Enum: BeginCompositeStatus
 paint_preview.mojom.BeginCompositeStatus = {
   kSuccess: 0,
   kPartialSuccess: 1,
-  kDeserializingFailure: 2,
-  kCompositingFailure: 3,
+  kDeserializingFailure: -1,
+  kCompositingFailure: -2,
 };
-paint_preview.mojom.BeginCompositeStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: BitmapStatus
 paint_preview.mojom.BitmapStatus = {
@@ -28,139 +53,101 @@ paint_preview.mojom.BitmapStatus = {
   kMissingFrame: 1,
   kAllocFailed: 2,
 };
-paint_preview.mojom.BitmapStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: PaintPreviewBeginCompositeRequest
-paint_preview.mojom.PaintPreviewBeginCompositeRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'paint_preview.mojom.PaintPreviewBeginCompositeRequest',
-      packedSize: 24,
-      fields: [
-        { name: 'preview', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProtoWrapperSpec, nullable: false, minVersion: 0 },
-        { name: 'recording_map', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo_base.mojom.UnguessableTokenSpec, paint_preview.mojom.SerializedRecordingSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    paint_preview.mojom.PaintPreviewBeginCompositeRequestSpec, 'paint_preview.mojom.PaintPreviewBeginCompositeRequest', [
+      mojo.internal.StructField('preview', 0, 0, mojo_base.mojom.ProtoWrapperSpec, null, false, 0, undefined),
+      mojo.internal.StructField('recording_map', 8, 0, mojo.internal.Map(mojo_base.mojom.UnguessableTokenSpec, paint_preview.mojom.SerializedRecordingSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: SubframeClipRect
-paint_preview.mojom.SubframeClipRectSpec = {
-  $: {
-    structSpec: {
-      name: 'paint_preview.mojom.SubframeClipRect',
-      packedSize: 24,
-      fields: [
-        { name: 'frame_guid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'clip_rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    paint_preview.mojom.SubframeClipRectSpec, 'paint_preview.mojom.SubframeClipRect', [
+      mojo.internal.StructField('frame_guid', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('clip_rect', 8, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: FrameData
-paint_preview.mojom.FrameDataSpec = {
-  $: {
-    structSpec: {
-      name: 'paint_preview.mojom.FrameData',
-      packedSize: 32,
-      fields: [
-        { name: 'scroll_extents', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'scroll_offsets', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'subframes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(paint_preview.mojom.SubframeClipRectSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    paint_preview.mojom.FrameDataSpec, 'paint_preview.mojom.FrameData', [
+      mojo.internal.StructField('scroll_extents', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scroll_offsets', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('subframes', 16, 0, mojo.internal.Array(paint_preview.mojom.SubframeClipRectSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: PaintPreviewBeginCompositeResponse
-paint_preview.mojom.PaintPreviewBeginCompositeResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'paint_preview.mojom.PaintPreviewBeginCompositeResponse',
-      packedSize: 24,
-      fields: [
-        { name: 'root_frame_guid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'frames', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo_base.mojom.UnguessableTokenSpec, paint_preview.mojom.FrameDataSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    paint_preview.mojom.PaintPreviewBeginCompositeResponseSpec, 'paint_preview.mojom.PaintPreviewBeginCompositeResponse', [
+      mojo.internal.StructField('root_frame_guid', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frames', 8, 0, mojo.internal.Map(mojo_base.mojom.UnguessableTokenSpec, paint_preview.mojom.FrameDataSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: PaintPreviewCompositor
-paint_preview.mojom.PaintPreviewCompositor = {};
+mojo.internal.Struct(
+    paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSpec, 'paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_Params', [
+      mojo.internal.StructField('request', 0, 0, paint_preview.mojom.PaintPreviewBeginCompositeRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: paint_preview.mojom.PaintPreviewBeginCompositeRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec, 'paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParams', [
+      mojo.internal.StructField('status', 8, 0, paint_preview.mojom.BeginCompositeStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, paint_preview.mojom.PaintPreviewBeginCompositeResponseSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'frame_guid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'clip_rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'scale_factor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec, 'paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_Params', [
+      mojo.internal.StructField('frame_guid', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('clip_rect', 8, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scale_factor', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: paint_preview.mojom.PaintPreviewBeginCompositeRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec, 'paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParams', [
+      mojo.internal.StructField('status', 8, 0, paint_preview.mojom.BitmapStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bitmap', 0, 0, skia.mojom.BitmapN32Spec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'clip_rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'scale_factor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec, 'paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_Params', [
+      mojo.internal.StructField('request', 0, 0, paint_preview.mojom.PaintPreviewBeginCompositeRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec, 'paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParams', [
+      mojo.internal.StructField('status', 8, 0, paint_preview.mojom.BeginCompositeStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 0, 0, paint_preview.mojom.PaintPreviewBeginCompositeResponseSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec, 'paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_Params', [
+      mojo.internal.StructField('clip_rect', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scale_factor', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec, 'paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParams', [
+      mojo.internal.StructField('status', 8, 0, paint_preview.mojom.BitmapStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bitmap', 0, 0, skia.mojom.BitmapN32Spec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec, 'paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 paint_preview.mojom.PaintPreviewCompositorPendingReceiver = class {
   constructor(handle) {
@@ -251,180 +238,39 @@ paint_preview.mojom.PaintPreviewCompositor.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BeginSeparatedFrameComposite
-paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'paint_preview.mojom.PaintPreviewCompositor.BeginSeparatedFrameComposite_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: paint_preview.mojom.PaintPreviewBeginCompositeRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'paint_preview.mojom.PaintPreviewCompositor.BeginSeparatedFrameComposite_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: paint_preview.mojom.BeginCompositeStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: paint_preview.mojom.PaintPreviewBeginCompositeResponseSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for BitmapForSeparatedFrame
-paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'paint_preview.mojom.PaintPreviewCompositor.BitmapForSeparatedFrame_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'frame_guid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'clip_rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'scale_factor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'paint_preview.mojom.PaintPreviewCompositor.BitmapForSeparatedFrame_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: paint_preview.mojom.BitmapStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for BeginMainFrameComposite
-paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'paint_preview.mojom.PaintPreviewCompositor.BeginMainFrameComposite_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: paint_preview.mojom.PaintPreviewBeginCompositeRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'paint_preview.mojom.PaintPreviewCompositor.BeginMainFrameComposite_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: paint_preview.mojom.BeginCompositeStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: paint_preview.mojom.PaintPreviewBeginCompositeResponseSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for BitmapForMainFrame
-paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'paint_preview.mojom.PaintPreviewCompositor.BitmapForMainFrame_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'clip_rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'scale_factor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'paint_preview.mojom.PaintPreviewCompositor.BitmapForMainFrame_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: paint_preview.mojom.BitmapStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SetRootFrameUrl
-paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'paint_preview.mojom.PaintPreviewCompositor.SetRootFrameUrl_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 paint_preview.mojom.PaintPreviewCompositorPtr = paint_preview.mojom.PaintPreviewCompositorRemote;
 paint_preview.mojom.PaintPreviewCompositorRequest = paint_preview.mojom.PaintPreviewCompositorPendingReceiver;
 
 
 // Interface: PaintPreviewCompositorCollection
-paint_preview.mojom.PaintPreviewCompositorCollection = {};
+mojo.internal.Struct(
+    paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryManager_ParamsSpec, 'paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryManager_Params', [
+      mojo.internal.StructField('manager', 0, 0, mojo.internal.InterfaceProxy(discardable_memory.mojom.DiscardableSharedMemoryManagerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryManager_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryManager_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'manager', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(discardable_memory.mojom.DiscardableSharedMemoryManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec, 'paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_Params', [
+      mojo.internal.StructField('compositor', 0, 0, mojo.internal.InterfaceRequest(paint_preview.mojom.PaintPreviewCompositorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'compositor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(paint_preview.mojom.PaintPreviewCompositorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParamsSpec, 'paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParams', [
+      mojo.internal.StructField('compositor_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ParamsSpec, 'paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec, 'paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParams', [
+      mojo.internal.StructField('compositor_ids', 0, 0, mojo.internal.Array(mojo_base.mojom.UnguessableTokenSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 paint_preview.mojom.PaintPreviewCompositorCollectionPendingReceiver = class {
   constructor(handle) {
@@ -497,74 +343,6 @@ paint_preview.mojom.PaintPreviewCompositorCollection.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetDiscardableSharedMemoryManager
-paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryManager_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'paint_preview.mojom.PaintPreviewCompositorCollection.SetDiscardableSharedMemoryManager_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'manager', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(discardable_memory.mojom.DiscardableSharedMemoryManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CreateCompositor
-paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'paint_preview.mojom.PaintPreviewCompositorCollection.CreateCompositor_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'compositor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(paint_preview.mojom.PaintPreviewCompositorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'paint_preview.mojom.PaintPreviewCompositorCollection.CreateCompositor_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'compositor_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ListCompositors
-paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'paint_preview.mojom.PaintPreviewCompositorCollection.ListCompositors_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'paint_preview.mojom.PaintPreviewCompositorCollection.ListCompositors_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'compositor_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.UnguessableTokenSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 paint_preview.mojom.PaintPreviewCompositorCollectionPtr = paint_preview.mojom.PaintPreviewCompositorCollectionRemote;
 paint_preview.mojom.PaintPreviewCompositorCollectionRequest = paint_preview.mojom.PaintPreviewCompositorCollectionPendingReceiver;
 

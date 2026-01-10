@@ -8,33 +8,33 @@
 var updater = updater || {};
 updater.mojom = updater.mojom || {};
 
+updater.mojom.UpdateServiceInternal = {};
+updater.mojom.UpdateServiceInternal.$interfaceName = 'updater.mojom.UpdateServiceInternal';
+updater.mojom.UpdateServiceInternal_Run_ParamsSpec = { $: {} };
+updater.mojom.UpdateServiceInternal_Run_ResponseParamsSpec = { $: {} };
+updater.mojom.UpdateServiceInternal_Hello_ParamsSpec = { $: {} };
+updater.mojom.UpdateServiceInternal_Hello_ResponseParamsSpec = { $: {} };
 
 // Interface: UpdateServiceInternal
-updater.mojom.UpdateServiceInternal = {};
+mojo.internal.Struct(
+    updater.mojom.UpdateServiceInternal_Run_ParamsSpec, 'updater.mojom.UpdateServiceInternal_Run_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-updater.mojom.UpdateServiceInternal_Run_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'updater.mojom.UpdateServiceInternal_Run_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    updater.mojom.UpdateServiceInternal_Run_ResponseParamsSpec, 'updater.mojom.UpdateServiceInternal_Run_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-updater.mojom.UpdateServiceInternal_Hello_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'updater.mojom.UpdateServiceInternal_Hello_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    updater.mojom.UpdateServiceInternal_Hello_ParamsSpec, 'updater.mojom.UpdateServiceInternal_Hello_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    updater.mojom.UpdateServiceInternal_Hello_ResponseParamsSpec, 'updater.mojom.UpdateServiceInternal_Hello_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 updater.mojom.UpdateServiceInternalPendingReceiver = class {
   constructor(handle) {
@@ -73,7 +73,7 @@ updater.mojom.UpdateServiceInternalRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       updater.mojom.UpdateServiceInternal_Run_ParamsSpec,
-      null,
+      updater.mojom.UpdateServiceInternal_Run_ResponseParamsSpec,
       []);
   }
 
@@ -82,7 +82,7 @@ updater.mojom.UpdateServiceInternalRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       updater.mojom.UpdateServiceInternal_Hello_ParamsSpec,
-      null,
+      updater.mojom.UpdateServiceInternal_Hello_ResponseParamsSpec,
       []);
   }
 
@@ -98,33 +98,6 @@ updater.mojom.UpdateServiceInternal.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Run
-updater.mojom.UpdateServiceInternal_Run_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'updater.mojom.UpdateServiceInternal.Run_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Hello
-updater.mojom.UpdateServiceInternal_Hello_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'updater.mojom.UpdateServiceInternal.Hello_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 updater.mojom.UpdateServiceInternalPtr = updater.mojom.UpdateServiceInternalRemote;
 updater.mojom.UpdateServiceInternalRequest = updater.mojom.UpdateServiceInternalPendingReceiver;
 

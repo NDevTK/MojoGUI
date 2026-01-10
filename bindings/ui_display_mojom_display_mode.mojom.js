@@ -10,21 +10,15 @@ display.mojom = display.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+display.mojom.DisplayModeSpec = { $: {} };
 
 // Struct: DisplayMode
-display.mojom.DisplayModeSpec = {
-  $: {
-    structSpec: {
-      name: 'display.mojom.DisplayMode',
-      packedSize: 32,
-      fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'is_interlaced', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'refresh_rate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'vsync_rate_min_$flag', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'vsync_rate_min_$value', originalFieldName: 'vsync_rate_min' } },
-        { name: 'vsync_rate_min_$value', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'vsync_rate_min_$flag', originalFieldName: 'vsync_rate_min' } },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    display.mojom.DisplayModeSpec, 'display.mojom.DisplayMode', [
+      mojo.internal.StructField('size', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_interlaced', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('refresh_rate', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('vsync_rate_min_$flag', 16, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'vsync_rate_min_$value', originalFieldName: 'vsync_rate_min' }),
+      mojo.internal.StructField('vsync_rate_min_$value', 12, 0, mojo.internal.Float, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'vsync_rate_min_$flag', originalFieldName: 'vsync_rate_min' }),
+    ],
+    [[0, 32]]);

@@ -8,62 +8,68 @@
 var chromeos = chromeos || {};
 chromeos.payments = chromeos.payments || {};
 chromeos.payments.mojom = chromeos.payments.mojom || {};
+var chromeos = chromeos || {};
+var components = components || {};
 
+chromeos.payments.mojom.PaymentAppInstance = {};
+chromeos.payments.mojom.PaymentAppInstance.$interfaceName = 'chromeos.payments.mojom.PaymentAppInstance';
+chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ParamsSpec = { $: {} };
+chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ResponseParamsSpec = { $: {} };
+chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ParamsSpec = { $: {} };
+chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ResponseParamsSpec = { $: {} };
+chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ParamsSpec = { $: {} };
+chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ResponseParamsSpec = { $: {} };
+chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ParamsSpec = { $: {} };
+chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ResponseParamsSpec = { $: {} };
 
 // Interface: PaymentAppInstance
-chromeos.payments.mojom.PaymentAppInstance = {};
+mojo.internal.Struct(
+    chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ParamsSpec, 'chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_Params', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ResponseParamsSpec, 'chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ResponseParams', [
+      mojo.internal.StructField('response', 0, 0, chromeos.payments.mojom.IsPaymentImplementedResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'parameters', packedOffset: 0, packedBitOffset: 0, type: chromeos.payments.mojom.PaymentParametersSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ParamsSpec, 'chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_Params', [
+      mojo.internal.StructField('parameters', 0, 0, chromeos.payments.mojom.PaymentParametersSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'parameters', packedOffset: 0, packedBitOffset: 0, type: chromeos.payments.mojom.PaymentParametersSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ResponseParamsSpec, 'chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ResponseParams', [
+      mojo.internal.StructField('response', 0, 0, chromeos.payments.mojom.IsReadyToPayResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ParamsSpec, 'chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_Params', [
+      mojo.internal.StructField('parameters', 0, 0, chromeos.payments.mojom.PaymentParametersSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ResponseParamsSpec, 'chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ResponseParams', [
+      mojo.internal.StructField('response', 0, 0, chromeos.payments.mojom.InvokePaymentAppResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ParamsSpec, 'chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_Params', [
+      mojo.internal.StructField('request_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ResponseParamsSpec, 'chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ResponseParams', [
+      mojo.internal.StructField('aborted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromeos.payments.mojom.PaymentAppInstancePendingReceiver = class {
   constructor(handle) {
@@ -145,115 +151,6 @@ chromeos.payments.mojom.PaymentAppInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for IsPaymentImplemented
-chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.payments.mojom.PaymentAppInstance.IsPaymentImplemented_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.payments.mojom.PaymentAppInstance.IsPaymentImplemented_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: chromeos.payments.mojom.IsPaymentImplementedResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for IsReadyToPay
-chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.payments.mojom.PaymentAppInstance.IsReadyToPay_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'parameters', packedOffset: 0, packedBitOffset: 0, type: chromeos.payments.mojom.PaymentParametersSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.payments.mojom.PaymentAppInstance.IsReadyToPay_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: chromeos.payments.mojom.IsReadyToPayResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for InvokePaymentApp
-chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.payments.mojom.PaymentAppInstance.InvokePaymentApp_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'parameters', packedOffset: 0, packedBitOffset: 0, type: chromeos.payments.mojom.PaymentParametersSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.payments.mojom.PaymentAppInstance.InvokePaymentApp_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: chromeos.payments.mojom.InvokePaymentAppResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for AbortPaymentApp
-chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.payments.mojom.PaymentAppInstance.AbortPaymentApp_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.payments.mojom.PaymentAppInstance.AbortPaymentApp_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'aborted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.payments.mojom.PaymentAppInstancePtr = chromeos.payments.mojom.PaymentAppInstanceRemote;
 chromeos.payments.mojom.PaymentAppInstanceRequest = chromeos.payments.mojom.PaymentAppInstancePendingReceiver;
 

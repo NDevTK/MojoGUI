@@ -9,11 +9,30 @@ var ash = ash || {};
 ash.cros_healthd = ash.cros_healthd || {};
 ash.cros_healthd.mojom = ash.cros_healthd.mojom || {};
 
+ash.cros_healthd.mojom.DiagnosticRoutineEnumSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.DiskReadRoutineTypeEnumSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.DiagnosticRoutineStatusEnumSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.DiagnosticRoutineUserMessageEnumSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.DiagnosticRoutineCommandEnumSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.AcPowerStatusEnumSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.NvmeSelfTestTypeEnumSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.DEPRECATED_LedNameSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.DEPRECATED_LedColorSpec = { $: mojo.internal.Enum() };
+ash.cros_healthd.mojom.RoutineUpdateUnionSpec = { $: {} };
+ash.cros_healthd.mojom.RunRoutineResponseSpec = { $: {} };
+ash.cros_healthd.mojom.InteractiveRoutineUpdateSpec = { $: {} };
+ash.cros_healthd.mojom.NonInteractiveRoutineUpdateSpec = { $: {} };
+ash.cros_healthd.mojom.RoutineUpdateSpec = { $: {} };
+ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier = {};
+ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier.$interfaceName = 'ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier';
+ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ParamsSpec = { $: {} };
+ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ResponseParamsSpec = { $: {} };
 
 ash.cros_healthd.mojom.kFailedToStartId = 0;
 
 // Enum: DiagnosticRoutineEnum
 ash.cros_healthd.mojom.DiagnosticRoutineEnum = {
+  kUnknown: 30,
   kBatteryCapacity: 0,
   kBatteryHealth: 1,
   kUrandom: 2,
@@ -44,18 +63,35 @@ ash.cros_healthd.mojom.DiagnosticRoutineEnum = {
   kArcHttp: 27,
   kArcPing: 28,
   kArcDnsResolution: 29,
+  MinVersion: 29,
+  MinVersion: 29,
+  MinVersion: 29,
+  MinVersion: 29,
+  MinVersion: 29,
+  MinVersion: 29,
+  MinVersion: 29,
+  MinVersion: 29,
+  MinVersion: 29,
+  MinVersion: 29,
+  MinVersion: 29,
+  MinVersion: 29,
+  MinVersion: 29,
+  MinVersion: 29,
+  MinVersion: 29,
+  MinVersion: 29,
+  MinVersion: 29,
 };
-ash.cros_healthd.mojom.DiagnosticRoutineEnumSpec = { $: mojo.internal.Enum() };
 
 // Enum: DiskReadRoutineTypeEnum
 ash.cros_healthd.mojom.DiskReadRoutineTypeEnum = {
+  kUnmappedEnumField: 2,
   kLinearRead: 0,
   kRandomRead: 1,
 };
-ash.cros_healthd.mojom.DiskReadRoutineTypeEnumSpec = { $: mojo.internal.Enum() };
 
 // Enum: DiagnosticRoutineStatusEnum
 ash.cros_healthd.mojom.DiagnosticRoutineStatusEnum = {
+  kUnknown: 12,
   kReady: 0,
   kRunning: 1,
   kWaiting: 2,
@@ -69,147 +105,118 @@ ash.cros_healthd.mojom.DiagnosticRoutineStatusEnum = {
   kUnsupported: 10,
   kNotRun: 11,
 };
-ash.cros_healthd.mojom.DiagnosticRoutineStatusEnumSpec = { $: mojo.internal.Enum() };
 
 // Enum: DiagnosticRoutineUserMessageEnum
 ash.cros_healthd.mojom.DiagnosticRoutineUserMessageEnum = {
+  kUnknown: 2,
   kUnplugACPower: 0,
   kPlugInACPower: 1,
+  MinVersion: 1,
+  MinVersion: 1,
 };
-ash.cros_healthd.mojom.DiagnosticRoutineUserMessageEnumSpec = { $: mojo.internal.Enum() };
 
 // Enum: DiagnosticRoutineCommandEnum
 ash.cros_healthd.mojom.DiagnosticRoutineCommandEnum = {
+  kUnknown: 4,
   kContinue: 0,
   kCancel: 1,
   kGetStatus: 2,
   kRemove: 3,
 };
-ash.cros_healthd.mojom.DiagnosticRoutineCommandEnumSpec = { $: mojo.internal.Enum() };
 
 // Enum: AcPowerStatusEnum
 ash.cros_healthd.mojom.AcPowerStatusEnum = {
+  kUnknown: 2,
   kConnected: 0,
   kDisconnected: 1,
 };
-ash.cros_healthd.mojom.AcPowerStatusEnumSpec = { $: mojo.internal.Enum() };
 
 // Enum: NvmeSelfTestTypeEnum
 ash.cros_healthd.mojom.NvmeSelfTestTypeEnum = {
+  kUnknown: 2,
   kShortSelfTest: 0,
   kLongSelfTest: 1,
 };
-ash.cros_healthd.mojom.NvmeSelfTestTypeEnumSpec = { $: mojo.internal.Enum() };
 
 // Enum: DEPRECATED_LedName
 ash.cros_healthd.mojom.DEPRECATED_LedName = {
-  kBattery: 0,
-  kPower: 1,
-  kAdapter: 2,
-  kLeft: 3,
-  kRight: 4,
+  kUnmappedEnumField: 0,
+  kBattery: 1,
+  kPower: 2,
+  kAdapter: 3,
+  kLeft: 4,
+  kRight: 5,
 };
-ash.cros_healthd.mojom.DEPRECATED_LedNameSpec = { $: mojo.internal.Enum() };
 
 // Enum: DEPRECATED_LedColor
 ash.cros_healthd.mojom.DEPRECATED_LedColor = {
-  kRed: 0,
-  kGreen: 1,
-  kBlue: 2,
-  kYellow: 3,
-  kWhite: 4,
-  kAmber: 5,
+  kUnmappedEnumField: 0,
+  kRed: 1,
+  kGreen: 2,
+  kBlue: 3,
+  kYellow: 4,
+  kWhite: 5,
+  kAmber: 6,
 };
-ash.cros_healthd.mojom.DEPRECATED_LedColorSpec = { $: mojo.internal.Enum() };
 
 // Union: RoutineUpdateUnion
-ash.cros_healthd.mojom.RoutineUpdateUnionSpec = { $: mojo.internal.Union(
-    'ash.cros_healthd.mojom.RoutineUpdateUnion', {
+mojo.internal.Union(
+    ash.cros_healthd.mojom.RoutineUpdateUnionSpec, 'ash.cros_healthd.mojom.RoutineUpdateUnion', {
       'interactive_update': {
         'ordinal': 0,
         'type': ash.cros_healthd.mojom.InteractiveRoutineUpdateSpec,
-      }},
+        'nullable': false,
+      },
       'noninteractive_update': {
         'ordinal': 1,
         'type': ash.cros_healthd.mojom.NonInteractiveRoutineUpdateSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: RunRoutineResponse
-ash.cros_healthd.mojom.RunRoutineResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cros_healthd.mojom.RunRoutineResponse',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 4, packedBitOffset: 0, type: ash.cros_healthd.mojom.DiagnosticRoutineStatusEnumSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cros_healthd.mojom.RunRoutineResponseSpec, 'ash.cros_healthd.mojom.RunRoutineResponse', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('status', 4, 0, ash.cros_healthd.mojom.DiagnosticRoutineStatusEnumSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: InteractiveRoutineUpdate
-ash.cros_healthd.mojom.InteractiveRoutineUpdateSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cros_healthd.mojom.InteractiveRoutineUpdate',
-      packedSize: 16,
-      fields: [
-        { name: 'user_message', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.DiagnosticRoutineUserMessageEnumSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cros_healthd.mojom.InteractiveRoutineUpdateSpec, 'ash.cros_healthd.mojom.InteractiveRoutineUpdate', [
+      mojo.internal.StructField('user_message', 0, 0, ash.cros_healthd.mojom.DiagnosticRoutineUserMessageEnumSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: NonInteractiveRoutineUpdate
-ash.cros_healthd.mojom.NonInteractiveRoutineUpdateSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cros_healthd.mojom.NonInteractiveRoutineUpdate',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: ash.cros_healthd.mojom.DiagnosticRoutineStatusEnumSpec, nullable: false, minVersion: 0 },
-        { name: 'status_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cros_healthd.mojom.NonInteractiveRoutineUpdateSpec, 'ash.cros_healthd.mojom.NonInteractiveRoutineUpdate', [
+      mojo.internal.StructField('status', 8, 0, ash.cros_healthd.mojom.DiagnosticRoutineStatusEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: RoutineUpdate
-ash.cros_healthd.mojom.RoutineUpdateSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cros_healthd.mojom.RoutineUpdate',
-      packedSize: 32,
-      fields: [
-        { name: 'progress_percent', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'output', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Handle, nullable: true, minVersion: 0 },
-        { name: 'routine_update_union', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RoutineUpdateUnionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cros_healthd.mojom.RoutineUpdateSpec, 'ash.cros_healthd.mojom.RoutineUpdate', [
+      mojo.internal.StructField('progress_percent', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('output', 20, 0, mojo.internal.Handle, null, true, 0, undefined),
+      mojo.internal.StructField('routine_update_union', 0, 0, ash.cros_healthd.mojom.RoutineUpdateUnionSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: DEPRECATED_LedLitUpRoutineReplier
-ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier = {};
+mojo.internal.Struct(
+    ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ParamsSpec, 'ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ResponseParamsSpec, 'ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ResponseParams', [
+      mojo.internal.StructField('matched', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierPendingReceiver = class {
   constructor(handle) {
@@ -264,33 +271,6 @@ ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier.getRemote = function() 
   return remote.$;
 };
 
-// ParamsSpec for GetColorMatched
-ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier.GetColorMatched_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier.GetColorMatched_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'matched', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierPtr = ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierRemote;
 ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierRequest = ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierPendingReceiver;
 

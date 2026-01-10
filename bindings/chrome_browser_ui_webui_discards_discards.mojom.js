@@ -9,6 +9,45 @@ var discards = discards || {};
 discards.mojom = discards.mojom || {};
 var url = url || {};
 
+discards.mojom.LifecycleUnitVisibilitySpec = { $: mojo.internal.Enum() };
+discards.mojom.CanFreezeSpec = { $: mojo.internal.Enum() };
+discards.mojom.TabDiscardsInfoSpec = { $: {} };
+discards.mojom.PageInfoSpec = { $: {} };
+discards.mojom.FrameInfoSpec = { $: {} };
+discards.mojom.ProcessInfoSpec = { $: {} };
+discards.mojom.WorkerInfoSpec = { $: {} };
+discards.mojom.FavIconInfoSpec = { $: {} };
+discards.mojom.DetailsProvider = {};
+discards.mojom.DetailsProvider.$interfaceName = 'discards.mojom.DetailsProvider';
+discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec = { $: {} };
+discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec = { $: {} };
+discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec = { $: {} };
+discards.mojom.DetailsProvider_SetAutoDiscardable_ResponseParamsSpec = { $: {} };
+discards.mojom.DetailsProvider_DiscardById_ParamsSpec = { $: {} };
+discards.mojom.DetailsProvider_DiscardById_ResponseParamsSpec = { $: {} };
+discards.mojom.DetailsProvider_FreezeById_ParamsSpec = { $: {} };
+discards.mojom.DetailsProvider_LoadById_ParamsSpec = { $: {} };
+discards.mojom.DetailsProvider_Discard_ParamsSpec = { $: {} };
+discards.mojom.DetailsProvider_Discard_ResponseParamsSpec = { $: {} };
+discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec = { $: {} };
+discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec = { $: {} };
+discards.mojom.GraphChangeStream = {};
+discards.mojom.GraphChangeStream.$interfaceName = 'discards.mojom.GraphChangeStream';
+discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec = { $: {} };
+discards.mojom.GraphChangeStream_PageCreated_ParamsSpec = { $: {} };
+discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec = { $: {} };
+discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec = { $: {} };
+discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec = { $: {} };
+discards.mojom.GraphChangeStream_PageChanged_ParamsSpec = { $: {} };
+discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec = { $: {} };
+discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec = { $: {} };
+discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec = { $: {} };
+discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec = { $: {} };
+discards.mojom.GraphDump = {};
+discards.mojom.GraphDump.$interfaceName = 'discards.mojom.GraphDump';
+discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec = { $: {} };
+discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec = { $: {} };
+discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec = { $: {} };
 
 // Enum: LifecycleUnitVisibility
 discards.mojom.LifecycleUnitVisibility = {
@@ -16,7 +55,6 @@ discards.mojom.LifecycleUnitVisibility = {
   OCCLUDED: 1,
   VISIBLE: 2,
 };
-discards.mojom.LifecycleUnitVisibilitySpec = { $: mojo.internal.Enum() };
 
 // Enum: CanFreeze
 discards.mojom.CanFreeze = {
@@ -24,232 +62,152 @@ discards.mojom.CanFreeze = {
   VARIES: 1,
   NO: 2,
 };
-discards.mojom.CanFreezeSpec = { $: mojo.internal.Enum() };
 
 // Struct: TabDiscardsInfo
-discards.mojom.TabDiscardsInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.TabDiscardsInfo',
-      packedSize: 96,
-      fields: [
-        { name: 'tab_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'visibility', packedOffset: 48, packedBitOffset: 0, type: discards.mojom.LifecycleUnitVisibilitySpec, nullable: false, minVersion: 0 },
-        { name: 'loading_state', packedOffset: 52, packedBitOffset: 0, type: mojom.LifecycleUnitLoadingStateSpec, nullable: false, minVersion: 0 },
-        { name: 'state', packedOffset: 56, packedBitOffset: 0, type: mojom.LifecycleUnitStateSpec, nullable: false, minVersion: 0 },
-        { name: 'can_discard', packedOffset: 84, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'cannot_discard_reasons', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'can_freeze', packedOffset: 60, packedBitOffset: 0, type: discards.mojom.CanFreezeSpec, nullable: false, minVersion: 0 },
-        { name: 'cannot_freeze_reasons', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'discard_count', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'discard_reason', packedOffset: 68, packedBitOffset: 0, type: mojom.LifecycleUnitDiscardReasonSpec, nullable: false, minVersion: 0 },
-        { name: 'utility_rank', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'last_active_seconds', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'id', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'is_auto_discardable', packedOffset: 84, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'site_engagement_score', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'has_focus', packedOffset: 84, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'state_change_time', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 96}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.TabDiscardsInfoSpec, 'discards.mojom.TabDiscardsInfo', [
+      mojo.internal.StructField('tab_url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('visibility', 48, 0, discards.mojom.LifecycleUnitVisibilitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('loading_state', 52, 0, mojom.LifecycleUnitLoadingStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 56, 0, mojom.LifecycleUnitStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('can_discard', 84, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('cannot_discard_reasons', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('can_freeze', 60, 0, discards.mojom.CanFreezeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cannot_freeze_reasons', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('discard_count', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('discard_reason', 68, 0, mojom.LifecycleUnitDiscardReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('utility_rank', 72, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('last_active_seconds', 76, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('id', 80, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_auto_discardable', 84, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('site_engagement_score', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('has_focus', 84, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('state_change_time', 40, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 96]]);
 
 // Struct: PageInfo
-discards.mojom.PageInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.PageInfo',
-      packedSize: 48,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'main_frame_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'opener_frame_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'embedder_frame_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'description_json', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.PageInfoSpec, 'discards.mojom.PageInfo', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('main_frame_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('opener_frame_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('embedder_frame_id', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('description_json', 32, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: FrameInfo
-discards.mojom.FrameInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.FrameInfo',
-      packedSize: 56,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'page_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'parent_frame_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'process_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'description_json', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.FrameInfoSpec, 'discards.mojom.FrameInfo', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('page_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('parent_frame_id', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('process_id', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('description_json', 40, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: ProcessInfo
-discards.mojom.ProcessInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.ProcessInfo',
-      packedSize: 40,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'pid', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ProcessIdSpec, nullable: false, minVersion: 0 },
-        { name: 'private_footprint_kb', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'description_json', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.ProcessInfoSpec, 'discards.mojom.ProcessInfo', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('pid', 8, 0, mojo_base.mojom.ProcessIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('private_footprint_kb', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('description_json', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: WorkerInfo
-discards.mojom.WorkerInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.WorkerInfo',
-      packedSize: 64,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'process_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'client_frame_ids', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int64, false), nullable: false, minVersion: 0 },
-        { name: 'client_worker_ids', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int64, false), nullable: false, minVersion: 0 },
-        { name: 'child_worker_ids', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int64, false), nullable: false, minVersion: 0 },
-        { name: 'description_json', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.WorkerInfoSpec, 'discards.mojom.WorkerInfo', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('process_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('client_frame_ids', 24, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
+      mojo.internal.StructField('client_worker_ids', 32, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
+      mojo.internal.StructField('child_worker_ids', 40, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
+      mojo.internal.StructField('description_json', 48, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 64]]);
 
 // Struct: FavIconInfo
-discards.mojom.FavIconInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.FavIconInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'icon_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.FavIconInfoSpec, 'discards.mojom.FavIconInfo', [
+      mojo.internal.StructField('node_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('icon_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: DetailsProvider
-discards.mojom.DetailsProvider = {};
+mojo.internal.Struct(
+    discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec, 'discards.mojom.DetailsProvider_GetTabDiscardsInfo_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.DetailsProvider_GetTabDiscardsInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec, 'discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParams', [
+      mojo.internal.StructField('infos', 0, 0, mojo.internal.Array(discards.mojom.TabDiscardsInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.DetailsProvider_SetAutoDiscardable_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'is_auto_discardable', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec, 'discards.mojom.DetailsProvider_SetAutoDiscardable_Params', [
+      mojo.internal.StructField('tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_auto_discardable', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-discards.mojom.DetailsProvider_DiscardById_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.DetailsProvider_DiscardById_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'reason', packedOffset: 4, packedBitOffset: 0, type: mojom.LifecycleUnitDiscardReasonSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.DetailsProvider_SetAutoDiscardable_ResponseParamsSpec, 'discards.mojom.DetailsProvider_SetAutoDiscardable_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-discards.mojom.DetailsProvider_FreezeById_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.DetailsProvider_FreezeById_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.DetailsProvider_DiscardById_ParamsSpec, 'discards.mojom.DetailsProvider_DiscardById_Params', [
+      mojo.internal.StructField('tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('reason', 4, 0, mojom.LifecycleUnitDiscardReasonSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-discards.mojom.DetailsProvider_LoadById_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.DetailsProvider_LoadById_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.DetailsProvider_DiscardById_ResponseParamsSpec, 'discards.mojom.DetailsProvider_DiscardById_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-discards.mojom.DetailsProvider_Discard_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.DetailsProvider_Discard_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.DetailsProvider_FreezeById_ParamsSpec, 'discards.mojom.DetailsProvider_FreezeById_Params', [
+      mojo.internal.StructField('tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.DetailsProvider_ToggleBatterySaverMode_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.DetailsProvider_LoadById_ParamsSpec, 'discards.mojom.DetailsProvider_LoadById_Params', [
+      mojo.internal.StructField('tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.DetailsProvider_Discard_ParamsSpec, 'discards.mojom.DetailsProvider_Discard_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    discards.mojom.DetailsProvider_Discard_ResponseParamsSpec, 'discards.mojom.DetailsProvider_Discard_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec, 'discards.mojom.DetailsProvider_ToggleBatterySaverMode_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec, 'discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 discards.mojom.DetailsProviderPendingReceiver = class {
   constructor(handle) {
@@ -297,7 +255,7 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec,
-      null,
+      discards.mojom.DetailsProvider_SetAutoDiscardable_ResponseParamsSpec,
       [tab_id, is_auto_discardable]);
   }
 
@@ -306,7 +264,7 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
     return this.proxy.sendMessage(
       2,  // ordinal
       discards.mojom.DetailsProvider_DiscardById_ParamsSpec,
-      null,
+      discards.mojom.DetailsProvider_DiscardById_ResponseParamsSpec,
       [tab_id, reason]);
   }
 
@@ -333,7 +291,7 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
     return this.proxy.sendMessage(
       5,  // ordinal
       discards.mojom.DetailsProvider_Discard_ParamsSpec,
-      null,
+      discards.mojom.DetailsProvider_Discard_ResponseParamsSpec,
       []);
   }
 
@@ -367,266 +325,70 @@ discards.mojom.DetailsProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetTabDiscardsInfo
-discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.DetailsProvider.GetTabDiscardsInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.DetailsProvider.GetTabDiscardsInfo_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'infos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(discards.mojom.TabDiscardsInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetAutoDiscardable
-discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.DetailsProvider.SetAutoDiscardable_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'is_auto_discardable', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DiscardById
-discards.mojom.DetailsProvider_DiscardById_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.DetailsProvider.DiscardById_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'reason', packedOffset: 4, packedBitOffset: 0, type: mojom.LifecycleUnitDiscardReasonSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for FreezeById
-discards.mojom.DetailsProvider_FreezeById_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.DetailsProvider.FreezeById_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for LoadById
-discards.mojom.DetailsProvider_LoadById_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.DetailsProvider.LoadById_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Discard
-discards.mojom.DetailsProvider_Discard_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.DetailsProvider.Discard_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ToggleBatterySaverMode
-discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.DetailsProvider.ToggleBatterySaverMode_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RefreshPerformanceTabCpuMeasurements
-discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.DetailsProvider.RefreshPerformanceTabCpuMeasurements_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 discards.mojom.DetailsProviderPtr = discards.mojom.DetailsProviderRemote;
 discards.mojom.DetailsProviderRequest = discards.mojom.DetailsProviderPendingReceiver;
 
 
 // Interface: GraphChangeStream
-discards.mojom.GraphChangeStream = {};
+mojo.internal.Struct(
+    discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec, 'discards.mojom.GraphChangeStream_FrameCreated_Params', [
+      mojo.internal.StructField('frame', 0, 0, discards.mojom.FrameInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.GraphChangeStream_FrameCreated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.FrameInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.GraphChangeStream_PageCreated_ParamsSpec, 'discards.mojom.GraphChangeStream_PageCreated_Params', [
+      mojo.internal.StructField('pages', 0, 0, discards.mojom.PageInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-discards.mojom.GraphChangeStream_PageCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.GraphChangeStream_PageCreated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pages', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.PageInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec, 'discards.mojom.GraphChangeStream_ProcessCreated_Params', [
+      mojo.internal.StructField('process', 0, 0, discards.mojom.ProcessInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.GraphChangeStream_ProcessCreated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'process', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.ProcessInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec, 'discards.mojom.GraphChangeStream_WorkerCreated_Params', [
+      mojo.internal.StructField('worker', 0, 0, discards.mojom.WorkerInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.GraphChangeStream_WorkerCreated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'worker', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.WorkerInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec, 'discards.mojom.GraphChangeStream_FrameChanged_Params', [
+      mojo.internal.StructField('frame', 0, 0, discards.mojom.FrameInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.GraphChangeStream_FrameChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.FrameInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.GraphChangeStream_PageChanged_ParamsSpec, 'discards.mojom.GraphChangeStream_PageChanged_Params', [
+      mojo.internal.StructField('page', 0, 0, discards.mojom.PageInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-discards.mojom.GraphChangeStream_PageChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.GraphChangeStream_PageChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.PageInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec, 'discards.mojom.GraphChangeStream_ProcessChanged_Params', [
+      mojo.internal.StructField('process', 0, 0, discards.mojom.ProcessInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.GraphChangeStream_ProcessChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'process', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.ProcessInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec, 'discards.mojom.GraphChangeStream_WorkerChanged_Params', [
+      mojo.internal.StructField('worker', 0, 0, discards.mojom.WorkerInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.GraphChangeStream_WorkerChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'worker', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.WorkerInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec, 'discards.mojom.GraphChangeStream_FavIconDataAvailable_Params', [
+      mojo.internal.StructField('favicon', 0, 0, discards.mojom.FavIconInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.GraphChangeStream_FavIconDataAvailable_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'favicon', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.FavIconInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.GraphChangeStream_NodeDeleted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec, 'discards.mojom.GraphChangeStream_NodeDeleted_Params', [
+      mojo.internal.StructField('node_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 discards.mojom.GraphChangeStreamPendingReceiver = class {
   constructor(handle) {
@@ -762,179 +524,28 @@ discards.mojom.GraphChangeStream.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for FrameCreated
-discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.GraphChangeStream.FrameCreated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.FrameInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for PageCreated
-discards.mojom.GraphChangeStream_PageCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.GraphChangeStream.PageCreated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pages', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.PageInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ProcessCreated
-discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.GraphChangeStream.ProcessCreated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'process', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.ProcessInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for WorkerCreated
-discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.GraphChangeStream.WorkerCreated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'worker', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.WorkerInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for FrameChanged
-discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.GraphChangeStream.FrameChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.FrameInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for PageChanged
-discards.mojom.GraphChangeStream_PageChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.GraphChangeStream.PageChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.PageInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ProcessChanged
-discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.GraphChangeStream.ProcessChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'process', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.ProcessInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for WorkerChanged
-discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.GraphChangeStream.WorkerChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'worker', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.WorkerInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for FavIconDataAvailable
-discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.GraphChangeStream.FavIconDataAvailable_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'favicon', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.FavIconInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for NodeDeleted
-discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.GraphChangeStream.NodeDeleted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'node_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 discards.mojom.GraphChangeStreamPtr = discards.mojom.GraphChangeStreamRemote;
 discards.mojom.GraphChangeStreamRequest = discards.mojom.GraphChangeStreamPendingReceiver;
 
 
 // Interface: GraphDump
-discards.mojom.GraphDump = {};
+mojo.internal.Struct(
+    discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec, 'discards.mojom.GraphDump_SubscribeToChanges_Params', [
+      mojo.internal.StructField('change_subscriber', 0, 0, mojo.internal.InterfaceProxy(discards.mojom.GraphChangeStreamRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.GraphDump_SubscribeToChanges_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'change_subscriber', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(discards.mojom.GraphChangeStreamRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec, 'discards.mojom.GraphDump_RequestNodeDescriptions_Params', [
+      mojo.internal.StructField('node_ids', 0, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.GraphDump_RequestNodeDescriptions_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'node_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int64, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec, 'discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParams', [
+      mojo.internal.StructField('node_descriptions_json', 0, 0, mojo.internal.Map(mojo.internal.Int64, mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 discards.mojom.GraphDumpPendingReceiver = class {
   constructor(handle) {
@@ -998,48 +609,6 @@ discards.mojom.GraphDump.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SubscribeToChanges
-discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.GraphDump.SubscribeToChanges_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'change_subscriber', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(discards.mojom.GraphChangeStreamRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestNodeDescriptions
-discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.GraphDump.RequestNodeDescriptions_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'node_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int64, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'discards.mojom.GraphDump.RequestNodeDescriptions_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'node_descriptions_json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int64, mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 discards.mojom.GraphDumpPtr = discards.mojom.GraphDumpRemote;
 discards.mojom.GraphDumpRequest = discards.mojom.GraphDumpPendingReceiver;
 

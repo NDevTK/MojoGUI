@@ -8,6 +8,7 @@
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
+viz.mojom.ContextLostReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: ContextLostReason
 viz.mojom.ContextLostReason = {
@@ -19,4 +20,3 @@ viz.mojom.ContextLostReason = {
   GPU_CHANNEL_LOST: 5,
   INVALID_GPU_MESSAGE: 6,
 };
-viz.mojom.ContextLostReasonSpec = { $: mojo.internal.Enum() };

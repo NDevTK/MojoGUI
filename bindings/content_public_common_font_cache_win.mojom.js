@@ -8,34 +8,28 @@
 var content = content || {};
 content.mojom = content.mojom || {};
 
+content.mojom.FontCacheWin = {};
+content.mojom.FontCacheWin.$interfaceName = 'content.mojom.FontCacheWin';
+content.mojom.FontCacheWin_PreCacheFont_ParamsSpec = { $: {} };
+content.mojom.FontCacheWin_PreCacheFont_ResponseParamsSpec = { $: {} };
+content.mojom.FontCacheWin_ReleaseCachedFonts_ParamsSpec = { $: {} };
 
 // Interface: FontCacheWin
-content.mojom.FontCacheWin = {};
+mojo.internal.Struct(
+    content.mojom.FontCacheWin_PreCacheFont_ParamsSpec, 'content.mojom.FontCacheWin_PreCacheFont_Params', [
+      mojo.internal.StructField('log_font', 0, 0, mojo_base.mojom.LOGFONTSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.FontCacheWin_PreCacheFont_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.FontCacheWin_PreCacheFont_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'log_font', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.LOGFONTSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.FontCacheWin_PreCacheFont_ResponseParamsSpec, 'content.mojom.FontCacheWin_PreCacheFont_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.FontCacheWin_ReleaseCachedFonts_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.FontCacheWin_ReleaseCachedFonts_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.FontCacheWin_ReleaseCachedFonts_ParamsSpec, 'content.mojom.FontCacheWin_ReleaseCachedFonts_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 content.mojom.FontCacheWinPendingReceiver = class {
   constructor(handle) {
@@ -74,7 +68,7 @@ content.mojom.FontCacheWinRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       content.mojom.FontCacheWin_PreCacheFont_ParamsSpec,
-      null,
+      content.mojom.FontCacheWin_PreCacheFont_ResponseParamsSpec,
       [log_font]);
   }
 
@@ -99,34 +93,6 @@ content.mojom.FontCacheWin.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for PreCacheFont
-content.mojom.FontCacheWin_PreCacheFont_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.FontCacheWin.PreCacheFont_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'log_font', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.LOGFONTSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReleaseCachedFonts
-content.mojom.FontCacheWin_ReleaseCachedFonts_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.FontCacheWin.ReleaseCachedFonts_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.FontCacheWinPtr = content.mojom.FontCacheWinRemote;
 content.mojom.FontCacheWinRequest = content.mojom.FontCacheWinPendingReceiver;
 

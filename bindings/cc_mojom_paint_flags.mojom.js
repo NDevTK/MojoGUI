@@ -8,6 +8,8 @@
 var cc = cc || {};
 cc.mojom = cc.mojom || {};
 
+cc.mojom.FilterQualitySpec = { $: mojo.internal.Enum() };
+cc.mojom.DynamicRangeLimitSpec = { $: {} };
 
 // Enum: FilterQuality
 cc.mojom.FilterQuality = {
@@ -16,19 +18,11 @@ cc.mojom.FilterQuality = {
   kMedium: 2,
   kHigh: 3,
 };
-cc.mojom.FilterQualitySpec = { $: mojo.internal.Enum() };
 
 // Struct: DynamicRangeLimit
-cc.mojom.DynamicRangeLimitSpec = {
-  $: {
-    structSpec: {
-      name: 'cc.mojom.DynamicRangeLimit',
-      packedSize: 16,
-      fields: [
-        { name: 'standard_mix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'constrained_high_mix', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cc.mojom.DynamicRangeLimitSpec, 'cc.mojom.DynamicRangeLimit', [
+      mojo.internal.StructField('standard_mix', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('constrained_high_mix', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);

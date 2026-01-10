@@ -8,22 +8,22 @@
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
 
+chromecast.mojom.AssistantMessagePipe = {};
+chromecast.mojom.AssistantMessagePipe.$interfaceName = 'chromecast.mojom.AssistantMessagePipe';
+chromecast.mojom.AssistantMessagePipe_SendMessage_ParamsSpec = { $: {} };
+chromecast.mojom.AssistantMessageClient = {};
+chromecast.mojom.AssistantMessageClient.$interfaceName = 'chromecast.mojom.AssistantMessageClient';
+chromecast.mojom.AssistantMessageClient_OnMessage_ParamsSpec = { $: {} };
+chromecast.mojom.AssistantMessageService = {};
+chromecast.mojom.AssistantMessageService.$interfaceName = 'chromecast.mojom.AssistantMessageService';
+chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec = { $: {} };
 
 // Interface: AssistantMessagePipe
-chromecast.mojom.AssistantMessagePipe = {};
-
-chromecast.mojom.AssistantMessagePipe_SendMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.AssistantMessagePipe_SendMessage_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.AssistantMessagePipe_SendMessage_ParamsSpec, 'chromecast.mojom.AssistantMessagePipe_SendMessage_Params', [
+      mojo.internal.StructField('message', 0, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 chromecast.mojom.AssistantMessagePipePendingReceiver = class {
   constructor(handle) {
@@ -78,40 +78,16 @@ chromecast.mojom.AssistantMessagePipe.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SendMessage
-chromecast.mojom.AssistantMessagePipe_SendMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.AssistantMessagePipe.SendMessage_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.mojom.AssistantMessagePipePtr = chromecast.mojom.AssistantMessagePipeRemote;
 chromecast.mojom.AssistantMessagePipeRequest = chromecast.mojom.AssistantMessagePipePendingReceiver;
 
 
 // Interface: AssistantMessageClient
-chromecast.mojom.AssistantMessageClient = {};
-
-chromecast.mojom.AssistantMessageClient_OnMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.AssistantMessageClient_OnMessage_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.AssistantMessageClient_OnMessage_ParamsSpec, 'chromecast.mojom.AssistantMessageClient_OnMessage_Params', [
+      mojo.internal.StructField('message', 0, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 chromecast.mojom.AssistantMessageClientPendingReceiver = class {
   constructor(handle) {
@@ -166,42 +142,18 @@ chromecast.mojom.AssistantMessageClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnMessage
-chromecast.mojom.AssistantMessageClient_OnMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.AssistantMessageClient.OnMessage_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.mojom.AssistantMessageClientPtr = chromecast.mojom.AssistantMessageClientRemote;
 chromecast.mojom.AssistantMessageClientRequest = chromecast.mojom.AssistantMessageClientPendingReceiver;
 
 
 // Interface: AssistantMessageService
-chromecast.mojom.AssistantMessageService = {};
-
-chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.AssistantMessageService_CreateMessagePipe_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.mojom.AssistantMessageClientRemote), nullable: false, minVersion: 0 },
-        { name: 'pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromecast.mojom.AssistantMessagePipeRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec, 'chromecast.mojom.AssistantMessageService_CreateMessagePipe_Params', [
+      mojo.internal.StructField('client_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(chromecast.mojom.AssistantMessageClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('pipe', 16, 0, mojo.internal.InterfaceRequest(chromecast.mojom.AssistantMessagePipeRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 chromecast.mojom.AssistantMessageServicePendingReceiver = class {
   constructor(handle) {
@@ -256,23 +208,6 @@ chromecast.mojom.AssistantMessageService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateMessagePipe
-chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.AssistantMessageService.CreateMessagePipe_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.mojom.AssistantMessageClientRemote), nullable: false, minVersion: 0 },
-        { name: 'pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromecast.mojom.AssistantMessagePipeRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.mojom.AssistantMessageServicePtr = chromecast.mojom.AssistantMessageServiceRemote;
 chromecast.mojom.AssistantMessageServiceRequest = chromecast.mojom.AssistantMessageServicePendingReceiver;
 

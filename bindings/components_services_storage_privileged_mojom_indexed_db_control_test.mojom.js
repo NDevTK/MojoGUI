@@ -7,7 +7,33 @@
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
+var components = components || {};
+var services = services || {};
 
+storage.mojom.FailClassSpec = { $: mojo.internal.Enum() };
+storage.mojom.FailMethodSpec = { $: mojo.internal.Enum() };
+storage.mojom.MockFailureInjector = {};
+storage.mojom.MockFailureInjector.$interfaceName = 'storage.mojom.MockFailureInjector';
+storage.mojom.MockFailureInjector_FailOperation_ParamsSpec = { $: {} };
+storage.mojom.IndexedDBControlTest = {};
+storage.mojom.IndexedDBControlTest.$interfaceName = 'storage.mojom.IndexedDBControlTest';
+storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec = { $: {} };
+storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec = { $: {} };
+storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec = { $: {} };
+storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec = { $: {} };
+storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec = { $: {} };
+storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ResponseParamsSpec = { $: {} };
+storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec = { $: {} };
+storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec = { $: {} };
+storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec = { $: {} };
+storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ResponseParamsSpec = { $: {} };
+storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec = { $: {} };
+storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ResponseParamsSpec = { $: {} };
+storage.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec = { $: {} };
+storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec = { $: {} };
+storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec = { $: {} };
+storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec = { $: {} };
+storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ResponseParamsSpec = { $: {} };
 
 // Enum: FailClass
 storage.mojom.FailClass = {
@@ -17,7 +43,6 @@ storage.mojom.FailClass = {
   LEVELDB_TRANSACTION: 3,
   LEVELDB_DATABASE: 4,
 };
-storage.mojom.FailClassSpec = { $: mojo.internal.Enum() };
 
 // Enum: FailMethod
 storage.mojom.FailMethod = {
@@ -29,26 +54,16 @@ storage.mojom.FailMethod = {
   SEEK: 5,
   WRITE: 6,
 };
-storage.mojom.FailMethodSpec = { $: mojo.internal.Enum() };
 
 // Interface: MockFailureInjector
-storage.mojom.MockFailureInjector = {};
-
-storage.mojom.MockFailureInjector_FailOperation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.MockFailureInjector_FailOperation_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'failure_class', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.FailClassSpec, nullable: false, minVersion: 0 },
-        { name: 'failure_method', packedOffset: 4, packedBitOffset: 0, type: storage.mojom.FailMethodSpec, nullable: false, minVersion: 0 },
-        { name: 'instance_num', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'call_num', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.MockFailureInjector_FailOperation_ParamsSpec, 'storage.mojom.MockFailureInjector_FailOperation_Params', [
+      mojo.internal.StructField('failure_class', 0, 0, storage.mojom.FailClassSpec, null, false, 0, undefined),
+      mojo.internal.StructField('failure_method', 4, 0, storage.mojom.FailMethodSpec, null, false, 0, undefined),
+      mojo.internal.StructField('instance_num', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('call_num', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 storage.mojom.MockFailureInjectorPendingReceiver = class {
   constructor(handle) {
@@ -103,146 +118,107 @@ storage.mojom.MockFailureInjector.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for FailOperation
-storage.mojom.MockFailureInjector_FailOperation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.MockFailureInjector.FailOperation_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'failure_class', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.FailClassSpec, nullable: false, minVersion: 0 },
-        { name: 'failure_method', packedOffset: 4, packedBitOffset: 0, type: storage.mojom.FailMethodSpec, nullable: false, minVersion: 0 },
-        { name: 'instance_num', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'call_num', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 storage.mojom.MockFailureInjectorPtr = storage.mojom.MockFailureInjectorRemote;
 storage.mojom.MockFailureInjectorRequest = storage.mojom.MockFailureInjectorPendingReceiver;
 
 
 // Interface: IndexedDBControlTest
-storage.mojom.IndexedDBControlTest = {};
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec, 'storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec, 'storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParams', [
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControlTest_GetFilePathForTesting_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
-        { name: 'for_sqlite', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec, 'storage.mojom.IndexedDBControlTest_GetFilePathForTesting_Params', [
+      mojo.internal.StructField('bucket_locator', 0, 0, storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('for_sqlite', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControlTest_ResetCachesForTesting_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec, 'storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParams', [
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
-        { name: 'database_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'blob_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec, 'storage.mojom.IndexedDBControlTest_ResetCachesForTesting_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ResponseParamsSpec, 'storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec, 'storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_Params', [
+      mojo.internal.StructField('bucket_locator', 0, 0, storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('database_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('blob_number', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-storage.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControlTest_GetUsageForTesting_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec, 'storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParams', [
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(storage.mojom.MockFailureInjectorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec, 'storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_Params', [
+      mojo.internal.StructField('bucket_locator', 0, 0, storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ResponseParamsSpec, 'storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec, 'storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_Params', [
+      mojo.internal.StructField('bucket_locator', 0, 0, storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ResponseParamsSpec, 'storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec, 'storage.mojom.IndexedDBControlTest_GetUsageForTesting_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec, 'storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParams', [
+      mojo.internal.StructField('total_usage', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec, 'storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(storage.mojom.MockFailureInjectorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec, 'storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ResponseParamsSpec, 'storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 storage.mojom.IndexedDBControlTestPendingReceiver = class {
   constructor(handle) {
@@ -299,7 +275,7 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
     return this.proxy.sendMessage(
       2,  // ordinal
       storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec,
-      null,
+      storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ResponseParamsSpec,
       []);
   }
 
@@ -317,7 +293,7 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
     return this.proxy.sendMessage(
       4,  // ordinal
       storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec,
-      null,
+      storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ResponseParamsSpec,
       [bucket_locator]);
   }
 
@@ -326,7 +302,7 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
     return this.proxy.sendMessage(
       5,  // ordinal
       storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec,
-      null,
+      storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ResponseParamsSpec,
       [bucket_locator]);
   }
 
@@ -353,7 +329,7 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
     return this.proxy.sendMessage(
       8,  // ordinal
       storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec,
-      null,
+      storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ResponseParamsSpec,
       []);
   }
 
@@ -369,184 +345,6 @@ storage.mojom.IndexedDBControlTest.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetBaseDataPathForTesting
-storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControlTest.GetBaseDataPathForTesting_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControlTest.GetBaseDataPathForTesting_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetFilePathForTesting
-storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControlTest.GetFilePathForTesting_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
-        { name: 'for_sqlite', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControlTest.GetFilePathForTesting_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ResetCachesForTesting
-storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControlTest.ResetCachesForTesting_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for GetPathForBlobForTesting
-storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControlTest.GetPathForBlobForTesting_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
-        { name: 'database_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'blob_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControlTest.GetPathForBlobForTesting_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for FlushBackingStoreForTesting
-storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControlTest.FlushBackingStoreForTesting_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for FlushBucketSequenceForTesting
-storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControlTest.FlushBucketSequenceForTesting_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetUsageForTesting
-storage.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControlTest.GetUsageForTesting_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControlTest.GetUsageForTesting_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'total_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindMockFailureSingletonForTesting
-storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControlTest.BindMockFailureSingletonForTesting_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(storage.mojom.MockFailureInjectorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ForceInitializeFromFilesForTesting
-storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.IndexedDBControlTest.ForceInitializeFromFilesForTesting_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 storage.mojom.IndexedDBControlTestPtr = storage.mojom.IndexedDBControlTestRemote;
 storage.mojom.IndexedDBControlTestRequest = storage.mojom.IndexedDBControlTestPendingReceiver;
 

@@ -7,24 +7,19 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var services = services || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+viz.mojom.ReturnedResourceSpec = { $: {} };
 
 // Struct: ReturnedResource
-viz.mojom.ReturnedResourceSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.ReturnedResource',
-      packedSize: 40,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.ResourceIdSpec, nullable: false, minVersion: 0 },
-        { name: 'shared_image_export_result', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.SharedImageExportResultSpec, nullable: false, minVersion: 0 },
-        { name: 'release_fence', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.GpuFenceHandleSpec, nullable: true, minVersion: 0 },
-        { name: 'count', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'lost', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.ReturnedResourceSpec, 'viz.mojom.ReturnedResource', [
+      mojo.internal.StructField('id', 0, 0, viz.mojom.ResourceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shared_image_export_result', 8, 0, gpu.mojom.SharedImageExportResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('release_fence', 16, 0, gfx.mojom.GpuFenceHandleSpec, null, true, 0, undefined),
+      mojo.internal.StructField('count', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('lost', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 40]]);

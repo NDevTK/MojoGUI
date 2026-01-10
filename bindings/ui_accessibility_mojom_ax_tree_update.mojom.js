@@ -13,25 +13,19 @@ var ui = ui || {};
 var ui = ui || {};
 var ui = ui || {};
 
+ax.mojom.AXTreeUpdateSpec = { $: {} };
 
 // Struct: AXTreeUpdate
-ax.mojom.AXTreeUpdateSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AXTreeUpdate',
-      packedSize: 64,
-      fields: [
-        { name: 'has_tree_data', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'tree_data', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeDataSpec, nullable: false, minVersion: 0 },
-        { name: 'node_id_to_clear', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'root_id', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'nodes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.AXNodeDataSpec, false), nullable: false, minVersion: 0 },
-        { name: 'event_from', packedOffset: 40, packedBitOffset: 0, type: ax.mojom.EventFromSpec, nullable: false, minVersion: 0 },
-        { name: 'event_from_action', packedOffset: 44, packedBitOffset: 0, type: ax.mojom.ActionSpec, nullable: false, minVersion: 0 },
-        { name: 'event_intents', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.EventIntentSpec, false), nullable: false, minVersion: 0 },
-        { name: 'tree_checks', packedOffset: 24, packedBitOffset: 0, type: ax.mojom.AXTreeChecksSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.AXTreeUpdateSpec, 'ax.mojom.AXTreeUpdate', [
+      mojo.internal.StructField('has_tree_data', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('tree_data', 0, 0, ax.mojom.AXTreeDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('node_id_to_clear', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('root_id', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('nodes', 8, 0, mojo.internal.Array(ax.mojom.AXNodeDataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('event_from', 40, 0, ax.mojom.EventFromSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event_from_action', 44, 0, ax.mojom.ActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event_intents', 16, 0, mojo.internal.Array(ax.mojom.EventIntentSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('tree_checks', 24, 0, ax.mojom.AXTreeChecksSpec, null, true, 0, undefined),
+    ],
+    [[0, 64]]);

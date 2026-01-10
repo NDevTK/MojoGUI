@@ -8,6 +8,26 @@
 var cros = cros || {};
 cros.mojom = cros.mojom || {};
 
+cros.mojom.LidStateSpec = { $: mojo.internal.Enum() };
+cros.mojom.DeviceTypeSpec = { $: mojo.internal.Enum() };
+cros.mojom.ClockwiseRotationSpec = { $: mojo.internal.Enum() };
+cros.mojom.CrosDisplayObserver = {};
+cros.mojom.CrosDisplayObserver.$interfaceName = 'cros.mojom.CrosDisplayObserver';
+cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec = { $: {} };
+cros.mojom.CrosLidObserver = {};
+cros.mojom.CrosLidObserver.$interfaceName = 'cros.mojom.CrosLidObserver';
+cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec = { $: {} };
+cros.mojom.CrosPowerObserver = {};
+cros.mojom.CrosPowerObserver.$interfaceName = 'cros.mojom.CrosPowerObserver';
+cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec = { $: {} };
+cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParamsSpec = { $: {} };
+cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec = { $: {} };
+cros.mojom.CrosSystemEventMonitor = {};
+cros.mojom.CrosSystemEventMonitor.$interfaceName = 'cros.mojom.CrosSystemEventMonitor';
+cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec = { $: {} };
+cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec = { $: {} };
+cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec = { $: {} };
+cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec = { $: {} };
 
 // Enum: LidState
 cros.mojom.LidState = {
@@ -15,7 +35,6 @@ cros.mojom.LidState = {
   kClosed: 1,
   kNotPresent: 2,
 };
-cros.mojom.LidStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: DeviceType
 cros.mojom.DeviceType = {
@@ -23,7 +42,6 @@ cros.mojom.DeviceType = {
   kVideoCapture: 1,
   kUnkown: 2,
 };
-cros.mojom.DeviceTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ClockwiseRotation
 cros.mojom.ClockwiseRotation = {
@@ -32,23 +50,13 @@ cros.mojom.ClockwiseRotation = {
   kRotate180: 2,
   kRotate270: 3,
 };
-cros.mojom.ClockwiseRotationSpec = { $: mojo.internal.Enum() };
 
 // Interface: CrosDisplayObserver
-cros.mojom.CrosDisplayObserver = {};
-
-cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'rotation', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.ClockwiseRotationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec, 'cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_Params', [
+      mojo.internal.StructField('rotation', 0, 0, cros.mojom.ClockwiseRotationSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 cros.mojom.CrosDisplayObserverPendingReceiver = class {
   constructor(handle) {
@@ -103,40 +111,16 @@ cros.mojom.CrosDisplayObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnDisplayRotationChanged
-cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosDisplayObserver.OnDisplayRotationChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'rotation', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.ClockwiseRotationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 cros.mojom.CrosDisplayObserverPtr = cros.mojom.CrosDisplayObserverRemote;
 cros.mojom.CrosDisplayObserverRequest = cros.mojom.CrosDisplayObserverPendingReceiver;
 
 
 // Interface: CrosLidObserver
-cros.mojom.CrosLidObserver = {};
-
-cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosLidObserver_OnLidStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'new_state', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.LidStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec, 'cros.mojom.CrosLidObserver_OnLidStateChanged_Params', [
+      mojo.internal.StructField('new_state', 0, 0, cros.mojom.LidStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 cros.mojom.CrosLidObserverPendingReceiver = class {
   constructor(handle) {
@@ -191,51 +175,25 @@ cros.mojom.CrosLidObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnLidStateChanged
-cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosLidObserver.OnLidStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'new_state', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.LidStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 cros.mojom.CrosLidObserverPtr = cros.mojom.CrosLidObserverRemote;
 cros.mojom.CrosLidObserverRequest = cros.mojom.CrosLidObserverPendingReceiver;
 
 
 // Interface: CrosPowerObserver
-cros.mojom.CrosPowerObserver = {};
+mojo.internal.Struct(
+    cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec, 'cros.mojom.CrosPowerObserver_OnSystemSuspend_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosPowerObserver_OnSystemSuspend_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParamsSpec, 'cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosPowerObserver_OnSystemResume_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec, 'cros.mojom.CrosPowerObserver_OnSystemResume_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 cros.mojom.CrosPowerObserverPendingReceiver = class {
   constructor(handle) {
@@ -274,7 +232,7 @@ cros.mojom.CrosPowerObserverRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec,
-      null,
+      cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParamsSpec,
       []);
   }
 
@@ -299,92 +257,35 @@ cros.mojom.CrosPowerObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnSystemSuspend
-cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosPowerObserver.OnSystemSuspend_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnSystemResume
-cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosPowerObserver.OnSystemResume_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 cros.mojom.CrosPowerObserverPtr = cros.mojom.CrosPowerObserverRemote;
 cros.mojom.CrosPowerObserverRequest = cros.mojom.CrosPowerObserverPendingReceiver;
 
 
 // Interface: CrosSystemEventMonitor
-cros.mojom.CrosSystemEventMonitor = {};
+mojo.internal.Struct(
+    cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec, 'cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.CrosDisplayObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cros.mojom.CrosDisplayObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec, 'cros.mojom.CrosSystemEventMonitor_AddLidObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.CrosLidObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosSystemEventMonitor_AddLidObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cros.mojom.CrosLidObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec, 'cros.mojom.CrosSystemEventMonitor_AddPowerObserver_Params', [
+      mojo.internal.StructField('client_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(cros.mojom.CrosPowerObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosSystemEventMonitor_AddPowerObserver_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'client_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cros.mojom.CrosPowerObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.DeviceTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec, 'cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_Params', [
+      mojo.internal.StructField('type', 0, 0, cros.mojom.DeviceTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 cros.mojom.CrosSystemEventMonitorPendingReceiver = class {
   constructor(handle) {
@@ -466,64 +367,6 @@ cros.mojom.CrosSystemEventMonitor.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddDisplayObserver
-cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosSystemEventMonitor.AddDisplayObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cros.mojom.CrosDisplayObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AddLidObserver
-cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosSystemEventMonitor.AddLidObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cros.mojom.CrosLidObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AddPowerObserver
-cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosSystemEventMonitor.AddPowerObserver_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'client_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cros.mojom.CrosPowerObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for NotifyDeviceChanged
-cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosSystemEventMonitor.NotifyDeviceChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.DeviceTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 cros.mojom.CrosSystemEventMonitorPtr = cros.mojom.CrosSystemEventMonitorRemote;
 cros.mojom.CrosSystemEventMonitorRequest = cros.mojom.CrosSystemEventMonitorPendingReceiver;
 

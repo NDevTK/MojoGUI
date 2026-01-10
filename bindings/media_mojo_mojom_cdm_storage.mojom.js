@@ -8,6 +8,18 @@
 var media = media || {};
 media.mojom = media.mojom || {};
 
+media.mojom.StatusSpec = { $: mojo.internal.Enum() };
+media.mojom.StatusSpec = { $: mojo.internal.Enum() };
+media.mojom.CdmStorage = {};
+media.mojom.CdmStorage.$interfaceName = 'media.mojom.CdmStorage';
+media.mojom.CdmStorage_Open_ParamsSpec = { $: {} };
+media.mojom.CdmStorage_Open_ResponseParamsSpec = { $: {} };
+media.mojom.CdmFile = {};
+media.mojom.CdmFile.$interfaceName = 'media.mojom.CdmFile';
+media.mojom.CdmFile_Read_ParamsSpec = { $: {} };
+media.mojom.CdmFile_Read_ResponseParamsSpec = { $: {} };
+media.mojom.CdmFile_Write_ParamsSpec = { $: {} };
+media.mojom.CdmFile_Write_ResponseParamsSpec = { $: {} };
 
 // Enum: Status
 media.mojom.Status = {
@@ -15,30 +27,26 @@ media.mojom.Status = {
   kInUse: 1,
   kFailure: 2,
 };
-media.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: Status
 media.mojom.Status = {
   kSuccess: 0,
   kFailure: 1,
 };
-media.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Interface: CdmStorage
-media.mojom.CdmStorage = {};
+mojo.internal.Struct(
+    media.mojom.CdmStorage_Open_ParamsSpec, 'media.mojom.CdmStorage_Open_Params', [
+      mojo.internal.StructField('file_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.CdmStorage_Open_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmStorage_Open_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'file_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.CdmStorage_Open_ResponseParamsSpec, 'media.mojom.CdmStorage_Open_ResponseParams', [
+      mojo.internal.StructField('status', 8, 0, media.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cdm_file', 0, 0, mojo.internal.AssociatedInterfaceProxy(media.mojom.CdmFileRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 media.mojom.CdmStoragePendingReceiver = class {
   constructor(handle) {
@@ -93,66 +101,34 @@ media.mojom.CdmStorage.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Open
-media.mojom.CdmStorage_Open_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmStorage.Open_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'file_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-media.mojom.CdmStorage_Open_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmStorage.Open_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false, minVersion: 0 },
-        { name: 'cdm_file', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(media.mojom.CdmFileRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.CdmStoragePtr = media.mojom.CdmStorageRemote;
 media.mojom.CdmStorageRequest = media.mojom.CdmStoragePendingReceiver;
 
 
 // Interface: CdmFile
-media.mojom.CdmFile = {};
+mojo.internal.Struct(
+    media.mojom.CdmFile_Read_ParamsSpec, 'media.mojom.CdmFile_Read_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.CdmFile_Read_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmFile_Read_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.CdmFile_Read_ResponseParamsSpec, 'media.mojom.CdmFile_Read_ResponseParams', [
+      mojo.internal.StructField('status', 8, 0, media.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media.mojom.CdmFile_Write_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmFile_Write_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.CdmFile_Write_ParamsSpec, 'media.mojom.CdmFile_Write_Params', [
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    media.mojom.CdmFile_Write_ResponseParamsSpec, 'media.mojom.CdmFile_Write_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, media.mojom.StatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.CdmFilePendingReceiver = class {
   constructor(handle) {
@@ -216,61 +192,6 @@ media.mojom.CdmFile.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Read
-media.mojom.CdmFile_Read_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmFile.Read_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-media.mojom.CdmFile_Read_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmFile.Read_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Write
-media.mojom.CdmFile_Write_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmFile.Write_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-media.mojom.CdmFile_Write_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmFile.Write_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.CdmFilePtr = media.mojom.CdmFileRemote;
 media.mojom.CdmFileRequest = media.mojom.CdmFilePendingReceiver;
 

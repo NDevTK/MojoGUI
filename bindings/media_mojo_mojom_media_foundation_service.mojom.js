@@ -8,22 +8,26 @@
 var media = media || {};
 media.mojom = media.mojom || {};
 
+media.mojom.GpuInfoObserver = {};
+media.mojom.GpuInfoObserver.$interfaceName = 'media.mojom.GpuInfoObserver';
+media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec = { $: {} };
+media.mojom.MediaFoundationService = {};
+media.mojom.MediaFoundationService.$interfaceName = 'media.mojom.MediaFoundationService';
+media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec = { $: {} };
+media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec = { $: {} };
+media.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec = { $: {} };
+media.mojom.MediaFoundationServiceBroker = {};
+media.mojom.MediaFoundationServiceBroker.$interfaceName = 'media.mojom.MediaFoundationServiceBroker';
+media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec = { $: {} };
+media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParamsSpec = { $: {} };
+media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec = { $: {} };
 
 // Interface: GpuInfoObserver
-media.mojom.GpuInfoObserver = {};
-
-media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.GpuInfoObserver_OnGpuInfoUpdate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'gpu_info', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.GpuInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec, 'media.mojom.GpuInfoObserver_OnGpuInfoUpdate_Params', [
+      mojo.internal.StructField('gpu_info', 0, 0, gpu.mojom.GpuInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.GpuInfoObserverPendingReceiver = class {
   constructor(handle) {
@@ -78,54 +82,30 @@ media.mojom.GpuInfoObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnGpuInfoUpdate
-media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.GpuInfoObserver.OnGpuInfoUpdate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'gpu_info', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.GpuInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.GpuInfoObserverPtr = media.mojom.GpuInfoObserverRemote;
 media.mojom.GpuInfoObserverRequest = media.mojom.GpuInfoObserverPendingReceiver;
 
 
 // Interface: MediaFoundationService
-media.mojom.MediaFoundationService = {};
+mojo.internal.Struct(
+    media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec, 'media.mojom.MediaFoundationService_IsKeySystemSupported_Params', [
+      mojo.internal.StructField('key_system', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaFoundationService_IsKeySystemSupported_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key_system', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec, 'media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParams', [
+      mojo.internal.StructField('is_supported', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('key_system_capability', 0, 0, media.mojom.KeySystemCapabilitySpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaFoundationService_CreateInterfaceFactory_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.InterfaceFactoryRemote), nullable: false, minVersion: 0 },
-        { name: 'frame_interfaces', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.FrameInterfaceFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec, 'media.mojom.MediaFoundationService_CreateInterfaceFactory_Params', [
+      mojo.internal.StructField('factory', 0, 0, mojo.internal.InterfaceRequest(media.mojom.InterfaceFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('frame_interfaces', 8, 0, mojo.internal.InterfaceProxy(media.mojom.FrameInterfaceFactoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 media.mojom.MediaFoundationServicePendingReceiver = class {
   constructor(handle) {
@@ -189,83 +169,29 @@ media.mojom.MediaFoundationService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for IsKeySystemSupported
-media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaFoundationService.IsKeySystemSupported_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key_system', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaFoundationService.IsKeySystemSupported_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'is_supported', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'key_system_capability', packedOffset: 0, packedBitOffset: 0, type: media.mojom.KeySystemCapabilitySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for CreateInterfaceFactory
-media.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaFoundationService.CreateInterfaceFactory_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.InterfaceFactoryRemote), nullable: false, minVersion: 0 },
-        { name: 'frame_interfaces', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.FrameInterfaceFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.MediaFoundationServicePtr = media.mojom.MediaFoundationServiceRemote;
 media.mojom.MediaFoundationServiceRequest = media.mojom.MediaFoundationServicePendingReceiver;
 
 
 // Interface: MediaFoundationServiceBroker
-media.mojom.MediaFoundationServiceBroker = {};
+mojo.internal.Struct(
+    media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec, 'media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_Params', [
+      mojo.internal.StructField('gpu_info', 0, 0, gpu.mojom.GpuInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'gpu_info', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.GpuInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParamsSpec, 'media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParams', [
+      mojo.internal.StructField('gpu_info_observer', 0, 0, mojo.internal.InterfaceProxy(media.mojom.GpuInfoObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaFoundationServiceBroker_GetService_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'cdm_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.MediaFoundationServiceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec, 'media.mojom.MediaFoundationServiceBroker_GetService_Params', [
+      mojo.internal.StructField('cdm_path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(media.mojom.MediaFoundationServiceRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 media.mojom.MediaFoundationServiceBrokerPendingReceiver = class {
   constructor(handle) {
@@ -329,49 +255,6 @@ media.mojom.MediaFoundationServiceBroker.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for UpdateGpuInfo
-media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaFoundationServiceBroker.UpdateGpuInfo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'gpu_info', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.GpuInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaFoundationServiceBroker.UpdateGpuInfo_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'gpu_info_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.GpuInfoObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetService
-media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaFoundationServiceBroker.GetService_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'cdm_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.MediaFoundationServiceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.MediaFoundationServiceBrokerPtr = media.mojom.MediaFoundationServiceBrokerRemote;
 media.mojom.MediaFoundationServiceBrokerRequest = media.mojom.MediaFoundationServiceBrokerPendingReceiver;
 

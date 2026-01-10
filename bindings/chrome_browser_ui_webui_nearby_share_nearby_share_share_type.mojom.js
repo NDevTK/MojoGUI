@@ -8,6 +8,7 @@
 var nearby_share = nearby_share || {};
 nearby_share.mojom = nearby_share.mojom || {};
 
+nearby_share.mojom.ShareTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ShareType
 nearby_share.mojom.ShareType = {
@@ -26,4 +27,3 @@ nearby_share.mojom.ShareType = {
   kUnknownFile: 12,
   kWifiCredentials: 13,
 };
-nearby_share.mojom.ShareTypeSpec = { $: mojo.internal.Enum() };

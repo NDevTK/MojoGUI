@@ -7,52 +7,63 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
+var services = services || {};
 
+arc.mojom.UsbHostHost = {};
+arc.mojom.UsbHostHost.$interfaceName = 'arc.mojom.UsbHostHost';
+arc.mojom.UsbHostHost_OpenDevice_ParamsSpec = { $: {} };
+arc.mojom.UsbHostHost_OpenDevice_ResponseParamsSpec = { $: {} };
+arc.mojom.UsbHostHost_GetDeviceInfo_ParamsSpec = { $: {} };
+arc.mojom.UsbHostHost_GetDeviceInfo_ResponseParamsSpec = { $: {} };
+arc.mojom.UsbHostHost_RequestPermission_ParamsSpec = { $: {} };
+arc.mojom.UsbHostHost_RequestPermission_ResponseParamsSpec = { $: {} };
+arc.mojom.UsbHostInstance = {};
+arc.mojom.UsbHostInstance.$interfaceName = 'arc.mojom.UsbHostInstance';
+arc.mojom.UsbHostInstance_Init_ParamsSpec = { $: {} };
+arc.mojom.UsbHostInstance_Init_ResponseParamsSpec = { $: {} };
+arc.mojom.UsbHostInstance_OnDeviceAdded_ParamsSpec = { $: {} };
+arc.mojom.UsbHostInstance_OnDeviceRemoved_ParamsSpec = { $: {} };
 
 // Interface: UsbHostHost
-arc.mojom.UsbHostHost = {};
+mojo.internal.Struct(
+    arc.mojom.UsbHostHost_OpenDevice_ParamsSpec, 'arc.mojom.UsbHostHost_OpenDevice_Params', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('pkg_name', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.UsbHostHost_OpenDevice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.UsbHostHost_OpenDevice_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pkg_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.UsbHostHost_OpenDevice_ResponseParamsSpec, 'arc.mojom.UsbHostHost_OpenDevice_ResponseParams', [
+      mojo.internal.StructField('usb_fd', 0, 0, mojo.internal.Handle, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.UsbHostHost_GetDeviceInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.UsbHostHost_GetDeviceInfo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.UsbHostHost_GetDeviceInfo_ParamsSpec, 'arc.mojom.UsbHostHost_GetDeviceInfo_Params', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.UsbHostHost_RequestPermission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.UsbHostHost_RequestPermission_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pkg_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'interactive', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.UsbHostHost_GetDeviceInfo_ResponseParamsSpec, 'arc.mojom.UsbHostHost_GetDeviceInfo_ResponseParams', [
+      mojo.internal.StructField('device_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('info', 8, 0, device.mojom.UsbDeviceInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    arc.mojom.UsbHostHost_RequestPermission_ParamsSpec, 'arc.mojom.UsbHostHost_RequestPermission_Params', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('pkg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('interactive', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    arc.mojom.UsbHostHost_RequestPermission_ResponseParamsSpec, 'arc.mojom.UsbHostHost_RequestPermission_ResponseParams', [
+      mojo.internal.StructField('authorized', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.UsbHostHostPendingReceiver = class {
   constructor(handle) {
@@ -125,139 +136,35 @@ arc.mojom.UsbHostHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OpenDevice
-arc.mojom.UsbHostHost_OpenDevice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.UsbHostHost.OpenDevice_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pkg_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.UsbHostHost_OpenDevice_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.UsbHostHost.OpenDevice_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'usb_fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetDeviceInfo
-arc.mojom.UsbHostHost_GetDeviceInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.UsbHostHost.GetDeviceInfo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.UsbHostHost_GetDeviceInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.UsbHostHost.GetDeviceInfo_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'device_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: device.mojom.UsbDeviceInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for RequestPermission
-arc.mojom.UsbHostHost_RequestPermission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.UsbHostHost.RequestPermission_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pkg_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'interactive', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-arc.mojom.UsbHostHost_RequestPermission_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.UsbHostHost.RequestPermission_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'authorized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.UsbHostHostPtr = arc.mojom.UsbHostHostRemote;
 arc.mojom.UsbHostHostRequest = arc.mojom.UsbHostHostPendingReceiver;
 
 
 // Interface: UsbHostInstance
-arc.mojom.UsbHostInstance = {};
+mojo.internal.Struct(
+    arc.mojom.UsbHostInstance_Init_ParamsSpec, 'arc.mojom.UsbHostInstance_Init_Params', [
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.UsbHostHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.UsbHostInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.UsbHostInstance_Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.UsbHostHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.UsbHostInstance_Init_ResponseParamsSpec, 'arc.mojom.UsbHostInstance_Init_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.UsbHostInstance_OnDeviceAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.UsbHostInstance_OnDeviceAdded_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'event_receiver_packages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 2 },
-      ],
-      versions: [{version: 0, packedSize: 16}, {version: 2, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.UsbHostInstance_OnDeviceAdded_ParamsSpec, 'arc.mojom.UsbHostInstance_OnDeviceAdded_Params', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('event_receiver_packages', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 2, undefined),
+    ],
+    [[0, 16], [2, 24]]);
 
-arc.mojom.UsbHostInstance_OnDeviceRemoved_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.UsbHostInstance_OnDeviceRemoved_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'event_receiver_packages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 2 },
-      ],
-      versions: [{version: 0, packedSize: 16}, {version: 2, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.UsbHostInstance_OnDeviceRemoved_ParamsSpec, 'arc.mojom.UsbHostInstance_OnDeviceRemoved_Params', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('event_receiver_packages', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 2, undefined),
+    ],
+    [[0, 16], [2, 24]]);
 
 arc.mojom.UsbHostInstancePendingReceiver = class {
   constructor(handle) {
@@ -296,7 +203,7 @@ arc.mojom.UsbHostInstanceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       arc.mojom.UsbHostInstance_Init_ParamsSpec,
-      null,
+      arc.mojom.UsbHostInstance_Init_ResponseParamsSpec,
       [host_remote]);
   }
 
@@ -330,51 +237,6 @@ arc.mojom.UsbHostInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Init
-arc.mojom.UsbHostInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.UsbHostInstance.Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.UsbHostHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnDeviceAdded
-arc.mojom.UsbHostInstance_OnDeviceAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.UsbHostInstance.OnDeviceAdded_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'event_receiver_packages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 2 },
-      ],
-      versions: [{version: 0, packedSize: 16}, {version: 2, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnDeviceRemoved
-arc.mojom.UsbHostInstance_OnDeviceRemoved_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.UsbHostInstance.OnDeviceRemoved_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'event_receiver_packages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 2 },
-      ],
-      versions: [{version: 0, packedSize: 16}, {version: 2, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.UsbHostInstancePtr = arc.mojom.UsbHostInstanceRemote;
 arc.mojom.UsbHostInstanceRequest = arc.mojom.UsbHostInstancePendingReceiver;
 

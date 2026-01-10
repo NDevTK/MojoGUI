@@ -10,68 +10,63 @@ theme_color_picker.mojom = theme_color_picker.mojom || {};
 var skia = skia || {};
 var ui = ui || {};
 
+theme_color_picker.mojom.ThemeSpec = { $: {} };
+theme_color_picker.mojom.ChromeColorSpec = { $: {} };
+theme_color_picker.mojom.ThemeColorPickerHandlerFactory = {};
+theme_color_picker.mojom.ThemeColorPickerHandlerFactory.$interfaceName = 'theme_color_picker.mojom.ThemeColorPickerHandlerFactory';
+theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec = { $: {} };
+theme_color_picker.mojom.ThemeColorPickerHandler = {};
+theme_color_picker.mojom.ThemeColorPickerHandler.$interfaceName = 'theme_color_picker.mojom.ThemeColorPickerHandler';
+theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec = { $: {} };
+theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec = { $: {} };
+theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec = { $: {} };
+theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec = { $: {} };
+theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec = { $: {} };
+theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec = { $: {} };
+theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec = { $: {} };
+theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpec = { $: {} };
+theme_color_picker.mojom.ThemeColorPickerClient = {};
+theme_color_picker.mojom.ThemeColorPickerClient.$interfaceName = 'theme_color_picker.mojom.ThemeColorPickerClient';
+theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec = { $: {} };
 
 // Struct: Theme
-theme_color_picker.mojom.ThemeSpec = {
-  $: {
-    structSpec: {
-      name: 'theme_color_picker.mojom.Theme',
-      packedSize: 64,
-      fields: [
-        { name: 'has_background_image', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_third_party_theme', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'background_image_main_color', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: true, minVersion: 0 },
-        { name: 'is_dark_mode', packedOffset: 48, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'seed_color', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-        { name: 'seed_color_hue', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'background_color', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-        { name: 'foreground_color', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: true, minVersion: 0 },
-        { name: 'color_picker_icon_color', packedOffset: 32, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-        { name: 'colors_managed_by_policy', packedOffset: 48, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_grey_baseline', packedOffset: 48, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'browser_color_variant', packedOffset: 44, packedBitOffset: 0, type: ui.mojom.BrowserColorVariantSpec, nullable: false, minVersion: 0 },
-        { name: 'follow_device_theme', packedOffset: 48, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    theme_color_picker.mojom.ThemeSpec, 'theme_color_picker.mojom.Theme', [
+      mojo.internal.StructField('has_background_image', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_third_party_theme', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('background_image_main_color', 0, 0, skia.mojom.SkColorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('is_dark_mode', 48, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('seed_color', 8, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('seed_color_hue', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('background_color', 16, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('foreground_color', 24, 0, skia.mojom.SkColorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('color_picker_icon_color', 32, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('colors_managed_by_policy', 48, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_grey_baseline', 48, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('browser_color_variant', 44, 0, ui.mojom.BrowserColorVariantSpec, null, false, 0, undefined),
+      mojo.internal.StructField('follow_device_theme', 48, 5, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 64]]);
 
 // Struct: ChromeColor
-theme_color_picker.mojom.ChromeColorSpec = {
-  $: {
-    structSpec: {
-      name: 'theme_color_picker.mojom.ChromeColor',
-      packedSize: 56,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'seed', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-        { name: 'background', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-        { name: 'foreground', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-        { name: 'base', packedOffset: 32, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-        { name: 'variant', packedOffset: 40, packedBitOffset: 0, type: ui.mojom.BrowserColorVariantSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    theme_color_picker.mojom.ChromeColorSpec, 'theme_color_picker.mojom.ChromeColor', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('seed', 8, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('background', 16, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('foreground', 24, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('base', 32, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('variant', 40, 0, ui.mojom.BrowserColorVariantSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Interface: ThemeColorPickerHandlerFactory
-theme_color_picker.mojom.ThemeColorPickerHandlerFactory = {};
-
-theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(theme_color_picker.mojom.ThemeColorPickerHandlerRemote), nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(theme_color_picker.mojom.ThemeColorPickerClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(theme_color_picker.mojom.ThemeColorPickerHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(theme_color_picker.mojom.ThemeColorPickerClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 theme_color_picker.mojom.ThemeColorPickerHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -126,116 +121,55 @@ theme_color_picker.mojom.ThemeColorPickerHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateThemeColorPickerHandler
-theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'theme_color_picker.mojom.ThemeColorPickerHandlerFactory.CreateThemeColorPickerHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(theme_color_picker.mojom.ThemeColorPickerHandlerRemote), nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(theme_color_picker.mojom.ThemeColorPickerClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 theme_color_picker.mojom.ThemeColorPickerHandlerFactoryPtr = theme_color_picker.mojom.ThemeColorPickerHandlerFactoryRemote;
 theme_color_picker.mojom.ThemeColorPickerHandlerFactoryRequest = theme_color_picker.mojom.ThemeColorPickerHandlerFactoryPendingReceiver;
 
 
 // Interface: ThemeColorPickerHandler
-theme_color_picker.mojom.ThemeColorPickerHandler = {};
+mojo.internal.Struct(
+    theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_Params', [
+      mojo.internal.StructField('is_dark_mode', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_dark_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParams', [
+      mojo.internal.StructField('colors', 0, 0, mojo.internal.Array(theme_color_picker.mojom.ChromeColorSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'seed_color', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-        { name: 'variant', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.BrowserColorVariantSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_Params', [
+      mojo.internal.StructField('seed_color', 0, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('variant', 8, 0, ui.mojom.BrowserColorVariantSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'hue', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_Params', [
+      mojo.internal.StructField('hue', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 theme_color_picker.mojom.ThemeColorPickerHandlerPendingReceiver = class {
   constructor(handle) {
@@ -344,134 +278,16 @@ theme_color_picker.mojom.ThemeColorPickerHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetChromeColors
-theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'theme_color_picker.mojom.ThemeColorPickerHandler.GetChromeColors_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_dark_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'theme_color_picker.mojom.ThemeColorPickerHandler.GetChromeColors_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'colors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(theme_color_picker.mojom.ChromeColorSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateTheme
-theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'theme_color_picker.mojom.ThemeColorPickerHandler.UpdateTheme_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetDefaultColor
-theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'theme_color_picker.mojom.ThemeColorPickerHandler.SetDefaultColor_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetGreyDefaultColor
-theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'theme_color_picker.mojom.ThemeColorPickerHandler.SetGreyDefaultColor_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetSeedColor
-theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'theme_color_picker.mojom.ThemeColorPickerHandler.SetSeedColor_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'seed_color', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-        { name: 'variant', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.BrowserColorVariantSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SetSeedColorFromHue
-theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'theme_color_picker.mojom.ThemeColorPickerHandler.SetSeedColorFromHue_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'hue', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RemoveBackgroundImage
-theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'theme_color_picker.mojom.ThemeColorPickerHandler.RemoveBackgroundImage_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 theme_color_picker.mojom.ThemeColorPickerHandlerPtr = theme_color_picker.mojom.ThemeColorPickerHandlerRemote;
 theme_color_picker.mojom.ThemeColorPickerHandlerRequest = theme_color_picker.mojom.ThemeColorPickerHandlerPendingReceiver;
 
 
 // Interface: ThemeColorPickerClient
-theme_color_picker.mojom.ThemeColorPickerClient = {};
-
-theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: theme_color_picker.mojom.ThemeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_Params', [
+      mojo.internal.StructField('theme', 0, 0, theme_color_picker.mojom.ThemeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 theme_color_picker.mojom.ThemeColorPickerClientPendingReceiver = class {
   constructor(handle) {
@@ -526,21 +342,6 @@ theme_color_picker.mojom.ThemeColorPickerClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetTheme
-theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'theme_color_picker.mojom.ThemeColorPickerClient.SetTheme_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: theme_color_picker.mojom.ThemeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 theme_color_picker.mojom.ThemeColorPickerClientPtr = theme_color_picker.mojom.ThemeColorPickerClientRemote;
 theme_color_picker.mojom.ThemeColorPickerClientRequest = theme_color_picker.mojom.ThemeColorPickerClientPendingReceiver;
 

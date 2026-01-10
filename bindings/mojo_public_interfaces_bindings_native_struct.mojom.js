@@ -8,6 +8,9 @@
 var mojo = mojo || {};
 mojo.native = mojo.native || {};
 
+mojo.native.SerializedHandleTypeSpec = { $: mojo.internal.Enum() };
+mojo.native.SerializedHandleSpec = { $: {} };
+mojo.native.NativeStructSpec = { $: {} };
 
 // Enum: SerializedHandleType
 mojo.native.SerializedHandleType = {
@@ -17,34 +20,19 @@ mojo.native.SerializedHandleType = {
   MACH_PORT: 3,
   FUCHSIA_HANDLE: 4,
 };
-mojo.native.SerializedHandleTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SerializedHandle
-mojo.native.SerializedHandleSpec = {
-  $: {
-    structSpec: {
-      name: 'mojo.native.SerializedHandle',
-      packedSize: 16,
-      fields: [
-        { name: 'the_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 4, packedBitOffset: 0, type: mojo.native.SerializedHandleTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojo.native.SerializedHandleSpec, 'mojo.native.SerializedHandle', [
+      mojo.internal.StructField('the_handle', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('type', 4, 0, mojo.native.SerializedHandleTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: NativeStruct
-mojo.native.NativeStructSpec = {
-  $: {
-    structSpec: {
-      name: 'mojo.native.NativeStruct',
-      packedSize: 24,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'handles', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.native.SerializedHandleSpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojo.native.NativeStructSpec, 'mojo.native.NativeStruct', [
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('handles', 8, 0, mojo.internal.Array(mojo.native.SerializedHandleSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 24]]);

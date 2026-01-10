@@ -7,36 +7,26 @@
 // Module namespace
 var cros = cros || {};
 cros.mojom = cros.mojom || {};
+var components = components || {};
+var components = components || {};
 
+cros.mojom.JpegAcceleratorProvider = {};
+cros.mojom.JpegAcceleratorProvider.$interfaceName = 'cros.mojom.JpegAcceleratorProvider';
+cros.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_ParamsSpec = { $: {} };
+cros.mojom.JpegAcceleratorProvider_GetMjpegDecodeAccelerator_ParamsSpec = { $: {} };
 
 // Interface: JpegAcceleratorProvider
-cros.mojom.JpegAcceleratorProvider = {};
+mojo.internal.Struct(
+    cros.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_ParamsSpec, 'cros.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_Params', [
+      mojo.internal.StructField('jea', 0, 0, mojo.internal.InterfaceRequest(chromeos_camera.mojom.JpegEncodeAcceleratorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-cros.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'jea', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos_camera.mojom.JpegEncodeAcceleratorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-cros.mojom.JpegAcceleratorProvider_GetMjpegDecodeAccelerator_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.JpegAcceleratorProvider_GetMjpegDecodeAccelerator_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'jda', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos_camera.mojom.MjpegDecodeAcceleratorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.JpegAcceleratorProvider_GetMjpegDecodeAccelerator_ParamsSpec, 'cros.mojom.JpegAcceleratorProvider_GetMjpegDecodeAccelerator_Params', [
+      mojo.internal.StructField('jda', 0, 0, mojo.internal.InterfaceRequest(chromeos_camera.mojom.MjpegDecodeAcceleratorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 cros.mojom.JpegAcceleratorProviderPendingReceiver = class {
   constructor(handle) {
@@ -100,35 +90,6 @@ cros.mojom.JpegAcceleratorProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetJpegEncodeAccelerator
-cros.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.JpegAcceleratorProvider.GetJpegEncodeAccelerator_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'jea', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos_camera.mojom.JpegEncodeAcceleratorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetMjpegDecodeAccelerator
-cros.mojom.JpegAcceleratorProvider_GetMjpegDecodeAccelerator_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.JpegAcceleratorProvider.GetMjpegDecodeAccelerator_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'jda', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos_camera.mojom.MjpegDecodeAcceleratorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 cros.mojom.JpegAcceleratorProviderPtr = cros.mojom.JpegAcceleratorProviderRemote;
 cros.mojom.JpegAcceleratorProviderRequest = cros.mojom.JpegAcceleratorProviderPendingReceiver;
 

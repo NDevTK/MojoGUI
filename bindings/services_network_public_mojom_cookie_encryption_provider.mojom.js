@@ -7,22 +7,24 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var components = components || {};
 
+network.mojom.CookieEncryptionProvider = {};
+network.mojom.CookieEncryptionProvider.$interfaceName = 'network.mojom.CookieEncryptionProvider';
+network.mojom.CookieEncryptionProvider_GetEncryptor_ParamsSpec = { $: {} };
+network.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParamsSpec = { $: {} };
 
 // Interface: CookieEncryptionProvider
-network.mojom.CookieEncryptionProvider = {};
+mojo.internal.Struct(
+    network.mojom.CookieEncryptionProvider_GetEncryptor_ParamsSpec, 'network.mojom.CookieEncryptionProvider_GetEncryptor_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-network.mojom.CookieEncryptionProvider_GetEncryptor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.CookieEncryptionProvider_GetEncryptor_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParamsSpec, 'network.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParams', [
+      mojo.internal.StructField('encryptor', 0, 0, os_crypt_async.mojom.EncryptorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.CookieEncryptionProviderPendingReceiver = class {
   constructor(handle) {
@@ -77,33 +79,6 @@ network.mojom.CookieEncryptionProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetEncryptor
-network.mojom.CookieEncryptionProvider_GetEncryptor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.CookieEncryptionProvider.GetEncryptor_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-network.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.CookieEncryptionProvider.GetEncryptor_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'encryptor', packedOffset: 0, packedBitOffset: 0, type: os_crypt_async.mojom.EncryptorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.CookieEncryptionProviderPtr = network.mojom.CookieEncryptionProviderRemote;
 network.mojom.CookieEncryptionProviderRequest = network.mojom.CookieEncryptionProviderPendingReceiver;
 

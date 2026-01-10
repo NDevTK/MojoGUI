@@ -8,18 +8,12 @@
 var mojo_base = mojo_base || {};
 mojo_base.mojom = mojo_base.mojom || {};
 
+mojo_base.mojom.TokenSpec = { $: {} };
 
 // Struct: Token
-mojo_base.mojom.TokenSpec = {
-  $: {
-    structSpec: {
-      name: 'mojo_base.mojom.Token',
-      packedSize: 24,
-      fields: [
-        { name: 'high', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'low', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojo_base.mojom.TokenSpec, 'mojo_base.mojom.Token', [
+      mojo.internal.StructField('high', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('low', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);

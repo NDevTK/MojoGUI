@@ -7,7 +7,26 @@
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
+var components = components || {};
 
+content.mojom.GinJavaBridgeErrorSpec = { $: mojo.internal.Enum() };
+content.mojom.GinJavaBridge = {};
+content.mojom.GinJavaBridge.$interfaceName = 'content.mojom.GinJavaBridge';
+content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec = { $: {} };
+content.mojom.GinJavaBridge_RemoveNamedObject_ParamsSpec = { $: {} };
+content.mojom.GinJavaBridge_SetHost_ParamsSpec = { $: {} };
+content.mojom.GinJavaBridgeRemoteObject = {};
+content.mojom.GinJavaBridgeRemoteObject.$interfaceName = 'content.mojom.GinJavaBridgeRemoteObject';
+content.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec = { $: {} };
+content.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParamsSpec = { $: {} };
+content.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec = { $: {} };
+content.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParamsSpec = { $: {} };
+content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec = { $: {} };
+content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec = { $: {} };
+content.mojom.GinJavaBridgeHost = {};
+content.mojom.GinJavaBridgeHost.$interfaceName = 'content.mojom.GinJavaBridgeHost';
+content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec = { $: {} };
+content.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_ParamsSpec = { $: {} };
 
 // Enum: GinJavaBridgeError
 content.mojom.GinJavaBridgeError = {
@@ -20,51 +39,27 @@ content.mojom.GinJavaBridgeError = {
   kGinJavaBridgeNonAssignableTypes: 6,
   kGinJavaBridgeRenderFrameDeleted: 7,
 };
-content.mojom.GinJavaBridgeErrorSpec = { $: mojo.internal.Enum() };
 
 // Interface: GinJavaBridge
-content.mojom.GinJavaBridge = {};
+mojo.internal.Struct(
+    content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec, 'content.mojom.GinJavaBridge_AddNamedObject_Params', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('object_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('origin_matcher', 8, 0, origin_matcher.mojom.OriginMatcherSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.GinJavaBridge_AddNamedObject_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'object_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'origin_matcher', packedOffset: 8, packedBitOffset: 0, type: origin_matcher.mojom.OriginMatcherSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.GinJavaBridge_RemoveNamedObject_ParamsSpec, 'content.mojom.GinJavaBridge_RemoveNamedObject_Params', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.GinJavaBridge_RemoveNamedObject_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.GinJavaBridge_RemoveNamedObject_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-content.mojom.GinJavaBridge_SetHost_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.GinJavaBridge_SetHost_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(content.mojom.GinJavaBridgeHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.GinJavaBridge_SetHost_ParamsSpec, 'content.mojom.GinJavaBridge_SetHost_Params', [
+      mojo.internal.StructField('host', 0, 0, mojo.internal.InterfaceProxy(content.mojom.GinJavaBridgeHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 content.mojom.GinJavaBridgePendingReceiver = class {
   constructor(handle) {
@@ -137,96 +132,47 @@ content.mojom.GinJavaBridge.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddNamedObject
-content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.GinJavaBridge.AddNamedObject_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'object_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'origin_matcher', packedOffset: 8, packedBitOffset: 0, type: origin_matcher.mojom.OriginMatcherSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for RemoveNamedObject
-content.mojom.GinJavaBridge_RemoveNamedObject_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.GinJavaBridge.RemoveNamedObject_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetHost
-content.mojom.GinJavaBridge_SetHost_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.GinJavaBridge.SetHost_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(content.mojom.GinJavaBridgeHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.GinJavaBridgePtr = content.mojom.GinJavaBridgeRemote;
 content.mojom.GinJavaBridgeRequest = content.mojom.GinJavaBridgePendingReceiver;
 
 
 // Interface: GinJavaBridgeRemoteObject
-content.mojom.GinJavaBridgeRemoteObject = {};
+mojo.internal.Struct(
+    content.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec, 'content.mojom.GinJavaBridgeRemoteObject_GetMethods_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.GinJavaBridgeRemoteObject_GetMethods_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParamsSpec, 'content.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParams', [
+      mojo.internal.StructField('method_names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.GinJavaBridgeRemoteObject_HasMethod_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'method_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec, 'content.mojom.GinJavaBridgeRemoteObject_HasMethod_Params', [
+      mojo.internal.StructField('method_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'method_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'arguments', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParamsSpec, 'content.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec, 'content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_Params', [
+      mojo.internal.StructField('method_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arguments', 8, 0, mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec, 'content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParams', [
+      mojo.internal.StructField('error_code', 8, 0, content.mojom.GinJavaBridgeErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 content.mojom.GinJavaBridgeRemoteObjectPendingReceiver = class {
   constructor(handle) {
@@ -299,122 +245,23 @@ content.mojom.GinJavaBridgeRemoteObject.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetMethods
-content.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.GinJavaBridgeRemoteObject.GetMethods_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-content.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.GinJavaBridgeRemoteObject.GetMethods_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'method_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for HasMethod
-content.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.GinJavaBridgeRemoteObject.HasMethod_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'method_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-content.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.GinJavaBridgeRemoteObject.HasMethod_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for InvokeMethod
-content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.GinJavaBridgeRemoteObject.InvokeMethod_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'method_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'arguments', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.GinJavaBridgeRemoteObject.InvokeMethod_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'error_code', packedOffset: 8, packedBitOffset: 0, type: content.mojom.GinJavaBridgeErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ListValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.GinJavaBridgeRemoteObjectPtr = content.mojom.GinJavaBridgeRemoteObjectRemote;
 content.mojom.GinJavaBridgeRemoteObjectRequest = content.mojom.GinJavaBridgeRemoteObjectPendingReceiver;
 
 
 // Interface: GinJavaBridgeHost
-content.mojom.GinJavaBridgeHost = {};
+mojo.internal.Struct(
+    content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec, 'content.mojom.GinJavaBridgeHost_GetObject_Params', [
+      mojo.internal.StructField('object_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(content.mojom.GinJavaBridgeRemoteObjectRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.GinJavaBridgeHost_GetObject_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'object_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(content.mojom.GinJavaBridgeRemoteObjectRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-content.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'object_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_ParamsSpec, 'content.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_Params', [
+      mojo.internal.StructField('object_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 content.mojom.GinJavaBridgeHostPendingReceiver = class {
   constructor(handle) {
@@ -478,36 +325,6 @@ content.mojom.GinJavaBridgeHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetObject
-content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.GinJavaBridgeHost.GetObject_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'object_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(content.mojom.GinJavaBridgeRemoteObjectRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ObjectWrapperDeleted
-content.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.GinJavaBridgeHost.ObjectWrapperDeleted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'object_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.GinJavaBridgeHostPtr = content.mojom.GinJavaBridgeHostRemote;
 content.mojom.GinJavaBridgeHostRequest = content.mojom.GinJavaBridgeHostPendingReceiver;
 

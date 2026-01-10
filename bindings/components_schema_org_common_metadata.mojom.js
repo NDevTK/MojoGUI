@@ -8,55 +8,47 @@
 var schema_org = schema_org || {};
 schema_org.mojom = schema_org.mojom || {};
 
+schema_org.mojom.ValuesSpec = { $: {} };
+schema_org.mojom.PropertySpec = { $: {} };
+schema_org.mojom.EntitySpec = { $: {} };
 
 // Union: Values
-schema_org.mojom.ValuesSpec = { $: mojo.internal.Union(
-    'schema_org.mojom.Values', {
+mojo.internal.Union(
+    schema_org.mojom.ValuesSpec, 'schema_org.mojom.Values', {
       'bool_values': {
         'ordinal': 0,
         'type': mojo.internal.Array(mojo.internal.Bool, false),
-      }},
+        'nullable': false,
+      },
       'long_values': {
         'ordinal': 1,
         'type': mojo.internal.Array(mojo.internal.Int64, false),
-      }},
+        'nullable': false,
+      },
       'string_values': {
         'ordinal': 2,
         'type': mojo.internal.Array(mojo.internal.String, false),
-      }},
+        'nullable': false,
+      },
       'entity_values': {
         'ordinal': 3,
         'type': mojo.internal.Array(schema_org.mojom.EntitySpec, false),
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: Property
-schema_org.mojom.PropertySpec = {
-  $: {
-    structSpec: {
-      name: 'schema_org.mojom.Property',
-      packedSize: 32,
-      fields: [
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: schema_org.mojom.ValuesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    schema_org.mojom.PropertySpec, 'schema_org.mojom.Property', [
+      mojo.internal.StructField('name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('values', 0, 0, schema_org.mojom.ValuesSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: Entity
-schema_org.mojom.EntitySpec = {
-  $: {
-    structSpec: {
-      name: 'schema_org.mojom.Entity',
-      packedSize: 24,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'properties', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(schema_org.mojom.PropertySpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    schema_org.mojom.EntitySpec, 'schema_org.mojom.Entity', [
+      mojo.internal.StructField('type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('properties', 8, 0, mojo.internal.Array(schema_org.mojom.PropertySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);

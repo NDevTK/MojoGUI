@@ -12,6 +12,35 @@ var blink = blink || {};
 var blink = blink || {};
 var url = url || {};
 
+blink.mojom.CacheStorageErrorSpec = { $: mojo.internal.Enum() };
+blink.mojom.OperationTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.MatchResponseSpec = { $: {} };
+blink.mojom.CacheStorageVerboseErrorSpec = { $: {} };
+blink.mojom.CacheQueryOptionsSpec = { $: {} };
+blink.mojom.MultiCacheQueryOptionsSpec = { $: {} };
+blink.mojom.BatchOperationSpec = { $: {} };
+blink.mojom.EagerResponseSpec = { $: {} };
+blink.mojom.CacheEntrySpec = { $: {} };
+blink.mojom.CacheStorageCache = {};
+blink.mojom.CacheStorageCache.$interfaceName = 'blink.mojom.CacheStorageCache';
+blink.mojom.CacheStorageCache_Match_ParamsSpec = { $: {} };
+blink.mojom.CacheStorageCache_MatchAll_ParamsSpec = { $: {} };
+blink.mojom.CacheStorageCache_GetAllMatchedEntries_ParamsSpec = { $: {} };
+blink.mojom.CacheStorageCache_Keys_ParamsSpec = { $: {} };
+blink.mojom.CacheStorageCache_Batch_ParamsSpec = { $: {} };
+blink.mojom.CacheStorageCache_Batch_ResponseParamsSpec = { $: {} };
+blink.mojom.CacheStorageCache_WriteSideData_ParamsSpec = { $: {} };
+blink.mojom.CacheStorageCache_WriteSideData_ResponseParamsSpec = { $: {} };
+blink.mojom.CacheStorage = {};
+blink.mojom.CacheStorage.$interfaceName = 'blink.mojom.CacheStorage';
+blink.mojom.CacheStorage_Has_ParamsSpec = { $: {} };
+blink.mojom.CacheStorage_Has_ResponseParamsSpec = { $: {} };
+blink.mojom.CacheStorage_Delete_ParamsSpec = { $: {} };
+blink.mojom.CacheStorage_Delete_ResponseParamsSpec = { $: {} };
+blink.mojom.CacheStorage_Keys_ParamsSpec = { $: {} };
+blink.mojom.CacheStorage_Keys_ResponseParamsSpec = { $: {} };
+blink.mojom.CacheStorage_Match_ParamsSpec = { $: {} };
+blink.mojom.CacheStorage_Open_ParamsSpec = { $: {} };
 
 // Enum: CacheStorageError
 blink.mojom.CacheStorageError = {
@@ -26,7 +55,6 @@ blink.mojom.CacheStorageError = {
   kErrorDuplicateOperation: 8,
   kErrorCrossOriginResourcePolicy: 9,
 };
-blink.mojom.CacheStorageErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: OperationType
 blink.mojom.OperationType = {
@@ -34,210 +62,136 @@ blink.mojom.OperationType = {
   kPut: 1,
   kDelete: 2,
 };
-blink.mojom.OperationTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: MatchResponse
-blink.mojom.MatchResponseSpec = { $: mojo.internal.Union(
-    'blink.mojom.MatchResponse', {
+mojo.internal.Union(
+    blink.mojom.MatchResponseSpec, 'blink.mojom.MatchResponse', {
       'response': {
         'ordinal': 0,
         'type': blink.mojom.FetchAPIResponseSpec,
-      }},
+        'nullable': false,
+      },
       'eager_response': {
         'ordinal': 1,
         'type': blink.mojom.EagerResponseSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: CacheStorageVerboseError
-blink.mojom.CacheStorageVerboseErrorSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CacheStorageVerboseError',
-      packedSize: 24,
-      fields: [
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CacheStorageErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.CacheStorageVerboseErrorSpec, 'blink.mojom.CacheStorageVerboseError', [
+      mojo.internal.StructField('value', 8, 0, blink.mojom.CacheStorageErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: CacheQueryOptions
-blink.mojom.CacheQueryOptionsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CacheQueryOptions',
-      packedSize: 16,
-      fields: [
-        { name: 'ignore_search', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'ignore_method', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'ignore_vary', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.CacheQueryOptionsSpec, 'blink.mojom.CacheQueryOptions', [
+      mojo.internal.StructField('ignore_search', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('ignore_method', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('ignore_vary', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: MultiCacheQueryOptions
-blink.mojom.MultiCacheQueryOptionsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MultiCacheQueryOptions',
-      packedSize: 24,
-      fields: [
-        { name: 'query_options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CacheQueryOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'cache_name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MultiCacheQueryOptionsSpec, 'blink.mojom.MultiCacheQueryOptions', [
+      mojo.internal.StructField('query_options', 0, 0, blink.mojom.CacheQueryOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cache_name', 8, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: BatchOperation
-blink.mojom.BatchOperationSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BatchOperation',
-      packedSize: 40,
-      fields: [
-        { name: 'operation_type', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.OperationTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FetchAPIRequestSpec, nullable: false, minVersion: 0 },
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FetchAPIResponseSpec, nullable: true, minVersion: 0 },
-        { name: 'match_options', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.CacheQueryOptionsSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.BatchOperationSpec, 'blink.mojom.BatchOperation', [
+      mojo.internal.StructField('operation_type', 24, 0, blink.mojom.OperationTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 0, 0, blink.mojom.FetchAPIRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 8, 0, blink.mojom.FetchAPIResponseSpec, null, true, 0, undefined),
+      mojo.internal.StructField('match_options', 16, 0, blink.mojom.CacheQueryOptionsSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: EagerResponse
-blink.mojom.EagerResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EagerResponse',
-      packedSize: 32,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FetchAPIResponseSpec, nullable: false, minVersion: 0 },
-        { name: 'pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'client_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.BlobReaderClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.EagerResponseSpec, 'blink.mojom.EagerResponse', [
+      mojo.internal.StructField('response', 0, 0, blink.mojom.FetchAPIResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pipe', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('client_receiver', 16, 0, mojo.internal.InterfaceRequest(blink.mojom.BlobReaderClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: CacheEntry
-blink.mojom.CacheEntrySpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CacheEntry',
-      packedSize: 24,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FetchAPIRequestSpec, nullable: false, minVersion: 0 },
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FetchAPIResponseSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.CacheEntrySpec, 'blink.mojom.CacheEntry', [
+      mojo.internal.StructField('request', 0, 0, blink.mojom.FetchAPIRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response', 8, 0, blink.mojom.FetchAPIResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: CacheStorageCache
-blink.mojom.CacheStorageCache = {};
+mojo.internal.Struct(
+    blink.mojom.CacheStorageCache_Match_ParamsSpec, 'blink.mojom.CacheStorageCache_Match_Params', [
+      mojo.internal.StructField('request', 0, 0, blink.mojom.FetchAPIRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('query_options', 8, 0, blink.mojom.CacheQueryOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('in_related_fetch_event', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('in_range_fetch_event', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('trace_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-blink.mojom.CacheStorageCache_Match_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CacheStorageCache_Match_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FetchAPIRequestSpec, nullable: false, minVersion: 0 },
-        { name: 'query_options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CacheQueryOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'in_related_fetch_event', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'in_range_fetch_event', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'trace_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.CacheStorageCache_MatchAll_ParamsSpec, 'blink.mojom.CacheStorageCache_MatchAll_Params', [
+      mojo.internal.StructField('request', 0, 0, blink.mojom.FetchAPIRequestSpec, null, true, 0, undefined),
+      mojo.internal.StructField('query_options', 8, 0, blink.mojom.CacheQueryOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('trace_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.CacheStorageCache_MatchAll_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CacheStorageCache_MatchAll_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FetchAPIRequestSpec, nullable: true, minVersion: 0 },
-        { name: 'query_options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CacheQueryOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'trace_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.CacheStorageCache_GetAllMatchedEntries_ParamsSpec, 'blink.mojom.CacheStorageCache_GetAllMatchedEntries_Params', [
+      mojo.internal.StructField('request', 0, 0, blink.mojom.FetchAPIRequestSpec, null, true, 0, undefined),
+      mojo.internal.StructField('query_options', 8, 0, blink.mojom.CacheQueryOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('trace_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.CacheStorageCache_GetAllMatchedEntries_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CacheStorageCache_GetAllMatchedEntries_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FetchAPIRequestSpec, nullable: true, minVersion: 0 },
-        { name: 'query_options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CacheQueryOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'trace_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.CacheStorageCache_Keys_ParamsSpec, 'blink.mojom.CacheStorageCache_Keys_Params', [
+      mojo.internal.StructField('request', 0, 0, blink.mojom.FetchAPIRequestSpec, null, true, 0, undefined),
+      mojo.internal.StructField('query_options', 8, 0, blink.mojom.CacheQueryOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('trace_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.CacheStorageCache_Keys_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CacheStorageCache_Keys_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FetchAPIRequestSpec, nullable: true, minVersion: 0 },
-        { name: 'query_options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CacheQueryOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'trace_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.CacheStorageCache_Batch_ParamsSpec, 'blink.mojom.CacheStorageCache_Batch_Params', [
+      mojo.internal.StructField('batch_operations', 0, 0, mojo.internal.Array(blink.mojom.BatchOperationSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('trace_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.CacheStorageCache_Batch_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CacheStorageCache_Batch_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'batch_operations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.BatchOperationSpec, false), nullable: false, minVersion: 0 },
-        { name: 'trace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.CacheStorageCache_Batch_ResponseParamsSpec, 'blink.mojom.CacheStorageCache_Batch_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, blink.mojom.CacheStorageVerboseErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.CacheStorageCache_WriteSideData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CacheStorageCache_WriteSideData_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'expected_response_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-        { name: 'trace_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.CacheStorageCache_WriteSideData_ParamsSpec, 'blink.mojom.CacheStorageCache_WriteSideData_Params', [
+      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('expected_response_time', 24, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('trace_id', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+mojo.internal.Struct(
+    blink.mojom.CacheStorageCache_WriteSideData_ResponseParamsSpec, 'blink.mojom.CacheStorageCache_WriteSideData_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, blink.mojom.CacheStorageErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.CacheStorageCachePendingReceiver = class {
   constructor(handle) {
@@ -337,209 +291,65 @@ blink.mojom.CacheStorageCache.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Match
-blink.mojom.CacheStorageCache_Match_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CacheStorageCache.Match_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FetchAPIRequestSpec, nullable: false, minVersion: 0 },
-        { name: 'query_options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CacheQueryOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'in_related_fetch_event', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'in_range_fetch_event', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'trace_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for MatchAll
-blink.mojom.CacheStorageCache_MatchAll_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CacheStorageCache.MatchAll_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FetchAPIRequestSpec, nullable: true, minVersion: 0 },
-        { name: 'query_options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CacheQueryOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'trace_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for GetAllMatchedEntries
-blink.mojom.CacheStorageCache_GetAllMatchedEntries_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CacheStorageCache.GetAllMatchedEntries_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FetchAPIRequestSpec, nullable: true, minVersion: 0 },
-        { name: 'query_options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CacheQueryOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'trace_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for Keys
-blink.mojom.CacheStorageCache_Keys_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CacheStorageCache.Keys_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FetchAPIRequestSpec, nullable: true, minVersion: 0 },
-        { name: 'query_options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CacheQueryOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'trace_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for Batch
-blink.mojom.CacheStorageCache_Batch_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CacheStorageCache.Batch_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'batch_operations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.BatchOperationSpec, false), nullable: false, minVersion: 0 },
-        { name: 'trace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.CacheStorageCache_Batch_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CacheStorageCache.Batch_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CacheStorageVerboseErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for WriteSideData
-blink.mojom.CacheStorageCache_WriteSideData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CacheStorageCache.WriteSideData_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'expected_response_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-        { name: 'trace_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-blink.mojom.CacheStorageCache_WriteSideData_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CacheStorageCache.WriteSideData_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CacheStorageErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.CacheStorageCachePtr = blink.mojom.CacheStorageCacheRemote;
 blink.mojom.CacheStorageCacheRequest = blink.mojom.CacheStorageCachePendingReceiver;
 
 
 // Interface: CacheStorage
-blink.mojom.CacheStorage = {};
+mojo.internal.Struct(
+    blink.mojom.CacheStorage_Has_ParamsSpec, 'blink.mojom.CacheStorage_Has_Params', [
+      mojo.internal.StructField('cache_name', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('trace_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.CacheStorage_Has_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CacheStorage_Has_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'cache_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'trace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.CacheStorage_Has_ResponseParamsSpec, 'blink.mojom.CacheStorage_Has_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, blink.mojom.CacheStorageErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.CacheStorage_Delete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CacheStorage_Delete_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'cache_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'trace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.CacheStorage_Delete_ParamsSpec, 'blink.mojom.CacheStorage_Delete_Params', [
+      mojo.internal.StructField('cache_name', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('trace_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.CacheStorage_Keys_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CacheStorage_Keys_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'trace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.CacheStorage_Delete_ResponseParamsSpec, 'blink.mojom.CacheStorage_Delete_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, blink.mojom.CacheStorageErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.CacheStorage_Match_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CacheStorage_Match_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FetchAPIRequestSpec, nullable: false, minVersion: 0 },
-        { name: 'match_options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MultiCacheQueryOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'in_related_fetch_event', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'in_range_fetch_event', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'trace_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.CacheStorage_Keys_ParamsSpec, 'blink.mojom.CacheStorage_Keys_Params', [
+      mojo.internal.StructField('trace_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.CacheStorage_Open_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CacheStorage_Open_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'cache_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'trace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.CacheStorage_Keys_ResponseParamsSpec, 'blink.mojom.CacheStorage_Keys_ResponseParams', [
+      mojo.internal.StructField('keys', 0, 0, mojo.internal.Array(mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.CacheStorage_Match_ParamsSpec, 'blink.mojom.CacheStorage_Match_Params', [
+      mojo.internal.StructField('request', 0, 0, blink.mojom.FetchAPIRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('match_options', 8, 0, blink.mojom.MultiCacheQueryOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('in_related_fetch_event', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('in_range_fetch_event', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('trace_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    blink.mojom.CacheStorage_Open_ParamsSpec, 'blink.mojom.CacheStorage_Open_Params', [
+      mojo.internal.StructField('cache_name', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('trace_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.CacheStoragePendingReceiver = class {
   constructor(handle) {
@@ -630,123 +440,6 @@ blink.mojom.CacheStorage.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Has
-blink.mojom.CacheStorage_Has_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CacheStorage.Has_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'cache_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'trace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.CacheStorage_Has_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CacheStorage.Has_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CacheStorageErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Delete
-blink.mojom.CacheStorage_Delete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CacheStorage.Delete_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'cache_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'trace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.CacheStorage_Delete_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CacheStorage.Delete_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CacheStorageErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Keys
-blink.mojom.CacheStorage_Keys_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CacheStorage.Keys_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'trace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.CacheStorage_Keys_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CacheStorage.Keys_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.String16Spec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Match
-blink.mojom.CacheStorage_Match_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CacheStorage.Match_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FetchAPIRequestSpec, nullable: false, minVersion: 0 },
-        { name: 'match_options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MultiCacheQueryOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'in_related_fetch_event', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'in_range_fetch_event', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'trace_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for Open
-blink.mojom.CacheStorage_Open_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CacheStorage.Open_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'cache_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'trace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.CacheStoragePtr = blink.mojom.CacheStorageRemote;
 blink.mojom.CacheStorageRequest = blink.mojom.CacheStoragePendingReceiver;
 

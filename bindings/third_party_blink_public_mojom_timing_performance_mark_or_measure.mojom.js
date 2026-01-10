@@ -8,24 +8,18 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.EntryTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.PerformanceMarkOrMeasureSpec = { $: {} };
 
 // Enum: EntryType
 blink.mojom.EntryType = {
   kMark: 0,
   kMeasure: 1,
 };
-blink.mojom.EntryTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: PerformanceMarkOrMeasure
-blink.mojom.PerformanceMarkOrMeasureSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PerformanceMarkOrMeasure',
-      packedSize: 16,
-      fields: [
-        { name: 'kMark', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PerformanceMarkOrMeasureSpec, 'blink.mojom.PerformanceMarkOrMeasure', [
+      mojo.internal.StructField('kMark', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);

@@ -8,6 +8,17 @@
 var browser_command = browser_command || {};
 browser_command.mojom = browser_command.mojom || {};
 
+browser_command.mojom.CommandSpec = { $: mojo.internal.Enum() };
+browser_command.mojom.ClickInfoSpec = { $: {} };
+browser_command.mojom.CommandHandlerFactory = {};
+browser_command.mojom.CommandHandlerFactory.$interfaceName = 'browser_command.mojom.CommandHandlerFactory';
+browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec = { $: {} };
+browser_command.mojom.CommandHandler = {};
+browser_command.mojom.CommandHandler.$interfaceName = 'browser_command.mojom.CommandHandler';
+browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec = { $: {} };
+browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec = { $: {} };
+browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec = { $: {} };
+browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec = { $: {} };
 
 // Enum: Command
 browser_command.mojom.Command = {
@@ -26,47 +37,30 @@ browser_command.mojom.Command = {
   kOpenAISettings: 12,
   kOpenSafetyCheckFromWhatsNew: 13,
   kOpenPaymentsSettings: 14,
-  kOpenGlic: 15,
-  kOpenGlicSettings: 16,
-  kPrewarmGlicFre: 17,
-  kOpenSplitView: 18,
-  kOpenAutofillSettings: 19,
+  kOpenGlic: 16,
+  kOpenGlicSettings: 17,
+  kPrewarmGlicFre: 18,
+  kOpenSplitView: 19,
+  kOpenAutofillSettings: 20,
 };
-browser_command.mojom.CommandSpec = { $: mojo.internal.Enum() };
 
 // Struct: ClickInfo
-browser_command.mojom.ClickInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'browser_command.mojom.ClickInfo',
-      packedSize: 16,
-      fields: [
-        { name: 'middle_button', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'alt_key', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'ctrl_key', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'meta_key', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'shift_key', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    browser_command.mojom.ClickInfoSpec, 'browser_command.mojom.ClickInfo', [
+      mojo.internal.StructField('middle_button', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('alt_key', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('ctrl_key', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('meta_key', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('shift_key', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: CommandHandlerFactory
-browser_command.mojom.CommandHandlerFactory = {};
-
-browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(browser_command.mojom.CommandHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec, 'browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(browser_command.mojom.CommandHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 browser_command.mojom.CommandHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -121,54 +115,35 @@ browser_command.mojom.CommandHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateBrowserCommandHandler
-browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'browser_command.mojom.CommandHandlerFactory.CreateBrowserCommandHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(browser_command.mojom.CommandHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 browser_command.mojom.CommandHandlerFactoryPtr = browser_command.mojom.CommandHandlerFactoryRemote;
 browser_command.mojom.CommandHandlerFactoryRequest = browser_command.mojom.CommandHandlerFactoryPendingReceiver;
 
 
 // Interface: CommandHandler
-browser_command.mojom.CommandHandler = {};
+mojo.internal.Struct(
+    browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec, 'browser_command.mojom.CommandHandler_CanExecuteCommand_Params', [
+      mojo.internal.StructField('command_id', 0, 0, browser_command.mojom.CommandSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'browser_command.mojom.CommandHandler_CanExecuteCommand_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'command_id', packedOffset: 0, packedBitOffset: 0, type: browser_command.mojom.CommandSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec, 'browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParams', [
+      mojo.internal.StructField('can_execute', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'browser_command.mojom.CommandHandler_ExecuteCommand_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'command_id', packedOffset: 8, packedBitOffset: 0, type: browser_command.mojom.CommandSpec, nullable: false, minVersion: 0 },
-        { name: 'click_info', packedOffset: 0, packedBitOffset: 0, type: browser_command.mojom.ClickInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec, 'browser_command.mojom.CommandHandler_ExecuteCommand_Params', [
+      mojo.internal.StructField('command_id', 8, 0, browser_command.mojom.CommandSpec, null, false, 0, undefined),
+      mojo.internal.StructField('click_info', 0, 0, browser_command.mojom.ClickInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec, 'browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParams', [
+      mojo.internal.StructField('command_executed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 browser_command.mojom.CommandHandlerPendingReceiver = class {
   constructor(handle) {
@@ -232,62 +207,6 @@ browser_command.mojom.CommandHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CanExecuteCommand
-browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'browser_command.mojom.CommandHandler.CanExecuteCommand_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'command_id', packedOffset: 0, packedBitOffset: 0, type: browser_command.mojom.CommandSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'browser_command.mojom.CommandHandler.CanExecuteCommand_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'can_execute', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ExecuteCommand
-browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'browser_command.mojom.CommandHandler.ExecuteCommand_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'command_id', packedOffset: 8, packedBitOffset: 0, type: browser_command.mojom.CommandSpec, nullable: false, minVersion: 0 },
-        { name: 'click_info', packedOffset: 0, packedBitOffset: 0, type: browser_command.mojom.ClickInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'browser_command.mojom.CommandHandler.ExecuteCommand_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'command_executed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 browser_command.mojom.CommandHandlerPtr = browser_command.mojom.CommandHandlerRemote;
 browser_command.mojom.CommandHandlerRequest = browser_command.mojom.CommandHandlerPendingReceiver;
 

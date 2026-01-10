@@ -7,99 +7,64 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
 
+network.mojom.IfAddrMsgSpec = { $: {} };
+network.mojom.AddressMapSpec = { $: {} };
+network.mojom.OnlineLinksSpec = { $: {} };
+network.mojom.InitialAddressMapSpec = { $: {} };
+network.mojom.NetworkInterfaceChangeParamsSpec = { $: {} };
+network.mojom.NetworkInterfaceChangeListener = {};
+network.mojom.NetworkInterfaceChangeListener.$interfaceName = 'network.mojom.NetworkInterfaceChangeListener';
+network.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_ParamsSpec = { $: {} };
 
 // Struct: IfAddrMsg
-network.mojom.IfAddrMsgSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.IfAddrMsg',
-      packedSize: 16,
-      fields: [
-        { name: 'ifa_family', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'ifa_prefixlen', packedOffset: 5, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'ifa_flags', packedOffset: 6, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'ifa_scope', packedOffset: 7, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'ifa_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.IfAddrMsgSpec, 'network.mojom.IfAddrMsg', [
+      mojo.internal.StructField('ifa_family', 4, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('ifa_prefixlen', 5, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('ifa_flags', 6, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('ifa_scope', 7, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('ifa_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: AddressMap
-network.mojom.AddressMapSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.AddressMap',
-      packedSize: 16,
-      fields: [
-        { name: 'address_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(network.mojom.IPAddressSpec, network.mojom.IfAddrMsgSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.AddressMapSpec, 'network.mojom.AddressMap', [
+      mojo.internal.StructField('address_map', 0, 0, mojo.internal.Map(network.mojom.IPAddressSpec, network.mojom.IfAddrMsgSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: OnlineLinks
-network.mojom.OnlineLinksSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.OnlineLinks',
-      packedSize: 16,
-      fields: [
-        { name: 'online_links', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.OnlineLinksSpec, 'network.mojom.OnlineLinks', [
+      mojo.internal.StructField('online_links', 0, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: InitialAddressMap
-network.mojom.InitialAddressMapSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.InitialAddressMap',
-      packedSize: 24,
-      fields: [
-        { name: 'address_map', packedOffset: 0, packedBitOffset: 0, type: network.mojom.AddressMapSpec, nullable: false, minVersion: 0 },
-        { name: 'online_links', packedOffset: 8, packedBitOffset: 0, type: network.mojom.OnlineLinksSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.InitialAddressMapSpec, 'network.mojom.InitialAddressMap', [
+      mojo.internal.StructField('address_map', 0, 0, network.mojom.AddressMapSpec, null, false, 0, undefined),
+      mojo.internal.StructField('online_links', 8, 0, network.mojom.OnlineLinksSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: NetworkInterfaceChangeParams
-network.mojom.NetworkInterfaceChangeParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NetworkInterfaceChangeParams',
-      packedSize: 24,
-      fields: [
-        { name: 'address_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(network.mojom.IPAddressSpec, network.mojom.IfAddrMsgSpec, false), nullable: true, minVersion: 0 },
-        { name: 'online_links', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int32, mojo.internal.Bool, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.NetworkInterfaceChangeParamsSpec, 'network.mojom.NetworkInterfaceChangeParams', [
+      mojo.internal.StructField('address_map', 0, 0, mojo.internal.Map(network.mojom.IPAddressSpec, network.mojom.IfAddrMsgSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('online_links', 8, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.Bool, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: NetworkInterfaceChangeListener
-network.mojom.NetworkInterfaceChangeListener = {};
-
-network.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: network.mojom.NetworkInterfaceChangeParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_ParamsSpec, 'network.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_Params', [
+      mojo.internal.StructField('params', 0, 0, network.mojom.NetworkInterfaceChangeParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.NetworkInterfaceChangeListenerPendingReceiver = class {
   constructor(handle) {
@@ -154,21 +119,6 @@ network.mojom.NetworkInterfaceChangeListener.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnNetworkInterfacesChanged
-network.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NetworkInterfaceChangeListener.OnNetworkInterfacesChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: network.mojom.NetworkInterfaceChangeParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.NetworkInterfaceChangeListenerPtr = network.mojom.NetworkInterfaceChangeListenerRemote;
 network.mojom.NetworkInterfaceChangeListenerRequest = network.mojom.NetworkInterfaceChangeListenerPendingReceiver;
 

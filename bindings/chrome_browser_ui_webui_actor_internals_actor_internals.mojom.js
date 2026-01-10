@@ -8,43 +8,38 @@
 var actor_internals = actor_internals || {};
 actor_internals.mojom = actor_internals.mojom || {};
 
+actor_internals.mojom.JournalEntrySpec = { $: {} };
+actor_internals.mojom.Page = {};
+actor_internals.mojom.Page.$interfaceName = 'actor_internals.mojom.Page';
+actor_internals.mojom.Page_JournalEntryAdded_ParamsSpec = { $: {} };
+actor_internals.mojom.PageHandler = {};
+actor_internals.mojom.PageHandler.$interfaceName = 'actor_internals.mojom.PageHandler';
+actor_internals.mojom.PageHandler_StartLogging_ParamsSpec = { $: {} };
+actor_internals.mojom.PageHandler_StopLogging_ParamsSpec = { $: {} };
+actor_internals.mojom.PageHandlerFactory = {};
+actor_internals.mojom.PageHandlerFactory.$interfaceName = 'actor_internals.mojom.PageHandlerFactory';
+actor_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
 
 // Struct: JournalEntry
-actor_internals.mojom.JournalEntrySpec = {
-  $: {
-    structSpec: {
-      name: 'actor_internals.mojom.JournalEntry',
-      packedSize: 72,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'event', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'details', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'timestamp', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.JSTimeSpec, nullable: false, minVersion: 0 },
-        { name: 'task_id', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'track', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'screenshot', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 72}]
-    }
-  }
-};
+mojo.internal.Struct(
+    actor_internals.mojom.JournalEntrySpec, 'actor_internals.mojom.JournalEntry', [
+      mojo.internal.StructField('url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('event', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('type', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('details', 24, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 32, 0, mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('task_id', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('track', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('screenshot', 48, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+    ],
+    [[0, 72]]);
 
 // Interface: Page
-actor_internals.mojom.Page = {};
-
-actor_internals.mojom.Page_JournalEntryAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'actor_internals.mojom.Page_JournalEntryAdded_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: actor_internals.mojom.JournalEntrySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    actor_internals.mojom.Page_JournalEntryAdded_ParamsSpec, 'actor_internals.mojom.Page_JournalEntryAdded_Params', [
+      mojo.internal.StructField('entry', 0, 0, actor_internals.mojom.JournalEntrySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 actor_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -99,51 +94,20 @@ actor_internals.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for JournalEntryAdded
-actor_internals.mojom.Page_JournalEntryAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'actor_internals.mojom.Page.JournalEntryAdded_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: actor_internals.mojom.JournalEntrySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 actor_internals.mojom.PagePtr = actor_internals.mojom.PageRemote;
 actor_internals.mojom.PageRequest = actor_internals.mojom.PagePendingReceiver;
 
 
 // Interface: PageHandler
-actor_internals.mojom.PageHandler = {};
+mojo.internal.Struct(
+    actor_internals.mojom.PageHandler_StartLogging_ParamsSpec, 'actor_internals.mojom.PageHandler_StartLogging_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-actor_internals.mojom.PageHandler_StartLogging_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'actor_internals.mojom.PageHandler_StartLogging_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-actor_internals.mojom.PageHandler_StopLogging_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'actor_internals.mojom.PageHandler_StopLogging_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    actor_internals.mojom.PageHandler_StopLogging_ParamsSpec, 'actor_internals.mojom.PageHandler_StopLogging_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 actor_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -207,53 +171,17 @@ actor_internals.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for StartLogging
-actor_internals.mojom.PageHandler_StartLogging_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'actor_internals.mojom.PageHandler.StartLogging_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for StopLogging
-actor_internals.mojom.PageHandler_StopLogging_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'actor_internals.mojom.PageHandler.StopLogging_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 actor_internals.mojom.PageHandlerPtr = actor_internals.mojom.PageHandlerRemote;
 actor_internals.mojom.PageHandlerRequest = actor_internals.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: PageHandlerFactory
-actor_internals.mojom.PageHandlerFactory = {};
-
-actor_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'actor_internals.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(actor_internals.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(actor_internals.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    actor_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'actor_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(actor_internals.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(actor_internals.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 actor_internals.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -308,22 +236,6 @@ actor_internals.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-actor_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'actor_internals.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(actor_internals.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(actor_internals.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 actor_internals.mojom.PageHandlerFactoryPtr = actor_internals.mojom.PageHandlerFactoryRemote;
 actor_internals.mojom.PageHandlerFactoryRequest = actor_internals.mojom.PageHandlerFactoryPendingReceiver;
 

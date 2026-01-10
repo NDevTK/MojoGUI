@@ -11,17 +11,38 @@ var ui = ui || {};
 var gfx = gfx || {};
 var ui = ui || {};
 
+content.mojom.GestureSourceTypeSpec = { $: mojo.internal.Enum() };
+content.mojom.PointerActionTypeSpec = { $: mojo.internal.Enum() };
+content.mojom.SyntheticButtonSpec = { $: mojo.internal.Enum() };
+content.mojom.InputEventPatternSpec = { $: mojo.internal.Enum() };
+content.mojom.SyntheticSmoothDragSpec = { $: {} };
+content.mojom.SyntheticSmoothScrollSpec = { $: {} };
+content.mojom.SyntheticPinchSpec = { $: {} };
+content.mojom.SyntheticTapSpec = { $: {} };
+content.mojom.SyntheticPointerActionParamsSpec = { $: {} };
+content.mojom.SyntheticPointerActionSpec = { $: {} };
+content.mojom.InputInjector = {};
+content.mojom.InputInjector.$interfaceName = 'content.mojom.InputInjector';
+content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec = { $: {} };
+content.mojom.InputInjector_QueueSyntheticSmoothDrag_ResponseParamsSpec = { $: {} };
+content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec = { $: {} };
+content.mojom.InputInjector_QueueSyntheticSmoothScroll_ResponseParamsSpec = { $: {} };
+content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec = { $: {} };
+content.mojom.InputInjector_QueueSyntheticPinch_ResponseParamsSpec = { $: {} };
+content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec = { $: {} };
+content.mojom.InputInjector_QueueSyntheticTap_ResponseParamsSpec = { $: {} };
+content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec = { $: {} };
+content.mojom.InputInjector_QueueSyntheticPointerAction_ResponseParamsSpec = { $: {} };
 
 // Enum: GestureSourceType
 content.mojom.GestureSourceType = {
   kDefaultInput: 0,
   kTouchInput: 1,
   kMouseInput: 2,
-  kTouchpadInput: 3,
-  kPenInput: 4,
-  kGestureSourceTypeMax: 5,
+  kTouchpadInput: 2,
+  kPenInput: 3,
+  kGestureSourceTypeMax: 3,
 };
-content.mojom.GestureSourceTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PointerActionType
 content.mojom.PointerActionType = {
@@ -33,7 +54,6 @@ content.mojom.PointerActionType = {
   kLeave: 5,
   kIdle: 6,
 };
-content.mojom.PointerActionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SyntheticButton
 content.mojom.SyntheticButton = {
@@ -44,7 +64,6 @@ content.mojom.SyntheticButton = {
   kBack: 4,
   kForward: 5,
 };
-content.mojom.SyntheticButtonSpec = { $: mojo.internal.Enum() };
 
 // Enum: InputEventPattern
 content.mojom.InputEventPattern = {
@@ -53,194 +72,139 @@ content.mojom.InputEventPattern = {
   kTwoPerVsync: 2,
   kEveryOtherVsync: 3,
 };
-content.mojom.InputEventPatternSpec = { $: mojo.internal.Enum() };
 
 // Struct: SyntheticSmoothDrag
-content.mojom.SyntheticSmoothDragSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.SyntheticSmoothDrag',
-      packedSize: 40,
-      fields: [
-        { name: 'gesture_source_type', packedOffset: 16, packedBitOffset: 0, type: content.mojom.GestureSourceTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'start_point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'distances', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.Vector2dFSpec, false), nullable: false, minVersion: 0 },
-        { name: 'speed_in_pixels_s', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'vsync_offset_ms', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'input_event_pattern', packedOffset: 28, packedBitOffset: 0, type: content.mojom.InputEventPatternSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.SyntheticSmoothDragSpec, 'content.mojom.SyntheticSmoothDrag', [
+      mojo.internal.StructField('gesture_source_type', 16, 0, content.mojom.GestureSourceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('start_point', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('distances', 8, 0, mojo.internal.Array(gfx.mojom.Vector2dFSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('speed_in_pixels_s', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('vsync_offset_ms', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('input_event_pattern', 28, 0, content.mojom.InputEventPatternSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: SyntheticSmoothScroll
-content.mojom.SyntheticSmoothScrollSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.SyntheticSmoothScroll',
-      packedSize: 64,
-      fields: [
-        { name: 'gesture_source_type', packedOffset: 24, packedBitOffset: 0, type: content.mojom.GestureSourceTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'anchor', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'distances', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.Vector2dFSpec, false), nullable: false, minVersion: 0 },
-        { name: 'prevent_fling', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'speed_in_pixels_s', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'fling_velocity_x', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'fling_velocity_y', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'granularity', packedOffset: 16, packedBitOffset: 0, type: ui.mojom.ScrollGranularitySpec, nullable: false, minVersion: 0 },
-        { name: 'modifiers', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'vsync_offset_ms', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'input_event_pattern', packedOffset: 48, packedBitOffset: 0, type: content.mojom.InputEventPatternSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.SyntheticSmoothScrollSpec, 'content.mojom.SyntheticSmoothScroll', [
+      mojo.internal.StructField('gesture_source_type', 24, 0, content.mojom.GestureSourceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('anchor', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('distances', 8, 0, mojo.internal.Array(gfx.mojom.Vector2dFSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('prevent_fling', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('speed_in_pixels_s', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('fling_velocity_x', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('fling_velocity_y', 36, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('granularity', 16, 0, ui.mojom.ScrollGranularitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('modifiers', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('vsync_offset_ms', 44, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('input_event_pattern', 48, 0, content.mojom.InputEventPatternSpec, null, false, 0, undefined),
+    ],
+    [[0, 64]]);
 
 // Struct: SyntheticPinch
-content.mojom.SyntheticPinchSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.SyntheticPinch',
-      packedSize: 32,
-      fields: [
-        { name: 'scale_factor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'anchor', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'relative_pointer_speed_in_pixels_s', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'vsync_offset_ms', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'input_event_pattern', packedOffset: 20, packedBitOffset: 0, type: content.mojom.InputEventPatternSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.SyntheticPinchSpec, 'content.mojom.SyntheticPinch', [
+      mojo.internal.StructField('scale_factor', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('anchor', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('relative_pointer_speed_in_pixels_s', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('vsync_offset_ms', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('input_event_pattern', 20, 0, content.mojom.InputEventPatternSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: SyntheticTap
-content.mojom.SyntheticTapSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.SyntheticTap',
-      packedSize: 24,
-      fields: [
-        { name: 'gesture_source_type', packedOffset: 8, packedBitOffset: 0, type: content.mojom.GestureSourceTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'duration_ms', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.SyntheticTapSpec, 'content.mojom.SyntheticTap', [
+      mojo.internal.StructField('gesture_source_type', 8, 0, content.mojom.GestureSourceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('position', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('duration_ms', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: SyntheticPointerActionParams
-content.mojom.SyntheticPointerActionParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.SyntheticPointerActionParams',
-      packedSize: 80,
-      fields: [
-        { name: 'pointer_action_type', packedOffset: 24, packedBitOffset: 0, type: content.mojom.PointerActionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'pointer_id', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'button', packedOffset: 32, packedBitOffset: 0, type: content.mojom.SyntheticButtonSpec, nullable: false, minVersion: 0 },
-        { name: 'key_modifiers', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'width', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'height', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'rotation_angle', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'force', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'tangential_pressure', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'tilt_x', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'tilt_y', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'duration', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 80}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.SyntheticPointerActionParamsSpec, 'content.mojom.SyntheticPointerActionParams', [
+      mojo.internal.StructField('pointer_action_type', 24, 0, content.mojom.PointerActionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('position', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pointer_id', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('button', 32, 0, content.mojom.SyntheticButtonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_modifiers', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('width', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('height', 44, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('rotation_angle', 48, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('force', 52, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('tangential_pressure', 56, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('tilt_x', 60, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('tilt_y', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 8, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('duration', 16, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 80]]);
 
 // Struct: SyntheticPointerAction
-content.mojom.SyntheticPointerActionSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.SyntheticPointerAction',
-      packedSize: 24,
-      fields: [
-        { name: 'gesture_source_type', packedOffset: 8, packedBitOffset: 0, type: content.mojom.GestureSourceTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Array(content.mojom.SyntheticPointerActionParamsSpec, false), false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.SyntheticPointerActionSpec, 'content.mojom.SyntheticPointerAction', [
+      mojo.internal.StructField('gesture_source_type', 8, 0, content.mojom.GestureSourceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 0, 0, mojo.internal.Array(mojo.internal.Array(content.mojom.SyntheticPointerActionParamsSpec, false), false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: InputInjector
-content.mojom.InputInjector = {};
+mojo.internal.Struct(
+    content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec, 'content.mojom.InputInjector_QueueSyntheticSmoothDrag_Params', [
+      mojo.internal.StructField('drag', 0, 0, content.mojom.SyntheticSmoothDragSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.InputInjector_QueueSyntheticSmoothDrag_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'drag', packedOffset: 0, packedBitOffset: 0, type: content.mojom.SyntheticSmoothDragSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.InputInjector_QueueSyntheticSmoothDrag_ResponseParamsSpec, 'content.mojom.InputInjector_QueueSyntheticSmoothDrag_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.InputInjector_QueueSyntheticSmoothScroll_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'scroll', packedOffset: 0, packedBitOffset: 0, type: content.mojom.SyntheticSmoothScrollSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec, 'content.mojom.InputInjector_QueueSyntheticSmoothScroll_Params', [
+      mojo.internal.StructField('scroll', 0, 0, content.mojom.SyntheticSmoothScrollSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.InputInjector_QueueSyntheticPinch_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pinch', packedOffset: 0, packedBitOffset: 0, type: content.mojom.SyntheticPinchSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.InputInjector_QueueSyntheticSmoothScroll_ResponseParamsSpec, 'content.mojom.InputInjector_QueueSyntheticSmoothScroll_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.InputInjector_QueueSyntheticTap_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tap', packedOffset: 0, packedBitOffset: 0, type: content.mojom.SyntheticTapSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec, 'content.mojom.InputInjector_QueueSyntheticPinch_Params', [
+      mojo.internal.StructField('pinch', 0, 0, content.mojom.SyntheticPinchSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.InputInjector_QueueSyntheticPointerAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pointer_action', packedOffset: 0, packedBitOffset: 0, type: content.mojom.SyntheticPointerActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.InputInjector_QueueSyntheticPinch_ResponseParamsSpec, 'content.mojom.InputInjector_QueueSyntheticPinch_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec, 'content.mojom.InputInjector_QueueSyntheticTap_Params', [
+      mojo.internal.StructField('tap', 0, 0, content.mojom.SyntheticTapSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    content.mojom.InputInjector_QueueSyntheticTap_ResponseParamsSpec, 'content.mojom.InputInjector_QueueSyntheticTap_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec, 'content.mojom.InputInjector_QueueSyntheticPointerAction_Params', [
+      mojo.internal.StructField('pointer_action', 0, 0, content.mojom.SyntheticPointerActionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    content.mojom.InputInjector_QueueSyntheticPointerAction_ResponseParamsSpec, 'content.mojom.InputInjector_QueueSyntheticPointerAction_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 content.mojom.InputInjectorPendingReceiver = class {
   constructor(handle) {
@@ -279,7 +243,7 @@ content.mojom.InputInjectorRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec,
-      null,
+      content.mojom.InputInjector_QueueSyntheticSmoothDrag_ResponseParamsSpec,
       [drag]);
   }
 
@@ -288,7 +252,7 @@ content.mojom.InputInjectorRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec,
-      null,
+      content.mojom.InputInjector_QueueSyntheticSmoothScroll_ResponseParamsSpec,
       [scroll]);
   }
 
@@ -297,7 +261,7 @@ content.mojom.InputInjectorRemoteCallHandler = class {
     return this.proxy.sendMessage(
       2,  // ordinal
       content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec,
-      null,
+      content.mojom.InputInjector_QueueSyntheticPinch_ResponseParamsSpec,
       [pinch]);
   }
 
@@ -306,7 +270,7 @@ content.mojom.InputInjectorRemoteCallHandler = class {
     return this.proxy.sendMessage(
       3,  // ordinal
       content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec,
-      null,
+      content.mojom.InputInjector_QueueSyntheticTap_ResponseParamsSpec,
       [tap]);
   }
 
@@ -315,7 +279,7 @@ content.mojom.InputInjectorRemoteCallHandler = class {
     return this.proxy.sendMessage(
       4,  // ordinal
       content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec,
-      null,
+      content.mojom.InputInjector_QueueSyntheticPointerAction_ResponseParamsSpec,
       [pointer_action]);
   }
 
@@ -331,77 +295,6 @@ content.mojom.InputInjector.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for QueueSyntheticSmoothDrag
-content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.InputInjector.QueueSyntheticSmoothDrag_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'drag', packedOffset: 0, packedBitOffset: 0, type: content.mojom.SyntheticSmoothDragSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for QueueSyntheticSmoothScroll
-content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.InputInjector.QueueSyntheticSmoothScroll_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'scroll', packedOffset: 0, packedBitOffset: 0, type: content.mojom.SyntheticSmoothScrollSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for QueueSyntheticPinch
-content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.InputInjector.QueueSyntheticPinch_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pinch', packedOffset: 0, packedBitOffset: 0, type: content.mojom.SyntheticPinchSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for QueueSyntheticTap
-content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.InputInjector.QueueSyntheticTap_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tap', packedOffset: 0, packedBitOffset: 0, type: content.mojom.SyntheticTapSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for QueueSyntheticPointerAction
-content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.InputInjector.QueueSyntheticPointerAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pointer_action', packedOffset: 0, packedBitOffset: 0, type: content.mojom.SyntheticPointerActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.InputInjectorPtr = content.mojom.InputInjectorRemote;
 content.mojom.InputInjectorRequest = content.mojom.InputInjectorPendingReceiver;
 

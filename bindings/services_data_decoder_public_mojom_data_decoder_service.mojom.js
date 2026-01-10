@@ -7,101 +7,66 @@
 // Module namespace
 var data_decoder = data_decoder || {};
 data_decoder.mojom = data_decoder.mojom || {};
+var components = components || {};
+var components = components || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 
+data_decoder.mojom.DataDecoderService = {};
+data_decoder.mojom.DataDecoderService.$interfaceName = 'data_decoder.mojom.DataDecoderService';
+data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec = { $: {} };
+data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec = { $: {} };
+data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec = { $: {} };
+data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec = { $: {} };
+data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec = { $: {} };
+data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec = { $: {} };
+data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec = { $: {} };
 
 // Interface: DataDecoderService
-data_decoder.mojom.DataDecoderService = {};
+mojo.internal.Struct(
+    data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec, 'data_decoder.mojom.DataDecoderService_BindImageDecoder_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(data_decoder.mojom.ImageDecoderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.DataDecoderService_BindImageDecoder_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(data_decoder.mojom.ImageDecoderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec, 'data_decoder.mojom.DataDecoderService_BindXmlParser_Params', [
+      mojo.internal.StructField('reciever', 0, 0, mojo.internal.InterfaceRequest(data_decoder.mojom.XmlParserRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.DataDecoderService_BindXmlParser_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'reciever', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(data_decoder.mojom.XmlParserRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec, 'data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(web_package.mojom.WebBundleParserFactoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(web_package.mojom.WebBundleParserFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec, 'data_decoder.mojom.DataDecoderService_BindGzipper_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(data_decoder.mojom.GzipperRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.DataDecoderService_BindGzipper_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(data_decoder.mojom.GzipperRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec, 'data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(data_decoder.mojom.StructuredHeadersParserRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(data_decoder.mojom.StructuredHeadersParserRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec, 'data_decoder.mojom.DataDecoderService_BindCborParser_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(data_decoder.mojom.CborParserRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.DataDecoderService_BindCborParser_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(data_decoder.mojom.CborParserRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.DataDecoderService_BindPixCodeValidator_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(payments.facilitated.mojom.PixCodeValidatorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec, 'data_decoder.mojom.DataDecoderService_BindPixCodeValidator_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(payments.facilitated.mojom.PixCodeValidatorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 data_decoder.mojom.DataDecoderServicePendingReceiver = class {
   constructor(handle) {
@@ -210,105 +175,6 @@ data_decoder.mojom.DataDecoderService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BindImageDecoder
-data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.DataDecoderService.BindImageDecoder_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(data_decoder.mojom.ImageDecoderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindXmlParser
-data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.DataDecoderService.BindXmlParser_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'reciever', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(data_decoder.mojom.XmlParserRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindWebBundleParserFactory
-data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.DataDecoderService.BindWebBundleParserFactory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(web_package.mojom.WebBundleParserFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindGzipper
-data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.DataDecoderService.BindGzipper_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(data_decoder.mojom.GzipperRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindStructuredHeadersParser
-data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.DataDecoderService.BindStructuredHeadersParser_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(data_decoder.mojom.StructuredHeadersParserRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindCborParser
-data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.DataDecoderService.BindCborParser_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(data_decoder.mojom.CborParserRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindPixCodeValidator
-data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.DataDecoderService.BindPixCodeValidator_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(payments.facilitated.mojom.PixCodeValidatorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 data_decoder.mojom.DataDecoderServicePtr = data_decoder.mojom.DataDecoderServiceRemote;
 data_decoder.mojom.DataDecoderServiceRequest = data_decoder.mojom.DataDecoderServicePendingReceiver;
 

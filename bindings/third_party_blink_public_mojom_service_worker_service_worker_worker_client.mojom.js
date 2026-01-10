@@ -9,22 +9,16 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var blink = blink || {};
 
+blink.mojom.ServiceWorkerWorkerClient = {};
+blink.mojom.ServiceWorkerWorkerClient.$interfaceName = 'blink.mojom.ServiceWorkerWorkerClient';
+blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged_ParamsSpec = { $: {} };
 
 // Interface: ServiceWorkerWorkerClient
-blink.mojom.ServiceWorkerWorkerClient = {};
-
-blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ControllerServiceWorkerModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged_ParamsSpec, 'blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged_Params', [
+      mojo.internal.StructField('mode', 0, 0, blink.mojom.ControllerServiceWorkerModeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.ServiceWorkerWorkerClientPendingReceiver = class {
   constructor(handle) {
@@ -79,21 +73,6 @@ blink.mojom.ServiceWorkerWorkerClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnControllerChanged
-blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerWorkerClient.OnControllerChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ControllerServiceWorkerModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.ServiceWorkerWorkerClientPtr = blink.mojom.ServiceWorkerWorkerClientRemote;
 blink.mojom.ServiceWorkerWorkerClientRequest = blink.mojom.ServiceWorkerWorkerClientPendingReceiver;
 

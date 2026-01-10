@@ -8,20 +8,14 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.ConnectionEndpointMetadataSpec = { $: {} };
 
 // Struct: ConnectionEndpointMetadata
-network.mojom.ConnectionEndpointMetadataSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ConnectionEndpointMetadata',
-      packedSize: 40,
-      fields: [
-        { name: 'supported_protocol_alpns', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'ech_config_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'target_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'trust_anchor_ids', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.ConnectionEndpointMetadataSpec, 'network.mojom.ConnectionEndpointMetadata', [
+      mojo.internal.StructField('supported_protocol_alpns', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('ech_config_list', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('target_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('trust_anchor_ids', 24, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);

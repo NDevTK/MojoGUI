@@ -8,100 +8,77 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.KeyValueSpec = { $: {} };
+blink.mojom.StorageAreaObserver = {};
+blink.mojom.StorageAreaObserver.$interfaceName = 'blink.mojom.StorageAreaObserver';
+blink.mojom.StorageAreaObserver_KeyChanged_ParamsSpec = { $: {} };
+blink.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec = { $: {} };
+blink.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec = { $: {} };
+blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec = { $: {} };
+blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec = { $: {} };
+blink.mojom.StorageArea = {};
+blink.mojom.StorageArea.$interfaceName = 'blink.mojom.StorageArea';
+blink.mojom.StorageArea_AddObserver_ParamsSpec = { $: {} };
+blink.mojom.StorageArea_Put_ParamsSpec = { $: {} };
+blink.mojom.StorageArea_Put_ResponseParamsSpec = { $: {} };
+blink.mojom.StorageArea_Delete_ParamsSpec = { $: {} };
+blink.mojom.StorageArea_Delete_ResponseParamsSpec = { $: {} };
+blink.mojom.StorageArea_DeleteAll_ParamsSpec = { $: {} };
+blink.mojom.StorageArea_DeleteAll_ResponseParamsSpec = { $: {} };
+blink.mojom.StorageArea_Get_ParamsSpec = { $: {} };
+blink.mojom.StorageArea_Get_ResponseParamsSpec = { $: {} };
+blink.mojom.StorageArea_GetAll_ParamsSpec = { $: {} };
+blink.mojom.StorageArea_GetAll_ResponseParamsSpec = { $: {} };
 
 blink.mojom.kPerStorageAreaQuota = 10485760;
 
 blink.mojom.kPerStorageAreaOverQuotaAllowance = 102400;
 
 // Struct: KeyValue
-blink.mojom.KeyValueSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.KeyValue',
-      packedSize: 24,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.KeyValueSpec, 'blink.mojom.KeyValue', [
+      mojo.internal.StructField('key', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: StorageAreaObserver
-blink.mojom.StorageAreaObserver = {};
+mojo.internal.Struct(
+    blink.mojom.StorageAreaObserver_KeyChanged_ParamsSpec, 'blink.mojom.StorageAreaObserver_KeyChanged_Params', [
+      mojo.internal.StructField('key', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('new_value', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('old_value', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('source', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-blink.mojom.StorageAreaObserver_KeyChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageAreaObserver_KeyChanged_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'new_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'old_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
-        { name: 'source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec, 'blink.mojom.StorageAreaObserver_KeyChangeFailed_Params', [
+      mojo.internal.StructField('key', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('source', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageAreaObserver_KeyChangeFailed_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec, 'blink.mojom.StorageAreaObserver_KeyDeleted_Params', [
+      mojo.internal.StructField('key', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('old_value', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('source', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageAreaObserver_KeyDeleted_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'old_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
-        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec, 'blink.mojom.StorageAreaObserver_AllDeleted_Params', [
+      mojo.internal.StructField('was_nonempty', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('source', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageAreaObserver_AllDeleted_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'was_nonempty', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec, 'blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_Params', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.StorageAreaObserverPendingReceiver = class {
   constructor(handle) {
@@ -192,174 +169,83 @@ blink.mojom.StorageAreaObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for KeyChanged
-blink.mojom.StorageAreaObserver_KeyChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageAreaObserver.KeyChanged_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'new_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'old_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
-        { name: 'source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for KeyChangeFailed
-blink.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageAreaObserver.KeyChangeFailed_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for KeyDeleted
-blink.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageAreaObserver.KeyDeleted_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'old_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
-        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for AllDeleted
-blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageAreaObserver.AllDeleted_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'was_nonempty', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ShouldSendOldValueOnMutations
-blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageAreaObserver.ShouldSendOldValueOnMutations_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.StorageAreaObserverPtr = blink.mojom.StorageAreaObserverRemote;
 blink.mojom.StorageAreaObserverRequest = blink.mojom.StorageAreaObserverPendingReceiver;
 
 
 // Interface: StorageArea
-blink.mojom.StorageArea = {};
+mojo.internal.Struct(
+    blink.mojom.StorageArea_AddObserver_ParamsSpec, 'blink.mojom.StorageArea_AddObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.StorageAreaObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.StorageArea_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageArea_AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.StorageAreaObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.StorageArea_Put_ParamsSpec, 'blink.mojom.StorageArea_Put_Params', [
+      mojo.internal.StructField('key', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('client_old_value', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('source', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-blink.mojom.StorageArea_Put_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageArea_Put_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'client_old_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
-        { name: 'source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.StorageArea_Put_ResponseParamsSpec, 'blink.mojom.StorageArea_Put_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.StorageArea_Delete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageArea_Delete_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'client_old_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
-        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.StorageArea_Delete_ParamsSpec, 'blink.mojom.StorageArea_Delete_Params', [
+      mojo.internal.StructField('key', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('client_old_value', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('source', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.StorageArea_DeleteAll_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageArea_DeleteAll_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'new_observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.StorageAreaObserverRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.StorageArea_Delete_ResponseParamsSpec, 'blink.mojom.StorageArea_Delete_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.StorageArea_Get_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageArea_Get_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.StorageArea_DeleteAll_ParamsSpec, 'blink.mojom.StorageArea_DeleteAll_Params', [
+      mojo.internal.StructField('source', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('new_observer', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.StorageAreaObserverRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.StorageArea_GetAll_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageArea_GetAll_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'new_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.StorageAreaObserverRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.StorageArea_DeleteAll_ResponseParamsSpec, 'blink.mojom.StorageArea_DeleteAll_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.StorageArea_Get_ParamsSpec, 'blink.mojom.StorageArea_Get_Params', [
+      mojo.internal.StructField('key', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.StorageArea_Get_ResponseParamsSpec, 'blink.mojom.StorageArea_Get_ResponseParams', [
+      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    blink.mojom.StorageArea_GetAll_ParamsSpec, 'blink.mojom.StorageArea_GetAll_Params', [
+      mojo.internal.StructField('new_observer', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.StorageAreaObserverRemote), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.StorageArea_GetAll_ResponseParamsSpec, 'blink.mojom.StorageArea_GetAll_ResponseParams', [
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(blink.mojom.KeyValueSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.StorageAreaPendingReceiver = class {
   constructor(handle) {
@@ -459,163 +345,6 @@ blink.mojom.StorageArea.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddObserver
-blink.mojom.StorageArea_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageArea.AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.StorageAreaObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Put
-blink.mojom.StorageArea_Put_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageArea.Put_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'client_old_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
-        { name: 'source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-blink.mojom.StorageArea_Put_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageArea.Put_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Delete
-blink.mojom.StorageArea_Delete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageArea.Delete_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'client_old_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
-        { name: 'source', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-blink.mojom.StorageArea_Delete_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageArea.Delete_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DeleteAll
-blink.mojom.StorageArea_DeleteAll_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageArea.DeleteAll_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'new_observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.StorageAreaObserverRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.StorageArea_DeleteAll_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageArea.DeleteAll_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Get
-blink.mojom.StorageArea_Get_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageArea.Get_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.StorageArea_Get_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageArea.Get_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GetAll
-blink.mojom.StorageArea_GetAll_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageArea.GetAll_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'new_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.StorageAreaObserverRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.StorageArea_GetAll_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.StorageArea.GetAll_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.KeyValueSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.StorageAreaPtr = blink.mojom.StorageAreaRemote;
 blink.mojom.StorageAreaRequest = blink.mojom.StorageAreaPendingReceiver;
 

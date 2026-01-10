@@ -7,35 +7,24 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
+var services = services || {};
 
+arc.mojom.MediaSessionInstance = {};
+arc.mojom.MediaSessionInstance.$interfaceName = 'arc.mojom.MediaSessionInstance';
+arc.mojom.MediaSessionInstance_EnableAudioFocus_ParamsSpec = { $: {} };
+arc.mojom.MediaSessionInstance_DisableAudioFocus_ParamsSpec = { $: {} };
 
 // Interface: MediaSessionInstance
-arc.mojom.MediaSessionInstance = {};
+mojo.internal.Struct(
+    arc.mojom.MediaSessionInstance_EnableAudioFocus_ParamsSpec, 'arc.mojom.MediaSessionInstance_EnableAudioFocus_Params', [
+      mojo.internal.StructField('service', 0, 0, mojo.internal.InterfaceProxy(media_session.mojom.AudioFocusManagerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MediaSessionInstance_EnableAudioFocus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MediaSessionInstance_EnableAudioFocus_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media_session.mojom.AudioFocusManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.MediaSessionInstance_DisableAudioFocus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MediaSessionInstance_DisableAudioFocus_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MediaSessionInstance_DisableAudioFocus_ParamsSpec, 'arc.mojom.MediaSessionInstance_DisableAudioFocus_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 arc.mojom.MediaSessionInstancePendingReceiver = class {
   constructor(handle) {
@@ -99,34 +88,6 @@ arc.mojom.MediaSessionInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for EnableAudioFocus
-arc.mojom.MediaSessionInstance_EnableAudioFocus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MediaSessionInstance.EnableAudioFocus_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media_session.mojom.AudioFocusManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DisableAudioFocus
-arc.mojom.MediaSessionInstance_DisableAudioFocus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MediaSessionInstance.DisableAudioFocus_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.MediaSessionInstancePtr = arc.mojom.MediaSessionInstanceRemote;
 arc.mojom.MediaSessionInstanceRequest = arc.mojom.MediaSessionInstancePendingReceiver;
 

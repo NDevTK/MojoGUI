@@ -9,22 +9,20 @@ var ash = ash || {};
 ash.mojom = ash.mojom || {};
 ash.mojom.sample_swa = ash.mojom.sample_swa || {};
 
+ash.mojom.sample_swa.ChildUntrustedPage = {};
+ash.mojom.sample_swa.ChildUntrustedPage.$interfaceName = 'ash.mojom.sample_swa.ChildUntrustedPage';
+ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_ParamsSpec = { $: {} };
+ash.mojom.sample_swa.ParentTrustedPage = {};
+ash.mojom.sample_swa.ParentTrustedPage.$interfaceName = 'ash.mojom.sample_swa.ParentTrustedPage';
+ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec = { $: {} };
+ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec = { $: {} };
 
 // Interface: ChildUntrustedPage
-ash.mojom.sample_swa.ChildUntrustedPage = {};
-
-ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'task', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_ParamsSpec, 'ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_Params', [
+      mojo.internal.StructField('task', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.mojom.sample_swa.ChildUntrustedPagePendingReceiver = class {
   constructor(handle) {
@@ -79,40 +77,22 @@ ash.mojom.sample_swa.ChildUntrustedPage.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for DoSomethingForParent
-ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.sample_swa.ChildUntrustedPage.DoSomethingForParent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'task', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.mojom.sample_swa.ChildUntrustedPagePtr = ash.mojom.sample_swa.ChildUntrustedPageRemote;
 ash.mojom.sample_swa.ChildUntrustedPageRequest = ash.mojom.sample_swa.ChildUntrustedPagePendingReceiver;
 
 
 // Interface: ParentTrustedPage
-ash.mojom.sample_swa.ParentTrustedPage = {};
+mojo.internal.Struct(
+    ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec, 'ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_Params', [
+      mojo.internal.StructField('task', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'task', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec, 'ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParams', [
+      mojo.internal.StructField('resp', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.mojom.sample_swa.ParentTrustedPagePendingReceiver = class {
   constructor(handle) {
@@ -167,34 +147,6 @@ ash.mojom.sample_swa.ParentTrustedPage.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for DoSomethingForChild
-ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.sample_swa.ParentTrustedPage.DoSomethingForChild_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'task', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.sample_swa.ParentTrustedPage.DoSomethingForChild_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'resp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.mojom.sample_swa.ParentTrustedPagePtr = ash.mojom.sample_swa.ParentTrustedPageRemote;
 ash.mojom.sample_swa.ParentTrustedPageRequest = ash.mojom.sample_swa.ParentTrustedPagePendingReceiver;
 

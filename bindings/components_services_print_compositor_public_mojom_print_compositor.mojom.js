@@ -9,7 +9,28 @@ var printing = printing || {};
 printing.mojom = printing.mojom || {};
 var ui = ui || {};
 var url = url || {};
+var components = components || {};
 
+printing.mojom.StatusSpec = { $: mojo.internal.Enum() };
+printing.mojom.DocumentTypeSpec = { $: mojo.internal.Enum() };
+printing.mojom.PrintCompositor = {};
+printing.mojom.PrintCompositor.$interfaceName = 'printing.mojom.PrintCompositor';
+printing.mojom.PrintCompositor_NotifyUnavailableSubframe_ParamsSpec = { $: {} };
+printing.mojom.PrintCompositor_AddSubframeContent_ParamsSpec = { $: {} };
+printing.mojom.PrintCompositor_SetAccessibilityTree_ParamsSpec = { $: {} };
+printing.mojom.PrintCompositor_CompositePage_ParamsSpec = { $: {} };
+printing.mojom.PrintCompositor_CompositePage_ResponseParamsSpec = { $: {} };
+printing.mojom.PrintCompositor_CompositeDocument_ParamsSpec = { $: {} };
+printing.mojom.PrintCompositor_CompositeDocument_ResponseParamsSpec = { $: {} };
+printing.mojom.PrintCompositor_PrepareToCompositeDocument_ParamsSpec = { $: {} };
+printing.mojom.PrintCompositor_PrepareToCompositeDocument_ResponseParamsSpec = { $: {} };
+printing.mojom.PrintCompositor_FinishDocumentComposition_ParamsSpec = { $: {} };
+printing.mojom.PrintCompositor_FinishDocumentComposition_ResponseParamsSpec = { $: {} };
+printing.mojom.PrintCompositor_SetWebContentsURL_ParamsSpec = { $: {} };
+printing.mojom.PrintCompositor_SetUserAgent_ParamsSpec = { $: {} };
+printing.mojom.PrintCompositor_SetGenerateDocumentOutline_ParamsSpec = { $: {} };
+printing.mojom.PrintCompositor_SetTitle_ParamsSpec = { $: {} };
+printing.mojom.PrintCompositor_SetWatermarkBlock_ParamsSpec = { $: {} };
 
 // Enum: Status
 printing.mojom.Status = {
@@ -18,180 +39,119 @@ printing.mojom.Status = {
   kContentFormatError: 2,
   kCompositingFailure: 3,
 };
-printing.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: DocumentType
 printing.mojom.DocumentType = {
   kPDF: 0,
   kXPS: 1,
 };
-printing.mojom.DocumentTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: PrintCompositor
-printing.mojom.PrintCompositor = {};
+mojo.internal.Struct(
+    printing.mojom.PrintCompositor_NotifyUnavailableSubframe_ParamsSpec, 'printing.mojom.PrintCompositor_NotifyUnavailableSubframe_Params', [
+      mojo.internal.StructField('frame_guid', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-printing.mojom.PrintCompositor_NotifyUnavailableSubframe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintCompositor_NotifyUnavailableSubframe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'frame_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    printing.mojom.PrintCompositor_AddSubframeContent_ParamsSpec, 'printing.mojom.PrintCompositor_AddSubframeContent_Params', [
+      mojo.internal.StructField('frame_guid', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('serialized_content', 8, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('subframe_content_info', 16, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Uint64, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-printing.mojom.PrintCompositor_AddSubframeContent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintCompositor_AddSubframeContent_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'frame_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'serialized_content', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-        { name: 'subframe_content_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Uint64, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    printing.mojom.PrintCompositor_SetAccessibilityTree_ParamsSpec, 'printing.mojom.PrintCompositor_SetAccessibilityTree_Params', [
+      mojo.internal.StructField('accessibility_tree', 0, 0, ax.mojom.AXTreeUpdateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-printing.mojom.PrintCompositor_SetAccessibilityTree_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintCompositor_SetAccessibilityTree_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'accessibility_tree', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeUpdateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    printing.mojom.PrintCompositor_CompositePage_ParamsSpec, 'printing.mojom.PrintCompositor_CompositePage_Params', [
+      mojo.internal.StructField('frame_guid', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('sk_region', 8, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('subframe_content_info', 16, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Uint64, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-printing.mojom.PrintCompositor_CompositePage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintCompositor_CompositePage_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'frame_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'sk_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-        { name: 'subframe_content_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Uint64, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    printing.mojom.PrintCompositor_CompositePage_ResponseParamsSpec, 'printing.mojom.PrintCompositor_CompositePage_ResponseParams', [
+      mojo.internal.StructField('status', 8, 0, printing.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('document_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-printing.mojom.PrintCompositor_CompositeDocument_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintCompositor_CompositeDocument_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'frame_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'sk_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-        { name: 'subframe_content_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Uint64, false), nullable: false, minVersion: 0 },
-        { name: 'document_type', packedOffset: 24, packedBitOffset: 0, type: printing.mojom.DocumentTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    printing.mojom.PrintCompositor_CompositeDocument_ParamsSpec, 'printing.mojom.PrintCompositor_CompositeDocument_Params', [
+      mojo.internal.StructField('frame_guid', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('sk_region', 8, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('subframe_content_info', 16, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Uint64, false), null, false, 0, undefined),
+      mojo.internal.StructField('document_type', 24, 0, printing.mojom.DocumentTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-printing.mojom.PrintCompositor_PrepareToCompositeDocument_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintCompositor_PrepareToCompositeDocument_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'document_type', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.DocumentTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    printing.mojom.PrintCompositor_CompositeDocument_ResponseParamsSpec, 'printing.mojom.PrintCompositor_CompositeDocument_ResponseParams', [
+      mojo.internal.StructField('status', 8, 0, printing.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('document_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-printing.mojom.PrintCompositor_FinishDocumentComposition_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintCompositor_FinishDocumentComposition_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pages_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    printing.mojom.PrintCompositor_PrepareToCompositeDocument_ParamsSpec, 'printing.mojom.PrintCompositor_PrepareToCompositeDocument_Params', [
+      mojo.internal.StructField('document_type', 0, 0, printing.mojom.DocumentTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-printing.mojom.PrintCompositor_SetWebContentsURL_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintCompositor_SetWebContentsURL_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    printing.mojom.PrintCompositor_PrepareToCompositeDocument_ResponseParamsSpec, 'printing.mojom.PrintCompositor_PrepareToCompositeDocument_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, printing.mojom.StatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-printing.mojom.PrintCompositor_SetUserAgent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintCompositor_SetUserAgent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'user_agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    printing.mojom.PrintCompositor_FinishDocumentComposition_ParamsSpec, 'printing.mojom.PrintCompositor_FinishDocumentComposition_Params', [
+      mojo.internal.StructField('pages_count', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-printing.mojom.PrintCompositor_SetGenerateDocumentOutline_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintCompositor_SetGenerateDocumentOutline_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'generate_document_outline', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.GenerateDocumentOutlineSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    printing.mojom.PrintCompositor_FinishDocumentComposition_ResponseParamsSpec, 'printing.mojom.PrintCompositor_FinishDocumentComposition_ResponseParams', [
+      mojo.internal.StructField('status', 8, 0, printing.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('document_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-printing.mojom.PrintCompositor_SetTitle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintCompositor_SetTitle_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    printing.mojom.PrintCompositor_SetWebContentsURL_ParamsSpec, 'printing.mojom.PrintCompositor_SetWebContentsURL_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-printing.mojom.PrintCompositor_SetWatermarkBlock_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintCompositor_SetWatermarkBlock_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'watermark_block', packedOffset: 0, packedBitOffset: 0, type: watermark.mojom.WatermarkBlockSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    printing.mojom.PrintCompositor_SetUserAgent_ParamsSpec, 'printing.mojom.PrintCompositor_SetUserAgent_Params', [
+      mojo.internal.StructField('user_agent', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    printing.mojom.PrintCompositor_SetGenerateDocumentOutline_ParamsSpec, 'printing.mojom.PrintCompositor_SetGenerateDocumentOutline_Params', [
+      mojo.internal.StructField('generate_document_outline', 0, 0, printing.mojom.GenerateDocumentOutlineSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    printing.mojom.PrintCompositor_SetTitle_ParamsSpec, 'printing.mojom.PrintCompositor_SetTitle_Params', [
+      mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    printing.mojom.PrintCompositor_SetWatermarkBlock_ParamsSpec, 'printing.mojom.PrintCompositor_SetWatermarkBlock_Params', [
+      mojo.internal.StructField('watermark_block', 0, 0, watermark.mojom.WatermarkBlockSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 printing.mojom.PrintCompositorPendingReceiver = class {
   constructor(handle) {
@@ -345,237 +305,6 @@ printing.mojom.PrintCompositor.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for NotifyUnavailableSubframe
-printing.mojom.PrintCompositor_NotifyUnavailableSubframe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintCompositor.NotifyUnavailableSubframe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'frame_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AddSubframeContent
-printing.mojom.PrintCompositor_AddSubframeContent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintCompositor.AddSubframeContent_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'frame_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'serialized_content', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-        { name: 'subframe_content_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Uint64, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for SetAccessibilityTree
-printing.mojom.PrintCompositor_SetAccessibilityTree_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintCompositor.SetAccessibilityTree_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'accessibility_tree', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeUpdateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CompositePage
-printing.mojom.PrintCompositor_CompositePage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintCompositor.CompositePage_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'frame_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'sk_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-        { name: 'subframe_content_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Uint64, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-printing.mojom.PrintCompositor_CompositePage_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintCompositor.CompositePage_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.StatusSpec, nullable: false, minVersion: 0 },
-        { name: 'document_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for CompositeDocument
-printing.mojom.PrintCompositor_CompositeDocument_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintCompositor.CompositeDocument_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'frame_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'sk_region', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-        { name: 'subframe_content_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Uint64, false), nullable: false, minVersion: 0 },
-        { name: 'document_type', packedOffset: 24, packedBitOffset: 0, type: printing.mojom.DocumentTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-printing.mojom.PrintCompositor_CompositeDocument_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintCompositor.CompositeDocument_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.StatusSpec, nullable: false, minVersion: 0 },
-        { name: 'document_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for PrepareToCompositeDocument
-printing.mojom.PrintCompositor_PrepareToCompositeDocument_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintCompositor.PrepareToCompositeDocument_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'document_type', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.DocumentTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-printing.mojom.PrintCompositor_PrepareToCompositeDocument_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintCompositor.PrepareToCompositeDocument_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.StatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for FinishDocumentComposition
-printing.mojom.PrintCompositor_FinishDocumentComposition_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintCompositor.FinishDocumentComposition_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pages_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-printing.mojom.PrintCompositor_FinishDocumentComposition_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintCompositor.FinishDocumentComposition_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.StatusSpec, nullable: false, minVersion: 0 },
-        { name: 'document_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SetWebContentsURL
-printing.mojom.PrintCompositor_SetWebContentsURL_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintCompositor.SetWebContentsURL_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetUserAgent
-printing.mojom.PrintCompositor_SetUserAgent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintCompositor.SetUserAgent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'user_agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetGenerateDocumentOutline
-printing.mojom.PrintCompositor_SetGenerateDocumentOutline_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintCompositor.SetGenerateDocumentOutline_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'generate_document_outline', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.GenerateDocumentOutlineSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetTitle
-printing.mojom.PrintCompositor_SetTitle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintCompositor.SetTitle_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetWatermarkBlock
-printing.mojom.PrintCompositor_SetWatermarkBlock_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PrintCompositor.SetWatermarkBlock_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'watermark_block', packedOffset: 0, packedBitOffset: 0, type: watermark.mojom.WatermarkBlockSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 printing.mojom.PrintCompositorPtr = printing.mojom.PrintCompositorRemote;
 printing.mojom.PrintCompositorRequest = printing.mojom.PrintCompositorPendingReceiver;
 

@@ -8,40 +8,38 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.ColorSuggestionSpec = { $: {} };
+blink.mojom.ColorChooserFactory = {};
+blink.mojom.ColorChooserFactory.$interfaceName = 'blink.mojom.ColorChooserFactory';
+blink.mojom.ColorChooserFactory_OpenColorChooser_ParamsSpec = { $: {} };
+blink.mojom.ColorChooser = {};
+blink.mojom.ColorChooser.$interfaceName = 'blink.mojom.ColorChooser';
+blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec = { $: {} };
+blink.mojom.ColorChooserClient = {};
+blink.mojom.ColorChooserClient.$interfaceName = 'blink.mojom.ColorChooserClient';
+blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec = { $: {} };
+blink.mojom.EyeDropperChooser = {};
+blink.mojom.EyeDropperChooser.$interfaceName = 'blink.mojom.EyeDropperChooser';
+blink.mojom.EyeDropperChooser_Choose_ParamsSpec = { $: {} };
+blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec = { $: {} };
 
 // Struct: ColorSuggestion
-blink.mojom.ColorSuggestionSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ColorSuggestion',
-      packedSize: 24,
-      fields: [
-        { name: 'color', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ColorSuggestionSpec, 'blink.mojom.ColorSuggestion', [
+      mojo.internal.StructField('color', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: ColorChooserFactory
-blink.mojom.ColorChooserFactory = {};
-
-blink.mojom.ColorChooserFactory_OpenColorChooser_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ColorChooserFactory_OpenColorChooser_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'chooser', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.ColorChooserRemote), nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.ColorChooserClientRemote), nullable: false, minVersion: 0 },
-        { name: 'color', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'suggestions', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.ColorSuggestionSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ColorChooserFactory_OpenColorChooser_ParamsSpec, 'blink.mojom.ColorChooserFactory_OpenColorChooser_Params', [
+      mojo.internal.StructField('chooser', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.ColorChooserRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.ColorChooserClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('color', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('suggestions', 16, 0, mojo.internal.Array(blink.mojom.ColorSuggestionSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 blink.mojom.ColorChooserFactoryPendingReceiver = class {
   constructor(handle) {
@@ -96,43 +94,16 @@ blink.mojom.ColorChooserFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OpenColorChooser
-blink.mojom.ColorChooserFactory_OpenColorChooser_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ColorChooserFactory.OpenColorChooser_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'chooser', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.ColorChooserRemote), nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.ColorChooserClientRemote), nullable: false, minVersion: 0 },
-        { name: 'color', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'suggestions', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.ColorSuggestionSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.ColorChooserFactoryPtr = blink.mojom.ColorChooserFactoryRemote;
 blink.mojom.ColorChooserFactoryRequest = blink.mojom.ColorChooserFactoryPendingReceiver;
 
 
 // Interface: ColorChooser
-blink.mojom.ColorChooser = {};
-
-blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ColorChooser_SetSelectedColor_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec, 'blink.mojom.ColorChooser_SetSelectedColor_Params', [
+      mojo.internal.StructField('color', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.ColorChooserPendingReceiver = class {
   constructor(handle) {
@@ -187,40 +158,16 @@ blink.mojom.ColorChooser.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetSelectedColor
-blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ColorChooser.SetSelectedColor_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.ColorChooserPtr = blink.mojom.ColorChooserRemote;
 blink.mojom.ColorChooserRequest = blink.mojom.ColorChooserPendingReceiver;
 
 
 // Interface: ColorChooserClient
-blink.mojom.ColorChooserClient = {};
-
-blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ColorChooserClient_DidChooseColor_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec, 'blink.mojom.ColorChooserClient_DidChooseColor_Params', [
+      mojo.internal.StructField('color', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.ColorChooserClientPendingReceiver = class {
   constructor(handle) {
@@ -275,39 +222,22 @@ blink.mojom.ColorChooserClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for DidChooseColor
-blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ColorChooserClient.DidChooseColor_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.ColorChooserClientPtr = blink.mojom.ColorChooserClientRemote;
 blink.mojom.ColorChooserClientRequest = blink.mojom.ColorChooserClientPendingReceiver;
 
 
 // Interface: EyeDropperChooser
-blink.mojom.EyeDropperChooser = {};
+mojo.internal.Struct(
+    blink.mojom.EyeDropperChooser_Choose_ParamsSpec, 'blink.mojom.EyeDropperChooser_Choose_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.EyeDropperChooser_Choose_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EyeDropperChooser_Choose_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec, 'blink.mojom.EyeDropperChooser_Choose_ResponseParams', [
+      mojo.internal.StructField('success', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('color', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.EyeDropperChooserPendingReceiver = class {
   constructor(handle) {
@@ -362,34 +292,6 @@ blink.mojom.EyeDropperChooser.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Choose
-blink.mojom.EyeDropperChooser_Choose_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EyeDropperChooser.Choose_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EyeDropperChooser.Choose_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'color', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.EyeDropperChooserPtr = blink.mojom.EyeDropperChooserRemote;
 blink.mojom.EyeDropperChooserRequest = blink.mojom.EyeDropperChooserPendingReceiver;
 

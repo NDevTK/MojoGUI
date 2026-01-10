@@ -7,129 +7,121 @@
 // Module namespace
 var video_capture = video_capture || {};
 video_capture.mojom = video_capture.mojom || {};
+var services = services || {};
 
+video_capture.mojom.CreatePushSubscriptionSuccessCodeSpec = { $: mojo.internal.Enum() };
+video_capture.mojom.CreatePushSubscriptionResultCodeSpec = { $: {} };
+video_capture.mojom.PushVideoStreamSubscription = {};
+video_capture.mojom.PushVideoStreamSubscription.$interfaceName = 'video_capture.mojom.PushVideoStreamSubscription';
+video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec = { $: {} };
+video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec = { $: {} };
+video_capture.mojom.PushVideoStreamSubscription_Suspend_ResponseParamsSpec = { $: {} };
+video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec = { $: {} };
+video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec = { $: {} };
+video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec = { $: {} };
+video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec = { $: {} };
+video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec = { $: {} };
+video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec = { $: {} };
+video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec = { $: {} };
+video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec = { $: {} };
+video_capture.mojom.PushVideoStreamSubscription_Close_ResponseParamsSpec = { $: {} };
+video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec = { $: {} };
+video_capture.mojom.VideoSource = {};
+video_capture.mojom.VideoSource.$interfaceName = 'video_capture.mojom.VideoSource';
+video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec = { $: {} };
+video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec = { $: {} };
 
 // Enum: CreatePushSubscriptionSuccessCode
 video_capture.mojom.CreatePushSubscriptionSuccessCode = {
   kCreatedWithRequestedSettings: 0,
   kCreatedWithDifferentSettings: 1,
 };
-video_capture.mojom.CreatePushSubscriptionSuccessCodeSpec = { $: mojo.internal.Enum() };
 
 // Union: CreatePushSubscriptionResultCode
-video_capture.mojom.CreatePushSubscriptionResultCodeSpec = { $: mojo.internal.Union(
-    'video_capture.mojom.CreatePushSubscriptionResultCode', {
+mojo.internal.Union(
+    video_capture.mojom.CreatePushSubscriptionResultCodeSpec, 'video_capture.mojom.CreatePushSubscriptionResultCode', {
       'success_code': {
         'ordinal': 0,
         'type': video_capture.mojom.CreatePushSubscriptionSuccessCodeSpec,
-      }},
+        'nullable': false,
+      },
       'error_code': {
         'ordinal': 1,
         'type': media.mojom.VideoCaptureErrorSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Interface: PushVideoStreamSubscription
-video_capture.mojom.PushVideoStreamSubscription = {};
+mojo.internal.Struct(
+    video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec, 'video_capture.mojom.PushVideoStreamSubscription_Activate_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.PushVideoStreamSubscription_Activate_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec, 'video_capture.mojom.PushVideoStreamSubscription_Suspend_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.PushVideoStreamSubscription_Suspend_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    video_capture.mojom.PushVideoStreamSubscription_Suspend_ResponseParamsSpec, 'video_capture.mojom.PushVideoStreamSubscription_Suspend_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.PushVideoStreamSubscription_Resume_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec, 'video_capture.mojom.PushVideoStreamSubscription_Resume_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec, 'video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PhotoSettingsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec, 'video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParams', [
+      mojo.internal.StructField('capabilities', 0, 0, media.mojom.PhotoStateSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.PushVideoStreamSubscription_TakePhoto_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec, 'video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_Params', [
+      mojo.internal.StructField('settings', 0, 0, media.mojom.PhotoSettingsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.PushVideoStreamSubscription_Close_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec, 'video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCaptureFeedbackSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec, 'video_capture.mojom.PushVideoStreamSubscription_TakePhoto_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec, 'video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParams', [
+      mojo.internal.StructField('blob', 0, 0, media.mojom.BlobSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec, 'video_capture.mojom.PushVideoStreamSubscription_Close_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    video_capture.mojom.PushVideoStreamSubscription_Close_ResponseParamsSpec, 'video_capture.mojom.PushVideoStreamSubscription_Close_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec, 'video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_Params', [
+      mojo.internal.StructField('feedback', 0, 0, media.mojom.VideoCaptureFeedbackSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 video_capture.mojom.PushVideoStreamSubscriptionPendingReceiver = class {
   constructor(handle) {
@@ -177,7 +169,7 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec,
-      null,
+      video_capture.mojom.PushVideoStreamSubscription_Suspend_ResponseParamsSpec,
       []);
   }
 
@@ -222,7 +214,7 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
     return this.proxy.sendMessage(
       6,  // ordinal
       video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec,
-      null,
+      video_capture.mojom.PushVideoStreamSubscription_Close_ResponseParamsSpec,
       []);
   }
 
@@ -247,174 +239,26 @@ video_capture.mojom.PushVideoStreamSubscription.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Activate
-video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.PushVideoStreamSubscription.Activate_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Suspend
-video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.PushVideoStreamSubscription.Suspend_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Resume
-video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.PushVideoStreamSubscription.Resume_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for GetPhotoState
-video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.PushVideoStreamSubscription.GetPhotoState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.PushVideoStreamSubscription.GetPhotoState_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PhotoStateSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetPhotoOptions
-video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.PushVideoStreamSubscription.SetPhotoOptions_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PhotoSettingsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.PushVideoStreamSubscription.SetPhotoOptions_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for TakePhoto
-video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.PushVideoStreamSubscription.TakePhoto_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.PushVideoStreamSubscription.TakePhoto_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: media.mojom.BlobSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Close
-video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.PushVideoStreamSubscription.Close_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ProcessFeedback
-video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.PushVideoStreamSubscription.ProcessFeedback_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'feedback', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCaptureFeedbackSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 video_capture.mojom.PushVideoStreamSubscriptionPtr = video_capture.mojom.PushVideoStreamSubscriptionRemote;
 video_capture.mojom.PushVideoStreamSubscriptionRequest = video_capture.mojom.PushVideoStreamSubscriptionPendingReceiver;
 
 
 // Interface: VideoSource
-video_capture.mojom.VideoSource = {};
+mojo.internal.Struct(
+    video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec, 'video_capture.mojom.VideoSource_CreatePushSubscription_Params', [
+      mojo.internal.StructField('subscriber', 0, 0, mojo.internal.InterfaceProxy(video_capture.mojom.VideoFrameHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('requested_settings', 8, 0, media.mojom.VideoCaptureParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('force_reopen_with_new_settings', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('subscription', 16, 0, mojo.internal.InterfaceRequest(video_capture.mojom.PushVideoStreamSubscriptionRemote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.VideoSource_CreatePushSubscription_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'subscriber', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(video_capture.mojom.VideoFrameHandlerRemote), nullable: false, minVersion: 0 },
-        { name: 'requested_settings', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoCaptureParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'force_reopen_with_new_settings', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'subscription', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(video_capture.mojom.PushVideoStreamSubscriptionRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec, 'video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParams', [
+      mojo.internal.StructField('result_code', 0, 0, video_capture.mojom.CreatePushSubscriptionResultCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('settings_source_was_opened_with', 16, 0, media.mojom.VideoCaptureParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 video_capture.mojom.VideoSourcePendingReceiver = class {
   constructor(handle) {
@@ -469,38 +313,6 @@ video_capture.mojom.VideoSource.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePushSubscription
-video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.VideoSource.CreatePushSubscription_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'subscriber', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(video_capture.mojom.VideoFrameHandlerRemote), nullable: false, minVersion: 0 },
-        { name: 'requested_settings', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoCaptureParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'force_reopen_with_new_settings', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'subscription', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(video_capture.mojom.PushVideoStreamSubscriptionRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.VideoSource.CreatePushSubscription_ResponseParams',
-      packedSize: 32,
-      fields: [
-        { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: video_capture.mojom.CreatePushSubscriptionResultCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'settings_source_was_opened_with', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoCaptureParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 video_capture.mojom.VideoSourcePtr = video_capture.mojom.VideoSourceRemote;
 video_capture.mojom.VideoSourceRequest = video_capture.mojom.VideoSourcePendingReceiver;
 

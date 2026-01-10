@@ -8,20 +8,14 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.PrerenderParamSpec = { $: {} };
 
 // Struct: PrerenderParam
-blink.mojom.PrerenderParamSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PrerenderParam',
-      packedSize: 24,
-      fields: [
-        { name: 'page_metric_suffix', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'should_warm_up_compositor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'should_prepare_paint_tree', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'should_pause_javascript_execution', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PrerenderParamSpec, 'blink.mojom.PrerenderParam', [
+      mojo.internal.StructField('page_metric_suffix', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('should_warm_up_compositor', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('should_prepare_paint_tree', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('should_pause_javascript_execution', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);

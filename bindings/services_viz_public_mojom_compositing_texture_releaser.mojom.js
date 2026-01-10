@@ -8,23 +8,17 @@
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
+viz.mojom.TextureReleaser = {};
+viz.mojom.TextureReleaser.$interfaceName = 'viz.mojom.TextureReleaser';
+viz.mojom.TextureReleaser_Release_ParamsSpec = { $: {} };
 
 // Interface: TextureReleaser
-viz.mojom.TextureReleaser = {};
-
-viz.mojom.TextureReleaser_Release_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.TextureReleaser_Release_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'sync_token', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'is_lost', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.TextureReleaser_Release_ParamsSpec, 'viz.mojom.TextureReleaser_Release_Params', [
+      mojo.internal.StructField('sync_token', 0, 0, gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_lost', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 viz.mojom.TextureReleaserPendingReceiver = class {
   constructor(handle) {
@@ -79,22 +73,6 @@ viz.mojom.TextureReleaser.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Release
-viz.mojom.TextureReleaser_Release_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.TextureReleaser.Release_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'sync_token', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'is_lost', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 viz.mojom.TextureReleaserPtr = viz.mojom.TextureReleaserRemote;
 viz.mojom.TextureReleaserRequest = viz.mojom.TextureReleaserPendingReceiver;
 

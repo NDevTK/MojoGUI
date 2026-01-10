@@ -8,22 +8,16 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.BrowserInterfaceBroker = {};
+blink.mojom.BrowserInterfaceBroker.$interfaceName = 'blink.mojom.BrowserInterfaceBroker';
+blink.mojom.BrowserInterfaceBroker_GetInterface_ParamsSpec = { $: {} };
 
 // Interface: BrowserInterfaceBroker
-blink.mojom.BrowserInterfaceBroker = {};
-
-blink.mojom.BrowserInterfaceBroker_GetInterface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BrowserInterfaceBroker_GetInterface_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingReceiverSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.BrowserInterfaceBroker_GetInterface_ParamsSpec, 'blink.mojom.BrowserInterfaceBroker_GetInterface_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo_base.mojom.GenericPendingReceiverSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.BrowserInterfaceBrokerPendingReceiver = class {
   constructor(handle) {
@@ -78,21 +72,6 @@ blink.mojom.BrowserInterfaceBroker.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetInterface
-blink.mojom.BrowserInterfaceBroker_GetInterface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BrowserInterfaceBroker.GetInterface_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingReceiverSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.BrowserInterfaceBrokerPtr = blink.mojom.BrowserInterfaceBrokerRemote;
 blink.mojom.BrowserInterfaceBrokerRequest = blink.mojom.BrowserInterfaceBrokerPendingReceiver;
 

@@ -12,20 +12,14 @@ var gfx = gfx || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+gfx.mojom.MaskFilterInfoSpec = { $: {} };
 
 // Struct: MaskFilterInfo
-gfx.mojom.MaskFilterInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.MaskFilterInfo',
-      packedSize: 32,
-      fields: [
-        { name: 'rounded_corner_bounds', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RRectFSpec, nullable: false, minVersion: 0 },
-        { name: 'gradient_mask', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.LinearGradientSpec, nullable: true, minVersion: 0 },
-        { name: 'clip_id_$flag', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'clip_id_$value', originalFieldName: 'clip_id' } },
-        { name: 'clip_id_$value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'clip_id_$flag', originalFieldName: 'clip_id' } },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.MaskFilterInfoSpec, 'gfx.mojom.MaskFilterInfo', [
+      mojo.internal.StructField('rounded_corner_bounds', 0, 0, gfx.mojom.RRectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('gradient_mask', 8, 0, gfx.mojom.LinearGradientSpec, null, true, 0, undefined),
+      mojo.internal.StructField('clip_id_$flag', 20, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'clip_id_$value', originalFieldName: 'clip_id' }),
+      mojo.internal.StructField('clip_id_$value', 16, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'clip_id_$flag', originalFieldName: 'clip_id' }),
+    ],
+    [[0, 32]]);

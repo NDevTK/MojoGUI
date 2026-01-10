@@ -8,22 +8,20 @@
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
 
+chromecast.mojom.BluetoothDeviceAccessProvider = {};
+chromecast.mojom.BluetoothDeviceAccessProvider.$interfaceName = 'chromecast.mojom.BluetoothDeviceAccessProvider';
+chromecast.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_ParamsSpec = { $: {} };
+chromecast.mojom.BluetoothDeviceAccessProviderClient = {};
+chromecast.mojom.BluetoothDeviceAccessProviderClient.$interfaceName = 'chromecast.mojom.BluetoothDeviceAccessProviderClient';
+chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccess_ParamsSpec = { $: {} };
+chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccessToAllDevices_ParamsSpec = { $: {} };
 
 // Interface: BluetoothDeviceAccessProvider
-chromecast.mojom.BluetoothDeviceAccessProvider = {};
-
-chromecast.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.mojom.BluetoothDeviceAccessProviderClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_ParamsSpec, 'chromecast.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_Params', [
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(chromecast.mojom.BluetoothDeviceAccessProviderClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromecast.mojom.BluetoothDeviceAccessProviderPendingReceiver = class {
   constructor(handle) {
@@ -78,52 +76,21 @@ chromecast.mojom.BluetoothDeviceAccessProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RequestDeviceAccess
-chromecast.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.BluetoothDeviceAccessProvider.RequestDeviceAccess_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.mojom.BluetoothDeviceAccessProviderClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.mojom.BluetoothDeviceAccessProviderPtr = chromecast.mojom.BluetoothDeviceAccessProviderRemote;
 chromecast.mojom.BluetoothDeviceAccessProviderRequest = chromecast.mojom.BluetoothDeviceAccessProviderPendingReceiver;
 
 
 // Interface: BluetoothDeviceAccessProviderClient
-chromecast.mojom.BluetoothDeviceAccessProviderClient = {};
+mojo.internal.Struct(
+    chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccess_ParamsSpec, 'chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccess_Params', [
+      mojo.internal.StructField('address', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccess_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccessToAllDevices_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccessToAllDevices_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccessToAllDevices_ParamsSpec, 'chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccessToAllDevices_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 chromecast.mojom.BluetoothDeviceAccessProviderClientPendingReceiver = class {
   constructor(handle) {
@@ -187,34 +154,6 @@ chromecast.mojom.BluetoothDeviceAccessProviderClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GrantAccess
-chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.BluetoothDeviceAccessProviderClient.GrantAccess_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GrantAccessToAllDevices
-chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccessToAllDevices_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.BluetoothDeviceAccessProviderClient.GrantAccessToAllDevices_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.mojom.BluetoothDeviceAccessProviderClientPtr = chromecast.mojom.BluetoothDeviceAccessProviderClientRemote;
 chromecast.mojom.BluetoothDeviceAccessProviderClientRequest = chromecast.mojom.BluetoothDeviceAccessProviderClientPendingReceiver;
 

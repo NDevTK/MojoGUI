@@ -8,17 +8,11 @@
 var mojo_base = mojo_base || {};
 mojo_base.mojom = mojo_base.mojom || {};
 
+mojo_base.mojom.MemoryAllocatorDumpCrossProcessUidSpec = { $: {} };
 
 // Struct: MemoryAllocatorDumpCrossProcessUid
-mojo_base.mojom.MemoryAllocatorDumpCrossProcessUidSpec = {
-  $: {
-    structSpec: {
-      name: 'mojo_base.mojom.MemoryAllocatorDumpCrossProcessUid',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojo_base.mojom.MemoryAllocatorDumpCrossProcessUidSpec, 'mojo_base.mojom.MemoryAllocatorDumpCrossProcessUid', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);

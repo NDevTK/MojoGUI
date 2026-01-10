@@ -9,6 +9,15 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var blink = blink || {};
 
+blink.mojom.ModeSpec = { $: mojo.internal.Enum() };
+blink.mojom.PerContextV8MemoryUsageSpec = { $: {} };
+blink.mojom.PerContextCanvasMemoryUsageSpec = { $: {} };
+blink.mojom.PerIsolateV8MemoryUsageSpec = { $: {} };
+blink.mojom.PerProcessV8MemoryUsageSpec = { $: {} };
+blink.mojom.V8DetailedMemoryReporter = {};
+blink.mojom.V8DetailedMemoryReporter.$interfaceName = 'blink.mojom.V8DetailedMemoryReporter';
+blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec = { $: {} };
+blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec = { $: {} };
 
 // Enum: Mode
 blink.mojom.Mode = {
@@ -16,87 +25,55 @@ blink.mojom.Mode = {
   EAGER: 1,
   LAZY: 2,
 };
-blink.mojom.ModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: PerContextV8MemoryUsage
-blink.mojom.PerContextV8MemoryUsageSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PerContextV8MemoryUsage',
-      packedSize: 40,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ExecutionContextTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'memory_used', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ByteSizeSpec, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PerContextV8MemoryUsageSpec, 'blink.mojom.PerContextV8MemoryUsage', [
+      mojo.internal.StructField('token', 0, 0, blink.mojom.ExecutionContextTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('memory_used', 16, 0, mojo_base.mojom.ByteSizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 24, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: PerContextCanvasMemoryUsage
-blink.mojom.PerContextCanvasMemoryUsageSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PerContextCanvasMemoryUsage',
-      packedSize: 32,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ExecutionContextTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'memory_used', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ByteSizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PerContextCanvasMemoryUsageSpec, 'blink.mojom.PerContextCanvasMemoryUsage', [
+      mojo.internal.StructField('token', 0, 0, blink.mojom.ExecutionContextTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('memory_used', 16, 0, mojo_base.mojom.ByteSizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: PerIsolateV8MemoryUsage
-blink.mojom.PerIsolateV8MemoryUsageSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PerIsolateV8MemoryUsage',
-      packedSize: 56,
-      fields: [
-        { name: 'num_detached_contexts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'detached_memory_used', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ByteSizeSpec, nullable: false, minVersion: 0 },
-        { name: 'shared_memory_used', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ByteSizeSpec, nullable: false, minVersion: 0 },
-        { name: 'blink_memory_used', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.ByteSizeSpec, nullable: false, minVersion: 0 },
-        { name: 'contexts', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.PerContextV8MemoryUsageSpec, false), nullable: false, minVersion: 0 },
-        { name: 'canvas_contexts', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.PerContextCanvasMemoryUsageSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PerIsolateV8MemoryUsageSpec, 'blink.mojom.PerIsolateV8MemoryUsage', [
+      mojo.internal.StructField('num_detached_contexts', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('detached_memory_used', 8, 0, mojo_base.mojom.ByteSizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shared_memory_used', 16, 0, mojo_base.mojom.ByteSizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('blink_memory_used', 24, 0, mojo_base.mojom.ByteSizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('contexts', 32, 0, mojo.internal.Array(blink.mojom.PerContextV8MemoryUsageSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('canvas_contexts', 40, 0, mojo.internal.Array(blink.mojom.PerContextCanvasMemoryUsageSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: PerProcessV8MemoryUsage
-blink.mojom.PerProcessV8MemoryUsageSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PerProcessV8MemoryUsage',
-      packedSize: 16,
-      fields: [
-        { name: 'isolates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.PerIsolateV8MemoryUsageSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PerProcessV8MemoryUsageSpec, 'blink.mojom.PerProcessV8MemoryUsage', [
+      mojo.internal.StructField('isolates', 0, 0, mojo.internal.Array(blink.mojom.PerIsolateV8MemoryUsageSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: V8DetailedMemoryReporter
-blink.mojom.V8DetailedMemoryReporter = {};
+mojo.internal.Struct(
+    blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec, 'blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_Params', [
+      mojo.internal.StructField('mode', 0, 0, blink.mojom.ModeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec, 'blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParams', [
+      mojo.internal.StructField('memory_usage', 0, 0, blink.mojom.PerProcessV8MemoryUsageSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.V8DetailedMemoryReporterPendingReceiver = class {
   constructor(handle) {
@@ -151,34 +128,6 @@ blink.mojom.V8DetailedMemoryReporter.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetV8MemoryUsage
-blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.V8DetailedMemoryReporter.GetV8MemoryUsage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.V8DetailedMemoryReporter.GetV8MemoryUsage_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'memory_usage', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PerProcessV8MemoryUsageSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.V8DetailedMemoryReporterPtr = blink.mojom.V8DetailedMemoryReporterRemote;
 blink.mojom.V8DetailedMemoryReporterRequest = blink.mojom.V8DetailedMemoryReporterPendingReceiver;
 

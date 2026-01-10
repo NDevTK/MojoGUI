@@ -8,10 +8,15 @@
 var guest_view = guest_view || {};
 guest_view.mojom = guest_view.mojom || {};
 
+guest_view.mojom.ViewHandle = {};
+guest_view.mojom.ViewHandle.$interfaceName = 'guest_view.mojom.ViewHandle';
+guest_view.mojom.GuestViewHost = {};
+guest_view.mojom.GuestViewHost.$interfaceName = 'guest_view.mojom.GuestViewHost';
+guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec = { $: {} };
+guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ResponseParamsSpec = { $: {} };
+guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec = { $: {} };
 
 // Interface: ViewHandle
-guest_view.mojom.ViewHandle = {};
-
 guest_view.mojom.ViewHandlePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -56,43 +61,31 @@ guest_view.mojom.ViewHandle.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 guest_view.mojom.ViewHandlePtr = guest_view.mojom.ViewHandleRemote;
 guest_view.mojom.ViewHandleRequest = guest_view.mojom.ViewHandlePendingReceiver;
 
 
 // Interface: GuestViewHost
-guest_view.mojom.GuestViewHost = {};
+mojo.internal.Struct(
+    guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec, 'guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_Params', [
+      mojo.internal.StructField('element_instance_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('guest_instance_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('params', 0, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'element_instance_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'guest_instance_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ResponseParamsSpec, 'guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'guest_view.mojom.GuestViewHost_ViewCreated_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'view_instance_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'view_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'keep_alive_handle_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(guest_view.mojom.ViewHandleRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec, 'guest_view.mojom.GuestViewHost_ViewCreated_Params', [
+      mojo.internal.StructField('view_instance_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('view_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('keep_alive_handle_receiver', 8, 0, mojo.internal.InterfaceRequest(guest_view.mojom.ViewHandleRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 guest_view.mojom.GuestViewHostPendingReceiver = class {
   constructor(handle) {
@@ -131,7 +124,7 @@ guest_view.mojom.GuestViewHostRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec,
-      null,
+      guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ResponseParamsSpec,
       [element_instance_id, guest_instance_id, params]);
   }
 
@@ -156,39 +149,6 @@ guest_view.mojom.GuestViewHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AttachToEmbedderFrame
-guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'guest_view.mojom.GuestViewHost.AttachToEmbedderFrame_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'element_instance_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'guest_instance_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ViewCreated
-guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'guest_view.mojom.GuestViewHost.ViewCreated_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'view_instance_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'view_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'keep_alive_handle_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(guest_view.mojom.ViewHandleRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 guest_view.mojom.GuestViewHostPtr = guest_view.mojom.GuestViewHostRemote;
 guest_view.mojom.GuestViewHostRequest = guest_view.mojom.GuestViewHostPendingReceiver;
 

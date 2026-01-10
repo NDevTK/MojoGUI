@@ -8,33 +8,39 @@
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
+arc.mojom.WakeLockHost = {};
+arc.mojom.WakeLockHost.$interfaceName = 'arc.mojom.WakeLockHost';
+arc.mojom.WakeLockHost_AcquirePartialWakeLock_ParamsSpec = { $: {} };
+arc.mojom.WakeLockHost_AcquirePartialWakeLock_ResponseParamsSpec = { $: {} };
+arc.mojom.WakeLockHost_ReleasePartialWakeLock_ParamsSpec = { $: {} };
+arc.mojom.WakeLockHost_ReleasePartialWakeLock_ResponseParamsSpec = { $: {} };
+arc.mojom.WakeLockInstance = {};
+arc.mojom.WakeLockInstance.$interfaceName = 'arc.mojom.WakeLockInstance';
+arc.mojom.WakeLockInstance_Init_ParamsSpec = { $: {} };
+arc.mojom.WakeLockInstance_Init_ResponseParamsSpec = { $: {} };
 
 // Interface: WakeLockHost
-arc.mojom.WakeLockHost = {};
+mojo.internal.Struct(
+    arc.mojom.WakeLockHost_AcquirePartialWakeLock_ParamsSpec, 'arc.mojom.WakeLockHost_AcquirePartialWakeLock_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.WakeLockHost_AcquirePartialWakeLock_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WakeLockHost_AcquirePartialWakeLock_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.WakeLockHost_AcquirePartialWakeLock_ResponseParamsSpec, 'arc.mojom.WakeLockHost_AcquirePartialWakeLock_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.WakeLockHost_ReleasePartialWakeLock_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WakeLockHost_ReleasePartialWakeLock_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.WakeLockHost_ReleasePartialWakeLock_ParamsSpec, 'arc.mojom.WakeLockHost_ReleasePartialWakeLock_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    arc.mojom.WakeLockHost_ReleasePartialWakeLock_ResponseParamsSpec, 'arc.mojom.WakeLockHost_ReleasePartialWakeLock_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.WakeLockHostPendingReceiver = class {
   constructor(handle) {
@@ -98,78 +104,21 @@ arc.mojom.WakeLockHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AcquirePartialWakeLock
-arc.mojom.WakeLockHost_AcquirePartialWakeLock_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WakeLockHost.AcquirePartialWakeLock_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-arc.mojom.WakeLockHost_AcquirePartialWakeLock_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WakeLockHost.AcquirePartialWakeLock_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReleasePartialWakeLock
-arc.mojom.WakeLockHost_ReleasePartialWakeLock_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WakeLockHost.ReleasePartialWakeLock_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-arc.mojom.WakeLockHost_ReleasePartialWakeLock_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WakeLockHost.ReleasePartialWakeLock_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.WakeLockHostPtr = arc.mojom.WakeLockHostRemote;
 arc.mojom.WakeLockHostRequest = arc.mojom.WakeLockHostPendingReceiver;
 
 
 // Interface: WakeLockInstance
-arc.mojom.WakeLockInstance = {};
+mojo.internal.Struct(
+    arc.mojom.WakeLockInstance_Init_ParamsSpec, 'arc.mojom.WakeLockInstance_Init_Params', [
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.WakeLockHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.WakeLockInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WakeLockInstance_Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.WakeLockHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.WakeLockInstance_Init_ResponseParamsSpec, 'arc.mojom.WakeLockInstance_Init_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 arc.mojom.WakeLockInstancePendingReceiver = class {
   constructor(handle) {
@@ -208,7 +157,7 @@ arc.mojom.WakeLockInstanceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       arc.mojom.WakeLockInstance_Init_ParamsSpec,
-      null,
+      arc.mojom.WakeLockInstance_Init_ResponseParamsSpec,
       [host_remote]);
   }
 
@@ -224,21 +173,6 @@ arc.mojom.WakeLockInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Init
-arc.mojom.WakeLockInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WakeLockInstance.Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.WakeLockHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.WakeLockInstancePtr = arc.mojom.WakeLockInstanceRemote;
 arc.mojom.WakeLockInstanceRequest = arc.mojom.WakeLockInstancePendingReceiver;
 

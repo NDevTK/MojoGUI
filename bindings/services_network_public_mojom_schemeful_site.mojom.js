@@ -9,17 +9,11 @@ var network = network || {};
 network.mojom = network.mojom || {};
 var url = url || {};
 
+network.mojom.SchemefulSiteSpec = { $: {} };
 
 // Struct: SchemefulSite
-network.mojom.SchemefulSiteSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.SchemefulSite',
-      packedSize: 16,
-      fields: [
-        { name: 'site_as_origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.SchemefulSiteSpec, 'network.mojom.SchemefulSite', [
+      mojo.internal.StructField('site_as_origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);

@@ -8,11 +8,12 @@
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
+viz.mojom.OverlayStrategySpec = { $: mojo.internal.Enum() };
 
 // Enum: OverlayStrategy
 viz.mojom.OverlayStrategy = {
   kFullscreen: 0,
   kSingleOnTop: 1,
   kUnderlay: 2,
+  kUnderlayCast: 3,
 };
-viz.mojom.OverlayStrategySpec = { $: mojo.internal.Enum() };

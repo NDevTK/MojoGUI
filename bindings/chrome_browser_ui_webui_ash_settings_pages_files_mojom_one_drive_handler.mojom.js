@@ -10,23 +10,31 @@ ash.settings = ash.settings || {};
 ash.settings.one_drive = ash.settings.one_drive || {};
 ash.settings.one_drive.mojom = ash.settings.one_drive.mojom || {};
 
+ash.settings.one_drive.mojom.PageHandlerFactory = {};
+ash.settings.one_drive.mojom.PageHandlerFactory.$interfaceName = 'ash.settings.one_drive.mojom.PageHandlerFactory';
+ash.settings.one_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+ash.settings.one_drive.mojom.PageHandler = {};
+ash.settings.one_drive.mojom.PageHandler.$interfaceName = 'ash.settings.one_drive.mojom.PageHandler';
+ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ParamsSpec = { $: {} };
+ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ResponseParamsSpec = { $: {} };
+ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ParamsSpec = { $: {} };
+ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ResponseParamsSpec = { $: {} };
+ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ParamsSpec = { $: {} };
+ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ResponseParamsSpec = { $: {} };
+ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ParamsSpec = { $: {} };
+ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ResponseParamsSpec = { $: {} };
+ash.settings.one_drive.mojom.Page = {};
+ash.settings.one_drive.mojom.Page.$interfaceName = 'ash.settings.one_drive.mojom.Page';
+ash.settings.one_drive.mojom.Page_OnODFSMountOrUnmount_ParamsSpec = { $: {} };
+ash.settings.one_drive.mojom.Page_OnAllowUserToRemoveODFSChanged_ParamsSpec = { $: {} };
 
 // Interface: PageHandlerFactory
-ash.settings.one_drive.mojom.PageHandlerFactory = {};
-
-ash.settings.one_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.one_drive.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.one_drive.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.settings.one_drive.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.one_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.settings.one_drive.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(ash.settings.one_drive.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(ash.settings.one_drive.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ash.settings.one_drive.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -81,76 +89,54 @@ ash.settings.one_drive.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-ash.settings.one_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.one_drive.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.one_drive.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.settings.one_drive.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.settings.one_drive.mojom.PageHandlerFactoryPtr = ash.settings.one_drive.mojom.PageHandlerFactoryRemote;
 ash.settings.one_drive.mojom.PageHandlerFactoryRequest = ash.settings.one_drive.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-ash.settings.one_drive.mojom.PageHandler = {};
+mojo.internal.Struct(
+    ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ParamsSpec, 'ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ResponseParamsSpec, 'ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ResponseParams', [
+      mojo.internal.StructField('email', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ParamsSpec, 'ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ResponseParamsSpec, 'ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ParamsSpec, 'ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ResponseParamsSpec, 'ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ParamsSpec, 'ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ResponseParamsSpec, 'ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.settings.one_drive.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -232,142 +218,21 @@ ash.settings.one_drive.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetUserEmailAddress
-ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.one_drive.mojom.PageHandler.GetUserEmailAddress_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.one_drive.mojom.PageHandler.GetUserEmailAddress_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ConnectToOneDrive
-ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.one_drive.mojom.PageHandler.ConnectToOneDrive_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.one_drive.mojom.PageHandler.ConnectToOneDrive_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DisconnectFromOneDrive
-ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.one_drive.mojom.PageHandler.DisconnectFromOneDrive_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.one_drive.mojom.PageHandler.DisconnectFromOneDrive_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OpenOneDriveFolder
-ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.one_drive.mojom.PageHandler.OpenOneDriveFolder_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.one_drive.mojom.PageHandler.OpenOneDriveFolder_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.settings.one_drive.mojom.PageHandlerPtr = ash.settings.one_drive.mojom.PageHandlerRemote;
 ash.settings.one_drive.mojom.PageHandlerRequest = ash.settings.one_drive.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-ash.settings.one_drive.mojom.Page = {};
+mojo.internal.Struct(
+    ash.settings.one_drive.mojom.Page_OnODFSMountOrUnmount_ParamsSpec, 'ash.settings.one_drive.mojom.Page_OnODFSMountOrUnmount_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.settings.one_drive.mojom.Page_OnODFSMountOrUnmount_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.one_drive.mojom.Page_OnODFSMountOrUnmount_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.settings.one_drive.mojom.Page_OnAllowUserToRemoveODFSChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.one_drive.mojom.Page_OnAllowUserToRemoveODFSChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.one_drive.mojom.Page_OnAllowUserToRemoveODFSChanged_ParamsSpec, 'ash.settings.one_drive.mojom.Page_OnAllowUserToRemoveODFSChanged_Params', [
+      mojo.internal.StructField('is_allowed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.settings.one_drive.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -431,34 +296,6 @@ ash.settings.one_drive.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnODFSMountOrUnmount
-ash.settings.one_drive.mojom.Page_OnODFSMountOrUnmount_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.one_drive.mojom.Page.OnODFSMountOrUnmount_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnAllowUserToRemoveODFSChanged
-ash.settings.one_drive.mojom.Page_OnAllowUserToRemoveODFSChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.one_drive.mojom.Page.OnAllowUserToRemoveODFSChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.settings.one_drive.mojom.PagePtr = ash.settings.one_drive.mojom.PageRemote;
 ash.settings.one_drive.mojom.PageRequest = ash.settings.one_drive.mojom.PagePendingReceiver;
 

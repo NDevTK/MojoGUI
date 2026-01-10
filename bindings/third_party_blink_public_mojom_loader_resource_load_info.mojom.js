@@ -7,9 +7,19 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 var url = url || {};
 var url = url || {};
 
+blink.mojom.ResourceTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.CommonNetworkInfoSpec = { $: {} };
+blink.mojom.RedirectInfoSpec = { $: {} };
+blink.mojom.ResourceLoadInfoSpec = { $: {} };
 
 // Enum: ResourceType
 blink.mojom.ResourceType = {
@@ -31,70 +41,48 @@ blink.mojom.ResourceType = {
   kServiceWorker: 15,
   kCspReport: 16,
   kPluginResource: 17,
-  kNavigationPreloadMainFrame: 18,
-  kNavigationPreloadSubFrame: 19,
-  kJson: 20,
+  kNavigationPreloadMainFrame: 19,
+  kNavigationPreloadSubFrame: 20,
+  kJson: 21,
 };
-blink.mojom.ResourceTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: CommonNetworkInfo
-blink.mojom.CommonNetworkInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.CommonNetworkInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'network_accessed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'always_access_network', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'remote_endpoint', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.CommonNetworkInfoSpec, 'blink.mojom.CommonNetworkInfo', [
+      mojo.internal.StructField('network_accessed', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('always_access_network', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('remote_endpoint', 0, 0, network.mojom.IPEndPointSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: RedirectInfo
-blink.mojom.RedirectInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.RedirectInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'origin_of_new_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'network_info', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CommonNetworkInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.RedirectInfoSpec, 'blink.mojom.RedirectInfo', [
+      mojo.internal.StructField('origin_of_new_url', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('network_info', 8, 0, blink.mojom.CommonNetworkInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: ResourceLoadInfo
-blink.mojom.ResourceLoadInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ResourceLoadInfo',
-      packedSize: 128,
-      fields: [
-        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'final_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'referrer', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'original_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'method', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'request_destination', packedOffset: 96, packedBitOffset: 0, type: network.mojom.RequestDestinationSpec, nullable: false, minVersion: 0 },
-        { name: 'request_priority', packedOffset: 100, packedBitOffset: 0, type: network.mojom.RequestPrioritySpec, nullable: false, minVersion: 0 },
-        { name: 'mime_type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'was_cached', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'network_info', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.CommonNetworkInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'net_error', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'proxy_chain', packedOffset: 56, packedBitOffset: 0, type: network.mojom.ProxyChainSpec, nullable: false, minVersion: 0 },
-        { name: 'load_timing_info', packedOffset: 64, packedBitOffset: 0, type: network.mojom.LoadTimingInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'raw_body_bytes', packedOffset: 72, packedBitOffset: 0, type: mojo_base.mojom.ByteCountSpec, nullable: false, minVersion: 0 },
-        { name: 'total_received_bytes', packedOffset: 80, packedBitOffset: 0, type: mojo_base.mojom.ByteCountSpec, nullable: false, minVersion: 0 },
-        { name: 'redirect_info_chain', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.RedirectInfoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'http_status_code', packedOffset: 108, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'did_use_server_http_auth', packedOffset: 112, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 128}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ResourceLoadInfoSpec, 'blink.mojom.ResourceLoadInfo', [
+      mojo.internal.StructField('request_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('final_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('referrer', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('original_url', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('method', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('request_destination', 96, 0, network.mojom.RequestDestinationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request_priority', 100, 0, network.mojom.RequestPrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('mime_type', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('was_cached', 112, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('network_info', 48, 0, blink.mojom.CommonNetworkInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('net_error', 104, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('proxy_chain', 56, 0, network.mojom.ProxyChainSpec, null, false, 0, undefined),
+      mojo.internal.StructField('load_timing_info', 64, 0, network.mojom.LoadTimingInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('raw_body_bytes', 72, 0, mojo_base.mojom.ByteCountSpec, null, false, 0, undefined),
+      mojo.internal.StructField('total_received_bytes', 80, 0, mojo_base.mojom.ByteCountSpec, null, false, 0, undefined),
+      mojo.internal.StructField('redirect_info_chain', 88, 0, mojo.internal.Array(blink.mojom.RedirectInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('http_status_code', 108, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('did_use_server_http_auth', 112, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 128]]);

@@ -8,21 +8,15 @@
 var audio = audio || {};
 audio.mojom = audio.mojom || {};
 
+audio.mojom.AudioDeviceDescriptionSpec = { $: {} };
 
 // Struct: AudioDeviceDescription
-audio.mojom.AudioDeviceDescriptionSpec = {
-  $: {
-    structSpec: {
-      name: 'audio.mojom.AudioDeviceDescription',
-      packedSize: 40,
-      fields: [
-        { name: 'device_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'unique_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'group_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_system_default', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_communications_device', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    audio.mojom.AudioDeviceDescriptionSpec, 'audio.mojom.AudioDeviceDescription', [
+      mojo.internal.StructField('device_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('unique_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('group_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_system_default', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_communications_device', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 40]]);

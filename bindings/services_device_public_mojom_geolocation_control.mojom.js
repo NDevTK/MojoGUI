@@ -8,21 +8,15 @@
 var device = device || {};
 device.mojom = device.mojom || {};
 
+device.mojom.GeolocationControl = {};
+device.mojom.GeolocationControl.$interfaceName = 'device.mojom.GeolocationControl';
+device.mojom.GeolocationControl_UserDidOptIntoLocationServices_ParamsSpec = { $: {} };
 
 // Interface: GeolocationControl
-device.mojom.GeolocationControl = {};
-
-device.mojom.GeolocationControl_UserDidOptIntoLocationServices_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.GeolocationControl_UserDidOptIntoLocationServices_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.GeolocationControl_UserDidOptIntoLocationServices_ParamsSpec, 'device.mojom.GeolocationControl_UserDidOptIntoLocationServices_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 device.mojom.GeolocationControlPendingReceiver = class {
   constructor(handle) {
@@ -77,20 +71,6 @@ device.mojom.GeolocationControl.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for UserDidOptIntoLocationServices
-device.mojom.GeolocationControl_UserDidOptIntoLocationServices_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.GeolocationControl.UserDidOptIntoLocationServices_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 device.mojom.GeolocationControlPtr = device.mojom.GeolocationControlRemote;
 device.mojom.GeolocationControlRequest = device.mojom.GeolocationControlPendingReceiver;
 

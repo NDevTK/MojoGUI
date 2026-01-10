@@ -8,23 +8,18 @@
 var ash = ash || {};
 ash.cros_healthd = ash.cros_healthd || {};
 ash.cros_healthd.mojom = ash.cros_healthd.mojom || {};
+var ash = ash || {};
 
+ash.cros_healthd.mojom.AshEventReporter = {};
+ash.cros_healthd.mojom.AshEventReporter.$interfaceName = 'ash.cros_healthd.mojom.AshEventReporter';
+ash.cros_healthd.mojom.AshEventReporter_SendKeyboardDiagnosticEvent_ParamsSpec = { $: {} };
 
 // Interface: AshEventReporter
-ash.cros_healthd.mojom.AshEventReporter = {};
-
-ash.cros_healthd.mojom.AshEventReporter_SendKeyboardDiagnosticEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cros_healthd.mojom.AshEventReporter_SendKeyboardDiagnosticEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.KeyboardDiagnosticEventInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cros_healthd.mojom.AshEventReporter_SendKeyboardDiagnosticEvent_ParamsSpec, 'ash.cros_healthd.mojom.AshEventReporter_SendKeyboardDiagnosticEvent_Params', [
+      mojo.internal.StructField('info', 0, 0, ash.diagnostics.mojom.KeyboardDiagnosticEventInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.cros_healthd.mojom.AshEventReporterPendingReceiver = class {
   constructor(handle) {
@@ -79,21 +74,6 @@ ash.cros_healthd.mojom.AshEventReporter.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SendKeyboardDiagnosticEvent
-ash.cros_healthd.mojom.AshEventReporter_SendKeyboardDiagnosticEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cros_healthd.mojom.AshEventReporter.SendKeyboardDiagnosticEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.KeyboardDiagnosticEventInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.cros_healthd.mojom.AshEventReporterPtr = ash.cros_healthd.mojom.AshEventReporterRemote;
 ash.cros_healthd.mojom.AshEventReporterRequest = ash.cros_healthd.mojom.AshEventReporterPendingReceiver;
 

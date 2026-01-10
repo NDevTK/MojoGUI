@@ -8,51 +8,44 @@
 var chromeos = chromeos || {};
 chromeos.network_health = chromeos.network_health || {};
 chromeos.network_health.mojom = chromeos.network_health.mojom || {};
+var chromeos = chromeos || {};
+var services = services || {};
 
+chromeos.network_health.mojom.NetworkEventsObserver = {};
+chromeos.network_health.mojom.NetworkEventsObserver.$interfaceName = 'chromeos.network_health.mojom.NetworkEventsObserver';
+chromeos.network_health.mojom.NetworkEventsObserver_OnConnectionStateChanged_ParamsSpec = { $: {} };
+chromeos.network_health.mojom.NetworkEventsObserver_OnSignalStrengthChanged_ParamsSpec = { $: {} };
+chromeos.network_health.mojom.NetworkEventsObserver_OnNetworkListChanged_ParamsSpec = { $: {} };
+chromeos.network_health.mojom.NetworkHealthService = {};
+chromeos.network_health.mojom.NetworkHealthService.$interfaceName = 'chromeos.network_health.mojom.NetworkHealthService';
+chromeos.network_health.mojom.NetworkHealthService_AddObserver_ParamsSpec = { $: {} };
+chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ParamsSpec = { $: {} };
+chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ResponseParamsSpec = { $: {} };
+chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ParamsSpec = { $: {} };
+chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ResponseParamsSpec = { $: {} };
+chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ParamsSpec = { $: {} };
+chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ResponseParamsSpec = { $: {} };
 
 // Interface: NetworkEventsObserver
-chromeos.network_health.mojom.NetworkEventsObserver = {};
+mojo.internal.Struct(
+    chromeos.network_health.mojom.NetworkEventsObserver_OnConnectionStateChanged_ParamsSpec, 'chromeos.network_health.mojom.NetworkEventsObserver_OnConnectionStateChanged_Params', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('state', 8, 0, chromeos.network_health.mojom.NetworkStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chromeos.network_health.mojom.NetworkEventsObserver_OnConnectionStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_health.mojom.NetworkEventsObserver_OnConnectionStateChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_health.mojom.NetworkStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_health.mojom.NetworkEventsObserver_OnSignalStrengthChanged_ParamsSpec, 'chromeos.network_health.mojom.NetworkEventsObserver_OnSignalStrengthChanged_Params', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('signal_strength', 8, 0, chromeos.network_health.mojom.UInt32ValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chromeos.network_health.mojom.NetworkEventsObserver_OnSignalStrengthChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_health.mojom.NetworkEventsObserver_OnSignalStrengthChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'signal_strength', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_health.mojom.UInt32ValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-chromeos.network_health.mojom.NetworkEventsObserver_OnNetworkListChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_health.mojom.NetworkEventsObserver_OnNetworkListChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'networks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromeos.network_health.mojom.NetworkSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_health.mojom.NetworkEventsObserver_OnNetworkListChanged_ParamsSpec, 'chromeos.network_health.mojom.NetworkEventsObserver_OnNetworkListChanged_Params', [
+      mojo.internal.StructField('networks', 0, 0, mojo.internal.Array(chromeos.network_health.mojom.NetworkSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromeos.network_health.mojom.NetworkEventsObserverPendingReceiver = class {
   constructor(handle) {
@@ -125,106 +118,49 @@ chromeos.network_health.mojom.NetworkEventsObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnConnectionStateChanged
-chromeos.network_health.mojom.NetworkEventsObserver_OnConnectionStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_health.mojom.NetworkEventsObserver.OnConnectionStateChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_health.mojom.NetworkStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnSignalStrengthChanged
-chromeos.network_health.mojom.NetworkEventsObserver_OnSignalStrengthChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_health.mojom.NetworkEventsObserver.OnSignalStrengthChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'signal_strength', packedOffset: 8, packedBitOffset: 0, type: chromeos.network_health.mojom.UInt32ValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnNetworkListChanged
-chromeos.network_health.mojom.NetworkEventsObserver_OnNetworkListChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_health.mojom.NetworkEventsObserver.OnNetworkListChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'networks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromeos.network_health.mojom.NetworkSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.network_health.mojom.NetworkEventsObserverPtr = chromeos.network_health.mojom.NetworkEventsObserverRemote;
 chromeos.network_health.mojom.NetworkEventsObserverRequest = chromeos.network_health.mojom.NetworkEventsObserverPendingReceiver;
 
 
 // Interface: NetworkHealthService
-chromeos.network_health.mojom.NetworkHealthService = {};
+mojo.internal.Struct(
+    chromeos.network_health.mojom.NetworkHealthService_AddObserver_ParamsSpec, 'chromeos.network_health.mojom.NetworkHealthService_AddObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromeos.network_health.mojom.NetworkEventsObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.network_health.mojom.NetworkHealthService_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_health.mojom.NetworkHealthService_AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.network_health.mojom.NetworkEventsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ParamsSpec, 'chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ResponseParamsSpec, 'chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ResponseParams', [
+      mojo.internal.StructField('networks', 0, 0, mojo.internal.Array(chromeos.network_health.mojom.NetworkSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ParamsSpec, 'chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ResponseParamsSpec, 'chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ResponseParams', [
+      mojo.internal.StructField('state', 0, 0, chromeos.network_health.mojom.NetworkHealthStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ParamsSpec, 'chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ResponseParamsSpec, 'chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ResponseParams', [
+      mojo.internal.StructField('guids', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromeos.network_health.mojom.NetworkHealthServicePendingReceiver = class {
   constructor(handle) {
@@ -306,99 +242,6 @@ chromeos.network_health.mojom.NetworkHealthService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddObserver
-chromeos.network_health.mojom.NetworkHealthService_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_health.mojom.NetworkHealthService.AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.network_health.mojom.NetworkEventsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetNetworkList
-chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_health.mojom.NetworkHealthService.GetNetworkList_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_health.mojom.NetworkHealthService.GetNetworkList_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'networks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromeos.network_health.mojom.NetworkSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetHealthSnapshot
-chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_health.mojom.NetworkHealthService.GetHealthSnapshot_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_health.mojom.NetworkHealthService.GetHealthSnapshot_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_health.mojom.NetworkHealthStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetRecentlyActiveNetworks
-chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_health.mojom.NetworkHealthService.GetRecentlyActiveNetworks_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.network_health.mojom.NetworkHealthService.GetRecentlyActiveNetworks_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'guids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.network_health.mojom.NetworkHealthServicePtr = chromeos.network_health.mojom.NetworkHealthServiceRemote;
 chromeos.network_health.mojom.NetworkHealthServiceRequest = chromeos.network_health.mojom.NetworkHealthServicePendingReceiver;
 

@@ -8,20 +8,14 @@
 var device = device || {};
 device.mojom = device.mojom || {};
 
+device.mojom.BatteryStatusSpec = { $: {} };
 
 // Struct: BatteryStatus
-device.mojom.BatteryStatusSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.BatteryStatus',
-      packedSize: 40,
-      fields: [
-        { name: 'charging', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'charging_time', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'discharging_time', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'level', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.BatteryStatusSpec, 'device.mojom.BatteryStatus', [
+      mojo.internal.StructField('charging', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('charging_time', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('discharging_time', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('level', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);

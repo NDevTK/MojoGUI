@@ -7,21 +7,16 @@
 // Module namespace
 var auction_worklet = auction_worklet || {};
 auction_worklet.mojom = auction_worklet.mojom || {};
+var services = services || {};
 var url = url || {};
 
+auction_worklet.mojom.InProgressAuctionDownloadSpec = { $: {} };
 
 // Struct: InProgressAuctionDownload
-auction_worklet.mojom.InProgressAuctionDownloadSpec = {
-  $: {
-    structSpec: {
-      name: 'auction_worklet.mojom.InProgressAuctionDownload',
-      packedSize: 32,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'endpoints', packedOffset: 8, packedBitOffset: 0, type: network.mojom.URLLoaderClientEndpointsSpec, nullable: false, minVersion: 0 },
-        { name: 'devtools_request_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    auction_worklet.mojom.InProgressAuctionDownloadSpec, 'auction_worklet.mojom.InProgressAuctionDownload', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('endpoints', 8, 0, network.mojom.URLLoaderClientEndpointsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('devtools_request_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);

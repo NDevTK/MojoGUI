@@ -10,53 +10,43 @@ blink.mojom = blink.mojom || {};
 var skia = skia || {};
 var skia = skia || {};
 
+blink.mojom.SerializedStaticBitmapImageSpec = { $: {} };
+blink.mojom.AcceleratedStaticBitmapImageSpec = { $: {} };
+blink.mojom.ImageReleaseCallback = {};
+blink.mojom.ImageReleaseCallback.$interfaceName = 'blink.mojom.ImageReleaseCallback';
+blink.mojom.ImageReleaseCallback_Release_ParamsSpec = { $: {} };
 
 // Union: SerializedStaticBitmapImage
-blink.mojom.SerializedStaticBitmapImageSpec = { $: mojo.internal.Union(
-    'blink.mojom.SerializedStaticBitmapImage', {
+mojo.internal.Union(
+    blink.mojom.SerializedStaticBitmapImageSpec, 'blink.mojom.SerializedStaticBitmapImage', {
       'bitmap': {
         'ordinal': 0,
         'type': skia.mojom.BitmapN32Spec,
-      }},
+        'nullable': false,
+      },
       'accelerated_image': {
         'ordinal': 1,
         'type': blink.mojom.AcceleratedStaticBitmapImageSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: AcceleratedStaticBitmapImage
-blink.mojom.AcceleratedStaticBitmapImageSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AcceleratedStaticBitmapImage',
-      packedSize: 40,
-      fields: [
-        { name: 'shared_image', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.ExportedSharedImageSpec, nullable: false, minVersion: 0 },
-        { name: 'sync_token', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'alpha_type', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.AlphaTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'release_callback', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.ImageReleaseCallbackRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.AcceleratedStaticBitmapImageSpec, 'blink.mojom.AcceleratedStaticBitmapImage', [
+      mojo.internal.StructField('shared_image', 0, 0, gpu.mojom.ExportedSharedImageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sync_token', 8, 0, gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('alpha_type', 24, 0, skia.mojom.AlphaTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('release_callback', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.ImageReleaseCallbackRemote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: ImageReleaseCallback
-blink.mojom.ImageReleaseCallback = {};
-
-blink.mojom.ImageReleaseCallback_Release_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ImageReleaseCallback_Release_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ImageReleaseCallback_Release_ParamsSpec, 'blink.mojom.ImageReleaseCallback_Release_Params', [
+      mojo.internal.StructField('token', 0, 0, gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.ImageReleaseCallbackPendingReceiver = class {
   constructor(handle) {
@@ -111,21 +101,6 @@ blink.mojom.ImageReleaseCallback.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Release
-blink.mojom.ImageReleaseCallback_Release_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ImageReleaseCallback.Release_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.ImageReleaseCallbackPtr = blink.mojom.ImageReleaseCallbackRemote;
 blink.mojom.ImageReleaseCallbackRequest = blink.mojom.ImageReleaseCallbackPendingReceiver;
 

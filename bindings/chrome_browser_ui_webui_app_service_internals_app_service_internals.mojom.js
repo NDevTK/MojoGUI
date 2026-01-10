@@ -8,100 +8,71 @@
 var mojom = mojom || {};
 mojom.app_service_internals = mojom.app_service_internals || {};
 
+mojom.app_service_internals.AppInfoSpec = { $: {} };
+mojom.app_service_internals.PreferredAppInfoSpec = { $: {} };
+mojom.app_service_internals.PromiseAppInfoSpec = { $: {} };
+mojom.app_service_internals.AppCapabilityInfoSpec = { $: {} };
+mojom.app_service_internals.DebugInfoSpec = { $: {} };
+mojom.app_service_internals.AppServiceInternalsPageHandler = {};
+mojom.app_service_internals.AppServiceInternalsPageHandler.$interfaceName = 'mojom.app_service_internals.AppServiceInternalsPageHandler';
+mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ParamsSpec = { $: {} };
+mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec = { $: {} };
 
 // Struct: AppInfo
-mojom.app_service_internals.AppInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.app_service_internals.AppInfo',
-      packedSize: 32,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'debug_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojom.app_service_internals.AppInfoSpec, 'mojom.app_service_internals.AppInfo', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('debug_info', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: PreferredAppInfo
-mojom.app_service_internals.PreferredAppInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.app_service_internals.PreferredAppInfo',
-      packedSize: 32,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'preferred_filters', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojom.app_service_internals.PreferredAppInfoSpec, 'mojom.app_service_internals.PreferredAppInfo', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('preferred_filters', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: PromiseAppInfo
-mojom.app_service_internals.PromiseAppInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.app_service_internals.PromiseAppInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'package_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'debug_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojom.app_service_internals.PromiseAppInfoSpec, 'mojom.app_service_internals.PromiseAppInfo', [
+      mojo.internal.StructField('package_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('debug_info', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: AppCapabilityInfo
-mojom.app_service_internals.AppCapabilityInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.app_service_internals.AppCapabilityInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'debug_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojom.app_service_internals.AppCapabilityInfoSpec, 'mojom.app_service_internals.AppCapabilityInfo', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('debug_info', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: DebugInfo
-mojom.app_service_internals.DebugInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.app_service_internals.DebugInfo',
-      packedSize: 40,
-      fields: [
-        { name: 'app_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojom.app_service_internals.AppInfoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'preferred_app_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojom.app_service_internals.PreferredAppInfoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'promise_app_list', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojom.app_service_internals.PromiseAppInfoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'app_capability_list', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojom.app_service_internals.AppCapabilityInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojom.app_service_internals.DebugInfoSpec, 'mojom.app_service_internals.DebugInfo', [
+      mojo.internal.StructField('app_list', 0, 0, mojo.internal.Array(mojom.app_service_internals.AppInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('preferred_app_list', 8, 0, mojo.internal.Array(mojom.app_service_internals.PreferredAppInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('promise_app_list', 16, 0, mojo.internal.Array(mojom.app_service_internals.PromiseAppInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('app_capability_list', 24, 0, mojo.internal.Array(mojom.app_service_internals.AppCapabilityInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: AppServiceInternalsPageHandler
-mojom.app_service_internals.AppServiceInternalsPageHandler = {};
+mojo.internal.Struct(
+    mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ParamsSpec, 'mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec, 'mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParams', [
+      mojo.internal.StructField('debug_info', 0, 0, mojom.app_service_internals.DebugInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 mojom.app_service_internals.AppServiceInternalsPageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -156,33 +127,6 @@ mojom.app_service_internals.AppServiceInternalsPageHandler.getRemote = function(
   return remote.$;
 };
 
-// ParamsSpec for GetDebugInfo
-mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.app_service_internals.AppServiceInternalsPageHandler.GetDebugInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.app_service_internals.AppServiceInternalsPageHandler.GetDebugInfo_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'debug_info', packedOffset: 0, packedBitOffset: 0, type: mojom.app_service_internals.DebugInfoSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 mojom.app_service_internals.AppServiceInternalsPageHandlerPtr = mojom.app_service_internals.AppServiceInternalsPageHandlerRemote;
 mojom.app_service_internals.AppServiceInternalsPageHandlerRequest = mojom.app_service_internals.AppServiceInternalsPageHandlerPendingReceiver;
 

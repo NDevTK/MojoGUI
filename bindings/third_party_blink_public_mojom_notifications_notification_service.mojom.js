@@ -10,6 +10,25 @@ blink.mojom = blink.mojom || {};
 var blink = blink || {};
 var blink = blink || {};
 
+blink.mojom.PersistentNotificationErrorSpec = { $: mojo.internal.Enum() };
+blink.mojom.NonPersistentNotificationListener = {};
+blink.mojom.NonPersistentNotificationListener.$interfaceName = 'blink.mojom.NonPersistentNotificationListener';
+blink.mojom.NonPersistentNotificationListener_OnShow_ParamsSpec = { $: {} };
+blink.mojom.NonPersistentNotificationListener_OnClick_ParamsSpec = { $: {} };
+blink.mojom.NonPersistentNotificationListener_OnClick_ResponseParamsSpec = { $: {} };
+blink.mojom.NonPersistentNotificationListener_OnClose_ParamsSpec = { $: {} };
+blink.mojom.NonPersistentNotificationListener_OnClose_ResponseParamsSpec = { $: {} };
+blink.mojom.NotificationService = {};
+blink.mojom.NotificationService.$interfaceName = 'blink.mojom.NotificationService';
+blink.mojom.NotificationService_GetPermissionStatus_ParamsSpec = { $: {} };
+blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec = { $: {} };
+blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec = { $: {} };
+blink.mojom.NotificationService_CloseNonPersistentNotification_ParamsSpec = { $: {} };
+blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec = { $: {} };
+blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec = { $: {} };
+blink.mojom.NotificationService_ClosePersistentNotification_ParamsSpec = { $: {} };
+blink.mojom.NotificationService_GetNotifications_ParamsSpec = { $: {} };
+blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec = { $: {} };
 
 // Enum: PersistentNotificationError
 blink.mojom.PersistentNotificationError = {
@@ -17,46 +36,32 @@ blink.mojom.PersistentNotificationError = {
   INTERNAL_ERROR: 1,
   PERMISSION_DENIED: 2,
 };
-blink.mojom.PersistentNotificationErrorSpec = { $: mojo.internal.Enum() };
 
 // Interface: NonPersistentNotificationListener
-blink.mojom.NonPersistentNotificationListener = {};
+mojo.internal.Struct(
+    blink.mojom.NonPersistentNotificationListener_OnShow_ParamsSpec, 'blink.mojom.NonPersistentNotificationListener_OnShow_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.NonPersistentNotificationListener_OnShow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NonPersistentNotificationListener_OnShow_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.NonPersistentNotificationListener_OnClick_ParamsSpec, 'blink.mojom.NonPersistentNotificationListener_OnClick_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.NonPersistentNotificationListener_OnClick_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NonPersistentNotificationListener_OnClick_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.NonPersistentNotificationListener_OnClick_ResponseParamsSpec, 'blink.mojom.NonPersistentNotificationListener_OnClick_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.NonPersistentNotificationListener_OnClose_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NonPersistentNotificationListener_OnClose_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.NonPersistentNotificationListener_OnClose_ParamsSpec, 'blink.mojom.NonPersistentNotificationListener_OnClose_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    blink.mojom.NonPersistentNotificationListener_OnClose_ResponseParamsSpec, 'blink.mojom.NonPersistentNotificationListener_OnClose_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 blink.mojom.NonPersistentNotificationListenerPendingReceiver = class {
   constructor(handle) {
@@ -104,7 +109,7 @@ blink.mojom.NonPersistentNotificationListenerRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       blink.mojom.NonPersistentNotificationListener_OnClick_ParamsSpec,
-      null,
+      blink.mojom.NonPersistentNotificationListener_OnClick_ResponseParamsSpec,
       []);
   }
 
@@ -113,7 +118,7 @@ blink.mojom.NonPersistentNotificationListenerRemoteCallHandler = class {
     return this.proxy.sendMessage(
       2,  // ordinal
       blink.mojom.NonPersistentNotificationListener_OnClose_ParamsSpec,
-      null,
+      blink.mojom.NonPersistentNotificationListener_OnClose_ResponseParamsSpec,
       []);
   }
 
@@ -129,136 +134,71 @@ blink.mojom.NonPersistentNotificationListener.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnShow
-blink.mojom.NonPersistentNotificationListener_OnShow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NonPersistentNotificationListener.OnShow_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnClick
-blink.mojom.NonPersistentNotificationListener_OnClick_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NonPersistentNotificationListener.OnClick_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnClose
-blink.mojom.NonPersistentNotificationListener_OnClose_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NonPersistentNotificationListener.OnClose_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.NonPersistentNotificationListenerPtr = blink.mojom.NonPersistentNotificationListenerRemote;
 blink.mojom.NonPersistentNotificationListenerRequest = blink.mojom.NonPersistentNotificationListenerPendingReceiver;
 
 
 // Interface: NotificationService
-blink.mojom.NotificationService = {};
+mojo.internal.Struct(
+    blink.mojom.NotificationService_GetPermissionStatus_ParamsSpec, 'blink.mojom.NotificationService_GetPermissionStatus_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.NotificationService_GetPermissionStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NotificationService_GetPermissionStatus_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec, 'blink.mojom.NotificationService_GetPermissionStatus_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, blink.mojom.PermissionStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NotificationService_DisplayNonPersistentNotification_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'notification_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.NotificationDataSpec, nullable: false, minVersion: 0 },
-        { name: 'notification_resources', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.NotificationResourcesSpec, nullable: false, minVersion: 0 },
-        { name: 'event_listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.NonPersistentNotificationListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec, 'blink.mojom.NotificationService_DisplayNonPersistentNotification_Params', [
+      mojo.internal.StructField('token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('notification_data', 8, 0, blink.mojom.NotificationDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('notification_resources', 16, 0, blink.mojom.NotificationResourcesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event_listener', 24, 0, mojo.internal.InterfaceProxy(blink.mojom.NonPersistentNotificationListenerRemote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-blink.mojom.NotificationService_CloseNonPersistentNotification_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NotificationService_CloseNonPersistentNotification_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.NotificationService_CloseNonPersistentNotification_ParamsSpec, 'blink.mojom.NotificationService_CloseNonPersistentNotification_Params', [
+      mojo.internal.StructField('token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NotificationService_DisplayPersistentNotification_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'notification_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.NotificationDataSpec, nullable: false, minVersion: 0 },
-        { name: 'notification_resources', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.NotificationResourcesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec, 'blink.mojom.NotificationService_DisplayPersistentNotification_Params', [
+      mojo.internal.StructField('service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('notification_data', 8, 0, blink.mojom.NotificationDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('notification_resources', 16, 0, blink.mojom.NotificationResourcesSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.NotificationService_ClosePersistentNotification_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NotificationService_ClosePersistentNotification_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'notification_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec, 'blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParams', [
+      mojo.internal.StructField('error', 0, 0, blink.mojom.PersistentNotificationErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.NotificationService_GetNotifications_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NotificationService_GetNotifications_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'filter_tag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'include_triggered', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.NotificationService_ClosePersistentNotification_ParamsSpec, 'blink.mojom.NotificationService_ClosePersistentNotification_Params', [
+      mojo.internal.StructField('notification_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.NotificationService_GetNotifications_ParamsSpec, 'blink.mojom.NotificationService_GetNotifications_Params', [
+      mojo.internal.StructField('service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('filter_tag', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('include_triggered', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec, 'blink.mojom.NotificationService_GetNotifications_ResponseParams', [
+      mojo.internal.StructField('notification_ids', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('notification_datas', 8, 0, mojo.internal.Array(blink.mojom.NotificationDataSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.NotificationServicePendingReceiver = class {
   constructor(handle) {
@@ -358,137 +298,6 @@ blink.mojom.NotificationService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetPermissionStatus
-blink.mojom.NotificationService_GetPermissionStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NotificationService.GetPermissionStatus_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NotificationService.GetPermissionStatus_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DisplayNonPersistentNotification
-blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NotificationService.DisplayNonPersistentNotification_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'notification_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.NotificationDataSpec, nullable: false, minVersion: 0 },
-        { name: 'notification_resources', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.NotificationResourcesSpec, nullable: false, minVersion: 0 },
-        { name: 'event_listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.NonPersistentNotificationListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for CloseNonPersistentNotification
-blink.mojom.NotificationService_CloseNonPersistentNotification_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NotificationService.CloseNonPersistentNotification_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DisplayPersistentNotification
-blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NotificationService.DisplayPersistentNotification_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'notification_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.NotificationDataSpec, nullable: false, minVersion: 0 },
-        { name: 'notification_resources', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.NotificationResourcesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NotificationService.DisplayPersistentNotification_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PersistentNotificationErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ClosePersistentNotification
-blink.mojom.NotificationService_ClosePersistentNotification_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NotificationService.ClosePersistentNotification_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'notification_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetNotifications
-blink.mojom.NotificationService_GetNotifications_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NotificationService.GetNotifications_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'service_worker_registration_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'filter_tag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'include_triggered', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NotificationService.GetNotifications_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'notification_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'notification_datas', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.NotificationDataSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.NotificationServicePtr = blink.mojom.NotificationServiceRemote;
 blink.mojom.NotificationServiceRequest = blink.mojom.NotificationServicePendingReceiver;
 

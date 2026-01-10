@@ -12,6 +12,10 @@ var gfx = gfx || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+display.mojom.RotationSpec = { $: mojo.internal.Enum() };
+display.mojom.TouchSupportSpec = { $: mojo.internal.Enum() };
+display.mojom.AccelerometerSupportSpec = { $: mojo.internal.Enum() };
+display.mojom.DisplaySpec = { $: {} };
 
 // Enum: Rotation
 display.mojom.Rotation = {
@@ -20,7 +24,6 @@ display.mojom.Rotation = {
   VALUE_180: 2,
   VALUE_270: 3,
 };
-display.mojom.RotationSpec = { $: mojo.internal.Enum() };
 
 // Enum: TouchSupport
 display.mojom.TouchSupport = {
@@ -28,7 +31,6 @@ display.mojom.TouchSupport = {
   AVAILABLE: 1,
   UNAVAILABLE: 2,
 };
-display.mojom.TouchSupportSpec = { $: mojo.internal.Enum() };
 
 // Enum: AccelerometerSupport
 display.mojom.AccelerometerSupport = {
@@ -36,33 +38,25 @@ display.mojom.AccelerometerSupport = {
   AVAILABLE: 1,
   UNAVAILABLE: 2,
 };
-display.mojom.AccelerometerSupportSpec = { $: mojo.internal.Enum() };
 
 // Struct: Display
-display.mojom.DisplaySpec = {
-  $: {
-    structSpec: {
-      name: 'display.mojom.Display',
-      packedSize: 104,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'size_in_pixels', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'native_origin', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-        { name: 'work_area', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'device_scale_factor', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'rotation', packedOffset: 68, packedBitOffset: 0, type: display.mojom.RotationSpec, nullable: false, minVersion: 0 },
-        { name: 'touch_support', packedOffset: 72, packedBitOffset: 0, type: display.mojom.TouchSupportSpec, nullable: false, minVersion: 0 },
-        { name: 'accelerometer_support', packedOffset: 76, packedBitOffset: 0, type: display.mojom.AccelerometerSupportSpec, nullable: false, minVersion: 0 },
-        { name: 'maximum_cursor_size', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'color_spaces', packedOffset: 48, packedBitOffset: 0, type: gfx.mojom.DisplayColorSpacesSpec, nullable: false, minVersion: 0 },
-        { name: 'color_depth', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'depth_per_component', packedOffset: 84, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'is_monochrome', packedOffset: 92, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'display_frequency', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'label', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 104}]
-    }
-  }
-};
+mojo.internal.Struct(
+    display.mojom.DisplaySpec, 'display.mojom.Display', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('bounds', 8, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('size_in_pixels', 16, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('native_origin', 24, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('work_area', 32, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_scale_factor', 64, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('rotation', 68, 0, display.mojom.RotationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('touch_support', 72, 0, display.mojom.TouchSupportSpec, null, false, 0, undefined),
+      mojo.internal.StructField('accelerometer_support', 76, 0, display.mojom.AccelerometerSupportSpec, null, false, 0, undefined),
+      mojo.internal.StructField('maximum_cursor_size', 40, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('color_spaces', 48, 0, gfx.mojom.DisplayColorSpacesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('color_depth', 80, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('depth_per_component', 84, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_monochrome', 92, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('display_frequency', 88, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('label', 56, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 104]]);

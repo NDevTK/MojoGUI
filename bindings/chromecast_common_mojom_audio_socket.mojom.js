@@ -8,21 +8,22 @@
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
 
+chromecast.mojom.AudioSocketBroker = {};
+chromecast.mojom.AudioSocketBroker.$interfaceName = 'chromecast.mojom.AudioSocketBroker';
+chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ParamsSpec = { $: {} };
+chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec = { $: {} };
 
 // Interface: AudioSocketBroker
-chromecast.mojom.AudioSocketBroker = {};
+mojo.internal.Struct(
+    chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ParamsSpec, 'chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec, 'chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParams', [
+      mojo.internal.StructField('fd', 0, 0, mojo.internal.Pointer, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromecast.mojom.AudioSocketBrokerPendingReceiver = class {
   constructor(handle) {
@@ -77,33 +78,6 @@ chromecast.mojom.AudioSocketBroker.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetSocketDescriptor
-chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.AudioSocketBroker.GetSocketDescriptor_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.AudioSocketBroker.GetSocketDescriptor_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.mojom.AudioSocketBrokerPtr = chromecast.mojom.AudioSocketBrokerRemote;
 chromecast.mojom.AudioSocketBrokerRequest = chromecast.mojom.AudioSocketBrokerPendingReceiver;
 

@@ -7,7 +7,13 @@
 // Module namespace
 var auction_worklet = auction_worklet || {};
 auction_worklet.mojom = auction_worklet.mojom || {};
+var services = services || {};
 
+auction_worklet.mojom.AuctionWorkletFunctionSpec = { $: mojo.internal.Enum() };
+auction_worklet.mojom.AuctionSharedStorageHost = {};
+auction_worklet.mojom.AuctionSharedStorageHost.$interfaceName = 'auction_worklet.mojom.AuctionSharedStorageHost';
+auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_ParamsSpec = { $: {} };
+auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_ParamsSpec = { $: {} };
 
 // Enum: AuctionWorkletFunction
 auction_worklet.mojom.AuctionWorkletFunction = {
@@ -16,39 +22,22 @@ auction_worklet.mojom.AuctionWorkletFunction = {
   kSellerScoreAd: 2,
   kSellerReportResult: 3,
 };
-auction_worklet.mojom.AuctionWorkletFunctionSpec = { $: mojo.internal.Enum() };
 
 // Interface: AuctionSharedStorageHost
-auction_worklet.mojom.AuctionSharedStorageHost = {};
+mojo.internal.Struct(
+    auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_ParamsSpec, 'auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_Params', [
+      mojo.internal.StructField('method_with_options', 0, 0, network.mojom.SharedStorageModifierMethodWithOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source_auction_worklet_function', 8, 0, auction_worklet.mojom.AuctionWorkletFunctionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'method_with_options', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SharedStorageModifierMethodWithOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'source_auction_worklet_function', packedOffset: 8, packedBitOffset: 0, type: auction_worklet.mojom.AuctionWorkletFunctionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'methods_with_options', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec, nullable: false, minVersion: 0 },
-        { name: 'with_lock', packedOffset: 8, packedBitOffset: 0, type: network.mojom.LockNameSpec, nullable: true, minVersion: 0 },
-        { name: 'source_auction_worklet_function', packedOffset: 16, packedBitOffset: 0, type: auction_worklet.mojom.AuctionWorkletFunctionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_ParamsSpec, 'auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_Params', [
+      mojo.internal.StructField('methods_with_options', 0, 0, network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('with_lock', 8, 0, network.mojom.LockNameSpec, null, true, 0, undefined),
+      mojo.internal.StructField('source_auction_worklet_function', 16, 0, auction_worklet.mojom.AuctionWorkletFunctionSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 auction_worklet.mojom.AuctionSharedStorageHostPendingReceiver = class {
   constructor(handle) {
@@ -112,38 +101,6 @@ auction_worklet.mojom.AuctionSharedStorageHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SharedStorageUpdate
-auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'auction_worklet.mojom.AuctionSharedStorageHost.SharedStorageUpdate_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'method_with_options', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SharedStorageModifierMethodWithOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'source_auction_worklet_function', packedOffset: 8, packedBitOffset: 0, type: auction_worklet.mojom.AuctionWorkletFunctionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SharedStorageBatchUpdate
-auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'auction_worklet.mojom.AuctionSharedStorageHost.SharedStorageBatchUpdate_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'methods_with_options', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec, nullable: false, minVersion: 0 },
-        { name: 'with_lock', packedOffset: 8, packedBitOffset: 0, type: network.mojom.LockNameSpec, nullable: true, minVersion: 0 },
-        { name: 'source_auction_worklet_function', packedOffset: 16, packedBitOffset: 0, type: auction_worklet.mojom.AuctionWorkletFunctionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 auction_worklet.mojom.AuctionSharedStorageHostPtr = auction_worklet.mojom.AuctionSharedStorageHostRemote;
 auction_worklet.mojom.AuctionSharedStorageHostRequest = auction_worklet.mojom.AuctionSharedStorageHostPendingReceiver;
 

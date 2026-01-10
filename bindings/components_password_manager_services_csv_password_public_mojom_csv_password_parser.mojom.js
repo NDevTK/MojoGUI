@@ -9,6 +9,13 @@ var password_manager = password_manager || {};
 password_manager.mojom = password_manager.mojom || {};
 var url = url || {};
 
+password_manager.mojom.StatusSpec = { $: mojo.internal.Enum() };
+password_manager.mojom.CSVPasswordSequenceSpec = { $: {} };
+password_manager.mojom.CSVPasswordSpec = { $: {} };
+password_manager.mojom.CSVPasswordParser = {};
+password_manager.mojom.CSVPasswordParser.$interfaceName = 'password_manager.mojom.CSVPasswordParser';
+password_manager.mojom.CSVPasswordParser_ParseCSV_ParamsSpec = { $: {} };
+password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec = { $: {} };
 
 // Enum: Status
 password_manager.mojom.Status = {
@@ -16,51 +23,33 @@ password_manager.mojom.Status = {
   kSyntaxError: 1,
   kSemanticError: 2,
 };
-password_manager.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: CSVPasswordSequence
-password_manager.mojom.CSVPasswordSequenceSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.CSVPasswordSequence',
-      packedSize: 16,
-      fields: [
-        { name: 'csv_passwords', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(password_manager.mojom.CSVPasswordSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    password_manager.mojom.CSVPasswordSequenceSpec, 'password_manager.mojom.CSVPasswordSequence', [
+      mojo.internal.StructField('csv_passwords', 0, 0, mojo.internal.Array(password_manager.mojom.CSVPasswordSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: CSVPassword
-password_manager.mojom.CSVPasswordSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.CSVPassword',
-      packedSize: 16,
-      fields: [
-        { name: 'kOK', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    password_manager.mojom.CSVPasswordSpec, 'password_manager.mojom.CSVPassword', [
+      mojo.internal.StructField('kOK', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: CSVPasswordParser
-password_manager.mojom.CSVPasswordParser = {};
+mojo.internal.Struct(
+    password_manager.mojom.CSVPasswordParser_ParseCSV_ParamsSpec, 'password_manager.mojom.CSVPasswordParser_ParseCSV_Params', [
+      mojo.internal.StructField('raw_csv', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-password_manager.mojom.CSVPasswordParser_ParseCSV_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.CSVPasswordParser_ParseCSV_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'raw_csv', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec, 'password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParams', [
+      mojo.internal.StructField('sequence', 0, 0, password_manager.mojom.CSVPasswordSequenceSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 password_manager.mojom.CSVPasswordParserPendingReceiver = class {
   constructor(handle) {
@@ -115,34 +104,6 @@ password_manager.mojom.CSVPasswordParser.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ParseCSV
-password_manager.mojom.CSVPasswordParser_ParseCSV_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.CSVPasswordParser.ParseCSV_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'raw_csv', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'password_manager.mojom.CSVPasswordParser.ParseCSV_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'sequence', packedOffset: 0, packedBitOffset: 0, type: password_manager.mojom.CSVPasswordSequenceSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 password_manager.mojom.CSVPasswordParserPtr = password_manager.mojom.CSVPasswordParserRemote;
 password_manager.mojom.CSVPasswordParserRequest = password_manager.mojom.CSVPasswordParserPendingReceiver;
 

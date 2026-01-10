@@ -8,6 +8,7 @@
 var ui = ui || {};
 ui.mojom = ui.mojom || {};
 
+ui.mojom.MetaKeySpec = { $: mojo.internal.Enum() };
 
 // Enum: MetaKey
 ui.mojom.MetaKey = {
@@ -17,4 +18,3 @@ ui.mojom.MetaKey = {
   kExternalMeta: 3,
   kCommand: 4,
 };
-ui.mojom.MetaKeySpec = { $: mojo.internal.Enum() };

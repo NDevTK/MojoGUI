@@ -7,11 +7,14 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var services = services || {};
 var skia = skia || {};
 var skia = skia || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+viz.mojom.FilterTypeSpec = { $: mojo.internal.Enum() };
+viz.mojom.FilterOperationSpec = { $: {} };
 
 // Enum: FilterType
 viz.mojom.FilterType = {
@@ -31,28 +34,20 @@ viz.mojom.FilterType = {
   SATURATING_BRIGHTNESS: 13,
   ALPHA_THRESHOLD: 14,
   OFFSET: 15,
-  FILTER_TYPE_LAST: 16,
+  FILTER_TYPE_LAST: 15,
 };
-viz.mojom.FilterTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: FilterOperation
-viz.mojom.FilterOperationSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.FilterOperation',
-      packedSize: 64,
-      fields: [
-        { name: 'type', packedOffset: 40, packedBitOffset: 0, type: viz.mojom.FilterTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'amount', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-        { name: 'drop_shadow_color', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColor4fSpec, nullable: false, minVersion: 0 },
-        { name: 'image_filter', packedOffset: 16, packedBitOffset: 0, type: viz.mojom.PaintFilterSpec, nullable: false, minVersion: 0 },
-        { name: 'matrix', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: true, minVersion: 0 },
-        { name: 'zoom_inset', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'blur_tile_mode', packedOffset: 52, packedBitOffset: 0, type: skia.mojom.TileModeSpec, nullable: false, minVersion: 0 },
-        { name: 'shape', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.RectSpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.FilterOperationSpec, 'viz.mojom.FilterOperation', [
+      mojo.internal.StructField('type', 40, 0, viz.mojom.FilterTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('amount', 44, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('offset', 0, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('drop_shadow_color', 8, 0, skia.mojom.SkColor4fSpec, null, false, 0, undefined),
+      mojo.internal.StructField('image_filter', 16, 0, viz.mojom.PaintFilterSpec, null, false, 0, undefined),
+      mojo.internal.StructField('matrix', 24, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, true, 0, undefined),
+      mojo.internal.StructField('zoom_inset', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('blur_tile_mode', 52, 0, skia.mojom.TileModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shape', 32, 0, mojo.internal.Array(gfx.mojom.RectSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 64]]);

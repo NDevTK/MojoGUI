@@ -8,6 +8,7 @@
 var mojo_base = mojo_base || {};
 mojo_base.mojom = mojo_base.mojom || {};
 
+mojo_base.mojom.BatteryPowerStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: BatteryPowerStatus
 mojo_base.mojom.BatteryPowerStatus = {
@@ -15,4 +16,3 @@ mojo_base.mojom.BatteryPowerStatus = {
   kBatteryPower: 1,
   kExternalPower: 2,
 };
-mojo_base.mojom.BatteryPowerStatusSpec = { $: mojo.internal.Enum() };

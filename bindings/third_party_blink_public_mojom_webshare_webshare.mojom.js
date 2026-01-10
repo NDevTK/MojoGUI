@@ -11,40 +11,35 @@ var blink = blink || {};
 var blink = blink || {};
 var url = url || {};
 
+blink.mojom.SharedFileSpec = { $: {} };
+blink.mojom.ShareService = {};
+blink.mojom.ShareService.$interfaceName = 'blink.mojom.ShareService';
+blink.mojom.ShareService_Share_ParamsSpec = { $: {} };
+blink.mojom.ShareService_Share_ResponseParamsSpec = { $: {} };
 
 // Struct: SharedFile
-blink.mojom.SharedFileSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedFile',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.SafeBaseNameSpec, nullable: false, minVersion: 0 },
-        { name: 'blob', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SerializedBlobSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SharedFileSpec, 'blink.mojom.SharedFile', [
+      mojo.internal.StructField('name', 0, 0, mojo_base.mojom.SafeBaseNameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('blob', 8, 0, blink.mojom.SerializedBlobSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: ShareService
-blink.mojom.ShareService = {};
+mojo.internal.Struct(
+    blink.mojom.ShareService_Share_ParamsSpec, 'blink.mojom.ShareService_Share_Params', [
+      mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('text', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('files', 24, 0, mojo.internal.Array(blink.mojom.SharedFileSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-blink.mojom.ShareService_Share_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ShareService_Share_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'files', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SharedFileSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ShareService_Share_ResponseParamsSpec, 'blink.mojom.ShareService_Share_ResponseParams', [
+      mojo.internal.StructField('error', 0, 0, blink.mojom.ShareErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.ShareServicePendingReceiver = class {
   constructor(handle) {
@@ -99,37 +94,6 @@ blink.mojom.ShareService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Share
-blink.mojom.ShareService_Share_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ShareService.Share_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'files', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SharedFileSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-blink.mojom.ShareService_Share_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ShareService.Share_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ShareErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.ShareServicePtr = blink.mojom.ShareServiceRemote;
 blink.mojom.ShareServiceRequest = blink.mojom.ShareServicePendingReceiver;
 

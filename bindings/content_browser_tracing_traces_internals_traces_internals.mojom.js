@@ -9,6 +9,59 @@ var traces_internals = traces_internals || {};
 traces_internals.mojom = traces_internals.mojom || {};
 var url = url || {};
 
+traces_internals.mojom.ReportUploadStateSpec = { $: mojo.internal.Enum() };
+traces_internals.mojom.SkipUploadReasonSpec = { $: mojo.internal.Enum() };
+traces_internals.mojom.TracingScenarioStateSpec = { $: mojo.internal.Enum() };
+traces_internals.mojom.ClientTraceReportSpec = { $: {} };
+traces_internals.mojom.ScenarioSpec = { $: {} };
+traces_internals.mojom.TraceCategorySpec = { $: {} };
+traces_internals.mojom.TracesInternalsHandlerFactory = {};
+traces_internals.mojom.TracesInternalsHandlerFactory.$interfaceName = 'traces_internals.mojom.TracesInternalsHandlerFactory';
+traces_internals.mojom.TracesInternalsHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler = {};
+traces_internals.mojom.PageHandler.$interfaceName = 'traces_internals.mojom.PageHandler';
+traces_internals.mojom.PageHandler_StartTraceSession_ParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_StartTraceSession_ResponseParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_CloneTraceSession_ParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_CloneTraceSession_ResponseParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_StopTraceSession_ParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_StopTraceSession_ResponseParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_GetTrackEventCategories_ParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_GetTrackEventCategories_ResponseParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_GetBufferUsage_ParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_GetBufferUsage_ResponseParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_GetAllTraceReports_ParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_GetAllTraceReports_ResponseParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_DeleteSingleTrace_ParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_DeleteSingleTrace_ResponseParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_DeleteAllTraces_ParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_DeleteAllTraces_ResponseParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_UserUploadSingleTrace_ParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_UserUploadSingleTrace_ResponseParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_DownloadTrace_ParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_DownloadTrace_ResponseParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_GetAllScenarios_ParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_GetAllScenarios_ResponseParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_SetEnabledScenarios_ParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_SetEnabledScenarios_ResponseParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ResponseParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ResponseParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ResponseParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_SetPrivacyFilterEnabled_ParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_GetSystemTracingState_ParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_GetSystemTracingState_ResponseParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ResponseParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_EnableSystemTracing_ParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_EnableSystemTracing_ResponseParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_DisableSystemTracing_ParamsSpec = { $: {} };
+traces_internals.mojom.PageHandler_DisableSystemTracing_ResponseParamsSpec = { $: {} };
+traces_internals.mojom.Page = {};
+traces_internals.mojom.Page.$interfaceName = 'traces_internals.mojom.Page';
+traces_internals.mojom.Page_OnTraceComplete_ParamsSpec = { $: {} };
 
 // Enum: ReportUploadState
 traces_internals.mojom.ReportUploadState = {
@@ -17,7 +70,6 @@ traces_internals.mojom.ReportUploadState = {
   kPending_UserRequested: 2,
   kUploaded: 3,
 };
-traces_internals.mojom.ReportUploadStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: SkipUploadReason
 traces_internals.mojom.SkipUploadReason = {
@@ -28,7 +80,6 @@ traces_internals.mojom.SkipUploadReason = {
   kUploadTimedOut: 4,
   kLocalScenario: 5,
 };
-traces_internals.mojom.SkipUploadReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: TracingScenarioState
 traces_internals.mojom.TracingScenarioState = {
@@ -41,83 +92,52 @@ traces_internals.mojom.TracingScenarioState = {
   kFinalizing: 6,
   kCloning: 7,
 };
-traces_internals.mojom.TracingScenarioStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: ClientTraceReport
-traces_internals.mojom.ClientTraceReportSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.ClientTraceReport',
-      packedSize: 72,
-      fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false, minVersion: 0 },
-        { name: 'creation_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'scenario_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'upload_rule_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'upload_rule_value_$flag', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'upload_rule_value_$value', originalFieldName: 'upload_rule_value' } },
-        { name: 'upload_rule_value_$value', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'upload_rule_value_$flag', originalFieldName: 'upload_rule_value' } },
-        { name: 'total_size', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'upload_state', packedOffset: 52, packedBitOffset: 0, type: traces_internals.mojom.ReportUploadStateSpec, nullable: false, minVersion: 0 },
-        { name: 'upload_time', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'skip_reason', packedOffset: 56, packedBitOffset: 0, type: traces_internals.mojom.SkipUploadReasonSpec, nullable: false, minVersion: 0 },
-        { name: 'has_trace_content', packedOffset: 60, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 72}]
-    }
-  }
-};
+mojo.internal.Struct(
+    traces_internals.mojom.ClientTraceReportSpec, 'traces_internals.mojom.ClientTraceReport', [
+      mojo.internal.StructField('uuid', 0, 0, mojo_base.mojom.TokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('creation_time', 8, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scenario_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('upload_rule_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('upload_rule_value_$flag', 60, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'upload_rule_value_$value', originalFieldName: 'upload_rule_value' }),
+      mojo.internal.StructField('upload_rule_value_$value', 48, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'upload_rule_value_$flag', originalFieldName: 'upload_rule_value' }),
+      mojo.internal.StructField('total_size', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('upload_state', 52, 0, traces_internals.mojom.ReportUploadStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('upload_time', 40, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('skip_reason', 56, 0, traces_internals.mojom.SkipUploadReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('has_trace_content', 60, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 72]]);
 
 // Struct: Scenario
-traces_internals.mojom.ScenarioSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.Scenario',
-      packedSize: 32,
-      fields: [
-        { name: 'scenario_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_local_scenario', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_enabled', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'current_state', packedOffset: 16, packedBitOffset: 0, type: traces_internals.mojom.TracingScenarioStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    traces_internals.mojom.ScenarioSpec, 'traces_internals.mojom.Scenario', [
+      mojo.internal.StructField('scenario_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('description', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_local_scenario', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_enabled', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('current_state', 16, 0, traces_internals.mojom.TracingScenarioStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: TraceCategory
-traces_internals.mojom.TraceCategorySpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.TraceCategory',
-      packedSize: 40,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_group', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'tags', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    traces_internals.mojom.TraceCategorySpec, 'traces_internals.mojom.TraceCategory', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_group', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('description', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('tags', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: TracesInternalsHandlerFactory
-traces_internals.mojom.TracesInternalsHandlerFactory = {};
-
-traces_internals.mojom.TracesInternalsHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.TracesInternalsHandlerFactory_CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(traces_internals.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(traces_internals.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    traces_internals.mojom.TracesInternalsHandlerFactory_CreatePageHandler_ParamsSpec, 'traces_internals.mojom.TracesInternalsHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(traces_internals.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(traces_internals.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 traces_internals.mojom.TracesInternalsHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -172,277 +192,237 @@ traces_internals.mojom.TracesInternalsHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-traces_internals.mojom.TracesInternalsHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.TracesInternalsHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(traces_internals.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(traces_internals.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 traces_internals.mojom.TracesInternalsHandlerFactoryPtr = traces_internals.mojom.TracesInternalsHandlerFactoryRemote;
 traces_internals.mojom.TracesInternalsHandlerFactoryRequest = traces_internals.mojom.TracesInternalsHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-traces_internals.mojom.PageHandler = {};
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_StartTraceSession_ParamsSpec, 'traces_internals.mojom.PageHandler_StartTraceSession_Params', [
+      mojo.internal.StructField('config_pb', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('enable_privacy_filters', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-traces_internals.mojom.PageHandler_StartTraceSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler_StartTraceSession_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'config_pb', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-        { name: 'enable_privacy_filters', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_StartTraceSession_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_StartTraceSession_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-traces_internals.mojom.PageHandler_CloneTraceSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler_CloneTraceSession_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_CloneTraceSession_ParamsSpec, 'traces_internals.mojom.PageHandler_CloneTraceSession_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-traces_internals.mojom.PageHandler_StopTraceSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler_StopTraceSession_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_CloneTraceSession_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_CloneTraceSession_ResponseParams', [
+      mojo.internal.StructField('trace', 0, 0, mojo_base.mojom.BigBufferSpec, null, true, 0, undefined),
+      mojo.internal.StructField('uuid', 16, 0, mojo_base.mojom.TokenSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
-traces_internals.mojom.PageHandler_GetTrackEventCategories_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler_GetTrackEventCategories_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_StopTraceSession_ParamsSpec, 'traces_internals.mojom.PageHandler_StopTraceSession_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-traces_internals.mojom.PageHandler_GetBufferUsage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler_GetBufferUsage_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_StopTraceSession_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_StopTraceSession_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-traces_internals.mojom.PageHandler_GetAllTraceReports_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler_GetAllTraceReports_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_GetTrackEventCategories_ParamsSpec, 'traces_internals.mojom.PageHandler_GetTrackEventCategories_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-traces_internals.mojom.PageHandler_DeleteSingleTrace_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler_DeleteSingleTrace_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_GetTrackEventCategories_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_GetTrackEventCategories_ResponseParams', [
+      mojo.internal.StructField('categories', 0, 0, mojo.internal.Array(traces_internals.mojom.TraceCategorySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-traces_internals.mojom.PageHandler_DeleteAllTraces_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler_DeleteAllTraces_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_GetBufferUsage_ParamsSpec, 'traces_internals.mojom.PageHandler_GetBufferUsage_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-traces_internals.mojom.PageHandler_UserUploadSingleTrace_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler_UserUploadSingleTrace_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_GetBufferUsage_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_GetBufferUsage_ResponseParams', [
+      mojo.internal.StructField('success', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('percent_full', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('data_loss', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-traces_internals.mojom.PageHandler_DownloadTrace_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler_DownloadTrace_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_GetAllTraceReports_ParamsSpec, 'traces_internals.mojom.PageHandler_GetAllTraceReports_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-traces_internals.mojom.PageHandler_GetAllScenarios_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler_GetAllScenarios_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_GetAllTraceReports_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_GetAllTraceReports_ResponseParams', [
+      mojo.internal.StructField('reports', 0, 0, mojo.internal.Array(traces_internals.mojom.ClientTraceReportSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-traces_internals.mojom.PageHandler_SetEnabledScenarios_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler_SetEnabledScenarios_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'new_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_DeleteSingleTrace_ParamsSpec, 'traces_internals.mojom.PageHandler_DeleteSingleTrace_Params', [
+      mojo.internal.StructField('uuid', 0, 0, mojo_base.mojom.TokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler_SetScenariosConfigFromString_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'config_string', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_DeleteSingleTrace_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_DeleteSingleTrace_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'config_pb', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_DeleteAllTraces_ParamsSpec, 'traces_internals.mojom.PageHandler_DeleteAllTraces_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_DeleteAllTraces_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_DeleteAllTraces_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-traces_internals.mojom.PageHandler_SetPrivacyFilterEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler_SetPrivacyFilterEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_UserUploadSingleTrace_ParamsSpec, 'traces_internals.mojom.PageHandler_UserUploadSingleTrace_Params', [
+      mojo.internal.StructField('uuid', 0, 0, mojo_base.mojom.TokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-traces_internals.mojom.PageHandler_GetSystemTracingState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler_GetSystemTracingState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_UserUploadSingleTrace_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_UserUploadSingleTrace_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_DownloadTrace_ParamsSpec, 'traces_internals.mojom.PageHandler_DownloadTrace_Params', [
+      mojo.internal.StructField('uuid', 0, 0, mojo_base.mojom.TokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-traces_internals.mojom.PageHandler_EnableSystemTracing_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler_EnableSystemTracing_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_DownloadTrace_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_DownloadTrace_ResponseParams', [
+      mojo.internal.StructField('trace', 0, 0, mojo_base.mojom.BigBufferSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-traces_internals.mojom.PageHandler_DisableSystemTracing_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler_DisableSystemTracing_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_GetAllScenarios_ParamsSpec, 'traces_internals.mojom.PageHandler_GetAllScenarios_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_GetAllScenarios_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_GetAllScenarios_ResponseParams', [
+      mojo.internal.StructField('config', 0, 0, mojo.internal.Array(traces_internals.mojom.ScenarioSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_SetEnabledScenarios_ParamsSpec, 'traces_internals.mojom.PageHandler_SetEnabledScenarios_Params', [
+      mojo.internal.StructField('new_config', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_SetEnabledScenarios_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_SetEnabledScenarios_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ParamsSpec, 'traces_internals.mojom.PageHandler_SetScenariosConfigFromString_Params', [
+      mojo.internal.StructField('config_string', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ParamsSpec, 'traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_Params', [
+      mojo.internal.StructField('config_pb', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ParamsSpec, 'traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ResponseParams', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_SetPrivacyFilterEnabled_ParamsSpec, 'traces_internals.mojom.PageHandler_SetPrivacyFilterEnabled_Params', [
+      mojo.internal.StructField('enable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_GetSystemTracingState_ParamsSpec, 'traces_internals.mojom.PageHandler_GetSystemTracingState_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_GetSystemTracingState_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_GetSystemTracingState_ResponseParams', [
+      mojo.internal.StructField('service_supported', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('service_registered', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ParamsSpec, 'traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ResponseParams', [
+      mojo.internal.StructField('shield_icon_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_EnableSystemTracing_ParamsSpec, 'traces_internals.mojom.PageHandler_EnableSystemTracing_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_EnableSystemTracing_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_EnableSystemTracing_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_DisableSystemTracing_ParamsSpec, 'traces_internals.mojom.PageHandler_DisableSystemTracing_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    traces_internals.mojom.PageHandler_DisableSystemTracing_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_DisableSystemTracing_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 traces_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -668,547 +648,17 @@ traces_internals.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for StartTraceSession
-traces_internals.mojom.PageHandler_StartTraceSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.StartTraceSession_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'config_pb', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-        { name: 'enable_privacy_filters', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-traces_internals.mojom.PageHandler_StartTraceSession_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.StartTraceSession_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CloneTraceSession
-traces_internals.mojom.PageHandler_CloneTraceSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.CloneTraceSession_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-traces_internals.mojom.PageHandler_CloneTraceSession_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.CloneTraceSession_ResponseParams',
-      packedSize: 32,
-      fields: [
-        { name: 'trace', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true, minVersion: 0 },
-        { name: 'uuid', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for StopTraceSession
-traces_internals.mojom.PageHandler_StopTraceSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.StopTraceSession_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-traces_internals.mojom.PageHandler_StopTraceSession_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.StopTraceSession_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetTrackEventCategories
-traces_internals.mojom.PageHandler_GetTrackEventCategories_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.GetTrackEventCategories_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-traces_internals.mojom.PageHandler_GetTrackEventCategories_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.GetTrackEventCategories_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'categories', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(traces_internals.mojom.TraceCategorySpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetBufferUsage
-traces_internals.mojom.PageHandler_GetBufferUsage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.GetBufferUsage_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-traces_internals.mojom.PageHandler_GetBufferUsage_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.GetBufferUsage_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'percent_full', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'data_loss', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetAllTraceReports
-traces_internals.mojom.PageHandler_GetAllTraceReports_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.GetAllTraceReports_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-traces_internals.mojom.PageHandler_GetAllTraceReports_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.GetAllTraceReports_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'reports', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(traces_internals.mojom.ClientTraceReportSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DeleteSingleTrace
-traces_internals.mojom.PageHandler_DeleteSingleTrace_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.DeleteSingleTrace_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-traces_internals.mojom.PageHandler_DeleteSingleTrace_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.DeleteSingleTrace_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DeleteAllTraces
-traces_internals.mojom.PageHandler_DeleteAllTraces_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.DeleteAllTraces_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-traces_internals.mojom.PageHandler_DeleteAllTraces_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.DeleteAllTraces_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UserUploadSingleTrace
-traces_internals.mojom.PageHandler_UserUploadSingleTrace_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.UserUploadSingleTrace_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-traces_internals.mojom.PageHandler_UserUploadSingleTrace_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.UserUploadSingleTrace_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DownloadTrace
-traces_internals.mojom.PageHandler_DownloadTrace_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.DownloadTrace_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-traces_internals.mojom.PageHandler_DownloadTrace_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.DownloadTrace_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'trace', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GetAllScenarios
-traces_internals.mojom.PageHandler_GetAllScenarios_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.GetAllScenarios_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-traces_internals.mojom.PageHandler_GetAllScenarios_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.GetAllScenarios_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(traces_internals.mojom.ScenarioSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetEnabledScenarios
-traces_internals.mojom.PageHandler_SetEnabledScenarios_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.SetEnabledScenarios_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'new_config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-traces_internals.mojom.PageHandler_SetEnabledScenarios_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.SetEnabledScenarios_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetScenariosConfigFromString
-traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.SetScenariosConfigFromString_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'config_string', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.SetScenariosConfigFromString_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetScenariosConfigFromBuffer
-traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.SetScenariosConfigFromBuffer_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'config_pb', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.SetScenariosConfigFromBuffer_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetPrivacyFilterEnabled
-traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.GetPrivacyFilterEnabled_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.GetPrivacyFilterEnabled_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetPrivacyFilterEnabled
-traces_internals.mojom.PageHandler_SetPrivacyFilterEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.SetPrivacyFilterEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetSystemTracingState
-traces_internals.mojom.PageHandler_GetSystemTracingState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.GetSystemTracingState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-traces_internals.mojom.PageHandler_GetSystemTracingState_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.GetSystemTracingState_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'service_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'service_registered', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetSecurityShieldIconUrl
-traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.GetSecurityShieldIconUrl_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.GetSecurityShieldIconUrl_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'shield_icon_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EnableSystemTracing
-traces_internals.mojom.PageHandler_EnableSystemTracing_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.EnableSystemTracing_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-traces_internals.mojom.PageHandler_EnableSystemTracing_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.EnableSystemTracing_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DisableSystemTracing
-traces_internals.mojom.PageHandler_DisableSystemTracing_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.DisableSystemTracing_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-traces_internals.mojom.PageHandler_DisableSystemTracing_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.PageHandler.DisableSystemTracing_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 traces_internals.mojom.PageHandlerPtr = traces_internals.mojom.PageHandlerRemote;
 traces_internals.mojom.PageHandlerRequest = traces_internals.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-traces_internals.mojom.Page = {};
-
-traces_internals.mojom.Page_OnTraceComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.Page_OnTraceComplete_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'trace', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true, minVersion: 0 },
-        { name: 'uuid', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    traces_internals.mojom.Page_OnTraceComplete_ParamsSpec, 'traces_internals.mojom.Page_OnTraceComplete_Params', [
+      mojo.internal.StructField('trace', 0, 0, mojo_base.mojom.BigBufferSpec, null, true, 0, undefined),
+      mojo.internal.StructField('uuid', 16, 0, mojo_base.mojom.TokenSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 traces_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -1263,22 +713,6 @@ traces_internals.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnTraceComplete
-traces_internals.mojom.Page_OnTraceComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'traces_internals.mojom.Page.OnTraceComplete_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'trace', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true, minVersion: 0 },
-        { name: 'uuid', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 traces_internals.mojom.PagePtr = traces_internals.mojom.PageRemote;
 traces_internals.mojom.PageRequest = traces_internals.mojom.PagePendingReceiver;
 

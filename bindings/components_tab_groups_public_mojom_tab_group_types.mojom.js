@@ -8,16 +8,17 @@
 var tab_groups = tab_groups || {};
 tab_groups.mojom = tab_groups.mojom || {};
 
+tab_groups.mojom.ColorSpec = { $: mojo.internal.Enum() };
 
 // Enum: Color
 tab_groups.mojom.Color = {
-  kBlue: 0,
-  kRed: 1,
-  kYellow: 2,
-  kGreen: 3,
-  kPink: 4,
-  kPurple: 5,
-  kCyan: 6,
-  kOrange: 7,
+  kGrey: 0,
+  kBlue: 1,
+  kRed: 2,
+  kYellow: 3,
+  kGreen: 4,
+  kPink: 5,
+  kPurple: 6,
+  kCyan: 7,
+  kOrange: 8,
 };
-tab_groups.mojom.ColorSpec = { $: mojo.internal.Enum() };

@@ -8,28 +8,28 @@
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
 
+gfx.mojom.CALayerResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: CALayerResult
 gfx.mojom.CALayerResult = {
   kCALayerSuccess: 0,
   kCALayerFailedUnknown: 1,
-  kCALayerFailedTextureNotCandidate: 2,
-  kCALayerFailedTileNotCandidate: 3,
-  kCALayerFailedQuadBlendMode: 4,
-  kCALayerFailedQuadClipping: 5,
-  kCALayerFailedDebugBoarder: 6,
-  kCALayerFailedPictureContent: 7,
-  kCALayerFailedSurfaceContent: 8,
-  kCALayerFailedDifferentClipSettings: 9,
-  kCALayerFailedRenderPassBackdropFilters: 10,
-  kCALayerFailedRenderPassPassMask: 11,
-  kCALayerFailedRenderPassFilterOperation: 12,
-  kCALayerFailedRenderPassSortingContextId: 13,
-  kCALayerFailedTooManyRenderPassDrawQuads: 14,
-  kCALayerFailedQuadRoundedCornerNotUniform: 15,
-  kCALayerFailedTooManyQuads: 16,
-  kCALayerFailedCopyRequests: 17,
-  kCALayerFailedOverlayDisabled: 18,
-  kCALayerFailedVideoCaptureEnabled: 19,
+  kCALayerFailedTextureNotCandidate: 5,
+  kCALayerFailedTileNotCandidate: 7,
+  kCALayerFailedQuadBlendMode: 8,
+  kCALayerFailedQuadClipping: 10,
+  kCALayerFailedDebugBoarder: 11,
+  kCALayerFailedPictureContent: 12,
+  kCALayerFailedSurfaceContent: 14,
+  kCALayerFailedDifferentClipSettings: 16,
+  kCALayerFailedRenderPassBackdropFilters: 19,
+  kCALayerFailedRenderPassPassMask: 20,
+  kCALayerFailedRenderPassFilterOperation: 21,
+  kCALayerFailedRenderPassSortingContextId: 22,
+  kCALayerFailedTooManyRenderPassDrawQuads: 23,
+  kCALayerFailedQuadRoundedCornerNotUniform: 26,
+  kCALayerFailedTooManyQuads: 27,
+  kCALayerFailedCopyRequests: 31,
+  kCALayerFailedOverlayDisabled: 32,
+  kCALayerFailedVideoCaptureEnabled: 33,
 };
-gfx.mojom.CALayerResultSpec = { $: mojo.internal.Enum() };

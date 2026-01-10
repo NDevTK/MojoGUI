@@ -8,121 +8,114 @@
 var cast_streaming = cast_streaming || {};
 cast_streaming.mojom = cast_streaming.mojom || {};
 
+cast_streaming.mojom.GetAudioBufferResponseSpec = { $: {} };
+cast_streaming.mojom.GetVideoBufferResponseSpec = { $: {} };
+cast_streaming.mojom.AudioStreamInfoSpec = { $: {} };
+cast_streaming.mojom.VideoStreamInfoSpec = { $: {} };
+cast_streaming.mojom.AudioStreamInitializationInfoSpec = { $: {} };
+cast_streaming.mojom.VideoStreamInitializationInfoSpec = { $: {} };
+cast_streaming.mojom.AudioBufferRequester = {};
+cast_streaming.mojom.AudioBufferRequester.$interfaceName = 'cast_streaming.mojom.AudioBufferRequester';
+cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec = { $: {} };
+cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec = { $: {} };
+cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec = { $: {} };
+cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec = { $: {} };
+cast_streaming.mojom.VideoBufferRequester = {};
+cast_streaming.mojom.VideoBufferRequester.$interfaceName = 'cast_streaming.mojom.VideoBufferRequester';
+cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec = { $: {} };
+cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec = { $: {} };
+cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec = { $: {} };
+cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec = { $: {} };
+cast_streaming.mojom.DemuxerConnector = {};
+cast_streaming.mojom.DemuxerConnector.$interfaceName = 'cast_streaming.mojom.DemuxerConnector';
+cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec = { $: {} };
+cast_streaming.mojom.DemuxerConnector_EnableReceiver_ResponseParamsSpec = { $: {} };
+cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec = { $: {} };
 
 // Union: GetAudioBufferResponse
-cast_streaming.mojom.GetAudioBufferResponseSpec = { $: mojo.internal.Union(
-    'cast_streaming.mojom.GetAudioBufferResponse', {
+mojo.internal.Union(
+    cast_streaming.mojom.GetAudioBufferResponseSpec, 'cast_streaming.mojom.GetAudioBufferResponse', {
       'stream_info': {
         'ordinal': 0,
         'type': cast_streaming.mojom.AudioStreamInfoSpec,
-      }},
+        'nullable': false,
+      },
       'buffer': {
         'ordinal': 1,
         'type': media.mojom.DecoderBufferSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Union: GetVideoBufferResponse
-cast_streaming.mojom.GetVideoBufferResponseSpec = { $: mojo.internal.Union(
-    'cast_streaming.mojom.GetVideoBufferResponse', {
+mojo.internal.Union(
+    cast_streaming.mojom.GetVideoBufferResponseSpec, 'cast_streaming.mojom.GetVideoBufferResponse', {
       'stream_info': {
         'ordinal': 0,
         'type': cast_streaming.mojom.VideoStreamInfoSpec,
-      }},
+        'nullable': false,
+      },
       'buffer': {
         'ordinal': 1,
         'type': media.mojom.DecoderBufferSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: AudioStreamInfo
-cast_streaming.mojom.AudioStreamInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'cast_streaming.mojom.AudioStreamInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'decoder_config', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioDecoderConfigSpec, nullable: false, minVersion: 0 },
-        { name: 'data_pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cast_streaming.mojom.AudioStreamInfoSpec, 'cast_streaming.mojom.AudioStreamInfo', [
+      mojo.internal.StructField('decoder_config', 0, 0, media.mojom.AudioDecoderConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data_pipe', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: VideoStreamInfo
-cast_streaming.mojom.VideoStreamInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'cast_streaming.mojom.VideoStreamInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'decoder_config', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoDecoderConfigSpec, nullable: false, minVersion: 0 },
-        { name: 'data_pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cast_streaming.mojom.VideoStreamInfoSpec, 'cast_streaming.mojom.VideoStreamInfo', [
+      mojo.internal.StructField('decoder_config', 0, 0, media.mojom.VideoDecoderConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data_pipe', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: AudioStreamInitializationInfo
-cast_streaming.mojom.AudioStreamInitializationInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'cast_streaming.mojom.AudioStreamInitializationInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'buffer_requester', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cast_streaming.mojom.AudioBufferRequesterRemote), nullable: false, minVersion: 0 },
-        { name: 'stream_initialization_info', packedOffset: 8, packedBitOffset: 0, type: cast_streaming.mojom.AudioStreamInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cast_streaming.mojom.AudioStreamInitializationInfoSpec, 'cast_streaming.mojom.AudioStreamInitializationInfo', [
+      mojo.internal.StructField('buffer_requester', 0, 0, mojo.internal.InterfaceProxy(cast_streaming.mojom.AudioBufferRequesterRemote), null, false, 0, undefined),
+      mojo.internal.StructField('stream_initialization_info', 8, 0, cast_streaming.mojom.AudioStreamInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: VideoStreamInitializationInfo
-cast_streaming.mojom.VideoStreamInitializationInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'cast_streaming.mojom.VideoStreamInitializationInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'buffer_requester', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cast_streaming.mojom.VideoBufferRequesterRemote), nullable: false, minVersion: 0 },
-        { name: 'stream_initialization_info', packedOffset: 8, packedBitOffset: 0, type: cast_streaming.mojom.VideoStreamInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cast_streaming.mojom.VideoStreamInitializationInfoSpec, 'cast_streaming.mojom.VideoStreamInitializationInfo', [
+      mojo.internal.StructField('buffer_requester', 0, 0, mojo.internal.InterfaceProxy(cast_streaming.mojom.VideoBufferRequesterRemote), null, false, 0, undefined),
+      mojo.internal.StructField('stream_initialization_info', 8, 0, cast_streaming.mojom.VideoStreamInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: AudioBufferRequester
-cast_streaming.mojom.AudioBufferRequester = {};
+mojo.internal.Struct(
+    cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec, 'cast_streaming.mojom.AudioBufferRequester_GetBuffer_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cast_streaming.mojom.AudioBufferRequester_GetBuffer_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec, 'cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParams', [
+      mojo.internal.StructField('buffer_response', 0, 0, cast_streaming.mojom.GetAudioBufferResponseSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec, 'cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec, 'cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 cast_streaming.mojom.AudioBufferRequesterPendingReceiver = class {
   constructor(handle) {
@@ -186,89 +179,32 @@ cast_streaming.mojom.AudioBufferRequester.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetBuffer
-cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cast_streaming.mojom.AudioBufferRequester.GetBuffer_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cast_streaming.mojom.AudioBufferRequester.GetBuffer_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'buffer_response', packedOffset: 0, packedBitOffset: 0, type: cast_streaming.mojom.GetAudioBufferResponseSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for EnableBitstreamConverter
-cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cast_streaming.mojom.AudioBufferRequester.EnableBitstreamConverter_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cast_streaming.mojom.AudioBufferRequester.EnableBitstreamConverter_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 cast_streaming.mojom.AudioBufferRequesterPtr = cast_streaming.mojom.AudioBufferRequesterRemote;
 cast_streaming.mojom.AudioBufferRequesterRequest = cast_streaming.mojom.AudioBufferRequesterPendingReceiver;
 
 
 // Interface: VideoBufferRequester
-cast_streaming.mojom.VideoBufferRequester = {};
+mojo.internal.Struct(
+    cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec, 'cast_streaming.mojom.VideoBufferRequester_GetBuffer_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cast_streaming.mojom.VideoBufferRequester_GetBuffer_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec, 'cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParams', [
+      mojo.internal.StructField('buffer_response', 0, 0, cast_streaming.mojom.GetVideoBufferResponseSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec, 'cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec, 'cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 cast_streaming.mojom.VideoBufferRequesterPendingReceiver = class {
   constructor(handle) {
@@ -332,91 +268,27 @@ cast_streaming.mojom.VideoBufferRequester.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetBuffer
-cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cast_streaming.mojom.VideoBufferRequester.GetBuffer_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cast_streaming.mojom.VideoBufferRequester.GetBuffer_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'buffer_response', packedOffset: 0, packedBitOffset: 0, type: cast_streaming.mojom.GetVideoBufferResponseSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for EnableBitstreamConverter
-cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cast_streaming.mojom.VideoBufferRequester.EnableBitstreamConverter_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cast_streaming.mojom.VideoBufferRequester.EnableBitstreamConverter_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 cast_streaming.mojom.VideoBufferRequesterPtr = cast_streaming.mojom.VideoBufferRequesterRemote;
 cast_streaming.mojom.VideoBufferRequesterRequest = cast_streaming.mojom.VideoBufferRequesterPendingReceiver;
 
 
 // Interface: DemuxerConnector
-cast_streaming.mojom.DemuxerConnector = {};
+mojo.internal.Struct(
+    cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec, 'cast_streaming.mojom.DemuxerConnector_EnableReceiver_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cast_streaming.mojom.DemuxerConnector_EnableReceiver_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cast_streaming.mojom.DemuxerConnector_EnableReceiver_ResponseParamsSpec, 'cast_streaming.mojom.DemuxerConnector_EnableReceiver_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'audio_buffer_requester', packedOffset: 0, packedBitOffset: 0, type: cast_streaming.mojom.AudioStreamInitializationInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'video_buffer_requester', packedOffset: 8, packedBitOffset: 0, type: cast_streaming.mojom.VideoStreamInitializationInfoSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec, 'cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_Params', [
+      mojo.internal.StructField('audio_buffer_requester', 0, 0, cast_streaming.mojom.AudioStreamInitializationInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('video_buffer_requester', 8, 0, cast_streaming.mojom.VideoStreamInitializationInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 cast_streaming.mojom.DemuxerConnectorPendingReceiver = class {
   constructor(handle) {
@@ -455,7 +327,7 @@ cast_streaming.mojom.DemuxerConnectorRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec,
-      null,
+      cast_streaming.mojom.DemuxerConnector_EnableReceiver_ResponseParamsSpec,
       []);
   }
 
@@ -480,35 +352,6 @@ cast_streaming.mojom.DemuxerConnector.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for EnableReceiver
-cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cast_streaming.mojom.DemuxerConnector.EnableReceiver_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnStreamsInitialized
-cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cast_streaming.mojom.DemuxerConnector.OnStreamsInitialized_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'audio_buffer_requester', packedOffset: 0, packedBitOffset: 0, type: cast_streaming.mojom.AudioStreamInitializationInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'video_buffer_requester', packedOffset: 8, packedBitOffset: 0, type: cast_streaming.mojom.VideoStreamInitializationInfoSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 cast_streaming.mojom.DemuxerConnectorPtr = cast_streaming.mojom.DemuxerConnectorRemote;
 cast_streaming.mojom.DemuxerConnectorRequest = cast_streaming.mojom.DemuxerConnectorPendingReceiver;
 

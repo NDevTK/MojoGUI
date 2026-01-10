@@ -8,10 +8,10 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.NavigationBlockedReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: NavigationBlockedReason
 blink.mojom.NavigationBlockedReason = {
   kRedirectWithNoUserGesture: 0,
   kRedirectWithNoUserGestureSandbox: 1,
 };
-blink.mojom.NavigationBlockedReasonSpec = { $: mojo.internal.Enum() };

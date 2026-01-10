@@ -8,20 +8,14 @@
 var url = url || {};
 url.mojom = url.mojom || {};
 
+url.mojom.OriginSpec = { $: {} };
 
 // Struct: Origin
-url.mojom.OriginSpec = {
-  $: {
-    structSpec: {
-      name: 'url.mojom.Origin',
-      packedSize: 40,
-      fields: [
-        { name: 'scheme', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'port', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'nonce_if_opaque', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    url.mojom.OriginSpec, 'url.mojom.Origin', [
+      mojo.internal.StructField('scheme', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('host', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('port', 24, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('nonce_if_opaque', 16, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);

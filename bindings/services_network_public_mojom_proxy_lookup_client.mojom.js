@@ -7,24 +7,19 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
 
+network.mojom.ProxyLookupClient = {};
+network.mojom.ProxyLookupClient.$interfaceName = 'network.mojom.ProxyLookupClient';
+network.mojom.ProxyLookupClient_OnProxyLookupComplete_ParamsSpec = { $: {} };
 
 // Interface: ProxyLookupClient
-network.mojom.ProxyLookupClient = {};
-
-network.mojom.ProxyLookupClient_OnProxyLookupComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ProxyLookupClient_OnProxyLookupComplete_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'proxy_info', packedOffset: 0, packedBitOffset: 0, type: proxy_resolver.mojom.ProxyInfoSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.ProxyLookupClient_OnProxyLookupComplete_ParamsSpec, 'network.mojom.ProxyLookupClient_OnProxyLookupComplete_Params', [
+      mojo.internal.StructField('net_error', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('proxy_info', 0, 0, proxy_resolver.mojom.ProxyInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 network.mojom.ProxyLookupClientPendingReceiver = class {
   constructor(handle) {
@@ -79,22 +74,6 @@ network.mojom.ProxyLookupClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnProxyLookupComplete
-network.mojom.ProxyLookupClient_OnProxyLookupComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ProxyLookupClient.OnProxyLookupComplete_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'net_error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'proxy_info', packedOffset: 0, packedBitOffset: 0, type: proxy_resolver.mojom.ProxyInfoSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.ProxyLookupClientPtr = network.mojom.ProxyLookupClientRemote;
 network.mojom.ProxyLookupClientRequest = network.mojom.ProxyLookupClientPendingReceiver;
 

@@ -9,6 +9,9 @@ var data_sharing = data_sharing || {};
 data_sharing.mojom = data_sharing.mojom || {};
 var url = url || {};
 
+data_sharing.mojom.MemberRoleSpec = { $: mojo.internal.Enum() };
+data_sharing.mojom.GroupMemberSpec = { $: {} };
+data_sharing.mojom.GroupDataSpec = { $: {} };
 
 // Enum: MemberRole
 data_sharing.mojom.MemberRole = {
@@ -18,43 +21,28 @@ data_sharing.mojom.MemberRole = {
   kInvitee: 3,
   kFormerMember: 4,
 };
-data_sharing.mojom.MemberRoleSpec = { $: mojo.internal.Enum() };
 
 // Struct: GroupMember
-data_sharing.mojom.GroupMemberSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.GroupMember',
-      packedSize: 72,
-      fields: [
-        { name: 'gaia_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'email', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'role', packedOffset: 56, packedBitOffset: 0, type: data_sharing.mojom.MemberRoleSpec, nullable: false, minVersion: 0 },
-        { name: 'avatar_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'given_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'creation_time', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.JSTimeSpec, nullable: false, minVersion: 0 },
-        { name: 'last_updated_time', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.JSTimeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 72}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_sharing.mojom.GroupMemberSpec, 'data_sharing.mojom.GroupMember', [
+      mojo.internal.StructField('gaia_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('display_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('email', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('role', 56, 0, data_sharing.mojom.MemberRoleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('avatar_url', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('given_name', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('creation_time', 40, 0, mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('last_updated_time', 48, 0, mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
+    ],
+    [[0, 72]]);
 
 // Struct: GroupData
-data_sharing.mojom.GroupDataSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.GroupData',
-      packedSize: 48,
-      fields: [
-        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'members', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(data_sharing.mojom.GroupMemberSpec, false), nullable: false, minVersion: 0 },
-        { name: 'former_members', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(data_sharing.mojom.GroupMemberSpec, false), nullable: false, minVersion: 0 },
-        { name: 'access_token', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_sharing.mojom.GroupDataSpec, 'data_sharing.mojom.GroupData', [
+      mojo.internal.StructField('group_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('display_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('members', 16, 0, mojo.internal.Array(data_sharing.mojom.GroupMemberSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('former_members', 24, 0, mojo.internal.Array(data_sharing.mojom.GroupMemberSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('access_token', 32, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 48]]);

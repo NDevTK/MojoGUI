@@ -8,6 +8,7 @@
 var ui = ui || {};
 ui.mojom = ui.mojom || {};
 
+ui.mojom.ModifierKeySpec = { $: mojo.internal.Enum() };
 
 // Enum: ModifierKey
 ui.mojom.ModifierKey = {
@@ -23,4 +24,3 @@ ui.mojom.ModifierKey = {
   kFunction: 9,
   kQuickInsert: 10,
 };
-ui.mojom.ModifierKeySpec = { $: mojo.internal.Enum() };

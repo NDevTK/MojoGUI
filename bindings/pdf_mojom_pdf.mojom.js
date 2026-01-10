@@ -7,10 +7,40 @@
 // Module namespace
 var pdf = pdf || {};
 pdf.mojom = pdf.mojom || {};
+var services = services || {};
 var ui = ui || {};
 var gfx = gfx || {};
 var url = url || {};
 
+pdf.mojom.SaveRequestTypeSpec = { $: mojo.internal.Enum() };
+pdf.mojom.GetPdfBytesStatusSpec = { $: mojo.internal.Enum() };
+pdf.mojom.SaveDataBufferHandlerGetResultSpec = { $: {} };
+pdf.mojom.SaveDataBufferHandler = {};
+pdf.mojom.SaveDataBufferHandler.$interfaceName = 'pdf.mojom.SaveDataBufferHandler';
+pdf.mojom.SaveDataBufferHandler_Read_ParamsSpec = { $: {} };
+pdf.mojom.SaveDataBufferHandler_Read_ResponseParamsSpec = { $: {} };
+pdf.mojom.PdfListener = {};
+pdf.mojom.PdfListener.$interfaceName = 'pdf.mojom.PdfListener';
+pdf.mojom.PdfListener_SetCaretPosition_ParamsSpec = { $: {} };
+pdf.mojom.PdfListener_MoveRangeSelectionExtent_ParamsSpec = { $: {} };
+pdf.mojom.PdfListener_SetSelectionBounds_ParamsSpec = { $: {} };
+pdf.mojom.PdfListener_GetPdfBytes_ParamsSpec = { $: {} };
+pdf.mojom.PdfListener_GetPdfBytes_ResponseParamsSpec = { $: {} };
+pdf.mojom.PdfListener_GetPageText_ParamsSpec = { $: {} };
+pdf.mojom.PdfListener_GetPageText_ResponseParamsSpec = { $: {} };
+pdf.mojom.PdfListener_GetMostVisiblePageIndex_ParamsSpec = { $: {} };
+pdf.mojom.PdfListener_GetMostVisiblePageIndex_ResponseParamsSpec = { $: {} };
+pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ParamsSpec = { $: {} };
+pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ResponseParamsSpec = { $: {} };
+pdf.mojom.PdfHost = {};
+pdf.mojom.PdfHost.$interfaceName = 'pdf.mojom.PdfHost';
+pdf.mojom.PdfHost_SetListener_ParamsSpec = { $: {} };
+pdf.mojom.PdfHost_OnDocumentLoadComplete_ParamsSpec = { $: {} };
+pdf.mojom.PdfHost_UpdateContentRestrictions_ParamsSpec = { $: {} };
+pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec = { $: {} };
+pdf.mojom.PdfHost_SelectionChanged_ParamsSpec = { $: {} };
+pdf.mojom.PdfHost_SetPluginCanSave_ParamsSpec = { $: {} };
+pdf.mojom.PdfHost_OnSearchifyStarted_ParamsSpec = { $: {} };
 
 // Enum: SaveRequestType
 pdf.mojom.SaveRequestType = {
@@ -19,7 +49,6 @@ pdf.mojom.SaveRequestType = {
   kEdited: 2,
   kSearchified: 3,
 };
-pdf.mojom.SaveRequestTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: GetPdfBytesStatus
 pdf.mojom.GetPdfBytesStatus = {
@@ -27,39 +56,28 @@ pdf.mojom.GetPdfBytesStatus = {
   kSizeLimitExceeded: 1,
   kFailed: 2,
 };
-pdf.mojom.GetPdfBytesStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: SaveDataBufferHandlerGetResult
-pdf.mojom.SaveDataBufferHandlerGetResultSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.SaveDataBufferHandlerGetResult',
-      packedSize: 24,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(pdf.mojom.SaveDataBufferHandlerRemote), nullable: false, minVersion: 0 },
-        { name: 'total_file_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    pdf.mojom.SaveDataBufferHandlerGetResultSpec, 'pdf.mojom.SaveDataBufferHandlerGetResult', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceProxy(pdf.mojom.SaveDataBufferHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('total_file_size', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: SaveDataBufferHandler
-pdf.mojom.SaveDataBufferHandler = {};
+mojo.internal.Struct(
+    pdf.mojom.SaveDataBufferHandler_Read_ParamsSpec, 'pdf.mojom.SaveDataBufferHandler_Read_Params', [
+      mojo.internal.StructField('offset', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('block_size', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-pdf.mojom.SaveDataBufferHandler_Read_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.SaveDataBufferHandler_Read_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'block_size', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    pdf.mojom.SaveDataBufferHandler_Read_ResponseParamsSpec, 'pdf.mojom.SaveDataBufferHandler_Read_ResponseParams', [
+      mojo.internal.StructField('block', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 pdf.mojom.SaveDataBufferHandlerPendingReceiver = class {
   constructor(handle) {
@@ -114,132 +132,79 @@ pdf.mojom.SaveDataBufferHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Read
-pdf.mojom.SaveDataBufferHandler_Read_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.SaveDataBufferHandler.Read_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'block_size', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-pdf.mojom.SaveDataBufferHandler_Read_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.SaveDataBufferHandler.Read_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'block', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 pdf.mojom.SaveDataBufferHandlerPtr = pdf.mojom.SaveDataBufferHandlerRemote;
 pdf.mojom.SaveDataBufferHandlerRequest = pdf.mojom.SaveDataBufferHandlerPendingReceiver;
 
 
 // Interface: PdfListener
-pdf.mojom.PdfListener = {};
+mojo.internal.Struct(
+    pdf.mojom.PdfListener_SetCaretPosition_ParamsSpec, 'pdf.mojom.PdfListener_SetCaretPosition_Params', [
+      mojo.internal.StructField('position', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-pdf.mojom.PdfListener_SetCaretPosition_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfListener_SetCaretPosition_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    pdf.mojom.PdfListener_MoveRangeSelectionExtent_ParamsSpec, 'pdf.mojom.PdfListener_MoveRangeSelectionExtent_Params', [
+      mojo.internal.StructField('extent', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-pdf.mojom.PdfListener_MoveRangeSelectionExtent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfListener_MoveRangeSelectionExtent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'extent', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    pdf.mojom.PdfListener_SetSelectionBounds_ParamsSpec, 'pdf.mojom.PdfListener_SetSelectionBounds_Params', [
+      mojo.internal.StructField('base', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('extent', 8, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-pdf.mojom.PdfListener_SetSelectionBounds_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfListener_SetSelectionBounds_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'base', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'extent', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    pdf.mojom.PdfListener_GetPdfBytes_ParamsSpec, 'pdf.mojom.PdfListener_GetPdfBytes_Params', [
+      mojo.internal.StructField('size_limit', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-pdf.mojom.PdfListener_GetPdfBytes_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfListener_GetPdfBytes_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'size_limit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    pdf.mojom.PdfListener_GetPdfBytes_ResponseParamsSpec, 'pdf.mojom.PdfListener_GetPdfBytes_ResponseParams', [
+      mojo.internal.StructField('status', 8, 0, pdf.mojom.GetPdfBytesStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bytes', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('page_count', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-pdf.mojom.PdfListener_GetPageText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfListener_GetPageText_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    pdf.mojom.PdfListener_GetPageText_ParamsSpec, 'pdf.mojom.PdfListener_GetPageText_Params', [
+      mojo.internal.StructField('page_index', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-pdf.mojom.PdfListener_GetMostVisiblePageIndex_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfListener_GetMostVisiblePageIndex_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    pdf.mojom.PdfListener_GetPageText_ResponseParamsSpec, 'pdf.mojom.PdfListener_GetPageText_ResponseParams', [
+      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request_type', packedOffset: 0, packedBitOffset: 0, type: pdf.mojom.SaveRequestTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    pdf.mojom.PdfListener_GetMostVisiblePageIndex_ParamsSpec, 'pdf.mojom.PdfListener_GetMostVisiblePageIndex_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    pdf.mojom.PdfListener_GetMostVisiblePageIndex_ResponseParamsSpec, 'pdf.mojom.PdfListener_GetMostVisiblePageIndex_ResponseParams', [
+      mojo.internal.StructField('page_index_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'page_index_$value', originalFieldName: 'page_index' }),
+      mojo.internal.StructField('page_index_$value', 0, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'page_index_$flag', originalFieldName: 'page_index' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ParamsSpec, 'pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_Params', [
+      mojo.internal.StructField('request_type', 0, 0, pdf.mojom.SaveRequestTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ResponseParamsSpec, 'pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, pdf.mojom.SaveDataBufferHandlerGetResultSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 pdf.mojom.PdfListenerPendingReceiver = class {
   constructor(handle) {
@@ -348,259 +313,54 @@ pdf.mojom.PdfListener.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetCaretPosition
-pdf.mojom.PdfListener_SetCaretPosition_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfListener.SetCaretPosition_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for MoveRangeSelectionExtent
-pdf.mojom.PdfListener_MoveRangeSelectionExtent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfListener.MoveRangeSelectionExtent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'extent', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetSelectionBounds
-pdf.mojom.PdfListener_SetSelectionBounds_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfListener.SetSelectionBounds_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'base', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'extent', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GetPdfBytes
-pdf.mojom.PdfListener_GetPdfBytes_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfListener.GetPdfBytes_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'size_limit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-pdf.mojom.PdfListener_GetPdfBytes_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfListener.GetPdfBytes_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: pdf.mojom.GetPdfBytesStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'page_count', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GetPageText
-pdf.mojom.PdfListener_GetPageText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfListener.GetPageText_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-pdf.mojom.PdfListener_GetPageText_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfListener.GetPageText_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetMostVisiblePageIndex
-pdf.mojom.PdfListener_GetMostVisiblePageIndex_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfListener.GetMostVisiblePageIndex_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-pdf.mojom.PdfListener_GetMostVisiblePageIndex_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfListener.GetMostVisiblePageIndex_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'page_index_$flag', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'page_index_$value', originalFieldName: 'page_index' } },
-        { name: 'page_index_$value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'page_index_$flag', originalFieldName: 'page_index' } },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetSaveDataBufferHandlerForDrive
-pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfListener.GetSaveDataBufferHandlerForDrive_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request_type', packedOffset: 0, packedBitOffset: 0, type: pdf.mojom.SaveRequestTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfListener.GetSaveDataBufferHandlerForDrive_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: pdf.mojom.SaveDataBufferHandlerGetResultSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 pdf.mojom.PdfListenerPtr = pdf.mojom.PdfListenerRemote;
 pdf.mojom.PdfListenerRequest = pdf.mojom.PdfListenerPendingReceiver;
 
 
 // Interface: PdfHost
-pdf.mojom.PdfHost = {};
+mojo.internal.Struct(
+    pdf.mojom.PdfHost_SetListener_ParamsSpec, 'pdf.mojom.PdfHost_SetListener_Params', [
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(pdf.mojom.PdfListenerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-pdf.mojom.PdfHost_SetListener_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfHost_SetListener_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(pdf.mojom.PdfListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    pdf.mojom.PdfHost_OnDocumentLoadComplete_ParamsSpec, 'pdf.mojom.PdfHost_OnDocumentLoadComplete_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-pdf.mojom.PdfHost_OnDocumentLoadComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfHost_OnDocumentLoadComplete_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    pdf.mojom.PdfHost_UpdateContentRestrictions_ParamsSpec, 'pdf.mojom.PdfHost_UpdateContentRestrictions_Params', [
+      mojo.internal.StructField('restrictions', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-pdf.mojom.PdfHost_UpdateContentRestrictions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfHost_UpdateContentRestrictions_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'restrictions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec, 'pdf.mojom.PdfHost_SaveUrlAs_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('policy', 8, 0, network.mojom.ReferrerPolicySpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfHost_SaveUrlAs_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'policy', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ReferrerPolicySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    pdf.mojom.PdfHost_SelectionChanged_ParamsSpec, 'pdf.mojom.PdfHost_SelectionChanged_Params', [
+      mojo.internal.StructField('left', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('left_height', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('right', 8, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('right_height', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-pdf.mojom.PdfHost_SelectionChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfHost_SelectionChanged_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'left', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'left_height', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'right', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'right_height', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    pdf.mojom.PdfHost_SetPluginCanSave_ParamsSpec, 'pdf.mojom.PdfHost_SetPluginCanSave_Params', [
+      mojo.internal.StructField('can_save', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-pdf.mojom.PdfHost_SetPluginCanSave_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfHost_SetPluginCanSave_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'can_save', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-pdf.mojom.PdfHost_OnSearchifyStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfHost_OnSearchifyStarted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    pdf.mojom.PdfHost_OnSearchifyStarted_ParamsSpec, 'pdf.mojom.PdfHost_OnSearchifyStarted_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 pdf.mojom.PdfHostPendingReceiver = class {
   constructor(handle) {
@@ -709,107 +469,6 @@ pdf.mojom.PdfHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetListener
-pdf.mojom.PdfHost_SetListener_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfHost.SetListener_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(pdf.mojom.PdfListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnDocumentLoadComplete
-pdf.mojom.PdfHost_OnDocumentLoadComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfHost.OnDocumentLoadComplete_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateContentRestrictions
-pdf.mojom.PdfHost_UpdateContentRestrictions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfHost.UpdateContentRestrictions_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'restrictions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SaveUrlAs
-pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfHost.SaveUrlAs_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'policy', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ReferrerPolicySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SelectionChanged
-pdf.mojom.PdfHost_SelectionChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfHost.SelectionChanged_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'left', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'left_height', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'right', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'right_height', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for SetPluginCanSave
-pdf.mojom.PdfHost_SetPluginCanSave_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfHost.SetPluginCanSave_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'can_save', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnSearchifyStarted
-pdf.mojom.PdfHost_OnSearchifyStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'pdf.mojom.PdfHost.OnSearchifyStarted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 pdf.mojom.PdfHostPtr = pdf.mojom.PdfHostRemote;
 pdf.mojom.PdfHostRequest = pdf.mojom.PdfHostPendingReceiver;
 

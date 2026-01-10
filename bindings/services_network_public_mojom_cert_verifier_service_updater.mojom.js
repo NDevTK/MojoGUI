@@ -7,100 +7,72 @@
 // Module namespace
 var cert_verifier = cert_verifier || {};
 cert_verifier.mojom = cert_verifier.mojom || {};
+var services = services || {};
+var services = services || {};
 
+cert_verifier.mojom.CIDRSpec = { $: {} };
+cert_verifier.mojom.CertWithConstraintsSpec = { $: {} };
+cert_verifier.mojom.AdditionalCertificatesSpec = { $: {} };
+cert_verifier.mojom.CertVerifierServiceUpdater = {};
+cert_verifier.mojom.CertVerifierServiceUpdater.$interfaceName = 'cert_verifier.mojom.CertVerifierServiceUpdater';
+cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_ParamsSpec = { $: {} };
+cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ParamsSpec = { $: {} };
+cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ResponseParamsSpec = { $: {} };
+cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolicy_ParamsSpec = { $: {} };
 
 // Struct: CIDR
-cert_verifier.mojom.CIDRSpec = {
-  $: {
-    structSpec: {
-      name: 'cert_verifier.mojom.CIDR',
-      packedSize: 24,
-      fields: [
-        { name: 'ip', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
-        { name: 'mask', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cert_verifier.mojom.CIDRSpec, 'cert_verifier.mojom.CIDR', [
+      mojo.internal.StructField('ip', 0, 0, network.mojom.IPAddressSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mask', 8, 0, network.mojom.IPAddressSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: CertWithConstraints
-cert_verifier.mojom.CertWithConstraintsSpec = {
-  $: {
-    structSpec: {
-      name: 'cert_verifier.mojom.CertWithConstraints',
-      packedSize: 32,
-      fields: [
-        { name: 'certificate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'permitted_dns_names', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'permitted_cidrs', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(cert_verifier.mojom.CIDRSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cert_verifier.mojom.CertWithConstraintsSpec, 'cert_verifier.mojom.CertWithConstraints', [
+      mojo.internal.StructField('certificate', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('permitted_dns_names', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('permitted_cidrs', 16, 0, mojo.internal.Array(cert_verifier.mojom.CIDRSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: AdditionalCertificates
-cert_verifier.mojom.AdditionalCertificatesSpec = {
-  $: {
-    structSpec: {
-      name: 'cert_verifier.mojom.AdditionalCertificates',
-      packedSize: 72,
-      fields: [
-        { name: 'all_certificates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), nullable: false, minVersion: 0 },
-        { name: 'trust_anchors', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), nullable: false, minVersion: 0 },
-        { name: 'trust_anchors_with_enforced_constraints', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), nullable: false, minVersion: 0 },
-        { name: 'trust_anchors_with_additional_constraints', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(cert_verifier.mojom.CertWithConstraintsSpec, false), nullable: false, minVersion: 0 },
-        { name: 'trust_anchors_and_leafs', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(cert_verifier.mojom.CertWithConstraintsSpec, false), nullable: false, minVersion: 0 },
-        { name: 'trust_leafs', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(cert_verifier.mojom.CertWithConstraintsSpec, false), nullable: false, minVersion: 0 },
-        { name: 'distrusted_spkis', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), nullable: false, minVersion: 0 },
-        { name: 'include_system_trust_store', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 72}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cert_verifier.mojom.AdditionalCertificatesSpec, 'cert_verifier.mojom.AdditionalCertificates', [
+      mojo.internal.StructField('all_certificates', 0, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('trust_anchors', 8, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('trust_anchors_with_enforced_constraints', 16, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('trust_anchors_with_additional_constraints', 24, 0, mojo.internal.Array(cert_verifier.mojom.CertWithConstraintsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('trust_anchors_and_leafs', 32, 0, mojo.internal.Array(cert_verifier.mojom.CertWithConstraintsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('trust_leafs', 40, 0, mojo.internal.Array(cert_verifier.mojom.CertWithConstraintsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('distrusted_spkis', 48, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('include_system_trust_store', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 72]]);
 
 // Interface: CertVerifierServiceUpdater
-cert_verifier.mojom.CertVerifierServiceUpdater = {};
+mojo.internal.Struct(
+    cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_ParamsSpec, 'cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_Params', [
+      mojo.internal.StructField('certificates', 0, 0, cert_verifier.mojom.AdditionalCertificatesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'certificates', packedOffset: 0, packedBitOffset: 0, type: cert_verifier.mojom.AdditionalCertificatesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ParamsSpec, 'cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ResponseParamsSpec, 'cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolicy_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolicy_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'ct_policy', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CTPolicySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolicy_ParamsSpec, 'cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolicy_Params', [
+      mojo.internal.StructField('ct_policy', 0, 0, network.mojom.CTPolicySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 cert_verifier.mojom.CertVerifierServiceUpdaterPendingReceiver = class {
   constructor(handle) {
@@ -148,7 +120,7 @@ cert_verifier.mojom.CertVerifierServiceUpdaterRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ParamsSpec,
-      null,
+      cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ResponseParamsSpec,
       []);
   }
 
@@ -173,48 +145,6 @@ cert_verifier.mojom.CertVerifierServiceUpdater.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for UpdateAdditionalCertificates
-cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cert_verifier.mojom.CertVerifierServiceUpdater.UpdateAdditionalCertificates_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'certificates', packedOffset: 0, packedBitOffset: 0, type: cert_verifier.mojom.AdditionalCertificatesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for WaitUntilNextUpdateForTesting
-cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cert_verifier.mojom.CertVerifierServiceUpdater.WaitUntilNextUpdateForTesting_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetCTPolicy
-cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolicy_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cert_verifier.mojom.CertVerifierServiceUpdater.SetCTPolicy_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'ct_policy', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CTPolicySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 cert_verifier.mojom.CertVerifierServiceUpdaterPtr = cert_verifier.mojom.CertVerifierServiceUpdaterRemote;
 cert_verifier.mojom.CertVerifierServiceUpdaterRequest = cert_verifier.mojom.CertVerifierServiceUpdaterPendingReceiver;
 

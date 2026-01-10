@@ -8,51 +8,40 @@
 var tracing = tracing || {};
 tracing.mojom = tracing.mojom || {};
 
+tracing.mojom.BackgroundTracingRuleSpec = { $: {} };
+tracing.mojom.BackgroundTracingAgentClient = {};
+tracing.mojom.BackgroundTracingAgentClient.$interfaceName = 'tracing.mojom.BackgroundTracingAgentClient';
+tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec = { $: {} };
+tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec = { $: {} };
+tracing.mojom.BackgroundTracingAgent = {};
+tracing.mojom.BackgroundTracingAgent.$interfaceName = 'tracing.mojom.BackgroundTracingAgent';
+tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec = { $: {} };
+tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec = { $: {} };
+tracing.mojom.BackgroundTracingAgentProvider = {};
+tracing.mojom.BackgroundTracingAgentProvider.$interfaceName = 'tracing.mojom.BackgroundTracingAgentProvider';
+tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec = { $: {} };
 
 // Struct: BackgroundTracingRule
-tracing.mojom.BackgroundTracingRuleSpec = {
-  $: {
-    structSpec: {
-      name: 'tracing.mojom.BackgroundTracingRule',
-      packedSize: 16,
-      fields: [
-        { name: 'rule_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tracing.mojom.BackgroundTracingRuleSpec, 'tracing.mojom.BackgroundTracingRule', [
+      mojo.internal.StructField('rule_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: BackgroundTracingAgentClient
-tracing.mojom.BackgroundTracingAgentClient = {};
+mojo.internal.Struct(
+    tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec, 'tracing.mojom.BackgroundTracingAgentClient_OnInitialized_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tracing.mojom.BackgroundTracingAgentClient_OnInitialized_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'rule', packedOffset: 0, packedBitOffset: 0, type: tracing.mojom.BackgroundTracingRuleSpec, nullable: false, minVersion: 0 },
-        { name: 'histogram_value_$flag', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'histogram_value_$value', originalFieldName: 'histogram_value' } },
-        { name: 'histogram_value_$value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'histogram_value_$flag', originalFieldName: 'histogram_value' } },
-        { name: 'flow_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec, 'tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_Params', [
+      mojo.internal.StructField('rule', 0, 0, tracing.mojom.BackgroundTracingRuleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('histogram_value_$flag', 20, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'histogram_value_$value', originalFieldName: 'histogram_value' }),
+      mojo.internal.StructField('histogram_value_$value', 16, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'histogram_value_$flag', originalFieldName: 'histogram_value' }),
+      mojo.internal.StructField('flow_id', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 tracing.mojom.BackgroundTracingAgentClientPendingReceiver = class {
   constructor(handle) {
@@ -116,72 +105,25 @@ tracing.mojom.BackgroundTracingAgentClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnInitialized
-tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tracing.mojom.BackgroundTracingAgentClient.OnInitialized_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnTriggerBackgroundTrace
-tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tracing.mojom.BackgroundTracingAgentClient.OnTriggerBackgroundTrace_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'rule', packedOffset: 0, packedBitOffset: 0, type: tracing.mojom.BackgroundTracingRuleSpec, nullable: false, minVersion: 0 },
-        { name: 'histogram_value_$flag', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'histogram_value_$value', originalFieldName: 'histogram_value' } },
-        { name: 'histogram_value_$value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'histogram_value_$flag', originalFieldName: 'histogram_value' } },
-        { name: 'flow_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 tracing.mojom.BackgroundTracingAgentClientPtr = tracing.mojom.BackgroundTracingAgentClientRemote;
 tracing.mojom.BackgroundTracingAgentClientRequest = tracing.mojom.BackgroundTracingAgentClientPendingReceiver;
 
 
 // Interface: BackgroundTracingAgent
-tracing.mojom.BackgroundTracingAgent = {};
+mojo.internal.Struct(
+    tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec, 'tracing.mojom.BackgroundTracingAgent_SetUMACallback_Params', [
+      mojo.internal.StructField('rule', 0, 0, tracing.mojom.BackgroundTracingRuleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('histogram_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('histogram_lower_value', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('histogram_upper_value', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tracing.mojom.BackgroundTracingAgent_SetUMACallback_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'rule', packedOffset: 0, packedBitOffset: 0, type: tracing.mojom.BackgroundTracingRuleSpec, nullable: false, minVersion: 0 },
-        { name: 'histogram_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'histogram_lower_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'histogram_upper_value', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tracing.mojom.BackgroundTracingAgent_ClearUMACallback_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'rule', packedOffset: 0, packedBitOffset: 0, type: tracing.mojom.BackgroundTracingRuleSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec, 'tracing.mojom.BackgroundTracingAgent_ClearUMACallback_Params', [
+      mojo.internal.StructField('rule', 0, 0, tracing.mojom.BackgroundTracingRuleSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 tracing.mojom.BackgroundTracingAgentPendingReceiver = class {
   constructor(handle) {
@@ -245,59 +187,18 @@ tracing.mojom.BackgroundTracingAgent.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetUMACallback
-tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tracing.mojom.BackgroundTracingAgent.SetUMACallback_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'rule', packedOffset: 0, packedBitOffset: 0, type: tracing.mojom.BackgroundTracingRuleSpec, nullable: false, minVersion: 0 },
-        { name: 'histogram_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'histogram_lower_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'histogram_upper_value', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for ClearUMACallback
-tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tracing.mojom.BackgroundTracingAgent.ClearUMACallback_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'rule', packedOffset: 0, packedBitOffset: 0, type: tracing.mojom.BackgroundTracingRuleSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 tracing.mojom.BackgroundTracingAgentPtr = tracing.mojom.BackgroundTracingAgentRemote;
 tracing.mojom.BackgroundTracingAgentRequest = tracing.mojom.BackgroundTracingAgentPendingReceiver;
 
 
 // Interface: BackgroundTracingAgentProvider
-tracing.mojom.BackgroundTracingAgentProvider = {};
-
-tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tracing.mojom.BackgroundTracingAgentProvider_Create_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'tracing_process_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(tracing.mojom.BackgroundTracingAgentClientRemote), nullable: false, minVersion: 0 },
-        { name: 'agent', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(tracing.mojom.BackgroundTracingAgentRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec, 'tracing.mojom.BackgroundTracingAgentProvider_Create_Params', [
+      mojo.internal.StructField('tracing_process_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(tracing.mojom.BackgroundTracingAgentClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('agent', 16, 0, mojo.internal.InterfaceRequest(tracing.mojom.BackgroundTracingAgentRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 tracing.mojom.BackgroundTracingAgentProviderPendingReceiver = class {
   constructor(handle) {
@@ -352,23 +253,6 @@ tracing.mojom.BackgroundTracingAgentProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Create
-tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tracing.mojom.BackgroundTracingAgentProvider.Create_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'tracing_process_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(tracing.mojom.BackgroundTracingAgentClientRemote), nullable: false, minVersion: 0 },
-        { name: 'agent', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(tracing.mojom.BackgroundTracingAgentRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 tracing.mojom.BackgroundTracingAgentProviderPtr = tracing.mojom.BackgroundTracingAgentProviderRemote;
 tracing.mojom.BackgroundTracingAgentProviderRequest = tracing.mojom.BackgroundTracingAgentProviderPendingReceiver;
 

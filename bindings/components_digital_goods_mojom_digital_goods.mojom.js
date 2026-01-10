@@ -8,69 +8,61 @@
 var payments = payments || {};
 payments.mojom = payments.mojom || {};
 var url = url || {};
+var components = components || {};
 
+payments.mojom.BillingResponseCodeSpec = { $: mojo.internal.Enum() };
+payments.mojom.ItemTypeSpec = { $: mojo.internal.Enum() };
+payments.mojom.CreateDigitalGoodsResponseCodeSpec = { $: mojo.internal.Enum() };
+payments.mojom.ItemDetailsSpec = { $: {} };
+payments.mojom.PurchaseReferenceSpec = { $: {} };
 
 // Enum: BillingResponseCode
 payments.mojom.BillingResponseCode = {
   kOk: 0,
-  kItemAlreadyOwned: 1,
-  kItemNotOwned: 2,
-  kItemUnavailable: 3,
-  kClientAppUnavailable: 4,
-  kClientAppError: 5,
+  kError: 1,
+  kItemAlreadyOwned: 2,
+  kItemNotOwned: 3,
+  kItemUnavailable: 4,
+  kClientAppUnavailable: 5,
+  kClientAppError: 6,
 };
-payments.mojom.BillingResponseCodeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ItemType
 payments.mojom.ItemType = {
-  kProduct: 0,
-  kSubscription: 1,
+  kUnknown: 0,
+  kProduct: 1,
+  kSubscription: 2,
 };
-payments.mojom.ItemTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CreateDigitalGoodsResponseCode
 payments.mojom.CreateDigitalGoodsResponseCode = {
   kOk: 0,
-  kUnsupportedPaymentMethod: 1,
-  kUnsupportedContext: 2,
+  kError: 1,
+  kUnsupportedPaymentMethod: 2,
+  kUnsupportedContext: 3,
 };
-payments.mojom.CreateDigitalGoodsResponseCodeSpec = { $: mojo.internal.Enum() };
 
 // Struct: ItemDetails
-payments.mojom.ItemDetailsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.ItemDetails',
-      packedSize: 88,
-      fields: [
-        { name: 'item_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'price', packedOffset: 24, packedBitOffset: 0, type: payments.mojom.PaymentCurrencyAmountSpec, nullable: false, minVersion: 0 },
-        { name: 'subscription_period', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'free_trial_period', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'introductory_price', packedOffset: 48, packedBitOffset: 0, type: payments.mojom.PaymentCurrencyAmountSpec, nullable: true, minVersion: 0 },
-        { name: 'introductory_price_period', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'introductory_price_cycles', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 1 },
-        { name: 'type', packedOffset: 76, packedBitOffset: 0, type: payments.mojom.ItemTypeSpec, nullable: false, minVersion: 1 },
-        { name: 'icon_urls', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: true, minVersion: 1 },
-      ],
-      versions: [{version: 0, packedSize: 72}, {version: 1, packedSize: 88}]
-    }
-  }
-};
+mojo.internal.Struct(
+    payments.mojom.ItemDetailsSpec, 'payments.mojom.ItemDetails', [
+      mojo.internal.StructField('item_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('description', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('price', 24, 0, payments.mojom.PaymentCurrencyAmountSpec, null, false, 0, undefined),
+      mojo.internal.StructField('subscription_period', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('free_trial_period', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('introductory_price', 48, 0, payments.mojom.PaymentCurrencyAmountSpec, null, true, 0, undefined),
+      mojo.internal.StructField('introductory_price_period', 56, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('introductory_price_cycles', 72, 0, mojo.internal.Uint32, 0, false, 1, undefined),
+      mojo.internal.StructField('type', 76, 0, payments.mojom.ItemTypeSpec, null, false, 1, undefined),
+      mojo.internal.StructField('icon_urls', 64, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, true, 1, undefined),
+    ],
+    [[0, 72], [1, 88]]);
 
 // Struct: PurchaseReference
-payments.mojom.PurchaseReferenceSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.PurchaseReference',
-      packedSize: 24,
-      fields: [
-        { name: 'item_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'purchase_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    payments.mojom.PurchaseReferenceSpec, 'payments.mojom.PurchaseReference', [
+      mojo.internal.StructField('item_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('purchase_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

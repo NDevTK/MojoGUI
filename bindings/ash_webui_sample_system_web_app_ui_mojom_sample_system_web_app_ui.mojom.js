@@ -8,39 +8,38 @@
 var ash = ash || {};
 ash.mojom = ash.mojom || {};
 ash.mojom.sample_swa = ash.mojom.sample_swa || {};
+var ash = ash || {};
 
+ash.mojom.sample_swa.PreferencesSpec = { $: {} };
+ash.mojom.sample_swa.PageHandlerFactory = {};
+ash.mojom.sample_swa.PageHandlerFactory.$interfaceName = 'ash.mojom.sample_swa.PageHandlerFactory';
+ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+ash.mojom.sample_swa.PageHandler = {};
+ash.mojom.sample_swa.PageHandler.$interfaceName = 'ash.mojom.sample_swa.PageHandler';
+ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec = { $: {} };
+ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec = { $: {} };
+ash.mojom.sample_swa.PageHandler_Send_ParamsSpec = { $: {} };
+ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec = { $: {} };
+ash.mojom.sample_swa.Page = {};
+ash.mojom.sample_swa.Page.$interfaceName = 'ash.mojom.sample_swa.Page';
+ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec = { $: {} };
+ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec = { $: {} };
 
 // Struct: Preferences
-ash.mojom.sample_swa.PreferencesSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.sample_swa.Preferences',
-      packedSize: 24,
-      fields: [
-        { name: 'background', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'foreground', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.mojom.sample_swa.PreferencesSpec, 'ash.mojom.sample_swa.Preferences', [
+      mojo.internal.StructField('background', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('foreground', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: PageHandlerFactory
-ash.mojom.sample_swa.PageHandlerFactory = {};
-
-ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.mojom.sample_swa.PageHandlerRemote), nullable: false, minVersion: 0 },
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.mojom.sample_swa.PageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.mojom.sample_swa.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 8, 0, mojo.internal.InterfaceProxy(ash.mojom.sample_swa.PageRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ash.mojom.sample_swa.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -95,65 +94,32 @@ ash.mojom.sample_swa.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.sample_swa.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.mojom.sample_swa.PageHandlerRemote), nullable: false, minVersion: 0 },
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.mojom.sample_swa.PageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.mojom.sample_swa.PageHandlerFactoryPtr = ash.mojom.sample_swa.PageHandlerFactoryRemote;
 ash.mojom.sample_swa.PageHandlerFactoryRequest = ash.mojom.sample_swa.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-ash.mojom.sample_swa.PageHandler = {};
+mojo.internal.Struct(
+    ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec, 'ash.mojom.sample_swa.PageHandler_GetPreferences_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.sample_swa.PageHandler_GetPreferences_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec, 'ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParams', [
+      mojo.internal.StructField('preferences', 0, 0, ash.mojom.sample_swa.PreferencesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.mojom.sample_swa.PageHandler_Send_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.sample_swa.PageHandler_Send_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.mojom.sample_swa.PageHandler_Send_ParamsSpec, 'ash.mojom.sample_swa.PageHandler_Send_Params', [
+      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.sample_swa.PageHandler_DoSomething_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec, 'ash.mojom.sample_swa.PageHandler_DoSomething_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.mojom.sample_swa.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -226,93 +192,23 @@ ash.mojom.sample_swa.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetPreferences
-ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.sample_swa.PageHandler.GetPreferences_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.sample_swa.PageHandler.GetPreferences_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'preferences', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.sample_swa.PreferencesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Send
-ash.mojom.sample_swa.PageHandler_Send_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.sample_swa.PageHandler.Send_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DoSomething
-ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.sample_swa.PageHandler.DoSomething_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.mojom.sample_swa.PageHandlerPtr = ash.mojom.sample_swa.PageHandlerRemote;
 ash.mojom.sample_swa.PageHandlerRequest = ash.mojom.sample_swa.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-ash.mojom.sample_swa.Page = {};
+mojo.internal.Struct(
+    ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec, 'ash.mojom.sample_swa.Page_OnEventOccurred_Params', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.sample_swa.Page_OnEventOccurred_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.sample_swa.Page_CreateParentPage_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'child_untrusted_page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.mojom.sample_swa.ChildUntrustedPageRemote), nullable: false, minVersion: 0 },
-        { name: 'parent_trusted_page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.mojom.sample_swa.ParentTrustedPageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec, 'ash.mojom.sample_swa.Page_CreateParentPage_Params', [
+      mojo.internal.StructField('child_untrusted_page', 0, 0, mojo.internal.InterfaceProxy(ash.mojom.sample_swa.ChildUntrustedPageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('parent_trusted_page', 8, 0, mojo.internal.InterfaceRequest(ash.mojom.sample_swa.ParentTrustedPageRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ash.mojom.sample_swa.PagePendingReceiver = class {
   constructor(handle) {
@@ -376,36 +272,6 @@ ash.mojom.sample_swa.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnEventOccurred
-ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.sample_swa.Page.OnEventOccurred_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CreateParentPage
-ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.sample_swa.Page.CreateParentPage_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'child_untrusted_page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.mojom.sample_swa.ChildUntrustedPageRemote), nullable: false, minVersion: 0 },
-        { name: 'parent_trusted_page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.mojom.sample_swa.ParentTrustedPageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.mojom.sample_swa.PagePtr = ash.mojom.sample_swa.PageRemote;
 ash.mojom.sample_swa.PageRequest = ash.mojom.sample_swa.PagePendingReceiver;
 

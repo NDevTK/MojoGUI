@@ -8,6 +8,8 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.ClientModeSpec = { $: mojo.internal.Enum() };
+blink.mojom.ManifestLaunchHandlerSpec = { $: {} };
 
 // Enum: ClientMode
 blink.mojom.ClientMode = {
@@ -16,18 +18,10 @@ blink.mojom.ClientMode = {
   kNavigateExisting: 2,
   kFocusExisting: 3,
 };
-blink.mojom.ClientModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: ManifestLaunchHandler
-blink.mojom.ManifestLaunchHandlerSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ManifestLaunchHandler',
-      packedSize: 16,
-      fields: [
-        { name: 'kAuto', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ManifestLaunchHandlerSpec, 'blink.mojom.ManifestLaunchHandler', [
+      mojo.internal.StructField('kAuto', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);

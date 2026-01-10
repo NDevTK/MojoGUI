@@ -8,36 +8,24 @@
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
 
+chromecast.mojom.RemoteInterfaces = {};
+chromecast.mojom.RemoteInterfaces.$interfaceName = 'chromecast.mojom.RemoteInterfaces';
+chromecast.mojom.RemoteInterfaces_BindInterface_ParamsSpec = { $: {} };
+chromecast.mojom.RemoteInterfaces_AddClient_ParamsSpec = { $: {} };
 
 // Interface: RemoteInterfaces
-chromecast.mojom.RemoteInterfaces = {};
+mojo.internal.Struct(
+    chromecast.mojom.RemoteInterfaces_BindInterface_ParamsSpec, 'chromecast.mojom.RemoteInterfaces_BindInterface_Params', [
+      mojo.internal.StructField('interface_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('pipe', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chromecast.mojom.RemoteInterfaces_BindInterface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.RemoteInterfaces_BindInterface_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'interface_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-chromecast.mojom.RemoteInterfaces_AddClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.RemoteInterfaces_AddClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromecast.mojom.RemoteInterfacesRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.RemoteInterfaces_AddClient_ParamsSpec, 'chromecast.mojom.RemoteInterfaces_AddClient_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(chromecast.mojom.RemoteInterfacesRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromecast.mojom.RemoteInterfacesPendingReceiver = class {
   constructor(handle) {
@@ -101,36 +89,6 @@ chromecast.mojom.RemoteInterfaces.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BindInterface
-chromecast.mojom.RemoteInterfaces_BindInterface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.RemoteInterfaces.BindInterface_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'interface_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for AddClient
-chromecast.mojom.RemoteInterfaces_AddClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.RemoteInterfaces.AddClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromecast.mojom.RemoteInterfacesRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.mojom.RemoteInterfacesPtr = chromecast.mojom.RemoteInterfacesRemote;
 chromecast.mojom.RemoteInterfacesRequest = chromecast.mojom.RemoteInterfacesPendingReceiver;
 

@@ -7,7 +7,27 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
 
+blink.mojom.MediaSessionPlaybackStateSpec = { $: mojo.internal.Enum() };
+blink.mojom.MediaSessionEnterPictureInPictureReasonSpec = { $: mojo.internal.Enum() };
+blink.mojom.MediaSessionActionDetailsSpec = { $: {} };
+blink.mojom.MediaSessionSeekToDetailsSpec = { $: {} };
+blink.mojom.MediaSessionEnterPictureInPictureDetailsSpec = { $: {} };
+blink.mojom.SpecMediaMetadataSpec = { $: {} };
+blink.mojom.MediaSessionClient = {};
+blink.mojom.MediaSessionClient.$interfaceName = 'blink.mojom.MediaSessionClient';
+blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec = { $: {} };
+blink.mojom.MediaSessionService = {};
+blink.mojom.MediaSessionService.$interfaceName = 'blink.mojom.MediaSessionService';
+blink.mojom.MediaSessionService_SetClient_ParamsSpec = { $: {} };
+blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec = { $: {} };
+blink.mojom.MediaSessionService_SetPositionState_ParamsSpec = { $: {} };
+blink.mojom.MediaSessionService_SetMetadata_ParamsSpec = { $: {} };
+blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec = { $: {} };
+blink.mojom.MediaSessionService_SetCameraState_ParamsSpec = { $: {} };
+blink.mojom.MediaSessionService_EnableAction_ParamsSpec = { $: {} };
+blink.mojom.MediaSessionService_DisableAction_ParamsSpec = { $: {} };
 
 // Enum: MediaSessionPlaybackState
 blink.mojom.MediaSessionPlaybackState = {
@@ -15,7 +35,6 @@ blink.mojom.MediaSessionPlaybackState = {
   PAUSED: 1,
   PLAYING: 2,
 };
-blink.mojom.MediaSessionPlaybackStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: MediaSessionEnterPictureInPictureReason
 blink.mojom.MediaSessionEnterPictureInPictureReason = {
@@ -23,85 +42,55 @@ blink.mojom.MediaSessionEnterPictureInPictureReason = {
   kUserAction: 1,
   kContentOccluded: 2,
 };
-blink.mojom.MediaSessionEnterPictureInPictureReasonSpec = { $: mojo.internal.Enum() };
 
 // Union: MediaSessionActionDetails
-blink.mojom.MediaSessionActionDetailsSpec = { $: mojo.internal.Union(
-    'blink.mojom.MediaSessionActionDetails', {
+mojo.internal.Union(
+    blink.mojom.MediaSessionActionDetailsSpec, 'blink.mojom.MediaSessionActionDetails', {
       'seek_to': {
         'ordinal': 0,
         'type': blink.mojom.MediaSessionSeekToDetailsSpec,
-      }},
+        'nullable': false,
+      },
       'enter_picture_in_picture': {
         'ordinal': 1,
         'type': blink.mojom.MediaSessionEnterPictureInPictureDetailsSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: MediaSessionSeekToDetails
-blink.mojom.MediaSessionSeekToDetailsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaSessionSeekToDetails',
-      packedSize: 24,
-      fields: [
-        { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'fast_seek', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MediaSessionSeekToDetailsSpec, 'blink.mojom.MediaSessionSeekToDetails', [
+      mojo.internal.StructField('seek_time', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('fast_seek', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: MediaSessionEnterPictureInPictureDetails
-blink.mojom.MediaSessionEnterPictureInPictureDetailsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaSessionEnterPictureInPictureDetails',
-      packedSize: 16,
-      fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.MediaSessionEnterPictureInPictureReasonSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MediaSessionEnterPictureInPictureDetailsSpec, 'blink.mojom.MediaSessionEnterPictureInPictureDetails', [
+      mojo.internal.StructField('reason', 0, 0, blink.mojom.MediaSessionEnterPictureInPictureReasonSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: SpecMediaMetadata
-blink.mojom.SpecMediaMetadataSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpecMediaMetadata',
-      packedSize: 48,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'artist', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'album', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'artwork', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(media_session.mojom.MediaImageSpec, false), nullable: false, minVersion: 0 },
-        { name: 'chapterInfo', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(media_session.mojom.ChapterInformationSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SpecMediaMetadataSpec, 'blink.mojom.SpecMediaMetadata', [
+      mojo.internal.StructField('title', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('artist', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('album', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('artwork', 24, 0, mojo.internal.Array(media_session.mojom.MediaImageSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('chapterInfo', 32, 0, mojo.internal.Array(media_session.mojom.ChapterInformationSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Interface: MediaSessionClient
-blink.mojom.MediaSessionClient = {};
-
-blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaSessionClient_DidReceiveAction_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'action', packedOffset: 16, packedBitOffset: 0, type: media_session.mojom.MediaSessionActionSpec, nullable: false, minVersion: 0 },
-        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.MediaSessionActionDetailsSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec, 'blink.mojom.MediaSessionClient_DidReceiveAction_Params', [
+      mojo.internal.StructField('action', 16, 0, media_session.mojom.MediaSessionActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('details', 0, 0, blink.mojom.MediaSessionActionDetailsSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 blink.mojom.MediaSessionClientPendingReceiver = class {
   constructor(handle) {
@@ -156,132 +145,58 @@ blink.mojom.MediaSessionClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for DidReceiveAction
-blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaSessionClient.DidReceiveAction_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'action', packedOffset: 16, packedBitOffset: 0, type: media_session.mojom.MediaSessionActionSpec, nullable: false, minVersion: 0 },
-        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.MediaSessionActionDetailsSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.MediaSessionClientPtr = blink.mojom.MediaSessionClientRemote;
 blink.mojom.MediaSessionClientRequest = blink.mojom.MediaSessionClientPendingReceiver;
 
 
 // Interface: MediaSessionService
-blink.mojom.MediaSessionService = {};
+mojo.internal.Struct(
+    blink.mojom.MediaSessionService_SetClient_ParamsSpec, 'blink.mojom.MediaSessionService_SetClient_Params', [
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.MediaSessionClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.MediaSessionService_SetClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaSessionService_SetClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.MediaSessionClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec, 'blink.mojom.MediaSessionService_SetPlaybackState_Params', [
+      mojo.internal.StructField('state', 0, 0, blink.mojom.MediaSessionPlaybackStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaSessionService_SetPlaybackState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.MediaSessionPlaybackStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MediaSessionService_SetPositionState_ParamsSpec, 'blink.mojom.MediaSessionService_SetPositionState_Params', [
+      mojo.internal.StructField('position', 0, 0, media_session.mojom.MediaPositionSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.MediaSessionService_SetPositionState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaSessionService_SetPositionState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaPositionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MediaSessionService_SetMetadata_ParamsSpec, 'blink.mojom.MediaSessionService_SetMetadata_Params', [
+      mojo.internal.StructField('metadata', 0, 0, blink.mojom.SpecMediaMetadataSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.MediaSessionService_SetMetadata_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaSessionService_SetMetadata_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SpecMediaMetadataSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec, 'blink.mojom.MediaSessionService_SetMicrophoneState_Params', [
+      mojo.internal.StructField('microphone_state', 0, 0, media_session.mojom.MicrophoneStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaSessionService_SetMicrophoneState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'microphone_state', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MicrophoneStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MediaSessionService_SetCameraState_ParamsSpec, 'blink.mojom.MediaSessionService_SetCameraState_Params', [
+      mojo.internal.StructField('camera_state', 0, 0, media_session.mojom.CameraStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.MediaSessionService_SetCameraState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaSessionService_SetCameraState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'camera_state', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.CameraStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MediaSessionService_EnableAction_ParamsSpec, 'blink.mojom.MediaSessionService_EnableAction_Params', [
+      mojo.internal.StructField('action', 0, 0, media_session.mojom.MediaSessionActionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.MediaSessionService_EnableAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaSessionService_EnableAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaSessionActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.MediaSessionService_DisableAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaSessionService_DisableAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaSessionActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MediaSessionService_DisableAction_ParamsSpec, 'blink.mojom.MediaSessionService_DisableAction_Params', [
+      mojo.internal.StructField('action', 0, 0, media_session.mojom.MediaSessionActionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.MediaSessionServicePendingReceiver = class {
   constructor(handle) {
@@ -399,119 +314,6 @@ blink.mojom.MediaSessionService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetClient
-blink.mojom.MediaSessionService_SetClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaSessionService.SetClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.MediaSessionClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetPlaybackState
-blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaSessionService.SetPlaybackState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.MediaSessionPlaybackStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetPositionState
-blink.mojom.MediaSessionService_SetPositionState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaSessionService.SetPositionState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaPositionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetMetadata
-blink.mojom.MediaSessionService_SetMetadata_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaSessionService.SetMetadata_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SpecMediaMetadataSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetMicrophoneState
-blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaSessionService.SetMicrophoneState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'microphone_state', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MicrophoneStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetCameraState
-blink.mojom.MediaSessionService_SetCameraState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaSessionService.SetCameraState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'camera_state', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.CameraStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EnableAction
-blink.mojom.MediaSessionService_EnableAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaSessionService.EnableAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaSessionActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DisableAction
-blink.mojom.MediaSessionService_DisableAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MediaSessionService.DisableAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaSessionActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.MediaSessionServicePtr = blink.mojom.MediaSessionServiceRemote;
 blink.mojom.MediaSessionServiceRequest = blink.mojom.MediaSessionServicePendingReceiver;
 

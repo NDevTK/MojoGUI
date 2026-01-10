@@ -8,6 +8,7 @@
 var sandbox = sandbox || {};
 sandbox.mojom = sandbox.mojom || {};
 
+sandbox.mojom.ContextSpec = { $: mojo.internal.Enum() };
 
 // Enum: Context
 sandbox.mojom.Context = {
@@ -15,4 +16,3 @@ sandbox.mojom.Context = {
   kPrivilegedUtility: 1,
   kLowest: 2,
 };
-sandbox.mojom.ContextSpec = { $: mojo.internal.Enum() };

@@ -8,17 +8,11 @@
 var mojo_base = mojo_base || {};
 mojo_base.mojom = mojo_base.mojom || {};
 
+mojo_base.mojom.VersionSpec = { $: {} };
 
 // Struct: Version
-mojo_base.mojom.VersionSpec = {
-  $: {
-    structSpec: {
-      name: 'mojo_base.mojom.Version',
-      packedSize: 16,
-      fields: [
-        { name: 'components', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojo_base.mojom.VersionSpec, 'mojo_base.mojom.Version', [
+      mojo.internal.StructField('components', 0, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);

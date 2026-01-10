@@ -8,6 +8,12 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.SmsStatusSpec = { $: mojo.internal.Enum() };
+blink.mojom.WebOTPService = {};
+blink.mojom.WebOTPService.$interfaceName = 'blink.mojom.WebOTPService';
+blink.mojom.WebOTPService_Receive_ParamsSpec = { $: {} };
+blink.mojom.WebOTPService_Receive_ResponseParamsSpec = { $: {} };
+blink.mojom.WebOTPService_Abort_ParamsSpec = { $: {} };
 
 // Enum: SmsStatus
 blink.mojom.SmsStatus = {
@@ -18,34 +24,24 @@ blink.mojom.SmsStatus = {
   kTimeout: 4,
   kBackendNotAvailable: 5,
 };
-blink.mojom.SmsStatusSpec = { $: mojo.internal.Enum() };
 
 // Interface: WebOTPService
-blink.mojom.WebOTPService = {};
+mojo.internal.Struct(
+    blink.mojom.WebOTPService_Receive_ParamsSpec, 'blink.mojom.WebOTPService_Receive_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.WebOTPService_Receive_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebOTPService_Receive_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebOTPService_Receive_ResponseParamsSpec, 'blink.mojom.WebOTPService_Receive_ResponseParams', [
+      mojo.internal.StructField('status', 8, 0, blink.mojom.SmsStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('otp', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.WebOTPService_Abort_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebOTPService_Abort_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebOTPService_Abort_ParamsSpec, 'blink.mojom.WebOTPService_Abort_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 blink.mojom.WebOTPServicePendingReceiver = class {
   constructor(handle) {
@@ -109,47 +105,6 @@ blink.mojom.WebOTPService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Receive
-blink.mojom.WebOTPService_Receive_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebOTPService.Receive_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.WebOTPService_Receive_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebOTPService.Receive_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SmsStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'otp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Abort
-blink.mojom.WebOTPService_Abort_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebOTPService.Abort_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.WebOTPServicePtr = blink.mojom.WebOTPServiceRemote;
 blink.mojom.WebOTPServiceRequest = blink.mojom.WebOTPServicePendingReceiver;
 

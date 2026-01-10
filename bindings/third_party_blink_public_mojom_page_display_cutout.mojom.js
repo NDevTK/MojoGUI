@@ -10,6 +10,14 @@ blink.mojom = blink.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+blink.mojom.ViewportFitSpec = { $: mojo.internal.Enum() };
+blink.mojom.DisplayCutoutHost = {};
+blink.mojom.DisplayCutoutHost.$interfaceName = 'blink.mojom.DisplayCutoutHost';
+blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_ParamsSpec = { $: {} };
+blink.mojom.DisplayCutoutHost_NotifyComplexSafeAreaConstraintChanged_ParamsSpec = { $: {} };
+blink.mojom.DisplayCutoutClient = {};
+blink.mojom.DisplayCutoutClient.$interfaceName = 'blink.mojom.DisplayCutoutClient';
+blink.mojom.DisplayCutoutClient_SetSafeArea_ParamsSpec = { $: {} };
 
 // Enum: ViewportFit
 blink.mojom.ViewportFit = {
@@ -18,36 +26,19 @@ blink.mojom.ViewportFit = {
   kCover: 2,
   kCoverForcedByUserAgent: 3,
 };
-blink.mojom.ViewportFitSpec = { $: mojo.internal.Enum() };
 
 // Interface: DisplayCutoutHost
-blink.mojom.DisplayCutoutHost = {};
+mojo.internal.Struct(
+    blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_ParamsSpec, 'blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_Params', [
+      mojo.internal.StructField('value', 0, 0, blink.mojom.ViewportFitSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ViewportFitSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.DisplayCutoutHost_NotifyComplexSafeAreaConstraintChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DisplayCutoutHost_NotifyComplexSafeAreaConstraintChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DisplayCutoutHost_NotifyComplexSafeAreaConstraintChanged_ParamsSpec, 'blink.mojom.DisplayCutoutHost_NotifyComplexSafeAreaConstraintChanged_Params', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.DisplayCutoutHostPendingReceiver = class {
   constructor(handle) {
@@ -111,54 +102,16 @@ blink.mojom.DisplayCutoutHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for NotifyViewportFitChanged
-blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DisplayCutoutHost.NotifyViewportFitChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ViewportFitSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for NotifyComplexSafeAreaConstraintChanged
-blink.mojom.DisplayCutoutHost_NotifyComplexSafeAreaConstraintChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DisplayCutoutHost.NotifyComplexSafeAreaConstraintChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.DisplayCutoutHostPtr = blink.mojom.DisplayCutoutHostRemote;
 blink.mojom.DisplayCutoutHostRequest = blink.mojom.DisplayCutoutHostPendingReceiver;
 
 
 // Interface: DisplayCutoutClient
-blink.mojom.DisplayCutoutClient = {};
-
-blink.mojom.DisplayCutoutClient_SetSafeArea_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DisplayCutoutClient_SetSafeArea_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'safe_area', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.InsetsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DisplayCutoutClient_SetSafeArea_ParamsSpec, 'blink.mojom.DisplayCutoutClient_SetSafeArea_Params', [
+      mojo.internal.StructField('safe_area', 0, 0, gfx.mojom.InsetsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.DisplayCutoutClientPendingReceiver = class {
   constructor(handle) {
@@ -213,21 +166,6 @@ blink.mojom.DisplayCutoutClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetSafeArea
-blink.mojom.DisplayCutoutClient_SetSafeArea_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DisplayCutoutClient.SetSafeArea_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'safe_area', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.InsetsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.DisplayCutoutClientPtr = blink.mojom.DisplayCutoutClientRemote;
 blink.mojom.DisplayCutoutClientRequest = blink.mojom.DisplayCutoutClientPendingReceiver;
 

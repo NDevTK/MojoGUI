@@ -8,18 +8,12 @@
 var content = content || {};
 content.mojom = content.mojom || {};
 
+content.mojom.AlternativeErrorPageOverrideInfoSpec = { $: {} };
 
 // Struct: AlternativeErrorPageOverrideInfo
-content.mojom.AlternativeErrorPageOverrideInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.AlternativeErrorPageOverrideInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'resource_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'alternative_error_page_params', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.AlternativeErrorPageOverrideInfoSpec, 'content.mojom.AlternativeErrorPageOverrideInfo', [
+      mojo.internal.StructField('resource_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('alternative_error_page_params', 0, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

@@ -8,41 +8,32 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.RendererAudioInputStreamFactory = {};
+blink.mojom.RendererAudioInputStreamFactory.$interfaceName = 'blink.mojom.RendererAudioInputStreamFactory';
+blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec = { $: {} };
+blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec = { $: {} };
+blink.mojom.RendererAudioInputStreamFactoryClient = {};
+blink.mojom.RendererAudioInputStreamFactoryClient.$interfaceName = 'blink.mojom.RendererAudioInputStreamFactoryClient';
+blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec = { $: {} };
 
 // Interface: RendererAudioInputStreamFactory
-blink.mojom.RendererAudioInputStreamFactory = {};
+mojo.internal.Struct(
+    blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec, 'blink.mojom.RendererAudioInputStreamFactory_CreateStream_Params', [
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.RendererAudioInputStreamFactoryClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('session_id', 8, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('params', 16, 0, media.mojom.AudioParametersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('automatic_gain_control', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('shared_memory_count', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('processing_config', 24, 0, media.mojom.AudioProcessingConfigSpec, null, true, 0, undefined),
+    ],
+    [[0, 48]]);
 
-blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.RendererAudioInputStreamFactory_CreateStream_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.RendererAudioInputStreamFactoryClientRemote), nullable: false, minVersion: 0 },
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'params', packedOffset: 16, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false, minVersion: 0 },
-        { name: 'automatic_gain_control', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'shared_memory_count', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'processing_config', packedOffset: 24, packedBitOffset: 0, type: media.mojom.AudioProcessingConfigSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'input_stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'output_device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec, 'blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_Params', [
+      mojo.internal.StructField('input_stream_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('output_device_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.RendererAudioInputStreamFactoryPendingReceiver = class {
   constructor(handle) {
@@ -106,64 +97,20 @@ blink.mojom.RendererAudioInputStreamFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateStream
-blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.RendererAudioInputStreamFactory.CreateStream_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.RendererAudioInputStreamFactoryClientRemote), nullable: false, minVersion: 0 },
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'params', packedOffset: 16, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false, minVersion: 0 },
-        { name: 'automatic_gain_control', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'shared_memory_count', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'processing_config', packedOffset: 24, packedBitOffset: 0, type: media.mojom.AudioProcessingConfigSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-// ParamsSpec for AssociateInputAndOutputForAec
-blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.RendererAudioInputStreamFactory.AssociateInputAndOutputForAec_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'input_stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'output_device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.RendererAudioInputStreamFactoryPtr = blink.mojom.RendererAudioInputStreamFactoryRemote;
 blink.mojom.RendererAudioInputStreamFactoryRequest = blink.mojom.RendererAudioInputStreamFactoryPendingReceiver;
 
 
 // Interface: RendererAudioInputStreamFactoryClient
-blink.mojom.RendererAudioInputStreamFactoryClient = {};
-
-blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.AudioInputStreamRemote), nullable: false, minVersion: 0 },
-        { name: 'client_request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.AudioInputStreamClientRemote), nullable: false, minVersion: 0 },
-        { name: 'data_pipe', packedOffset: 16, packedBitOffset: 0, type: media.mojom.ReadWriteAudioDataPipeSpec, nullable: false, minVersion: 0 },
-        { name: 'initially_muted', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'stream_id', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec, 'blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_Params', [
+      mojo.internal.StructField('stream', 0, 0, mojo.internal.InterfaceProxy(media.mojom.AudioInputStreamRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client_request', 8, 0, mojo.internal.InterfaceRequest(media.mojom.AudioInputStreamClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('data_pipe', 16, 0, media.mojom.ReadWriteAudioDataPipeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('initially_muted', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('stream_id', 24, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+    ],
+    [[0, 48]]);
 
 blink.mojom.RendererAudioInputStreamFactoryClientPendingReceiver = class {
   constructor(handle) {
@@ -218,25 +165,6 @@ blink.mojom.RendererAudioInputStreamFactoryClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for StreamCreated
-blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.RendererAudioInputStreamFactoryClient.StreamCreated_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.AudioInputStreamRemote), nullable: false, minVersion: 0 },
-        { name: 'client_request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.AudioInputStreamClientRemote), nullable: false, minVersion: 0 },
-        { name: 'data_pipe', packedOffset: 16, packedBitOffset: 0, type: media.mojom.ReadWriteAudioDataPipeSpec, nullable: false, minVersion: 0 },
-        { name: 'initially_muted', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'stream_id', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.RendererAudioInputStreamFactoryClientPtr = blink.mojom.RendererAudioInputStreamFactoryClientRemote;
 blink.mojom.RendererAudioInputStreamFactoryClientRequest = blink.mojom.RendererAudioInputStreamFactoryClientPendingReceiver;
 

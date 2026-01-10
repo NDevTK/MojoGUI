@@ -10,23 +10,17 @@ storage.mojom = storage.mojom || {};
 var blink = blink || {};
 var blink = blink || {};
 
+storage.mojom.BucketInfoSpec = { $: {} };
 
 // Struct: BucketInfo
-storage.mojom.BucketInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.BucketInfo',
-      packedSize: 56,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'storage_key', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'expiration', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'quota', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'persistent', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'durability', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.BucketDurabilitySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.BucketInfoSpec, 'storage.mojom.BucketInfo', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('storage_key', 8, 0, blink.mojom.StorageKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('expiration', 24, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('quota', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('persistent', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('durability', 40, 0, blink.mojom.BucketDurabilitySpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);

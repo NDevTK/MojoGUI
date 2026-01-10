@@ -7,23 +7,18 @@
 // Module namespace
 var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
+var services = services || {};
 
+extensions.mojom.RendererAutomationRegistry = {};
+extensions.mojom.RendererAutomationRegistry.$interfaceName = 'extensions.mojom.RendererAutomationRegistry';
+extensions.mojom.RendererAutomationRegistry_BindAutomation_ParamsSpec = { $: {} };
 
 // Interface: RendererAutomationRegistry
-extensions.mojom.RendererAutomationRegistry = {};
-
-extensions.mojom.RendererAutomationRegistry_BindAutomation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.RendererAutomationRegistry_BindAutomation_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'automation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(ax.mojom.AutomationRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mojom.RendererAutomationRegistry_BindAutomation_ParamsSpec, 'extensions.mojom.RendererAutomationRegistry_BindAutomation_Params', [
+      mojo.internal.StructField('automation', 0, 0, mojo.internal.AssociatedInterfaceProxy(ax.mojom.AutomationRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 extensions.mojom.RendererAutomationRegistryPendingReceiver = class {
   constructor(handle) {
@@ -78,21 +73,6 @@ extensions.mojom.RendererAutomationRegistry.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BindAutomation
-extensions.mojom.RendererAutomationRegistry_BindAutomation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.RendererAutomationRegistry.BindAutomation_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'automation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(ax.mojom.AutomationRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 extensions.mojom.RendererAutomationRegistryPtr = extensions.mojom.RendererAutomationRegistryRemote;
 extensions.mojom.RendererAutomationRegistryRequest = extensions.mojom.RendererAutomationRegistryPendingReceiver;
 

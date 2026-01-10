@@ -7,12 +7,35 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
+var services = services || {};
 var blink = blink || {};
 var blink = blink || {};
 var blink = blink || {};
 var url = url || {};
 var url = url || {};
 
+blink.mojom.SharedStorageGetStatusSpec = { $: mojo.internal.Enum() };
+blink.mojom.SharedStorageWorkletCreationMethodSpec = { $: mojo.internal.Enum() };
+blink.mojom.SharedStorageDataOriginTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.SharedStorageUrlWithMetadataSpec = { $: {} };
+blink.mojom.PrivateAggregationConfigSpec = { $: {} };
+blink.mojom.SharedStorageWorkletHost = {};
+blink.mojom.SharedStorageWorkletHost.$interfaceName = 'blink.mojom.SharedStorageWorkletHost';
+blink.mojom.SharedStorageWorkletHost_SelectURL_ParamsSpec = { $: {} };
+blink.mojom.SharedStorageWorkletHost_SelectURL_ResponseParamsSpec = { $: {} };
+blink.mojom.SharedStorageWorkletHost_Run_ParamsSpec = { $: {} };
+blink.mojom.SharedStorageWorkletHost_Run_ResponseParamsSpec = { $: {} };
+blink.mojom.SharedStorageDocumentService = {};
+blink.mojom.SharedStorageDocumentService.$interfaceName = 'blink.mojom.SharedStorageDocumentService';
+blink.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec = { $: {} };
+blink.mojom.SharedStorageDocumentService_CreateWorklet_ResponseParamsSpec = { $: {} };
+blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec = { $: {} };
+blink.mojom.SharedStorageDocumentService_SharedStorageGet_ResponseParamsSpec = { $: {} };
+blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec = { $: {} };
+blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ResponseParamsSpec = { $: {} };
+blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ParamsSpec = { $: {} };
+blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ResponseParamsSpec = { $: {} };
 
 // Enum: SharedStorageGetStatus
 blink.mojom.SharedStorageGetStatus = {
@@ -20,14 +43,12 @@ blink.mojom.SharedStorageGetStatus = {
   kNotFound: 1,
   kError: 2,
 };
-blink.mojom.SharedStorageGetStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: SharedStorageWorkletCreationMethod
 blink.mojom.SharedStorageWorkletCreationMethod = {
   kAddModule: 0,
   kCreateWorklet: 1,
 };
-blink.mojom.SharedStorageWorkletCreationMethodSpec = { $: mojo.internal.Enum() };
 
 // Enum: SharedStorageDataOriginType
 blink.mojom.SharedStorageDataOriginType = {
@@ -35,80 +56,64 @@ blink.mojom.SharedStorageDataOriginType = {
   kScriptOrigin: 1,
   kCustomOrigin: 2,
 };
-blink.mojom.SharedStorageDataOriginTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SharedStorageUrlWithMetadata
-blink.mojom.SharedStorageUrlWithMetadataSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedStorageUrlWithMetadata',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'reporting_metadata', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SharedStorageUrlWithMetadataSpec, 'blink.mojom.SharedStorageUrlWithMetadata', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reporting_metadata', 8, 0, mojo.internal.Map(mojo.internal.String, url.mojom.UrlSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: PrivateAggregationConfig
-blink.mojom.PrivateAggregationConfigSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PrivateAggregationConfig',
-      packedSize: 32,
-      fields: [
-        { name: 'aggregation_coordinator_origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true, minVersion: 0 },
-        { name: 'context_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'filtering_id_max_bytes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'max_contributions_$flag', packedOffset: 22, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'max_contributions_$value', originalFieldName: 'max_contributions' } },
-        { name: 'max_contributions_$value', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'max_contributions_$flag', originalFieldName: 'max_contributions' } },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PrivateAggregationConfigSpec, 'blink.mojom.PrivateAggregationConfig', [
+      mojo.internal.StructField('aggregation_coordinator_origin', 0, 0, url.mojom.OriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('context_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('filtering_id_max_bytes', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('max_contributions_$flag', 22, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'max_contributions_$value', originalFieldName: 'max_contributions' }),
+      mojo.internal.StructField('max_contributions_$value', 20, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'max_contributions_$flag', originalFieldName: 'max_contributions' }),
+    ],
+    [[0, 32]]);
 
 // Interface: SharedStorageWorkletHost
-blink.mojom.SharedStorageWorkletHost = {};
+mojo.internal.Struct(
+    blink.mojom.SharedStorageWorkletHost_SelectURL_ParamsSpec, 'blink.mojom.SharedStorageWorkletHost_SelectURL_Params', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('urls_with_metadata', 8, 0, mojo.internal.Array(blink.mojom.SharedStorageUrlWithMetadataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('serialized_data', 16, 0, blink.mojom.CloneableMessageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('keep_alive_after_operation', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('private_aggregation_config', 24, 0, blink.mojom.PrivateAggregationConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('resolve_to_config', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('saved_query_name', 32, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('start_time', 40, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+    ],
+    [[0, 64]]);
 
-blink.mojom.SharedStorageWorkletHost_SelectURL_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedStorageWorkletHost_SelectURL_Params',
-      packedSize: 64,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'urls_with_metadata', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SharedStorageUrlWithMetadataSpec, false), nullable: false, minVersion: 0 },
-        { name: 'serialized_data', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.CloneableMessageSpec, nullable: false, minVersion: 0 },
-        { name: 'keep_alive_after_operation', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'private_aggregation_config', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.PrivateAggregationConfigSpec, nullable: false, minVersion: 0 },
-        { name: 'resolve_to_config', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'saved_query_name', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'start_time', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SharedStorageWorkletHost_SelectURL_ResponseParamsSpec, 'blink.mojom.SharedStorageWorkletHost_SelectURL_ResponseParams', [
+      mojo.internal.StructField('success', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('error_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('config', 8, 0, blink.mojom.FencedFrameConfigSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.SharedStorageWorkletHost_Run_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedStorageWorkletHost_Run_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'serialized_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CloneableMessageSpec, nullable: false, minVersion: 0 },
-        { name: 'keep_alive_after_operation', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'private_aggregation_config', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PrivateAggregationConfigSpec, nullable: false, minVersion: 0 },
-        { name: 'start_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SharedStorageWorkletHost_Run_ParamsSpec, 'blink.mojom.SharedStorageWorkletHost_Run_Params', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('serialized_data', 8, 0, blink.mojom.CloneableMessageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('keep_alive_after_operation', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('private_aggregation_config', 16, 0, blink.mojom.PrivateAggregationConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('start_time', 24, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+mojo.internal.Struct(
+    blink.mojom.SharedStorageWorkletHost_Run_ResponseParamsSpec, 'blink.mojom.SharedStorageWorkletHost_Run_ResponseParams', [
+      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('error_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.SharedStorageWorkletHostPendingReceiver = class {
   constructor(handle) {
@@ -172,140 +177,68 @@ blink.mojom.SharedStorageWorkletHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SelectURL
-blink.mojom.SharedStorageWorkletHost_SelectURL_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedStorageWorkletHost.SelectURL_Params',
-      packedSize: 64,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'urls_with_metadata', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SharedStorageUrlWithMetadataSpec, false), nullable: false, minVersion: 0 },
-        { name: 'serialized_data', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.CloneableMessageSpec, nullable: false, minVersion: 0 },
-        { name: 'keep_alive_after_operation', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'private_aggregation_config', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.PrivateAggregationConfigSpec, nullable: false, minVersion: 0 },
-        { name: 'resolve_to_config', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'saved_query_name', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'start_time', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
-
-blink.mojom.SharedStorageWorkletHost_SelectURL_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedStorageWorkletHost.SelectURL_ResponseParams',
-      packedSize: 32,
-      fields: [
-        { name: 'success', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FencedFrameConfigSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for Run
-blink.mojom.SharedStorageWorkletHost_Run_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedStorageWorkletHost.Run_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'serialized_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CloneableMessageSpec, nullable: false, minVersion: 0 },
-        { name: 'keep_alive_after_operation', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'private_aggregation_config', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PrivateAggregationConfigSpec, nullable: false, minVersion: 0 },
-        { name: 'start_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-blink.mojom.SharedStorageWorkletHost_Run_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedStorageWorkletHost.Run_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.SharedStorageWorkletHostPtr = blink.mojom.SharedStorageWorkletHostRemote;
 blink.mojom.SharedStorageWorkletHostRequest = blink.mojom.SharedStorageWorkletHostPendingReceiver;
 
 
 // Interface: SharedStorageDocumentService
-blink.mojom.SharedStorageDocumentService = {};
+mojo.internal.Struct(
+    blink.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec, 'blink.mojom.SharedStorageDocumentService_CreateWorklet_Params', [
+      mojo.internal.StructField('script_source_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data_origin', 8, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data_origin_type', 32, 0, blink.mojom.SharedStorageDataOriginTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('credentials_mode', 36, 0, network.mojom.CredentialsModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('creation_method', 40, 0, blink.mojom.SharedStorageWorkletCreationMethodSpec, null, false, 0, undefined),
+      mojo.internal.StructField('origin_trial_features', 16, 0, mojo.internal.Array(blink.mojom.OriginTrialFeatureSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('worklet_host', 24, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.SharedStorageWorkletHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
-blink.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedStorageDocumentService_CreateWorklet_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'script_source_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'data_origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'data_origin_type', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.SharedStorageDataOriginTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'credentials_mode', packedOffset: 36, packedBitOffset: 0, type: network.mojom.CredentialsModeSpec, nullable: false, minVersion: 0 },
-        { name: 'creation_method', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.SharedStorageWorkletCreationMethodSpec, nullable: false, minVersion: 0 },
-        { name: 'origin_trial_features', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.OriginTrialFeatureSpec, false), nullable: false, minVersion: 0 },
-        { name: 'worklet_host', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(blink.mojom.SharedStorageWorkletHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SharedStorageDocumentService_CreateWorklet_ResponseParamsSpec, 'blink.mojom.SharedStorageDocumentService_CreateWorklet_ResponseParams', [
+      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('error_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedStorageDocumentService_SharedStorageGet_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SharedStorageKeyArgumentSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec, 'blink.mojom.SharedStorageDocumentService_SharedStorageGet_Params', [
+      mojo.internal.StructField('key', 0, 0, network.mojom.SharedStorageKeyArgumentSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'method_with_options', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SharedStorageModifierMethodWithOptionsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SharedStorageDocumentService_SharedStorageGet_ResponseParamsSpec, 'blink.mojom.SharedStorageDocumentService_SharedStorageGet_ResponseParams', [
+      mojo.internal.StructField('status', 16, 0, blink.mojom.SharedStorageGetStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'methods_with_options', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec, nullable: false, minVersion: 0 },
-        { name: 'with_lock', packedOffset: 8, packedBitOffset: 0, type: network.mojom.LockNameSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec, 'blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_Params', [
+      mojo.internal.StructField('method_with_options', 0, 0, network.mojom.SharedStorageModifierMethodWithOptionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ResponseParamsSpec, 'blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ResponseParams', [
+      mojo.internal.StructField('error_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ParamsSpec, 'blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_Params', [
+      mojo.internal.StructField('methods_with_options', 0, 0, network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('with_lock', 8, 0, network.mojom.LockNameSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ResponseParamsSpec, 'blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ResponseParams', [
+      mojo.internal.StructField('error_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.SharedStorageDocumentServicePendingReceiver = class {
   constructor(handle) {
@@ -387,125 +320,6 @@ blink.mojom.SharedStorageDocumentService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateWorklet
-blink.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedStorageDocumentService.CreateWorklet_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'script_source_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'data_origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'data_origin_type', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.SharedStorageDataOriginTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'credentials_mode', packedOffset: 36, packedBitOffset: 0, type: network.mojom.CredentialsModeSpec, nullable: false, minVersion: 0 },
-        { name: 'creation_method', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.SharedStorageWorkletCreationMethodSpec, nullable: false, minVersion: 0 },
-        { name: 'origin_trial_features', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.OriginTrialFeatureSpec, false), nullable: false, minVersion: 0 },
-        { name: 'worklet_host', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(blink.mojom.SharedStorageWorkletHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
-
-blink.mojom.SharedStorageDocumentService_CreateWorklet_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedStorageDocumentService.CreateWorklet_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SharedStorageGet
-blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedStorageDocumentService.SharedStorageGet_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SharedStorageKeyArgumentSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.SharedStorageDocumentService_SharedStorageGet_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedStorageDocumentService.SharedStorageGet_ResponseParams',
-      packedSize: 32,
-      fields: [
-        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.SharedStorageGetStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for SharedStorageUpdate
-blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedStorageDocumentService.SharedStorageUpdate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'method_with_options', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SharedStorageModifierMethodWithOptionsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedStorageDocumentService.SharedStorageUpdate_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SharedStorageBatchUpdate
-blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedStorageDocumentService.SharedStorageBatchUpdate_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'methods_with_options', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec, nullable: false, minVersion: 0 },
-        { name: 'with_lock', packedOffset: 8, packedBitOffset: 0, type: network.mojom.LockNameSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SharedStorageDocumentService.SharedStorageBatchUpdate_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.SharedStorageDocumentServicePtr = blink.mojom.SharedStorageDocumentServiceRemote;
 blink.mojom.SharedStorageDocumentServiceRequest = blink.mojom.SharedStorageDocumentServicePendingReceiver;
 

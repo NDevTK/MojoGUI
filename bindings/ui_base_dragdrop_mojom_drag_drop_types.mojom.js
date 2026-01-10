@@ -8,19 +8,19 @@
 var ui = ui || {};
 ui.mojom = ui.mojom || {};
 
+ui.mojom.DragEventSourceSpec = { $: mojo.internal.Enum() };
+ui.mojom.DragOperationSpec = { $: mojo.internal.Enum() };
 
 // Enum: DragEventSource
 ui.mojom.DragEventSource = {
   kMouse: 0,
   kTouch: 1,
 };
-ui.mojom.DragEventSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: DragOperation
 ui.mojom.DragOperation = {
   kNone: 0,
   kCopy: 1,
   kLink: 2,
-  kMove: 3,
+  kMove: 16,
 };
-ui.mojom.DragOperationSpec = { $: mojo.internal.Enum() };

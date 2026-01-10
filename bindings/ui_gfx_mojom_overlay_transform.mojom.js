@@ -8,6 +8,7 @@
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
 
+gfx.mojom.OverlayTransformSpec = { $: mojo.internal.Enum() };
 
 // Enum: OverlayTransform
 gfx.mojom.OverlayTransform = {
@@ -20,6 +21,5 @@ gfx.mojom.OverlayTransform = {
   OVERLAY_TRANSFORM_ROTATE_CLOCKWISE_270: 6,
   OVERLAY_TRANSFORM_FLIP_VERTICAL_CLOCKWISE_90: 7,
   OVERLAY_TRANSFORM_FLIP_VERTICAL_CLOCKWISE_270: 8,
-  OVERLAY_TRANSFORM_LAST: 9,
+  OVERLAY_TRANSFORM_LAST: 8,
 };
-gfx.mojom.OverlayTransformSpec = { $: mojo.internal.Enum() };

@@ -10,41 +10,40 @@ extensions_bar.mojom = extensions_bar.mojom || {};
 var url = url || {};
 var ui = ui || {};
 
+extensions_bar.mojom.ExtensionActionInfoSpec = { $: {} };
+extensions_bar.mojom.PageHandlerFactory = {};
+extensions_bar.mojom.PageHandlerFactory.$interfaceName = 'extensions_bar.mojom.PageHandlerFactory';
+extensions_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+extensions_bar.mojom.PageHandler = {};
+extensions_bar.mojom.PageHandler.$interfaceName = 'extensions_bar.mojom.PageHandler';
+extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec = { $: {} };
+extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec = { $: {} };
+extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec = { $: {} };
+extensions_bar.mojom.Page = {};
+extensions_bar.mojom.Page.$interfaceName = 'extensions_bar.mojom.Page';
+extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec = { $: {} };
+extensions_bar.mojom.Page_ActionRemoved_ParamsSpec = { $: {} };
+extensions_bar.mojom.Page_ActionPoppedOut_ParamsSpec = { $: {} };
+extensions_bar.mojom.Page_ActionPoppedOut_ResponseParamsSpec = { $: {} };
 
 // Struct: ExtensionActionInfo
-extensions_bar.mojom.ExtensionActionInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions_bar.mojom.ExtensionActionInfo',
-      packedSize: 48,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'accessible_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'tooltip', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_visible', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'data_url_for_icon', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions_bar.mojom.ExtensionActionInfoSpec, 'extensions_bar.mojom.ExtensionActionInfo', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('accessible_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('tooltip', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_visible', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('data_url_for_icon', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Interface: PageHandlerFactory
-extensions_bar.mojom.PageHandlerFactory = {};
-
-extensions_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions_bar.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(extensions_bar.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(extensions_bar.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'extensions_bar.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(extensions_bar.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(extensions_bar.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 extensions_bar.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -99,67 +98,28 @@ extensions_bar.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-extensions_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions_bar.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(extensions_bar.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(extensions_bar.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 extensions_bar.mojom.PageHandlerFactoryPtr = extensions_bar.mojom.PageHandlerFactoryRemote;
 extensions_bar.mojom.PageHandlerFactoryRequest = extensions_bar.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-extensions_bar.mojom.PageHandler = {};
+mojo.internal.Struct(
+    extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec, 'extensions_bar.mojom.PageHandler_ExecuteUserAction_Params', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions_bar.mojom.PageHandler_ExecuteUserAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec, 'extensions_bar.mojom.PageHandler_ShowContextMenu_Params', [
+      mojo.internal.StructField('source', 8, 0, ui.mojom.MenuSourceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions_bar.mojom.PageHandler_ShowContextMenu_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.MenuSourceTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec, 'extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 extensions_bar.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -232,93 +192,32 @@ extensions_bar.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ExecuteUserAction
-extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions_bar.mojom.PageHandler.ExecuteUserAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ShowContextMenu
-extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions_bar.mojom.PageHandler.ShowContextMenu_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.MenuSourceTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ToggleExtensionsMenuFromWebUI
-extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions_bar.mojom.PageHandler.ToggleExtensionsMenuFromWebUI_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 extensions_bar.mojom.PageHandlerPtr = extensions_bar.mojom.PageHandlerRemote;
 extensions_bar.mojom.PageHandlerRequest = extensions_bar.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-extensions_bar.mojom.Page = {};
+mojo.internal.Struct(
+    extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec, 'extensions_bar.mojom.Page_ActionsAddedOrUpdated_Params', [
+      mojo.internal.StructField('actions', 0, 0, mojo.internal.Array(extensions_bar.mojom.ExtensionActionInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions_bar.mojom.Page_ActionsAddedOrUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'actions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(extensions_bar.mojom.ExtensionActionInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions_bar.mojom.Page_ActionRemoved_ParamsSpec, 'extensions_bar.mojom.Page_ActionRemoved_Params', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-extensions_bar.mojom.Page_ActionRemoved_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions_bar.mojom.Page_ActionRemoved_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions_bar.mojom.Page_ActionPoppedOut_ParamsSpec, 'extensions_bar.mojom.Page_ActionPoppedOut_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-extensions_bar.mojom.Page_ActionPoppedOut_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions_bar.mojom.Page_ActionPoppedOut_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions_bar.mojom.Page_ActionPoppedOut_ResponseParamsSpec, 'extensions_bar.mojom.Page_ActionPoppedOut_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 extensions_bar.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -375,7 +274,7 @@ extensions_bar.mojom.PageRemoteCallHandler = class {
     return this.proxy.sendMessage(
       2,  // ordinal
       extensions_bar.mojom.Page_ActionPoppedOut_ParamsSpec,
-      null,
+      extensions_bar.mojom.Page_ActionPoppedOut_ResponseParamsSpec,
       []);
   }
 
@@ -391,48 +290,6 @@ extensions_bar.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ActionsAddedOrUpdated
-extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions_bar.mojom.Page.ActionsAddedOrUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'actions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(extensions_bar.mojom.ExtensionActionInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ActionRemoved
-extensions_bar.mojom.Page_ActionRemoved_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions_bar.mojom.Page.ActionRemoved_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ActionPoppedOut
-extensions_bar.mojom.Page_ActionPoppedOut_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions_bar.mojom.Page.ActionPoppedOut_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 extensions_bar.mojom.PagePtr = extensions_bar.mojom.PageRemote;
 extensions_bar.mojom.PageRequest = extensions_bar.mojom.PagePendingReceiver;
 

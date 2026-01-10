@@ -8,6 +8,7 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.ServiceWorkerEmbeddedWorkerStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: ServiceWorkerEmbeddedWorkerStatus
 blink.mojom.ServiceWorkerEmbeddedWorkerStatus = {
@@ -16,4 +17,3 @@ blink.mojom.ServiceWorkerEmbeddedWorkerStatus = {
   kRunning: 2,
   kStopping: 3,
 };
-blink.mojom.ServiceWorkerEmbeddedWorkerStatusSpec = { $: mojo.internal.Enum() };

@@ -8,36 +8,48 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.DeviceAttributeResultSpec = { $: {} };
+blink.mojom.ManagedConfigurationObserver = {};
+blink.mojom.ManagedConfigurationObserver.$interfaceName = 'blink.mojom.ManagedConfigurationObserver';
+blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec = { $: {} };
+blink.mojom.DeviceAPIService = {};
+blink.mojom.DeviceAPIService.$interfaceName = 'blink.mojom.DeviceAPIService';
+blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec = { $: {} };
+blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec = { $: {} };
+blink.mojom.DeviceAPIService_GetHostname_ParamsSpec = { $: {} };
+blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec = { $: {} };
+blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec = { $: {} };
+blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec = { $: {} };
+blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec = { $: {} };
+blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec = { $: {} };
+blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec = { $: {} };
+blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec = { $: {} };
+blink.mojom.ManagedConfigurationService = {};
+blink.mojom.ManagedConfigurationService.$interfaceName = 'blink.mojom.ManagedConfigurationService';
+blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec = { $: {} };
+blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSpec = { $: {} };
+blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec = { $: {} };
 
 // Union: DeviceAttributeResult
-blink.mojom.DeviceAttributeResultSpec = { $: mojo.internal.Union(
-    'blink.mojom.DeviceAttributeResult', {
+mojo.internal.Union(
+    blink.mojom.DeviceAttributeResultSpec, 'blink.mojom.DeviceAttributeResult', {
       'error_message': {
         'ordinal': 0,
         'type': mojo.internal.String,
-      }},
+        'nullable': false,
+      },
       'attribute': {
         'ordinal': 1,
         'type': mojo.internal.String,
         'nullable': true,
-      }},
-    })
-};
+      },
+    });
 
 // Interface: ManagedConfigurationObserver
-blink.mojom.ManagedConfigurationObserver = {};
-
-blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec, 'blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 blink.mojom.ManagedConfigurationObserverPendingReceiver = class {
   constructor(handle) {
@@ -92,86 +104,65 @@ blink.mojom.ManagedConfigurationObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnConfigurationChanged
-blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ManagedConfigurationObserver.OnConfigurationChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.ManagedConfigurationObserverPtr = blink.mojom.ManagedConfigurationObserverRemote;
 blink.mojom.ManagedConfigurationObserverRequest = blink.mojom.ManagedConfigurationObserverPendingReceiver;
 
 
 // Interface: DeviceAPIService
-blink.mojom.DeviceAPIService = {};
+mojo.internal.Struct(
+    blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec, 'blink.mojom.DeviceAPIService_GetDirectoryId_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DeviceAPIService_GetDirectoryId_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec, 'blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, blink.mojom.DeviceAttributeResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.DeviceAPIService_GetHostname_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DeviceAPIService_GetHostname_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DeviceAPIService_GetHostname_ParamsSpec, 'blink.mojom.DeviceAPIService_GetHostname_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DeviceAPIService_GetSerialNumber_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec, 'blink.mojom.DeviceAPIService_GetHostname_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, blink.mojom.DeviceAttributeResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DeviceAPIService_GetAnnotatedAssetId_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec, 'blink.mojom.DeviceAPIService_GetSerialNumber_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DeviceAPIService_GetAnnotatedLocation_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec, 'blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, blink.mojom.DeviceAttributeResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec, 'blink.mojom.DeviceAPIService_GetAnnotatedAssetId_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec, 'blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, blink.mojom.DeviceAttributeResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec, 'blink.mojom.DeviceAPIService_GetAnnotatedLocation_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec, 'blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, blink.mojom.DeviceAttributeResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.DeviceAPIServicePendingReceiver = class {
   constructor(handle) {
@@ -262,169 +253,28 @@ blink.mojom.DeviceAPIService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetDirectoryId
-blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DeviceAPIService.GetDirectoryId_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DeviceAPIService.GetDirectoryId_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DeviceAttributeResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GetHostname
-blink.mojom.DeviceAPIService_GetHostname_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DeviceAPIService.GetHostname_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DeviceAPIService.GetHostname_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DeviceAttributeResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GetSerialNumber
-blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DeviceAPIService.GetSerialNumber_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DeviceAPIService.GetSerialNumber_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DeviceAttributeResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GetAnnotatedAssetId
-blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DeviceAPIService.GetAnnotatedAssetId_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DeviceAPIService.GetAnnotatedAssetId_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DeviceAttributeResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GetAnnotatedLocation
-blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DeviceAPIService.GetAnnotatedLocation_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DeviceAPIService.GetAnnotatedLocation_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DeviceAttributeResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.DeviceAPIServicePtr = blink.mojom.DeviceAPIServiceRemote;
 blink.mojom.DeviceAPIServiceRequest = blink.mojom.DeviceAPIServicePendingReceiver;
 
 
 // Interface: ManagedConfigurationService
-blink.mojom.ManagedConfigurationService = {};
+mojo.internal.Struct(
+    blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec, 'blink.mojom.ManagedConfigurationService_GetManagedConfiguration_Params', [
+      mojo.internal.StructField('keys', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ManagedConfigurationService_GetManagedConfiguration_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSpec, 'blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParams', [
+      mojo.internal.StructField('configurations', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.ManagedConfigurationObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec, 'blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.ManagedConfigurationObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.ManagedConfigurationServicePendingReceiver = class {
   constructor(handle) {
@@ -488,48 +338,6 @@ blink.mojom.ManagedConfigurationService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetManagedConfiguration
-blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ManagedConfigurationService.GetManagedConfiguration_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ManagedConfigurationService.GetManagedConfiguration_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'configurations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SubscribeToManagedConfiguration
-blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ManagedConfigurationService.SubscribeToManagedConfiguration_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.ManagedConfigurationObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.ManagedConfigurationServicePtr = blink.mojom.ManagedConfigurationServiceRemote;
 blink.mojom.ManagedConfigurationServiceRequest = blink.mojom.ManagedConfigurationServicePendingReceiver;
 

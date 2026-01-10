@@ -12,40 +12,42 @@ var skia = skia || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+actor.ui.mojom.ThemeSpec = { $: {} };
+actor.ui.mojom.ActorOverlayPageHandlerFactory = {};
+actor.ui.mojom.ActorOverlayPageHandlerFactory.$interfaceName = 'actor.ui.mojom.ActorOverlayPageHandlerFactory';
+actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+actor.ui.mojom.ActorOverlayPageHandler = {};
+actor.ui.mojom.ActorOverlayPageHandler.$interfaceName = 'actor.ui.mojom.ActorOverlayPageHandler';
+actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec = { $: {} };
+actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec = { $: {} };
+actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec = { $: {} };
+actor.ui.mojom.ActorOverlayPage = {};
+actor.ui.mojom.ActorOverlayPage.$interfaceName = 'actor.ui.mojom.ActorOverlayPage';
+actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec = { $: {} };
+actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec = { $: {} };
+actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec = { $: {} };
+actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec = { $: {} };
+actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParamsSpec = { $: {} };
+actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec = { $: {} };
+actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec = { $: {} };
 
 // Struct: Theme
-actor.ui.mojom.ThemeSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.ui.mojom.Theme',
-      packedSize: 40,
-      fields: [
-        { name: 'border_color', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-        { name: 'border_glow_color', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-        { name: 'scrim_colors', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(skia.mojom.SkColor, 3Spec, false), nullable: false, minVersion: 0 },
-        { name: 'magic_cursor_color', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    actor.ui.mojom.ThemeSpec, 'actor.ui.mojom.Theme', [
+      mojo.internal.StructField('border_color', 0, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('border_glow_color', 8, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scrim_colors', 16, 0, mojo.internal.Array(skia.mojom.SkColor, 3Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('magic_cursor_color', 24, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: ActorOverlayPageHandlerFactory
-actor.ui.mojom.ActorOverlayPageHandlerFactory = {};
-
-actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(actor.ui.mojom.ActorOverlayPageRemote), nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(actor.ui.mojom.ActorOverlayPageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec, 'actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(actor.ui.mojom.ActorOverlayPageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(actor.ui.mojom.ActorOverlayPageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 actor.ui.mojom.ActorOverlayPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -100,53 +102,27 @@ actor.ui.mojom.ActorOverlayPageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.ui.mojom.ActorOverlayPageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(actor.ui.mojom.ActorOverlayPageRemote), nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(actor.ui.mojom.ActorOverlayPageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 actor.ui.mojom.ActorOverlayPageHandlerFactoryPtr = actor.ui.mojom.ActorOverlayPageHandlerFactoryRemote;
 actor.ui.mojom.ActorOverlayPageHandlerFactoryRequest = actor.ui.mojom.ActorOverlayPageHandlerFactoryPendingReceiver;
 
 
 // Interface: ActorOverlayPageHandler
-actor.ui.mojom.ActorOverlayPageHandler = {};
+mojo.internal.Struct(
+    actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec, 'actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_Params', [
+      mojo.internal.StructField('is_hovering', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_hovering', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec, 'actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec, 'actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParams', [
+      mojo.internal.StructField('is_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 actor.ui.mojom.ActorOverlayPageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -210,117 +186,49 @@ actor.ui.mojom.ActorOverlayPageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnHoverStatusChanged
-actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.ui.mojom.ActorOverlayPageHandler.OnHoverStatusChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_hovering', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetCurrentBorderGlowVisibility
-actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.ui.mojom.ActorOverlayPageHandler.GetCurrentBorderGlowVisibility_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.ui.mojom.ActorOverlayPageHandler.GetCurrentBorderGlowVisibility_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'is_visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 actor.ui.mojom.ActorOverlayPageHandlerPtr = actor.ui.mojom.ActorOverlayPageHandlerRemote;
 actor.ui.mojom.ActorOverlayPageHandlerRequest = actor.ui.mojom.ActorOverlayPageHandlerPendingReceiver;
 
 
 // Interface: ActorOverlayPage
-actor.ui.mojom.ActorOverlayPage = {};
+mojo.internal.Struct(
+    actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_SetScrimBackground_Params', [
+      mojo.internal.StructField('is_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.ui.mojom.ActorOverlayPage_SetScrimBackground_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_Params', [
+      mojo.internal.StructField('is_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_SetTheme_Params', [
+      mojo.internal.StructField('theme', 0, 0, actor.ui.mojom.ThemeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.ui.mojom.ActorOverlayPage_SetTheme_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: actor.ui.mojom.ThemeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_MoveCursorTo_Params', [
+      mojo.internal.StructField('point', 0, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.ui.mojom.ActorOverlayPage_MoveCursorTo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParamsSpec, 'actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec, 'actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 actor.ui.mojom.ActorOverlayPagePendingReceiver = class {
   constructor(handle) {
@@ -386,7 +294,7 @@ actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class {
     return this.proxy.sendMessage(
       3,  // ordinal
       actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec,
-      null,
+      actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParamsSpec,
       [point]);
   }
 
@@ -395,7 +303,7 @@ actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class {
     return this.proxy.sendMessage(
       4,  // ordinal
       actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec,
-      null,
+      actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec,
       []);
   }
 
@@ -411,76 +319,6 @@ actor.ui.mojom.ActorOverlayPage.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetScrimBackground
-actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.ui.mojom.ActorOverlayPage.SetScrimBackground_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetBorderGlowVisibility
-actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.ui.mojom.ActorOverlayPage.SetBorderGlowVisibility_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetTheme
-actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.ui.mojom.ActorOverlayPage.SetTheme_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: actor.ui.mojom.ThemeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for MoveCursorTo
-actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.ui.mojom.ActorOverlayPage.MoveCursorTo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for TriggerClickAnimation
-actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'actor.ui.mojom.ActorOverlayPage.TriggerClickAnimation_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 actor.ui.mojom.ActorOverlayPagePtr = actor.ui.mojom.ActorOverlayPageRemote;
 actor.ui.mojom.ActorOverlayPageRequest = actor.ui.mojom.ActorOverlayPagePendingReceiver;
 

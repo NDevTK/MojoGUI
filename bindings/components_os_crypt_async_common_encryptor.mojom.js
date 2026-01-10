@@ -7,34 +7,23 @@
 // Module namespace
 var os_crypt_async = os_crypt_async || {};
 os_crypt_async.mojom = os_crypt_async.mojom || {};
+var components = components || {};
 
+os_crypt_async.mojom.KeySpec = { $: {} };
+os_crypt_async.mojom.EncryptorSpec = { $: {} };
 
 // Struct: Key
-os_crypt_async.mojom.KeySpec = {
-  $: {
-    structSpec: {
-      name: 'os_crypt_async.mojom.Key',
-      packedSize: 24,
-      fields: [
-        { name: 'algorithm', packedOffset: 8, packedBitOffset: 0, type: os_crypt_async.mojom.AlgorithmSpec, nullable: false, minVersion: 0 },
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    os_crypt_async.mojom.KeySpec, 'os_crypt_async.mojom.Key', [
+      mojo.internal.StructField('algorithm', 8, 0, os_crypt_async.mojom.AlgorithmSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key', 0, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: Encryptor
-os_crypt_async.mojom.EncryptorSpec = {
-  $: {
-    structSpec: {
-      name: 'os_crypt_async.mojom.Encryptor',
-      packedSize: 24,
-      fields: [
-        { name: 'provider_for_encryption', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'key_entries', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, os_crypt_async.mojom.KeySpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    os_crypt_async.mojom.EncryptorSpec, 'os_crypt_async.mojom.Encryptor', [
+      mojo.internal.StructField('provider_for_encryption', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('key_entries', 8, 0, mojo.internal.Map(mojo.internal.String, os_crypt_async.mojom.KeySpec, false), null, true, 0, undefined),
+    ],
+    [[0, 24]]);

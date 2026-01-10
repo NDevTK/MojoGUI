@@ -8,38 +8,26 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.NavigationApiHistoryEntrySpec = { $: {} };
+blink.mojom.NavigationApiHistoryEntryArraysSpec = { $: {} };
 
 // Struct: NavigationApiHistoryEntry
-blink.mojom.NavigationApiHistoryEntrySpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NavigationApiHistoryEntry',
-      packedSize: 56,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'item_sequence_number', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'document_sequence_number', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'state', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.NavigationApiHistoryEntrySpec, 'blink.mojom.NavigationApiHistoryEntry', [
+      mojo.internal.StructField('key', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('item_sequence_number', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('document_sequence_number', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('state', 40, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: NavigationApiHistoryEntryArrays
-blink.mojom.NavigationApiHistoryEntryArraysSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NavigationApiHistoryEntryArrays',
-      packedSize: 32,
-      fields: [
-        { name: 'back_entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.NavigationApiHistoryEntrySpec, false), nullable: false, minVersion: 0 },
-        { name: 'forward_entries', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.NavigationApiHistoryEntrySpec, false), nullable: false, minVersion: 0 },
-        { name: 'previous_entry', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.NavigationApiHistoryEntrySpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.NavigationApiHistoryEntryArraysSpec, 'blink.mojom.NavigationApiHistoryEntryArrays', [
+      mojo.internal.StructField('back_entries', 0, 0, mojo.internal.Array(blink.mojom.NavigationApiHistoryEntrySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('forward_entries', 8, 0, mojo.internal.Array(blink.mojom.NavigationApiHistoryEntrySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('previous_entry', 16, 0, blink.mojom.NavigationApiHistoryEntrySpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);

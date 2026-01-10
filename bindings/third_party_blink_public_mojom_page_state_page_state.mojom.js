@@ -7,166 +7,130 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
 var url = url || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+blink.mojom.ScrollRestorationTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.ElementSpec = { $: {} };
+blink.mojom.DEPRECATED_FileSystemFileSpec = { $: {} };
+blink.mojom.FileSpec = { $: {} };
+blink.mojom.RequestBodySpec = { $: {} };
+blink.mojom.HttpBodySpec = { $: {} };
+blink.mojom.ViewStateSpec = { $: {} };
+blink.mojom.FrameStateSpec = { $: {} };
+blink.mojom.PageStateSpec = { $: {} };
 
 // Enum: ScrollRestorationType
 blink.mojom.ScrollRestorationType = {
-  kManual: 0,
+  kAuto: 0,
+  kManual: 1,
 };
-blink.mojom.ScrollRestorationTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: Element
-blink.mojom.ElementSpec = { $: mojo.internal.Union(
-    'blink.mojom.Element', {
+mojo.internal.Union(
+    blink.mojom.ElementSpec, 'blink.mojom.Element', {
       'blob_uuid': {
         'ordinal': 0,
         'type': mojo.internal.String,
-      }},
+        'nullable': false,
+      },
       'bytes': {
         'ordinal': 1,
         'type': mojo.internal.Array(mojo.internal.Uint8, false),
-      }},
+        'nullable': false,
+      },
       'file': {
         'ordinal': 2,
         'type': blink.mojom.FileSpec,
-      }},
+        'nullable': false,
+      },
       'DEPRECATED_file_system_file': {
         'ordinal': 3,
         'type': blink.mojom.DEPRECATED_FileSystemFileSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: DEPRECATED_FileSystemFile
-blink.mojom.DEPRECATED_FileSystemFileSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DEPRECATED_FileSystemFile',
-      packedSize: 40,
-      fields: [
-        { name: 'filesystem_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'modification_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DEPRECATED_FileSystemFileSpec, 'blink.mojom.DEPRECATED_FileSystemFile', [
+      mojo.internal.StructField('filesystem_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('offset', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('length', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('modification_time', 24, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: File
-blink.mojom.FileSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.File',
-      packedSize: 40,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'modification_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FileSpec, 'blink.mojom.File', [
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('offset', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('length', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('modification_time', 24, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: RequestBody
-blink.mojom.RequestBodySpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.RequestBody',
-      packedSize: 32,
-      fields: [
-        { name: 'elements', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.ElementSpec, false), nullable: false, minVersion: 0 },
-        { name: 'identifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'contains_sensitive_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.RequestBodySpec, 'blink.mojom.RequestBody', [
+      mojo.internal.StructField('elements', 0, 0, mojo.internal.Array(blink.mojom.ElementSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('identifier', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('contains_sensitive_info', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: HttpBody
-blink.mojom.HttpBodySpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.HttpBody',
-      packedSize: 32,
-      fields: [
-        { name: 'http_content_type', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-        { name: 'request_body', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.RequestBodySpec, nullable: true, minVersion: 0 },
-        { name: 'contains_passwords', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.HttpBodySpec, 'blink.mojom.HttpBody', [
+      mojo.internal.StructField('http_content_type', 0, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('request_body', 8, 0, blink.mojom.RequestBodySpec, null, true, 0, undefined),
+      mojo.internal.StructField('contains_passwords', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: ViewState
-blink.mojom.ViewStateSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ViewState',
-      packedSize: 56,
-      fields: [
-        { name: 'visual_viewport_scroll_offset', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'scroll_offset', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-        { name: 'page_scale_factor', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'scroll_anchor_selector', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 1 },
-        { name: 'scroll_anchor_offset', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: true, minVersion: 1 },
-        { name: 'scroll_anchor_simhash', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 1 },
-      ],
-      versions: [{version: 0, packedSize: 32}, {version: 1, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ViewStateSpec, 'blink.mojom.ViewState', [
+      mojo.internal.StructField('visual_viewport_scroll_offset', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scroll_offset', 8, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('page_scale_factor', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('scroll_anchor_selector', 24, 0, mojo_base.mojom.String16Spec, null, true, 1, undefined),
+      mojo.internal.StructField('scroll_anchor_offset', 32, 0, gfx.mojom.PointFSpec, null, true, 1, undefined),
+      mojo.internal.StructField('scroll_anchor_simhash', 40, 0, mojo.internal.Uint64, 0, false, 1, undefined),
+    ],
+    [[0, 32], [1, 56]]);
 
 // Struct: FrameState
-blink.mojom.FrameStateSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameState',
-      packedSize: 144,
-      fields: [
-        { name: 'url_string', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-        { name: 'referrer', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-        { name: 'target', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-        { name: 'state_object', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-        { name: 'document_state', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.String16Spec, false), nullable: true, minVersion: 0 },
-        { name: 'scroll_restoration_type', packedOffset: 80, packedBitOffset: 0, type: blink.mojom.ScrollRestorationTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'view_state', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.ViewStateSpec, nullable: true, minVersion: 0 },
-        { name: 'item_sequence_number', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'document_sequence_number', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'referrer_policy', packedOffset: 84, packedBitOffset: 0, type: network.mojom.ReferrerPolicySpec, nullable: false, minVersion: 0 },
-        { name: 'http_body', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.HttpBodySpec, nullable: false, minVersion: 0 },
-        { name: 'children', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.FrameStateSpec, false), nullable: false, minVersion: 0 },
-        { name: 'initiator_origin', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 2 },
-        { name: 'navigation_api_key', packedOffset: 96, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 3 },
-        { name: 'navigation_api_id', packedOffset: 104, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 3 },
-        { name: 'navigation_api_state', packedOffset: 112, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 4 },
-        { name: 'protect_url_in_navigation_api', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 5 },
-        { name: 'initiator_base_url_string', packedOffset: 128, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 6 },
-      ],
-      versions: [{version: 0, packedSize: 96}, {version: 2, packedSize: 104}, {version: 3, packedSize: 120}, {version: 4, packedSize: 128}, {version: 5, packedSize: 136}, {version: 6, packedSize: 144}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameStateSpec, 'blink.mojom.FrameState', [
+      mojo.internal.StructField('url_string', 0, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('referrer', 8, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('target', 16, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('state_object', 24, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('document_state', 32, 0, mojo.internal.Array(mojo_base.mojom.String16Spec, false), null, true, 0, undefined),
+      mojo.internal.StructField('scroll_restoration_type', 80, 0, blink.mojom.ScrollRestorationTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('view_state', 40, 0, blink.mojom.ViewStateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('item_sequence_number', 48, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('document_sequence_number', 56, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('referrer_policy', 84, 0, network.mojom.ReferrerPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('http_body', 64, 0, blink.mojom.HttpBodySpec, null, false, 0, undefined),
+      mojo.internal.StructField('children', 72, 0, mojo.internal.Array(blink.mojom.FrameStateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('initiator_origin', 88, 0, mojo.internal.String, null, true, 2, undefined),
+      mojo.internal.StructField('navigation_api_key', 96, 0, mojo_base.mojom.String16Spec, null, true, 3, undefined),
+      mojo.internal.StructField('navigation_api_id', 104, 0, mojo_base.mojom.String16Spec, null, true, 3, undefined),
+      mojo.internal.StructField('navigation_api_state', 112, 0, mojo_base.mojom.String16Spec, null, true, 4, undefined),
+      mojo.internal.StructField('protect_url_in_navigation_api', 120, 0, mojo.internal.Bool, false, false, 5, undefined),
+      mojo.internal.StructField('initiator_base_url_string', 128, 0, mojo_base.mojom.String16Spec, null, true, 6, undefined),
+    ],
+    [[0, 96], [2, 104], [3, 120], [4, 128], [5, 136], [6, 144]]);
 
 // Struct: PageState
-blink.mojom.PageStateSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PageState',
-      packedSize: 24,
-      fields: [
-        { name: 'referenced_files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.String16Spec, false), nullable: true, minVersion: 0 },
-        { name: 'top', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FrameStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PageStateSpec, 'blink.mojom.PageState', [
+      mojo.internal.StructField('referenced_files', 0, 0, mojo.internal.Array(mojo_base.mojom.String16Spec, false), null, true, 0, undefined),
+      mojo.internal.StructField('top', 8, 0, blink.mojom.FrameStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

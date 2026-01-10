@@ -8,6 +8,7 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.DisplayModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: DisplayMode
 blink.mojom.DisplayMode = {
@@ -21,4 +22,3 @@ blink.mojom.DisplayMode = {
   kBorderless: 7,
   kPictureInPicture: 8,
 };
-blink.mojom.DisplayModeSpec = { $: mojo.internal.Enum() };

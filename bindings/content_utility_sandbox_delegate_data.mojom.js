@@ -9,18 +9,12 @@ var content = content || {};
 content.mojom = content.mojom || {};
 content.mojom.sandbox = content.mojom.sandbox || {};
 
+content.mojom.sandbox.UtilityConfigSpec = { $: {} };
 
 // Struct: UtilityConfig
-content.mojom.sandbox.UtilityConfigSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.sandbox.UtilityConfig',
-      packedSize: 24,
-      fields: [
-        { name: 'preload_libraries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), nullable: false, minVersion: 0 },
-        { name: 'bootstrap_event_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.sandbox.UtilityConfigSpec, 'content.mojom.sandbox.UtilityConfig', [
+      mojo.internal.StructField('preload_libraries', 0, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('bootstrap_event_handle', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);

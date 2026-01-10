@@ -8,78 +8,79 @@
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
+arc.mojom.ArcTimerResultSpec = { $: mojo.internal.Enum() };
+arc.mojom.ClockIdSpec = { $: mojo.internal.Enum() };
+arc.mojom.CreateTimerRequestSpec = { $: {} };
+arc.mojom.TimerHost = {};
+arc.mojom.TimerHost.$interfaceName = 'arc.mojom.TimerHost';
+arc.mojom.TimerHost_CreateTimers_ParamsSpec = { $: {} };
+arc.mojom.TimerHost_CreateTimers_ResponseParamsSpec = { $: {} };
+arc.mojom.TimerHost_StartTimer_ParamsSpec = { $: {} };
+arc.mojom.TimerHost_StartTimer_ResponseParamsSpec = { $: {} };
+arc.mojom.TimerHost_SetTime_ParamsSpec = { $: {} };
+arc.mojom.TimerHost_SetTime_ResponseParamsSpec = { $: {} };
+arc.mojom.TimerInstance = {};
+arc.mojom.TimerInstance.$interfaceName = 'arc.mojom.TimerInstance';
+arc.mojom.TimerInstance_Init_ParamsSpec = { $: {} };
+arc.mojom.TimerInstance_Init_ResponseParamsSpec = { $: {} };
 
 // Enum: ArcTimerResult
 arc.mojom.ArcTimerResult = {
   SUCCESS: 0,
   FAILURE: 1,
 };
-arc.mojom.ArcTimerResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: ClockId
 arc.mojom.ClockId = {
   REALTIME_ALARM: 0,
   BOOTTIME_ALARM: 1,
 };
-arc.mojom.ClockIdSpec = { $: mojo.internal.Enum() };
 
 // Struct: CreateTimerRequest
-arc.mojom.CreateTimerRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.CreateTimerRequest',
-      packedSize: 16,
-      fields: [
-        { name: 'clock_id', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ClockIdSpec, nullable: false, minVersion: 0 },
-        { name: 'expiration_fd', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.CreateTimerRequestSpec, 'arc.mojom.CreateTimerRequest', [
+      mojo.internal.StructField('clock_id', 0, 0, arc.mojom.ClockIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('expiration_fd', 4, 0, mojo.internal.Handle, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: TimerHost
-arc.mojom.TimerHost = {};
+mojo.internal.Struct(
+    arc.mojom.TimerHost_CreateTimers_ParamsSpec, 'arc.mojom.TimerHost_CreateTimers_Params', [
+      mojo.internal.StructField('timer_requests', 0, 0, mojo.internal.Array(arc.mojom.CreateTimerRequestSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.TimerHost_CreateTimers_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.TimerHost_CreateTimers_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'timer_requests', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.CreateTimerRequestSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.TimerHost_CreateTimers_ResponseParamsSpec, 'arc.mojom.TimerHost_CreateTimers_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, arc.mojom.ArcTimerResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.TimerHost_StartTimer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.TimerHost_StartTimer_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'clock_id', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ClockIdSpec, nullable: false, minVersion: 0 },
-        { name: 'absolute_expiration_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.TimerHost_StartTimer_ParamsSpec, 'arc.mojom.TimerHost_StartTimer_Params', [
+      mojo.internal.StructField('clock_id', 8, 0, arc.mojom.ClockIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('absolute_expiration_time', 0, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.TimerHost_SetTime_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.TimerHost_SetTime_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.TimerHost_StartTimer_ResponseParamsSpec, 'arc.mojom.TimerHost_StartTimer_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, arc.mojom.ArcTimerResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.TimerHost_SetTime_ParamsSpec, 'arc.mojom.TimerHost_SetTime_Params', [
+      mojo.internal.StructField('time', 0, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.TimerHost_SetTime_ResponseParamsSpec, 'arc.mojom.TimerHost_SetTime_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, arc.mojom.ArcTimerResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.TimerHostPendingReceiver = class {
   constructor(handle) {
@@ -152,108 +153,21 @@ arc.mojom.TimerHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateTimers
-arc.mojom.TimerHost_CreateTimers_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.TimerHost.CreateTimers_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'timer_requests', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.CreateTimerRequestSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.TimerHost_CreateTimers_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.TimerHost.CreateTimers_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcTimerResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StartTimer
-arc.mojom.TimerHost_StartTimer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.TimerHost.StartTimer_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'clock_id', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ClockIdSpec, nullable: false, minVersion: 0 },
-        { name: 'absolute_expiration_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.TimerHost_StartTimer_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.TimerHost.StartTimer_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcTimerResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetTime
-arc.mojom.TimerHost_SetTime_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.TimerHost.SetTime_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.TimerHost_SetTime_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.TimerHost.SetTime_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcTimerResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.TimerHostPtr = arc.mojom.TimerHostRemote;
 arc.mojom.TimerHostRequest = arc.mojom.TimerHostPendingReceiver;
 
 
 // Interface: TimerInstance
-arc.mojom.TimerInstance = {};
+mojo.internal.Struct(
+    arc.mojom.TimerInstance_Init_ParamsSpec, 'arc.mojom.TimerInstance_Init_Params', [
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.TimerHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.TimerInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.TimerInstance_Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.TimerHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.TimerInstance_Init_ResponseParamsSpec, 'arc.mojom.TimerInstance_Init_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 arc.mojom.TimerInstancePendingReceiver = class {
   constructor(handle) {
@@ -292,7 +206,7 @@ arc.mojom.TimerInstanceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       arc.mojom.TimerInstance_Init_ParamsSpec,
-      null,
+      arc.mojom.TimerInstance_Init_ResponseParamsSpec,
       [host_remote]);
   }
 
@@ -308,21 +222,6 @@ arc.mojom.TimerInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Init
-arc.mojom.TimerInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.TimerInstance.Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.TimerHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.TimerInstancePtr = arc.mojom.TimerInstanceRemote;
 arc.mojom.TimerInstanceRequest = arc.mojom.TimerInstancePendingReceiver;
 

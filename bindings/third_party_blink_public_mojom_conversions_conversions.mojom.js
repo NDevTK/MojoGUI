@@ -7,71 +7,50 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var components = components || {};
+var components = components || {};
 var blink = blink || {};
+var services = services || {};
 var url = url || {};
 
+blink.mojom.ImpressionSpec = { $: {} };
+blink.mojom.AttributionHost = {};
+blink.mojom.AttributionHost.$interfaceName = 'blink.mojom.AttributionHost';
+blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec = { $: {} };
+blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec = { $: {} };
+blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_ParamsSpec = { $: {} };
 
 // Struct: Impression
-blink.mojom.ImpressionSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.Impression',
-      packedSize: 24,
-      fields: [
-        { name: 'attribution_src_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AttributionSrcTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'is_empty_attribution_src_tag', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ImpressionSpec, 'blink.mojom.Impression', [
+      mojo.internal.StructField('attribution_src_token', 0, 0, blink.mojom.AttributionSrcTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_empty_attribution_src_tag', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: AttributionHost
-blink.mojom.AttributionHost = {};
+mojo.internal.Struct(
+    blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec, 'blink.mojom.AttributionHost_RegisterDataHost_Params', [
+      mojo.internal.StructField('data_host', 0, 0, mojo.internal.InterfaceRequest(attribution_reporting.mojom.DataHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('registration_eligibility', 16, 0, attribution_reporting.mojom.RegistrationEligibilitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_for_background_requests', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('reporting_origins', 8, 0, mojo.internal.Array(url.mojom.OriginSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AttributionHost_RegisterDataHost_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'data_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(attribution_reporting.mojom.DataHostRemote), nullable: false, minVersion: 0 },
-        { name: 'registration_eligibility', packedOffset: 16, packedBitOffset: 0, type: attribution_reporting.mojom.RegistrationEligibilitySpec, nullable: false, minVersion: 0 },
-        { name: 'is_for_background_requests', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'reporting_origins', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.OriginSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec, 'blink.mojom.AttributionHost_RegisterNavigationDataHost_Params', [
+      mojo.internal.StructField('data_host', 0, 0, mojo.internal.InterfaceRequest(attribution_reporting.mojom.DataHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('attribution_src_token', 8, 0, blink.mojom.AttributionSrcTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AttributionHost_RegisterNavigationDataHost_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'data_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(attribution_reporting.mojom.DataHostRemote), nullable: false, minVersion: 0 },
-        { name: 'attribution_src_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AttributionSrcTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'attribution_src_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AttributionSrcTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'expected_registrations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_ParamsSpec, 'blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_Params', [
+      mojo.internal.StructField('attribution_src_token', 0, 0, blink.mojom.AttributionSrcTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('expected_registrations', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.AttributionHostPendingReceiver = class {
   constructor(handle) {
@@ -144,54 +123,6 @@ blink.mojom.AttributionHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RegisterDataHost
-blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AttributionHost.RegisterDataHost_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'data_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(attribution_reporting.mojom.DataHostRemote), nullable: false, minVersion: 0 },
-        { name: 'registration_eligibility', packedOffset: 16, packedBitOffset: 0, type: attribution_reporting.mojom.RegistrationEligibilitySpec, nullable: false, minVersion: 0 },
-        { name: 'is_for_background_requests', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'reporting_origins', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.OriginSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for RegisterNavigationDataHost
-blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AttributionHost.RegisterNavigationDataHost_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'data_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(attribution_reporting.mojom.DataHostRemote), nullable: false, minVersion: 0 },
-        { name: 'attribution_src_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AttributionSrcTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for NotifyNavigationWithBackgroundRegistrationsWillStart
-blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AttributionHost.NotifyNavigationWithBackgroundRegistrationsWillStart_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'attribution_src_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AttributionSrcTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'expected_registrations', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.AttributionHostPtr = blink.mojom.AttributionHostRemote;
 blink.mojom.AttributionHostRequest = blink.mojom.AttributionHostPendingReceiver;
 

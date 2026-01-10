@@ -7,99 +7,96 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 
+network.mojom.RestrictedUDPSocketModeSpec = { $: mojo.internal.Enum() };
+network.mojom.RestrictedUDPSocketParamsSpec = { $: {} };
+network.mojom.RestrictedUDPSocket = {};
+network.mojom.RestrictedUDPSocket.$interfaceName = 'network.mojom.RestrictedUDPSocket';
+network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec = { $: {} };
+network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec = { $: {} };
+network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec = { $: {} };
+network.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec = { $: {} };
+network.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec = { $: {} };
+network.mojom.RestrictedUDPSocket_Send_ParamsSpec = { $: {} };
+network.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec = { $: {} };
+network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec = { $: {} };
+network.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec = { $: {} };
 
 // Enum: RestrictedUDPSocketMode
 network.mojom.RestrictedUDPSocketMode = {
   CONNECTED: 0,
   BOUND: 1,
 };
-network.mojom.RestrictedUDPSocketModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: RestrictedUDPSocketParams
-network.mojom.RestrictedUDPSocketParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.RestrictedUDPSocketParams',
-      packedSize: 24,
-      fields: [
-        { name: 'socket_options', packedOffset: 0, packedBitOffset: 0, type: network.mojom.UDPSocketOptionsSpec, nullable: true, minVersion: 0 },
-        { name: 'connection_tracker', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.SocketConnectionTrackerRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.RestrictedUDPSocketParamsSpec, 'network.mojom.RestrictedUDPSocketParams', [
+      mojo.internal.StructField('socket_options', 0, 0, network.mojom.UDPSocketOptionsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('connection_tracker', 8, 0, mojo.internal.InterfaceProxy(network.mojom.SocketConnectionTrackerRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: RestrictedUDPSocket
-network.mojom.RestrictedUDPSocket = {};
+mojo.internal.Struct(
+    network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec, 'network.mojom.RestrictedUDPSocket_JoinGroup_Params', [
+      mojo.internal.StructField('group_address', 0, 0, network.mojom.IPAddressSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.RestrictedUDPSocket_JoinGroup_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'group_address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec, 'network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.RestrictedUDPSocket_LeaveGroup_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'group_address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec, 'network.mojom.RestrictedUDPSocket_LeaveGroup_Params', [
+      mojo.internal.StructField('group_address', 0, 0, network.mojom.IPAddressSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.RestrictedUDPSocket_ReceiveMore_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'num_additional_datagrams', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec, 'network.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.RestrictedUDPSocket_Send_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.RestrictedUDPSocket_Send_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec, 'network.mojom.RestrictedUDPSocket_ReceiveMore_Params', [
+      mojo.internal.StructField('num_additional_datagrams', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.RestrictedUDPSocket_SendTo_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false, minVersion: 0 },
-        { name: 'dest_addr', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HostPortPairSpec, nullable: false, minVersion: 0 },
-        { name: 'dns_query_type', packedOffset: 16, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.RestrictedUDPSocket_Send_ParamsSpec, 'network.mojom.RestrictedUDPSocket_Send_Params', [
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    network.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec, 'network.mojom.RestrictedUDPSocket_Send_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec, 'network.mojom.RestrictedUDPSocket_SendTo_Params', [
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('dest_addr', 8, 0, network.mojom.HostPortPairSpec, null, false, 0, undefined),
+      mojo.internal.StructField('dns_query_type', 16, 0, network.mojom.DnsQueryTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    network.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec, 'network.mojom.RestrictedUDPSocket_SendTo_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.RestrictedUDPSocketPendingReceiver = class {
   constructor(handle) {
@@ -190,131 +187,6 @@ network.mojom.RestrictedUDPSocket.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for JoinGroup
-network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.RestrictedUDPSocket.JoinGroup_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'group_address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.RestrictedUDPSocket.JoinGroup_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for LeaveGroup
-network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.RestrictedUDPSocket.LeaveGroup_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'group_address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-network.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.RestrictedUDPSocket.LeaveGroup_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReceiveMore
-network.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.RestrictedUDPSocket.ReceiveMore_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'num_additional_datagrams', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Send
-network.mojom.RestrictedUDPSocket_Send_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.RestrictedUDPSocket.Send_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-network.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.RestrictedUDPSocket.Send_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SendTo
-network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.RestrictedUDPSocket.SendTo_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false, minVersion: 0 },
-        { name: 'dest_addr', packedOffset: 8, packedBitOffset: 0, type: network.mojom.HostPortPairSpec, nullable: false, minVersion: 0 },
-        { name: 'dns_query_type', packedOffset: 16, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-network.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.RestrictedUDPSocket.SendTo_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.RestrictedUDPSocketPtr = network.mojom.RestrictedUDPSocketRemote;
 network.mojom.RestrictedUDPSocketRequest = network.mojom.RestrictedUDPSocketPendingReceiver;
 

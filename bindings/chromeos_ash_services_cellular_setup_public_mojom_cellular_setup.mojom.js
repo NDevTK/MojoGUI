@@ -10,6 +10,20 @@ ash.cellular_setup = ash.cellular_setup || {};
 ash.cellular_setup.mojom = ash.cellular_setup.mojom || {};
 var url = url || {};
 
+ash.cellular_setup.mojom.CarrierPortalStatusSpec = { $: mojo.internal.Enum() };
+ash.cellular_setup.mojom.ActivationResultSpec = { $: mojo.internal.Enum() };
+ash.cellular_setup.mojom.CellularMetadataSpec = { $: {} };
+ash.cellular_setup.mojom.CarrierPortalHandler = {};
+ash.cellular_setup.mojom.CarrierPortalHandler.$interfaceName = 'ash.cellular_setup.mojom.CarrierPortalHandler';
+ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec = { $: {} };
+ash.cellular_setup.mojom.ActivationDelegate = {};
+ash.cellular_setup.mojom.ActivationDelegate.$interfaceName = 'ash.cellular_setup.mojom.ActivationDelegate';
+ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec = { $: {} };
+ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec = { $: {} };
+ash.cellular_setup.mojom.CellularSetup = {};
+ash.cellular_setup.mojom.CellularSetup.$interfaceName = 'ash.cellular_setup.mojom.CellularSetup';
+ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec = { $: {} };
+ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec = { $: {} };
 
 // Enum: CarrierPortalStatus
 ash.cellular_setup.mojom.CarrierPortalStatus = {
@@ -18,7 +32,6 @@ ash.cellular_setup.mojom.CarrierPortalStatus = {
   kPortalLoadedButErrorOccurredDuringPayment: 2,
   kPortalLoadedAndUserCompletedPayment: 3,
 };
-ash.cellular_setup.mojom.CarrierPortalStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: ActivationResult
 ash.cellular_setup.mojom.ActivationResult = {
@@ -26,42 +39,25 @@ ash.cellular_setup.mojom.ActivationResult = {
   kAlreadyActivated: 1,
   kFailedToActivate: 2,
 };
-ash.cellular_setup.mojom.ActivationResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: CellularMetadata
-ash.cellular_setup.mojom.CellularMetadataSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.CellularMetadata',
-      packedSize: 56,
-      fields: [
-        { name: 'payment_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'payment_post_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'carrier', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'meid', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'imei', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'mdn', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.CellularMetadataSpec, 'ash.cellular_setup.mojom.CellularMetadata', [
+      mojo.internal.StructField('payment_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('payment_post_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('carrier', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('meid', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('imei', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('mdn', 40, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Interface: CarrierPortalHandler
-ash.cellular_setup.mojom.CarrierPortalHandler = {};
-
-ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.cellular_setup.mojom.CarrierPortalStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec, 'ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_Params', [
+      mojo.internal.StructField('status', 0, 0, ash.cellular_setup.mojom.CarrierPortalStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.cellular_setup.mojom.CarrierPortalHandlerPendingReceiver = class {
   constructor(handle) {
@@ -116,53 +112,22 @@ ash.cellular_setup.mojom.CarrierPortalHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnCarrierPortalStatusChange
-ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.CarrierPortalHandler.OnCarrierPortalStatusChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.cellular_setup.mojom.CarrierPortalStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.cellular_setup.mojom.CarrierPortalHandlerPtr = ash.cellular_setup.mojom.CarrierPortalHandlerRemote;
 ash.cellular_setup.mojom.CarrierPortalHandlerRequest = ash.cellular_setup.mojom.CarrierPortalHandlerPendingReceiver;
 
 
 // Interface: ActivationDelegate
-ash.cellular_setup.mojom.ActivationDelegate = {};
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec, 'ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_Params', [
+      mojo.internal.StructField('metadata', 0, 0, ash.cellular_setup.mojom.CellularMetadataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: ash.cellular_setup.mojom.CellularMetadataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.cellular_setup.mojom.ActivationResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec, 'ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_Params', [
+      mojo.internal.StructField('result', 0, 0, ash.cellular_setup.mojom.ActivationResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.cellular_setup.mojom.ActivationDelegatePendingReceiver = class {
   constructor(handle) {
@@ -226,54 +191,22 @@ ash.cellular_setup.mojom.ActivationDelegate.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnActivationStarted
-ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.ActivationDelegate.OnActivationStarted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: ash.cellular_setup.mojom.CellularMetadataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnActivationFinished
-ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.ActivationDelegate.OnActivationFinished_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.cellular_setup.mojom.ActivationResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.cellular_setup.mojom.ActivationDelegatePtr = ash.cellular_setup.mojom.ActivationDelegateRemote;
 ash.cellular_setup.mojom.ActivationDelegateRequest = ash.cellular_setup.mojom.ActivationDelegatePendingReceiver;
 
 
 // Interface: CellularSetup
-ash.cellular_setup.mojom.CellularSetup = {};
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec, 'ash.cellular_setup.mojom.CellularSetup_StartActivation_Params', [
+      mojo.internal.StructField('delegate', 0, 0, mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.ActivationDelegateRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.CellularSetup_StartActivation_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'delegate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.ActivationDelegateRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec, 'ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParams', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.CarrierPortalHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.cellular_setup.mojom.CellularSetupPendingReceiver = class {
   constructor(handle) {
@@ -328,34 +261,6 @@ ash.cellular_setup.mojom.CellularSetup.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for StartActivation
-ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.CellularSetup.StartActivation_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'delegate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.ActivationDelegateRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cellular_setup.mojom.CellularSetup.StartActivation_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.CarrierPortalHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.cellular_setup.mojom.CellularSetupPtr = ash.cellular_setup.mojom.CellularSetupRemote;
 ash.cellular_setup.mojom.CellularSetupRequest = ash.cellular_setup.mojom.CellularSetupPendingReceiver;
 

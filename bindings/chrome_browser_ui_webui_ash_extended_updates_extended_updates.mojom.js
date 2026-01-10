@@ -9,38 +9,35 @@ var ash = ash || {};
 ash.extended_updates = ash.extended_updates || {};
 ash.extended_updates.mojom = ash.extended_updates.mojom || {};
 
+ash.extended_updates.mojom.AppSpec = { $: {} };
+ash.extended_updates.mojom.PageHandlerFactory = {};
+ash.extended_updates.mojom.PageHandlerFactory.$interfaceName = 'ash.extended_updates.mojom.PageHandlerFactory';
+ash.extended_updates.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+ash.extended_updates.mojom.PageHandler = {};
+ash.extended_updates.mojom.PageHandler.$interfaceName = 'ash.extended_updates.mojom.PageHandler';
+ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ParamsSpec = { $: {} };
+ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParamsSpec = { $: {} };
+ash.extended_updates.mojom.PageHandler_CloseDialog_ParamsSpec = { $: {} };
+ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ParamsSpec = { $: {} };
+ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpec = { $: {} };
+ash.extended_updates.mojom.Page = {};
+ash.extended_updates.mojom.Page.$interfaceName = 'ash.extended_updates.mojom.Page';
 
 // Struct: App
-ash.extended_updates.mojom.AppSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.extended_updates.mojom.App',
-      packedSize: 24,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.extended_updates.mojom.AppSpec, 'ash.extended_updates.mojom.App', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: PageHandlerFactory
-ash.extended_updates.mojom.PageHandlerFactory = {};
-
-ash.extended_updates.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.extended_updates.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.extended_updates.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.extended_updates.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.extended_updates.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.extended_updates.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(ash.extended_updates.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(ash.extended_updates.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ash.extended_updates.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -95,64 +92,37 @@ ash.extended_updates.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-ash.extended_updates.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.extended_updates.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.extended_updates.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.extended_updates.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.extended_updates.mojom.PageHandlerFactoryPtr = ash.extended_updates.mojom.PageHandlerFactoryRemote;
 ash.extended_updates.mojom.PageHandlerFactoryRequest = ash.extended_updates.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-ash.extended_updates.mojom.PageHandler = {};
+mojo.internal.Struct(
+    ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ParamsSpec, 'ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParamsSpec, 'ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.extended_updates.mojom.PageHandler_CloseDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.extended_updates.mojom.PageHandler_CloseDialog_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.extended_updates.mojom.PageHandler_CloseDialog_ParamsSpec, 'ash.extended_updates.mojom.PageHandler_CloseDialog_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ParamsSpec, 'ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpec, 'ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParams', [
+      mojo.internal.StructField('apps', 0, 0, mojo.internal.Array(ash.extended_updates.mojom.AppSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.extended_updates.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -225,79 +195,11 @@ ash.extended_updates.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OptInToExtendedUpdates
-ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.extended_updates.mojom.PageHandler.OptInToExtendedUpdates_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.extended_updates.mojom.PageHandler.OptInToExtendedUpdates_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CloseDialog
-ash.extended_updates.mojom.PageHandler_CloseDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.extended_updates.mojom.PageHandler.CloseDialog_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for GetInstalledAndroidApps
-ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.extended_updates.mojom.PageHandler.GetInstalledAndroidApps_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.extended_updates.mojom.PageHandler.GetInstalledAndroidApps_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.extended_updates.mojom.AppSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.extended_updates.mojom.PageHandlerPtr = ash.extended_updates.mojom.PageHandlerRemote;
 ash.extended_updates.mojom.PageHandlerRequest = ash.extended_updates.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-ash.extended_updates.mojom.Page = {};
-
 ash.extended_updates.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -342,7 +244,6 @@ ash.extended_updates.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 ash.extended_updates.mojom.PagePtr = ash.extended_updates.mojom.PageRemote;
 ash.extended_updates.mojom.PageRequest = ash.extended_updates.mojom.PagePendingReceiver;
 

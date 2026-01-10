@@ -8,6 +8,7 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.PointerLockResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: PointerLockResult
 blink.mojom.PointerLockResult = {
@@ -21,4 +22,3 @@ blink.mojom.PointerLockResult = {
   kElementDestroyed: 7,
   kUnknownError: 8,
 };
-blink.mojom.PointerLockResultSpec = { $: mojo.internal.Enum() };

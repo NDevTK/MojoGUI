@@ -8,6 +8,20 @@
 var content = content || {};
 content.mojom = content.mojom || {};
 
+content.mojom.LcTypeStringSpec = { $: mojo.internal.Enum() };
+content.mojom.LcTypeStringsSpec = { $: mojo.internal.Enum() };
+content.mojom.SandboxSupport = {};
+content.mojom.SandboxSupport.$interfaceName = 'content.mojom.SandboxSupport';
+content.mojom.SandboxSupport_GetSystemColors_ParamsSpec = { $: {} };
+content.mojom.SandboxSupport_GetSystemColors_ResponseParamsSpec = { $: {} };
+content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec = { $: {} };
+content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec = { $: {} };
+content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec = { $: {} };
+content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec = { $: {} };
+content.mojom.SandboxSupport_LocaleString_ParamsSpec = { $: {} };
+content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec = { $: {} };
+content.mojom.SandboxSupport_LocaleStrings_ParamsSpec = { $: {} };
+content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec = { $: {} };
 
 content.mojom.name = "WinSboxProxyLocale";
 
@@ -20,7 +34,6 @@ content.mojom.LcTypeString = {
   kTimeFormat: 2,
   kShortTime: 3,
 };
-content.mojom.LcTypeStringSpec = { $: mojo.internal.Enum() };
 
 // Enum: LcTypeStrings
 content.mojom.LcTypeStrings = {
@@ -29,81 +42,79 @@ content.mojom.LcTypeStrings = {
   kShortWeekDays: 2,
   kAmPm: 3,
 };
-content.mojom.LcTypeStringsSpec = { $: mojo.internal.Enum() };
 
 // Interface: SandboxSupport
-content.mojom.SandboxSupport = {};
+mojo.internal.Struct(
+    content.mojom.SandboxSupport_GetSystemColors_ParamsSpec, 'content.mojom.SandboxSupport_GetSystemColors_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.SandboxSupport_GetSystemColors_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.SandboxSupport_GetSystemColors_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.SandboxSupport_GetSystemColors_ResponseParamsSpec, 'content.mojom.SandboxSupport_GetSystemColors_ResponseParams', [
+      mojo.internal.StructField('region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'locale', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'default_language', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'defaults', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec, 'content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_Params', [
+      mojo.internal.StructField('locale', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('default_language', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('defaults', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.SandboxSupport_DigitsAndSigns_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'lcid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'defaults', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec, 'content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParams', [
+      mojo.internal.StructField('lcid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('first_day_of_week', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.SandboxSupport_LocaleString_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.SandboxSupport_LocaleString_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'lcid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'defaults', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 4, packedBitOffset: 0, type: content.mojom.LcTypeStringSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec, 'content.mojom.SandboxSupport_DigitsAndSigns_Params', [
+      mojo.internal.StructField('lcid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('defaults', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.SandboxSupport_LocaleStrings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.SandboxSupport_LocaleStrings_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'lcid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'defaults', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'collection', packedOffset: 4, packedBitOffset: 0, type: content.mojom.LcTypeStringsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec, 'content.mojom.SandboxSupport_DigitsAndSigns_ResponseParams', [
+      mojo.internal.StructField('digit_substitution', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('digits', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('decimal', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('thousand', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('negative_sign', 24, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('negnumber', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+mojo.internal.Struct(
+    content.mojom.SandboxSupport_LocaleString_ParamsSpec, 'content.mojom.SandboxSupport_LocaleString_Params', [
+      mojo.internal.StructField('lcid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('defaults', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('type', 4, 0, content.mojom.LcTypeStringSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec, 'content.mojom.SandboxSupport_LocaleString_ResponseParams', [
+      mojo.internal.StructField('str', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    content.mojom.SandboxSupport_LocaleStrings_ParamsSpec, 'content.mojom.SandboxSupport_LocaleStrings_Params', [
+      mojo.internal.StructField('lcid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('defaults', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('collection', 4, 0, content.mojom.LcTypeStringsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec, 'content.mojom.SandboxSupport_LocaleStrings_ResponseParams', [
+      mojo.internal.StructField('strings', 0, 0, mojo.internal.Array(mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 content.mojom.SandboxSupportPendingReceiver = class {
   constructor(handle) {
@@ -194,154 +205,6 @@ content.mojom.SandboxSupport.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetSystemColors
-content.mojom.SandboxSupport_GetSystemColors_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.SandboxSupport.GetSystemColors_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-content.mojom.SandboxSupport_GetSystemColors_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.SandboxSupport.GetSystemColors_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for LcidAndFirstDayOfWeek
-content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.SandboxSupport.LcidAndFirstDayOfWeek_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'locale', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'default_language', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'defaults', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.SandboxSupport.LcidAndFirstDayOfWeek_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'lcid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'first_day_of_week', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DigitsAndSigns
-content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.SandboxSupport.DigitsAndSigns_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'lcid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'defaults', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.SandboxSupport.DigitsAndSigns_ResponseParams',
-      packedSize: 48,
-      fields: [
-        { name: 'digit_substitution', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'digits', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'decimal', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'thousand', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'negative_sign', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'negnumber', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-// ParamsSpec for LocaleString
-content.mojom.SandboxSupport_LocaleString_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.SandboxSupport.LocaleString_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'lcid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'defaults', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 4, packedBitOffset: 0, type: content.mojom.LcTypeStringSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.SandboxSupport.LocaleString_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'str', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for LocaleStrings
-content.mojom.SandboxSupport_LocaleStrings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.SandboxSupport.LocaleStrings_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'lcid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'defaults', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'collection', packedOffset: 4, packedBitOffset: 0, type: content.mojom.LcTypeStringsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.SandboxSupport.LocaleStrings_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'strings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.String16Spec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.SandboxSupportPtr = content.mojom.SandboxSupportRemote;
 content.mojom.SandboxSupportRequest = content.mojom.SandboxSupportPendingReceiver;
 

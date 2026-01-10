@@ -8,6 +8,10 @@
 var content_settings = content_settings || {};
 content_settings.mojom = content_settings.mojom || {};
 
+content_settings.mojom.TpcdMetadataRuleSourceSpec = { $: mojo.internal.Enum() };
+content_settings.mojom.TpcdMetadataCohortSpec = { $: mojo.internal.Enum() };
+content_settings.mojom.SessionModelSpec = { $: mojo.internal.Enum() };
+content_settings.mojom.ProviderTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: TpcdMetadataRuleSource
 content_settings.mojom.TpcdMetadataRuleSource = {
@@ -20,7 +24,6 @@ content_settings.mojom.TpcdMetadataRuleSource = {
   SOURCE_CUJ: 6,
   SOURCE_GOV_EDU_TLD: 7,
 };
-content_settings.mojom.TpcdMetadataRuleSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: TpcdMetadataCohort
 content_settings.mojom.TpcdMetadataCohort = {
@@ -28,15 +31,13 @@ content_settings.mojom.TpcdMetadataCohort = {
   GRACE_PERIOD_FORCED_OFF: 1,
   GRACE_PERIOD_FORCED_ON: 2,
 };
-content_settings.mojom.TpcdMetadataCohortSpec = { $: mojo.internal.Enum() };
 
 // Enum: SessionModel
 content_settings.mojom.SessionModel = {
   DURABLE: 0,
   USER_SESSION: 1,
-  ONE_TIME: 2,
+  ONE_TIME: 3,
 };
-content_settings.mojom.SessionModelSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProviderType
 content_settings.mojom.ProviderType = {
@@ -55,4 +56,3 @@ content_settings.mojom.ProviderType = {
   kDefaultProvider: 12,
   kNone: 13,
 };
-content_settings.mojom.ProviderTypeSpec = { $: mojo.internal.Enum() };

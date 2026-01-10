@@ -7,44 +7,34 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var services = services || {};
+var services = services || {};
 var ui = ui || {};
 var gfx = gfx || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+viz.mojom.HitTestRegionSpec = { $: {} };
+viz.mojom.HitTestRegionListSpec = { $: {} };
 
 // Struct: HitTestRegion
-viz.mojom.HitTestRegionSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.HitTestRegion',
-      packedSize: 40,
-      fields: [
-        { name: 'flags', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'async_hit_test_reasons', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
-        { name: 'rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'transform', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.HitTestRegionSpec, 'viz.mojom.HitTestRegion', [
+      mojo.internal.StructField('flags', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('async_hit_test_reasons', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('rect', 8, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('transform', 16, 0, gfx.mojom.TransformSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: HitTestRegionList
-viz.mojom.HitTestRegionListSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.HitTestRegionList',
-      packedSize: 40,
-      fields: [
-        { name: 'flags', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'async_hit_test_reasons', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'transform', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: false, minVersion: 0 },
-        { name: 'regions', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.HitTestRegionSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.HitTestRegionListSpec, 'viz.mojom.HitTestRegionList', [
+      mojo.internal.StructField('flags', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('async_hit_test_reasons', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('bounds', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('transform', 8, 0, gfx.mojom.TransformSpec, null, false, 0, undefined),
+      mojo.internal.StructField('regions', 16, 0, mojo.internal.Array(viz.mojom.HitTestRegionSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);

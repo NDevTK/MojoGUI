@@ -10,6 +10,11 @@ quarantine.mojom = quarantine.mojom || {};
 var url = url || {};
 var url = url || {};
 
+quarantine.mojom.QuarantineFileResultSpec = { $: mojo.internal.Enum() };
+quarantine.mojom.Quarantine = {};
+quarantine.mojom.Quarantine.$interfaceName = 'quarantine.mojom.Quarantine';
+quarantine.mojom.Quarantine_QuarantineFile_ParamsSpec = { $: {} };
+quarantine.mojom.Quarantine_QuarantineFile_ResponseParamsSpec = { $: {} };
 
 // Enum: QuarantineFileResult
 quarantine.mojom.QuarantineFileResult = {
@@ -21,27 +26,23 @@ quarantine.mojom.QuarantineFileResult = {
   SECURITY_CHECK_FAILED: 5,
   VIRUS_INFECTED: 6,
 };
-quarantine.mojom.QuarantineFileResultSpec = { $: mojo.internal.Enum() };
 
 // Interface: Quarantine
-quarantine.mojom.Quarantine = {};
+mojo.internal.Struct(
+    quarantine.mojom.Quarantine_QuarantineFile_ParamsSpec, 'quarantine.mojom.Quarantine_QuarantineFile_Params', [
+      mojo.internal.StructField('full_path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('referrer_url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request_initiator', 24, 0, url.mojom.OriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('client_guid', 32, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
-quarantine.mojom.Quarantine_QuarantineFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'quarantine.mojom.Quarantine_QuarantineFile_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'full_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'source_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'referrer_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'request_initiator', packedOffset: 24, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true, minVersion: 0 },
-        { name: 'client_guid', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    quarantine.mojom.Quarantine_QuarantineFile_ResponseParamsSpec, 'quarantine.mojom.Quarantine_QuarantineFile_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, quarantine.mojom.QuarantineFileResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 quarantine.mojom.QuarantinePendingReceiver = class {
   constructor(handle) {
@@ -96,38 +97,6 @@ quarantine.mojom.Quarantine.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for QuarantineFile
-quarantine.mojom.Quarantine_QuarantineFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'quarantine.mojom.Quarantine.QuarantineFile_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'full_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'source_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'referrer_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'request_initiator', packedOffset: 24, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true, minVersion: 0 },
-        { name: 'client_guid', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-quarantine.mojom.Quarantine_QuarantineFile_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'quarantine.mojom.Quarantine.QuarantineFile_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: quarantine.mojom.QuarantineFileResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 quarantine.mojom.QuarantinePtr = quarantine.mojom.QuarantineRemote;
 quarantine.mojom.QuarantineRequest = quarantine.mojom.QuarantinePendingReceiver;
 

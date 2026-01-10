@@ -8,21 +8,22 @@
 var tracing = tracing || {};
 tracing.mojom = tracing.mojom || {};
 
+tracing.mojom.SystemTracingService = {};
+tracing.mojom.SystemTracingService.$interfaceName = 'tracing.mojom.SystemTracingService';
+tracing.mojom.SystemTracingService_OpenProducerSocket_ParamsSpec = { $: {} };
+tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParamsSpec = { $: {} };
 
 // Interface: SystemTracingService
-tracing.mojom.SystemTracingService = {};
+mojo.internal.Struct(
+    tracing.mojom.SystemTracingService_OpenProducerSocket_ParamsSpec, 'tracing.mojom.SystemTracingService_OpenProducerSocket_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-tracing.mojom.SystemTracingService_OpenProducerSocket_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tracing.mojom.SystemTracingService_OpenProducerSocket_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParamsSpec, 'tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParams', [
+      mojo.internal.StructField('traced_socket', 0, 0, mojo_base.mojom.FileSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 tracing.mojom.SystemTracingServicePendingReceiver = class {
   constructor(handle) {
@@ -77,33 +78,6 @@ tracing.mojom.SystemTracingService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OpenProducerSocket
-tracing.mojom.SystemTracingService_OpenProducerSocket_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tracing.mojom.SystemTracingService.OpenProducerSocket_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tracing.mojom.SystemTracingService.OpenProducerSocket_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'traced_socket', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 tracing.mojom.SystemTracingServicePtr = tracing.mojom.SystemTracingServiceRemote;
 tracing.mojom.SystemTracingServiceRequest = tracing.mojom.SystemTracingServicePendingReceiver;
 

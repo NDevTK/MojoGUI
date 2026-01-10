@@ -10,6 +10,9 @@ lens.mojom = lens.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+lens.mojom.CoordinateTypeSpec = { $: mojo.internal.Enum() };
+lens.mojom.CenterRotatedBoxSpec = { $: {} };
+lens.mojom.GeometrySpec = { $: {} };
 
 // Enum: CoordinateType
 lens.mojom.CoordinateType = {
@@ -17,35 +20,20 @@ lens.mojom.CoordinateType = {
   kNormalized: 1,
   kImage: 2,
 };
-lens.mojom.CoordinateTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: CenterRotatedBox
-lens.mojom.CenterRotatedBoxSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.CenterRotatedBox',
-      packedSize: 32,
-      fields: [
-        { name: 'box', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-        { name: 'rotation', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'kUnspecified', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.CenterRotatedBoxSpec, 'lens.mojom.CenterRotatedBox', [
+      mojo.internal.StructField('box', 0, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('rotation', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('kUnspecified', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: Geometry
-lens.mojom.GeometrySpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.Geometry',
-      packedSize: 24,
-      fields: [
-        { name: 'bounding_box', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.CenterRotatedBoxSpec, nullable: false, minVersion: 0 },
-        { name: 'segmentation_polygon', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(lens.mojom.PolygonSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.GeometrySpec, 'lens.mojom.Geometry', [
+      mojo.internal.StructField('bounding_box', 0, 0, lens.mojom.CenterRotatedBoxSpec, null, false, 0, undefined),
+      mojo.internal.StructField('segmentation_polygon', 8, 0, mojo.internal.Array(lens.mojom.PolygonSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);

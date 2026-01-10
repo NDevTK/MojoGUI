@@ -8,6 +8,9 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.AIManagerCreateClientErrorSpec = { $: mojo.internal.Enum() };
+blink.mojom.AILanguageCodeSpec = { $: {} };
+blink.mojom.QuotaErrorInfoSpec = { $: {} };
 
 blink.mojom.kWritingAssistanceMaxInputTokenSize = 6000;
 
@@ -18,33 +21,18 @@ blink.mojom.AIManagerCreateClientError = {
   kInitialInputTooLarge: 2,
   kUnsupportedLanguage: 3,
 };
-blink.mojom.AIManagerCreateClientErrorSpec = { $: mojo.internal.Enum() };
 
 // Struct: AILanguageCode
-blink.mojom.AILanguageCodeSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AILanguageCode',
-      packedSize: 16,
-      fields: [
-        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.AILanguageCodeSpec, 'blink.mojom.AILanguageCode', [
+      mojo.internal.StructField('code', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: QuotaErrorInfo
-blink.mojom.QuotaErrorInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.QuotaErrorInfo',
-      packedSize: 16,
-      fields: [
-        { name: 'requested', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'quota', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.QuotaErrorInfoSpec, 'blink.mojom.QuotaErrorInfo', [
+      mojo.internal.StructField('requested', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('quota', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);

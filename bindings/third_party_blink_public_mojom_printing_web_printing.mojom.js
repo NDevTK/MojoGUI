@@ -11,13 +11,52 @@ var blink = blink || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+blink.mojom.WebPrintingMultipleDocumentHandlingSpec = { $: mojo.internal.Enum() };
+blink.mojom.WebPrintingSidesSpec = { $: mojo.internal.Enum() };
+blink.mojom.WebPrintQualitySpec = { $: mojo.internal.Enum() };
+blink.mojom.WebPrintColorModeSpec = { $: mojo.internal.Enum() };
+blink.mojom.WebPrintingOrientationRequestedSpec = { $: mojo.internal.Enum() };
+blink.mojom.WebPrinterStateSpec = { $: mojo.internal.Enum() };
+blink.mojom.WebPrinterStateReasonSpec = { $: mojo.internal.Enum() };
+blink.mojom.WebPrintJobStateSpec = { $: mojo.internal.Enum() };
+blink.mojom.GetPrintersErrorSpec = { $: mojo.internal.Enum() };
+blink.mojom.WebPrinterFetchErrorSpec = { $: mojo.internal.Enum() };
+blink.mojom.WebPrintErrorSpec = { $: mojo.internal.Enum() };
+blink.mojom.WebPrintingMediaSizeDimensionSpec = { $: {} };
+blink.mojom.GetPrintersResultSpec = { $: {} };
+blink.mojom.WebPrinterFetchResultSpec = { $: {} };
+blink.mojom.WebPrintResultSpec = { $: {} };
+blink.mojom.WebPrinterInfoSpec = { $: {} };
+blink.mojom.WebPrintingRangeSpec = { $: {} };
+blink.mojom.WebPrintingMediaSizeSpec = { $: {} };
+blink.mojom.WebPrintingMediaCollectionSpec = { $: {} };
+blink.mojom.WebPrinterAttributesSpec = { $: {} };
+blink.mojom.WebPrintingMediaCollectionRequestedSpec = { $: {} };
+blink.mojom.WebPrintJobTemplateAttributesSpec = { $: {} };
+blink.mojom.WebPrintJobUpdateSpec = { $: {} };
+blink.mojom.WebPrintJobInfoSpec = { $: {} };
+blink.mojom.WebPrintJobStateObserver = {};
+blink.mojom.WebPrintJobStateObserver.$interfaceName = 'blink.mojom.WebPrintJobStateObserver';
+blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec = { $: {} };
+blink.mojom.WebPrintJobController = {};
+blink.mojom.WebPrintJobController.$interfaceName = 'blink.mojom.WebPrintJobController';
+blink.mojom.WebPrintJobController_Cancel_ParamsSpec = { $: {} };
+blink.mojom.WebPrinter = {};
+blink.mojom.WebPrinter.$interfaceName = 'blink.mojom.WebPrinter';
+blink.mojom.WebPrinter_FetchAttributes_ParamsSpec = { $: {} };
+blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec = { $: {} };
+blink.mojom.WebPrinter_Print_ParamsSpec = { $: {} };
+blink.mojom.WebPrinter_Print_ResponseParamsSpec = { $: {} };
+blink.mojom.WebPrintingService = {};
+blink.mojom.WebPrintingService.$interfaceName = 'blink.mojom.WebPrintingService';
+blink.mojom.WebPrintingService_GetPrinters_ParamsSpec = { $: {} };
+blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec = { $: {} };
 
 // Enum: WebPrintingMultipleDocumentHandling
 blink.mojom.WebPrintingMultipleDocumentHandling = {
   kSeparateDocumentsCollatedCopies: 0,
   kSeparateDocumentsUncollatedCopies: 1,
 };
-blink.mojom.WebPrintingMultipleDocumentHandlingSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebPrintingSides
 blink.mojom.WebPrintingSides = {
@@ -25,7 +64,6 @@ blink.mojom.WebPrintingSides = {
   kTwoSidedLongEdge: 1,
   kTwoSidedShortEdge: 2,
 };
-blink.mojom.WebPrintingSidesSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebPrintQuality
 blink.mojom.WebPrintQuality = {
@@ -33,21 +71,18 @@ blink.mojom.WebPrintQuality = {
   kNormal: 1,
   kHigh: 2,
 };
-blink.mojom.WebPrintQualitySpec = { $: mojo.internal.Enum() };
 
 // Enum: WebPrintColorMode
 blink.mojom.WebPrintColorMode = {
   kColor: 0,
   kMonochrome: 1,
 };
-blink.mojom.WebPrintColorModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebPrintingOrientationRequested
 blink.mojom.WebPrintingOrientationRequested = {
   kPortrait: 0,
   kLandscape: 1,
 };
-blink.mojom.WebPrintingOrientationRequestedSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebPrinterState
 blink.mojom.WebPrinterState = {
@@ -55,7 +90,6 @@ blink.mojom.WebPrinterState = {
   kProcessing: 1,
   kStopped: 2,
 };
-blink.mojom.WebPrinterStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebPrinterStateReason
 blink.mojom.WebPrinterStateReason = {
@@ -95,7 +129,6 @@ blink.mojom.WebPrinterStateReason = {
   kTonerLow: 33,
   kCupsPkiExpired: 34,
 };
-blink.mojom.WebPrinterStateReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebPrintJobState
 blink.mojom.WebPrintJobState = {
@@ -105,20 +138,17 @@ blink.mojom.WebPrintJobState = {
   kCanceled: 3,
   kAborted: 4,
 };
-blink.mojom.WebPrintJobStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: GetPrintersError
 blink.mojom.GetPrintersError = {
   kUserPermissionDenied: 0,
 };
-blink.mojom.GetPrintersErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebPrinterFetchError
 blink.mojom.WebPrinterFetchError = {
   kPrinterUnreachable: 0,
   kUserPermissionDenied: 1,
 };
-blink.mojom.WebPrinterFetchErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebPrintError
 blink.mojom.WebPrintError = {
@@ -127,244 +157,175 @@ blink.mojom.WebPrintError = {
   kPrintJobTemplateAttributesMismatch: 2,
   kUserPermissionDenied: 3,
 };
-blink.mojom.WebPrintErrorSpec = { $: mojo.internal.Enum() };
 
 // Union: WebPrintingMediaSizeDimension
-blink.mojom.WebPrintingMediaSizeDimensionSpec = { $: mojo.internal.Union(
-    'blink.mojom.WebPrintingMediaSizeDimension', {
+mojo.internal.Union(
+    blink.mojom.WebPrintingMediaSizeDimensionSpec, 'blink.mojom.WebPrintingMediaSizeDimension', {
       'range': {
         'ordinal': 0,
         'type': blink.mojom.WebPrintingRangeSpec,
-      }},
+        'nullable': false,
+      },
       'value': {
         'ordinal': 1,
         'type': mojo.internal.Uint32,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Union: GetPrintersResult
-blink.mojom.GetPrintersResultSpec = { $: mojo.internal.Union(
-    'blink.mojom.GetPrintersResult', {
+mojo.internal.Union(
+    blink.mojom.GetPrintersResultSpec, 'blink.mojom.GetPrintersResult', {
       'printers': {
         'ordinal': 0,
         'type': mojo.internal.Array(blink.mojom.WebPrinterInfoSpec, false),
-      }},
+        'nullable': false,
+      },
       'error': {
         'ordinal': 1,
         'type': blink.mojom.GetPrintersErrorSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Union: WebPrinterFetchResult
-blink.mojom.WebPrinterFetchResultSpec = { $: mojo.internal.Union(
-    'blink.mojom.WebPrinterFetchResult', {
+mojo.internal.Union(
+    blink.mojom.WebPrinterFetchResultSpec, 'blink.mojom.WebPrinterFetchResult', {
       'printer_attributes': {
         'ordinal': 0,
         'type': blink.mojom.WebPrinterAttributesSpec,
-      }},
+        'nullable': false,
+      },
       'error': {
         'ordinal': 1,
         'type': blink.mojom.WebPrinterFetchErrorSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Union: WebPrintResult
-blink.mojom.WebPrintResultSpec = { $: mojo.internal.Union(
-    'blink.mojom.WebPrintResult', {
+mojo.internal.Union(
+    blink.mojom.WebPrintResultSpec, 'blink.mojom.WebPrintResult', {
       'print_job_info': {
         'ordinal': 0,
         'type': blink.mojom.WebPrintJobInfoSpec,
-      }},
+        'nullable': false,
+      },
       'error': {
         'ordinal': 1,
         'type': blink.mojom.WebPrintErrorSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: WebPrinterInfo
-blink.mojom.WebPrinterInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebPrinterInfo',
-      packedSize: 32,
-      fields: [
-        { name: 'printer_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'printer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'printer_remote', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.WebPrinterRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebPrinterInfoSpec, 'blink.mojom.WebPrinterInfo', [
+      mojo.internal.StructField('printer_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('printer_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('printer_remote', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.WebPrinterRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: WebPrintingRange
-blink.mojom.WebPrintingRangeSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebPrintingRange',
-      packedSize: 16,
-      fields: [
-        { name: 'from', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'to', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebPrintingRangeSpec, 'blink.mojom.WebPrintingRange', [
+      mojo.internal.StructField('from', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('to', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: WebPrintingMediaSize
-blink.mojom.WebPrintingMediaSizeSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebPrintingMediaSize',
-      packedSize: 40,
-      fields: [
-        { name: 'x_dimension', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebPrintingMediaSizeDimensionSpec, nullable: false, minVersion: 0 },
-        { name: 'y_dimension', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.WebPrintingMediaSizeDimensionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebPrintingMediaSizeSpec, 'blink.mojom.WebPrintingMediaSize', [
+      mojo.internal.StructField('x_dimension', 0, 0, blink.mojom.WebPrintingMediaSizeDimensionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('y_dimension', 16, 0, blink.mojom.WebPrintingMediaSizeDimensionSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: WebPrintingMediaCollection
-blink.mojom.WebPrintingMediaCollectionSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebPrintingMediaCollection',
-      packedSize: 24,
-      fields: [
-        { name: 'media_size', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebPrintingMediaSizeSpec, nullable: false, minVersion: 0 },
-        { name: 'media_size_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebPrintingMediaCollectionSpec, 'blink.mojom.WebPrintingMediaCollection', [
+      mojo.internal.StructField('media_size', 0, 0, blink.mojom.WebPrintingMediaSizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('media_size_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: WebPrinterAttributes
-blink.mojom.WebPrinterAttributesSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebPrinterAttributes',
-      packedSize: 160,
-      fields: [
-        { name: 'copies_default', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'copies_supported', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebPrintingRangeSpec, nullable: false, minVersion: 0 },
-        { name: 'media_col_default', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebPrintingMediaCollectionSpec, nullable: false, minVersion: 0 },
-        { name: 'media_col_database', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.WebPrintingMediaCollectionSpec, false), nullable: false, minVersion: 0 },
-        { name: 'media_source_default', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'media_source_supported', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'multiple_document_handling_default', packedOffset: 124, packedBitOffset: 0, type: blink.mojom.WebPrintingMultipleDocumentHandlingSpec, nullable: false, minVersion: 0 },
-        { name: 'multiple_document_handling_supported', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.WebPrintingMultipleDocumentHandlingSpec, false), nullable: false, minVersion: 0 },
-        { name: 'orientation_requested_default', packedOffset: 128, packedBitOffset: 0, type: blink.mojom.WebPrintingOrientationRequestedSpec, nullable: false, minVersion: 0 },
-        { name: 'orientation_requested_supported', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.WebPrintingOrientationRequestedSpec, false), nullable: false, minVersion: 0 },
-        { name: 'printer_resolution_default', packedOffset: 56, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'printer_resolution_supported', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.SizeSpec, false), nullable: false, minVersion: 0 },
-        { name: 'print_color_mode_default', packedOffset: 132, packedBitOffset: 0, type: blink.mojom.WebPrintColorModeSpec, nullable: false, minVersion: 0 },
-        { name: 'print_color_mode_supported', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.WebPrintColorModeSpec, false), nullable: false, minVersion: 0 },
-        { name: 'print_quality_default', packedOffset: 136, packedBitOffset: 0, type: blink.mojom.WebPrintQualitySpec, nullable: true, minVersion: 0 },
-        { name: 'print_quality_supported', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.WebPrintQualitySpec, false), nullable: false, minVersion: 0 },
-        { name: 'printer_state', packedOffset: 140, packedBitOffset: 0, type: blink.mojom.WebPrinterStateSpec, nullable: false, minVersion: 0 },
-        { name: 'printer_state_message', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'printer_state_reasons', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.WebPrinterStateReasonSpec, false), nullable: false, minVersion: 0 },
-        { name: 'sides_default', packedOffset: 144, packedBitOffset: 0, type: blink.mojom.WebPrintingSidesSpec, nullable: true, minVersion: 0 },
-        { name: 'sides_supported', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.WebPrintingSidesSpec, false), nullable: false, minVersion: 0 },
-        { name: 'printer_id', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 160}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebPrinterAttributesSpec, 'blink.mojom.WebPrinterAttributes', [
+      mojo.internal.StructField('copies_default', 120, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('copies_supported', 0, 0, blink.mojom.WebPrintingRangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('media_col_default', 8, 0, blink.mojom.WebPrintingMediaCollectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('media_col_database', 16, 0, mojo.internal.Array(blink.mojom.WebPrintingMediaCollectionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('media_source_default', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('media_source_supported', 32, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('multiple_document_handling_default', 124, 0, blink.mojom.WebPrintingMultipleDocumentHandlingSpec, null, false, 0, undefined),
+      mojo.internal.StructField('multiple_document_handling_supported', 40, 0, mojo.internal.Array(blink.mojom.WebPrintingMultipleDocumentHandlingSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('orientation_requested_default', 128, 0, blink.mojom.WebPrintingOrientationRequestedSpec, null, false, 0, undefined),
+      mojo.internal.StructField('orientation_requested_supported', 48, 0, mojo.internal.Array(blink.mojom.WebPrintingOrientationRequestedSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('printer_resolution_default', 56, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('printer_resolution_supported', 64, 0, mojo.internal.Array(gfx.mojom.SizeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('print_color_mode_default', 132, 0, blink.mojom.WebPrintColorModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('print_color_mode_supported', 72, 0, mojo.internal.Array(blink.mojom.WebPrintColorModeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('print_quality_default', 136, 0, blink.mojom.WebPrintQualitySpec, null, true, 0, undefined),
+      mojo.internal.StructField('print_quality_supported', 80, 0, mojo.internal.Array(blink.mojom.WebPrintQualitySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('printer_state', 140, 0, blink.mojom.WebPrinterStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('printer_state_message', 88, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('printer_state_reasons', 96, 0, mojo.internal.Array(blink.mojom.WebPrinterStateReasonSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('sides_default', 144, 0, blink.mojom.WebPrintingSidesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('sides_supported', 104, 0, mojo.internal.Array(blink.mojom.WebPrintingSidesSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('printer_id', 112, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 160]]);
 
 // Struct: WebPrintingMediaCollectionRequested
-blink.mojom.WebPrintingMediaCollectionRequestedSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebPrintingMediaCollectionRequested',
-      packedSize: 16,
-      fields: [
-        { name: 'media_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebPrintingMediaCollectionRequestedSpec, 'blink.mojom.WebPrintingMediaCollectionRequested', [
+      mojo.internal.StructField('media_size', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: WebPrintJobTemplateAttributes
-blink.mojom.WebPrintJobTemplateAttributesSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebPrintJobTemplateAttributes',
-      packedSize: 64,
-      fields: [
-        { name: 'job_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'copies', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'media_col', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebPrintingMediaCollectionRequestedSpec, nullable: true, minVersion: 0 },
-        { name: 'media_source', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'multiple_document_handling', packedOffset: 36, packedBitOffset: 0, type: blink.mojom.WebPrintingMultipleDocumentHandlingSpec, nullable: true, minVersion: 0 },
-        { name: 'orientation_requested', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.WebPrintingOrientationRequestedSpec, nullable: true, minVersion: 0 },
-        { name: 'printer_resolution', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: true, minVersion: 0 },
-        { name: 'print_color_mode', packedOffset: 44, packedBitOffset: 0, type: blink.mojom.WebPrintColorModeSpec, nullable: true, minVersion: 0 },
-        { name: 'print_quality', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.WebPrintQualitySpec, nullable: true, minVersion: 0 },
-        { name: 'sides', packedOffset: 52, packedBitOffset: 0, type: blink.mojom.WebPrintingSidesSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebPrintJobTemplateAttributesSpec, 'blink.mojom.WebPrintJobTemplateAttributes', [
+      mojo.internal.StructField('job_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('copies', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('media_col', 8, 0, blink.mojom.WebPrintingMediaCollectionRequestedSpec, null, true, 0, undefined),
+      mojo.internal.StructField('media_source', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('multiple_document_handling', 36, 0, blink.mojom.WebPrintingMultipleDocumentHandlingSpec, null, true, 0, undefined),
+      mojo.internal.StructField('orientation_requested', 40, 0, blink.mojom.WebPrintingOrientationRequestedSpec, null, true, 0, undefined),
+      mojo.internal.StructField('printer_resolution', 24, 0, gfx.mojom.SizeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('print_color_mode', 44, 0, blink.mojom.WebPrintColorModeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('print_quality', 48, 0, blink.mojom.WebPrintQualitySpec, null, true, 0, undefined),
+      mojo.internal.StructField('sides', 52, 0, blink.mojom.WebPrintingSidesSpec, null, true, 0, undefined),
+    ],
+    [[0, 64]]);
 
 // Struct: WebPrintJobUpdate
-blink.mojom.WebPrintJobUpdateSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebPrintJobUpdate',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebPrintJobStateSpec, nullable: false, minVersion: 0 },
-        { name: 'pages_printed', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebPrintJobUpdateSpec, 'blink.mojom.WebPrintJobUpdate', [
+      mojo.internal.StructField('state', 0, 0, blink.mojom.WebPrintJobStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pages_printed', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: WebPrintJobInfo
-blink.mojom.WebPrintJobInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebPrintJobInfo',
-      packedSize: 40,
-      fields: [
-        { name: 'job_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'job_pages', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.WebPrintJobStateObserverRemote), nullable: false, minVersion: 0 },
-        { name: 'controller', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.WebPrintJobControllerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebPrintJobInfoSpec, 'blink.mojom.WebPrintJobInfo', [
+      mojo.internal.StructField('job_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('job_pages', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceRequest(blink.mojom.WebPrintJobStateObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('controller', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.WebPrintJobControllerRemote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: WebPrintJobStateObserver
-blink.mojom.WebPrintJobStateObserver = {};
-
-blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebPrintJobUpdateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec, 'blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_Params', [
+      mojo.internal.StructField('update', 0, 0, blink.mojom.WebPrintJobUpdateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.WebPrintJobStateObserverPendingReceiver = class {
   constructor(handle) {
@@ -419,39 +380,15 @@ blink.mojom.WebPrintJobStateObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnWebPrintJobUpdate
-blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebPrintJobStateObserver.OnWebPrintJobUpdate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebPrintJobUpdateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.WebPrintJobStateObserverPtr = blink.mojom.WebPrintJobStateObserverRemote;
 blink.mojom.WebPrintJobStateObserverRequest = blink.mojom.WebPrintJobStateObserverPendingReceiver;
 
 
 // Interface: WebPrintJobController
-blink.mojom.WebPrintJobController = {};
-
-blink.mojom.WebPrintJobController_Cancel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebPrintJobController_Cancel_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebPrintJobController_Cancel_ParamsSpec, 'blink.mojom.WebPrintJobController_Cancel_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 blink.mojom.WebPrintJobControllerPendingReceiver = class {
   constructor(handle) {
@@ -506,52 +443,34 @@ blink.mojom.WebPrintJobController.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Cancel
-blink.mojom.WebPrintJobController_Cancel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebPrintJobController.Cancel_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.WebPrintJobControllerPtr = blink.mojom.WebPrintJobControllerRemote;
 blink.mojom.WebPrintJobControllerRequest = blink.mojom.WebPrintJobControllerPendingReceiver;
 
 
 // Interface: WebPrinter
-blink.mojom.WebPrinter = {};
+mojo.internal.Struct(
+    blink.mojom.WebPrinter_FetchAttributes_ParamsSpec, 'blink.mojom.WebPrinter_FetchAttributes_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.WebPrinter_FetchAttributes_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebPrinter_FetchAttributes_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec, 'blink.mojom.WebPrinter_FetchAttributes_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, blink.mojom.WebPrinterFetchResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.WebPrinter_Print_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebPrinter_Print_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'document', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.BlobRemote), nullable: false, minVersion: 0 },
-        { name: 'attributes', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebPrintJobTemplateAttributesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebPrinter_Print_ParamsSpec, 'blink.mojom.WebPrinter_Print_Params', [
+      mojo.internal.StructField('document', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.BlobRemote), null, false, 0, undefined),
+      mojo.internal.StructField('attributes', 8, 0, blink.mojom.WebPrintJobTemplateAttributesSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    blink.mojom.WebPrinter_Print_ResponseParamsSpec, 'blink.mojom.WebPrinter_Print_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, blink.mojom.WebPrintResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.WebPrinterPendingReceiver = class {
   constructor(handle) {
@@ -615,79 +534,21 @@ blink.mojom.WebPrinter.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for FetchAttributes
-blink.mojom.WebPrinter_FetchAttributes_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebPrinter.FetchAttributes_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebPrinter.FetchAttributes_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebPrinterFetchResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Print
-blink.mojom.WebPrinter_Print_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebPrinter.Print_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'document', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.BlobRemote), nullable: false, minVersion: 0 },
-        { name: 'attributes', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebPrintJobTemplateAttributesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.WebPrinter_Print_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebPrinter.Print_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebPrintResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.WebPrinterPtr = blink.mojom.WebPrinterRemote;
 blink.mojom.WebPrinterRequest = blink.mojom.WebPrinterPendingReceiver;
 
 
 // Interface: WebPrintingService
-blink.mojom.WebPrintingService = {};
+mojo.internal.Struct(
+    blink.mojom.WebPrintingService_GetPrinters_ParamsSpec, 'blink.mojom.WebPrintingService_GetPrinters_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.WebPrintingService_GetPrinters_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebPrintingService_GetPrinters_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec, 'blink.mojom.WebPrintingService_GetPrinters_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, blink.mojom.GetPrintersResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.WebPrintingServicePendingReceiver = class {
   constructor(handle) {
@@ -742,33 +603,6 @@ blink.mojom.WebPrintingService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetPrinters
-blink.mojom.WebPrintingService_GetPrinters_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebPrintingService.GetPrinters_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebPrintingService.GetPrinters_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.GetPrintersResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.WebPrintingServicePtr = blink.mojom.WebPrintingServiceRemote;
 blink.mojom.WebPrintingServiceRequest = blink.mojom.WebPrintingServicePendingReceiver;
 

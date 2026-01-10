@@ -8,13 +8,26 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.LockModeSpec = { $: mojo.internal.Enum() };
+blink.mojom.WaitModeSpec = { $: mojo.internal.Enum() };
+blink.mojom.LockInfoSpec = { $: {} };
+blink.mojom.LockHandle = {};
+blink.mojom.LockHandle.$interfaceName = 'blink.mojom.LockHandle';
+blink.mojom.LockRequest = {};
+blink.mojom.LockRequest.$interfaceName = 'blink.mojom.LockRequest';
+blink.mojom.LockRequest_Granted_ParamsSpec = { $: {} };
+blink.mojom.LockRequest_Failed_ParamsSpec = { $: {} };
+blink.mojom.LockManager = {};
+blink.mojom.LockManager.$interfaceName = 'blink.mojom.LockManager';
+blink.mojom.LockManager_RequestLock_ParamsSpec = { $: {} };
+blink.mojom.LockManager_QueryState_ParamsSpec = { $: {} };
+blink.mojom.LockManager_QueryState_ResponseParamsSpec = { $: {} };
 
 // Enum: LockMode
 blink.mojom.LockMode = {
   SHARED: 0,
   EXCLUSIVE: 1,
 };
-blink.mojom.LockModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: WaitMode
 blink.mojom.WaitMode = {
@@ -22,27 +35,17 @@ blink.mojom.WaitMode = {
   NO_WAIT: 1,
   PREEMPT: 2,
 };
-blink.mojom.WaitModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: LockInfo
-blink.mojom.LockInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.LockInfo',
-      packedSize: 32,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'mode', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.LockModeSpec, nullable: false, minVersion: 0 },
-        { name: 'client_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.LockInfoSpec, 'blink.mojom.LockInfo', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('mode', 16, 0, blink.mojom.LockModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: LockHandle
-blink.mojom.LockHandle = {};
-
 blink.mojom.LockHandlePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -87,38 +90,21 @@ blink.mojom.LockHandle.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 blink.mojom.LockHandlePtr = blink.mojom.LockHandleRemote;
 blink.mojom.LockHandleRequest = blink.mojom.LockHandlePendingReceiver;
 
 
 // Interface: LockRequest
-blink.mojom.LockRequest = {};
+mojo.internal.Struct(
+    blink.mojom.LockRequest_Granted_ParamsSpec, 'blink.mojom.LockRequest_Granted_Params', [
+      mojo.internal.StructField('lock_handle', 0, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.LockHandleRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.LockRequest_Granted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.LockRequest_Granted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'lock_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.LockHandleRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.LockRequest_Failed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.LockRequest_Failed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.LockRequest_Failed_ParamsSpec, 'blink.mojom.LockRequest_Failed_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 blink.mojom.LockRequestPendingReceiver = class {
   constructor(handle) {
@@ -182,68 +168,31 @@ blink.mojom.LockRequest.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Granted
-blink.mojom.LockRequest_Granted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.LockRequest.Granted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'lock_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.LockHandleRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Failed
-blink.mojom.LockRequest_Failed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.LockRequest.Failed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.LockRequestPtr = blink.mojom.LockRequestRemote;
 blink.mojom.LockRequestRequest = blink.mojom.LockRequestPendingReceiver;
 
 
 // Interface: LockManager
-blink.mojom.LockManager = {};
+mojo.internal.Struct(
+    blink.mojom.LockManager_RequestLock_ParamsSpec, 'blink.mojom.LockManager_RequestLock_Params', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('mode', 16, 0, blink.mojom.LockModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('wait', 20, 0, blink.mojom.WaitModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 8, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.LockRequestRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.LockManager_RequestLock_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.LockManager_RequestLock_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'mode', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.LockModeSpec, nullable: false, minVersion: 0 },
-        { name: 'wait', packedOffset: 20, packedBitOffset: 0, type: blink.mojom.WaitModeSpec, nullable: false, minVersion: 0 },
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.LockRequestRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.LockManager_QueryState_ParamsSpec, 'blink.mojom.LockManager_QueryState_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.LockManager_QueryState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.LockManager_QueryState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.LockManager_QueryState_ResponseParamsSpec, 'blink.mojom.LockManager_QueryState_ResponseParams', [
+      mojo.internal.StructField('requested', 0, 0, mojo.internal.Array(blink.mojom.LockInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('held', 8, 0, mojo.internal.Array(blink.mojom.LockInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.LockManagerPendingReceiver = class {
   constructor(handle) {
@@ -307,51 +256,6 @@ blink.mojom.LockManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RequestLock
-blink.mojom.LockManager_RequestLock_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.LockManager.RequestLock_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'mode', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.LockModeSpec, nullable: false, minVersion: 0 },
-        { name: 'wait', packedOffset: 20, packedBitOffset: 0, type: blink.mojom.WaitModeSpec, nullable: false, minVersion: 0 },
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.LockRequestRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for QueryState
-blink.mojom.LockManager_QueryState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.LockManager.QueryState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.LockManager_QueryState_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.LockManager.QueryState_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'requested', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.LockInfoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'held', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.LockInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.LockManagerPtr = blink.mojom.LockManagerRemote;
 blink.mojom.LockManagerRequest = blink.mojom.LockManagerPendingReceiver;
 

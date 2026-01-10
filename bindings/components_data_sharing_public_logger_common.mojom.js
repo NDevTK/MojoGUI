@@ -8,6 +8,7 @@
 var logger_common = logger_common || {};
 logger_common.mojom = logger_common.mojom || {};
 
+logger_common.mojom.LogSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: LogSource
 logger_common.mojom.LogSource = {
@@ -17,4 +18,3 @@ logger_common.mojom.LogSource = {
   TabGroupSyncService: 3,
   UI: 4,
 };
-logger_common.mojom.LogSourceSpec = { $: mojo.internal.Enum() };

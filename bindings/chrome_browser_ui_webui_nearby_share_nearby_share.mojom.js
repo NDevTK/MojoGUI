@@ -8,8 +8,68 @@
 var nearby_share = nearby_share || {};
 nearby_share.mojom = nearby_share.mojom || {};
 var ui = ui || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var services = services || {};
 var url = url || {};
 
+nearby_share.mojom.SelectShareTargetResultSpec = { $: mojo.internal.Enum() };
+nearby_share.mojom.TransferStatusSpec = { $: mojo.internal.Enum() };
+nearby_share.mojom.StartDiscoveryResultSpec = { $: mojo.internal.Enum() };
+nearby_share.mojom.RegisterReceiveSurfaceResultSpec = { $: mojo.internal.Enum() };
+nearby_share.mojom.PayloadPreviewSpec = { $: {} };
+nearby_share.mojom.ShareTargetSpec = { $: {} };
+nearby_share.mojom.TransferMetadataSpec = { $: {} };
+nearby_share.mojom.ShareTargetListener = {};
+nearby_share.mojom.ShareTargetListener.$interfaceName = 'nearby_share.mojom.ShareTargetListener';
+nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec = { $: {} };
+nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec = { $: {} };
+nearby_share.mojom.TransferUpdateListener = {};
+nearby_share.mojom.TransferUpdateListener.$interfaceName = 'nearby_share.mojom.TransferUpdateListener';
+nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec = { $: {} };
+nearby_share.mojom.DiscoveryObserver = {};
+nearby_share.mojom.DiscoveryObserver.$interfaceName = 'nearby_share.mojom.DiscoveryObserver';
+nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec = { $: {} };
+nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec = { $: {} };
+nearby_share.mojom.DiscoveryManager = {};
+nearby_share.mojom.DiscoveryManager.$interfaceName = 'nearby_share.mojom.DiscoveryManager';
+nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec = { $: {} };
+nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec = { $: {} };
+nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec = { $: {} };
+nearby_share.mojom.DiscoveryManager_StopDiscovery_ParamsSpec = { $: {} };
+nearby_share.mojom.DiscoveryManager_StopDiscovery_ResponseParamsSpec = { $: {} };
+nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec = { $: {} };
+nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec = { $: {} };
+nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec = { $: {} };
+nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec = { $: {} };
+nearby_share.mojom.ConfirmationManager = {};
+nearby_share.mojom.ConfirmationManager.$interfaceName = 'nearby_share.mojom.ConfirmationManager';
+nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec = { $: {} };
+nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec = { $: {} };
+nearby_share.mojom.ConfirmationManager_Reject_ParamsSpec = { $: {} };
+nearby_share.mojom.ConfirmationManager_Reject_ResponseParamsSpec = { $: {} };
+nearby_share.mojom.ConfirmationManager_Cancel_ParamsSpec = { $: {} };
+nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec = { $: {} };
+nearby_share.mojom.ReceiveObserver = {};
+nearby_share.mojom.ReceiveObserver.$interfaceName = 'nearby_share.mojom.ReceiveObserver';
+nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec = { $: {} };
+nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec = { $: {} };
+nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec = { $: {} };
+nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec = { $: {} };
+nearby_share.mojom.ReceiveManager = {};
+nearby_share.mojom.ReceiveManager.$interfaceName = 'nearby_share.mojom.ReceiveManager';
+nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec = { $: {} };
+nearby_share.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec = { $: {} };
+nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec = { $: {} };
+nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec = { $: {} };
+nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec = { $: {} };
+nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec = { $: {} };
+nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParamsSpec = { $: {} };
+nearby_share.mojom.ReceiveManager_Accept_ParamsSpec = { $: {} };
+nearby_share.mojom.ReceiveManager_Accept_ResponseParamsSpec = { $: {} };
+nearby_share.mojom.ReceiveManager_Reject_ParamsSpec = { $: {} };
+nearby_share.mojom.ReceiveManager_Reject_ResponseParamsSpec = { $: {} };
+nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSpec = { $: {} };
 
 // Enum: SelectShareTargetResult
 nearby_share.mojom.SelectShareTargetResult = {
@@ -17,7 +77,6 @@ nearby_share.mojom.SelectShareTargetResult = {
   kError: 1,
   kInvalidShareTarget: 2,
 };
-nearby_share.mojom.SelectShareTargetResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: TransferStatus
 nearby_share.mojom.TransferStatus = {
@@ -48,7 +107,6 @@ nearby_share.mojom.TransferStatus = {
   kFailedToReadOutgoingConnectionResponse: 24,
   kUnexpectedDisconnection: 25,
 };
-nearby_share.mojom.TransferStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: StartDiscoveryResult
 nearby_share.mojom.StartDiscoveryResult = {
@@ -57,7 +115,6 @@ nearby_share.mojom.StartDiscoveryResult = {
   kNoConnectionMedium: 2,
   kErrorGeneric: 3,
 };
-nearby_share.mojom.StartDiscoveryResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: RegisterReceiveSurfaceResult
 nearby_share.mojom.RegisterReceiveSurfaceResult = {
@@ -66,89 +123,51 @@ nearby_share.mojom.RegisterReceiveSurfaceResult = {
   kNoConnectionMedium: 2,
   kTransferInProgress: 3,
 };
-nearby_share.mojom.RegisterReceiveSurfaceResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: PayloadPreview
-nearby_share.mojom.PayloadPreviewSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.PayloadPreview',
-      packedSize: 24,
-      fields: [
-        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'file_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'share_type', packedOffset: 12, packedBitOffset: 0, type: nearby_share.mojom.ShareTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby_share.mojom.PayloadPreviewSpec, 'nearby_share.mojom.PayloadPreview', [
+      mojo.internal.StructField('description', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('file_count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('share_type', 12, 0, nearby_share.mojom.ShareTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: ShareTarget
-nearby_share.mojom.ShareTargetSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ShareTarget',
-      packedSize: 48,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: nearby_share.mojom.ShareTargetTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'image_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-        { name: 'payload_preview', packedOffset: 24, packedBitOffset: 0, type: nearby_share.mojom.PayloadPreviewSpec, nullable: false, minVersion: 0 },
-        { name: 'for_self_share', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby_share.mojom.ShareTargetSpec, 'nearby_share.mojom.ShareTarget', [
+      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('type', 32, 0, nearby_share.mojom.ShareTargetTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('image_url', 16, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('payload_preview', 24, 0, nearby_share.mojom.PayloadPreviewSpec, null, false, 0, undefined),
+      mojo.internal.StructField('for_self_share', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: TransferMetadata
-nearby_share.mojom.TransferMetadataSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.TransferMetadata',
-      packedSize: 32,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: nearby_share.mojom.TransferStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'progress', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'is_original', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_final_status', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby_share.mojom.TransferMetadataSpec, 'nearby_share.mojom.TransferMetadata', [
+      mojo.internal.StructField('status', 8, 0, nearby_share.mojom.TransferStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('progress', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('token', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('is_original', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_final_status', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: ShareTargetListener
-nearby_share.mojom.ShareTargetListener = {};
+mojo.internal.Struct(
+    nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec, 'nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_Params', [
+      mojo.internal.StructField('share_target', 0, 0, nearby_share.mojom.ShareTargetSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'share_target', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.ShareTargetSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ShareTargetListener_OnShareTargetLost_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'share_target', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.ShareTargetSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec, 'nearby_share.mojom.ShareTargetListener_OnShareTargetLost_Params', [
+      mojo.internal.StructField('share_target', 0, 0, nearby_share.mojom.ShareTargetSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 nearby_share.mojom.ShareTargetListenerPendingReceiver = class {
   constructor(handle) {
@@ -212,55 +231,17 @@ nearby_share.mojom.ShareTargetListener.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnShareTargetDiscovered
-nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ShareTargetListener.OnShareTargetDiscovered_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'share_target', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.ShareTargetSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnShareTargetLost
-nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ShareTargetListener.OnShareTargetLost_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'share_target', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.ShareTargetSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 nearby_share.mojom.ShareTargetListenerPtr = nearby_share.mojom.ShareTargetListenerRemote;
 nearby_share.mojom.ShareTargetListenerRequest = nearby_share.mojom.ShareTargetListenerPendingReceiver;
 
 
 // Interface: TransferUpdateListener
-nearby_share.mojom.TransferUpdateListener = {};
-
-nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: nearby_share.mojom.TransferStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec, 'nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_Params', [
+      mojo.internal.StructField('status', 8, 0, nearby_share.mojom.TransferStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('token', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 nearby_share.mojom.TransferUpdateListenerPendingReceiver = class {
   constructor(handle) {
@@ -315,53 +296,21 @@ nearby_share.mojom.TransferUpdateListener.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnTransferUpdate
-nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.TransferUpdateListener.OnTransferUpdate_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: nearby_share.mojom.TransferStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 nearby_share.mojom.TransferUpdateListenerPtr = nearby_share.mojom.TransferUpdateListenerRemote;
 nearby_share.mojom.TransferUpdateListenerRequest = nearby_share.mojom.TransferUpdateListenerPendingReceiver;
 
 
 // Interface: DiscoveryObserver
-nearby_share.mojom.DiscoveryObserver = {};
+mojo.internal.Struct(
+    nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec, 'nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec, 'nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_Params', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 nearby_share.mojom.DiscoveryObserverPendingReceiver = class {
   constructor(handle) {
@@ -425,103 +374,63 @@ nearby_share.mojom.DiscoveryObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnNearbyProcessStopped
-nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.DiscoveryObserver.OnNearbyProcessStopped_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnStartDiscoveryResult
-nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.DiscoveryObserver.OnStartDiscoveryResult_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 nearby_share.mojom.DiscoveryObserverPtr = nearby_share.mojom.DiscoveryObserverRemote;
 nearby_share.mojom.DiscoveryObserverRequest = nearby_share.mojom.DiscoveryObserverPendingReceiver;
 
 
 // Interface: DiscoveryManager
-nearby_share.mojom.DiscoveryManager = {};
+mojo.internal.Struct(
+    nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec, 'nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(nearby_share.mojom.DiscoveryObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(nearby_share.mojom.DiscoveryObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec, 'nearby_share.mojom.DiscoveryManager_StartDiscovery_Params', [
+      mojo.internal.StructField('listener', 0, 0, mojo.internal.InterfaceProxy(nearby_share.mojom.ShareTargetListenerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.DiscoveryManager_StartDiscovery_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(nearby_share.mojom.ShareTargetListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec, 'nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, nearby_share.mojom.StartDiscoveryResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-nearby_share.mojom.DiscoveryManager_StopDiscovery_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.DiscoveryManager_StopDiscovery_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby_share.mojom.DiscoveryManager_StopDiscovery_ParamsSpec, 'nearby_share.mojom.DiscoveryManager_StopDiscovery_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.DiscoveryManager_SelectShareTarget_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'share_target_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby_share.mojom.DiscoveryManager_StopDiscovery_ResponseParamsSpec, 'nearby_share.mojom.DiscoveryManager_StopDiscovery_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.DiscoveryManager_GetPayloadPreview_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec, 'nearby_share.mojom.DiscoveryManager_SelectShareTarget_Params', [
+      mojo.internal.StructField('share_target_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec, 'nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParams', [
+      mojo.internal.StructField('result', 16, 0, nearby_share.mojom.SelectShareTargetResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('transfer_update_listener', 0, 0, mojo.internal.InterfaceRequest(nearby_share.mojom.TransferUpdateListenerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('confirmation_manager', 8, 0, mojo.internal.InterfaceProxy(nearby_share.mojom.ConfirmationManagerRemote), null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec, 'nearby_share.mojom.DiscoveryManager_GetPayloadPreview_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec, 'nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParams', [
+      mojo.internal.StructField('payload_preview', 0, 0, nearby_share.mojom.PayloadPreviewSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 nearby_share.mojom.DiscoveryManagerPendingReceiver = class {
   constructor(handle) {
@@ -578,7 +487,7 @@ nearby_share.mojom.DiscoveryManagerRemoteCallHandler = class {
     return this.proxy.sendMessage(
       2,  // ordinal
       nearby_share.mojom.DiscoveryManager_StopDiscovery_ParamsSpec,
-      null,
+      nearby_share.mojom.DiscoveryManager_StopDiscovery_ResponseParamsSpec,
       []);
   }
 
@@ -612,158 +521,43 @@ nearby_share.mojom.DiscoveryManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddDiscoveryObserver
-nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.DiscoveryManager.AddDiscoveryObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(nearby_share.mojom.DiscoveryObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StartDiscovery
-nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.DiscoveryManager.StartDiscovery_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(nearby_share.mojom.ShareTargetListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.DiscoveryManager.StartDiscovery_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.StartDiscoveryResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StopDiscovery
-nearby_share.mojom.DiscoveryManager_StopDiscovery_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.DiscoveryManager.StopDiscovery_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SelectShareTarget
-nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.DiscoveryManager.SelectShareTarget_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'share_target_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.DiscoveryManager.SelectShareTarget_ResponseParams',
-      packedSize: 32,
-      fields: [
-        { name: 'result', packedOffset: 16, packedBitOffset: 0, type: nearby_share.mojom.SelectShareTargetResultSpec, nullable: false, minVersion: 0 },
-        { name: 'transfer_update_listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(nearby_share.mojom.TransferUpdateListenerRemote), nullable: true, minVersion: 0 },
-        { name: 'confirmation_manager', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(nearby_share.mojom.ConfirmationManagerRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for GetPayloadPreview
-nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.DiscoveryManager.GetPayloadPreview_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.DiscoveryManager.GetPayloadPreview_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'payload_preview', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.PayloadPreviewSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 nearby_share.mojom.DiscoveryManagerPtr = nearby_share.mojom.DiscoveryManagerRemote;
 nearby_share.mojom.DiscoveryManagerRequest = nearby_share.mojom.DiscoveryManagerPendingReceiver;
 
 
 // Interface: ConfirmationManager
-nearby_share.mojom.ConfirmationManager = {};
+mojo.internal.Struct(
+    nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec, 'nearby_share.mojom.ConfirmationManager_Accept_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ConfirmationManager_Accept_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec, 'nearby_share.mojom.ConfirmationManager_Accept_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-nearby_share.mojom.ConfirmationManager_Reject_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ConfirmationManager_Reject_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby_share.mojom.ConfirmationManager_Reject_ParamsSpec, 'nearby_share.mojom.ConfirmationManager_Reject_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-nearby_share.mojom.ConfirmationManager_Cancel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ConfirmationManager_Cancel_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby_share.mojom.ConfirmationManager_Reject_ResponseParamsSpec, 'nearby_share.mojom.ConfirmationManager_Reject_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    nearby_share.mojom.ConfirmationManager_Cancel_ParamsSpec, 'nearby_share.mojom.ConfirmationManager_Cancel_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec, 'nearby_share.mojom.ConfirmationManager_Cancel_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 nearby_share.mojom.ConfirmationManagerPendingReceiver = class {
   constructor(handle) {
@@ -836,142 +630,33 @@ nearby_share.mojom.ConfirmationManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Accept
-nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ConfirmationManager.Accept_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ConfirmationManager.Accept_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Reject
-nearby_share.mojom.ConfirmationManager_Reject_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ConfirmationManager.Reject_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-nearby_share.mojom.ConfirmationManager_Reject_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ConfirmationManager.Reject_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Cancel
-nearby_share.mojom.ConfirmationManager_Cancel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ConfirmationManager.Cancel_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ConfirmationManager.Cancel_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 nearby_share.mojom.ConfirmationManagerPtr = nearby_share.mojom.ConfirmationManagerRemote;
 nearby_share.mojom.ConfirmationManagerRequest = nearby_share.mojom.ConfirmationManagerPendingReceiver;
 
 
 // Interface: ReceiveObserver
-nearby_share.mojom.ReceiveObserver = {};
+mojo.internal.Struct(
+    nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec, 'nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_Params', [
+      mojo.internal.StructField('in_high_visibility', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'in_high_visibility', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec, 'nearby_share.mojom.ReceiveObserver_OnTransferUpdate_Params', [
+      mojo.internal.StructField('share_target', 0, 0, nearby_share.mojom.ShareTargetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('metadata', 8, 0, nearby_share.mojom.TransferMetadataSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ReceiveObserver_OnTransferUpdate_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'share_target', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.ShareTargetSpec, nullable: false, minVersion: 0 },
-        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: nearby_share.mojom.TransferMetadataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec, 'nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec, 'nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 nearby_share.mojom.ReceiveObserverPendingReceiver = class {
   constructor(handle) {
@@ -1053,156 +738,79 @@ nearby_share.mojom.ReceiveObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnHighVisibilityChanged
-nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ReceiveObserver.OnHighVisibilityChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'in_high_visibility', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnTransferUpdate
-nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ReceiveObserver.OnTransferUpdate_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'share_target', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.ShareTargetSpec, nullable: false, minVersion: 0 },
-        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: nearby_share.mojom.TransferMetadataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnNearbyProcessStopped
-nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ReceiveObserver.OnNearbyProcessStopped_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnStartAdvertisingFailure
-nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ReceiveObserver.OnStartAdvertisingFailure_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 nearby_share.mojom.ReceiveObserverPtr = nearby_share.mojom.ReceiveObserverRemote;
 nearby_share.mojom.ReceiveObserverRequest = nearby_share.mojom.ReceiveObserverPendingReceiver;
 
 
 // Interface: ReceiveManager
-nearby_share.mojom.ReceiveManager = {};
+mojo.internal.Struct(
+    nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec, 'nearby_share.mojom.ReceiveManager_AddReceiveObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(nearby_share.mojom.ReceiveObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ReceiveManager_AddReceiveObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(nearby_share.mojom.ReceiveObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby_share.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec, 'nearby_share.mojom.ReceiveManager_IsInHighVisibility_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-nearby_share.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ReceiveManager_IsInHighVisibility_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec, 'nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParams', [
+      mojo.internal.StructField('in_high_visibility', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec, 'nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec, 'nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, nearby_share.mojom.RegisterReceiveSurfaceResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-nearby_share.mojom.ReceiveManager_Accept_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ReceiveManager_Accept_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'share_target_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec, 'nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-nearby_share.mojom.ReceiveManager_Reject_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ReceiveManager_Reject_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'share_target_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParamsSpec, 'nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby_share.mojom.ReceiveManager_Accept_ParamsSpec, 'nearby_share.mojom.ReceiveManager_Accept_Params', [
+      mojo.internal.StructField('share_target_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    nearby_share.mojom.ReceiveManager_Accept_ResponseParamsSpec, 'nearby_share.mojom.ReceiveManager_Accept_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    nearby_share.mojom.ReceiveManager_Reject_ParamsSpec, 'nearby_share.mojom.ReceiveManager_Reject_Params', [
+      mojo.internal.StructField('share_target_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    nearby_share.mojom.ReceiveManager_Reject_ResponseParamsSpec, 'nearby_share.mojom.ReceiveManager_Reject_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSpec, 'nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_Params', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 nearby_share.mojom.ReceiveManagerPendingReceiver = class {
   constructor(handle) {
@@ -1311,167 +919,6 @@ nearby_share.mojom.ReceiveManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddReceiveObserver
-nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ReceiveManager.AddReceiveObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(nearby_share.mojom.ReceiveObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for IsInHighVisibility
-nearby_share.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ReceiveManager.IsInHighVisibility_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ReceiveManager.IsInHighVisibility_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'in_high_visibility', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RegisterForegroundReceiveSurface
-nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ReceiveManager.RegisterForegroundReceiveSurface_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ReceiveManager.RegisterForegroundReceiveSurface_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.RegisterReceiveSurfaceResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UnregisterForegroundReceiveSurface
-nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ReceiveManager.UnregisterForegroundReceiveSurface_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ReceiveManager.UnregisterForegroundReceiveSurface_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Accept
-nearby_share.mojom.ReceiveManager_Accept_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ReceiveManager.Accept_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'share_target_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-nearby_share.mojom.ReceiveManager_Accept_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ReceiveManager.Accept_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Reject
-nearby_share.mojom.ReceiveManager_Reject_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ReceiveManager.Reject_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'share_target_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-nearby_share.mojom.ReceiveManager_Reject_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ReceiveManager.Reject_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RecordFastInitiationNotificationUsage
-nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby_share.mojom.ReceiveManager.RecordFastInitiationNotificationUsage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 nearby_share.mojom.ReceiveManagerPtr = nearby_share.mojom.ReceiveManagerRemote;
 nearby_share.mojom.ReceiveManagerRequest = nearby_share.mojom.ReceiveManagerPendingReceiver;
 

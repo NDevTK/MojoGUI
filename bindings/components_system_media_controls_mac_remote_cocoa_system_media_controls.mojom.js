@@ -7,7 +7,34 @@
 // Module namespace
 var system_media_controls = system_media_controls || {};
 system_media_controls.mojom = system_media_controls.mojom || {};
+var services = services || {};
 
+system_media_controls.mojom.PlaybackStatusSpec = { $: mojo.internal.Enum() };
+system_media_controls.mojom.SystemMediaControls = {};
+system_media_controls.mojom.SystemMediaControls.$interfaceName = 'system_media_controls.mojom.SystemMediaControls';
+system_media_controls.mojom.SystemMediaControls_SetIsNextEnabled_ParamsSpec = { $: {} };
+system_media_controls.mojom.SystemMediaControls_SetIsPreviousEnabled_ParamsSpec = { $: {} };
+system_media_controls.mojom.SystemMediaControls_SetIsPlayPauseEnabled_ParamsSpec = { $: {} };
+system_media_controls.mojom.SystemMediaControls_SetIsStopEnabled_ParamsSpec = { $: {} };
+system_media_controls.mojom.SystemMediaControls_SetIsSeekToEnabled_ParamsSpec = { $: {} };
+system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_ParamsSpec = { $: {} };
+system_media_controls.mojom.SystemMediaControls_SetTitle_ParamsSpec = { $: {} };
+system_media_controls.mojom.SystemMediaControls_SetArtist_ParamsSpec = { $: {} };
+system_media_controls.mojom.SystemMediaControls_SetAlbum_ParamsSpec = { $: {} };
+system_media_controls.mojom.SystemMediaControls_SetThumbnail_ParamsSpec = { $: {} };
+system_media_controls.mojom.SystemMediaControls_SetPosition_ParamsSpec = { $: {} };
+system_media_controls.mojom.SystemMediaControls_ClearMetadata_ParamsSpec = { $: {} };
+system_media_controls.mojom.SystemMediaControlsObserver = {};
+system_media_controls.mojom.SystemMediaControlsObserver.$interfaceName = 'system_media_controls.mojom.SystemMediaControlsObserver';
+system_media_controls.mojom.SystemMediaControlsObserver_OnNext_ParamsSpec = { $: {} };
+system_media_controls.mojom.SystemMediaControlsObserver_OnPrevious_ParamsSpec = { $: {} };
+system_media_controls.mojom.SystemMediaControlsObserver_OnPause_ParamsSpec = { $: {} };
+system_media_controls.mojom.SystemMediaControlsObserver_OnPlayPause_ParamsSpec = { $: {} };
+system_media_controls.mojom.SystemMediaControlsObserver_OnStop_ParamsSpec = { $: {} };
+system_media_controls.mojom.SystemMediaControlsObserver_OnPlay_ParamsSpec = { $: {} };
+system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_ParamsSpec = { $: {} };
+system_media_controls.mojom.SystemMediaControlsObserver_OnBridgeCreatedForTesting_ParamsSpec = { $: {} };
+system_media_controls.mojom.SystemMediaControlsObserver_OnMetadataClearedForTesting_ParamsSpec = { $: {} };
 
 // Enum: PlaybackStatus
 system_media_controls.mojom.PlaybackStatus = {
@@ -15,165 +42,78 @@ system_media_controls.mojom.PlaybackStatus = {
   kPaused: 1,
   kStopped: 2,
 };
-system_media_controls.mojom.PlaybackStatusSpec = { $: mojo.internal.Enum() };
 
 // Interface: SystemMediaControls
-system_media_controls.mojom.SystemMediaControls = {};
+mojo.internal.Struct(
+    system_media_controls.mojom.SystemMediaControls_SetIsNextEnabled_ParamsSpec, 'system_media_controls.mojom.SystemMediaControls_SetIsNextEnabled_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-system_media_controls.mojom.SystemMediaControls_SetIsNextEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControls_SetIsNextEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    system_media_controls.mojom.SystemMediaControls_SetIsPreviousEnabled_ParamsSpec, 'system_media_controls.mojom.SystemMediaControls_SetIsPreviousEnabled_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-system_media_controls.mojom.SystemMediaControls_SetIsPreviousEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControls_SetIsPreviousEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    system_media_controls.mojom.SystemMediaControls_SetIsPlayPauseEnabled_ParamsSpec, 'system_media_controls.mojom.SystemMediaControls_SetIsPlayPauseEnabled_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-system_media_controls.mojom.SystemMediaControls_SetIsPlayPauseEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControls_SetIsPlayPauseEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    system_media_controls.mojom.SystemMediaControls_SetIsStopEnabled_ParamsSpec, 'system_media_controls.mojom.SystemMediaControls_SetIsStopEnabled_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-system_media_controls.mojom.SystemMediaControls_SetIsStopEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControls_SetIsStopEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    system_media_controls.mojom.SystemMediaControls_SetIsSeekToEnabled_ParamsSpec, 'system_media_controls.mojom.SystemMediaControls_SetIsSeekToEnabled_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-system_media_controls.mojom.SystemMediaControls_SetIsSeekToEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControls_SetIsSeekToEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_ParamsSpec, 'system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_Params', [
+      mojo.internal.StructField('status', 0, 0, system_media_controls.mojom.PlaybackStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: system_media_controls.mojom.PlaybackStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    system_media_controls.mojom.SystemMediaControls_SetTitle_ParamsSpec, 'system_media_controls.mojom.SystemMediaControls_SetTitle_Params', [
+      mojo.internal.StructField('title', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-system_media_controls.mojom.SystemMediaControls_SetTitle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControls_SetTitle_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    system_media_controls.mojom.SystemMediaControls_SetArtist_ParamsSpec, 'system_media_controls.mojom.SystemMediaControls_SetArtist_Params', [
+      mojo.internal.StructField('artist', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-system_media_controls.mojom.SystemMediaControls_SetArtist_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControls_SetArtist_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'artist', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    system_media_controls.mojom.SystemMediaControls_SetAlbum_ParamsSpec, 'system_media_controls.mojom.SystemMediaControls_SetAlbum_Params', [
+      mojo.internal.StructField('album', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-system_media_controls.mojom.SystemMediaControls_SetAlbum_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControls_SetAlbum_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'album', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    system_media_controls.mojom.SystemMediaControls_SetThumbnail_ParamsSpec, 'system_media_controls.mojom.SystemMediaControls_SetThumbnail_Params', [
+      mojo.internal.StructField('thumbnail', 0, 0, media_session.mojom.MediaImageBitmapSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-system_media_controls.mojom.SystemMediaControls_SetThumbnail_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControls_SetThumbnail_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'thumbnail', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaImageBitmapSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    system_media_controls.mojom.SystemMediaControls_SetPosition_ParamsSpec, 'system_media_controls.mojom.SystemMediaControls_SetPosition_Params', [
+      mojo.internal.StructField('position', 0, 0, media_session.mojom.MediaPositionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-system_media_controls.mojom.SystemMediaControls_SetPosition_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControls_SetPosition_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaPositionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-system_media_controls.mojom.SystemMediaControls_ClearMetadata_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControls_ClearMetadata_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    system_media_controls.mojom.SystemMediaControls_ClearMetadata_ParamsSpec, 'system_media_controls.mojom.SystemMediaControls_ClearMetadata_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 system_media_controls.mojom.SystemMediaControlsPendingReceiver = class {
   constructor(handle) {
@@ -327,289 +267,56 @@ system_media_controls.mojom.SystemMediaControls.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetIsNextEnabled
-system_media_controls.mojom.SystemMediaControls_SetIsNextEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControls.SetIsNextEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetIsPreviousEnabled
-system_media_controls.mojom.SystemMediaControls_SetIsPreviousEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControls.SetIsPreviousEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetIsPlayPauseEnabled
-system_media_controls.mojom.SystemMediaControls_SetIsPlayPauseEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControls.SetIsPlayPauseEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetIsStopEnabled
-system_media_controls.mojom.SystemMediaControls_SetIsStopEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControls.SetIsStopEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetIsSeekToEnabled
-system_media_controls.mojom.SystemMediaControls_SetIsSeekToEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControls.SetIsSeekToEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetPlaybackStatus
-system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControls.SetPlaybackStatus_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: system_media_controls.mojom.PlaybackStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetTitle
-system_media_controls.mojom.SystemMediaControls_SetTitle_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControls.SetTitle_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetArtist
-system_media_controls.mojom.SystemMediaControls_SetArtist_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControls.SetArtist_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'artist', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetAlbum
-system_media_controls.mojom.SystemMediaControls_SetAlbum_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControls.SetAlbum_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'album', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetThumbnail
-system_media_controls.mojom.SystemMediaControls_SetThumbnail_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControls.SetThumbnail_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'thumbnail', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaImageBitmapSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetPosition
-system_media_controls.mojom.SystemMediaControls_SetPosition_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControls.SetPosition_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaPositionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ClearMetadata
-system_media_controls.mojom.SystemMediaControls_ClearMetadata_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControls.ClearMetadata_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 system_media_controls.mojom.SystemMediaControlsPtr = system_media_controls.mojom.SystemMediaControlsRemote;
 system_media_controls.mojom.SystemMediaControlsRequest = system_media_controls.mojom.SystemMediaControlsPendingReceiver;
 
 
 // Interface: SystemMediaControlsObserver
-system_media_controls.mojom.SystemMediaControlsObserver = {};
+mojo.internal.Struct(
+    system_media_controls.mojom.SystemMediaControlsObserver_OnNext_ParamsSpec, 'system_media_controls.mojom.SystemMediaControlsObserver_OnNext_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-system_media_controls.mojom.SystemMediaControlsObserver_OnNext_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControlsObserver_OnNext_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    system_media_controls.mojom.SystemMediaControlsObserver_OnPrevious_ParamsSpec, 'system_media_controls.mojom.SystemMediaControlsObserver_OnPrevious_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-system_media_controls.mojom.SystemMediaControlsObserver_OnPrevious_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControlsObserver_OnPrevious_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    system_media_controls.mojom.SystemMediaControlsObserver_OnPause_ParamsSpec, 'system_media_controls.mojom.SystemMediaControlsObserver_OnPause_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-system_media_controls.mojom.SystemMediaControlsObserver_OnPause_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControlsObserver_OnPause_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    system_media_controls.mojom.SystemMediaControlsObserver_OnPlayPause_ParamsSpec, 'system_media_controls.mojom.SystemMediaControlsObserver_OnPlayPause_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-system_media_controls.mojom.SystemMediaControlsObserver_OnPlayPause_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControlsObserver_OnPlayPause_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    system_media_controls.mojom.SystemMediaControlsObserver_OnStop_ParamsSpec, 'system_media_controls.mojom.SystemMediaControlsObserver_OnStop_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-system_media_controls.mojom.SystemMediaControlsObserver_OnStop_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControlsObserver_OnStop_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    system_media_controls.mojom.SystemMediaControlsObserver_OnPlay_ParamsSpec, 'system_media_controls.mojom.SystemMediaControlsObserver_OnPlay_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-system_media_controls.mojom.SystemMediaControlsObserver_OnPlay_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControlsObserver_OnPlay_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_ParamsSpec, 'system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_Params', [
+      mojo.internal.StructField('seek_time', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    system_media_controls.mojom.SystemMediaControlsObserver_OnBridgeCreatedForTesting_ParamsSpec, 'system_media_controls.mojom.SystemMediaControlsObserver_OnBridgeCreatedForTesting_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-system_media_controls.mojom.SystemMediaControlsObserver_OnBridgeCreatedForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControlsObserver_OnBridgeCreatedForTesting_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-system_media_controls.mojom.SystemMediaControlsObserver_OnMetadataClearedForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControlsObserver_OnMetadataClearedForTesting_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    system_media_controls.mojom.SystemMediaControlsObserver_OnMetadataClearedForTesting_ParamsSpec, 'system_media_controls.mojom.SystemMediaControlsObserver_OnMetadataClearedForTesting_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 system_media_controls.mojom.SystemMediaControlsObserverPendingReceiver = class {
   constructor(handle) {
@@ -736,125 +443,6 @@ system_media_controls.mojom.SystemMediaControlsObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnNext
-system_media_controls.mojom.SystemMediaControlsObserver_OnNext_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControlsObserver.OnNext_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnPrevious
-system_media_controls.mojom.SystemMediaControlsObserver_OnPrevious_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControlsObserver.OnPrevious_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnPause
-system_media_controls.mojom.SystemMediaControlsObserver_OnPause_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControlsObserver.OnPause_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnPlayPause
-system_media_controls.mojom.SystemMediaControlsObserver_OnPlayPause_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControlsObserver.OnPlayPause_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnStop
-system_media_controls.mojom.SystemMediaControlsObserver_OnStop_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControlsObserver.OnStop_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnPlay
-system_media_controls.mojom.SystemMediaControlsObserver_OnPlay_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControlsObserver.OnPlay_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnSeekTo
-system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControlsObserver.OnSeekTo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnBridgeCreatedForTesting
-system_media_controls.mojom.SystemMediaControlsObserver_OnBridgeCreatedForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControlsObserver.OnBridgeCreatedForTesting_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnMetadataClearedForTesting
-system_media_controls.mojom.SystemMediaControlsObserver_OnMetadataClearedForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'system_media_controls.mojom.SystemMediaControlsObserver.OnMetadataClearedForTesting_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 system_media_controls.mojom.SystemMediaControlsObserverPtr = system_media_controls.mojom.SystemMediaControlsObserverRemote;
 system_media_controls.mojom.SystemMediaControlsObserverRequest = system_media_controls.mojom.SystemMediaControlsObserverPendingReceiver;
 

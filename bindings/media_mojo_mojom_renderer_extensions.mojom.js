@@ -12,52 +12,46 @@ var gfx = gfx || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+media.mojom.FrameTextureInfoSpec = { $: {} };
+media.mojom.FramePoolInitializationParametersSpec = { $: {} };
+media.mojom.FlingingRendererClientExtension = {};
+media.mojom.FlingingRendererClientExtension.$interfaceName = 'media.mojom.FlingingRendererClientExtension';
+media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec = { $: {} };
+media.mojom.MediaFoundationRendererExtension = {};
+media.mojom.MediaFoundationRendererExtension.$interfaceName = 'media.mojom.MediaFoundationRendererExtension';
+media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec = { $: {} };
+media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec = { $: {} };
+media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec = { $: {} };
+media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec = { $: {} };
+media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec = { $: {} };
+media.mojom.MediaFoundationRendererObserver = {};
+media.mojom.MediaFoundationRendererObserver.$interfaceName = 'media.mojom.MediaFoundationRendererObserver';
+media.mojom.MediaFoundationRendererNotifier = {};
+media.mojom.MediaFoundationRendererNotifier.$interfaceName = 'media.mojom.MediaFoundationRendererNotifier';
+media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec = { $: {} };
 
 // Struct: FrameTextureInfo
-media.mojom.FrameTextureInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.FrameTextureInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'texture_handle', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.GpuMemoryBufferHandleSpec, nullable: false, minVersion: 0 },
-        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.FrameTextureInfoSpec, 'media.mojom.FrameTextureInfo', [
+      mojo.internal.StructField('texture_handle', 0, 0, gfx.mojom.GpuMemoryBufferHandleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('token', 8, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: FramePoolInitializationParameters
-media.mojom.FramePoolInitializationParametersSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.FramePoolInitializationParameters',
-      packedSize: 24,
-      fields: [
-        { name: 'frame_textures', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.FrameTextureInfoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'texture_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.FramePoolInitializationParametersSpec, 'media.mojom.FramePoolInitializationParameters', [
+      mojo.internal.StructField('frame_textures', 0, 0, mojo.internal.Array(media.mojom.FrameTextureInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('texture_size', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: FlingingRendererClientExtension
-media.mojom.FlingingRendererClientExtension = {};
-
-media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: media.mojom.MediaStatusStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec, 'media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_Params', [
+      mojo.internal.StructField('state', 0, 0, media.mojom.MediaStatusStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.FlingingRendererClientExtensionPendingReceiver = class {
   constructor(handle) {
@@ -112,65 +106,40 @@ media.mojom.FlingingRendererClientExtension.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnRemotePlayStateChange
-media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.FlingingRendererClientExtension.OnRemotePlayStateChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: media.mojom.MediaStatusStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.FlingingRendererClientExtensionPtr = media.mojom.FlingingRendererClientExtensionRemote;
 media.mojom.FlingingRendererClientExtensionRequest = media.mojom.FlingingRendererClientExtensionPendingReceiver;
 
 
 // Interface: MediaFoundationRendererExtension
-media.mojom.MediaFoundationRendererExtension = {};
+mojo.internal.Struct(
+    media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec, 'media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec, 'media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParams', [
+      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec, 'media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaFoundationRendererExtension_SetOutputRect_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec, 'media.mojom.MediaFoundationRendererExtension_SetOutputRect_Params', [
+      mojo.internal.StructField('rect', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec, 'media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.MediaFoundationRendererExtensionPendingReceiver = class {
   constructor(handle) {
@@ -243,82 +212,11 @@ media.mojom.MediaFoundationRendererExtension.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetDCOMPSurface
-media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaFoundationRendererExtension.GetDCOMPSurface_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaFoundationRendererExtension.GetDCOMPSurface_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SetVideoStreamEnabled
-media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaFoundationRendererExtension.SetVideoStreamEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetOutputRect
-media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaFoundationRendererExtension.SetOutputRect_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaFoundationRendererExtension.SetOutputRect_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.MediaFoundationRendererExtensionPtr = media.mojom.MediaFoundationRendererExtensionRemote;
 media.mojom.MediaFoundationRendererExtensionRequest = media.mojom.MediaFoundationRendererExtensionPendingReceiver;
 
 
 // Interface: MediaFoundationRendererObserver
-media.mojom.MediaFoundationRendererObserver = {};
-
 media.mojom.MediaFoundationRendererObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -363,26 +261,16 @@ media.mojom.MediaFoundationRendererObserver.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 media.mojom.MediaFoundationRendererObserverPtr = media.mojom.MediaFoundationRendererObserverRemote;
 media.mojom.MediaFoundationRendererObserverRequest = media.mojom.MediaFoundationRendererObserverPendingReceiver;
 
 
 // Interface: MediaFoundationRendererNotifier
-media.mojom.MediaFoundationRendererNotifier = {};
-
-media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.MediaFoundationRendererObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec, 'media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceRequest(media.mojom.MediaFoundationRendererObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.MediaFoundationRendererNotifierPendingReceiver = class {
   constructor(handle) {
@@ -437,21 +325,6 @@ media.mojom.MediaFoundationRendererNotifier.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for MediaFoundationRendererCreated
-media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaFoundationRendererNotifier.MediaFoundationRendererCreated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.MediaFoundationRendererObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.MediaFoundationRendererNotifierPtr = media.mojom.MediaFoundationRendererNotifierRemote;
 media.mojom.MediaFoundationRendererNotifierRequest = media.mojom.MediaFoundationRendererNotifierPendingReceiver;
 

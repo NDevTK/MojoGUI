@@ -8,6 +8,17 @@
 var device = device || {};
 device.mojom = device.mojom || {};
 
+device.mojom.WakeLockTypeSpec = { $: mojo.internal.Enum() };
+device.mojom.WakeLockReasonSpec = { $: mojo.internal.Enum() };
+device.mojom.WakeLock = {};
+device.mojom.WakeLock.$interfaceName = 'device.mojom.WakeLock';
+device.mojom.WakeLock_RequestWakeLock_ParamsSpec = { $: {} };
+device.mojom.WakeLock_CancelWakeLock_ParamsSpec = { $: {} };
+device.mojom.WakeLock_AddClient_ParamsSpec = { $: {} };
+device.mojom.WakeLock_ChangeType_ParamsSpec = { $: {} };
+device.mojom.WakeLock_ChangeType_ResponseParamsSpec = { $: {} };
+device.mojom.WakeLock_HasWakeLockForTests_ParamsSpec = { $: {} };
+device.mojom.WakeLock_HasWakeLockForTests_ResponseParamsSpec = { $: {} };
 
 // Enum: WakeLockType
 device.mojom.WakeLockType = {
@@ -15,7 +26,6 @@ device.mojom.WakeLockType = {
   kPreventDisplaySleep: 1,
   kPreventDisplaySleepAllowDimming: 2,
 };
-device.mojom.WakeLockTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: WakeLockReason
 device.mojom.WakeLockReason = {
@@ -23,72 +33,46 @@ device.mojom.WakeLockReason = {
   kVideoPlayback: 1,
   kOther: 2,
 };
-device.mojom.WakeLockReasonSpec = { $: mojo.internal.Enum() };
 
 // Interface: WakeLock
-device.mojom.WakeLock = {};
+mojo.internal.Struct(
+    device.mojom.WakeLock_RequestWakeLock_ParamsSpec, 'device.mojom.WakeLock_RequestWakeLock_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-device.mojom.WakeLock_RequestWakeLock_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.WakeLock_RequestWakeLock_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.WakeLock_CancelWakeLock_ParamsSpec, 'device.mojom.WakeLock_CancelWakeLock_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-device.mojom.WakeLock_CancelWakeLock_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.WakeLock_CancelWakeLock_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.WakeLock_AddClient_ParamsSpec, 'device.mojom.WakeLock_AddClient_Params', [
+      mojo.internal.StructField('wake_lock', 0, 0, mojo.internal.InterfaceRequest(device.mojom.WakeLockRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.WakeLock_AddClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.WakeLock_AddClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'wake_lock', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.WakeLockRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.WakeLock_ChangeType_ParamsSpec, 'device.mojom.WakeLock_ChangeType_Params', [
+      mojo.internal.StructField('type', 0, 0, device.mojom.WakeLockTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.WakeLock_ChangeType_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.WakeLock_ChangeType_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: device.mojom.WakeLockTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.WakeLock_ChangeType_ResponseParamsSpec, 'device.mojom.WakeLock_ChangeType_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.WakeLock_HasWakeLockForTests_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.WakeLock_HasWakeLockForTests_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.WakeLock_HasWakeLockForTests_ParamsSpec, 'device.mojom.WakeLock_HasWakeLockForTests_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    device.mojom.WakeLock_HasWakeLockForTests_ResponseParamsSpec, 'device.mojom.WakeLock_HasWakeLockForTests_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 device.mojom.WakeLockPendingReceiver = class {
   constructor(handle) {
@@ -179,100 +163,6 @@ device.mojom.WakeLock.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RequestWakeLock
-device.mojom.WakeLock_RequestWakeLock_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.WakeLock.RequestWakeLock_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for CancelWakeLock
-device.mojom.WakeLock_CancelWakeLock_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.WakeLock.CancelWakeLock_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for AddClient
-device.mojom.WakeLock_AddClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.WakeLock.AddClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'wake_lock', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.WakeLockRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ChangeType
-device.mojom.WakeLock_ChangeType_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.WakeLock.ChangeType_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: device.mojom.WakeLockTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-device.mojom.WakeLock_ChangeType_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.WakeLock.ChangeType_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for HasWakeLockForTests
-device.mojom.WakeLock_HasWakeLockForTests_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.WakeLock.HasWakeLockForTests_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-device.mojom.WakeLock_HasWakeLockForTests_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.WakeLock.HasWakeLockForTests_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 device.mojom.WakeLockPtr = device.mojom.WakeLockRemote;
 device.mojom.WakeLockRequest = device.mojom.WakeLockPendingReceiver;
 

@@ -8,19 +8,21 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.ReferrerPolicySpec = { $: mojo.internal.Enum() };
+network.mojom.URLRequestReferrerPolicySpec = { $: mojo.internal.Enum() };
 
 // Enum: ReferrerPolicy
 network.mojom.ReferrerPolicy = {
   kAlways: 0,
-  kNoReferrerWhenDowngrade: 1,
-  kNever: 2,
-  kOrigin: 3,
-  kOriginWhenCrossOrigin: 4,
-  kStrictOriginWhenCrossOrigin: 5,
-  kSameOrigin: 6,
-  kStrictOrigin: 7,
+  kDefault: 1,
+  kNoReferrerWhenDowngrade: 2,
+  kNever: 3,
+  kOrigin: 4,
+  kOriginWhenCrossOrigin: 5,
+  kStrictOriginWhenCrossOrigin: 6,
+  kSameOrigin: 7,
+  kStrictOrigin: 8,
 };
-network.mojom.ReferrerPolicySpec = { $: mojo.internal.Enum() };
 
 // Enum: URLRequestReferrerPolicy
 network.mojom.URLRequestReferrerPolicy = {
@@ -33,4 +35,3 @@ network.mojom.URLRequestReferrerPolicy = {
   kOriginClearOnTransitionFromSecureToInsecure: 6,
   kNoReferrer: 7,
 };
-network.mojom.URLRequestReferrerPolicySpec = { $: mojo.internal.Enum() };

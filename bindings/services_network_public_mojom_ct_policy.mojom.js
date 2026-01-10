@@ -8,18 +8,12 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.CTPolicySpec = { $: {} };
 
 // Struct: CTPolicy
-network.mojom.CTPolicySpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.CTPolicy',
-      packedSize: 24,
-      fields: [
-        { name: 'excluded_hosts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'excluded_spkis', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.CTPolicySpec, 'network.mojom.CTPolicy', [
+      mojo.internal.StructField('excluded_hosts', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('excluded_spkis', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);

@@ -8,6 +8,41 @@
 var device = device || {};
 device.mojom = device.mojom || {};
 
+device.mojom.HidBusTypeSpec = { $: mojo.internal.Enum() };
+device.mojom.HidUsageAndPageSpec = { $: {} };
+device.mojom.HidReportItemSpec = { $: {} };
+device.mojom.HidReportDescriptionSpec = { $: {} };
+device.mojom.HidCollectionInfoSpec = { $: {} };
+device.mojom.HidDeviceInfoSpec = { $: {} };
+device.mojom.HidManagerClient = {};
+device.mojom.HidManagerClient.$interfaceName = 'device.mojom.HidManagerClient';
+device.mojom.HidManagerClient_DeviceAdded_ParamsSpec = { $: {} };
+device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec = { $: {} };
+device.mojom.HidManagerClient_DeviceChanged_ParamsSpec = { $: {} };
+device.mojom.HidManager = {};
+device.mojom.HidManager.$interfaceName = 'device.mojom.HidManager';
+device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec = { $: {} };
+device.mojom.HidManager_GetDevicesAndSetClient_ResponseParamsSpec = { $: {} };
+device.mojom.HidManager_GetDevices_ParamsSpec = { $: {} };
+device.mojom.HidManager_GetDevices_ResponseParamsSpec = { $: {} };
+device.mojom.HidManager_Connect_ParamsSpec = { $: {} };
+device.mojom.HidManager_Connect_ResponseParamsSpec = { $: {} };
+device.mojom.HidManager_AddReceiver_ParamsSpec = { $: {} };
+device.mojom.HidConnection = {};
+device.mojom.HidConnection.$interfaceName = 'device.mojom.HidConnection';
+device.mojom.HidConnection_Read_ParamsSpec = { $: {} };
+device.mojom.HidConnection_Read_ResponseParamsSpec = { $: {} };
+device.mojom.HidConnection_Write_ParamsSpec = { $: {} };
+device.mojom.HidConnection_Write_ResponseParamsSpec = { $: {} };
+device.mojom.HidConnection_GetFeatureReport_ParamsSpec = { $: {} };
+device.mojom.HidConnection_GetFeatureReport_ResponseParamsSpec = { $: {} };
+device.mojom.HidConnection_SendFeatureReport_ParamsSpec = { $: {} };
+device.mojom.HidConnection_SendFeatureReport_ResponseParamsSpec = { $: {} };
+device.mojom.HidConnectionClient = {};
+device.mojom.HidConnectionClient.$interfaceName = 'device.mojom.HidConnectionClient';
+device.mojom.HidConnectionClient_OnInputReport_ParamsSpec = { $: {} };
+device.mojom.HidConnectionWatcher = {};
+device.mojom.HidConnectionWatcher.$interfaceName = 'device.mojom.HidConnectionWatcher';
 
 device.mojom.kPageUndefined = 0x00;
 
@@ -233,169 +268,111 @@ device.mojom.kHIDCollectionTypeVendorMax = 0xff;
 device.mojom.HidBusType = {
   kHIDBusTypeUSB: 0,
   kHIDBusTypeBluetooth: 1,
+  MinVersion: 1,
 };
-device.mojom.HidBusTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: HidUsageAndPage
-device.mojom.HidUsageAndPageSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidUsageAndPage',
-      packedSize: 16,
-      fields: [
-        { name: 'usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'usage_page', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.HidUsageAndPageSpec, 'device.mojom.HidUsageAndPage', [
+      mojo.internal.StructField('usage', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('usage_page', 2, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: HidReportItem
-device.mojom.HidReportItemSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidReportItem',
-      packedSize: 88,
-      fields: [
-        { name: 'is_range', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_constant', packedOffset: 72, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_variable', packedOffset: 72, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_relative', packedOffset: 72, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'wrap', packedOffset: 72, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_non_linear', packedOffset: 72, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'no_preferred_state', packedOffset: 72, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_null_position', packedOffset: 72, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_volatile', packedOffset: 73, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_buffered_bytes', packedOffset: 73, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'usages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.HidUsageAndPageSpec, false), nullable: false, minVersion: 0 },
-        { name: 'usage_minimum', packedOffset: 8, packedBitOffset: 0, type: device.mojom.HidUsageAndPageSpec, nullable: false, minVersion: 0 },
-        { name: 'usage_maximum', packedOffset: 16, packedBitOffset: 0, type: device.mojom.HidUsageAndPageSpec, nullable: false, minVersion: 0 },
-        { name: 'designator_minimum', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'designator_maximum', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'string_minimum', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'string_maximum', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'logical_minimum', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'logical_maximum', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'physical_minimum', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'physical_maximum', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'unit_exponent', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'unit', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'report_size', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'report_count', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 88}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.HidReportItemSpec, 'device.mojom.HidReportItem', [
+      mojo.internal.StructField('is_range', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_constant', 72, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_variable', 72, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_relative', 72, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('wrap', 72, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_non_linear', 72, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('no_preferred_state', 72, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_null_position', 72, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_volatile', 73, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_buffered_bytes', 73, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('usages', 0, 0, mojo.internal.Array(device.mojom.HidUsageAndPageSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('usage_minimum', 8, 0, device.mojom.HidUsageAndPageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('usage_maximum', 16, 0, device.mojom.HidUsageAndPageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('designator_minimum', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('designator_maximum', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('string_minimum', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('string_maximum', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('logical_minimum', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('logical_maximum', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('physical_minimum', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('physical_maximum', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('unit_exponent', 56, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('unit', 60, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('report_size', 64, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('report_count', 68, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 88]]);
 
 // Struct: HidReportDescription
-device.mojom.HidReportDescriptionSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidReportDescription',
-      packedSize: 24,
-      fields: [
-        { name: 'report_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'items', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.HidReportItemSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.HidReportDescriptionSpec, 'device.mojom.HidReportDescription', [
+      mojo.internal.StructField('report_id', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('items', 0, 0, mojo.internal.Array(device.mojom.HidReportItemSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: HidCollectionInfo
-device.mojom.HidCollectionInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidCollectionInfo',
-      packedSize: 64,
-      fields: [
-        { name: 'usage', packedOffset: 0, packedBitOffset: 0, type: device.mojom.HidUsageAndPageSpec, nullable: false, minVersion: 0 },
-        { name: 'report_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'collection_type', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'input_reports', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.HidReportDescriptionSpec, false), nullable: false, minVersion: 0 },
-        { name: 'output_reports', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.HidReportDescriptionSpec, false), nullable: false, minVersion: 0 },
-        { name: 'feature_reports', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.HidReportDescriptionSpec, false), nullable: false, minVersion: 0 },
-        { name: 'children', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.HidCollectionInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.HidCollectionInfoSpec, 'device.mojom.HidCollectionInfo', [
+      mojo.internal.StructField('usage', 0, 0, device.mojom.HidUsageAndPageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('report_ids', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('collection_type', 48, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('input_reports', 16, 0, mojo.internal.Array(device.mojom.HidReportDescriptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('output_reports', 24, 0, mojo.internal.Array(device.mojom.HidReportDescriptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('feature_reports', 32, 0, mojo.internal.Array(device.mojom.HidReportDescriptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('children', 40, 0, mojo.internal.Array(device.mojom.HidCollectionInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 64]]);
 
 // Struct: HidDeviceInfo
-device.mojom.HidDeviceInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidDeviceInfo',
-      packedSize: 128,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'physical_device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'vendor_id', packedOffset: 84, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'product_id', packedOffset: 86, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'product_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'serial_number', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'bus_type', packedOffset: 80, packedBitOffset: 0, type: device.mojom.HidBusTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'report_descriptor', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'collections', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.HidCollectionInfoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'has_report_id', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'max_input_report_size', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'max_output_report_size', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'max_feature_report_size', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'device_node', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'protected_input_report_ids', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 1 },
-        { name: 'protected_output_report_ids', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 1 },
-        { name: 'protected_feature_report_ids', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 1 },
-        { name: 'is_excluded_by_blocklist', packedOffset: 88, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 3 },
-      ],
-      versions: [{version: 0, packedSize: 104}, {version: 1, packedSize: 128}, {version: 3, packedSize: 128}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.HidDeviceInfoSpec, 'device.mojom.HidDeviceInfo', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('physical_device_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('vendor_id', 84, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('product_id', 86, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('product_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('serial_number', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('bus_type', 80, 0, device.mojom.HidBusTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('report_descriptor', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('collections', 40, 0, mojo.internal.Array(device.mojom.HidCollectionInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('has_report_id', 88, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('max_input_report_size', 48, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('max_output_report_size', 56, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('max_feature_report_size', 64, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('device_node', 72, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('protected_input_report_ids', 96, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 1, undefined),
+      mojo.internal.StructField('protected_output_report_ids', 104, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 1, undefined),
+      mojo.internal.StructField('protected_feature_report_ids', 112, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 1, undefined),
+      mojo.internal.StructField('is_excluded_by_blocklist', 88, 1, mojo.internal.Bool, false, false, 3, undefined),
+    ],
+    [[0, 104], [1, 128], [3, 104]]);
 
 // Interface: HidManagerClient
-device.mojom.HidManagerClient = {};
+mojo.internal.Struct(
+    device.mojom.HidManagerClient_DeviceAdded_ParamsSpec, 'device.mojom.HidManagerClient_DeviceAdded_Params', [
+      mojo.internal.StructField('device_info', 0, 0, device.mojom.HidDeviceInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.HidManagerClient_DeviceAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidManagerClient_DeviceAdded_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: device.mojom.HidDeviceInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec, 'device.mojom.HidManagerClient_DeviceRemoved_Params', [
+      mojo.internal.StructField('device_info', 0, 0, device.mojom.HidDeviceInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidManagerClient_DeviceRemoved_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: device.mojom.HidDeviceInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-device.mojom.HidManagerClient_DeviceChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidManagerClient_DeviceChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: device.mojom.HidDeviceInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.HidManagerClient_DeviceChanged_ParamsSpec, 'device.mojom.HidManagerClient_DeviceChanged_Params', [
+      mojo.internal.StructField('device_info', 0, 0, device.mojom.HidDeviceInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 device.mojom.HidManagerClientPendingReceiver = class {
   constructor(handle) {
@@ -468,110 +445,55 @@ device.mojom.HidManagerClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for DeviceAdded
-device.mojom.HidManagerClient_DeviceAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidManagerClient.DeviceAdded_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: device.mojom.HidDeviceInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DeviceRemoved
-device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidManagerClient.DeviceRemoved_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: device.mojom.HidDeviceInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DeviceChanged
-device.mojom.HidManagerClient_DeviceChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidManagerClient.DeviceChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: device.mojom.HidDeviceInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 device.mojom.HidManagerClientPtr = device.mojom.HidManagerClientRemote;
 device.mojom.HidManagerClientRequest = device.mojom.HidManagerClientPendingReceiver;
 
 
 // Interface: HidManager
-device.mojom.HidManager = {};
+mojo.internal.Struct(
+    device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec, 'device.mojom.HidManager_GetDevicesAndSetClient_Params', [
+      mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(device.mojom.HidManagerClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidManager_GetDevicesAndSetClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(device.mojom.HidManagerClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.HidManager_GetDevicesAndSetClient_ResponseParamsSpec, 'device.mojom.HidManager_GetDevicesAndSetClient_ResponseParams', [
+      mojo.internal.StructField('devices', 0, 0, mojo.internal.Array(device.mojom.HidDeviceInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.HidManager_GetDevices_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidManager_GetDevices_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.HidManager_GetDevices_ParamsSpec, 'device.mojom.HidManager_GetDevices_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-device.mojom.HidManager_Connect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidManager_Connect_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'device_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'connection_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.HidConnectionClientRemote), nullable: true, minVersion: 0 },
-        { name: 'watcher', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.HidConnectionWatcherRemote), nullable: true, minVersion: 0 },
-        { name: 'allow_protected_reports', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 1 },
-        { name: 'allow_fido_reports', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 2 },
-      ],
-      versions: [{version: 0, packedSize: 32}, {version: 1, packedSize: 40}, {version: 2, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.HidManager_GetDevices_ResponseParamsSpec, 'device.mojom.HidManager_GetDevices_ResponseParams', [
+      mojo.internal.StructField('devices', 0, 0, mojo.internal.Array(device.mojom.HidDeviceInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.HidManager_AddReceiver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidManager_AddReceiver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.HidManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.HidManager_Connect_ParamsSpec, 'device.mojom.HidManager_Connect_Params', [
+      mojo.internal.StructField('device_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('connection_client', 8, 0, mojo.internal.InterfaceProxy(device.mojom.HidConnectionClientRemote), null, true, 0, undefined),
+      mojo.internal.StructField('watcher', 16, 0, mojo.internal.InterfaceProxy(device.mojom.HidConnectionWatcherRemote), null, true, 0, undefined),
+      mojo.internal.StructField('allow_protected_reports', 24, 0, mojo.internal.Bool, false, false, 1, undefined),
+      mojo.internal.StructField('allow_fido_reports', 24, 1, mojo.internal.Bool, false, false, 2, undefined),
+    ],
+    [[0, 32], [1, 40], [2, 40]]);
+
+mojo.internal.Struct(
+    device.mojom.HidManager_Connect_ResponseParamsSpec, 'device.mojom.HidManager_Connect_ResponseParams', [
+      mojo.internal.StructField('connection', 0, 0, mojo.internal.InterfaceProxy(device.mojom.HidConnectionRemote), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    device.mojom.HidManager_AddReceiver_ParamsSpec, 'device.mojom.HidManager_AddReceiver_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.HidManagerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 device.mojom.HidManagerPendingReceiver = class {
   constructor(handle) {
@@ -653,164 +575,62 @@ device.mojom.HidManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetDevicesAndSetClient
-device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidManager.GetDevicesAndSetClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(device.mojom.HidManagerClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-device.mojom.HidManager_GetDevicesAndSetClient_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidManager.GetDevicesAndSetClient_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.HidDeviceInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetDevices
-device.mojom.HidManager_GetDevices_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidManager.GetDevices_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-device.mojom.HidManager_GetDevices_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidManager.GetDevices_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.HidDeviceInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Connect
-device.mojom.HidManager_Connect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidManager.Connect_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'device_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'connection_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.HidConnectionClientRemote), nullable: true, minVersion: 0 },
-        { name: 'watcher', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.HidConnectionWatcherRemote), nullable: true, minVersion: 0 },
-        { name: 'allow_protected_reports', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 1 },
-        { name: 'allow_fido_reports', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 2 },
-      ],
-      versions: [{version: 0, packedSize: 32}, {version: 1, packedSize: 40}, {version: 2, packedSize: 40}]
-    }
-  }
-};
-
-device.mojom.HidManager_Connect_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidManager.Connect_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'connection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.HidConnectionRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AddReceiver
-device.mojom.HidManager_AddReceiver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidManager.AddReceiver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.HidManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 device.mojom.HidManagerPtr = device.mojom.HidManagerRemote;
 device.mojom.HidManagerRequest = device.mojom.HidManagerPendingReceiver;
 
 
 // Interface: HidConnection
-device.mojom.HidConnection = {};
+mojo.internal.Struct(
+    device.mojom.HidConnection_Read_ParamsSpec, 'device.mojom.HidConnection_Read_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-device.mojom.HidConnection_Read_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidConnection_Read_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.HidConnection_Read_ResponseParamsSpec, 'device.mojom.HidConnection_Read_ResponseParams', [
+      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('report_id', 9, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('buffer', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-device.mojom.HidConnection_Write_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidConnection_Write_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'report_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.HidConnection_Write_ParamsSpec, 'device.mojom.HidConnection_Write_Params', [
+      mojo.internal.StructField('report_id', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('buffer', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-device.mojom.HidConnection_GetFeatureReport_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidConnection_GetFeatureReport_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'report_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.HidConnection_Write_ResponseParamsSpec, 'device.mojom.HidConnection_Write_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.HidConnection_SendFeatureReport_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidConnection_SendFeatureReport_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'report_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.HidConnection_GetFeatureReport_ParamsSpec, 'device.mojom.HidConnection_GetFeatureReport_Params', [
+      mojo.internal.StructField('report_id', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    device.mojom.HidConnection_GetFeatureReport_ResponseParamsSpec, 'device.mojom.HidConnection_GetFeatureReport_ResponseParams', [
+      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('buffer', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    device.mojom.HidConnection_SendFeatureReport_ParamsSpec, 'device.mojom.HidConnection_SendFeatureReport_Params', [
+      mojo.internal.StructField('report_id', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('buffer', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    device.mojom.HidConnection_SendFeatureReport_ResponseParamsSpec, 'device.mojom.HidConnection_SendFeatureReport_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 device.mojom.HidConnectionPendingReceiver = class {
   constructor(handle) {
@@ -892,139 +712,17 @@ device.mojom.HidConnection.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Read
-device.mojom.HidConnection_Read_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidConnection.Read_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-device.mojom.HidConnection_Read_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidConnection.Read_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'report_id', packedOffset: 9, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Write
-device.mojom.HidConnection_Write_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidConnection.Write_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'report_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-device.mojom.HidConnection_Write_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidConnection.Write_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetFeatureReport
-device.mojom.HidConnection_GetFeatureReport_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidConnection.GetFeatureReport_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'report_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-device.mojom.HidConnection_GetFeatureReport_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidConnection.GetFeatureReport_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SendFeatureReport
-device.mojom.HidConnection_SendFeatureReport_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidConnection.SendFeatureReport_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'report_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-device.mojom.HidConnection_SendFeatureReport_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidConnection.SendFeatureReport_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 device.mojom.HidConnectionPtr = device.mojom.HidConnectionRemote;
 device.mojom.HidConnectionRequest = device.mojom.HidConnectionPendingReceiver;
 
 
 // Interface: HidConnectionClient
-device.mojom.HidConnectionClient = {};
-
-device.mojom.HidConnectionClient_OnInputReport_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidConnectionClient_OnInputReport_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'report_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.HidConnectionClient_OnInputReport_ParamsSpec, 'device.mojom.HidConnectionClient_OnInputReport_Params', [
+      mojo.internal.StructField('report_id', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('buffer', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 device.mojom.HidConnectionClientPendingReceiver = class {
   constructor(handle) {
@@ -1079,29 +777,11 @@ device.mojom.HidConnectionClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnInputReport
-device.mojom.HidConnectionClient_OnInputReport_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.HidConnectionClient.OnInputReport_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'report_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 device.mojom.HidConnectionClientPtr = device.mojom.HidConnectionClientRemote;
 device.mojom.HidConnectionClientRequest = device.mojom.HidConnectionClientPendingReceiver;
 
 
 // Interface: HidConnectionWatcher
-device.mojom.HidConnectionWatcher = {};
-
 device.mojom.HidConnectionWatcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1146,7 +826,6 @@ device.mojom.HidConnectionWatcher.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 device.mojom.HidConnectionWatcherPtr = device.mojom.HidConnectionWatcherRemote;
 device.mojom.HidConnectionWatcherRequest = device.mojom.HidConnectionWatcherPendingReceiver;
 

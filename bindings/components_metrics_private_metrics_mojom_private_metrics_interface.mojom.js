@@ -9,31 +9,25 @@ var metrics = metrics || {};
 metrics.private_metrics = metrics.private_metrics || {};
 metrics.private_metrics.mojom = metrics.private_metrics.mojom || {};
 
+metrics.private_metrics.mojom.TypeSpec = { $: mojo.internal.Enum() };
+metrics.private_metrics.mojom.PrivateMetricsEntrySpec = { $: {} };
 
 // Enum: Type
 metrics.private_metrics.mojom.Type = {
   kDwa: 0,
   kDkm: 1,
 };
-metrics.private_metrics.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: PrivateMetricsEntry
-metrics.private_metrics.mojom.PrivateMetricsEntrySpec = {
-  $: {
-    structSpec: {
-      name: 'metrics.private_metrics.mojom.PrivateMetricsEntry',
-      packedSize: 64,
-      fields: [
-        { name: 'event_hash', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'content_hash_$flag', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'content_hash_$value', originalFieldName: 'content_hash' } },
-        { name: 'content_hash_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'content_hash_$flag', originalFieldName: 'content_hash' } },
-        { name: 'source_id_$flag', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'source_id_$value', originalFieldName: 'source_id' } },
-        { name: 'source_id_$value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'source_id_$flag', originalFieldName: 'source_id' } },
-        { name: 'studies_of_interest', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.Bool, false), nullable: false, minVersion: 0 },
-        { name: 'metrics', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint64, mojo.internal.Int64, false), nullable: false, minVersion: 0 },
-        { name: 'kDwa', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    metrics.private_metrics.mojom.PrivateMetricsEntrySpec, 'metrics.private_metrics.mojom.PrivateMetricsEntry', [
+      mojo.internal.StructField('event_hash', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('content_hash_$flag', 48, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'content_hash_$value', originalFieldName: 'content_hash' }),
+      mojo.internal.StructField('content_hash_$value', 8, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'content_hash_$flag', originalFieldName: 'content_hash' }),
+      mojo.internal.StructField('source_id_$flag', 48, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'source_id_$value', originalFieldName: 'source_id' }),
+      mojo.internal.StructField('source_id_$value', 16, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'source_id_$flag', originalFieldName: 'source_id' }),
+      mojo.internal.StructField('studies_of_interest', 24, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Bool, false), null, false, 0, undefined),
+      mojo.internal.StructField('metrics', 32, 0, mojo.internal.Map(mojo.internal.Uint64, mojo.internal.Int64, false), null, false, 0, undefined),
+      mojo.internal.StructField('kDwa', 40, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 64]]);

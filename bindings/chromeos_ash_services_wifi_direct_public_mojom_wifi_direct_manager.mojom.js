@@ -9,6 +9,24 @@ var ash = ash || {};
 ash.wifi_direct = ash.wifi_direct || {};
 ash.wifi_direct.mojom = ash.wifi_direct.mojom || {};
 
+ash.wifi_direct.mojom.WifiDirectOperationResultSpec = { $: mojo.internal.Enum() };
+ash.wifi_direct.mojom.WifiP2PCapabilitiesSpec = { $: {} };
+ash.wifi_direct.mojom.WifiCredentialsSpec = { $: {} };
+ash.wifi_direct.mojom.WifiDirectConnectionPropertiesSpec = { $: {} };
+ash.wifi_direct.mojom.WifiDirectManager = {};
+ash.wifi_direct.mojom.WifiDirectManager.$interfaceName = 'ash.wifi_direct.mojom.WifiDirectManager';
+ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec = { $: {} };
+ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec = { $: {} };
+ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec = { $: {} };
+ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec = { $: {} };
+ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec = { $: {} };
+ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec = { $: {} };
+ash.wifi_direct.mojom.WifiDirectConnection = {};
+ash.wifi_direct.mojom.WifiDirectConnection.$interfaceName = 'ash.wifi_direct.mojom.WifiDirectConnection';
+ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ParamsSpec = { $: {} };
+ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec = { $: {} };
+ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec = { $: {} };
+ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec = { $: {} };
 
 // Enum: WifiDirectOperationResult
 ash.wifi_direct.mojom.WifiDirectOperationResult = {
@@ -28,97 +46,72 @@ ash.wifi_direct.mojom.WifiDirectOperationResult = {
   kInvalidGroupProperties: 13,
   kUnknownFailure: 14,
 };
-ash.wifi_direct.mojom.WifiDirectOperationResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: WifiP2PCapabilities
-ash.wifi_direct.mojom.WifiP2PCapabilitiesSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.wifi_direct.mojom.WifiP2PCapabilities',
-      packedSize: 16,
-      fields: [
-        { name: 'is_owner_ready', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_client_ready', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_p2p_supported', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.wifi_direct.mojom.WifiP2PCapabilitiesSpec, 'ash.wifi_direct.mojom.WifiP2PCapabilities', [
+      mojo.internal.StructField('is_owner_ready', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_client_ready', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_p2p_supported', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: WifiCredentials
-ash.wifi_direct.mojom.WifiCredentialsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.wifi_direct.mojom.WifiCredentials',
-      packedSize: 24,
-      fields: [
-        { name: 'ssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'passphrase', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.wifi_direct.mojom.WifiCredentialsSpec, 'ash.wifi_direct.mojom.WifiCredentials', [
+      mojo.internal.StructField('ssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('passphrase', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: WifiDirectConnectionProperties
-ash.wifi_direct.mojom.WifiDirectConnectionPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.wifi_direct.mojom.WifiDirectConnectionProperties',
-      packedSize: 32,
-      fields: [
-        { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: ash.wifi_direct.mojom.WifiCredentialsSpec, nullable: false, minVersion: 0 },
-        { name: 'frequency', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'ipv4_address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.wifi_direct.mojom.WifiDirectConnectionPropertiesSpec, 'ash.wifi_direct.mojom.WifiDirectConnectionProperties', [
+      mojo.internal.StructField('credentials', 0, 0, ash.wifi_direct.mojom.WifiCredentialsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frequency', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('ipv4_address', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: WifiDirectManager
-ash.wifi_direct.mojom.WifiDirectManager = {};
+mojo.internal.Struct(
+    ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec, 'ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_Params', [
+      mojo.internal.StructField('credentials', 0, 0, ash.wifi_direct.mojom.WifiCredentialsSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: ash.wifi_direct.mojom.WifiCredentialsSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec, 'ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParams', [
+      mojo.internal.StructField('result', 8, 0, ash.wifi_direct.mojom.WifiDirectOperationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('wifi_direct_connection', 0, 0, mojo.internal.InterfaceProxy(ash.wifi_direct.mojom.WifiDirectConnectionRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: ash.wifi_direct.mojom.WifiCredentialsSpec, nullable: false, minVersion: 0 },
-        { name: 'frequency_$flag', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'frequency_$value', originalFieldName: 'frequency' } },
-        { name: 'frequency_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'frequency_$flag', originalFieldName: 'frequency' } },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec, 'ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_Params', [
+      mojo.internal.StructField('credentials', 0, 0, ash.wifi_direct.mojom.WifiCredentialsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frequency_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'frequency_$value', originalFieldName: 'frequency' }),
+      mojo.internal.StructField('frequency_$value', 8, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'frequency_$flag', originalFieldName: 'frequency' }),
+    ],
+    [[0, 24]]);
 
-ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec, 'ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParams', [
+      mojo.internal.StructField('result', 8, 0, ash.wifi_direct.mojom.WifiDirectOperationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('wifi_direct_connection', 0, 0, mojo.internal.InterfaceProxy(ash.wifi_direct.mojom.WifiDirectConnectionRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec, 'ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec, 'ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParams', [
+      mojo.internal.StructField('capabilities', 0, 0, ash.wifi_direct.mojom.WifiP2PCapabilitiesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.wifi_direct.mojom.WifiDirectManagerPendingReceiver = class {
   constructor(handle) {
@@ -191,122 +184,33 @@ ash.wifi_direct.mojom.WifiDirectManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateWifiDirectGroup
-ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.wifi_direct.mojom.WifiDirectManager.CreateWifiDirectGroup_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: ash.wifi_direct.mojom.WifiCredentialsSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.wifi_direct.mojom.WifiDirectManager.CreateWifiDirectGroup_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.wifi_direct.mojom.WifiDirectOperationResultSpec, nullable: false, minVersion: 0 },
-        { name: 'wifi_direct_connection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.wifi_direct.mojom.WifiDirectConnectionRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ConnectToWifiDirectGroup
-ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.wifi_direct.mojom.WifiDirectManager.ConnectToWifiDirectGroup_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: ash.wifi_direct.mojom.WifiCredentialsSpec, nullable: false, minVersion: 0 },
-        { name: 'frequency_$flag', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'frequency_$value', originalFieldName: 'frequency' } },
-        { name: 'frequency_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'frequency_$flag', originalFieldName: 'frequency' } },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.wifi_direct.mojom.WifiDirectManager.ConnectToWifiDirectGroup_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.wifi_direct.mojom.WifiDirectOperationResultSpec, nullable: false, minVersion: 0 },
-        { name: 'wifi_direct_connection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.wifi_direct.mojom.WifiDirectConnectionRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GetWifiP2PCapabilities
-ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.wifi_direct.mojom.WifiDirectManager.GetWifiP2PCapabilities_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.wifi_direct.mojom.WifiDirectManager.GetWifiP2PCapabilities_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: ash.wifi_direct.mojom.WifiP2PCapabilitiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.wifi_direct.mojom.WifiDirectManagerPtr = ash.wifi_direct.mojom.WifiDirectManagerRemote;
 ash.wifi_direct.mojom.WifiDirectManagerRequest = ash.wifi_direct.mojom.WifiDirectManagerPendingReceiver;
 
 
 // Interface: WifiDirectConnection
-ash.wifi_direct.mojom.WifiDirectConnection = {};
+mojo.internal.Struct(
+    ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ParamsSpec, 'ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec, 'ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParams', [
+      mojo.internal.StructField('properties', 0, 0, ash.wifi_direct.mojom.WifiDirectConnectionPropertiesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'socket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec, 'ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_Params', [
+      mojo.internal.StructField('socket', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec, 'ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.wifi_direct.mojom.WifiDirectConnectionPendingReceiver = class {
   constructor(handle) {
@@ -370,60 +274,6 @@ ash.wifi_direct.mojom.WifiDirectConnection.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetProperties
-ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.wifi_direct.mojom.WifiDirectConnection.GetProperties_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.wifi_direct.mojom.WifiDirectConnection.GetProperties_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: ash.wifi_direct.mojom.WifiDirectConnectionPropertiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AssociateSocket
-ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.wifi_direct.mojom.WifiDirectConnection.AssociateSocket_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'socket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.wifi_direct.mojom.WifiDirectConnection.AssociateSocket_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.wifi_direct.mojom.WifiDirectConnectionPtr = ash.wifi_direct.mojom.WifiDirectConnectionRemote;
 ash.wifi_direct.mojom.WifiDirectConnectionRequest = ash.wifi_direct.mojom.WifiDirectConnectionPendingReceiver;
 

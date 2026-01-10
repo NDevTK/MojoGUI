@@ -9,22 +9,16 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var blink = blink || {};
 
+blink.mojom.RendererPreferenceWatcher = {};
+blink.mojom.RendererPreferenceWatcher.$interfaceName = 'blink.mojom.RendererPreferenceWatcher';
+blink.mojom.RendererPreferenceWatcher_NotifyUpdate_ParamsSpec = { $: {} };
 
 // Interface: RendererPreferenceWatcher
-blink.mojom.RendererPreferenceWatcher = {};
-
-blink.mojom.RendererPreferenceWatcher_NotifyUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.RendererPreferenceWatcher_NotifyUpdate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'new_prefs', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RendererPreferencesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.RendererPreferenceWatcher_NotifyUpdate_ParamsSpec, 'blink.mojom.RendererPreferenceWatcher_NotifyUpdate_Params', [
+      mojo.internal.StructField('new_prefs', 0, 0, blink.mojom.RendererPreferencesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.RendererPreferenceWatcherPendingReceiver = class {
   constructor(handle) {
@@ -79,21 +73,6 @@ blink.mojom.RendererPreferenceWatcher.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for NotifyUpdate
-blink.mojom.RendererPreferenceWatcher_NotifyUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.RendererPreferenceWatcher.NotifyUpdate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'new_prefs', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RendererPreferencesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.RendererPreferenceWatcherPtr = blink.mojom.RendererPreferenceWatcherRemote;
 blink.mojom.RendererPreferenceWatcherRequest = blink.mojom.RendererPreferenceWatcherPendingReceiver;
 

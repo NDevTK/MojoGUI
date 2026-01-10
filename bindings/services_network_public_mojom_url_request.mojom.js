@@ -7,259 +7,233 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 var url = url || {};
 var url = url || {};
 
+network.mojom.DataElementSpec = { $: {} };
+network.mojom.EnabledClientHintsSpec = { $: {} };
+network.mojom.TrustedUrlRequestParamsSpec = { $: {} };
+network.mojom.WebBundleTokenParamsSpec = { $: {} };
+network.mojom.URLRequestSpec = { $: {} };
+network.mojom.URLRequestBodySpec = { $: {} };
+network.mojom.DataElementBytesSpec = { $: {} };
+network.mojom.DataElementFileSpec = { $: {} };
+network.mojom.DataElementDataPipeSpec = { $: {} };
+network.mojom.DataElementChunkedDataPipeSpec = { $: {} };
+network.mojom.SocketTagSpec = { $: {} };
 
 // Union: DataElement
-network.mojom.DataElementSpec = { $: mojo.internal.Union(
-    'network.mojom.DataElement', {
+mojo.internal.Union(
+    network.mojom.DataElementSpec, 'network.mojom.DataElement', {
       'bytes': {
         'ordinal': 0,
         'type': network.mojom.DataElementBytesSpec,
-      }},
+        'nullable': false,
+      },
       'file': {
         'ordinal': 1,
         'type': network.mojom.DataElementFileSpec,
-      }},
+        'nullable': false,
+      },
       'data_pipe': {
         'ordinal': 2,
         'type': network.mojom.DataElementDataPipeSpec,
-      }},
+        'nullable': false,
+      },
       'chunked_data_pipe': {
         'ordinal': 3,
         'type': network.mojom.DataElementChunkedDataPipeSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: EnabledClientHints
-network.mojom.EnabledClientHintsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.EnabledClientHints',
-      packedSize: 40,
-      fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'is_outermost_main_frame', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'hints', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.WebClientHintsTypeSpec, false), nullable: false, minVersion: 0 },
-        { name: 'not_allowed_hints', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.WebClientHintsTypeSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.EnabledClientHintsSpec, 'network.mojom.EnabledClientHints', [
+      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_outermost_main_frame', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('hints', 8, 0, mojo.internal.Array(network.mojom.WebClientHintsTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('not_allowed_hints', 16, 0, mojo.internal.Array(network.mojom.WebClientHintsTypeSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: TrustedUrlRequestParams
-network.mojom.TrustedUrlRequestParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.TrustedUrlRequestParams',
-      packedSize: 96,
-      fields: [
-        { name: 'isolation_info', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IsolationInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'disable_secure_dns', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_user_activation', packedOffset: 80, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'allow_cookies_from_browser', packedOffset: 80, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'include_request_cookies_with_response', packedOffset: 80, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'enabled_client_hints', packedOffset: 8, packedBitOffset: 0, type: network.mojom.EnabledClientHintsSpec, nullable: true, minVersion: 0 },
-        { name: 'cookie_observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.CookieAccessObserverRemote), nullable: true, minVersion: 0 },
-        { name: 'trust_token_observer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.TrustTokenAccessObserverRemote), nullable: true, minVersion: 0 },
-        { name: 'url_loader_network_observer', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.URLLoaderNetworkServiceObserverRemote), nullable: true, minVersion: 0 },
-        { name: 'devtools_observer', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.DevToolsObserverRemote), nullable: true, minVersion: 0 },
-        { name: 'device_bound_session_observer', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.DeviceBoundSessionAccessObserverRemote), nullable: true, minVersion: 0 },
-        { name: 'client_security_state', packedOffset: 56, packedBitOffset: 0, type: network.mojom.ClientSecurityStateSpec, nullable: true, minVersion: 0 },
-        { name: 'accept_ch_frame_observer', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.AcceptCHFrameObserverRemote), nullable: true, minVersion: 0 },
-        { name: 'shared_dictionary_observer', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.SharedDictionaryAccessObserverRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 96}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.TrustedUrlRequestParamsSpec, 'network.mojom.TrustedUrlRequestParams', [
+      mojo.internal.StructField('isolation_info', 0, 0, network.mojom.IsolationInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('disable_secure_dns', 80, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_user_activation', 80, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_cookies_from_browser', 80, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('include_request_cookies_with_response', 80, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enabled_client_hints', 8, 0, network.mojom.EnabledClientHintsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('cookie_observer', 16, 0, mojo.internal.InterfaceProxy(network.mojom.CookieAccessObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('trust_token_observer', 24, 0, mojo.internal.InterfaceProxy(network.mojom.TrustTokenAccessObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('url_loader_network_observer', 32, 0, mojo.internal.InterfaceProxy(network.mojom.URLLoaderNetworkServiceObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('devtools_observer', 40, 0, mojo.internal.InterfaceProxy(network.mojom.DevToolsObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('device_bound_session_observer', 48, 0, mojo.internal.InterfaceProxy(network.mojom.DeviceBoundSessionAccessObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('client_security_state', 56, 0, network.mojom.ClientSecurityStateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('accept_ch_frame_observer', 64, 0, mojo.internal.InterfaceProxy(network.mojom.AcceptCHFrameObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('shared_dictionary_observer', 72, 0, mojo.internal.InterfaceProxy(network.mojom.SharedDictionaryAccessObserverRemote), null, true, 0, undefined),
+    ],
+    [[0, 96]]);
 
 // Struct: WebBundleTokenParams
-network.mojom.WebBundleTokenParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.WebBundleTokenParams',
-      packedSize: 40,
-      fields: [
-        { name: 'bundle_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'token', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'web_bundle_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.WebBundleHandleRemote), nullable: true, minVersion: 0 },
-        { name: 'render_process_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.WebBundleTokenParamsSpec, 'network.mojom.WebBundleTokenParams', [
+      mojo.internal.StructField('bundle_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('token', 8, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('web_bundle_handle', 16, 0, mojo.internal.InterfaceProxy(network.mojom.WebBundleHandleRemote), null, true, 0, undefined),
+      mojo.internal.StructField('render_process_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: URLRequest
-network.mojom.URLRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.URLRequest',
-      packedSize: 296,
-      fields: [
-        { name: 'method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'site_for_cookies', packedOffset: 16, packedBitOffset: 0, type: network.mojom.SiteForCookiesSpec, nullable: false, minVersion: 0 },
-        { name: 'update_first_party_url_on_redirect', packedOffset: 284, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'request_initiator', packedOffset: 24, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true, minVersion: 0 },
-        { name: 'navigation_redirect_chain', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
-        { name: 'isolated_world_origin', packedOffset: 40, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true, minVersion: 0 },
-        { name: 'referrer', packedOffset: 48, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'referrer_policy', packedOffset: 224, packedBitOffset: 0, type: network.mojom.URLRequestReferrerPolicySpec, nullable: false, minVersion: 0 },
-        { name: 'headers', packedOffset: 56, packedBitOffset: 0, type: network.mojom.HttpRequestHeadersSpec, nullable: false, minVersion: 0 },
-        { name: 'cors_exempt_headers', packedOffset: 64, packedBitOffset: 0, type: network.mojom.HttpRequestHeadersSpec, nullable: false, minVersion: 0 },
-        { name: 'load_flags', packedOffset: 228, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'resource_type', packedOffset: 232, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'priority', packedOffset: 236, packedBitOffset: 0, type: network.mojom.RequestPrioritySpec, nullable: false, minVersion: 0 },
-        { name: 'priority_incremental', packedOffset: 284, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'cors_preflight_policy', packedOffset: 240, packedBitOffset: 0, type: network.mojom.CorsPreflightPolicySpec, nullable: false, minVersion: 0 },
-        { name: 'originated_from_service_worker', packedOffset: 284, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'skip_service_worker', packedOffset: 284, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'mode', packedOffset: 244, packedBitOffset: 0, type: network.mojom.RequestModeSpec, nullable: false, minVersion: 0 },
-        { name: 'credentials_mode', packedOffset: 248, packedBitOffset: 0, type: network.mojom.CredentialsModeSpec, nullable: false, minVersion: 0 },
-        { name: 'redirect_mode', packedOffset: 252, packedBitOffset: 0, type: network.mojom.RedirectModeSpec, nullable: false, minVersion: 0 },
-        { name: 'fetch_integrity', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'expected_public_keys', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), nullable: false, minVersion: 0 },
-        { name: 'destination', packedOffset: 256, packedBitOffset: 0, type: network.mojom.RequestDestinationSpec, nullable: false, minVersion: 0 },
-        { name: 'request_body', packedOffset: 88, packedBitOffset: 0, type: network.mojom.URLRequestBodySpec, nullable: true, minVersion: 0 },
-        { name: 'keepalive', packedOffset: 284, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'browsing_topics', packedOffset: 284, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'ad_auction_headers', packedOffset: 284, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'shared_storage_writable_eligible', packedOffset: 284, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_user_gesture', packedOffset: 285, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'enable_load_timing', packedOffset: 285, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'enable_upload_progress', packedOffset: 285, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'do_not_prompt_for_login', packedOffset: 285, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_outermost_main_frame', packedOffset: 285, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'transition_type', packedOffset: 260, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'previews_state', packedOffset: 264, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'upgrade_if_insecure', packedOffset: 285, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_revalidating', packedOffset: 285, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'throttling_profile_id', packedOffset: 96, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'fetch_window_id', packedOffset: 104, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'devtools_request_id', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'devtools_stack_id', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'is_fetch_like_api', packedOffset: 285, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_fetch_later_api', packedOffset: 286, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_favicon', packedOffset: 286, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'original_destination', packedOffset: 268, packedBitOffset: 0, type: network.mojom.RequestDestinationSpec, nullable: false, minVersion: 0 },
-        { name: 'trusted_params', packedOffset: 128, packedBitOffset: 0, type: network.mojom.TrustedUrlRequestParamsSpec, nullable: true, minVersion: 0 },
-        { name: 'recursive_prefetch_token', packedOffset: 136, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'trust_token_params', packedOffset: 144, packedBitOffset: 0, type: network.mojom.TrustTokenParamsSpec, nullable: true, minVersion: 0 },
-        { name: 'web_bundle_token_params', packedOffset: 152, packedBitOffset: 0, type: network.mojom.WebBundleTokenParamsSpec, nullable: true, minVersion: 0 },
-        { name: 'devtools_accepted_stream_types', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.SourceTypeSpec, false), nullable: true, minVersion: 0 },
-        { name: 'net_log_create_info', packedOffset: 168, packedBitOffset: 0, type: network.mojom.NetLogSourceSpec, nullable: true, minVersion: 0 },
-        { name: 'net_log_reference_info', packedOffset: 176, packedBitOffset: 0, type: network.mojom.NetLogSourceSpec, nullable: true, minVersion: 0 },
-        { name: 'required_ip_address_space', packedOffset: 272, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false, minVersion: 0 },
-        { name: 'storage_access_api_status', packedOffset: 276, packedBitOffset: 0, type: network.mojom.StorageAccessApiStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'attribution_reporting_support', packedOffset: 280, packedBitOffset: 0, type: network.mojom.AttributionSupportSpec, nullable: false, minVersion: 0 },
-        { name: 'attribution_reporting_src_token', packedOffset: 184, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'keepalive_token', packedOffset: 192, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'is_ad_tagged', packedOffset: 286, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'shared_dictionary_writer_enabled', packedOffset: 286, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'client_side_content_decoding_enabled', packedOffset: 286, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'socket_tag', packedOffset: 200, packedBitOffset: 0, type: network.mojom.SocketTagSpec, nullable: false, minVersion: 0 },
-        { name: 'allows_device_bound_session_registration', packedOffset: 286, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'permissions_policy', packedOffset: 208, packedBitOffset: 0, type: network.mojom.PermissionsPolicySpec, nullable: true, minVersion: 0 },
-        { name: 'fetch_retry_options', packedOffset: 216, packedBitOffset: 0, type: network.mojom.FetchRetryOptionsSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 296}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.URLRequestSpec, 'network.mojom.URLRequest', [
+      mojo.internal.StructField('method', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('site_for_cookies', 16, 0, network.mojom.SiteForCookiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('update_first_party_url_on_redirect', 284, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('request_initiator', 24, 0, url.mojom.OriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('navigation_redirect_chain', 32, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('isolated_world_origin', 40, 0, url.mojom.OriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('referrer', 48, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('referrer_policy', 224, 0, network.mojom.URLRequestReferrerPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('headers', 56, 0, network.mojom.HttpRequestHeadersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cors_exempt_headers', 64, 0, network.mojom.HttpRequestHeadersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('load_flags', 228, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('resource_type', 232, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('priority', 236, 0, network.mojom.RequestPrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('priority_incremental', 284, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('cors_preflight_policy', 240, 0, network.mojom.CorsPreflightPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('originated_from_service_worker', 284, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('skip_service_worker', 284, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('mode', 244, 0, network.mojom.RequestModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('credentials_mode', 248, 0, network.mojom.CredentialsModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('redirect_mode', 252, 0, network.mojom.RedirectModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('fetch_integrity', 72, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('expected_public_keys', 80, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('destination', 256, 0, network.mojom.RequestDestinationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('request_body', 88, 0, network.mojom.URLRequestBodySpec, null, true, 0, undefined),
+      mojo.internal.StructField('keepalive', 284, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('browsing_topics', 284, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('ad_auction_headers', 284, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('shared_storage_writable_eligible', 284, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_user_gesture', 285, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_load_timing', 285, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_upload_progress', 285, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('do_not_prompt_for_login', 285, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_outermost_main_frame', 285, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('transition_type', 260, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('previews_state', 264, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('upgrade_if_insecure', 285, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_revalidating', 285, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('throttling_profile_id', 96, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('fetch_window_id', 104, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('devtools_request_id', 112, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('devtools_stack_id', 120, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('is_fetch_like_api', 285, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_fetch_later_api', 286, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_favicon', 286, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('original_destination', 268, 0, network.mojom.RequestDestinationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('trusted_params', 128, 0, network.mojom.TrustedUrlRequestParamsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('recursive_prefetch_token', 136, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('trust_token_params', 144, 0, network.mojom.TrustTokenParamsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('web_bundle_token_params', 152, 0, network.mojom.WebBundleTokenParamsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('devtools_accepted_stream_types', 160, 0, mojo.internal.Array(network.mojom.SourceTypeSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('net_log_create_info', 168, 0, network.mojom.NetLogSourceSpec, null, true, 0, undefined),
+      mojo.internal.StructField('net_log_reference_info', 176, 0, network.mojom.NetLogSourceSpec, null, true, 0, undefined),
+      mojo.internal.StructField('required_ip_address_space', 272, 0, network.mojom.IPAddressSpaceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('storage_access_api_status', 276, 0, network.mojom.StorageAccessApiStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('attribution_reporting_support', 280, 0, network.mojom.AttributionSupportSpec, null, false, 0, undefined),
+      mojo.internal.StructField('attribution_reporting_src_token', 184, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('keepalive_token', 192, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('is_ad_tagged', 286, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('shared_dictionary_writer_enabled', 286, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('client_side_content_decoding_enabled', 286, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('socket_tag', 200, 0, network.mojom.SocketTagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('allows_device_bound_session_registration', 286, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('permissions_policy', 208, 0, network.mojom.PermissionsPolicySpec, null, true, 0, undefined),
+      mojo.internal.StructField('fetch_retry_options', 216, 0, network.mojom.FetchRetryOptionsSpec, null, true, 0, undefined),
+    ],
+    [[0, 296]]);
 
 // Struct: URLRequestBody
-network.mojom.URLRequestBodySpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.URLRequestBody',
-      packedSize: 32,
-      fields: [
-        { name: 'elements', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.DataElementSpec, false), nullable: false, minVersion: 0 },
-        { name: 'identifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'contains_sensitive_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'allow_http1_for_streaming_upload', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.URLRequestBodySpec, 'network.mojom.URLRequestBody', [
+      mojo.internal.StructField('elements', 0, 0, mojo.internal.Array(network.mojom.DataElementSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('identifier', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('contains_sensitive_info', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_http1_for_streaming_upload', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: DataElementBytes
-network.mojom.DataElementBytesSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DataElementBytes',
-      packedSize: 24,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.DataElementBytesSpec, 'network.mojom.DataElementBytes', [
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: DataElementFile
-network.mojom.DataElementFileSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DataElementFile',
-      packedSize: 40,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'expected_modification_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.DataElementFileSpec, 'network.mojom.DataElementFile', [
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('offset', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('length', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('expected_modification_time', 24, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: DataElementDataPipe
-network.mojom.DataElementDataPipeSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DataElementDataPipe',
-      packedSize: 16,
-      fields: [
-        { name: 'data_pipe_getter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.DataPipeGetterRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.DataElementDataPipeSpec, 'network.mojom.DataElementDataPipe', [
+      mojo.internal.StructField('data_pipe_getter', 0, 0, mojo.internal.InterfaceProxy(network.mojom.DataPipeGetterRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: DataElementChunkedDataPipe
-network.mojom.DataElementChunkedDataPipeSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DataElementChunkedDataPipe',
-      packedSize: 24,
-      fields: [
-        { name: 'data_pipe_getter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.ChunkedDataPipeGetterRemote), nullable: false, minVersion: 0 },
-        { name: 'read_only_once', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.DataElementChunkedDataPipeSpec, 'network.mojom.DataElementChunkedDataPipe', [
+      mojo.internal.StructField('data_pipe_getter', 0, 0, mojo.internal.InterfaceProxy(network.mojom.ChunkedDataPipeGetterRemote), null, false, 0, undefined),
+      mojo.internal.StructField('read_only_once', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: SocketTag
-network.mojom.SocketTagSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.SocketTag',
-      packedSize: 16,
-      fields: [
-        { name: 'uid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'tag', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.SocketTagSpec, 'network.mojom.SocketTag', [
+      mojo.internal.StructField('uid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('tag', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);

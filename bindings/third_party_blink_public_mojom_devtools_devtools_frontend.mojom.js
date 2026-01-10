@@ -8,36 +8,27 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.DevToolsFrontend = {};
+blink.mojom.DevToolsFrontend.$interfaceName = 'blink.mojom.DevToolsFrontend';
+blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_ParamsSpec = { $: {} };
+blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_ParamsSpec = { $: {} };
+blink.mojom.DevToolsFrontendHost = {};
+blink.mojom.DevToolsFrontendHost.$interfaceName = 'blink.mojom.DevToolsFrontendHost';
+blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec = { $: {} };
 
 // Interface: DevToolsFrontend
-blink.mojom.DevToolsFrontend = {};
+mojo.internal.Struct(
+    blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_ParamsSpec, 'blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_Params', [
+      mojo.internal.StructField('api_script', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('host', 8, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.DevToolsFrontendHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'api_script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.DevToolsFrontendHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'extension_api', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_ParamsSpec, 'blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_Params', [
+      mojo.internal.StructField('extension_api', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.DevToolsFrontendPendingReceiver = class {
   constructor(handle) {
@@ -101,55 +92,16 @@ blink.mojom.DevToolsFrontend.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetupDevToolsFrontend
-blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DevToolsFrontend.SetupDevToolsFrontend_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'api_script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.DevToolsFrontendHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SetupDevToolsExtensionAPI
-blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DevToolsFrontend.SetupDevToolsExtensionAPI_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'extension_api', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.DevToolsFrontendPtr = blink.mojom.DevToolsFrontendRemote;
 blink.mojom.DevToolsFrontendRequest = blink.mojom.DevToolsFrontendPendingReceiver;
 
 
 // Interface: DevToolsFrontendHost
-blink.mojom.DevToolsFrontendHost = {};
-
-blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec, 'blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_Params', [
+      mojo.internal.StructField('message', 0, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.DevToolsFrontendHostPendingReceiver = class {
   constructor(handle) {
@@ -204,21 +156,6 @@ blink.mojom.DevToolsFrontendHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for DispatchEmbedderMessage
-blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DevToolsFrontendHost.DispatchEmbedderMessage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.DevToolsFrontendHostPtr = blink.mojom.DevToolsFrontendHostRemote;
 blink.mojom.DevToolsFrontendHostRequest = blink.mojom.DevToolsFrontendHostPendingReceiver;
 

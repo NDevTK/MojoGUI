@@ -10,106 +10,121 @@ chromeos.remote_apps = chromeos.remote_apps || {};
 chromeos.remote_apps.mojom = chromeos.remote_apps.mojom || {};
 var url = url || {};
 
+chromeos.remote_apps.mojom.AddFolderResultSpec = { $: {} };
+chromeos.remote_apps.mojom.AddAppResultSpec = { $: {} };
+chromeos.remote_apps.mojom.RemoteApps = {};
+chromeos.remote_apps.mojom.RemoteApps.$interfaceName = 'chromeos.remote_apps.mojom.RemoteApps';
+chromeos.remote_apps.mojom.RemoteApps_AddFolder_ParamsSpec = { $: {} };
+chromeos.remote_apps.mojom.RemoteApps_AddFolder_ResponseParamsSpec = { $: {} };
+chromeos.remote_apps.mojom.RemoteApps_AddApp_ParamsSpec = { $: {} };
+chromeos.remote_apps.mojom.RemoteApps_AddApp_ResponseParamsSpec = { $: {} };
+chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ParamsSpec = { $: {} };
+chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ResponseParamsSpec = { $: {} };
+chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ParamsSpec = { $: {} };
+chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ResponseParamsSpec = { $: {} };
+chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ParamsSpec = { $: {} };
+chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ResponseParamsSpec = { $: {} };
+chromeos.remote_apps.mojom.RemoteAppsFactory = {};
+chromeos.remote_apps.mojom.RemoteAppsFactory.$interfaceName = 'chromeos.remote_apps.mojom.RemoteAppsFactory';
+chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_ParamsSpec = { $: {} };
+chromeos.remote_apps.mojom.RemoteAppLaunchObserver = {};
+chromeos.remote_apps.mojom.RemoteAppLaunchObserver.$interfaceName = 'chromeos.remote_apps.mojom.RemoteAppLaunchObserver';
+chromeos.remote_apps.mojom.RemoteAppLaunchObserver_OnRemoteAppLaunched_ParamsSpec = { $: {} };
 
 // Union: AddFolderResult
-chromeos.remote_apps.mojom.AddFolderResultSpec = { $: mojo.internal.Union(
-    'chromeos.remote_apps.mojom.AddFolderResult', {
+mojo.internal.Union(
+    chromeos.remote_apps.mojom.AddFolderResultSpec, 'chromeos.remote_apps.mojom.AddFolderResult', {
       'folder_id': {
         'ordinal': 0,
         'type': mojo.internal.String,
-      }},
+        'nullable': false,
+      },
       'error': {
         'ordinal': 1,
         'type': mojo.internal.String,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Union: AddAppResult
-chromeos.remote_apps.mojom.AddAppResultSpec = { $: mojo.internal.Union(
-    'chromeos.remote_apps.mojom.AddAppResult', {
+mojo.internal.Union(
+    chromeos.remote_apps.mojom.AddAppResultSpec, 'chromeos.remote_apps.mojom.AddAppResult', {
       'app_id': {
         'ordinal': 0,
         'type': mojo.internal.String,
-      }},
+        'nullable': false,
+      },
       'error': {
         'ordinal': 1,
         'type': mojo.internal.String,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Interface: RemoteApps
-chromeos.remote_apps.mojom.RemoteApps = {};
+mojo.internal.Struct(
+    chromeos.remote_apps.mojom.RemoteApps_AddFolder_ParamsSpec, 'chromeos.remote_apps.mojom.RemoteApps_AddFolder_Params', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('add_to_front', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chromeos.remote_apps.mojom.RemoteApps_AddFolder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.remote_apps.mojom.RemoteApps_AddFolder_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'add_to_front', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.remote_apps.mojom.RemoteApps_AddFolder_ResponseParamsSpec, 'chromeos.remote_apps.mojom.RemoteApps_AddFolder_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, chromeos.remote_apps.mojom.AddFolderResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chromeos.remote_apps.mojom.RemoteApps_AddApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.remote_apps.mojom.RemoteApps_AddApp_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'folder_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'icon_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'add_to_front', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.remote_apps.mojom.RemoteApps_AddApp_ParamsSpec, 'chromeos.remote_apps.mojom.RemoteApps_AddApp_Params', [
+      mojo.internal.StructField('source_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('folder_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('icon_url', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('add_to_front', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
-chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.remote_apps.mojom.RemoteApps_DeleteApp_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.remote_apps.mojom.RemoteApps_AddApp_ResponseParamsSpec, 'chromeos.remote_apps.mojom.RemoteApps_AddApp_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, chromeos.remote_apps.mojom.AddAppResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ParamsSpec, 'chromeos.remote_apps.mojom.RemoteApps_DeleteApp_Params', [
+      mojo.internal.StructField('app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ResponseParamsSpec, 'chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ResponseParams', [
+      mojo.internal.StructField('error', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ParamsSpec, 'chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ResponseParamsSpec, 'chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ResponseParams', [
+      mojo.internal.StructField('error', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ParamsSpec, 'chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_Params', [
+      mojo.internal.StructField('app_ids', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ResponseParamsSpec, 'chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ResponseParams', [
+      mojo.internal.StructField('error', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromeos.remote_apps.mojom.RemoteAppsPendingReceiver = class {
   constructor(handle) {
@@ -200,167 +215,18 @@ chromeos.remote_apps.mojom.RemoteApps.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddFolder
-chromeos.remote_apps.mojom.RemoteApps_AddFolder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.remote_apps.mojom.RemoteApps.AddFolder_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'add_to_front', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-chromeos.remote_apps.mojom.RemoteApps_AddFolder_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.remote_apps.mojom.RemoteApps.AddFolder_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.remote_apps.mojom.AddFolderResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for AddApp
-chromeos.remote_apps.mojom.RemoteApps_AddApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.remote_apps.mojom.RemoteApps.AddApp_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'folder_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'icon_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'add_to_front', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-chromeos.remote_apps.mojom.RemoteApps_AddApp_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.remote_apps.mojom.RemoteApps.AddApp_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.remote_apps.mojom.AddAppResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for DeleteApp
-chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.remote_apps.mojom.RemoteApps.DeleteApp_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.remote_apps.mojom.RemoteApps.DeleteApp_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SortLauncherWithRemoteAppsFirst
-chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.remote_apps.mojom.RemoteApps.SortLauncherWithRemoteAppsFirst_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.remote_apps.mojom.RemoteApps.SortLauncherWithRemoteAppsFirst_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetPinnedApps
-chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.remote_apps.mojom.RemoteApps.SetPinnedApps_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.remote_apps.mojom.RemoteApps.SetPinnedApps_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.remote_apps.mojom.RemoteAppsPtr = chromeos.remote_apps.mojom.RemoteAppsRemote;
 chromeos.remote_apps.mojom.RemoteAppsRequest = chromeos.remote_apps.mojom.RemoteAppsPendingReceiver;
 
 
 // Interface: RemoteAppsFactory
-chromeos.remote_apps.mojom.RemoteAppsFactory = {};
-
-chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'remote_apps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.remote_apps.mojom.RemoteAppsRemote), nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.remote_apps.mojom.RemoteAppLaunchObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_ParamsSpec, 'chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_Params', [
+      mojo.internal.StructField('source_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('remote_apps', 8, 0, mojo.internal.InterfaceRequest(chromeos.remote_apps.mojom.RemoteAppsRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 16, 0, mojo.internal.InterfaceProxy(chromeos.remote_apps.mojom.RemoteAppLaunchObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 chromeos.remote_apps.mojom.RemoteAppsFactoryPendingReceiver = class {
   constructor(handle) {
@@ -415,43 +281,17 @@ chromeos.remote_apps.mojom.RemoteAppsFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BindRemoteAppsAndAppLaunchObserver
-chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.remote_apps.mojom.RemoteAppsFactory.BindRemoteAppsAndAppLaunchObserver_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'remote_apps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.remote_apps.mojom.RemoteAppsRemote), nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.remote_apps.mojom.RemoteAppLaunchObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.remote_apps.mojom.RemoteAppsFactoryPtr = chromeos.remote_apps.mojom.RemoteAppsFactoryRemote;
 chromeos.remote_apps.mojom.RemoteAppsFactoryRequest = chromeos.remote_apps.mojom.RemoteAppsFactoryPendingReceiver;
 
 
 // Interface: RemoteAppLaunchObserver
-chromeos.remote_apps.mojom.RemoteAppLaunchObserver = {};
-
-chromeos.remote_apps.mojom.RemoteAppLaunchObserver_OnRemoteAppLaunched_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.remote_apps.mojom.RemoteAppLaunchObserver_OnRemoteAppLaunched_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'source_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.remote_apps.mojom.RemoteAppLaunchObserver_OnRemoteAppLaunched_ParamsSpec, 'chromeos.remote_apps.mojom.RemoteAppLaunchObserver_OnRemoteAppLaunched_Params', [
+      mojo.internal.StructField('app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('source_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 chromeos.remote_apps.mojom.RemoteAppLaunchObserverPendingReceiver = class {
   constructor(handle) {
@@ -506,22 +346,6 @@ chromeos.remote_apps.mojom.RemoteAppLaunchObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnRemoteAppLaunched
-chromeos.remote_apps.mojom.RemoteAppLaunchObserver_OnRemoteAppLaunched_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.remote_apps.mojom.RemoteAppLaunchObserver.OnRemoteAppLaunched_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'source_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.remote_apps.mojom.RemoteAppLaunchObserverPtr = chromeos.remote_apps.mojom.RemoteAppLaunchObserverRemote;
 chromeos.remote_apps.mojom.RemoteAppLaunchObserverRequest = chromeos.remote_apps.mojom.RemoteAppLaunchObserverPendingReceiver;
 

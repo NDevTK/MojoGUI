@@ -8,24 +8,18 @@
 var webnn = webnn || {};
 webnn.mojom = webnn.mojom || {};
 
+webnn.mojom.CodeSpec = { $: mojo.internal.Enum() };
+webnn.mojom.ErrorSpec = { $: {} };
 
 // Enum: Code
 webnn.mojom.Code = {
   kUnknownError: 0,
   kNotSupportedError: 1,
 };
-webnn.mojom.CodeSpec = { $: mojo.internal.Enum() };
 
 // Struct: Error
-webnn.mojom.ErrorSpec = {
-  $: {
-    structSpec: {
-      name: 'webnn.mojom.Error',
-      packedSize: 16,
-      fields: [
-        { name: 'kUnknownError', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    webnn.mojom.ErrorSpec, 'webnn.mojom.Error', [
+      mojo.internal.StructField('kUnknownError', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);

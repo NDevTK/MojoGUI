@@ -7,77 +7,76 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
 
+arc.mojom.WifiScanResultSpec = { $: {} };
+arc.mojom.ArcWifiHost = {};
+arc.mojom.ArcWifiHost.$interfaceName = 'arc.mojom.ArcWifiHost';
+arc.mojom.ArcWifiHost_GetWifiEnabledState_ParamsSpec = { $: {} };
+arc.mojom.ArcWifiHost_GetWifiEnabledState_ResponseParamsSpec = { $: {} };
+arc.mojom.ArcWifiHost_SetWifiEnabledState_ParamsSpec = { $: {} };
+arc.mojom.ArcWifiHost_SetWifiEnabledState_ResponseParamsSpec = { $: {} };
+arc.mojom.ArcWifiHost_StartScan_ParamsSpec = { $: {} };
+arc.mojom.ArcWifiHost_GetScanResults_ParamsSpec = { $: {} };
+arc.mojom.ArcWifiHost_GetScanResults_ResponseParamsSpec = { $: {} };
+arc.mojom.ArcWifiInstance = {};
+arc.mojom.ArcWifiInstance.$interfaceName = 'arc.mojom.ArcWifiInstance';
+arc.mojom.ArcWifiInstance_Init_ParamsSpec = { $: {} };
+arc.mojom.ArcWifiInstance_Init_ResponseParamsSpec = { $: {} };
+arc.mojom.ArcWifiInstance_WifiEnabledStateChanged_ParamsSpec = { $: {} };
+arc.mojom.ArcWifiInstance_ScanCompleted_ParamsSpec = { $: {} };
 
 // Struct: WifiScanResult
-arc.mojom.WifiScanResultSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WifiScanResult',
-      packedSize: 40,
-      fields: [
-        { name: 'hex_ssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'bssid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'frequency', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'security', packedOffset: 20, packedBitOffset: 0, type: arc.mojom.SecurityTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'rssi', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.WifiScanResultSpec, 'arc.mojom.WifiScanResult', [
+      mojo.internal.StructField('hex_ssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('bssid', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('frequency', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('security', 20, 0, arc.mojom.SecurityTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('rssi', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: ArcWifiHost
-arc.mojom.ArcWifiHost = {};
+mojo.internal.Struct(
+    arc.mojom.ArcWifiHost_GetWifiEnabledState_ParamsSpec, 'arc.mojom.ArcWifiHost_GetWifiEnabledState_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.ArcWifiHost_GetWifiEnabledState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcWifiHost_GetWifiEnabledState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcWifiHost_GetWifiEnabledState_ResponseParamsSpec, 'arc.mojom.ArcWifiHost_GetWifiEnabledState_ResponseParams', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcWifiHost_SetWifiEnabledState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcWifiHost_SetWifiEnabledState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcWifiHost_SetWifiEnabledState_ParamsSpec, 'arc.mojom.ArcWifiHost_SetWifiEnabledState_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcWifiHost_StartScan_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcWifiHost_StartScan_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcWifiHost_SetWifiEnabledState_ResponseParamsSpec, 'arc.mojom.ArcWifiHost_SetWifiEnabledState_ResponseParams', [
+      mojo.internal.StructField('enabled_state', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcWifiHost_GetScanResults_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcWifiHost_GetScanResults_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcWifiHost_StartScan_ParamsSpec, 'arc.mojom.ArcWifiHost_StartScan_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    arc.mojom.ArcWifiHost_GetScanResults_ParamsSpec, 'arc.mojom.ArcWifiHost_GetScanResults_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    arc.mojom.ArcWifiHost_GetScanResults_ResponseParamsSpec, 'arc.mojom.ArcWifiHost_GetScanResults_ResponseParams', [
+      mojo.internal.StructField('response', 0, 0, mojo.internal.Array(arc.mojom.WifiScanResultSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.ArcWifiHostPendingReceiver = class {
   constructor(handle) {
@@ -159,143 +158,32 @@ arc.mojom.ArcWifiHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetWifiEnabledState
-arc.mojom.ArcWifiHost_GetWifiEnabledState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcWifiHost.GetWifiEnabledState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-arc.mojom.ArcWifiHost_GetWifiEnabledState_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcWifiHost.GetWifiEnabledState_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetWifiEnabledState
-arc.mojom.ArcWifiHost_SetWifiEnabledState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcWifiHost.SetWifiEnabledState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.ArcWifiHost_SetWifiEnabledState_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcWifiHost.SetWifiEnabledState_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StartScan
-arc.mojom.ArcWifiHost_StartScan_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcWifiHost.StartScan_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for GetScanResults
-arc.mojom.ArcWifiHost_GetScanResults_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcWifiHost.GetScanResults_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-arc.mojom.ArcWifiHost_GetScanResults_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcWifiHost.GetScanResults_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.WifiScanResultSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.ArcWifiHostPtr = arc.mojom.ArcWifiHostRemote;
 arc.mojom.ArcWifiHostRequest = arc.mojom.ArcWifiHostPendingReceiver;
 
 
 // Interface: ArcWifiInstance
-arc.mojom.ArcWifiInstance = {};
+mojo.internal.Struct(
+    arc.mojom.ArcWifiInstance_Init_ParamsSpec, 'arc.mojom.ArcWifiInstance_Init_Params', [
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.ArcWifiHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcWifiInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcWifiInstance_Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ArcWifiHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcWifiInstance_Init_ResponseParamsSpec, 'arc.mojom.ArcWifiInstance_Init_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.ArcWifiInstance_WifiEnabledStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcWifiInstance_WifiEnabledStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcWifiInstance_WifiEnabledStateChanged_ParamsSpec, 'arc.mojom.ArcWifiInstance_WifiEnabledStateChanged_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.ArcWifiInstance_ScanCompleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcWifiInstance_ScanCompleted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcWifiInstance_ScanCompleted_ParamsSpec, 'arc.mojom.ArcWifiInstance_ScanCompleted_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 arc.mojom.ArcWifiInstancePendingReceiver = class {
   constructor(handle) {
@@ -334,7 +222,7 @@ arc.mojom.ArcWifiInstanceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       arc.mojom.ArcWifiInstance_Init_ParamsSpec,
-      null,
+      arc.mojom.ArcWifiInstance_Init_ResponseParamsSpec,
       [host_remote]);
   }
 
@@ -368,48 +256,6 @@ arc.mojom.ArcWifiInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Init
-arc.mojom.ArcWifiInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcWifiInstance.Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ArcWifiHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for WifiEnabledStateChanged
-arc.mojom.ArcWifiInstance_WifiEnabledStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcWifiInstance.WifiEnabledStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ScanCompleted
-arc.mojom.ArcWifiInstance_ScanCompleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcWifiInstance.ScanCompleted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.ArcWifiInstancePtr = arc.mojom.ArcWifiInstanceRemote;
 arc.mojom.ArcWifiInstanceRequest = arc.mojom.ArcWifiInstancePendingReceiver;
 

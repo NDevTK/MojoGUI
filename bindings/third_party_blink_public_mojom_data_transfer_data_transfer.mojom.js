@@ -9,19 +9,13 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var blink = blink || {};
 
+blink.mojom.DataTransferFileSpec = { $: {} };
 
 // Struct: DataTransferFile
-blink.mojom.DataTransferFileSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DataTransferFile',
-      packedSize: 32,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'file_system_access_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessDataTransferTokenRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DataTransferFileSpec, 'blink.mojom.DataTransferFile', [
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('display_name', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('file_system_access_token', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessDataTransferTokenRemote), null, true, 0, undefined),
+    ],
+    [[0, 32]]);

@@ -8,6 +8,38 @@
 var media = media || {};
 media.mojom = media.mojom || {};
 
+media.mojom.CdmKeyStatusSpec = { $: mojo.internal.Enum() };
+media.mojom.CdmConfigSpec = { $: {} };
+media.mojom.CdmPromiseResultSpec = { $: {} };
+media.mojom.CdmKeyInformationSpec = { $: {} };
+media.mojom.CdmContextSpec = { $: {} };
+media.mojom.ContentDecryptionModule = {};
+media.mojom.ContentDecryptionModule.$interfaceName = 'media.mojom.ContentDecryptionModule';
+media.mojom.ContentDecryptionModule_SetClient_ParamsSpec = { $: {} };
+media.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec = { $: {} };
+media.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec = { $: {} };
+media.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec = { $: {} };
+media.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec = { $: {} };
+media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec = { $: {} };
+media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec = { $: {} };
+media.mojom.ContentDecryptionModule_LoadSession_ParamsSpec = { $: {} };
+media.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec = { $: {} };
+media.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec = { $: {} };
+media.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec = { $: {} };
+media.mojom.ContentDecryptionModule_CloseSession_ParamsSpec = { $: {} };
+media.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec = { $: {} };
+media.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec = { $: {} };
+media.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec = { $: {} };
+media.mojom.ContentDecryptionModuleClient = {};
+media.mojom.ContentDecryptionModuleClient.$interfaceName = 'media.mojom.ContentDecryptionModuleClient';
+media.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec = { $: {} };
+media.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec = { $: {} };
+media.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec = { $: {} };
+media.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec = { $: {} };
+media.mojom.CdmFactory = {};
+media.mojom.CdmFactory.$interfaceName = 'media.mojom.CdmFactory';
+media.mojom.CdmFactory_CreateCdm_ParamsSpec = { $: {} };
+media.mojom.CdmFactory_CreateCdm_ResponseParamsSpec = { $: {} };
 
 // Enum: CdmKeyStatus
 media.mojom.CdmKeyStatus = {
@@ -20,185 +52,143 @@ media.mojom.CdmKeyStatus = {
   RELEASED: 6,
   USABLE_IN_FUTURE: 7,
 };
-media.mojom.CdmKeyStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: CdmConfig
-media.mojom.CdmConfigSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmConfig',
-      packedSize: 24,
-      fields: [
-        { name: 'key_system', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'allow_distinctive_identifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'allow_persistent_state', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'use_hw_secure_codecs', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.CdmConfigSpec, 'media.mojom.CdmConfig', [
+      mojo.internal.StructField('key_system', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('allow_distinctive_identifier', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_persistent_state', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('use_hw_secure_codecs', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: CdmPromiseResult
-media.mojom.CdmPromiseResultSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmPromiseResult',
-      packedSize: 40,
-      fields: [
-        { name: 'Exception', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'success', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'exception', packedOffset: 8, packedBitOffset: 0, type: media.mojom.ExceptionSpec, nullable: false, minVersion: 0 },
-        { name: 'system_code', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'error_message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.CdmPromiseResultSpec, 'media.mojom.CdmPromiseResult', [
+      mojo.internal.StructField('Exception', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('success', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('exception', 8, 0, media.mojom.ExceptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('system_code', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('error_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: CdmKeyInformation
-media.mojom.CdmKeyInformationSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmKeyInformation',
-      packedSize: 24,
-      fields: [
-        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: media.mojom.CdmKeyStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'system_code', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.CdmKeyInformationSpec, 'media.mojom.CdmKeyInformation', [
+      mojo.internal.StructField('key_id', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, media.mojom.CdmKeyStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('system_code', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: CdmContext
-media.mojom.CdmContextSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmContext',
-      packedSize: 32,
-      fields: [
-        { name: 'cdm_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'decryptor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.DecryptorRemote), nullable: true, minVersion: 0 },
-        { name: 'requires_media_foundation_renderer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.CdmContextSpec, 'media.mojom.CdmContext', [
+      mojo.internal.StructField('cdm_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('decryptor', 8, 0, mojo.internal.InterfaceProxy(media.mojom.DecryptorRemote), null, true, 0, undefined),
+      mojo.internal.StructField('requires_media_foundation_renderer', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: ContentDecryptionModule
-media.mojom.ContentDecryptionModule = {};
+mojo.internal.Struct(
+    media.mojom.ContentDecryptionModule_SetClient_ParamsSpec, 'media.mojom.ContentDecryptionModule_SetClient_Params', [
+      mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(media.mojom.ContentDecryptionModuleClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.ContentDecryptionModule_SetClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ContentDecryptionModule_SetClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(media.mojom.ContentDecryptionModuleClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec, 'media.mojom.ContentDecryptionModule_SetServerCertificate_Params', [
+      mojo.internal.StructField('certificate_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ContentDecryptionModule_SetServerCertificate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'certificate_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec, 'media.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, media.mojom.CdmPromiseResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ContentDecryptionModule_GetStatusForPolicy_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'min_hdcp_version', packedOffset: 0, packedBitOffset: 0, type: media.mojom.HdcpVersionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec, 'media.mojom.ContentDecryptionModule_GetStatusForPolicy_Params', [
+      mojo.internal.StructField('min_hdcp_version', 0, 0, media.mojom.HdcpVersionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'session_type', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmSessionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'init_data_type', packedOffset: 8, packedBitOffset: 0, type: media.mojom.EmeInitDataTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'init_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec, 'media.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, media.mojom.CdmPromiseResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_status', 8, 0, media.mojom.CdmKeyStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media.mojom.ContentDecryptionModule_LoadSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ContentDecryptionModule_LoadSession_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'session_type', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmSessionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec, 'media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_Params', [
+      mojo.internal.StructField('session_type', 0, 0, media.mojom.CdmSessionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('init_data_type', 8, 0, media.mojom.EmeInitDataTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('init_data', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-media.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ContentDecryptionModule_UpdateSession_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec, 'media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, media.mojom.CdmPromiseResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('session_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media.mojom.ContentDecryptionModule_CloseSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ContentDecryptionModule_CloseSession_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.ContentDecryptionModule_LoadSession_ParamsSpec, 'media.mojom.ContentDecryptionModule_LoadSession_Params', [
+      mojo.internal.StructField('session_type', 0, 0, media.mojom.CdmSessionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('session_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ContentDecryptionModule_RemoveSession_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec, 'media.mojom.ContentDecryptionModule_LoadSession_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, media.mojom.CdmPromiseResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('session_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    media.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec, 'media.mojom.ContentDecryptionModule_UpdateSession_Params', [
+      mojo.internal.StructField('session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('response', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    media.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec, 'media.mojom.ContentDecryptionModule_UpdateSession_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, media.mojom.CdmPromiseResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    media.mojom.ContentDecryptionModule_CloseSession_ParamsSpec, 'media.mojom.ContentDecryptionModule_CloseSession_Params', [
+      mojo.internal.StructField('session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    media.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec, 'media.mojom.ContentDecryptionModule_CloseSession_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, media.mojom.CdmPromiseResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    media.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec, 'media.mojom.ContentDecryptionModule_RemoveSession_Params', [
+      mojo.internal.StructField('session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    media.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec, 'media.mojom.ContentDecryptionModule_RemoveSession_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, media.mojom.CdmPromiseResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.ContentDecryptionModulePendingReceiver = class {
   constructor(handle) {
@@ -316,281 +306,40 @@ media.mojom.ContentDecryptionModule.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetClient
-media.mojom.ContentDecryptionModule_SetClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ContentDecryptionModule.SetClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(media.mojom.ContentDecryptionModuleClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetServerCertificate
-media.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ContentDecryptionModule.SetServerCertificate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'certificate_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-media.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ContentDecryptionModule.SetServerCertificate_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmPromiseResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetStatusForPolicy
-media.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ContentDecryptionModule.GetStatusForPolicy_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'min_hdcp_version', packedOffset: 0, packedBitOffset: 0, type: media.mojom.HdcpVersionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-media.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ContentDecryptionModule.GetStatusForPolicy_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmPromiseResultSpec, nullable: false, minVersion: 0 },
-        { name: 'key_status', packedOffset: 8, packedBitOffset: 0, type: media.mojom.CdmKeyStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for CreateSessionAndGenerateRequest
-media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ContentDecryptionModule.CreateSessionAndGenerateRequest_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'session_type', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmSessionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'init_data_type', packedOffset: 8, packedBitOffset: 0, type: media.mojom.EmeInitDataTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'init_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ContentDecryptionModule.CreateSessionAndGenerateRequest_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmPromiseResultSpec, nullable: false, minVersion: 0 },
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for LoadSession
-media.mojom.ContentDecryptionModule_LoadSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ContentDecryptionModule.LoadSession_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'session_type', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmSessionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-media.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ContentDecryptionModule.LoadSession_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmPromiseResultSpec, nullable: false, minVersion: 0 },
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateSession
-media.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ContentDecryptionModule.UpdateSession_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'response', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-media.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ContentDecryptionModule.UpdateSession_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmPromiseResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CloseSession
-media.mojom.ContentDecryptionModule_CloseSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ContentDecryptionModule.CloseSession_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-media.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ContentDecryptionModule.CloseSession_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmPromiseResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RemoveSession
-media.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ContentDecryptionModule.RemoveSession_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-media.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ContentDecryptionModule.RemoveSession_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmPromiseResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.ContentDecryptionModulePtr = media.mojom.ContentDecryptionModuleRemote;
 media.mojom.ContentDecryptionModuleRequest = media.mojom.ContentDecryptionModulePendingReceiver;
 
 
 // Interface: ContentDecryptionModuleClient
-media.mojom.ContentDecryptionModuleClient = {};
+mojo.internal.Struct(
+    media.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec, 'media.mojom.ContentDecryptionModuleClient_OnSessionMessage_Params', [
+      mojo.internal.StructField('session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('message_type', 8, 0, media.mojom.CdmMessageTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-media.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ContentDecryptionModuleClient_OnSessionMessage_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'message_type', packedOffset: 8, packedBitOffset: 0, type: media.mojom.CdmMessageTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec, 'media.mojom.ContentDecryptionModuleClient_OnSessionClosed_Params', [
+      mojo.internal.StructField('session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 8, 0, media.mojom.CdmSessionClosedReasonSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ContentDecryptionModuleClient_OnSessionClosed_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: media.mojom.CdmSessionClosedReasonSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec, 'media.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_Params', [
+      mojo.internal.StructField('session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('has_additional_usable_key', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('keys_info', 8, 0, mojo.internal.Array(media.mojom.CdmKeyInformationSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-media.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'has_additional_usable_key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'keys_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.CdmKeyInformationSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-media.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'new_expiry_time_sec', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec, 'media.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_Params', [
+      mojo.internal.StructField('session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('new_expiry_time_sec', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 media.mojom.ContentDecryptionModuleClientPendingReceiver = class {
   constructor(handle) {
@@ -672,88 +421,24 @@ media.mojom.ContentDecryptionModuleClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnSessionMessage
-media.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ContentDecryptionModuleClient.OnSessionMessage_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'message_type', packedOffset: 8, packedBitOffset: 0, type: media.mojom.CdmMessageTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for OnSessionClosed
-media.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ContentDecryptionModuleClient.OnSessionClosed_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: media.mojom.CdmSessionClosedReasonSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnSessionKeysChange
-media.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ContentDecryptionModuleClient.OnSessionKeysChange_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'has_additional_usable_key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'keys_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.CdmKeyInformationSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for OnSessionExpirationUpdate
-media.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.ContentDecryptionModuleClient.OnSessionExpirationUpdate_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'new_expiry_time_sec', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.ContentDecryptionModuleClientPtr = media.mojom.ContentDecryptionModuleClientRemote;
 media.mojom.ContentDecryptionModuleClientRequest = media.mojom.ContentDecryptionModuleClientPendingReceiver;
 
 
 // Interface: CdmFactory
-media.mojom.CdmFactory = {};
+mojo.internal.Struct(
+    media.mojom.CdmFactory_CreateCdm_ParamsSpec, 'media.mojom.CdmFactory_CreateCdm_Params', [
+      mojo.internal.StructField('cdm_config', 0, 0, media.mojom.CdmConfigSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.CdmFactory_CreateCdm_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmFactory_CreateCdm_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'cdm_config', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmConfigSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.CdmFactory_CreateCdm_ResponseParamsSpec, 'media.mojom.CdmFactory_CreateCdm_ResponseParams', [
+      mojo.internal.StructField('cdm', 0, 0, mojo.internal.InterfaceProxy(media.mojom.ContentDecryptionModuleRemote), null, true, 0, undefined),
+      mojo.internal.StructField('cdm_context', 8, 0, media.mojom.CdmContextSpec, null, true, 0, undefined),
+      mojo.internal.StructField('status', 16, 0, media.mojom.CreateCdmStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 media.mojom.CdmFactoryPendingReceiver = class {
   constructor(handle) {
@@ -808,36 +493,6 @@ media.mojom.CdmFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateCdm
-media.mojom.CdmFactory_CreateCdm_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmFactory.CreateCdm_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'cdm_config', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmConfigSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-media.mojom.CdmFactory_CreateCdm_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.CdmFactory.CreateCdm_ResponseParams',
-      packedSize: 32,
-      fields: [
-        { name: 'cdm', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.ContentDecryptionModuleRemote), nullable: true, minVersion: 0 },
-        { name: 'cdm_context', packedOffset: 8, packedBitOffset: 0, type: media.mojom.CdmContextSpec, nullable: true, minVersion: 0 },
-        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: media.mojom.CreateCdmStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.CdmFactoryPtr = media.mojom.CdmFactoryRemote;
 media.mojom.CdmFactoryRequest = media.mojom.CdmFactoryPendingReceiver;
 

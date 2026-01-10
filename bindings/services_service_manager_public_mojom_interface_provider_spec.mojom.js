@@ -8,48 +8,30 @@
 var service_manager = service_manager || {};
 service_manager.mojom = service_manager.mojom || {};
 
+service_manager.mojom.InterfaceSetSpec = { $: {} };
+service_manager.mojom.CapabilitySetSpec = { $: {} };
+service_manager.mojom.InterfaceProviderSpecSpec = { $: {} };
 
 service_manager.mojom.kServiceManager_ConnectorSpec = "service_manager:connector";
 
 // Struct: InterfaceSet
-service_manager.mojom.InterfaceSetSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.InterfaceSet',
-      packedSize: 16,
-      fields: [
-        { name: 'interfaces', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    service_manager.mojom.InterfaceSetSpec, 'service_manager.mojom.InterfaceSet', [
+      mojo.internal.StructField('interfaces', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: CapabilitySet
-service_manager.mojom.CapabilitySetSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.CapabilitySet',
-      packedSize: 16,
-      fields: [
-        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    service_manager.mojom.CapabilitySetSpec, 'service_manager.mojom.CapabilitySet', [
+      mojo.internal.StructField('capabilities', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: InterfaceProviderSpec
-service_manager.mojom.InterfaceProviderSpecSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.InterfaceProviderSpec',
-      packedSize: 24,
-      fields: [
-        { name: 'provides', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, service_manager.mojom.InterfaceSetSpec, false), nullable: false, minVersion: 0 },
-        { name: 'needs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, service_manager.mojom.CapabilitySetSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    service_manager.mojom.InterfaceProviderSpecSpec, 'service_manager.mojom.InterfaceProviderSpec', [
+      mojo.internal.StructField('provides', 0, 0, mojo.internal.Map(mojo.internal.String, service_manager.mojom.InterfaceSetSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('needs', 8, 0, mojo.internal.Map(mojo.internal.String, service_manager.mojom.CapabilitySetSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);

@@ -7,48 +7,40 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
+var services = services || {};
 
+network.mojom.NetworkIsolationKeySpec = { $: {} };
+network.mojom.EmptyNetworkIsolationKeySpec = { $: {} };
+network.mojom.NonEmptyNetworkIsolationKeySpec = { $: {} };
 
 // Union: NetworkIsolationKey
-network.mojom.NetworkIsolationKeySpec = { $: mojo.internal.Union(
-    'network.mojom.NetworkIsolationKey', {
+mojo.internal.Union(
+    network.mojom.NetworkIsolationKeySpec, 'network.mojom.NetworkIsolationKey', {
       'empty': {
         'ordinal': 0,
         'type': network.mojom.EmptyNetworkIsolationKeySpec,
-      }},
+        'nullable': false,
+      },
       'non_empty': {
         'ordinal': 1,
         'type': network.mojom.NonEmptyNetworkIsolationKeySpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: EmptyNetworkIsolationKey
-network.mojom.EmptyNetworkIsolationKeySpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.EmptyNetworkIsolationKey',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.EmptyNetworkIsolationKeySpec, 'network.mojom.EmptyNetworkIsolationKey', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 // Struct: NonEmptyNetworkIsolationKey
-network.mojom.NonEmptyNetworkIsolationKeySpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NonEmptyNetworkIsolationKey',
-      packedSize: 40,
-      fields: [
-        { name: 'top_frame_site', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SchemefulSiteSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_site', packedOffset: 8, packedBitOffset: 0, type: network.mojom.SchemefulSiteSpec, nullable: false, minVersion: 0 },
-        { name: 'nonce', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'network_isolation_partition', packedOffset: 24, packedBitOffset: 0, type: network.mojom.NetworkIsolationPartitionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.NonEmptyNetworkIsolationKeySpec, 'network.mojom.NonEmptyNetworkIsolationKey', [
+      mojo.internal.StructField('top_frame_site', 0, 0, network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_site', 8, 0, network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
+      mojo.internal.StructField('nonce', 16, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('network_isolation_partition', 24, 0, network.mojom.NetworkIsolationPartitionSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);

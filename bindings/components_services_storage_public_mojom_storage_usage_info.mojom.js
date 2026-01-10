@@ -9,19 +9,13 @@ var storage = storage || {};
 storage.mojom = storage.mojom || {};
 var blink = blink || {};
 
+storage.mojom.StorageUsageInfoSpec = { $: {} };
 
 // Struct: StorageUsageInfo
-storage.mojom.StorageUsageInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.StorageUsageInfo',
-      packedSize: 32,
-      fields: [
-        { name: 'storage_key', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
-        { name: 'total_size_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'last_modified', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.StorageUsageInfoSpec, 'storage.mojom.StorageUsageInfo', [
+      mojo.internal.StructField('storage_key', 0, 0, blink.mojom.StorageKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('total_size_bytes', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('last_modified', 16, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);

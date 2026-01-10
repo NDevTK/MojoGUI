@@ -8,10 +8,10 @@
 var ui = ui || {};
 ui.mojom = ui.mojom || {};
 
+ui.mojom.ColorModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ColorMode
 ui.mojom.ColorMode = {
   kLight: 0,
   kDark: 1,
 };
-ui.mojom.ColorModeSpec = { $: mojo.internal.Enum() };

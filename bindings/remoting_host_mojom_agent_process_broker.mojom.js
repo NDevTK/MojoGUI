@@ -8,46 +8,31 @@
 var remoting = remoting || {};
 remoting.mojom = remoting.mojom || {};
 
+remoting.mojom.AgentProcess = {};
+remoting.mojom.AgentProcess.$interfaceName = 'remoting.mojom.AgentProcess';
+remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec = { $: {} };
+remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec = { $: {} };
+remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec = { $: {} };
+remoting.mojom.AgentProcessBroker = {};
+remoting.mojom.AgentProcessBroker.$interfaceName = 'remoting.mojom.AgentProcessBroker';
+remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec = { $: {} };
 
 // Interface: AgentProcess
-remoting.mojom.AgentProcess = {};
+mojo.internal.Struct(
+    remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec, 'remoting.mojom.AgentProcess_ResumeProcess_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.AgentProcess_ResumeProcess_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec, 'remoting.mojom.AgentProcess_SuspendProcess_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.AgentProcess_SuspendProcess_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.AgentProcess_BindRemotingHostControl_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(remoting.mojom.RemotingHostControlRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec, 'remoting.mojom.AgentProcess_BindRemotingHostControl_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(remoting.mojom.RemotingHostControlRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 remoting.mojom.AgentProcessPendingReceiver = class {
   constructor(handle) {
@@ -120,66 +105,16 @@ remoting.mojom.AgentProcess.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ResumeProcess
-remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.AgentProcess.ResumeProcess_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SuspendProcess
-remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.AgentProcess.SuspendProcess_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for BindRemotingHostControl
-remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.AgentProcess.BindRemotingHostControl_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(remoting.mojom.RemotingHostControlRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 remoting.mojom.AgentProcessPtr = remoting.mojom.AgentProcessRemote;
 remoting.mojom.AgentProcessRequest = remoting.mojom.AgentProcessPendingReceiver;
 
 
 // Interface: AgentProcessBroker
-remoting.mojom.AgentProcessBroker = {};
-
-remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'agent_process', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(remoting.mojom.AgentProcessRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec, 'remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_Params', [
+      mojo.internal.StructField('agent_process', 0, 0, mojo.internal.InterfaceProxy(remoting.mojom.AgentProcessRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 remoting.mojom.AgentProcessBrokerPendingReceiver = class {
   constructor(handle) {
@@ -234,21 +169,6 @@ remoting.mojom.AgentProcessBroker.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnAgentProcessLaunched
-remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.AgentProcessBroker.OnAgentProcessLaunched_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'agent_process', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(remoting.mojom.AgentProcessRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 remoting.mojom.AgentProcessBrokerPtr = remoting.mojom.AgentProcessBrokerRemote;
 remoting.mojom.AgentProcessBrokerRequest = remoting.mojom.AgentProcessBrokerPendingReceiver;
 

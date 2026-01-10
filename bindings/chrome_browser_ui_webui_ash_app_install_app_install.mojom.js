@@ -12,113 +12,98 @@ var ui = ui || {};
 var gfx = gfx || {};
 var url = url || {};
 
+ash.app_install.mojom.DialogArgsSpec = { $: {} };
+ash.app_install.mojom.AppInfoArgsSpec = { $: {} };
+ash.app_install.mojom.AppInfoDataSpec = { $: {} };
+ash.app_install.mojom.ScreenshotSpec = { $: {} };
+ash.app_install.mojom.NoAppErrorArgsSpec = { $: {} };
+ash.app_install.mojom.AppInfoActions = {};
+ash.app_install.mojom.AppInfoActions.$interfaceName = 'ash.app_install.mojom.AppInfoActions';
+ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec = { $: {} };
+ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec = { $: {} };
+ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec = { $: {} };
+ash.app_install.mojom.ConnectionErrorActions = {};
+ash.app_install.mojom.ConnectionErrorActions.$interfaceName = 'ash.app_install.mojom.ConnectionErrorActions';
+ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec = { $: {} };
+ash.app_install.mojom.PageHandlerFactory = {};
+ash.app_install.mojom.PageHandlerFactory.$interfaceName = 'ash.app_install.mojom.PageHandlerFactory';
+ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+ash.app_install.mojom.PageHandler = {};
+ash.app_install.mojom.PageHandler.$interfaceName = 'ash.app_install.mojom.PageHandler';
+ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec = { $: {} };
+ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec = { $: {} };
+ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec = { $: {} };
 
 // Union: DialogArgs
-ash.app_install.mojom.DialogArgsSpec = { $: mojo.internal.Union(
-    'ash.app_install.mojom.DialogArgs', {
+mojo.internal.Union(
+    ash.app_install.mojom.DialogArgsSpec, 'ash.app_install.mojom.DialogArgs', {
       'app_info_args': {
         'ordinal': 0,
         'type': ash.app_install.mojom.AppInfoArgsSpec,
-      }},
+        'nullable': false,
+      },
       'no_app_error_args': {
         'ordinal': 1,
         'type': ash.app_install.mojom.NoAppErrorArgsSpec,
-      }},
+        'nullable': false,
+      },
       'connection_error_actions': {
         'ordinal': 2,
         'type': mojo.internal.InterfaceProxy(ash.app_install.mojom.ConnectionErrorActionsRemote),
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: AppInfoArgs
-ash.app_install.mojom.AppInfoArgsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.app_install.mojom.AppInfoArgs',
-      packedSize: 24,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: ash.app_install.mojom.AppInfoDataSpec, nullable: false, minVersion: 0 },
-        { name: 'actions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.app_install.mojom.AppInfoActionsRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.app_install.mojom.AppInfoArgsSpec, 'ash.app_install.mojom.AppInfoArgs', [
+      mojo.internal.StructField('data', 0, 0, ash.app_install.mojom.AppInfoDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('actions', 8, 0, mojo.internal.InterfaceProxy(ash.app_install.mojom.AppInfoActionsRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: AppInfoData
-ash.app_install.mojom.AppInfoDataSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.app_install.mojom.AppInfoData',
-      packedSize: 56,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'icon_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'screenshots', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(ash.app_install.mojom.ScreenshotSpec, false), nullable: false, minVersion: 0 },
-        { name: 'is_already_installed', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.app_install.mojom.AppInfoDataSpec, 'ash.app_install.mojom.AppInfoData', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('description', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('icon_url', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('screenshots', 32, 0, mojo.internal.Array(ash.app_install.mojom.ScreenshotSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('is_already_installed', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: Screenshot
-ash.app_install.mojom.ScreenshotSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.app_install.mojom.Screenshot',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.app_install.mojom.ScreenshotSpec, 'ash.app_install.mojom.Screenshot', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('size', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: NoAppErrorArgs
-ash.app_install.mojom.NoAppErrorArgsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.app_install.mojom.NoAppErrorArgs',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.app_install.mojom.NoAppErrorArgsSpec, 'ash.app_install.mojom.NoAppErrorArgs', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 // Interface: AppInfoActions
-ash.app_install.mojom.AppInfoActions = {};
+mojo.internal.Struct(
+    ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec, 'ash.app_install.mojom.AppInfoActions_InstallApp_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.app_install.mojom.AppInfoActions_InstallApp_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec, 'ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParams', [
+      mojo.internal.StructField('installed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.app_install.mojom.AppInfoActions_LaunchApp_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec, 'ash.app_install.mojom.AppInfoActions_LaunchApp_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.app_install.mojom.AppInfoActionsPendingReceiver = class {
   constructor(handle) {
@@ -182,64 +167,15 @@ ash.app_install.mojom.AppInfoActions.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for InstallApp
-ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.app_install.mojom.AppInfoActions.InstallApp_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.app_install.mojom.AppInfoActions.InstallApp_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'installed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for LaunchApp
-ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.app_install.mojom.AppInfoActions.LaunchApp_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.app_install.mojom.AppInfoActionsPtr = ash.app_install.mojom.AppInfoActionsRemote;
 ash.app_install.mojom.AppInfoActionsRequest = ash.app_install.mojom.AppInfoActionsPendingReceiver;
 
 
 // Interface: ConnectionErrorActions
-ash.app_install.mojom.ConnectionErrorActions = {};
-
-ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.app_install.mojom.ConnectionErrorActions_TryAgain_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec, 'ash.app_install.mojom.ConnectionErrorActions_TryAgain_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.app_install.mojom.ConnectionErrorActionsPendingReceiver = class {
   constructor(handle) {
@@ -294,39 +230,16 @@ ash.app_install.mojom.ConnectionErrorActions.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for TryAgain
-ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.app_install.mojom.ConnectionErrorActions.TryAgain_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.app_install.mojom.ConnectionErrorActionsPtr = ash.app_install.mojom.ConnectionErrorActionsRemote;
 ash.app_install.mojom.ConnectionErrorActionsRequest = ash.app_install.mojom.ConnectionErrorActionsPendingReceiver;
 
 
 // Interface: PageHandlerFactory
-ash.app_install.mojom.PageHandlerFactory = {};
-
-ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.app_install.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.app_install.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.app_install.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -381,51 +294,26 @@ ash.app_install.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.app_install.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.app_install.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.app_install.mojom.PageHandlerFactoryPtr = ash.app_install.mojom.PageHandlerFactoryRemote;
 ash.app_install.mojom.PageHandlerFactoryRequest = ash.app_install.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-ash.app_install.mojom.PageHandler = {};
+mojo.internal.Struct(
+    ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec, 'ash.app_install.mojom.PageHandler_GetDialogArgs_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.app_install.mojom.PageHandler_GetDialogArgs_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec, 'ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParams', [
+      mojo.internal.StructField('dialog_args', 0, 0, ash.app_install.mojom.DialogArgsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.app_install.mojom.PageHandler_CloseDialog_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec, 'ash.app_install.mojom.PageHandler_CloseDialog_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.app_install.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -489,46 +377,6 @@ ash.app_install.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetDialogArgs
-ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.app_install.mojom.PageHandler.GetDialogArgs_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.app_install.mojom.PageHandler.GetDialogArgs_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'dialog_args', packedOffset: 0, packedBitOffset: 0, type: ash.app_install.mojom.DialogArgsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for CloseDialog
-ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.app_install.mojom.PageHandler.CloseDialog_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.app_install.mojom.PageHandlerPtr = ash.app_install.mojom.PageHandlerRemote;
 ash.app_install.mojom.PageHandlerRequest = ash.app_install.mojom.PageHandlerPendingReceiver;
 

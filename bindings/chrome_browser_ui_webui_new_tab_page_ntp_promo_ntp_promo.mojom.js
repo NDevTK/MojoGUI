@@ -8,6 +8,24 @@
 var ntp_promo = ntp_promo || {};
 ntp_promo.mojom = ntp_promo.mojom || {};
 
+ntp_promo.mojom.ShowNtpPromosResultSpec = { $: mojo.internal.Enum() };
+ntp_promo.mojom.PromosShownSpec = { $: {} };
+ntp_promo.mojom.PromoSpec = { $: {} };
+ntp_promo.mojom.NtpPromoHandler = {};
+ntp_promo.mojom.NtpPromoHandler.$interfaceName = 'ntp_promo.mojom.NtpPromoHandler';
+ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec = { $: {} };
+ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec = { $: {} };
+ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec = { $: {} };
+ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec = { $: {} };
+ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec = { $: {} };
+ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec = { $: {} };
+ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec = { $: {} };
+ntp_promo.mojom.NtpPromoClient = {};
+ntp_promo.mojom.NtpPromoClient.$interfaceName = 'ntp_promo.mojom.NtpPromoClient';
+ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec = { $: {} };
+ntp_promo.mojom.NtpPromoHandlerFactory = {};
+ntp_promo.mojom.NtpPromoHandlerFactory.$interfaceName = 'ntp_promo.mojom.NtpPromoHandlerFactory';
+ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec = { $: {} };
 
 // Enum: ShowNtpPromosResult
 ntp_promo.mojom.ShowNtpPromosResult = {
@@ -15,129 +33,63 @@ ntp_promo.mojom.ShowNtpPromosResult = {
   kNotShownNoPromos: 1,
   kNotShownDueToPolicy: 2,
 };
-ntp_promo.mojom.ShowNtpPromosResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: PromosShown
-ntp_promo.mojom.PromosShownSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp_promo.mojom.PromosShown',
-      packedSize: 24,
-      fields: [
-        { name: 'eligible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'completed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ntp_promo.mojom.PromosShownSpec, 'ntp_promo.mojom.PromosShown', [
+      mojo.internal.StructField('eligible', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('completed', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: Promo
-ntp_promo.mojom.PromoSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp_promo.mojom.Promo',
-      packedSize: 40,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'icon_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'body_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'button_text', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ntp_promo.mojom.PromoSpec, 'ntp_promo.mojom.Promo', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('icon_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('body_text', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('button_text', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: NtpPromoHandler
-ntp_promo.mojom.NtpPromoHandler = {};
+mojo.internal.Struct(
+    ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandler_RequestPromos_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp_promo.mojom.NtpPromoHandler_RequestPromos_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandler_OnPromosShown_Params', [
+      mojo.internal.StructField('eligible_shown', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('completed_shown', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp_promo.mojom.NtpPromoHandler_OnPromosShown_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'eligible_shown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'completed_shown', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_Params', [
+      mojo.internal.StructField('promo_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'promo_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandler_DisableSetupList_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp_promo.mojom.NtpPromoHandler_DisableSetupList_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ntp_promo.mojom.NtpPromoHandlerPendingReceiver = class {
   constructor(handle) {
@@ -246,121 +198,17 @@ ntp_promo.mojom.NtpPromoHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RequestPromos
-ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp_promo.mojom.NtpPromoHandler.RequestPromos_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnPromosShown
-ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp_promo.mojom.NtpPromoHandler.OnPromosShown_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'eligible_shown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'completed_shown', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnPromoClicked
-ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp_promo.mojom.NtpPromoHandler.OnPromoClicked_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'promo_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SnoozeSetupList
-ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp_promo.mojom.NtpPromoHandler.SnoozeSetupList_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for UnsnoozeSetupList
-ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp_promo.mojom.NtpPromoHandler.UnsnoozeSetupList_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for DisableSetupList
-ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp_promo.mojom.NtpPromoHandler.DisableSetupList_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for UndisableSetupList
-ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp_promo.mojom.NtpPromoHandler.UndisableSetupList_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ntp_promo.mojom.NtpPromoHandlerPtr = ntp_promo.mojom.NtpPromoHandlerRemote;
 ntp_promo.mojom.NtpPromoHandlerRequest = ntp_promo.mojom.NtpPromoHandlerPendingReceiver;
 
 
 // Interface: NtpPromoClient
-ntp_promo.mojom.NtpPromoClient = {};
-
-ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp_promo.mojom.NtpPromoClient_SetPromos_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'eligible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ntp_promo.mojom.PromoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'completed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ntp_promo.mojom.PromoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec, 'ntp_promo.mojom.NtpPromoClient_SetPromos_Params', [
+      mojo.internal.StructField('eligible', 0, 0, mojo.internal.Array(ntp_promo.mojom.PromoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('completed', 8, 0, mojo.internal.Array(ntp_promo.mojom.PromoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ntp_promo.mojom.NtpPromoClientPendingReceiver = class {
   constructor(handle) {
@@ -415,42 +263,17 @@ ntp_promo.mojom.NtpPromoClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetPromos
-ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp_promo.mojom.NtpPromoClient.SetPromos_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'eligible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ntp_promo.mojom.PromoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'completed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ntp_promo.mojom.PromoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ntp_promo.mojom.NtpPromoClientPtr = ntp_promo.mojom.NtpPromoClientRemote;
 ntp_promo.mojom.NtpPromoClientRequest = ntp_promo.mojom.NtpPromoClientPendingReceiver;
 
 
 // Interface: NtpPromoHandlerFactory
-ntp_promo.mojom.NtpPromoHandlerFactory = {};
-
-ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ntp_promo.mojom.NtpPromoClientRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ntp_promo.mojom.NtpPromoHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_Params', [
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(ntp_promo.mojom.NtpPromoClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(ntp_promo.mojom.NtpPromoHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ntp_promo.mojom.NtpPromoHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -505,22 +328,6 @@ ntp_promo.mojom.NtpPromoHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateNtpPromoHandler
-ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp_promo.mojom.NtpPromoHandlerFactory.CreateNtpPromoHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ntp_promo.mojom.NtpPromoClientRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ntp_promo.mojom.NtpPromoHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ntp_promo.mojom.NtpPromoHandlerFactoryPtr = ntp_promo.mojom.NtpPromoHandlerFactoryRemote;
 ntp_promo.mojom.NtpPromoHandlerFactoryRequest = ntp_promo.mojom.NtpPromoHandlerFactoryPendingReceiver;
 

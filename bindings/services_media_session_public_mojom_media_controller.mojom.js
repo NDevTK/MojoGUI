@@ -7,49 +7,67 @@
 // Module namespace
 var media_session = media_session || {};
 media_session.mojom = media_session.mojom || {};
+var services = services || {};
 
+media_session.mojom.MediaControllerManager = {};
+media_session.mojom.MediaControllerManager.$interfaceName = 'media_session.mojom.MediaControllerManager';
+media_session.mojom.MediaControllerManager_CreateMediaControllerForSession_ParamsSpec = { $: {} };
+media_session.mojom.MediaControllerManager_CreateActiveMediaController_ParamsSpec = { $: {} };
+media_session.mojom.MediaControllerManager_SuspendAllSessions_ParamsSpec = { $: {} };
+media_session.mojom.MediaController = {};
+media_session.mojom.MediaController.$interfaceName = 'media_session.mojom.MediaController';
+media_session.mojom.MediaController_Suspend_ParamsSpec = { $: {} };
+media_session.mojom.MediaController_Resume_ParamsSpec = { $: {} };
+media_session.mojom.MediaController_Stop_ParamsSpec = { $: {} };
+media_session.mojom.MediaController_ToggleSuspendResume_ParamsSpec = { $: {} };
+media_session.mojom.MediaController_AddObserver_ParamsSpec = { $: {} };
+media_session.mojom.MediaController_PreviousTrack_ParamsSpec = { $: {} };
+media_session.mojom.MediaController_NextTrack_ParamsSpec = { $: {} };
+media_session.mojom.MediaController_Seek_ParamsSpec = { $: {} };
+media_session.mojom.MediaController_ObserveImages_ParamsSpec = { $: {} };
+media_session.mojom.MediaController_SeekTo_ParamsSpec = { $: {} };
+media_session.mojom.MediaController_ScrubTo_ParamsSpec = { $: {} };
+media_session.mojom.MediaController_EnterPictureInPicture_ParamsSpec = { $: {} };
+media_session.mojom.MediaController_ExitPictureInPicture_ParamsSpec = { $: {} };
+media_session.mojom.MediaController_SetAudioSinkId_ParamsSpec = { $: {} };
+media_session.mojom.MediaController_ToggleMicrophone_ParamsSpec = { $: {} };
+media_session.mojom.MediaController_ToggleCamera_ParamsSpec = { $: {} };
+media_session.mojom.MediaController_HangUp_ParamsSpec = { $: {} };
+media_session.mojom.MediaController_Raise_ParamsSpec = { $: {} };
+media_session.mojom.MediaController_SetMute_ParamsSpec = { $: {} };
+media_session.mojom.MediaController_RequestMediaRemoting_ParamsSpec = { $: {} };
+media_session.mojom.MediaController_EnterAutoPictureInPicture_ParamsSpec = { $: {} };
+media_session.mojom.MediaController_SkipAd_ParamsSpec = { $: {} };
+media_session.mojom.MediaControllerObserver = {};
+media_session.mojom.MediaControllerObserver.$interfaceName = 'media_session.mojom.MediaControllerObserver';
+media_session.mojom.MediaControllerObserver_MediaSessionInfoChanged_ParamsSpec = { $: {} };
+media_session.mojom.MediaControllerObserver_MediaSessionMetadataChanged_ParamsSpec = { $: {} };
+media_session.mojom.MediaControllerObserver_MediaSessionActionsChanged_ParamsSpec = { $: {} };
+media_session.mojom.MediaControllerObserver_MediaSessionChanged_ParamsSpec = { $: {} };
+media_session.mojom.MediaControllerObserver_MediaSessionPositionChanged_ParamsSpec = { $: {} };
+media_session.mojom.MediaControllerImageObserver = {};
+media_session.mojom.MediaControllerImageObserver.$interfaceName = 'media_session.mojom.MediaControllerImageObserver';
+media_session.mojom.MediaControllerImageObserver_MediaControllerImageChanged_ParamsSpec = { $: {} };
+media_session.mojom.MediaControllerImageObserver_MediaControllerChapterImageChanged_ParamsSpec = { $: {} };
 
 // Interface: MediaControllerManager
-media_session.mojom.MediaControllerManager = {};
+mojo.internal.Struct(
+    media_session.mojom.MediaControllerManager_CreateMediaControllerForSession_ParamsSpec, 'media_session.mojom.MediaControllerManager_CreateMediaControllerForSession_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(media_session.mojom.MediaControllerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('request_id', 8, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media_session.mojom.MediaControllerManager_CreateMediaControllerForSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaControllerManager_CreateMediaControllerForSession_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_session.mojom.MediaControllerRemote), nullable: false, minVersion: 0 },
-        { name: 'request_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_session.mojom.MediaControllerManager_CreateActiveMediaController_ParamsSpec, 'media_session.mojom.MediaControllerManager_CreateActiveMediaController_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(media_session.mojom.MediaControllerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media_session.mojom.MediaControllerManager_CreateActiveMediaController_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaControllerManager_CreateActiveMediaController_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_session.mojom.MediaControllerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-media_session.mojom.MediaControllerManager_SuspendAllSessions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaControllerManager_SuspendAllSessions_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_session.mojom.MediaControllerManager_SuspendAllSessions_ParamsSpec, 'media_session.mojom.MediaControllerManager_SuspendAllSessions_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 media_session.mojom.MediaControllerManagerPendingReceiver = class {
   constructor(handle) {
@@ -122,329 +140,130 @@ media_session.mojom.MediaControllerManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateMediaControllerForSession
-media_session.mojom.MediaControllerManager_CreateMediaControllerForSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaControllerManager.CreateMediaControllerForSession_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_session.mojom.MediaControllerRemote), nullable: false, minVersion: 0 },
-        { name: 'request_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for CreateActiveMediaController
-media_session.mojom.MediaControllerManager_CreateActiveMediaController_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaControllerManager.CreateActiveMediaController_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_session.mojom.MediaControllerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SuspendAllSessions
-media_session.mojom.MediaControllerManager_SuspendAllSessions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaControllerManager.SuspendAllSessions_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 media_session.mojom.MediaControllerManagerPtr = media_session.mojom.MediaControllerManagerRemote;
 media_session.mojom.MediaControllerManagerRequest = media_session.mojom.MediaControllerManagerPendingReceiver;
 
 
 // Interface: MediaController
-media_session.mojom.MediaController = {};
+mojo.internal.Struct(
+    media_session.mojom.MediaController_Suspend_ParamsSpec, 'media_session.mojom.MediaController_Suspend_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media_session.mojom.MediaController_Suspend_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController_Suspend_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_session.mojom.MediaController_Resume_ParamsSpec, 'media_session.mojom.MediaController_Resume_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media_session.mojom.MediaController_Resume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController_Resume_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_session.mojom.MediaController_Stop_ParamsSpec, 'media_session.mojom.MediaController_Stop_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media_session.mojom.MediaController_Stop_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController_Stop_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_session.mojom.MediaController_ToggleSuspendResume_ParamsSpec, 'media_session.mojom.MediaController_ToggleSuspendResume_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media_session.mojom.MediaController_ToggleSuspendResume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController_ToggleSuspendResume_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_session.mojom.MediaController_AddObserver_ParamsSpec, 'media_session.mojom.MediaController_AddObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(media_session.mojom.MediaControllerObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media_session.mojom.MediaController_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController_AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media_session.mojom.MediaControllerObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_session.mojom.MediaController_PreviousTrack_ParamsSpec, 'media_session.mojom.MediaController_PreviousTrack_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media_session.mojom.MediaController_PreviousTrack_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController_PreviousTrack_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_session.mojom.MediaController_NextTrack_ParamsSpec, 'media_session.mojom.MediaController_NextTrack_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media_session.mojom.MediaController_NextTrack_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController_NextTrack_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_session.mojom.MediaController_Seek_ParamsSpec, 'media_session.mojom.MediaController_Seek_Params', [
+      mojo.internal.StructField('seek_time', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media_session.mojom.MediaController_Seek_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController_Seek_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_session.mojom.MediaController_ObserveImages_ParamsSpec, 'media_session.mojom.MediaController_ObserveImages_Params', [
+      mojo.internal.StructField('type', 8, 0, media_session.mojom.MediaSessionImageTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('minimum_size_px', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('desired_size_px', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(media_session.mojom.MediaControllerImageObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-media_session.mojom.MediaController_ObserveImages_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController_ObserveImages_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: media_session.mojom.MediaSessionImageTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'minimum_size_px', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'desired_size_px', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media_session.mojom.MediaControllerImageObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_session.mojom.MediaController_SeekTo_ParamsSpec, 'media_session.mojom.MediaController_SeekTo_Params', [
+      mojo.internal.StructField('seek_time', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media_session.mojom.MediaController_SeekTo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController_SeekTo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_session.mojom.MediaController_ScrubTo_ParamsSpec, 'media_session.mojom.MediaController_ScrubTo_Params', [
+      mojo.internal.StructField('seek_time', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media_session.mojom.MediaController_ScrubTo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController_ScrubTo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_session.mojom.MediaController_EnterPictureInPicture_ParamsSpec, 'media_session.mojom.MediaController_EnterPictureInPicture_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media_session.mojom.MediaController_EnterPictureInPicture_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController_EnterPictureInPicture_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_session.mojom.MediaController_ExitPictureInPicture_ParamsSpec, 'media_session.mojom.MediaController_ExitPictureInPicture_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media_session.mojom.MediaController_ExitPictureInPicture_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController_ExitPictureInPicture_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_session.mojom.MediaController_SetAudioSinkId_ParamsSpec, 'media_session.mojom.MediaController_SetAudioSinkId_Params', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media_session.mojom.MediaController_SetAudioSinkId_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController_SetAudioSinkId_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_session.mojom.MediaController_ToggleMicrophone_ParamsSpec, 'media_session.mojom.MediaController_ToggleMicrophone_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media_session.mojom.MediaController_ToggleMicrophone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController_ToggleMicrophone_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_session.mojom.MediaController_ToggleCamera_ParamsSpec, 'media_session.mojom.MediaController_ToggleCamera_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media_session.mojom.MediaController_ToggleCamera_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController_ToggleCamera_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_session.mojom.MediaController_HangUp_ParamsSpec, 'media_session.mojom.MediaController_HangUp_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media_session.mojom.MediaController_HangUp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController_HangUp_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_session.mojom.MediaController_Raise_ParamsSpec, 'media_session.mojom.MediaController_Raise_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media_session.mojom.MediaController_Raise_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController_Raise_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_session.mojom.MediaController_SetMute_ParamsSpec, 'media_session.mojom.MediaController_SetMute_Params', [
+      mojo.internal.StructField('mute', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media_session.mojom.MediaController_SetMute_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController_SetMute_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mute', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_session.mojom.MediaController_RequestMediaRemoting_ParamsSpec, 'media_session.mojom.MediaController_RequestMediaRemoting_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media_session.mojom.MediaController_RequestMediaRemoting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController_RequestMediaRemoting_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_session.mojom.MediaController_EnterAutoPictureInPicture_ParamsSpec, 'media_session.mojom.MediaController_EnterAutoPictureInPicture_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media_session.mojom.MediaController_EnterAutoPictureInPicture_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController_EnterAutoPictureInPicture_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-media_session.mojom.MediaController_SkipAd_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController_SkipAd_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_session.mojom.MediaController_SkipAd_ParamsSpec, 'media_session.mojom.MediaController_SkipAd_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 media_session.mojom.MediaControllerPendingReceiver = class {
   constructor(handle) {
@@ -688,374 +507,40 @@ media_session.mojom.MediaController.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Suspend
-media_session.mojom.MediaController_Suspend_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController.Suspend_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Resume
-media_session.mojom.MediaController_Resume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController.Resume_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Stop
-media_session.mojom.MediaController_Stop_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController.Stop_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ToggleSuspendResume
-media_session.mojom.MediaController_ToggleSuspendResume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController.ToggleSuspendResume_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for AddObserver
-media_session.mojom.MediaController_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController.AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media_session.mojom.MediaControllerObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for PreviousTrack
-media_session.mojom.MediaController_PreviousTrack_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController.PreviousTrack_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for NextTrack
-media_session.mojom.MediaController_NextTrack_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController.NextTrack_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Seek
-media_session.mojom.MediaController_Seek_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController.Seek_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ObserveImages
-media_session.mojom.MediaController_ObserveImages_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController.ObserveImages_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: media_session.mojom.MediaSessionImageTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'minimum_size_px', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'desired_size_px', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media_session.mojom.MediaControllerImageObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for SeekTo
-media_session.mojom.MediaController_SeekTo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController.SeekTo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ScrubTo
-media_session.mojom.MediaController_ScrubTo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController.ScrubTo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'seek_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EnterPictureInPicture
-media_session.mojom.MediaController_EnterPictureInPicture_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController.EnterPictureInPicture_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ExitPictureInPicture
-media_session.mojom.MediaController_ExitPictureInPicture_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController.ExitPictureInPicture_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetAudioSinkId
-media_session.mojom.MediaController_SetAudioSinkId_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController.SetAudioSinkId_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ToggleMicrophone
-media_session.mojom.MediaController_ToggleMicrophone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController.ToggleMicrophone_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ToggleCamera
-media_session.mojom.MediaController_ToggleCamera_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController.ToggleCamera_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for HangUp
-media_session.mojom.MediaController_HangUp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController.HangUp_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Raise
-media_session.mojom.MediaController_Raise_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController.Raise_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetMute
-media_session.mojom.MediaController_SetMute_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController.SetMute_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mute', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestMediaRemoting
-media_session.mojom.MediaController_RequestMediaRemoting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController.RequestMediaRemoting_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for EnterAutoPictureInPicture
-media_session.mojom.MediaController_EnterAutoPictureInPicture_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController.EnterAutoPictureInPicture_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SkipAd
-media_session.mojom.MediaController_SkipAd_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaController.SkipAd_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 media_session.mojom.MediaControllerPtr = media_session.mojom.MediaControllerRemote;
 media_session.mojom.MediaControllerRequest = media_session.mojom.MediaControllerPendingReceiver;
 
 
 // Interface: MediaControllerObserver
-media_session.mojom.MediaControllerObserver = {};
+mojo.internal.Struct(
+    media_session.mojom.MediaControllerObserver_MediaSessionInfoChanged_ParamsSpec, 'media_session.mojom.MediaControllerObserver_MediaSessionInfoChanged_Params', [
+      mojo.internal.StructField('info', 0, 0, media_session.mojom.MediaSessionInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media_session.mojom.MediaControllerObserver_MediaSessionInfoChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaControllerObserver_MediaSessionInfoChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaSessionInfoSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_session.mojom.MediaControllerObserver_MediaSessionMetadataChanged_ParamsSpec, 'media_session.mojom.MediaControllerObserver_MediaSessionMetadataChanged_Params', [
+      mojo.internal.StructField('metadata', 0, 0, media_session.mojom.MediaMetadataSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media_session.mojom.MediaControllerObserver_MediaSessionMetadataChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaControllerObserver_MediaSessionMetadataChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaMetadataSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_session.mojom.MediaControllerObserver_MediaSessionActionsChanged_ParamsSpec, 'media_session.mojom.MediaControllerObserver_MediaSessionActionsChanged_Params', [
+      mojo.internal.StructField('action', 0, 0, mojo.internal.Array(media_session.mojom.MediaSessionActionSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media_session.mojom.MediaControllerObserver_MediaSessionActionsChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaControllerObserver_MediaSessionActionsChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media_session.mojom.MediaSessionActionSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_session.mojom.MediaControllerObserver_MediaSessionChanged_ParamsSpec, 'media_session.mojom.MediaControllerObserver_MediaSessionChanged_Params', [
+      mojo.internal.StructField('request_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media_session.mojom.MediaControllerObserver_MediaSessionChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaControllerObserver_MediaSessionChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-media_session.mojom.MediaControllerObserver_MediaSessionPositionChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaControllerObserver_MediaSessionPositionChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaPositionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_session.mojom.MediaControllerObserver_MediaSessionPositionChanged_ParamsSpec, 'media_session.mojom.MediaControllerObserver_MediaSessionPositionChanged_Params', [
+      mojo.internal.StructField('position', 0, 0, media_session.mojom.MediaPositionSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media_session.mojom.MediaControllerObserverPendingReceiver = class {
   constructor(handle) {
@@ -1146,111 +631,24 @@ media_session.mojom.MediaControllerObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for MediaSessionInfoChanged
-media_session.mojom.MediaControllerObserver_MediaSessionInfoChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaControllerObserver.MediaSessionInfoChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaSessionInfoSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for MediaSessionMetadataChanged
-media_session.mojom.MediaControllerObserver_MediaSessionMetadataChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaControllerObserver.MediaSessionMetadataChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaMetadataSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for MediaSessionActionsChanged
-media_session.mojom.MediaControllerObserver_MediaSessionActionsChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaControllerObserver.MediaSessionActionsChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media_session.mojom.MediaSessionActionSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for MediaSessionChanged
-media_session.mojom.MediaControllerObserver_MediaSessionChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaControllerObserver.MediaSessionChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for MediaSessionPositionChanged
-media_session.mojom.MediaControllerObserver_MediaSessionPositionChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaControllerObserver.MediaSessionPositionChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaPositionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media_session.mojom.MediaControllerObserverPtr = media_session.mojom.MediaControllerObserverRemote;
 media_session.mojom.MediaControllerObserverRequest = media_session.mojom.MediaControllerObserverPendingReceiver;
 
 
 // Interface: MediaControllerImageObserver
-media_session.mojom.MediaControllerImageObserver = {};
+mojo.internal.Struct(
+    media_session.mojom.MediaControllerImageObserver_MediaControllerImageChanged_ParamsSpec, 'media_session.mojom.MediaControllerImageObserver_MediaControllerImageChanged_Params', [
+      mojo.internal.StructField('type', 8, 0, media_session.mojom.MediaSessionImageTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bitmap', 0, 0, media_session.mojom.MediaImageBitmapSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media_session.mojom.MediaControllerImageObserver_MediaControllerImageChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaControllerImageObserver_MediaControllerImageChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: media_session.mojom.MediaSessionImageTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaImageBitmapSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-media_session.mojom.MediaControllerImageObserver_MediaControllerChapterImageChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaControllerImageObserver_MediaControllerChapterImageChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaImageBitmapSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_session.mojom.MediaControllerImageObserver_MediaControllerChapterImageChanged_ParamsSpec, 'media_session.mojom.MediaControllerImageObserver_MediaControllerChapterImageChanged_Params', [
+      mojo.internal.StructField('index', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('bitmap', 0, 0, media_session.mojom.MediaImageBitmapSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 media_session.mojom.MediaControllerImageObserverPendingReceiver = class {
   constructor(handle) {
@@ -1314,37 +712,6 @@ media_session.mojom.MediaControllerImageObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for MediaControllerImageChanged
-media_session.mojom.MediaControllerImageObserver_MediaControllerImageChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaControllerImageObserver.MediaControllerImageChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: media_session.mojom.MediaSessionImageTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaImageBitmapSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for MediaControllerChapterImageChanged
-media_session.mojom.MediaControllerImageObserver_MediaControllerChapterImageChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaControllerImageObserver.MediaControllerChapterImageChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaImageBitmapSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 media_session.mojom.MediaControllerImageObserverPtr = media_session.mojom.MediaControllerImageObserverRemote;
 media_session.mojom.MediaControllerImageObserverRequest = media_session.mojom.MediaControllerImageObserverPendingReceiver;
 

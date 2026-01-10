@@ -7,97 +7,56 @@
 // Module namespace
 var media_router = media_router || {};
 media_router.mojom = media_router.mojom || {};
+var components = components || {};
 
+media_router.mojom.MediaController = {};
+media_router.mojom.MediaController.$interfaceName = 'media_router.mojom.MediaController';
+media_router.mojom.MediaController_Play_ParamsSpec = { $: {} };
+media_router.mojom.MediaController_Pause_ParamsSpec = { $: {} };
+media_router.mojom.MediaController_SetMute_ParamsSpec = { $: {} };
+media_router.mojom.MediaController_SetVolume_ParamsSpec = { $: {} };
+media_router.mojom.MediaController_Seek_ParamsSpec = { $: {} };
+media_router.mojom.MediaController_NextTrack_ParamsSpec = { $: {} };
+media_router.mojom.MediaController_PreviousTrack_ParamsSpec = { $: {} };
 
 // Interface: MediaController
-media_router.mojom.MediaController = {};
+mojo.internal.Struct(
+    media_router.mojom.MediaController_Play_ParamsSpec, 'media_router.mojom.MediaController_Play_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media_router.mojom.MediaController_Play_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaController_Play_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaController_Pause_ParamsSpec, 'media_router.mojom.MediaController_Pause_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media_router.mojom.MediaController_Pause_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaController_Pause_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaController_SetMute_ParamsSpec, 'media_router.mojom.MediaController_SetMute_Params', [
+      mojo.internal.StructField('mute', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media_router.mojom.MediaController_SetMute_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaController_SetMute_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mute', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaController_SetVolume_ParamsSpec, 'media_router.mojom.MediaController_SetVolume_Params', [
+      mojo.internal.StructField('volume', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media_router.mojom.MediaController_SetVolume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaController_SetVolume_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaController_Seek_ParamsSpec, 'media_router.mojom.MediaController_Seek_Params', [
+      mojo.internal.StructField('time', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media_router.mojom.MediaController_Seek_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaController_Seek_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaController_NextTrack_ParamsSpec, 'media_router.mojom.MediaController_NextTrack_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media_router.mojom.MediaController_NextTrack_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaController_NextTrack_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-media_router.mojom.MediaController_PreviousTrack_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaController_PreviousTrack_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaController_PreviousTrack_ParamsSpec, 'media_router.mojom.MediaController_PreviousTrack_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 media_router.mojom.MediaControllerPendingReceiver = class {
   constructor(handle) {
@@ -206,101 +165,6 @@ media_router.mojom.MediaController.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Play
-media_router.mojom.MediaController_Play_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaController.Play_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Pause
-media_router.mojom.MediaController_Pause_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaController.Pause_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetMute
-media_router.mojom.MediaController_SetMute_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaController.SetMute_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mute', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetVolume
-media_router.mojom.MediaController_SetVolume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaController.SetVolume_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Seek
-media_router.mojom.MediaController_Seek_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaController.Seek_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for NextTrack
-media_router.mojom.MediaController_NextTrack_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaController.NextTrack_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for PreviousTrack
-media_router.mojom.MediaController_PreviousTrack_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaController.PreviousTrack_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 media_router.mojom.MediaControllerPtr = media_router.mojom.MediaControllerRemote;
 media_router.mojom.MediaControllerRequest = media_router.mojom.MediaControllerPendingReceiver;
 

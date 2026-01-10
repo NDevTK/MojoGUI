@@ -9,33 +9,28 @@ var ash = ash || {};
 ash.growth = ash.growth || {};
 ash.growth.mojom = ash.growth.mojom || {};
 
+ash.growth.mojom.PageHandler = {};
+ash.growth.mojom.PageHandler.$interfaceName = 'ash.growth.mojom.PageHandler';
+ash.growth.mojom.PageHandler_GetCampaignsLogs_ParamsSpec = { $: {} };
+ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec = { $: {} };
+ash.growth.mojom.PageHandler_ClearAllEvents_ParamsSpec = { $: {} };
 
 // Interface: PageHandler
-ash.growth.mojom.PageHandler = {};
+mojo.internal.Struct(
+    ash.growth.mojom.PageHandler_GetCampaignsLogs_ParamsSpec, 'ash.growth.mojom.PageHandler_GetCampaignsLogs_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.growth.mojom.PageHandler_GetCampaignsLogs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.growth.mojom.PageHandler_GetCampaignsLogs_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec, 'ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParams', [
+      mojo.internal.StructField('logs', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.growth.mojom.PageHandler_ClearAllEvents_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.growth.mojom.PageHandler_ClearAllEvents_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.growth.mojom.PageHandler_ClearAllEvents_ParamsSpec, 'ash.growth.mojom.PageHandler_ClearAllEvents_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.growth.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -99,46 +94,6 @@ ash.growth.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetCampaignsLogs
-ash.growth.mojom.PageHandler_GetCampaignsLogs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.growth.mojom.PageHandler.GetCampaignsLogs_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.growth.mojom.PageHandler.GetCampaignsLogs_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'logs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ClearAllEvents
-ash.growth.mojom.PageHandler_ClearAllEvents_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.growth.mojom.PageHandler.ClearAllEvents_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.growth.mojom.PageHandlerPtr = ash.growth.mojom.PageHandlerRemote;
 ash.growth.mojom.PageHandlerRequest = ash.growth.mojom.PageHandlerPendingReceiver;
 

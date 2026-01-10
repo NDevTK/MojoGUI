@@ -7,31 +7,26 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var services = services || {};
 var ui = ui || {};
 var gfx = gfx || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+viz.mojom.FrameTimingDetailsSpec = { $: {} };
 
 // Struct: FrameTimingDetails
-viz.mojom.FrameTimingDetailsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.FrameTimingDetails',
-      packedSize: 88,
-      fields: [
-        { name: 'received_compositor_frame_timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'embedded_frame_timestamp', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'draw_start_timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'swap_timings', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SwapTimingsSpec, nullable: false, minVersion: 0 },
-        { name: 'presentation_feedback', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.PresentationFeedbackSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_id', packedOffset: 40, packedBitOffset: 0, type: viz.mojom.BeginFrameIdSpec, nullable: false, minVersion: 0 },
-        { name: 'start_update_display_tree', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'start_prepare_to_draw', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'start_draw_layers', packedOffset: 64, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'submit_compositor_frame', packedOffset: 72, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 88}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.FrameTimingDetailsSpec, 'viz.mojom.FrameTimingDetails', [
+      mojo.internal.StructField('received_compositor_frame_timestamp', 0, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('embedded_frame_timestamp', 8, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('draw_start_timestamp', 16, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('swap_timings', 24, 0, gfx.mojom.SwapTimingsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('presentation_feedback', 32, 0, gfx.mojom.PresentationFeedbackSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_id', 40, 0, viz.mojom.BeginFrameIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('start_update_display_tree', 48, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('start_prepare_to_draw', 56, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('start_draw_layers', 64, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('submit_compositor_frame', 72, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+    ],
+    [[0, 88]]);

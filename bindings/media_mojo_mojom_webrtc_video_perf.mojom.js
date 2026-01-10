@@ -8,56 +8,42 @@
 var media = media || {};
 media.mojom = media.mojom || {};
 
+media.mojom.WebrtcPredictionFeaturesSpec = { $: {} };
+media.mojom.WebrtcVideoStatsSpec = { $: {} };
+media.mojom.WebrtcVideoPerfRecorder = {};
+media.mojom.WebrtcVideoPerfRecorder.$interfaceName = 'media.mojom.WebrtcVideoPerfRecorder';
+media.mojom.WebrtcVideoPerfRecorder_UpdateRecord_ParamsSpec = { $: {} };
+media.mojom.WebrtcVideoPerfHistory = {};
+media.mojom.WebrtcVideoPerfHistory.$interfaceName = 'media.mojom.WebrtcVideoPerfHistory';
+media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ParamsSpec = { $: {} };
+media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParamsSpec = { $: {} };
 
 // Struct: WebrtcPredictionFeatures
-media.mojom.WebrtcPredictionFeaturesSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.WebrtcPredictionFeatures',
-      packedSize: 24,
-      fields: [
-        { name: 'is_decode_stats', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCodecProfileSpec, nullable: false, minVersion: 0 },
-        { name: 'video_pixels', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'hardware_accelerated', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.WebrtcPredictionFeaturesSpec, 'media.mojom.WebrtcPredictionFeatures', [
+      mojo.internal.StructField('is_decode_stats', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('profile', 0, 0, media.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('video_pixels', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('hardware_accelerated', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: WebrtcVideoStats
-media.mojom.WebrtcVideoStatsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.WebrtcVideoStats',
-      packedSize: 24,
-      fields: [
-        { name: 'frames_processed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'key_frames_processed', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'p99_processing_time_ms', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.WebrtcVideoStatsSpec, 'media.mojom.WebrtcVideoStats', [
+      mojo.internal.StructField('frames_processed', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('key_frames_processed', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('p99_processing_time_ms', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: WebrtcVideoPerfRecorder
-media.mojom.WebrtcVideoPerfRecorder = {};
-
-media.mojom.WebrtcVideoPerfRecorder_UpdateRecord_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.WebrtcVideoPerfRecorder_UpdateRecord_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: media.mojom.WebrtcPredictionFeaturesSpec, nullable: false, minVersion: 0 },
-        { name: 'video_stats', packedOffset: 8, packedBitOffset: 0, type: media.mojom.WebrtcVideoStatsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.WebrtcVideoPerfRecorder_UpdateRecord_ParamsSpec, 'media.mojom.WebrtcVideoPerfRecorder_UpdateRecord_Params', [
+      mojo.internal.StructField('features', 0, 0, media.mojom.WebrtcPredictionFeaturesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('video_stats', 8, 0, media.mojom.WebrtcVideoStatsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 media.mojom.WebrtcVideoPerfRecorderPendingReceiver = class {
   constructor(handle) {
@@ -112,42 +98,23 @@ media.mojom.WebrtcVideoPerfRecorder.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for UpdateRecord
-media.mojom.WebrtcVideoPerfRecorder_UpdateRecord_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.WebrtcVideoPerfRecorder.UpdateRecord_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: media.mojom.WebrtcPredictionFeaturesSpec, nullable: false, minVersion: 0 },
-        { name: 'video_stats', packedOffset: 8, packedBitOffset: 0, type: media.mojom.WebrtcVideoStatsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.WebrtcVideoPerfRecorderPtr = media.mojom.WebrtcVideoPerfRecorderRemote;
 media.mojom.WebrtcVideoPerfRecorderRequest = media.mojom.WebrtcVideoPerfRecorderPendingReceiver;
 
 
 // Interface: WebrtcVideoPerfHistory
-media.mojom.WebrtcVideoPerfHistory = {};
+mojo.internal.Struct(
+    media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ParamsSpec, 'media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_Params', [
+      mojo.internal.StructField('features', 0, 0, media.mojom.WebrtcPredictionFeaturesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frames_per_second', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: media.mojom.WebrtcPredictionFeaturesSpec, nullable: false, minVersion: 0 },
-        { name: 'frames_per_second', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParamsSpec, 'media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParams', [
+      mojo.internal.StructField('is_smooth', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.WebrtcVideoPerfHistoryPendingReceiver = class {
   constructor(handle) {
@@ -202,35 +169,6 @@ media.mojom.WebrtcVideoPerfHistory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetPerfInfo
-media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.WebrtcVideoPerfHistory.GetPerfInfo_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: media.mojom.WebrtcPredictionFeaturesSpec, nullable: false, minVersion: 0 },
-        { name: 'frames_per_second', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.WebrtcVideoPerfHistory.GetPerfInfo_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'is_smooth', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.WebrtcVideoPerfHistoryPtr = media.mojom.WebrtcVideoPerfHistoryRemote;
 media.mojom.WebrtcVideoPerfHistoryRequest = media.mojom.WebrtcVideoPerfHistoryPendingReceiver;
 

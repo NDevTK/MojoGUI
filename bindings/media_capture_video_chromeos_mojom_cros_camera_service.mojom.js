@@ -7,7 +7,53 @@
 // Module namespace
 var cros = cros || {};
 cros.mojom = cros.mojom || {};
+var components = components || {};
+var components = components || {};
+var chromeos = chromeos || {};
+var chromeos = chromeos || {};
+var chromeos = chromeos || {};
 
+cros.mojom.CameraClientTypeSpec = { $: mojo.internal.Enum() };
+cros.mojom.CameraPrivacySwitchStateSpec = { $: mojo.internal.Enum() };
+cros.mojom.CameraAutoFramingStateSpec = { $: mojo.internal.Enum() };
+cros.mojom.KioskVisionErrorSpec = { $: mojo.internal.Enum() };
+cros.mojom.KioskVisionDetectionSpec = { $: {} };
+cros.mojom.KioskVisionTrackSpec = { $: {} };
+cros.mojom.KioskVisionAppearanceSpec = { $: {} };
+cros.mojom.KioskVisionFaceDetectionSpec = { $: {} };
+cros.mojom.KioskVisionBodyDetectionSpec = { $: {} };
+cros.mojom.KioskVisionBoundingBoxSpec = { $: {} };
+cros.mojom.KioskVisionObserver = {};
+cros.mojom.KioskVisionObserver.$interfaceName = 'cros.mojom.KioskVisionObserver';
+cros.mojom.KioskVisionObserver_OnFrameProcessed_ParamsSpec = { $: {} };
+cros.mojom.KioskVisionObserver_OnTrackCompleted_ParamsSpec = { $: {} };
+cros.mojom.KioskVisionObserver_OnError_ParamsSpec = { $: {} };
+cros.mojom.CameraHalDispatcher = {};
+cros.mojom.CameraHalDispatcher.$interfaceName = 'cros.mojom.CameraHalDispatcher';
+cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ParamsSpec = { $: {} };
+cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ResponseParamsSpec = { $: {} };
+cros.mojom.CrosCameraServiceObserver = {};
+cros.mojom.CrosCameraServiceObserver.$interfaceName = 'cros.mojom.CrosCameraServiceObserver';
+cros.mojom.CrosCameraServiceObserver_CameraDeviceActivityChange_ParamsSpec = { $: {} };
+cros.mojom.CrosCameraServiceObserver_CameraPrivacySwitchStateChange_ParamsSpec = { $: {} };
+cros.mojom.CrosCameraServiceObserver_CameraSWPrivacySwitchStateChange_ParamsSpec = { $: {} };
+cros.mojom.CrosCameraServiceObserver_CameraEffectChange_ParamsSpec = { $: {} };
+cros.mojom.CrosCameraServiceObserver_AutoFramingStateChange_ParamsSpec = { $: {} };
+cros.mojom.CrosCameraService = {};
+cros.mojom.CrosCameraService.$interfaceName = 'cros.mojom.CrosCameraService';
+cros.mojom.CrosCameraService_GetCameraModule_ParamsSpec = { $: {} };
+cros.mojom.CrosCameraService_GetCameraModule_ResponseParamsSpec = { $: {} };
+cros.mojom.CrosCameraService_SetTracingEnabled_ParamsSpec = { $: {} };
+cros.mojom.CrosCameraService_SetAutoFramingState_ParamsSpec = { $: {} };
+cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ParamsSpec = { $: {} };
+cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ResponseParamsSpec = { $: {} };
+cros.mojom.CrosCameraService_SetCameraSWPrivacySwitchState_ParamsSpec = { $: {} };
+cros.mojom.CrosCameraService_GetAutoFramingSupported_ParamsSpec = { $: {} };
+cros.mojom.CrosCameraService_GetAutoFramingSupported_ResponseParamsSpec = { $: {} };
+cros.mojom.CrosCameraService_SetCameraEffect_ParamsSpec = { $: {} };
+cros.mojom.CrosCameraService_SetCameraEffect_ResponseParamsSpec = { $: {} };
+cros.mojom.CrosCameraService_AddCrosCameraServiceObserver_ParamsSpec = { $: {} };
+cros.mojom.CrosCameraService_StartKioskVisionDetection_ParamsSpec = { $: {} };
 
 // Enum: CameraClientType
 cros.mojom.CameraClientType = {
@@ -18,7 +64,6 @@ cros.mojom.CameraClientType = {
   PLUGINVM: 4,
   ASH_CHROME: 5,
 };
-cros.mojom.CameraClientTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CameraPrivacySwitchState
 cros.mojom.CameraPrivacySwitchState = {
@@ -26,162 +71,96 @@ cros.mojom.CameraPrivacySwitchState = {
   ON: 1,
   OFF: 2,
 };
-cros.mojom.CameraPrivacySwitchStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: CameraAutoFramingState
 cros.mojom.CameraAutoFramingState = {
-  ON_SINGLE: 0,
-  ON_MULTI: 1,
+  OFF: 0,
+  ON_SINGLE: 1,
+  ON_MULTI: 2,
 };
-cros.mojom.CameraAutoFramingStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: KioskVisionError
 cros.mojom.KioskVisionError = {
-  DLC_ERROR: 0,
-  MODEL_ERROR: 1,
+  UNKNOWN: 0,
+  DLC_ERROR: 1,
+  MODEL_ERROR: 2,
 };
-cros.mojom.KioskVisionErrorSpec = { $: mojo.internal.Enum() };
 
 // Struct: KioskVisionDetection
-cros.mojom.KioskVisionDetectionSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.KioskVisionDetection',
-      packedSize: 24,
-      fields: [
-        { name: 'timestamp_in_us', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'appearances', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(cros.mojom.KioskVisionAppearanceSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.KioskVisionDetectionSpec, 'cros.mojom.KioskVisionDetection', [
+      mojo.internal.StructField('timestamp_in_us', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('appearances', 8, 0, mojo.internal.Array(cros.mojom.KioskVisionAppearanceSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: KioskVisionTrack
-cros.mojom.KioskVisionTrackSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.KioskVisionTrack',
-      packedSize: 40,
-      fields: [
-        { name: 'person_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'start_timestamp_in_us', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'end_timestamp_in_us', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'appearances', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(cros.mojom.KioskVisionAppearanceSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.KioskVisionTrackSpec, 'cros.mojom.KioskVisionTrack', [
+      mojo.internal.StructField('person_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('start_timestamp_in_us', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('end_timestamp_in_us', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('appearances', 16, 0, mojo.internal.Array(cros.mojom.KioskVisionAppearanceSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: KioskVisionAppearance
-cros.mojom.KioskVisionAppearanceSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.KioskVisionAppearance',
-      packedSize: 40,
-      fields: [
-        { name: 'timestamp_in_us', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'person_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'face', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.KioskVisionFaceDetectionSpec, nullable: true, minVersion: 0 },
-        { name: 'body', packedOffset: 16, packedBitOffset: 0, type: cros.mojom.KioskVisionBodyDetectionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.KioskVisionAppearanceSpec, 'cros.mojom.KioskVisionAppearance', [
+      mojo.internal.StructField('timestamp_in_us', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('person_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('face', 8, 0, cros.mojom.KioskVisionFaceDetectionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('body', 16, 0, cros.mojom.KioskVisionBodyDetectionSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: KioskVisionFaceDetection
-cros.mojom.KioskVisionFaceDetectionSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.KioskVisionFaceDetection',
-      packedSize: 40,
-      fields: [
-        { name: 'confidence', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'roll', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'pan', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'tilt', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'box', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.KioskVisionBoundingBoxSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.KioskVisionFaceDetectionSpec, 'cros.mojom.KioskVisionFaceDetection', [
+      mojo.internal.StructField('confidence', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('roll', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('pan', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('tilt', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('box', 8, 0, cros.mojom.KioskVisionBoundingBoxSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: KioskVisionBodyDetection
-cros.mojom.KioskVisionBodyDetectionSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.KioskVisionBodyDetection',
-      packedSize: 24,
-      fields: [
-        { name: 'confidence', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'box', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.KioskVisionBoundingBoxSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.KioskVisionBodyDetectionSpec, 'cros.mojom.KioskVisionBodyDetection', [
+      mojo.internal.StructField('confidence', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('box', 8, 0, cros.mojom.KioskVisionBoundingBoxSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: KioskVisionBoundingBox
-cros.mojom.KioskVisionBoundingBoxSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.KioskVisionBoundingBox',
-      packedSize: 24,
-      fields: [
-        { name: 'x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'y', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'width', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'height', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.KioskVisionBoundingBoxSpec, 'cros.mojom.KioskVisionBoundingBox', [
+      mojo.internal.StructField('x', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('y', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('width', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('height', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: KioskVisionObserver
-cros.mojom.KioskVisionObserver = {};
+mojo.internal.Struct(
+    cros.mojom.KioskVisionObserver_OnFrameProcessed_ParamsSpec, 'cros.mojom.KioskVisionObserver_OnFrameProcessed_Params', [
+      mojo.internal.StructField('detection', 0, 0, cros.mojom.KioskVisionDetectionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-cros.mojom.KioskVisionObserver_OnFrameProcessed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.KioskVisionObserver_OnFrameProcessed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'detection', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.KioskVisionDetectionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.KioskVisionObserver_OnTrackCompleted_ParamsSpec, 'cros.mojom.KioskVisionObserver_OnTrackCompleted_Params', [
+      mojo.internal.StructField('track', 0, 0, cros.mojom.KioskVisionTrackSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-cros.mojom.KioskVisionObserver_OnTrackCompleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.KioskVisionObserver_OnTrackCompleted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'track', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.KioskVisionTrackSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-cros.mojom.KioskVisionObserver_OnError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.KioskVisionObserver_OnError_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.KioskVisionErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.KioskVisionObserver_OnError_ParamsSpec, 'cros.mojom.KioskVisionObserver_OnError_Params', [
+      mojo.internal.StructField('error', 0, 0, cros.mojom.KioskVisionErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 cros.mojom.KioskVisionObserverPendingReceiver = class {
   constructor(handle) {
@@ -254,70 +233,24 @@ cros.mojom.KioskVisionObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnFrameProcessed
-cros.mojom.KioskVisionObserver_OnFrameProcessed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.KioskVisionObserver.OnFrameProcessed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'detection', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.KioskVisionDetectionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnTrackCompleted
-cros.mojom.KioskVisionObserver_OnTrackCompleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.KioskVisionObserver.OnTrackCompleted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'track', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.KioskVisionTrackSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnError
-cros.mojom.KioskVisionObserver_OnError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.KioskVisionObserver.OnError_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.KioskVisionErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 cros.mojom.KioskVisionObserverPtr = cros.mojom.KioskVisionObserverRemote;
 cros.mojom.KioskVisionObserverRequest = cros.mojom.KioskVisionObserverPendingReceiver;
 
 
 // Interface: CameraHalDispatcher
-cros.mojom.CameraHalDispatcher = {};
+mojo.internal.Struct(
+    cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ParamsSpec, 'cros.mojom.CameraHalDispatcher_RegisterClientWithToken_Params', [
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.CameraHalClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('type', 16, 0, cros.mojom.CameraClientTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('auth_token', 8, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CameraHalDispatcher_RegisterClientWithToken_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cros.mojom.CameraHalClientRemote), nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: cros.mojom.CameraClientTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'auth_token', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ResponseParamsSpec, 'cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 cros.mojom.CameraHalDispatcherPendingReceiver = class {
   constructor(handle) {
@@ -372,110 +305,43 @@ cros.mojom.CameraHalDispatcher.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RegisterClientWithToken
-cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CameraHalDispatcher.RegisterClientWithToken_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cros.mojom.CameraHalClientRemote), nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: cros.mojom.CameraClientTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'auth_token', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CameraHalDispatcher.RegisterClientWithToken_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 cros.mojom.CameraHalDispatcherPtr = cros.mojom.CameraHalDispatcherRemote;
 cros.mojom.CameraHalDispatcherRequest = cros.mojom.CameraHalDispatcherPendingReceiver;
 
 
 // Interface: CrosCameraServiceObserver
-cros.mojom.CrosCameraServiceObserver = {};
+mojo.internal.Struct(
+    cros.mojom.CrosCameraServiceObserver_CameraDeviceActivityChange_ParamsSpec, 'cros.mojom.CrosCameraServiceObserver_CameraDeviceActivityChange_Params', [
+      mojo.internal.StructField('camera_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('opened', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('type', 4, 0, cros.mojom.CameraClientTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-cros.mojom.CrosCameraServiceObserver_CameraDeviceActivityChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraServiceObserver_CameraDeviceActivityChange_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'camera_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'opened', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 4, packedBitOffset: 0, type: cros.mojom.CameraClientTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.CrosCameraServiceObserver_CameraPrivacySwitchStateChange_ParamsSpec, 'cros.mojom.CrosCameraServiceObserver_CameraPrivacySwitchStateChange_Params', [
+      mojo.internal.StructField('state', 0, 0, cros.mojom.CameraPrivacySwitchStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('camera_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-cros.mojom.CrosCameraServiceObserver_CameraPrivacySwitchStateChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraServiceObserver_CameraPrivacySwitchStateChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CameraPrivacySwitchStateSpec, nullable: false, minVersion: 0 },
-        { name: 'camera_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.CrosCameraServiceObserver_CameraSWPrivacySwitchStateChange_ParamsSpec, 'cros.mojom.CrosCameraServiceObserver_CameraSWPrivacySwitchStateChange_Params', [
+      mojo.internal.StructField('state', 0, 0, cros.mojom.CameraPrivacySwitchStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-cros.mojom.CrosCameraServiceObserver_CameraSWPrivacySwitchStateChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraServiceObserver_CameraSWPrivacySwitchStateChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CameraPrivacySwitchStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.CrosCameraServiceObserver_CameraEffectChange_ParamsSpec, 'cros.mojom.CrosCameraServiceObserver_CameraEffectChange_Params', [
+      mojo.internal.StructField('config', 0, 0, cros.mojom.EffectsConfigSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-cros.mojom.CrosCameraServiceObserver_CameraEffectChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraServiceObserver_CameraEffectChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.EffectsConfigSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-cros.mojom.CrosCameraServiceObserver_AutoFramingStateChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraServiceObserver_AutoFramingStateChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CameraAutoFramingStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.CrosCameraServiceObserver_AutoFramingStateChange_ParamsSpec, 'cros.mojom.CrosCameraServiceObserver_AutoFramingStateChange_Params', [
+      mojo.internal.StructField('state', 0, 0, cros.mojom.CameraAutoFramingStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 cros.mojom.CrosCameraServiceObserverPendingReceiver = class {
   constructor(handle) {
@@ -566,202 +432,87 @@ cros.mojom.CrosCameraServiceObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CameraDeviceActivityChange
-cros.mojom.CrosCameraServiceObserver_CameraDeviceActivityChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraServiceObserver.CameraDeviceActivityChange_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'camera_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'opened', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 4, packedBitOffset: 0, type: cros.mojom.CameraClientTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for CameraPrivacySwitchStateChange
-cros.mojom.CrosCameraServiceObserver_CameraPrivacySwitchStateChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraServiceObserver.CameraPrivacySwitchStateChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CameraPrivacySwitchStateSpec, nullable: false, minVersion: 0 },
-        { name: 'camera_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CameraSWPrivacySwitchStateChange
-cros.mojom.CrosCameraServiceObserver_CameraSWPrivacySwitchStateChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraServiceObserver.CameraSWPrivacySwitchStateChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CameraPrivacySwitchStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CameraEffectChange
-cros.mojom.CrosCameraServiceObserver_CameraEffectChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraServiceObserver.CameraEffectChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.EffectsConfigSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AutoFramingStateChange
-cros.mojom.CrosCameraServiceObserver_AutoFramingStateChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraServiceObserver.AutoFramingStateChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CameraAutoFramingStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 cros.mojom.CrosCameraServiceObserverPtr = cros.mojom.CrosCameraServiceObserverRemote;
 cros.mojom.CrosCameraServiceObserverRequest = cros.mojom.CrosCameraServiceObserverPendingReceiver;
 
 
 // Interface: CrosCameraService
-cros.mojom.CrosCameraService = {};
+mojo.internal.Struct(
+    cros.mojom.CrosCameraService_GetCameraModule_ParamsSpec, 'cros.mojom.CrosCameraService_GetCameraModule_Params', [
+      mojo.internal.StructField('type', 0, 0, cros.mojom.CameraClientTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-cros.mojom.CrosCameraService_GetCameraModule_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraService_GetCameraModule_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CameraClientTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.CrosCameraService_GetCameraModule_ResponseParamsSpec, 'cros.mojom.CrosCameraService_GetCameraModule_ResponseParams', [
+      mojo.internal.StructField('camera_module_receiver', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.CameraModuleRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-cros.mojom.CrosCameraService_SetTracingEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraService_SetTracingEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.CrosCameraService_SetTracingEnabled_ParamsSpec, 'cros.mojom.CrosCameraService_SetTracingEnabled_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-cros.mojom.CrosCameraService_SetAutoFramingState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraService_SetAutoFramingState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CameraAutoFramingStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.CrosCameraService_SetAutoFramingState_ParamsSpec, 'cros.mojom.CrosCameraService_SetAutoFramingState_Params', [
+      mojo.internal.StructField('state', 0, 0, cros.mojom.CameraAutoFramingStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ParamsSpec, 'cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-cros.mojom.CrosCameraService_SetCameraSWPrivacySwitchState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraService_SetCameraSWPrivacySwitchState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CameraPrivacySwitchStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ResponseParamsSpec, 'cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ResponseParams', [
+      mojo.internal.StructField('state', 0, 0, cros.mojom.CameraPrivacySwitchStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-cros.mojom.CrosCameraService_GetAutoFramingSupported_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraService_GetAutoFramingSupported_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.CrosCameraService_SetCameraSWPrivacySwitchState_ParamsSpec, 'cros.mojom.CrosCameraService_SetCameraSWPrivacySwitchState_Params', [
+      mojo.internal.StructField('state', 0, 0, cros.mojom.CameraPrivacySwitchStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-cros.mojom.CrosCameraService_SetCameraEffect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraService_SetCameraEffect_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.EffectsConfigSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.CrosCameraService_GetAutoFramingSupported_ParamsSpec, 'cros.mojom.CrosCameraService_GetAutoFramingSupported_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-cros.mojom.CrosCameraService_AddCrosCameraServiceObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraService_AddCrosCameraServiceObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cros.mojom.CrosCameraServiceObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.CrosCameraService_GetAutoFramingSupported_ResponseParamsSpec, 'cros.mojom.CrosCameraService_GetAutoFramingSupported_ResponseParams', [
+      mojo.internal.StructField('supported', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-cros.mojom.CrosCameraService_StartKioskVisionDetection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraService_StartKioskVisionDetection_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'dlc_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cros.mojom.KioskVisionObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.CrosCameraService_SetCameraEffect_ParamsSpec, 'cros.mojom.CrosCameraService_SetCameraEffect_Params', [
+      mojo.internal.StructField('config', 0, 0, cros.mojom.EffectsConfigSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    cros.mojom.CrosCameraService_SetCameraEffect_ResponseParamsSpec, 'cros.mojom.CrosCameraService_SetCameraEffect_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, cros.mojom.SetEffectResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    cros.mojom.CrosCameraService_AddCrosCameraServiceObserver_ParamsSpec, 'cros.mojom.CrosCameraService_AddCrosCameraServiceObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.CrosCameraServiceObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    cros.mojom.CrosCameraService_StartKioskVisionDetection_ParamsSpec, 'cros.mojom.CrosCameraService_StartKioskVisionDetection_Params', [
+      mojo.internal.StructField('dlc_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(cros.mojom.KioskVisionObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 cros.mojom.CrosCameraServicePendingReceiver = class {
   constructor(handle) {
@@ -888,184 +639,6 @@ cros.mojom.CrosCameraService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetCameraModule
-cros.mojom.CrosCameraService_GetCameraModule_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraService.GetCameraModule_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CameraClientTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-cros.mojom.CrosCameraService_GetCameraModule_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraService.GetCameraModule_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'camera_module_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cros.mojom.CameraModuleRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetTracingEnabled
-cros.mojom.CrosCameraService_SetTracingEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraService.SetTracingEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetAutoFramingState
-cros.mojom.CrosCameraService_SetAutoFramingState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraService.SetAutoFramingState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CameraAutoFramingStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetCameraSWPrivacySwitchState
-cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraService.GetCameraSWPrivacySwitchState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraService.GetCameraSWPrivacySwitchState_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CameraPrivacySwitchStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetCameraSWPrivacySwitchState
-cros.mojom.CrosCameraService_SetCameraSWPrivacySwitchState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraService.SetCameraSWPrivacySwitchState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CameraPrivacySwitchStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetAutoFramingSupported
-cros.mojom.CrosCameraService_GetAutoFramingSupported_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraService.GetAutoFramingSupported_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-cros.mojom.CrosCameraService_GetAutoFramingSupported_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraService.GetAutoFramingSupported_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetCameraEffect
-cros.mojom.CrosCameraService_SetCameraEffect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraService.SetCameraEffect_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.EffectsConfigSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-cros.mojom.CrosCameraService_SetCameraEffect_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraService.SetCameraEffect_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.SetEffectResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AddCrosCameraServiceObserver
-cros.mojom.CrosCameraService_AddCrosCameraServiceObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraService.AddCrosCameraServiceObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cros.mojom.CrosCameraServiceObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StartKioskVisionDetection
-cros.mojom.CrosCameraService_StartKioskVisionDetection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CrosCameraService.StartKioskVisionDetection_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'dlc_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cros.mojom.KioskVisionObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 cros.mojom.CrosCameraServicePtr = cros.mojom.CrosCameraServiceRemote;
 cros.mojom.CrosCameraServiceRequest = cros.mojom.CrosCameraServicePendingReceiver;
 

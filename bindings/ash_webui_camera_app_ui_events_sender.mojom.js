@@ -8,14 +8,71 @@
 var ash = ash || {};
 ash.camera_app = ash.camera_app || {};
 ash.camera_app.mojom = ash.camera_app.mojom || {};
+var ash = ash || {};
 
+ash.camera_app.mojom.LaunchTypeSpec = { $: mojo.internal.Enum() };
+ash.camera_app.mojom.ModeSpec = { $: mojo.internal.Enum() };
+ash.camera_app.mojom.FacingSpec = { $: mojo.internal.Enum() };
+ash.camera_app.mojom.GridTypeSpec = { $: mojo.internal.Enum() };
+ash.camera_app.mojom.TimerTypeSpec = { $: mojo.internal.Enum() };
+ash.camera_app.mojom.ShutterTypeSpec = { $: mojo.internal.Enum() };
+ash.camera_app.mojom.PressureSpec = { $: mojo.internal.Enum() };
+ash.camera_app.mojom.AndroidIntentResultTypeSpec = { $: mojo.internal.Enum() };
+ash.camera_app.mojom.ResolutionLevelSpec = { $: mojo.internal.Enum() };
+ash.camera_app.mojom.AspectRatioSetSpec = { $: mojo.internal.Enum() };
+ash.camera_app.mojom.RecordTypeSpec = { $: mojo.internal.Enum() };
+ash.camera_app.mojom.GifResultTypeSpec = { $: mojo.internal.Enum() };
+ash.camera_app.mojom.DocScanActionTypeSpec = { $: mojo.internal.Enum() };
+ash.camera_app.mojom.DocScanResultTypeSpec = { $: mojo.internal.Enum() };
+ash.camera_app.mojom.DocScanFixTypeSpec = { $: mojo.internal.Enum() };
+ash.camera_app.mojom.LowStorageActionTypeSpec = { $: mojo.internal.Enum() };
+ash.camera_app.mojom.BarcodeContentTypeSpec = { $: mojo.internal.Enum() };
+ash.camera_app.mojom.PerfEventTypeSpec = { $: mojo.internal.Enum() };
+ash.camera_app.mojom.UserBehaviorSpec = { $: mojo.internal.Enum() };
+ash.camera_app.mojom.OcrEventTypeSpec = { $: mojo.internal.Enum() };
+ash.camera_app.mojom.RecordTypeDetailsSpec = { $: {} };
+ash.camera_app.mojom.CaptureDetailsSpec = { $: {} };
+ash.camera_app.mojom.CameraModuleSpec = { $: {} };
+ash.camera_app.mojom.StartSessionEventParamsSpec = { $: {} };
+ash.camera_app.mojom.PhotoDetailsSpec = { $: {} };
+ash.camera_app.mojom.NormalVideoDetailsSpec = { $: {} };
+ash.camera_app.mojom.GifVideoDetailsSpec = { $: {} };
+ash.camera_app.mojom.TimelapseVideoDetailsSpec = { $: {} };
+ash.camera_app.mojom.VideoDetailsSpec = { $: {} };
+ash.camera_app.mojom.CaptureEventParamsSpec = { $: {} };
+ash.camera_app.mojom.AndroidIntentEventParamsSpec = { $: {} };
+ash.camera_app.mojom.OpenPTZPanelEventParamsSpec = { $: {} };
+ash.camera_app.mojom.DocScanActionEventParamsSpec = { $: {} };
+ash.camera_app.mojom.DocScanResultEventParamsSpec = { $: {} };
+ash.camera_app.mojom.MipiCameraModuleSpec = { $: {} };
+ash.camera_app.mojom.UsbCameraModuleSpec = { $: {} };
+ash.camera_app.mojom.OpenCameraEventParamsSpec = { $: {} };
+ash.camera_app.mojom.LowStorageActionEventParamsSpec = { $: {} };
+ash.camera_app.mojom.BarcodeDetectedEventParamsSpec = { $: {} };
+ash.camera_app.mojom.PerfEventParamsSpec = { $: {} };
+ash.camera_app.mojom.MemoryUsageEventParamsSpec = { $: {} };
+ash.camera_app.mojom.OcrEventParamsSpec = { $: {} };
+ash.camera_app.mojom.EventsSender = {};
+ash.camera_app.mojom.EventsSender.$interfaceName = 'ash.camera_app.mojom.EventsSender';
+ash.camera_app.mojom.EventsSender_SendStartSessionEvent_ParamsSpec = { $: {} };
+ash.camera_app.mojom.EventsSender_SendCaptureEvent_ParamsSpec = { $: {} };
+ash.camera_app.mojom.EventsSender_SendAndroidIntentEvent_ParamsSpec = { $: {} };
+ash.camera_app.mojom.EventsSender_SendOpenPTZPanelEvent_ParamsSpec = { $: {} };
+ash.camera_app.mojom.EventsSender_SendDocScanActionEvent_ParamsSpec = { $: {} };
+ash.camera_app.mojom.EventsSender_SendDocScanResultEvent_ParamsSpec = { $: {} };
+ash.camera_app.mojom.EventsSender_SendOpenCameraEvent_ParamsSpec = { $: {} };
+ash.camera_app.mojom.EventsSender_SendLowStorageActionEvent_ParamsSpec = { $: {} };
+ash.camera_app.mojom.EventsSender_SendBarcodeDetectedEvent_ParamsSpec = { $: {} };
+ash.camera_app.mojom.EventsSender_SendPerfEvent_ParamsSpec = { $: {} };
+ash.camera_app.mojom.EventsSender_SendUnsupportedProtocolEvent_ParamsSpec = { $: {} };
+ash.camera_app.mojom.EventsSender_UpdateMemoryUsageEventParams_ParamsSpec = { $: {} };
+ash.camera_app.mojom.EventsSender_SendOcrEvent_ParamsSpec = { $: {} };
 
 // Enum: LaunchType
 ash.camera_app.mojom.LaunchType = {
   kDefault: 0,
   kAssistant: 1,
 };
-ash.camera_app.mojom.LaunchTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Mode
 ash.camera_app.mojom.Mode = {
@@ -24,7 +81,6 @@ ash.camera_app.mojom.Mode = {
   kScan: 2,
   kPortrait: 3,
 };
-ash.camera_app.mojom.ModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Facing
 ash.camera_app.mojom.Facing = {
@@ -33,7 +89,6 @@ ash.camera_app.mojom.Facing = {
   kExternal: 2,
   kUnknown: 3,
 };
-ash.camera_app.mojom.FacingSpec = { $: mojo.internal.Enum() };
 
 // Enum: GridType
 ash.camera_app.mojom.GridType = {
@@ -42,7 +97,6 @@ ash.camera_app.mojom.GridType = {
   k4X4: 2,
   kGolden: 3,
 };
-ash.camera_app.mojom.GridTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: TimerType
 ash.camera_app.mojom.TimerType = {
@@ -50,7 +104,6 @@ ash.camera_app.mojom.TimerType = {
   k3Seconds: 1,
   k10Seconds: 2,
 };
-ash.camera_app.mojom.TimerTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ShutterType
 ash.camera_app.mojom.ShutterType = {
@@ -61,7 +114,6 @@ ash.camera_app.mojom.ShutterType = {
   kTouch: 4,
   kVolumeKey: 5,
 };
-ash.camera_app.mojom.ShutterTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Pressure
 ash.camera_app.mojom.Pressure = {
@@ -70,7 +122,6 @@ ash.camera_app.mojom.Pressure = {
   kSerious: 2,
   kCritical: 3,
 };
-ash.camera_app.mojom.PressureSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidIntentResultType
 ash.camera_app.mojom.AndroidIntentResultType = {
@@ -78,7 +129,6 @@ ash.camera_app.mojom.AndroidIntentResultType = {
   kConfirmed: 1,
   kCanceled: 2,
 };
-ash.camera_app.mojom.AndroidIntentResultTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ResolutionLevel
 ash.camera_app.mojom.ResolutionLevel = {
@@ -91,7 +141,6 @@ ash.camera_app.mojom.ResolutionLevel = {
   kFull: 6,
   kMedium: 7,
 };
-ash.camera_app.mojom.ResolutionLevelSpec = { $: mojo.internal.Enum() };
 
 // Enum: AspectRatioSet
 ash.camera_app.mojom.AspectRatioSet = {
@@ -100,7 +149,6 @@ ash.camera_app.mojom.AspectRatioSet = {
   k16To9: 2,
   kSquare: 3,
 };
-ash.camera_app.mojom.AspectRatioSetSpec = { $: mojo.internal.Enum() };
 
 // Enum: RecordType
 ash.camera_app.mojom.RecordType = {
@@ -109,7 +157,6 @@ ash.camera_app.mojom.RecordType = {
   kGif: 2,
   kTimelapse: 3,
 };
-ash.camera_app.mojom.RecordTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: GifResultType
 ash.camera_app.mojom.GifResultType = {
@@ -118,7 +165,6 @@ ash.camera_app.mojom.GifResultType = {
   kShare: 2,
   kSave: 3,
 };
-ash.camera_app.mojom.GifResultTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: DocScanActionType
 ash.camera_app.mojom.DocScanActionType = {
@@ -126,7 +172,6 @@ ash.camera_app.mojom.DocScanActionType = {
   kDeletePage: 1,
   kFix: 2,
 };
-ash.camera_app.mojom.DocScanActionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: DocScanResultType
 ash.camera_app.mojom.DocScanResultType = {
@@ -135,14 +180,12 @@ ash.camera_app.mojom.DocScanResultType = {
   kSaveAsPhoto: 2,
   kShare: 3,
 };
-ash.camera_app.mojom.DocScanResultTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: DocScanFixType
 ash.camera_app.mojom.DocScanFixType = {
-  kCorner: 0,
-  kRotation: 1,
+  kCorner: 1,
+  kRotation: 2,
 };
-ash.camera_app.mojom.DocScanFixTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: LowStorageActionType
 ash.camera_app.mojom.LowStorageActionType = {
@@ -152,7 +195,6 @@ ash.camera_app.mojom.LowStorageActionType = {
   kShowCannotStartDialog: 3,
   kShowWarningMessage: 4,
 };
-ash.camera_app.mojom.LowStorageActionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: BarcodeContentType
 ash.camera_app.mojom.BarcodeContentType = {
@@ -160,7 +202,6 @@ ash.camera_app.mojom.BarcodeContentType = {
   kUrl: 1,
   kWiFi: 2,
 };
-ash.camera_app.mojom.BarcodeContentTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PerfEventType
 ash.camera_app.mojom.PerfEventType = {
@@ -172,553 +213,328 @@ ash.camera_app.mojom.PerfEventType = {
   kModeSwitching: 5,
   kPhotoCapturePostProcessingSaving: 6,
   kPhotoCaptureShutter: 7,
-  kPortraitModeCapturePostProcessingSaving: 8,
-  kTimelapseCapturePostProcessingSaving: 9,
-  kVideoCapturePostProcessingSaving: 10,
-  kSnapshotTaking: 11,
-  kDocumentCapturePostProcessing: 12,
-  kDocumentPdfSaving: 13,
-  kOcrScanning: 14,
-  kGifCaptureSaving: 15,
+  kPortraitModeCapturePostProcessingSaving: 9,
+  kTimelapseCapturePostProcessingSaving: 10,
+  kVideoCapturePostProcessingSaving: 11,
+  kSnapshotTaking: 12,
+  kDocumentCapturePostProcessing: 13,
+  kDocumentPdfSaving: 14,
+  kOcrScanning: 15,
+  kGifCaptureSaving: 16,
 };
-ash.camera_app.mojom.PerfEventTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: UserBehavior
 ash.camera_app.mojom.UserBehavior = {
-  kTakeNormalPhoto: 0,
-  kTakePortraitPhoto: 1,
-  kScanBarcode: 2,
-  kScanDocument: 3,
-  kRecordNormalVideo: 4,
-  kRecordGifVideo: 5,
-  kRecordTimelapseVideo: 6,
+  kTakeNormalPhoto: 1,
+  kTakePortraitPhoto: 2,
+  kScanBarcode: 4,
+  kScanDocument: 8,
+  kRecordNormalVideo: 16,
+  kRecordGifVideo: 32,
+  kRecordTimelapseVideo: 64,
 };
-ash.camera_app.mojom.UserBehaviorSpec = { $: mojo.internal.Enum() };
 
 // Enum: OcrEventType
 ash.camera_app.mojom.OcrEventType = {
   kCopyText: 0,
   kTextDetected: 1,
 };
-ash.camera_app.mojom.OcrEventTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: RecordTypeDetails
-ash.camera_app.mojom.RecordTypeDetailsSpec = { $: mojo.internal.Union(
-    'ash.camera_app.mojom.RecordTypeDetails', {
+mojo.internal.Union(
+    ash.camera_app.mojom.RecordTypeDetailsSpec, 'ash.camera_app.mojom.RecordTypeDetails', {
       'normal_video_details': {
         'ordinal': 0,
         'type': ash.camera_app.mojom.NormalVideoDetailsSpec,
-      }},
+        'nullable': false,
+      },
       'gif_video_details': {
         'ordinal': 1,
         'type': ash.camera_app.mojom.GifVideoDetailsSpec,
-      }},
+        'nullable': false,
+      },
       'timelapse_video_details': {
         'ordinal': 2,
         'type': ash.camera_app.mojom.TimelapseVideoDetailsSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Union: CaptureDetails
-ash.camera_app.mojom.CaptureDetailsSpec = { $: mojo.internal.Union(
-    'ash.camera_app.mojom.CaptureDetails', {
+mojo.internal.Union(
+    ash.camera_app.mojom.CaptureDetailsSpec, 'ash.camera_app.mojom.CaptureDetails', {
       'photo_details': {
         'ordinal': 0,
         'type': ash.camera_app.mojom.PhotoDetailsSpec,
-      }},
+        'nullable': false,
+      },
       'video_details': {
         'ordinal': 1,
         'type': ash.camera_app.mojom.VideoDetailsSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Union: CameraModule
-ash.camera_app.mojom.CameraModuleSpec = { $: mojo.internal.Union(
-    'ash.camera_app.mojom.CameraModule', {
+mojo.internal.Union(
+    ash.camera_app.mojom.CameraModuleSpec, 'ash.camera_app.mojom.CameraModule', {
       'mipi_camera': {
         'ordinal': 0,
         'type': ash.camera_app.mojom.MipiCameraModuleSpec,
-      }},
+        'nullable': false,
+      },
       'usb_camera': {
         'ordinal': 1,
         'type': ash.camera_app.mojom.UsbCameraModuleSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: StartSessionEventParams
-ash.camera_app.mojom.StartSessionEventParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.StartSessionEventParams',
-      packedSize: 16,
-      fields: [
-        { name: 'launch_type', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.LaunchTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.StartSessionEventParamsSpec, 'ash.camera_app.mojom.StartSessionEventParams', [
+      mojo.internal.StructField('launch_type', 0, 0, ash.camera_app.mojom.LaunchTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: PhotoDetails
-ash.camera_app.mojom.PhotoDetailsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.PhotoDetails',
-      packedSize: 16,
-      fields: [
-        { name: 'is_video_snapshot', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.PhotoDetailsSpec, 'ash.camera_app.mojom.PhotoDetails', [
+      mojo.internal.StructField('is_video_snapshot', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: NormalVideoDetails
-ash.camera_app.mojom.NormalVideoDetailsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.NormalVideoDetails',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.NormalVideoDetailsSpec, 'ash.camera_app.mojom.NormalVideoDetails', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 // Struct: GifVideoDetails
-ash.camera_app.mojom.GifVideoDetailsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.GifVideoDetails',
-      packedSize: 16,
-      fields: [
-        { name: 'gif_result_type', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.GifResultTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.GifVideoDetailsSpec, 'ash.camera_app.mojom.GifVideoDetails', [
+      mojo.internal.StructField('gif_result_type', 0, 0, ash.camera_app.mojom.GifResultTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: TimelapseVideoDetails
-ash.camera_app.mojom.TimelapseVideoDetailsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.TimelapseVideoDetails',
-      packedSize: 16,
-      fields: [
-        { name: 'timelapse_speed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.TimelapseVideoDetailsSpec, 'ash.camera_app.mojom.TimelapseVideoDetails', [
+      mojo.internal.StructField('timelapse_speed', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: VideoDetails
-ash.camera_app.mojom.VideoDetailsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.VideoDetails',
-      packedSize: 40,
-      fields: [
-        { name: 'is_muted', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'fps', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'ever_paused', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'duration', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'record_type_details', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.RecordTypeDetailsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.VideoDetailsSpec, 'ash.camera_app.mojom.VideoDetails', [
+      mojo.internal.StructField('is_muted', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('fps', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('ever_paused', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('duration', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('record_type_details', 0, 0, ash.camera_app.mojom.RecordTypeDetailsSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: CaptureEventParams
-ash.camera_app.mojom.CaptureEventParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.CaptureEventParams',
-      packedSize: 80,
-      fields: [
-        { name: 'mode', packedOffset: 24, packedBitOffset: 0, type: ash.camera_app.mojom.ModeSpec, nullable: false, minVersion: 0 },
-        { name: 'facing', packedOffset: 28, packedBitOffset: 0, type: ash.camera_app.mojom.FacingSpec, nullable: false, minVersion: 0 },
-        { name: 'is_mirrored', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'grid_type', packedOffset: 32, packedBitOffset: 0, type: ash.camera_app.mojom.GridTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'timer_type', packedOffset: 36, packedBitOffset: 0, type: ash.camera_app.mojom.TimerTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'shutter_type', packedOffset: 40, packedBitOffset: 0, type: ash.camera_app.mojom.ShutterTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'android_intent_result_type', packedOffset: 44, packedBitOffset: 0, type: ash.camera_app.mojom.AndroidIntentResultTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'is_window_maximized', packedOffset: 64, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_window_portrait', packedOffset: 64, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'resolution_width', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'resolution_height', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'resolution_level', packedOffset: 56, packedBitOffset: 0, type: ash.camera_app.mojom.ResolutionLevelSpec, nullable: false, minVersion: 0 },
-        { name: 'aspect_ratio_set', packedOffset: 60, packedBitOffset: 0, type: ash.camera_app.mojom.AspectRatioSetSpec, nullable: false, minVersion: 0 },
-        { name: 'capture_details', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.CaptureDetailsSpec, nullable: true, minVersion: 0 },
-        { name: 'zoom_ratio', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 80}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.CaptureEventParamsSpec, 'ash.camera_app.mojom.CaptureEventParams', [
+      mojo.internal.StructField('mode', 24, 0, ash.camera_app.mojom.ModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('facing', 28, 0, ash.camera_app.mojom.FacingSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_mirrored', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('grid_type', 32, 0, ash.camera_app.mojom.GridTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('timer_type', 36, 0, ash.camera_app.mojom.TimerTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shutter_type', 40, 0, ash.camera_app.mojom.ShutterTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('android_intent_result_type', 44, 0, ash.camera_app.mojom.AndroidIntentResultTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_window_maximized', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_window_portrait', 64, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('resolution_width', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('resolution_height', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('resolution_level', 56, 0, ash.camera_app.mojom.ResolutionLevelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('aspect_ratio_set', 60, 0, ash.camera_app.mojom.AspectRatioSetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('capture_details', 0, 0, ash.camera_app.mojom.CaptureDetailsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('zoom_ratio', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 80]]);
 
 // Struct: AndroidIntentEventParams
-ash.camera_app.mojom.AndroidIntentEventParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.AndroidIntentEventParams',
-      packedSize: 16,
-      fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.ModeSpec, nullable: false, minVersion: 0 },
-        { name: 'should_handle_result', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'should_downscale', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_secure', packedOffset: 4, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.AndroidIntentEventParamsSpec, 'ash.camera_app.mojom.AndroidIntentEventParams', [
+      mojo.internal.StructField('mode', 0, 0, ash.camera_app.mojom.ModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('should_handle_result', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('should_downscale', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_secure', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: OpenPTZPanelEventParams
-ash.camera_app.mojom.OpenPTZPanelEventParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.OpenPTZPanelEventParams',
-      packedSize: 16,
-      fields: [
-        { name: 'support_pan', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'support_tilt', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'support_zoom', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.OpenPTZPanelEventParamsSpec, 'ash.camera_app.mojom.OpenPTZPanelEventParams', [
+      mojo.internal.StructField('support_pan', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('support_tilt', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('support_zoom', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: DocScanActionEventParams
-ash.camera_app.mojom.DocScanActionEventParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.DocScanActionEventParams',
-      packedSize: 16,
-      fields: [
-        { name: 'action_type', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.DocScanActionTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.DocScanActionEventParamsSpec, 'ash.camera_app.mojom.DocScanActionEventParams', [
+      mojo.internal.StructField('action_type', 0, 0, ash.camera_app.mojom.DocScanActionTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: DocScanResultEventParams
-ash.camera_app.mojom.DocScanResultEventParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.DocScanResultEventParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result_type', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.DocScanResultTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'fix_types_mask', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'fix_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'page_count', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.DocScanResultEventParamsSpec, 'ash.camera_app.mojom.DocScanResultEventParams', [
+      mojo.internal.StructField('result_type', 0, 0, ash.camera_app.mojom.DocScanResultTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('fix_types_mask', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('fix_count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('page_count', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: MipiCameraModule
-ash.camera_app.mojom.MipiCameraModuleSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.MipiCameraModule',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.MipiCameraModuleSpec, 'ash.camera_app.mojom.MipiCameraModule', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 // Struct: UsbCameraModule
-ash.camera_app.mojom.UsbCameraModuleSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.UsbCameraModule',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.UsbCameraModuleSpec, 'ash.camera_app.mojom.UsbCameraModule', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: OpenCameraEventParams
-ash.camera_app.mojom.OpenCameraEventParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.OpenCameraEventParams',
-      packedSize: 24,
-      fields: [
-        { name: 'camera_module', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.CameraModuleSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.OpenCameraEventParamsSpec, 'ash.camera_app.mojom.OpenCameraEventParams', [
+      mojo.internal.StructField('camera_module', 0, 0, ash.camera_app.mojom.CameraModuleSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: LowStorageActionEventParams
-ash.camera_app.mojom.LowStorageActionEventParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.LowStorageActionEventParams',
-      packedSize: 16,
-      fields: [
-        { name: 'action_type', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.LowStorageActionTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.LowStorageActionEventParamsSpec, 'ash.camera_app.mojom.LowStorageActionEventParams', [
+      mojo.internal.StructField('action_type', 0, 0, ash.camera_app.mojom.LowStorageActionTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: BarcodeDetectedEventParams
-ash.camera_app.mojom.BarcodeDetectedEventParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.BarcodeDetectedEventParams',
-      packedSize: 16,
-      fields: [
-        { name: 'content_type', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.BarcodeContentTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'wifi_security_type', packedOffset: 4, packedBitOffset: 0, type: ash.camera_app.mojom.WifiSecurityTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.BarcodeDetectedEventParamsSpec, 'ash.camera_app.mojom.BarcodeDetectedEventParams', [
+      mojo.internal.StructField('content_type', 0, 0, ash.camera_app.mojom.BarcodeContentTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('wifi_security_type', 4, 0, ash.camera_app.mojom.WifiSecurityTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: PerfEventParams
-ash.camera_app.mojom.PerfEventParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.PerfEventParams',
-      packedSize: 40,
-      fields: [
-        { name: 'event_type', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.PerfEventTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'duration', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'facing', packedOffset: 8, packedBitOffset: 0, type: ash.camera_app.mojom.FacingSpec, nullable: false, minVersion: 0 },
-        { name: 'resolution_width', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'resolution_height', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'page_count', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'pressure', packedOffset: 24, packedBitOffset: 0, type: ash.camera_app.mojom.PressureSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.PerfEventParamsSpec, 'ash.camera_app.mojom.PerfEventParams', [
+      mojo.internal.StructField('event_type', 0, 0, ash.camera_app.mojom.PerfEventTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('duration', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('facing', 8, 0, ash.camera_app.mojom.FacingSpec, null, false, 0, undefined),
+      mojo.internal.StructField('resolution_width', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('resolution_height', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('page_count', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('pressure', 24, 0, ash.camera_app.mojom.PressureSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: MemoryUsageEventParams
-ash.camera_app.mojom.MemoryUsageEventParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.MemoryUsageEventParams',
-      packedSize: 24,
-      fields: [
-        { name: 'behaviors_mask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'memory_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.MemoryUsageEventParamsSpec, 'ash.camera_app.mojom.MemoryUsageEventParams', [
+      mojo.internal.StructField('behaviors_mask', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('memory_usage', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: OcrEventParams
-ash.camera_app.mojom.OcrEventParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.OcrEventParams',
-      packedSize: 24,
-      fields: [
-        { name: 'event_type', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.OcrEventTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'is_primary_language', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'line_count', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'word_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.OcrEventParamsSpec, 'ash.camera_app.mojom.OcrEventParams', [
+      mojo.internal.StructField('event_type', 0, 0, ash.camera_app.mojom.OcrEventTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_primary_language', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('line_count', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('word_count', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: EventsSender
-ash.camera_app.mojom.EventsSender = {};
+mojo.internal.Struct(
+    ash.camera_app.mojom.EventsSender_SendStartSessionEvent_ParamsSpec, 'ash.camera_app.mojom.EventsSender_SendStartSessionEvent_Params', [
+      mojo.internal.StructField('params', 0, 0, ash.camera_app.mojom.StartSessionEventParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.camera_app.mojom.EventsSender_SendStartSessionEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.EventsSender_SendStartSessionEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.StartSessionEventParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.EventsSender_SendCaptureEvent_ParamsSpec, 'ash.camera_app.mojom.EventsSender_SendCaptureEvent_Params', [
+      mojo.internal.StructField('params', 0, 0, ash.camera_app.mojom.CaptureEventParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.camera_app.mojom.EventsSender_SendCaptureEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.EventsSender_SendCaptureEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.CaptureEventParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.EventsSender_SendAndroidIntentEvent_ParamsSpec, 'ash.camera_app.mojom.EventsSender_SendAndroidIntentEvent_Params', [
+      mojo.internal.StructField('params', 0, 0, ash.camera_app.mojom.AndroidIntentEventParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.camera_app.mojom.EventsSender_SendAndroidIntentEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.EventsSender_SendAndroidIntentEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.AndroidIntentEventParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.EventsSender_SendOpenPTZPanelEvent_ParamsSpec, 'ash.camera_app.mojom.EventsSender_SendOpenPTZPanelEvent_Params', [
+      mojo.internal.StructField('params', 0, 0, ash.camera_app.mojom.OpenPTZPanelEventParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.camera_app.mojom.EventsSender_SendOpenPTZPanelEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.EventsSender_SendOpenPTZPanelEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.OpenPTZPanelEventParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.EventsSender_SendDocScanActionEvent_ParamsSpec, 'ash.camera_app.mojom.EventsSender_SendDocScanActionEvent_Params', [
+      mojo.internal.StructField('params', 0, 0, ash.camera_app.mojom.DocScanActionEventParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.camera_app.mojom.EventsSender_SendDocScanActionEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.EventsSender_SendDocScanActionEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.DocScanActionEventParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.EventsSender_SendDocScanResultEvent_ParamsSpec, 'ash.camera_app.mojom.EventsSender_SendDocScanResultEvent_Params', [
+      mojo.internal.StructField('params', 0, 0, ash.camera_app.mojom.DocScanResultEventParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.camera_app.mojom.EventsSender_SendDocScanResultEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.EventsSender_SendDocScanResultEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.DocScanResultEventParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.EventsSender_SendOpenCameraEvent_ParamsSpec, 'ash.camera_app.mojom.EventsSender_SendOpenCameraEvent_Params', [
+      mojo.internal.StructField('params', 0, 0, ash.camera_app.mojom.OpenCameraEventParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.camera_app.mojom.EventsSender_SendOpenCameraEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.EventsSender_SendOpenCameraEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.OpenCameraEventParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.EventsSender_SendLowStorageActionEvent_ParamsSpec, 'ash.camera_app.mojom.EventsSender_SendLowStorageActionEvent_Params', [
+      mojo.internal.StructField('params', 0, 0, ash.camera_app.mojom.LowStorageActionEventParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.camera_app.mojom.EventsSender_SendLowStorageActionEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.EventsSender_SendLowStorageActionEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.LowStorageActionEventParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.EventsSender_SendBarcodeDetectedEvent_ParamsSpec, 'ash.camera_app.mojom.EventsSender_SendBarcodeDetectedEvent_Params', [
+      mojo.internal.StructField('params', 0, 0, ash.camera_app.mojom.BarcodeDetectedEventParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.camera_app.mojom.EventsSender_SendBarcodeDetectedEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.EventsSender_SendBarcodeDetectedEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.BarcodeDetectedEventParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.EventsSender_SendPerfEvent_ParamsSpec, 'ash.camera_app.mojom.EventsSender_SendPerfEvent_Params', [
+      mojo.internal.StructField('params', 0, 0, ash.camera_app.mojom.PerfEventParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.camera_app.mojom.EventsSender_SendPerfEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.EventsSender_SendPerfEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.PerfEventParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.EventsSender_SendUnsupportedProtocolEvent_ParamsSpec, 'ash.camera_app.mojom.EventsSender_SendUnsupportedProtocolEvent_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.camera_app.mojom.EventsSender_SendUnsupportedProtocolEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.EventsSender_SendUnsupportedProtocolEvent_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.EventsSender_UpdateMemoryUsageEventParams_ParamsSpec, 'ash.camera_app.mojom.EventsSender_UpdateMemoryUsageEventParams_Params', [
+      mojo.internal.StructField('params', 0, 0, ash.camera_app.mojom.MemoryUsageEventParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.camera_app.mojom.EventsSender_UpdateMemoryUsageEventParams_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.EventsSender_UpdateMemoryUsageEventParams_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.MemoryUsageEventParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.camera_app.mojom.EventsSender_SendOcrEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.EventsSender_SendOcrEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.OcrEventParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.camera_app.mojom.EventsSender_SendOcrEvent_ParamsSpec, 'ash.camera_app.mojom.EventsSender_SendOcrEvent_Params', [
+      mojo.internal.StructField('params', 0, 0, ash.camera_app.mojom.OcrEventParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.camera_app.mojom.EventsSenderPendingReceiver = class {
   constructor(handle) {
@@ -881,188 +697,6 @@ ash.camera_app.mojom.EventsSender.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SendStartSessionEvent
-ash.camera_app.mojom.EventsSender_SendStartSessionEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.EventsSender.SendStartSessionEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.StartSessionEventParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SendCaptureEvent
-ash.camera_app.mojom.EventsSender_SendCaptureEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.EventsSender.SendCaptureEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.CaptureEventParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SendAndroidIntentEvent
-ash.camera_app.mojom.EventsSender_SendAndroidIntentEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.EventsSender.SendAndroidIntentEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.AndroidIntentEventParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SendOpenPTZPanelEvent
-ash.camera_app.mojom.EventsSender_SendOpenPTZPanelEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.EventsSender.SendOpenPTZPanelEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.OpenPTZPanelEventParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SendDocScanActionEvent
-ash.camera_app.mojom.EventsSender_SendDocScanActionEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.EventsSender.SendDocScanActionEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.DocScanActionEventParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SendDocScanResultEvent
-ash.camera_app.mojom.EventsSender_SendDocScanResultEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.EventsSender.SendDocScanResultEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.DocScanResultEventParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SendOpenCameraEvent
-ash.camera_app.mojom.EventsSender_SendOpenCameraEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.EventsSender.SendOpenCameraEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.OpenCameraEventParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SendLowStorageActionEvent
-ash.camera_app.mojom.EventsSender_SendLowStorageActionEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.EventsSender.SendLowStorageActionEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.LowStorageActionEventParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SendBarcodeDetectedEvent
-ash.camera_app.mojom.EventsSender_SendBarcodeDetectedEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.EventsSender.SendBarcodeDetectedEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.BarcodeDetectedEventParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SendPerfEvent
-ash.camera_app.mojom.EventsSender_SendPerfEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.EventsSender.SendPerfEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.PerfEventParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SendUnsupportedProtocolEvent
-ash.camera_app.mojom.EventsSender_SendUnsupportedProtocolEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.EventsSender.SendUnsupportedProtocolEvent_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateMemoryUsageEventParams
-ash.camera_app.mojom.EventsSender_UpdateMemoryUsageEventParams_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.EventsSender.UpdateMemoryUsageEventParams_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.MemoryUsageEventParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SendOcrEvent
-ash.camera_app.mojom.EventsSender_SendOcrEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.camera_app.mojom.EventsSender.SendOcrEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.OcrEventParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.camera_app.mojom.EventsSenderPtr = ash.camera_app.mojom.EventsSenderRemote;
 ash.camera_app.mojom.EventsSenderRequest = ash.camera_app.mojom.EventsSenderPendingReceiver;
 

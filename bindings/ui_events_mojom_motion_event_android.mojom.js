@@ -10,84 +10,60 @@ ui.mojom = ui.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+ui.mojom.PointerCoordinatesSpec = { $: {} };
+ui.mojom.MotionEventAndroidCachedPointerSpec = { $: {} };
+ui.mojom.HistoricalCachedPointerSpec = { $: {} };
+ui.mojom.CachedMotionEventAndroidSpec = { $: {} };
 
 // Struct: PointerCoordinates
-ui.mojom.PointerCoordinatesSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.mojom.PointerCoordinates',
-      packedSize: 24,
-      fields: [
-        { name: 'position', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'touch_major', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ui.mojom.PointerCoordinatesSpec, 'ui.mojom.PointerCoordinates', [
+      mojo.internal.StructField('position', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('touch_major', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: MotionEventAndroidCachedPointer
-ui.mojom.MotionEventAndroidCachedPointerSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.mojom.MotionEventAndroidCachedPointer',
-      packedSize: 48,
-      fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'pointer_data', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.PointerCoordinatesSpec, nullable: false, minVersion: 0 },
-        { name: 'touch_minor', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'pressure', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'orientation', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'tilt_x', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'tilt_y', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'tool_type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ui.mojom.MotionEventAndroidCachedPointerSpec, 'ui.mojom.MotionEventAndroidCachedPointer', [
+      mojo.internal.StructField('id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('pointer_data', 0, 0, ui.mojom.PointerCoordinatesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('touch_minor', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('pressure', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('orientation', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('tilt_x', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('tilt_y', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('tool_type', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: HistoricalCachedPointer
-ui.mojom.HistoricalCachedPointerSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.mojom.HistoricalCachedPointer',
-      packedSize: 24,
-      fields: [
-        { name: 'pointers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ui.mojom.PointerCoordinatesSpec, false), nullable: false, minVersion: 0 },
-        { name: 'event_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ui.mojom.HistoricalCachedPointerSpec, 'ui.mojom.HistoricalCachedPointer', [
+      mojo.internal.StructField('pointers', 0, 0, mojo.internal.Array(ui.mojom.PointerCoordinatesSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('event_time', 8, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: CachedMotionEventAndroid
-ui.mojom.CachedMotionEventAndroidSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.mojom.CachedMotionEventAndroid',
-      packedSize: 96,
-      fields: [
-        { name: 'pix_to_dip', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'ticks_x', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'ticks_y', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'tick_multiplier', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'source', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'for_touch_handle', packedOffset: 84, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'latest_event_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'down_time_ms', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'action', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'action_index', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'action_button', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'gesture_classification', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'button_state', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'flags', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'raw_position_offset', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false, minVersion: 0 },
-        { name: 'pointers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(ui.mojom.MotionEventAndroidCachedPointerSpec, false), nullable: false, minVersion: 0 },
-        { name: 'historical_events', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(ui.mojom.HistoricalCachedPointerSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 96}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ui.mojom.CachedMotionEventAndroidSpec, 'ui.mojom.CachedMotionEventAndroid', [
+      mojo.internal.StructField('pix_to_dip', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('ticks_x', 44, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('ticks_y', 48, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('tick_multiplier', 52, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('source', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('for_touch_handle', 84, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('latest_event_time', 0, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('down_time_ms', 8, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('action', 60, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('action_index', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('action_button', 68, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('gesture_classification', 72, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('button_state', 76, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('flags', 80, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('raw_position_offset', 16, 0, gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pointers', 24, 0, mojo.internal.Array(ui.mojom.MotionEventAndroidCachedPointerSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('historical_events', 32, 0, mojo.internal.Array(ui.mojom.HistoricalCachedPointerSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 96]]);

@@ -8,6 +8,7 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.V8CacheOptionsSpec = { $: mojo.internal.Enum() };
 
 // Enum: V8CacheOptions
 blink.mojom.V8CacheOptions = {
@@ -17,4 +18,3 @@ blink.mojom.V8CacheOptions = {
   kCodeWithoutHeatCheck: 3,
   kFullCodeWithoutHeatCheck: 4,
 };
-blink.mojom.V8CacheOptionsSpec = { $: mojo.internal.Enum() };

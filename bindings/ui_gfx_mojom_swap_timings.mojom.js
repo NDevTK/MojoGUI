@@ -8,18 +8,12 @@
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
 
+gfx.mojom.SwapTimingsSpec = { $: {} };
 
 // Struct: SwapTimings
-gfx.mojom.SwapTimingsSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.SwapTimings',
-      packedSize: 24,
-      fields: [
-        { name: 'swap_start', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'swap_end', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.SwapTimingsSpec, 'gfx.mojom.SwapTimings', [
+      mojo.internal.StructField('swap_start', 0, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('swap_end', 8, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

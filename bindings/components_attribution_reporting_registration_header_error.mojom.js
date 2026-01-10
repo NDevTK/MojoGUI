@@ -7,41 +7,42 @@
 // Module namespace
 var attribution_reporting = attribution_reporting || {};
 attribution_reporting.mojom = attribution_reporting.mojom || {};
+var components = components || {};
+var components = components || {};
+var components = components || {};
 
+attribution_reporting.mojom.RegistrationHeaderErrorDetailsSpec = { $: {} };
+attribution_reporting.mojom.RegistrationHeaderErrorSpec = { $: {} };
 
 // Union: RegistrationHeaderErrorDetails
-attribution_reporting.mojom.RegistrationHeaderErrorDetailsSpec = { $: mojo.internal.Union(
-    'attribution_reporting.mojom.RegistrationHeaderErrorDetails', {
+mojo.internal.Union(
+    attribution_reporting.mojom.RegistrationHeaderErrorDetailsSpec, 'attribution_reporting.mojom.RegistrationHeaderErrorDetails', {
       'source_error': {
         'ordinal': 0,
         'type': attribution_reporting.mojom.SourceRegistrationErrorSpec,
-      }},
+        'nullable': false,
+      },
       'trigger_error': {
         'ordinal': 1,
         'type': attribution_reporting.mojom.TriggerRegistrationErrorSpec,
-      }},
+        'nullable': false,
+      },
       'os_source_error': {
         'ordinal': 2,
         'type': attribution_reporting.mojom.OsRegistrationErrorSpec,
-      }},
+        'nullable': false,
+      },
       'os_trigger_error': {
         'ordinal': 3,
         'type': attribution_reporting.mojom.OsRegistrationErrorSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: RegistrationHeaderError
-attribution_reporting.mojom.RegistrationHeaderErrorSpec = {
-  $: {
-    structSpec: {
-      name: 'attribution_reporting.mojom.RegistrationHeaderError',
-      packedSize: 32,
-      fields: [
-        { name: 'header_value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'error_details', packedOffset: 0, packedBitOffset: 0, type: attribution_reporting.mojom.RegistrationHeaderErrorDetailsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    attribution_reporting.mojom.RegistrationHeaderErrorSpec, 'attribution_reporting.mojom.RegistrationHeaderError', [
+      mojo.internal.StructField('header_value', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('error_details', 0, 0, attribution_reporting.mojom.RegistrationHeaderErrorDetailsSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);

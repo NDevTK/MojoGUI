@@ -8,50 +8,34 @@
 var IPC = IPC || {};
 IPC.mojom = IPC.mojom || {};
 
+IPC.mojom.MessageSpec = { $: {} };
+IPC.mojom.Channel = {};
+IPC.mojom.Channel.$interfaceName = 'IPC.mojom.Channel';
+IPC.mojom.Channel_SetPeerPid_ParamsSpec = { $: {} };
+IPC.mojom.Channel_GetAssociatedInterface_ParamsSpec = { $: {} };
+IPC.mojom.ChannelBootstrap = {};
+IPC.mojom.ChannelBootstrap.$interfaceName = 'IPC.mojom.ChannelBootstrap';
 
 // Struct: Message
-IPC.mojom.MessageSpec = {
-  $: {
-    structSpec: {
-      name: 'IPC.mojom.Message',
-      packedSize: 24,
-      fields: [
-        { name: 'bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'handles', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.native.SerializedHandleSpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    IPC.mojom.MessageSpec, 'IPC.mojom.Message', [
+      mojo.internal.StructField('bytes', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('handles', 8, 0, mojo.internal.Array(mojo.native.SerializedHandleSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: Channel
-IPC.mojom.Channel = {};
+mojo.internal.Struct(
+    IPC.mojom.Channel_SetPeerPid_ParamsSpec, 'IPC.mojom.Channel_SetPeerPid_Params', [
+      mojo.internal.StructField('pid', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-IPC.mojom.Channel_SetPeerPid_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'IPC.mojom.Channel_SetPeerPid_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-IPC.mojom.Channel_GetAssociatedInterface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'IPC.mojom.Channel_GetAssociatedInterface_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingAssociatedReceiverSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    IPC.mojom.Channel_GetAssociatedInterface_ParamsSpec, 'IPC.mojom.Channel_GetAssociatedInterface_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo_base.mojom.GenericPendingAssociatedReceiverSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 IPC.mojom.ChannelPendingReceiver = class {
   constructor(handle) {
@@ -115,42 +99,11 @@ IPC.mojom.Channel.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetPeerPid
-IPC.mojom.Channel_SetPeerPid_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'IPC.mojom.Channel.SetPeerPid_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetAssociatedInterface
-IPC.mojom.Channel_GetAssociatedInterface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'IPC.mojom.Channel.GetAssociatedInterface_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingAssociatedReceiverSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 IPC.mojom.ChannelPtr = IPC.mojom.ChannelRemote;
 IPC.mojom.ChannelRequest = IPC.mojom.ChannelPendingReceiver;
 
 
 // Interface: ChannelBootstrap
-IPC.mojom.ChannelBootstrap = {};
-
 IPC.mojom.ChannelBootstrapPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -195,7 +148,6 @@ IPC.mojom.ChannelBootstrap.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 IPC.mojom.ChannelBootstrapPtr = IPC.mojom.ChannelBootstrapRemote;
 IPC.mojom.ChannelBootstrapRequest = IPC.mojom.ChannelBootstrapPendingReceiver;
 

@@ -8,6 +8,7 @@
 var attribution_reporting = attribution_reporting || {};
 attribution_reporting.mojom = attribution_reporting.mojom || {};
 
+attribution_reporting.mojom.StoreSourceResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: StoreSourceResult
 attribution_reporting.mojom.StoreSourceResult = {
@@ -23,9 +24,8 @@ attribution_reporting.mojom.StoreSourceResult = {
   kDestinationBothLimitsReached: 9,
   kReportingOriginsPerSiteLimitReached: 10,
   kExceedsMaxChannelCapacity: 11,
-  kExceedsMaxTriggerStateCardinality: 12,
-  kDestinationPerDayReportingLimitReached: 13,
-  kExceedsMaxScopesChannelCapacity: 14,
-  kExceedsMaxEventStatesLimit: 15,
+  kExceedsMaxTriggerStateCardinality: 13,
+  kDestinationPerDayReportingLimitReached: 14,
+  kExceedsMaxScopesChannelCapacity: 15,
+  kExceedsMaxEventStatesLimit: 16,
 };
-attribution_reporting.mojom.StoreSourceResultSpec = { $: mojo.internal.Enum() };

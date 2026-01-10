@@ -8,18 +8,12 @@
 var mojo_base = mojo_base || {};
 mojo_base.mojom = mojo_base.mojom || {};
 
+mojo_base.mojom.UnguessableTokenSpec = { $: {} };
 
 // Struct: UnguessableToken
-mojo_base.mojom.UnguessableTokenSpec = {
-  $: {
-    structSpec: {
-      name: 'mojo_base.mojom.UnguessableToken',
-      packedSize: 24,
-      fields: [
-        { name: 'high', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'low', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojo_base.mojom.UnguessableTokenSpec, 'mojo_base.mojom.UnguessableToken', [
+      mojo.internal.StructField('high', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('low', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);

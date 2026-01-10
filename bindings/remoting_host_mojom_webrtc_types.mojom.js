@@ -8,6 +8,13 @@
 var remoting = remoting || {};
 remoting.mojom = remoting.mojom || {};
 
+remoting.mojom.DesktopCaptureResultSpec = { $: mojo.internal.Enum() };
+remoting.mojom.DesktopCaptureOptionsSpec = { $: {} };
+remoting.mojom.DesktopFrameSpec = { $: {} };
+remoting.mojom.DesktopRectSpec = { $: {} };
+remoting.mojom.DesktopSizeSpec = { $: {} };
+remoting.mojom.DesktopVectorSpec = { $: {} };
+remoting.mojom.MouseCursorSpec = { $: {} };
 
 // Enum: DesktopCaptureResult
 remoting.mojom.DesktopCaptureResult = {
@@ -15,103 +22,60 @@ remoting.mojom.DesktopCaptureResult = {
   kErrorTemporary: 1,
   kErrorPermanent: 2,
 };
-remoting.mojom.DesktopCaptureResultSpec = { $: mojo.internal.Enum() };
 
 // Struct: DesktopCaptureOptions
-remoting.mojom.DesktopCaptureOptionsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopCaptureOptions',
-      packedSize: 16,
-      fields: [
-        { name: 'use_update_notifications', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'detect_updated_region', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'allow_directx_capturer', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopCaptureOptionsSpec, 'remoting.mojom.DesktopCaptureOptions', [
+      mojo.internal.StructField('use_update_notifications', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('detect_updated_region', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_directx_capturer', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: DesktopFrame
-remoting.mojom.DesktopFrameSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopFrame',
-      packedSize: 56,
-      fields: [
-        { name: 'shared_buffer_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'stride', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.DesktopSizeSpec, nullable: false, minVersion: 0 },
-        { name: 'dirty_region', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(remoting.mojom.DesktopRectSpec, false), nullable: false, minVersion: 0 },
-        { name: 'capture_time_ms', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'dpi', packedOffset: 24, packedBitOffset: 0, type: remoting.mojom.DesktopVectorSpec, nullable: false, minVersion: 0 },
-        { name: 'capturer_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopFrameSpec, 'remoting.mojom.DesktopFrame', [
+      mojo.internal.StructField('shared_buffer_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('stride', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('size', 0, 0, remoting.mojom.DesktopSizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('dirty_region', 8, 0, mojo.internal.Array(remoting.mojom.DesktopRectSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('capture_time_ms', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('dpi', 24, 0, remoting.mojom.DesktopVectorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('capturer_id', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: DesktopRect
-remoting.mojom.DesktopRectSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopRect',
-      packedSize: 24,
-      fields: [
-        { name: 'left', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'top', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'right', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'bottom', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopRectSpec, 'remoting.mojom.DesktopRect', [
+      mojo.internal.StructField('left', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('top', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('right', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('bottom', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: DesktopSize
-remoting.mojom.DesktopSizeSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopSize',
-      packedSize: 16,
-      fields: [
-        { name: 'width', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'height', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopSizeSpec, 'remoting.mojom.DesktopSize', [
+      mojo.internal.StructField('width', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('height', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: DesktopVector
-remoting.mojom.DesktopVectorSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.DesktopVector',
-      packedSize: 16,
-      fields: [
-        { name: 'x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'y', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.DesktopVectorSpec, 'remoting.mojom.DesktopVector', [
+      mojo.internal.StructField('x', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('y', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: MouseCursor
-remoting.mojom.MouseCursorSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.MouseCursor',
-      packedSize: 32,
-      fields: [
-        { name: 'image_size', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.DesktopSizeSpec, nullable: false, minVersion: 0 },
-        { name: 'image_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'hotspot', packedOffset: 16, packedBitOffset: 0, type: remoting.mojom.DesktopVectorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.MouseCursorSpec, 'remoting.mojom.MouseCursor', [
+      mojo.internal.StructField('image_size', 0, 0, remoting.mojom.DesktopSizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('image_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('hotspot', 16, 0, remoting.mojom.DesktopVectorSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);

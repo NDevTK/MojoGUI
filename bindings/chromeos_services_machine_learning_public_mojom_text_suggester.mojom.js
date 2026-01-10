@@ -9,124 +9,105 @@ var chromeos = chromeos || {};
 chromeos.machine_learning = chromeos.machine_learning || {};
 chromeos.machine_learning.mojom = chromeos.machine_learning.mojom || {};
 
+chromeos.machine_learning.mojom.TextSuggestionModeSpec = { $: mojo.internal.Enum() };
+chromeos.machine_learning.mojom.StatusSpec = { $: mojo.internal.Enum() };
+chromeos.machine_learning.mojom.MultiWordExperimentGroupSpec = { $: mojo.internal.Enum() };
+chromeos.machine_learning.mojom.TextSuggestionCandidateSpec = { $: {} };
+chromeos.machine_learning.mojom.NextWordCompletionCandidateSpec = { $: {} };
+chromeos.machine_learning.mojom.TextSuggesterQuerySpec = { $: {} };
+chromeos.machine_learning.mojom.MultiWordSuggestionCandidateSpec = { $: {} };
+chromeos.machine_learning.mojom.TextSuggesterResultSpec = { $: {} };
+chromeos.machine_learning.mojom.TextSuggesterSpecSpec = { $: {} };
+chromeos.machine_learning.mojom.TextSuggester = {};
+chromeos.machine_learning.mojom.TextSuggester.$interfaceName = 'chromeos.machine_learning.mojom.TextSuggester';
+chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec = { $: {} };
+chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec = { $: {} };
 
 // Enum: TextSuggestionMode
 chromeos.machine_learning.mojom.TextSuggestionMode = {
-  kCompletion: 0,
+  kPrediction: 1,
+  kCompletion: 2,
 };
-chromeos.machine_learning.mojom.TextSuggestionModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Status
 chromeos.machine_learning.mojom.Status = {
   OK: 0,
+  ERROR: 1,
 };
-chromeos.machine_learning.mojom.StatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: MultiWordExperimentGroup
 chromeos.machine_learning.mojom.MultiWordExperimentGroup = {
-  kGboard: 0,
+  kDefault: 0,
+  kGboard: 1,
+  MinVersion: 1,
+  MinVersion: 1,
+  MinVersion: 1,
+  MinVersion: 1,
+  MinVersion: 1,
+  MinVersion: 1,
 };
-chromeos.machine_learning.mojom.MultiWordExperimentGroupSpec = { $: mojo.internal.Enum() };
 
 // Union: TextSuggestionCandidate
-chromeos.machine_learning.mojom.TextSuggestionCandidateSpec = { $: mojo.internal.Union(
-    'chromeos.machine_learning.mojom.TextSuggestionCandidate', {
+mojo.internal.Union(
+    chromeos.machine_learning.mojom.TextSuggestionCandidateSpec, 'chromeos.machine_learning.mojom.TextSuggestionCandidate', {
       'multi_word': {
         'ordinal': 0,
         'type': chromeos.machine_learning.mojom.MultiWordSuggestionCandidateSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: NextWordCompletionCandidate
-chromeos.machine_learning.mojom.NextWordCompletionCandidateSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.machine_learning.mojom.NextWordCompletionCandidate',
-      packedSize: 24,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'normalized_score', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.machine_learning.mojom.NextWordCompletionCandidateSpec, 'chromeos.machine_learning.mojom.NextWordCompletionCandidate', [
+      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('normalized_score', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: TextSuggesterQuery
-chromeos.machine_learning.mojom.TextSuggesterQuerySpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.machine_learning.mojom.TextSuggesterQuery',
-      packedSize: 32,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'next_word_candidates', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(chromeos.machine_learning.mojom.NextWordCompletionCandidateSpec, false), nullable: false, minVersion: 0 },
-        { name: 'suggestion_mode', packedOffset: 16, packedBitOffset: 0, type: chromeos.machine_learning.mojom.TextSuggestionModeSpec, nullable: false, minVersion: 1 },
-      ],
-      versions: [{version: 0, packedSize: 24}, {version: 1, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.machine_learning.mojom.TextSuggesterQuerySpec, 'chromeos.machine_learning.mojom.TextSuggesterQuery', [
+      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('next_word_candidates', 8, 0, mojo.internal.Array(chromeos.machine_learning.mojom.NextWordCompletionCandidateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('suggestion_mode', 16, 0, chromeos.machine_learning.mojom.TextSuggestionModeSpec, null, false, 1, undefined),
+    ],
+    [[0, 24], [1, 32]]);
 
 // Struct: MultiWordSuggestionCandidate
-chromeos.machine_learning.mojom.MultiWordSuggestionCandidateSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.machine_learning.mojom.MultiWordSuggestionCandidate',
-      packedSize: 24,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'normalized_score', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.machine_learning.mojom.MultiWordSuggestionCandidateSpec, 'chromeos.machine_learning.mojom.MultiWordSuggestionCandidate', [
+      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('normalized_score', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: TextSuggesterResult
-chromeos.machine_learning.mojom.TextSuggesterResultSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.machine_learning.mojom.TextSuggesterResult',
-      packedSize: 16,
-      fields: [
-        { name: 'OK', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.machine_learning.mojom.TextSuggesterResultSpec, 'chromeos.machine_learning.mojom.TextSuggesterResult', [
+      mojo.internal.StructField('OK', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: TextSuggesterSpec
-chromeos.machine_learning.mojom.TextSuggesterSpecSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.machine_learning.mojom.TextSuggesterSpec',
-      packedSize: 16,
-      fields: [
-        { name: 'multi_word_experiment', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.MultiWordExperimentGroupSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.machine_learning.mojom.TextSuggesterSpecSpec, 'chromeos.machine_learning.mojom.TextSuggesterSpec', [
+      mojo.internal.StructField('multi_word_experiment', 0, 0, chromeos.machine_learning.mojom.MultiWordExperimentGroupSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: TextSuggester
-chromeos.machine_learning.mojom.TextSuggester = {};
+mojo.internal.Struct(
+    chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec, 'chromeos.machine_learning.mojom.TextSuggester_Suggest_Params', [
+      mojo.internal.StructField('query', 0, 0, chromeos.machine_learning.mojom.TextSuggesterQuerySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.machine_learning.mojom.TextSuggester_Suggest_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.TextSuggesterQuerySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec, 'chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, chromeos.machine_learning.mojom.TextSuggesterResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromeos.machine_learning.mojom.TextSuggesterPendingReceiver = class {
   constructor(handle) {
@@ -181,34 +162,6 @@ chromeos.machine_learning.mojom.TextSuggester.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Suggest
-chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.machine_learning.mojom.TextSuggester.Suggest_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.TextSuggesterQuerySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.machine_learning.mojom.TextSuggester.Suggest_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.TextSuggesterResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.machine_learning.mojom.TextSuggesterPtr = chromeos.machine_learning.mojom.TextSuggesterRemote;
 chromeos.machine_learning.mojom.TextSuggesterRequest = chromeos.machine_learning.mojom.TextSuggesterPendingReceiver;
 

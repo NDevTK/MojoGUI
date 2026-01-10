@@ -7,7 +7,20 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
 
+network.mojom.ConnectionTypeSpec = { $: mojo.internal.Enum() };
+network.mojom.ConnectionSubtypeSpec = { $: mojo.internal.Enum() };
+network.mojom.IPAddressChangeTypeSpec = { $: mojo.internal.Enum() };
+network.mojom.NetworkChangeManagerClient = {};
+network.mojom.NetworkChangeManagerClient.$interfaceName = 'network.mojom.NetworkChangeManagerClient';
+network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec = { $: {} };
+network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec = { $: {} };
+network.mojom.NetworkChangeManager = {};
+network.mojom.NetworkChangeManager.$interfaceName = 'network.mojom.NetworkChangeManager';
+network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec = { $: {} };
+network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec = { $: {} };
+network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec = { $: {} };
 
 // Enum: ConnectionType
 network.mojom.ConnectionType = {
@@ -20,9 +33,8 @@ network.mojom.ConnectionType = {
   CONNECTION_NONE: 6,
   CONNECTION_BLUETOOTH: 7,
   CONNECTION_5G: 8,
-  CONNECTION_LAST: 9,
+  CONNECTION_LAST: 8,
 };
-network.mojom.ConnectionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ConnectionSubtype
 network.mojom.ConnectionSubtype = {
@@ -59,47 +71,29 @@ network.mojom.ConnectionSubtype = {
   SUBTYPE_WIFI_N: 30,
   SUBTYPE_WIFI_AC: 31,
   SUBTYPE_WIFI_AD: 32,
-  SUBTYPE_LAST: 33,
+  SUBTYPE_LAST: 32,
 };
-network.mojom.ConnectionSubtypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: IPAddressChangeType
 network.mojom.IPAddressChangeType = {
   IP_ADDRESS_CHANGE_NONE: 0,
   IP_ADDRESS_CHANGE_NORMAL: 1,
   IP_ADDRESS_CHANGE_IPV6_TEMPADDR: 2,
-  IP_ADDRESS_CHANGE_LAST: 3,
+  IP_ADDRESS_CHANGE_LAST: 2,
 };
-network.mojom.IPAddressChangeTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: NetworkChangeManagerClient
-network.mojom.NetworkChangeManagerClient = {};
+mojo.internal.Struct(
+    network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec, 'network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_Params', [
+      mojo.internal.StructField('type', 0, 0, network.mojom.ConnectionTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ConnectionTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NetworkChangeManagerClient_OnNetworkChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ConnectionTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec, 'network.mojom.NetworkChangeManagerClient_OnNetworkChanged_Params', [
+      mojo.internal.StructField('type', 0, 0, network.mojom.ConnectionTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.NetworkChangeManagerClientPendingReceiver = class {
   constructor(handle) {
@@ -163,85 +157,33 @@ network.mojom.NetworkChangeManagerClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnInitialConnectionType
-network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NetworkChangeManagerClient.OnInitialConnectionType_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ConnectionTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnNetworkChanged
-network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NetworkChangeManagerClient.OnNetworkChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ConnectionTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.NetworkChangeManagerClientPtr = network.mojom.NetworkChangeManagerClientRemote;
 network.mojom.NetworkChangeManagerClientRequest = network.mojom.NetworkChangeManagerClientPendingReceiver;
 
 
 // Interface: NetworkChangeManager
-network.mojom.NetworkChangeManager = {};
+mojo.internal.Struct(
+    network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec, 'network.mojom.NetworkChangeManager_RequestNotifications_Params', [
+      mojo.internal.StructField('client_remote', 0, 0, mojo.internal.InterfaceProxy(network.mojom.NetworkChangeManagerClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NetworkChangeManager_RequestNotifications_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.NetworkChangeManagerClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec, 'network.mojom.NetworkChangeManager_OnNetworkChanged_Params', [
+      mojo.internal.StructField('dns_changed', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('ip_address_change_type', 0, 0, network.mojom.IPAddressChangeTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('connection_type_changed', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('new_connection_type', 4, 0, network.mojom.ConnectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('connection_subtype_changed', 12, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('new_connection_subtype', 8, 0, network.mojom.ConnectionSubtypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NetworkChangeManager_OnNetworkChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'dns_changed', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'ip_address_change_type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressChangeTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'connection_type_changed', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'new_connection_type', packedOffset: 4, packedBitOffset: 0, type: network.mojom.ConnectionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'connection_subtype_changed', packedOffset: 12, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'new_connection_subtype', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ConnectionSubtypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'notifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(network.mojom.NetworkInterfaceChangeListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec, 'network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_Params', [
+      mojo.internal.StructField('notifier', 0, 0, mojo.internal.AssociatedInterfaceRequest(network.mojom.NetworkInterfaceChangeListenerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.NetworkChangeManagerPendingReceiver = class {
   constructor(handle) {
@@ -314,54 +256,6 @@ network.mojom.NetworkChangeManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RequestNotifications
-network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NetworkChangeManager.RequestNotifications_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.NetworkChangeManagerClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnNetworkChanged
-network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NetworkChangeManager.OnNetworkChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'dns_changed', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'ip_address_change_type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressChangeTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'connection_type_changed', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'new_connection_type', packedOffset: 4, packedBitOffset: 0, type: network.mojom.ConnectionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'connection_subtype_changed', packedOffset: 12, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'new_connection_subtype', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ConnectionSubtypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for BindNetworkInterfaceChangeListener
-network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NetworkChangeManager.BindNetworkInterfaceChangeListener_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'notifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(network.mojom.NetworkInterfaceChangeListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.NetworkChangeManagerPtr = network.mojom.NetworkChangeManagerRemote;
 network.mojom.NetworkChangeManagerRequest = network.mojom.NetworkChangeManagerPendingReceiver;
 

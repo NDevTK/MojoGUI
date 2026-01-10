@@ -8,10 +8,11 @@
 var enterprise_companion = enterprise_companion || {};
 enterprise_companion.mojom = enterprise_companion.mojom || {};
 
+enterprise_companion.mojom.PolicyFetchReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: PolicyFetchReason
 enterprise_companion.mojom.PolicyFetchReason = {
-  USER_REQUEST: 0,
-  SCHEDULED: 1,
+  UNSPECIFIED: 0,
+  USER_REQUEST: 1,
+  SCHEDULED: 2,
 };
-enterprise_companion.mojom.PolicyFetchReasonSpec = { $: mojo.internal.Enum() };

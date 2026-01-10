@@ -8,22 +8,22 @@
 var content = content || {};
 content.mojom = content.mojom || {};
 
+content.mojom.WebTestBluetoothFakeAdapterSetter = {};
+content.mojom.WebTestBluetoothFakeAdapterSetter.$interfaceName = 'content.mojom.WebTestBluetoothFakeAdapterSetter';
+content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ParamsSpec = { $: {} };
+content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ResponseParamsSpec = { $: {} };
 
 // Interface: WebTestBluetoothFakeAdapterSetter
-content.mojom.WebTestBluetoothFakeAdapterSetter = {};
+mojo.internal.Struct(
+    content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ParamsSpec, 'content.mojom.WebTestBluetoothFakeAdapterSetter_Set_Params', [
+      mojo.internal.StructField('adapter_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestBluetoothFakeAdapterSetter_Set_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'adapter_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ResponseParamsSpec, 'content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 content.mojom.WebTestBluetoothFakeAdapterSetterPendingReceiver = class {
   constructor(handle) {
@@ -62,7 +62,7 @@ content.mojom.WebTestBluetoothFakeAdapterSetterRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ParamsSpec,
-      null,
+      content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ResponseParamsSpec,
       [adapter_name]);
   }
 
@@ -78,21 +78,6 @@ content.mojom.WebTestBluetoothFakeAdapterSetter.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Set
-content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestBluetoothFakeAdapterSetter.Set_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'adapter_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.WebTestBluetoothFakeAdapterSetterPtr = content.mojom.WebTestBluetoothFakeAdapterSetterRemote;
 content.mojom.WebTestBluetoothFakeAdapterSetterRequest = content.mojom.WebTestBluetoothFakeAdapterSetterPendingReceiver;
 

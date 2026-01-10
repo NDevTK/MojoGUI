@@ -8,22 +8,19 @@
 var color_change_listener = color_change_listener || {};
 color_change_listener.mojom = color_change_listener.mojom || {};
 
+color_change_listener.mojom.PageHandler = {};
+color_change_listener.mojom.PageHandler.$interfaceName = 'color_change_listener.mojom.PageHandler';
+color_change_listener.mojom.PageHandler_SetPage_ParamsSpec = { $: {} };
+color_change_listener.mojom.Page = {};
+color_change_listener.mojom.Page.$interfaceName = 'color_change_listener.mojom.Page';
+color_change_listener.mojom.Page_OnColorProviderChanged_ParamsSpec = { $: {} };
 
 // Interface: PageHandler
-color_change_listener.mojom.PageHandler = {};
-
-color_change_listener.mojom.PageHandler_SetPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'color_change_listener.mojom.PageHandler_SetPage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(color_change_listener.mojom.PageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    color_change_listener.mojom.PageHandler_SetPage_ParamsSpec, 'color_change_listener.mojom.PageHandler_SetPage_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(color_change_listener.mojom.PageRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 color_change_listener.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -78,39 +75,15 @@ color_change_listener.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetPage
-color_change_listener.mojom.PageHandler_SetPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'color_change_listener.mojom.PageHandler.SetPage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(color_change_listener.mojom.PageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 color_change_listener.mojom.PageHandlerPtr = color_change_listener.mojom.PageHandlerRemote;
 color_change_listener.mojom.PageHandlerRequest = color_change_listener.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-color_change_listener.mojom.Page = {};
-
-color_change_listener.mojom.Page_OnColorProviderChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'color_change_listener.mojom.Page_OnColorProviderChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    color_change_listener.mojom.Page_OnColorProviderChanged_ParamsSpec, 'color_change_listener.mojom.Page_OnColorProviderChanged_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 color_change_listener.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -165,20 +138,6 @@ color_change_listener.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnColorProviderChanged
-color_change_listener.mojom.Page_OnColorProviderChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'color_change_listener.mojom.Page.OnColorProviderChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 color_change_listener.mojom.PagePtr = color_change_listener.mojom.PageRemote;
 color_change_listener.mojom.PageRequest = color_change_listener.mojom.PagePendingReceiver;
 

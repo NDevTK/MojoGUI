@@ -10,22 +10,16 @@ payments.facilitated = payments.facilitated || {};
 payments.facilitated.mojom = payments.facilitated.mojom || {};
 var url = url || {};
 
+payments.facilitated.mojom.PaymentLinkHandler = {};
+payments.facilitated.mojom.PaymentLinkHandler.$interfaceName = 'payments.facilitated.mojom.PaymentLinkHandler';
+payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec = { $: {} };
 
 // Interface: PaymentLinkHandler
-payments.facilitated.mojom.PaymentLinkHandler = {};
-
-payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec, 'payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 payments.facilitated.mojom.PaymentLinkHandlerPendingReceiver = class {
   constructor(handle) {
@@ -80,21 +74,6 @@ payments.facilitated.mojom.PaymentLinkHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for HandlePaymentLink
-payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.facilitated.mojom.PaymentLinkHandler.HandlePaymentLink_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 payments.facilitated.mojom.PaymentLinkHandlerPtr = payments.facilitated.mojom.PaymentLinkHandlerRemote;
 payments.facilitated.mojom.PaymentLinkHandlerRequest = payments.facilitated.mojom.PaymentLinkHandlerPendingReceiver;
 

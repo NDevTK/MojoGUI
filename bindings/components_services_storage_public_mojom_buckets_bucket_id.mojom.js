@@ -8,17 +8,11 @@
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
 
+storage.mojom.BucketIdSpec = { $: {} };
 
 // Struct: BucketId
-storage.mojom.BucketIdSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.BucketId',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.BucketIdSpec, 'storage.mojom.BucketId', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);

@@ -8,55 +8,45 @@
 var unexportable_keys_internals = unexportable_keys_internals || {};
 unexportable_keys_internals.mojom = unexportable_keys_internals.mojom || {};
 
+unexportable_keys_internals.mojom.UnexportableKeyIdSpec = { $: {} };
+unexportable_keys_internals.mojom.UnexportableKeyInfoSpec = { $: {} };
+unexportable_keys_internals.mojom.PageHandlerFactory = {};
+unexportable_keys_internals.mojom.PageHandlerFactory.$interfaceName = 'unexportable_keys_internals.mojom.PageHandlerFactory';
+unexportable_keys_internals.mojom.PageHandlerFactory_CreateUnexportableKeysInternalsHandler_ParamsSpec = { $: {} };
+unexportable_keys_internals.mojom.PageHandler = {};
+unexportable_keys_internals.mojom.PageHandler.$interfaceName = 'unexportable_keys_internals.mojom.PageHandler';
+unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ParamsSpec = { $: {} };
+unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec = { $: {} };
+unexportable_keys_internals.mojom.PageHandler_DeleteKey_ParamsSpec = { $: {} };
+unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec = { $: {} };
+unexportable_keys_internals.mojom.Page = {};
+unexportable_keys_internals.mojom.Page.$interfaceName = 'unexportable_keys_internals.mojom.Page';
 
 // Struct: UnexportableKeyId
-unexportable_keys_internals.mojom.UnexportableKeyIdSpec = {
-  $: {
-    structSpec: {
-      name: 'unexportable_keys_internals.mojom.UnexportableKeyId',
-      packedSize: 16,
-      fields: [
-        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    unexportable_keys_internals.mojom.UnexportableKeyIdSpec, 'unexportable_keys_internals.mojom.UnexportableKeyId', [
+      mojo.internal.StructField('key_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: UnexportableKeyInfo
-unexportable_keys_internals.mojom.UnexportableKeyInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'unexportable_keys_internals.mojom.UnexportableKeyInfo',
-      packedSize: 48,
-      fields: [
-        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: unexportable_keys_internals.mojom.UnexportableKeyIdSpec, nullable: false, minVersion: 0 },
-        { name: 'wrapped_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'algorithm', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'key_tag', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'creation_time', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    unexportable_keys_internals.mojom.UnexportableKeyInfoSpec, 'unexportable_keys_internals.mojom.UnexportableKeyInfo', [
+      mojo.internal.StructField('key_id', 0, 0, unexportable_keys_internals.mojom.UnexportableKeyIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('wrapped_key', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('algorithm', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('key_tag', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('creation_time', 32, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Interface: PageHandlerFactory
-unexportable_keys_internals.mojom.PageHandlerFactory = {};
-
-unexportable_keys_internals.mojom.PageHandlerFactory_CreateUnexportableKeysInternalsHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'unexportable_keys_internals.mojom.PageHandlerFactory_CreateUnexportableKeysInternalsHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(unexportable_keys_internals.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(unexportable_keys_internals.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    unexportable_keys_internals.mojom.PageHandlerFactory_CreateUnexportableKeysInternalsHandler_ParamsSpec, 'unexportable_keys_internals.mojom.PageHandlerFactory_CreateUnexportableKeysInternalsHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(unexportable_keys_internals.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(unexportable_keys_internals.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 unexportable_keys_internals.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -111,53 +101,33 @@ unexportable_keys_internals.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateUnexportableKeysInternalsHandler
-unexportable_keys_internals.mojom.PageHandlerFactory_CreateUnexportableKeysInternalsHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'unexportable_keys_internals.mojom.PageHandlerFactory.CreateUnexportableKeysInternalsHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(unexportable_keys_internals.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(unexportable_keys_internals.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 unexportable_keys_internals.mojom.PageHandlerFactoryPtr = unexportable_keys_internals.mojom.PageHandlerFactoryRemote;
 unexportable_keys_internals.mojom.PageHandlerFactoryRequest = unexportable_keys_internals.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-unexportable_keys_internals.mojom.PageHandler = {};
+mojo.internal.Struct(
+    unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ParamsSpec, 'unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec, 'unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParams', [
+      mojo.internal.StructField('keys', 0, 0, mojo.internal.Array(unexportable_keys_internals.mojom.UnexportableKeyInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-unexportable_keys_internals.mojom.PageHandler_DeleteKey_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'unexportable_keys_internals.mojom.PageHandler_DeleteKey_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: unexportable_keys_internals.mojom.UnexportableKeyIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    unexportable_keys_internals.mojom.PageHandler_DeleteKey_ParamsSpec, 'unexportable_keys_internals.mojom.PageHandler_DeleteKey_Params', [
+      mojo.internal.StructField('key_id', 0, 0, unexportable_keys_internals.mojom.UnexportableKeyIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec, 'unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 unexportable_keys_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -221,67 +191,11 @@ unexportable_keys_internals.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetUnexportableKeysInfo
-unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'unexportable_keys_internals.mojom.PageHandler.GetUnexportableKeysInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'unexportable_keys_internals.mojom.PageHandler.GetUnexportableKeysInfo_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(unexportable_keys_internals.mojom.UnexportableKeyInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DeleteKey
-unexportable_keys_internals.mojom.PageHandler_DeleteKey_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'unexportable_keys_internals.mojom.PageHandler.DeleteKey_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: unexportable_keys_internals.mojom.UnexportableKeyIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'unexportable_keys_internals.mojom.PageHandler.DeleteKey_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 unexportable_keys_internals.mojom.PageHandlerPtr = unexportable_keys_internals.mojom.PageHandlerRemote;
 unexportable_keys_internals.mojom.PageHandlerRequest = unexportable_keys_internals.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-unexportable_keys_internals.mojom.Page = {};
-
 unexportable_keys_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -326,7 +240,6 @@ unexportable_keys_internals.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 unexportable_keys_internals.mojom.PagePtr = unexportable_keys_internals.mojom.PageRemote;
 unexportable_keys_internals.mojom.PageRequest = unexportable_keys_internals.mojom.PagePendingReceiver;
 

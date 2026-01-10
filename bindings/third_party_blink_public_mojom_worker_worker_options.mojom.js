@@ -7,20 +7,15 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
 var blink = blink || {};
 
+blink.mojom.WorkerOptionsSpec = { $: {} };
 
 // Struct: WorkerOptions
-blink.mojom.WorkerOptionsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WorkerOptions',
-      packedSize: 24,
-      fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ScriptTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WorkerOptionsSpec, 'blink.mojom.WorkerOptions', [
+      mojo.internal.StructField('type', 8, 0, blink.mojom.ScriptTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

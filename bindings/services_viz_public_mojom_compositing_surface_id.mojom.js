@@ -7,19 +7,15 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var services = services || {};
+var services = services || {};
 
+viz.mojom.SurfaceIdSpec = { $: {} };
 
 // Struct: SurfaceId
-viz.mojom.SurfaceIdSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.SurfaceId',
-      packedSize: 24,
-      fields: [
-        { name: 'frame_sink_id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
-        { name: 'local_surface_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.LocalSurfaceIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.SurfaceIdSpec, 'viz.mojom.SurfaceId', [
+      mojo.internal.StructField('frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('local_surface_id', 8, 0, viz.mojom.LocalSurfaceIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

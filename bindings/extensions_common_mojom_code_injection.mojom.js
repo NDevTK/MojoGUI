@@ -10,87 +10,65 @@ extensions.mojom = extensions.mojom || {};
 var blink = blink || {};
 var url = url || {};
 
+extensions.mojom.OperationSpec = { $: mojo.internal.Enum() };
+extensions.mojom.CodeInjectionSpec = { $: {} };
+extensions.mojom.JSSourceSpec = { $: {} };
+extensions.mojom.CSSSourceSpec = { $: {} };
+extensions.mojom.JSInjectionSpec = { $: {} };
+extensions.mojom.CSSInjectionSpec = { $: {} };
 
 // Enum: Operation
 extensions.mojom.Operation = {
   kAdd: 0,
   kRemove: 1,
 };
-extensions.mojom.OperationSpec = { $: mojo.internal.Enum() };
 
 // Union: CodeInjection
-extensions.mojom.CodeInjectionSpec = { $: mojo.internal.Union(
-    'extensions.mojom.CodeInjection', {
+mojo.internal.Union(
+    extensions.mojom.CodeInjectionSpec, 'extensions.mojom.CodeInjection', {
       'css': {
         'ordinal': 0,
         'type': extensions.mojom.CSSInjectionSpec,
-      }},
+        'nullable': false,
+      },
       'js': {
         'ordinal': 1,
         'type': extensions.mojom.JSInjectionSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: JSSource
-extensions.mojom.JSSourceSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.JSSource',
-      packedSize: 24,
-      fields: [
-        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'script_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mojom.JSSourceSpec, 'extensions.mojom.JSSource', [
+      mojo.internal.StructField('code', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('script_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: CSSSource
-extensions.mojom.CSSSourceSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.CSSSource',
-      packedSize: 24,
-      fields: [
-        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mojom.CSSSourceSpec, 'extensions.mojom.CSSSource', [
+      mojo.internal.StructField('code', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('key', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: JSInjection
-extensions.mojom.JSInjectionSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.JSInjection',
-      packedSize: 40,
-      fields: [
-        { name: 'sources', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(extensions.mojom.JSSourceSpec, false), nullable: false, minVersion: 0 },
-        { name: 'world', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.ExecutionWorldSpec, nullable: false, minVersion: 0 },
-        { name: 'world_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'wants_result', packedOffset: 20, packedBitOffset: 0, type: blink.mojom.WantResultOptionSpec, nullable: false, minVersion: 0 },
-        { name: 'user_gesture', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.UserActivationOptionSpec, nullable: false, minVersion: 0 },
-        { name: 'wait_for_promise', packedOffset: 28, packedBitOffset: 0, type: blink.mojom.PromiseResultOptionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mojom.JSInjectionSpec, 'extensions.mojom.JSInjection', [
+      mojo.internal.StructField('sources', 0, 0, mojo.internal.Array(extensions.mojom.JSSourceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('world', 16, 0, extensions.mojom.ExecutionWorldSpec, null, false, 0, undefined),
+      mojo.internal.StructField('world_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('wants_result', 20, 0, blink.mojom.WantResultOptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('user_gesture', 24, 0, blink.mojom.UserActivationOptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('wait_for_promise', 28, 0, blink.mojom.PromiseResultOptionSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: CSSInjection
-extensions.mojom.CSSInjectionSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.CSSInjection',
-      packedSize: 16,
-      fields: [
-        { name: 'kAdd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mojom.CSSInjectionSpec, 'extensions.mojom.CSSInjection', [
+      mojo.internal.StructField('kAdd', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);

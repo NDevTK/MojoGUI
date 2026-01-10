@@ -8,42 +8,37 @@
 var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
 
+extensions.mojom.ServiceWorker = {};
+extensions.mojom.ServiceWorker.$interfaceName = 'extensions.mojom.ServiceWorker';
+extensions.mojom.ServiceWorker_UpdatePermissions_ParamsSpec = { $: {} };
+extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec = { $: {} };
+extensions.mojom.ServiceWorker_DispatchOnConnect_ResponseParamsSpec = { $: {} };
 
 // Interface: ServiceWorker
-extensions.mojom.ServiceWorker = {};
+mojo.internal.Struct(
+    extensions.mojom.ServiceWorker_UpdatePermissions_ParamsSpec, 'extensions.mojom.ServiceWorker_UpdatePermissions_Params', [
+      mojo.internal.StructField('active_permissions', 0, 0, extensions.mojom.PermissionSetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('withheld_permissions', 8, 0, extensions.mojom.PermissionSetSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-extensions.mojom.ServiceWorker_UpdatePermissions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.ServiceWorker_UpdatePermissions_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'active_permissions', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.PermissionSetSpec, nullable: false, minVersion: 0 },
-        { name: 'withheld_permissions', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.PermissionSetSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec, 'extensions.mojom.ServiceWorker_DispatchOnConnect_Params', [
+      mojo.internal.StructField('port_id', 0, 0, extensions.mojom.PortIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('channel_type', 48, 0, extensions.mojom.ChannelTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('channel_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('tab_info', 16, 0, extensions.mojom.TabConnectionInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('external_connection_info', 24, 0, extensions.mojom.ExternalConnectionInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('port', 32, 0, mojo.internal.AssociatedInterfaceRequest(extensions.mojom.MessagePortRemote), null, false, 0, undefined),
+      mojo.internal.StructField('port_host', 40, 0, mojo.internal.AssociatedInterfaceProxy(extensions.mojom.MessagePortHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 64]]);
 
-extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.ServiceWorker_DispatchOnConnect_Params',
-      packedSize: 64,
-      fields: [
-        { name: 'port_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.PortIdSpec, nullable: false, minVersion: 0 },
-        { name: 'channel_type', packedOffset: 48, packedBitOffset: 0, type: extensions.mojom.ChannelTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'channel_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'tab_info', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.TabConnectionInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'external_connection_info', packedOffset: 24, packedBitOffset: 0, type: extensions.mojom.ExternalConnectionInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'port', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(extensions.mojom.MessagePortRemote), nullable: false, minVersion: 0 },
-        { name: 'port_host', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(extensions.mojom.MessagePortHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mojom.ServiceWorker_DispatchOnConnect_ResponseParamsSpec, 'extensions.mojom.ServiceWorker_DispatchOnConnect_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 extensions.mojom.ServiceWorkerPendingReceiver = class {
   constructor(handle) {
@@ -107,55 +102,6 @@ extensions.mojom.ServiceWorker.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for UpdatePermissions
-extensions.mojom.ServiceWorker_UpdatePermissions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.ServiceWorker.UpdatePermissions_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'active_permissions', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.PermissionSetSpec, nullable: false, minVersion: 0 },
-        { name: 'withheld_permissions', packedOffset: 8, packedBitOffset: 0, type: extensions.mojom.PermissionSetSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for DispatchOnConnect
-extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.ServiceWorker.DispatchOnConnect_Params',
-      packedSize: 64,
-      fields: [
-        { name: 'port_id', packedOffset: 0, packedBitOffset: 0, type: extensions.mojom.PortIdSpec, nullable: false, minVersion: 0 },
-        { name: 'channel_type', packedOffset: 48, packedBitOffset: 0, type: extensions.mojom.ChannelTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'channel_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'tab_info', packedOffset: 16, packedBitOffset: 0, type: extensions.mojom.TabConnectionInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'external_connection_info', packedOffset: 24, packedBitOffset: 0, type: extensions.mojom.ExternalConnectionInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'port', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(extensions.mojom.MessagePortRemote), nullable: false, minVersion: 0 },
-        { name: 'port_host', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(extensions.mojom.MessagePortHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
-
-extensions.mojom.ServiceWorker_DispatchOnConnect_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.ServiceWorker.DispatchOnConnect_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 extensions.mojom.ServiceWorkerPtr = extensions.mojom.ServiceWorkerRemote;
 extensions.mojom.ServiceWorkerRequest = extensions.mojom.ServiceWorkerPendingReceiver;
 

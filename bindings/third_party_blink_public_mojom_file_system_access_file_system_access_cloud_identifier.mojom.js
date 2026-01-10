@@ -8,18 +8,12 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.FileSystemAccessCloudIdentifierSpec = { $: {} };
 
 // Struct: FileSystemAccessCloudIdentifier
-blink.mojom.FileSystemAccessCloudIdentifierSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessCloudIdentifier',
-      packedSize: 24,
-      fields: [
-        { name: 'provider_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessCloudIdentifierSpec, 'blink.mojom.FileSystemAccessCloudIdentifier', [
+      mojo.internal.StructField('provider_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

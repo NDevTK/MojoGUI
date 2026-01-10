@@ -10,6 +10,24 @@ blink.mojom = blink.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+blink.mojom.StopFindActionSpec = { $: mojo.internal.Enum() };
+blink.mojom.FindMatchUpdateTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.FindOptionsSpec = { $: {} };
+blink.mojom.FindInPage = {};
+blink.mojom.FindInPage.$interfaceName = 'blink.mojom.FindInPage';
+blink.mojom.FindInPage_Find_ParamsSpec = { $: {} };
+blink.mojom.FindInPage_StopFinding_ParamsSpec = { $: {} };
+blink.mojom.FindInPage_ClearActiveFindMatch_ParamsSpec = { $: {} };
+blink.mojom.FindInPage_SetClient_ParamsSpec = { $: {} };
+blink.mojom.FindInPage_GetNearestFindResult_ParamsSpec = { $: {} };
+blink.mojom.FindInPage_GetNearestFindResult_ResponseParamsSpec = { $: {} };
+blink.mojom.FindInPage_ActivateNearestFindResult_ParamsSpec = { $: {} };
+blink.mojom.FindInPage_FindMatchRects_ParamsSpec = { $: {} };
+blink.mojom.FindInPage_FindMatchRects_ResponseParamsSpec = { $: {} };
+blink.mojom.FindInPageClient = {};
+blink.mojom.FindInPageClient.$interfaceName = 'blink.mojom.FindInPageClient';
+blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec = { $: {} };
+blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec = { $: {} };
 
 // Enum: StopFindAction
 blink.mojom.StopFindAction = {
@@ -17,129 +35,83 @@ blink.mojom.StopFindAction = {
   kStopFindActionKeepSelection: 1,
   kStopFindActionActivateSelection: 2,
 };
-blink.mojom.StopFindActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: FindMatchUpdateType
 blink.mojom.FindMatchUpdateType = {
   kFinalUpdate: 0,
   kMoreUpdatesComing: 1,
 };
-blink.mojom.FindMatchUpdateTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: FindOptions
-blink.mojom.FindOptionsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FindOptions',
-      packedSize: 16,
-      fields: [
-        { name: 'forward', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'match_case', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'new_session', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'find_match', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'force', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'run_synchronously_for_testing', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FindOptionsSpec, 'blink.mojom.FindOptions', [
+      mojo.internal.StructField('forward', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('match_case', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('new_session', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('find_match', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('force', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('run_synchronously_for_testing', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: FindInPage
-blink.mojom.FindInPage = {};
+mojo.internal.Struct(
+    blink.mojom.FindInPage_Find_ParamsSpec, 'blink.mojom.FindInPage_Find_Params', [
+      mojo.internal.StructField('request_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('search_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('options', 8, 0, blink.mojom.FindOptionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.FindInPage_Find_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FindInPage_Find_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'request_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'search_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FindOptionsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FindInPage_StopFinding_ParamsSpec, 'blink.mojom.FindInPage_StopFinding_Params', [
+      mojo.internal.StructField('action', 0, 0, blink.mojom.StopFindActionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.FindInPage_StopFinding_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FindInPage_StopFinding_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StopFindActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FindInPage_ClearActiveFindMatch_ParamsSpec, 'blink.mojom.FindInPage_ClearActiveFindMatch_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.FindInPage_ClearActiveFindMatch_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FindInPage_ClearActiveFindMatch_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FindInPage_SetClient_ParamsSpec, 'blink.mojom.FindInPage_SetClient_Params', [
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.FindInPageClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.FindInPage_SetClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FindInPage_SetClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.FindInPageClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FindInPage_GetNearestFindResult_ParamsSpec, 'blink.mojom.FindInPage_GetNearestFindResult_Params', [
+      mojo.internal.StructField('point', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.FindInPage_GetNearestFindResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FindInPage_GetNearestFindResult_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FindInPage_GetNearestFindResult_ResponseParamsSpec, 'blink.mojom.FindInPage_GetNearestFindResult_ResponseParams', [
+      mojo.internal.StructField('distance', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.FindInPage_ActivateNearestFindResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FindInPage_ActivateNearestFindResult_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'request_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FindInPage_ActivateNearestFindResult_ParamsSpec, 'blink.mojom.FindInPage_ActivateNearestFindResult_Params', [
+      mojo.internal.StructField('request_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('point', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.FindInPage_FindMatchRects_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FindInPage_FindMatchRects_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'current_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FindInPage_FindMatchRects_ParamsSpec, 'blink.mojom.FindInPage_FindMatchRects_Params', [
+      mojo.internal.StructField('current_version', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.FindInPage_FindMatchRects_ResponseParamsSpec, 'blink.mojom.FindInPage_FindMatchRects_ResponseParams', [
+      mojo.internal.StructField('version', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('rects', 0, 0, mojo.internal.Array(gfx.mojom.RectFSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('active_match_rect', 8, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 blink.mojom.FindInPagePendingReceiver = class {
   constructor(handle) {
@@ -248,172 +220,27 @@ blink.mojom.FindInPage.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Find
-blink.mojom.FindInPage_Find_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FindInPage.Find_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'request_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'search_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FindOptionsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for StopFinding
-blink.mojom.FindInPage_StopFinding_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FindInPage.StopFinding_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StopFindActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ClearActiveFindMatch
-blink.mojom.FindInPage_ClearActiveFindMatch_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FindInPage.ClearActiveFindMatch_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetClient
-blink.mojom.FindInPage_SetClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FindInPage.SetClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.FindInPageClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetNearestFindResult
-blink.mojom.FindInPage_GetNearestFindResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FindInPage.GetNearestFindResult_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.FindInPage_GetNearestFindResult_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FindInPage.GetNearestFindResult_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'distance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ActivateNearestFindResult
-blink.mojom.FindInPage_ActivateNearestFindResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FindInPage.ActivateNearestFindResult_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'request_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for FindMatchRects
-blink.mojom.FindInPage_FindMatchRects_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FindInPage.FindMatchRects_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'current_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.FindInPage_FindMatchRects_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FindInPage.FindMatchRects_ResponseParams',
-      packedSize: 32,
-      fields: [
-        { name: 'version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'rects', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.RectFSpec, false), nullable: false, minVersion: 0 },
-        { name: 'active_match_rect', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.FindInPagePtr = blink.mojom.FindInPageRemote;
 blink.mojom.FindInPageRequest = blink.mojom.FindInPagePendingReceiver;
 
 
 // Interface: FindInPageClient
-blink.mojom.FindInPageClient = {};
+mojo.internal.Struct(
+    blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec, 'blink.mojom.FindInPageClient_SetNumberOfMatches_Params', [
+      mojo.internal.StructField('request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('number_of_matches', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('update_type', 8, 0, blink.mojom.FindMatchUpdateTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FindInPageClient_SetNumberOfMatches_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'number_of_matches', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'update_type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FindMatchUpdateTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FindInPageClient_SetActiveMatch_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'request_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'active_match_rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'active_match_ordinal', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'update_type', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.FindMatchUpdateTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec, 'blink.mojom.FindInPageClient_SetActiveMatch_Params', [
+      mojo.internal.StructField('request_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('active_match_rect', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('active_match_ordinal', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('update_type', 16, 0, blink.mojom.FindMatchUpdateTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 blink.mojom.FindInPageClientPendingReceiver = class {
   constructor(handle) {
@@ -477,40 +304,6 @@ blink.mojom.FindInPageClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetNumberOfMatches
-blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FindInPageClient.SetNumberOfMatches_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'number_of_matches', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'update_type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FindMatchUpdateTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SetActiveMatch
-blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FindInPageClient.SetActiveMatch_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'request_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'active_match_rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'active_match_ordinal', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'update_type', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.FindMatchUpdateTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.FindInPageClientPtr = blink.mojom.FindInPageClientRemote;
 blink.mojom.FindInPageClientRequest = blink.mojom.FindInPageClientPendingReceiver;
 

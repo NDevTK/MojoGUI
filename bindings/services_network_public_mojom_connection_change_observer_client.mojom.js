@@ -8,6 +8,13 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.NetworkChangeEventSpec = { $: mojo.internal.Enum() };
+network.mojom.ConnectionKeepAliveConfigSpec = { $: {} };
+network.mojom.ConnectionChangeObserverClient = {};
+network.mojom.ConnectionChangeObserverClient.$interfaceName = 'network.mojom.ConnectionChangeObserverClient';
+network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec = { $: {} };
+network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec = { $: {} };
+network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_ParamsSpec = { $: {} };
 
 // Enum: NetworkChangeEvent
 network.mojom.NetworkChangeEvent = {
@@ -16,64 +23,33 @@ network.mojom.NetworkChangeEvent = {
   kConnected: 2,
   kDefaultNetworkChanged: 3,
 };
-network.mojom.NetworkChangeEventSpec = { $: mojo.internal.Enum() };
 
 // Struct: ConnectionKeepAliveConfig
-network.mojom.ConnectionKeepAliveConfigSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ConnectionKeepAliveConfig',
-      packedSize: 32,
-      fields: [
-        { name: 'idle_timeout_in_seconds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'ping_interval_in_seconds', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'enable_connection_keep_alive', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'quic_connection_options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.ConnectionKeepAliveConfigSpec, 'network.mojom.ConnectionKeepAliveConfig', [
+      mojo.internal.StructField('idle_timeout_in_seconds', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('ping_interval_in_seconds', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('enable_connection_keep_alive', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('quic_connection_options', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: ConnectionChangeObserverClient
-network.mojom.ConnectionChangeObserverClient = {};
+mojo.internal.Struct(
+    network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec, 'network.mojom.ConnectionChangeObserverClient_OnSessionClosed_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ConnectionChangeObserverClient_OnSessionClosed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec, 'network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_Params', [
+      mojo.internal.StructField('event', 0, 0, network.mojom.NetworkChangeEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: network.mojom.NetworkChangeEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_ParamsSpec, 'network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 network.mojom.ConnectionChangeObserverClientPendingReceiver = class {
   constructor(handle) {
@@ -146,47 +122,6 @@ network.mojom.ConnectionChangeObserverClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnSessionClosed
-network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ConnectionChangeObserverClient.OnSessionClosed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnNetworkEvent
-network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ConnectionChangeObserverClient.OnNetworkEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: network.mojom.NetworkChangeEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnConnectionFailed
-network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ConnectionChangeObserverClient.OnConnectionFailed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.ConnectionChangeObserverClientPtr = network.mojom.ConnectionChangeObserverClientRemote;
 network.mojom.ConnectionChangeObserverClientRequest = network.mojom.ConnectionChangeObserverClientPendingReceiver;
 

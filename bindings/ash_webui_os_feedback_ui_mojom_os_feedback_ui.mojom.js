@@ -10,6 +10,40 @@ ash.os_feedback_ui = ash.os_feedback_ui || {};
 ash.os_feedback_ui.mojom = ash.os_feedback_ui.mojom || {};
 var url = url || {};
 
+ash.os_feedback_ui.mojom.HelpContentTypeSpec = { $: mojo.internal.Enum() };
+ash.os_feedback_ui.mojom.SendReportStatusSpec = { $: mojo.internal.Enum() };
+ash.os_feedback_ui.mojom.FeedbackAppPostSubmitActionSpec = { $: mojo.internal.Enum() };
+ash.os_feedback_ui.mojom.FeedbackAppPreSubmitActionSpec = { $: mojo.internal.Enum() };
+ash.os_feedback_ui.mojom.FeedbackAppExitPathSpec = { $: mojo.internal.Enum() };
+ash.os_feedback_ui.mojom.FeedbackAppHelpContentOutcomeSpec = { $: mojo.internal.Enum() };
+ash.os_feedback_ui.mojom.HelpContentSpec = { $: {} };
+ash.os_feedback_ui.mojom.SearchRequestSpec = { $: {} };
+ash.os_feedback_ui.mojom.SearchResponseSpec = { $: {} };
+ash.os_feedback_ui.mojom.FeedbackContextSpec = { $: {} };
+ash.os_feedback_ui.mojom.AttachedFileSpec = { $: {} };
+ash.os_feedback_ui.mojom.ReportSpec = { $: {} };
+ash.os_feedback_ui.mojom.HelpContentProvider = {};
+ash.os_feedback_ui.mojom.HelpContentProvider.$interfaceName = 'ash.os_feedback_ui.mojom.HelpContentProvider';
+ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec = { $: {} };
+ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ResponseParamsSpec = { $: {} };
+ash.os_feedback_ui.mojom.FeedbackServiceProvider = {};
+ash.os_feedback_ui.mojom.FeedbackServiceProvider.$interfaceName = 'ash.os_feedback_ui.mojom.FeedbackServiceProvider';
+ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ParamsSpec = { $: {} };
+ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponseParamsSpec = { $: {} };
+ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ParamsSpec = { $: {} };
+ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ResponseParamsSpec = { $: {} };
+ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ParamsSpec = { $: {} };
+ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ResponseParamsSpec = { $: {} };
+ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenDiagnosticsApp_ParamsSpec = { $: {} };
+ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenExploreApp_ParamsSpec = { $: {} };
+ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenMetricsDialog_ParamsSpec = { $: {} };
+ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenSystemInfoDialog_ParamsSpec = { $: {} };
+ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenAutofillDialog_ParamsSpec = { $: {} };
+ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_ParamsSpec = { $: {} };
+ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_ParamsSpec = { $: {} };
+ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_ParamsSpec = { $: {} };
+ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_ParamsSpec = { $: {} };
+ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentSearchResultCount_ParamsSpec = { $: {} };
 
 // Enum: HelpContentType
 ash.os_feedback_ui.mojom.HelpContentType = {
@@ -17,7 +51,6 @@ ash.os_feedback_ui.mojom.HelpContentType = {
   kArticle: 1,
   kForum: 2,
 };
-ash.os_feedback_ui.mojom.HelpContentTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SendReportStatus
 ash.os_feedback_ui.mojom.SendReportStatus = {
@@ -25,7 +58,6 @@ ash.os_feedback_ui.mojom.SendReportStatus = {
   kSuccess: 1,
   kDelayed: 2,
 };
-ash.os_feedback_ui.mojom.SendReportStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: FeedbackAppPostSubmitAction
 ash.os_feedback_ui.mojom.FeedbackAppPostSubmitAction = {
@@ -36,7 +68,6 @@ ash.os_feedback_ui.mojom.FeedbackAppPostSubmitAction = {
   kOpenChromebookCommunity: 4,
   kCloseFeedbackApp: 5,
 };
-ash.os_feedback_ui.mojom.FeedbackAppPostSubmitActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: FeedbackAppPreSubmitAction
 ash.os_feedback_ui.mojom.FeedbackAppPreSubmitAction = {
@@ -47,7 +78,6 @@ ash.os_feedback_ui.mojom.FeedbackAppPreSubmitAction = {
   kViewedAutofillMetadata: 4,
   kViewedMetrics: 5,
 };
-ash.os_feedback_ui.mojom.FeedbackAppPreSubmitActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: FeedbackAppExitPath
 ash.os_feedback_ui.mojom.FeedbackAppExitPath = {
@@ -59,7 +89,6 @@ ash.os_feedback_ui.mojom.FeedbackAppExitPath = {
   kSuccessHelpContentClicked: 5,
   kSuccessNoHelpContentClicked: 6,
 };
-ash.os_feedback_ui.mojom.FeedbackAppExitPathSpec = { $: mojo.internal.Enum() };
 
 // Enum: FeedbackAppHelpContentOutcome
 ash.os_feedback_ui.mojom.FeedbackAppHelpContentOutcome = {
@@ -70,130 +99,84 @@ ash.os_feedback_ui.mojom.FeedbackAppHelpContentOutcome = {
   kQuitNoHelpContentClicked: 4,
   kQuitNoHelpContentDisplayed: 5,
 };
-ash.os_feedback_ui.mojom.FeedbackAppHelpContentOutcomeSpec = { $: mojo.internal.Enum() };
 
 // Struct: HelpContent
-ash.os_feedback_ui.mojom.HelpContentSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.HelpContent',
-      packedSize: 32,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'content_type', packedOffset: 16, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.HelpContentTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.os_feedback_ui.mojom.HelpContentSpec, 'ash.os_feedback_ui.mojom.HelpContent', [
+      mojo.internal.StructField('title', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('content_type', 16, 0, ash.os_feedback_ui.mojom.HelpContentTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: SearchRequest
-ash.os_feedback_ui.mojom.SearchRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.SearchRequest',
-      packedSize: 24,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'max_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.os_feedback_ui.mojom.SearchRequestSpec, 'ash.os_feedback_ui.mojom.SearchRequest', [
+      mojo.internal.StructField('query', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('max_results', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: SearchResponse
-ash.os_feedback_ui.mojom.SearchResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.SearchResponse',
-      packedSize: 24,
-      fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.os_feedback_ui.mojom.HelpContentSpec, false), nullable: false, minVersion: 0 },
-        { name: 'total_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.os_feedback_ui.mojom.SearchResponseSpec, 'ash.os_feedback_ui.mojom.SearchResponse', [
+      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(ash.os_feedback_ui.mojom.HelpContentSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('total_results', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: FeedbackContext
-ash.os_feedback_ui.mojom.FeedbackContextSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackContext',
-      packedSize: 56,
-      fields: [
-        { name: 'email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'wifi_debug_logs_allowed', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_linked_cross_device_phone', packedOffset: 44, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_internal_account', packedOffset: 44, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'settings_search_do_not_record_metrics', packedOffset: 44, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'from_autofill', packedOffset: 44, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'autofill_metadata', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'page_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-        { name: 'extra_diagnostics', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'category_tag', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'trace_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.os_feedback_ui.mojom.FeedbackContextSpec, 'ash.os_feedback_ui.mojom.FeedbackContext', [
+      mojo.internal.StructField('email', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('wifi_debug_logs_allowed', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_linked_cross_device_phone', 44, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_internal_account', 44, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('settings_search_do_not_record_metrics', 44, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('from_autofill', 44, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('autofill_metadata', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('page_url', 16, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('extra_diagnostics', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('category_tag', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('trace_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: AttachedFile
-ash.os_feedback_ui.mojom.AttachedFileSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.AttachedFile',
-      packedSize: 32,
-      fields: [
-        { name: 'file_data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-        { name: 'file_name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.SafeBaseNameSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.os_feedback_ui.mojom.AttachedFileSpec, 'ash.os_feedback_ui.mojom.AttachedFile', [
+      mojo.internal.StructField('file_data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('file_name', 16, 0, mojo_base.mojom.SafeBaseNameSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: Report
-ash.os_feedback_ui.mojom.ReportSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.Report',
-      packedSize: 40,
-      fields: [
-        { name: 'feedback_context', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.FeedbackContextSpec, nullable: false, minVersion: 0 },
-        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'attached_file', packedOffset: 16, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.AttachedFileSpec, nullable: true, minVersion: 0 },
-        { name: 'include_system_logs_and_histograms', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'include_screenshot', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'contact_user_consent_granted', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'send_bluetooth_logs', packedOffset: 24, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'send_wifi_debug_logs', packedOffset: 24, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'include_autofill_metadata', packedOffset: 24, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.os_feedback_ui.mojom.ReportSpec, 'ash.os_feedback_ui.mojom.Report', [
+      mojo.internal.StructField('feedback_context', 0, 0, ash.os_feedback_ui.mojom.FeedbackContextSpec, null, false, 0, undefined),
+      mojo.internal.StructField('description', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('attached_file', 16, 0, ash.os_feedback_ui.mojom.AttachedFileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('include_system_logs_and_histograms', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('include_screenshot', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('contact_user_consent_granted', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('send_bluetooth_logs', 24, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('send_wifi_debug_logs', 24, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('include_autofill_metadata', 24, 5, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: HelpContentProvider
-ash.os_feedback_ui.mojom.HelpContentProvider = {};
+mojo.internal.Struct(
+    ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec, 'ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_Params', [
+      mojo.internal.StructField('request', 0, 0, ash.os_feedback_ui.mojom.SearchRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.SearchRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ResponseParamsSpec, 'ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ResponseParams', [
+      mojo.internal.StructField('response', 0, 0, ash.os_feedback_ui.mojom.SearchResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.os_feedback_ui.mojom.HelpContentProviderPendingReceiver = class {
   constructor(handle) {
@@ -248,203 +231,100 @@ ash.os_feedback_ui.mojom.HelpContentProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetHelpContents
-ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.HelpContentProvider.GetHelpContents_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.SearchRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.HelpContentProvider.GetHelpContents_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.SearchResponseSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.os_feedback_ui.mojom.HelpContentProviderPtr = ash.os_feedback_ui.mojom.HelpContentProviderRemote;
 ash.os_feedback_ui.mojom.HelpContentProviderRequest = ash.os_feedback_ui.mojom.HelpContentProviderPendingReceiver;
 
 
 // Interface: FeedbackServiceProvider
-ash.os_feedback_ui.mojom.FeedbackServiceProvider = {};
+mojo.internal.Struct(
+    ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponseParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponseParams', [
+      mojo.internal.StructField('feedback_context', 0, 0, ash.os_feedback_ui.mojom.FeedbackContextSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.ReportSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ResponseParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ResponseParams', [
+      mojo.internal.StructField('png_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenDiagnosticsApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenDiagnosticsApp_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_Params', [
+      mojo.internal.StructField('report', 0, 0, ash.os_feedback_ui.mojom.ReportSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenExploreApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenExploreApp_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ResponseParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, ash.os_feedback_ui.mojom.SendReportStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenMetricsDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenMetricsDialog_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenDiagnosticsApp_ParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenDiagnosticsApp_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenSystemInfoDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenSystemInfoDialog_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenExploreApp_ParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenExploreApp_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenAutofillDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenAutofillDialog_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'autofill_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenMetricsDialog_ParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenMetricsDialog_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.FeedbackAppPostSubmitActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenSystemInfoDialog_ParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenSystemInfoDialog_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.FeedbackAppPreSubmitActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenAutofillDialog_ParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenAutofillDialog_Params', [
+      mojo.internal.StructField('autofill_metadata', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'exit_path', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.FeedbackAppExitPathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_ParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_Params', [
+      mojo.internal.StructField('action', 0, 0, ash.os_feedback_ui.mojom.FeedbackAppPostSubmitActionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'outcome', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.FeedbackAppHelpContentOutcomeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_ParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_Params', [
+      mojo.internal.StructField('action', 0, 0, ash.os_feedback_ui.mojom.FeedbackAppPreSubmitActionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentSearchResultCount_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentSearchResultCount_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_ParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_Params', [
+      mojo.internal.StructField('exit_path', 0, 0, ash.os_feedback_ui.mojom.FeedbackAppExitPathSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_ParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_Params', [
+      mojo.internal.StructField('outcome', 0, 0, ash.os_feedback_ui.mojom.FeedbackAppHelpContentOutcomeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentSearchResultCount_ParamsSpec, 'ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentSearchResultCount_Params', [
+      mojo.internal.StructField('count', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.os_feedback_ui.mojom.FeedbackServiceProviderPendingReceiver = class {
   constructor(handle) {
@@ -607,222 +487,6 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetFeedbackContext
-ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.GetFeedbackContext_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.GetFeedbackContext_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'feedback_context', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.FeedbackContextSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetScreenshotPng
-ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.GetScreenshotPng_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.GetScreenshotPng_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'png_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SendReport
-ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.SendReport_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.ReportSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.SendReport_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.SendReportStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OpenDiagnosticsApp
-ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenDiagnosticsApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.OpenDiagnosticsApp_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OpenExploreApp
-ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenExploreApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.OpenExploreApp_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OpenMetricsDialog
-ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenMetricsDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.OpenMetricsDialog_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OpenSystemInfoDialog
-ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenSystemInfoDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.OpenSystemInfoDialog_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OpenAutofillDialog
-ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenAutofillDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.OpenAutofillDialog_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'autofill_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RecordPostSubmitAction
-ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.RecordPostSubmitAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.FeedbackAppPostSubmitActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RecordPreSubmitAction
-ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.RecordPreSubmitAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.FeedbackAppPreSubmitActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RecordExitPath
-ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.RecordExitPath_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'exit_path', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.FeedbackAppExitPathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RecordHelpContentOutcome
-ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.RecordHelpContentOutcome_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'outcome', packedOffset: 0, packedBitOffset: 0, type: ash.os_feedback_ui.mojom.FeedbackAppHelpContentOutcomeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RecordHelpContentSearchResultCount
-ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentSearchResultCount_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.os_feedback_ui.mojom.FeedbackServiceProvider.RecordHelpContentSearchResultCount_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.os_feedback_ui.mojom.FeedbackServiceProviderPtr = ash.os_feedback_ui.mojom.FeedbackServiceProviderRemote;
 ash.os_feedback_ui.mojom.FeedbackServiceProviderRequest = ash.os_feedback_ui.mojom.FeedbackServiceProviderPendingReceiver;
 

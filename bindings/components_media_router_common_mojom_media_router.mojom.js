@@ -7,20 +7,77 @@
 // Module namespace
 var media_router = media_router || {};
 media_router.mojom = media_router.mojom || {};
+var components = components || {};
+var components = components || {};
+var components = components || {};
+var components = components || {};
+var components = components || {};
+var components = components || {};
+var services = services || {};
+var services = services || {};
 var blink = blink || {};
 var url = url || {};
 var url = url || {};
 
+media_router.mojom.SinkIconTypeSpec = { $: mojo.internal.Enum() };
+media_router.mojom.RouteControllerTypeSpec = { $: mojo.internal.Enum() };
+media_router.mojom.SeveritySpec = { $: mojo.internal.Enum() };
+media_router.mojom.TypeSpec = { $: mojo.internal.Enum() };
+media_router.mojom.MediaSinkExtraDataSpec = { $: {} };
+media_router.mojom.ProviderStateSpec = { $: {} };
+media_router.mojom.MediaSinkSpec = { $: {} };
+media_router.mojom.DialMediaSinkSpec = { $: {} };
+media_router.mojom.CastMediaSinkSpec = { $: {} };
+media_router.mojom.MediaRouteSpec = { $: {} };
+media_router.mojom.IssueSpec = { $: {} };
+media_router.mojom.RouteMessageSpec = { $: {} };
+media_router.mojom.RoutePresentationConnectionSpec = { $: {} };
+media_router.mojom.CastSessionStateSpec = { $: {} };
+media_router.mojom.CastProviderStateSpec = { $: {} };
+media_router.mojom.MediaRouteProvider = {};
+media_router.mojom.MediaRouteProvider.$interfaceName = 'media_router.mojom.MediaRouteProvider';
+media_router.mojom.MediaRouteProvider_CreateRoute_ParamsSpec = { $: {} };
+media_router.mojom.MediaRouteProvider_CreateRoute_ResponseParamsSpec = { $: {} };
+media_router.mojom.MediaRouteProvider_JoinRoute_ParamsSpec = { $: {} };
+media_router.mojom.MediaRouteProvider_JoinRoute_ResponseParamsSpec = { $: {} };
+media_router.mojom.MediaRouteProvider_TerminateRoute_ParamsSpec = { $: {} };
+media_router.mojom.MediaRouteProvider_TerminateRoute_ResponseParamsSpec = { $: {} };
+media_router.mojom.MediaRouteProvider_SendRouteMessage_ParamsSpec = { $: {} };
+media_router.mojom.MediaRouteProvider_SendRouteBinaryMessage_ParamsSpec = { $: {} };
+media_router.mojom.MediaRouteProvider_StartObservingMediaSinks_ParamsSpec = { $: {} };
+media_router.mojom.MediaRouteProvider_StopObservingMediaSinks_ParamsSpec = { $: {} };
+media_router.mojom.MediaRouteProvider_StartObservingMediaRoutes_ParamsSpec = { $: {} };
+media_router.mojom.MediaRouteProvider_DetachRoute_ParamsSpec = { $: {} };
+media_router.mojom.MediaRouteProvider_DiscoverSinksNow_ParamsSpec = { $: {} };
+media_router.mojom.MediaRouteProvider_BindMediaController_ParamsSpec = { $: {} };
+media_router.mojom.MediaRouteProvider_BindMediaController_ResponseParamsSpec = { $: {} };
+media_router.mojom.MediaRouteProvider_GetState_ParamsSpec = { $: {} };
+media_router.mojom.MediaRouteProvider_GetState_ResponseParamsSpec = { $: {} };
+media_router.mojom.MediaRouter = {};
+media_router.mojom.MediaRouter.$interfaceName = 'media_router.mojom.MediaRouter';
+media_router.mojom.MediaRouter_RegisterMediaRouteProvider_ParamsSpec = { $: {} };
+media_router.mojom.MediaRouter_OnSinksReceived_ParamsSpec = { $: {} };
+media_router.mojom.MediaRouter_OnIssue_ParamsSpec = { $: {} };
+media_router.mojom.MediaRouter_ClearTopIssueForSink_ParamsSpec = { $: {} };
+media_router.mojom.MediaRouter_OnRoutesUpdated_ParamsSpec = { $: {} };
+media_router.mojom.MediaRouter_OnPresentationConnectionStateChanged_ParamsSpec = { $: {} };
+media_router.mojom.MediaRouter_OnPresentationConnectionClosed_ParamsSpec = { $: {} };
+media_router.mojom.MediaRouter_OnRouteMessagesReceived_ParamsSpec = { $: {} };
+media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ParamsSpec = { $: {} };
+media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ResponseParamsSpec = { $: {} };
+media_router.mojom.MediaRouter_GetLogger_ParamsSpec = { $: {} };
+media_router.mojom.MediaRouter_GetDebugger_ParamsSpec = { $: {} };
+media_router.mojom.MediaRouter_GetLogsAsString_ParamsSpec = { $: {} };
+media_router.mojom.MediaRouter_GetLogsAsString_ResponseParamsSpec = { $: {} };
 
 // Enum: SinkIconType
 media_router.mojom.SinkIconType = {
   CAST: 0,
   CAST_AUDIO_GROUP: 1,
   CAST_AUDIO: 2,
-  WIRED_DISPLAY: 3,
-  GENERIC: 4,
+  WIRED_DISPLAY: 6,
+  GENERIC: 7,
 };
-media_router.mojom.SinkIconTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: RouteControllerType
 media_router.mojom.RouteControllerType = {
@@ -28,362 +85,248 @@ media_router.mojom.RouteControllerType = {
   kGeneric: 1,
   kMirroring: 2,
 };
-media_router.mojom.RouteControllerTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Severity
 media_router.mojom.Severity = {
   WARNING: 0,
   NOTIFICATION: 1,
 };
-media_router.mojom.SeveritySpec = { $: mojo.internal.Enum() };
 
 // Enum: Type
 media_router.mojom.Type = {
   TEXT: 0,
   BINARY: 1,
 };
-media_router.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Union: MediaSinkExtraData
-media_router.mojom.MediaSinkExtraDataSpec = { $: mojo.internal.Union(
-    'media_router.mojom.MediaSinkExtraData', {
+mojo.internal.Union(
+    media_router.mojom.MediaSinkExtraDataSpec, 'media_router.mojom.MediaSinkExtraData', {
       'dial_media_sink': {
         'ordinal': 0,
         'type': media_router.mojom.DialMediaSinkSpec,
-      }},
+        'nullable': false,
+      },
       'cast_media_sink': {
         'ordinal': 1,
         'type': media_router.mojom.CastMediaSinkSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Union: ProviderState
-media_router.mojom.ProviderStateSpec = { $: mojo.internal.Union(
-    'media_router.mojom.ProviderState', {
+mojo.internal.Union(
+    media_router.mojom.ProviderStateSpec, 'media_router.mojom.ProviderState', {
       'cast_provider_state': {
         'ordinal': 0,
         'type': media_router.mojom.CastProviderStateSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: MediaSink
-media_router.mojom.MediaSinkSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaSink',
-      packedSize: 48,
-      fields: [
-        { name: 'sink_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'icon_type', packedOffset: 32, packedBitOffset: 0, type: media_router.mojom.SinkIconTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'provider_id', packedOffset: 36, packedBitOffset: 0, type: media_router.mojom.MediaRouteProviderIdSpec, nullable: false, minVersion: 0 },
-        { name: 'extra_data', packedOffset: 0, packedBitOffset: 0, type: media_router.mojom.MediaSinkExtraDataSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaSinkSpec, 'media_router.mojom.MediaSink', [
+      mojo.internal.StructField('sink_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('name', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('icon_type', 32, 0, media_router.mojom.SinkIconTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('provider_id', 36, 0, media_router.mojom.MediaRouteProviderIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('extra_data', 0, 0, media_router.mojom.MediaSinkExtraDataSpec, null, true, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: DialMediaSink
-media_router.mojom.DialMediaSinkSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.DialMediaSink',
-      packedSize: 32,
-      fields: [
-        { name: 'ip_address', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
-        { name: 'model_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'app_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.DialMediaSinkSpec, 'media_router.mojom.DialMediaSink', [
+      mojo.internal.StructField('ip_address', 0, 0, network.mojom.IPAddressSpec, null, false, 0, undefined),
+      mojo.internal.StructField('model_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('app_url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: CastMediaSink
-media_router.mojom.CastMediaSinkSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.CastMediaSink',
-      packedSize: 40,
-      fields: [
-        { name: 'ip_endpoint', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
-        { name: 'model_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'capabilities', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'cast_channel_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.CastMediaSinkSpec, 'media_router.mojom.CastMediaSink', [
+      mojo.internal.StructField('ip_endpoint', 0, 0, network.mojom.IPEndPointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('model_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('capabilities', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('cast_channel_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: MediaRoute
-media_router.mojom.MediaRouteSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRoute',
-      packedSize: 64,
-      fields: [
-        { name: 'media_route_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'presentation_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'media_source', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'media_sink_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'media_sink_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'description', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_local', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'controller_type', packedOffset: 48, packedBitOffset: 0, type: media_router.mojom.RouteControllerTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'is_local_presentation', packedOffset: 52, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_connecting', packedOffset: 52, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaRouteSpec, 'media_router.mojom.MediaRoute', [
+      mojo.internal.StructField('media_route_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('presentation_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('media_source', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('media_sink_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('media_sink_name', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('description', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_local', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('controller_type', 48, 0, media_router.mojom.RouteControllerTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_local_presentation', 52, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_connecting', 52, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 64]]);
 
 // Struct: Issue
-media_router.mojom.IssueSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.Issue',
-      packedSize: 16,
-      fields: [
-        { name: 'WARNING', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.IssueSpec, 'media_router.mojom.Issue', [
+      mojo.internal.StructField('WARNING', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: RouteMessage
-media_router.mojom.RouteMessageSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.RouteMessage',
-      packedSize: 16,
-      fields: [
-        { name: 'TEXT', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.RouteMessageSpec, 'media_router.mojom.RouteMessage', [
+      mojo.internal.StructField('TEXT', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: RoutePresentationConnection
-media_router.mojom.RoutePresentationConnectionSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.RoutePresentationConnection',
-      packedSize: 24,
-      fields: [
-        { name: 'connection_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.PresentationConnectionRemote), nullable: false, minVersion: 0 },
-        { name: 'connection_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.PresentationConnectionRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.RoutePresentationConnectionSpec, 'media_router.mojom.RoutePresentationConnection', [
+      mojo.internal.StructField('connection_remote', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.PresentationConnectionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('connection_receiver', 8, 0, mojo.internal.InterfaceRequest(blink.mojom.PresentationConnectionRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: CastSessionState
-media_router.mojom.CastSessionStateSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.CastSessionState',
-      packedSize: 40,
-      fields: [
-        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'app_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'session_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'route_description', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.CastSessionStateSpec, 'media_router.mojom.CastSessionState', [
+      mojo.internal.StructField('sink_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('app_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('session_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('route_description', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: CastProviderState
-media_router.mojom.CastProviderStateSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.CastProviderState',
-      packedSize: 16,
-      fields: [
-        { name: 'session_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media_router.mojom.CastSessionStateSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.CastProviderStateSpec, 'media_router.mojom.CastProviderState', [
+      mojo.internal.StructField('session_state', 0, 0, mojo.internal.Array(media_router.mojom.CastSessionStateSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: MediaRouteProvider
-media_router.mojom.MediaRouteProvider = {};
+mojo.internal.Struct(
+    media_router.mojom.MediaRouteProvider_CreateRoute_ParamsSpec, 'media_router.mojom.MediaRouteProvider_CreateRoute_Params', [
+      mojo.internal.StructField('media_source', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('sink_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('original_presentation_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('origin', 24, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_tree_node_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('timeout', 32, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
-media_router.mojom.MediaRouteProvider_CreateRoute_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouteProvider_CreateRoute_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'media_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'sink_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'original_presentation_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'origin', packedOffset: 24, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_tree_node_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'timeout', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaRouteProvider_CreateRoute_ResponseParamsSpec, 'media_router.mojom.MediaRouteProvider_CreateRoute_ResponseParams', [
+      mojo.internal.StructField('route', 0, 0, media_router.mojom.MediaRouteSpec, null, true, 0, undefined),
+      mojo.internal.StructField('connection', 8, 0, media_router.mojom.RoutePresentationConnectionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error_text', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('result_code', 24, 0, media_router.mojom.RouteRequestResultCodeSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-media_router.mojom.MediaRouteProvider_JoinRoute_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouteProvider_JoinRoute_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'media_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'presentation_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'origin', packedOffset: 16, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_tree_node_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'timeout', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaRouteProvider_JoinRoute_ParamsSpec, 'media_router.mojom.MediaRouteProvider_JoinRoute_Params', [
+      mojo.internal.StructField('media_source', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('presentation_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('origin', 16, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_tree_node_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('timeout', 24, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
-media_router.mojom.MediaRouteProvider_TerminateRoute_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouteProvider_TerminateRoute_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'route_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaRouteProvider_JoinRoute_ResponseParamsSpec, 'media_router.mojom.MediaRouteProvider_JoinRoute_ResponseParams', [
+      mojo.internal.StructField('route', 0, 0, media_router.mojom.MediaRouteSpec, null, true, 0, undefined),
+      mojo.internal.StructField('connection', 8, 0, media_router.mojom.RoutePresentationConnectionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error_text', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('result_code', 24, 0, media_router.mojom.RouteRequestResultCodeSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-media_router.mojom.MediaRouteProvider_SendRouteMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouteProvider_SendRouteMessage_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'media_route_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaRouteProvider_TerminateRoute_ParamsSpec, 'media_router.mojom.MediaRouteProvider_TerminateRoute_Params', [
+      mojo.internal.StructField('route_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media_router.mojom.MediaRouteProvider_SendRouteBinaryMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouteProvider_SendRouteBinaryMessage_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'media_route_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaRouteProvider_TerminateRoute_ResponseParamsSpec, 'media_router.mojom.MediaRouteProvider_TerminateRoute_ResponseParams', [
+      mojo.internal.StructField('error_text', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('result_code', 8, 0, media_router.mojom.RouteRequestResultCodeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media_router.mojom.MediaRouteProvider_StartObservingMediaSinks_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouteProvider_StartObservingMediaSinks_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'media_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaRouteProvider_SendRouteMessage_ParamsSpec, 'media_router.mojom.MediaRouteProvider_SendRouteMessage_Params', [
+      mojo.internal.StructField('media_route_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media_router.mojom.MediaRouteProvider_StopObservingMediaSinks_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouteProvider_StopObservingMediaSinks_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'media_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaRouteProvider_SendRouteBinaryMessage_ParamsSpec, 'media_router.mojom.MediaRouteProvider_SendRouteBinaryMessage_Params', [
+      mojo.internal.StructField('media_route_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media_router.mojom.MediaRouteProvider_StartObservingMediaRoutes_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouteProvider_StartObservingMediaRoutes_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaRouteProvider_StartObservingMediaSinks_ParamsSpec, 'media_router.mojom.MediaRouteProvider_StartObservingMediaSinks_Params', [
+      mojo.internal.StructField('media_source', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media_router.mojom.MediaRouteProvider_DetachRoute_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouteProvider_DetachRoute_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'route_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaRouteProvider_StopObservingMediaSinks_ParamsSpec, 'media_router.mojom.MediaRouteProvider_StopObservingMediaSinks_Params', [
+      mojo.internal.StructField('media_source', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media_router.mojom.MediaRouteProvider_DiscoverSinksNow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouteProvider_DiscoverSinksNow_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaRouteProvider_StartObservingMediaRoutes_ParamsSpec, 'media_router.mojom.MediaRouteProvider_StartObservingMediaRoutes_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media_router.mojom.MediaRouteProvider_BindMediaController_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouteProvider_BindMediaController_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'route_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'media_controller', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_router.mojom.MediaControllerRemote), nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media_router.mojom.MediaStatusObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaRouteProvider_DetachRoute_ParamsSpec, 'media_router.mojom.MediaRouteProvider_DetachRoute_Params', [
+      mojo.internal.StructField('route_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media_router.mojom.MediaRouteProvider_GetState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouteProvider_GetState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaRouteProvider_DiscoverSinksNow_ParamsSpec, 'media_router.mojom.MediaRouteProvider_DiscoverSinksNow_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    media_router.mojom.MediaRouteProvider_BindMediaController_ParamsSpec, 'media_router.mojom.MediaRouteProvider_BindMediaController_Params', [
+      mojo.internal.StructField('route_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('media_controller', 8, 0, mojo.internal.InterfaceRequest(media_router.mojom.MediaControllerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 16, 0, mojo.internal.InterfaceProxy(media_router.mojom.MediaStatusObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    media_router.mojom.MediaRouteProvider_BindMediaController_ResponseParamsSpec, 'media_router.mojom.MediaRouteProvider_BindMediaController_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    media_router.mojom.MediaRouteProvider_GetState_ParamsSpec, 'media_router.mojom.MediaRouteProvider_GetState_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    media_router.mojom.MediaRouteProvider_GetState_ResponseParamsSpec, 'media_router.mojom.MediaRouteProvider_GetState_ResponseParams', [
+      mojo.internal.StructField('state', 0, 0, media_router.mojom.ProviderStateSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 media_router.mojom.MediaRouteProviderPendingReceiver = class {
   constructor(handle) {
@@ -537,426 +480,101 @@ media_router.mojom.MediaRouteProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateRoute
-media_router.mojom.MediaRouteProvider_CreateRoute_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouteProvider.CreateRoute_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'media_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'sink_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'original_presentation_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'origin', packedOffset: 24, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_tree_node_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'timeout', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
-
-media_router.mojom.MediaRouteProvider_CreateRoute_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouteProvider.CreateRoute_ResponseParams',
-      packedSize: 40,
-      fields: [
-        { name: 'route', packedOffset: 0, packedBitOffset: 0, type: media_router.mojom.MediaRouteSpec, nullable: true, minVersion: 0 },
-        { name: 'connection', packedOffset: 8, packedBitOffset: 0, type: media_router.mojom.RoutePresentationConnectionSpec, nullable: true, minVersion: 0 },
-        { name: 'error_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'result_code', packedOffset: 24, packedBitOffset: 0, type: media_router.mojom.RouteRequestResultCodeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for JoinRoute
-media_router.mojom.MediaRouteProvider_JoinRoute_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouteProvider.JoinRoute_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'media_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'presentation_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'origin', packedOffset: 16, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_tree_node_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'timeout', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-media_router.mojom.MediaRouteProvider_JoinRoute_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouteProvider.JoinRoute_ResponseParams',
-      packedSize: 40,
-      fields: [
-        { name: 'route', packedOffset: 0, packedBitOffset: 0, type: media_router.mojom.MediaRouteSpec, nullable: true, minVersion: 0 },
-        { name: 'connection', packedOffset: 8, packedBitOffset: 0, type: media_router.mojom.RoutePresentationConnectionSpec, nullable: true, minVersion: 0 },
-        { name: 'error_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'result_code', packedOffset: 24, packedBitOffset: 0, type: media_router.mojom.RouteRequestResultCodeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for TerminateRoute
-media_router.mojom.MediaRouteProvider_TerminateRoute_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouteProvider.TerminateRoute_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'route_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-media_router.mojom.MediaRouteProvider_TerminateRoute_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouteProvider.TerminateRoute_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'error_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'result_code', packedOffset: 8, packedBitOffset: 0, type: media_router.mojom.RouteRequestResultCodeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SendRouteMessage
-media_router.mojom.MediaRouteProvider_SendRouteMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouteProvider.SendRouteMessage_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'media_route_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SendRouteBinaryMessage
-media_router.mojom.MediaRouteProvider_SendRouteBinaryMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouteProvider.SendRouteBinaryMessage_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'media_route_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for StartObservingMediaSinks
-media_router.mojom.MediaRouteProvider_StartObservingMediaSinks_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouteProvider.StartObservingMediaSinks_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'media_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StopObservingMediaSinks
-media_router.mojom.MediaRouteProvider_StopObservingMediaSinks_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouteProvider.StopObservingMediaSinks_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'media_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StartObservingMediaRoutes
-media_router.mojom.MediaRouteProvider_StartObservingMediaRoutes_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouteProvider.StartObservingMediaRoutes_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for DetachRoute
-media_router.mojom.MediaRouteProvider_DetachRoute_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouteProvider.DetachRoute_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'route_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DiscoverSinksNow
-media_router.mojom.MediaRouteProvider_DiscoverSinksNow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouteProvider.DiscoverSinksNow_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for BindMediaController
-media_router.mojom.MediaRouteProvider_BindMediaController_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouteProvider.BindMediaController_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'route_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'media_controller', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_router.mojom.MediaControllerRemote), nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media_router.mojom.MediaStatusObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-media_router.mojom.MediaRouteProvider_BindMediaController_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouteProvider.BindMediaController_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetState
-media_router.mojom.MediaRouteProvider_GetState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouteProvider.GetState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-media_router.mojom.MediaRouteProvider_GetState_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouteProvider.GetState_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: media_router.mojom.ProviderStateSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 media_router.mojom.MediaRouteProviderPtr = media_router.mojom.MediaRouteProviderRemote;
 media_router.mojom.MediaRouteProviderRequest = media_router.mojom.MediaRouteProviderPendingReceiver;
 
 
 // Interface: MediaRouter
-media_router.mojom.MediaRouter = {};
+mojo.internal.Struct(
+    media_router.mojom.MediaRouter_RegisterMediaRouteProvider_ParamsSpec, 'media_router.mojom.MediaRouter_RegisterMediaRouteProvider_Params', [
+      mojo.internal.StructField('provider_id', 8, 0, media_router.mojom.MediaRouteProviderIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('media_router_provider', 0, 0, mojo.internal.InterfaceProxy(media_router.mojom.MediaRouteProviderRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media_router.mojom.MediaRouter_RegisterMediaRouteProvider_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouter_RegisterMediaRouteProvider_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'provider_id', packedOffset: 8, packedBitOffset: 0, type: media_router.mojom.MediaRouteProviderIdSpec, nullable: false, minVersion: 0 },
-        { name: 'media_router_provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media_router.mojom.MediaRouteProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaRouter_OnSinksReceived_ParamsSpec, 'media_router.mojom.MediaRouter_OnSinksReceived_Params', [
+      mojo.internal.StructField('provider_id', 24, 0, media_router.mojom.MediaRouteProviderIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('media_source', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('sinks', 8, 0, mojo.internal.Array(media_router.mojom.MediaSinkSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('origins', 16, 0, mojo.internal.Array(url.mojom.OriginSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-media_router.mojom.MediaRouter_OnSinksReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouter_OnSinksReceived_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'provider_id', packedOffset: 24, packedBitOffset: 0, type: media_router.mojom.MediaRouteProviderIdSpec, nullable: false, minVersion: 0 },
-        { name: 'media_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'sinks', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(media_router.mojom.MediaSinkSpec, false), nullable: false, minVersion: 0 },
-        { name: 'origins', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.OriginSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaRouter_OnIssue_ParamsSpec, 'media_router.mojom.MediaRouter_OnIssue_Params', [
+      mojo.internal.StructField('issue', 0, 0, media_router.mojom.IssueSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media_router.mojom.MediaRouter_OnIssue_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouter_OnIssue_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'issue', packedOffset: 0, packedBitOffset: 0, type: media_router.mojom.IssueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaRouter_ClearTopIssueForSink_ParamsSpec, 'media_router.mojom.MediaRouter_ClearTopIssueForSink_Params', [
+      mojo.internal.StructField('sink_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media_router.mojom.MediaRouter_ClearTopIssueForSink_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouter_ClearTopIssueForSink_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaRouter_OnRoutesUpdated_ParamsSpec, 'media_router.mojom.MediaRouter_OnRoutesUpdated_Params', [
+      mojo.internal.StructField('provider_id', 8, 0, media_router.mojom.MediaRouteProviderIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('routes', 0, 0, mojo.internal.Array(media_router.mojom.MediaRouteSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media_router.mojom.MediaRouter_OnRoutesUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouter_OnRoutesUpdated_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'provider_id', packedOffset: 8, packedBitOffset: 0, type: media_router.mojom.MediaRouteProviderIdSpec, nullable: false, minVersion: 0 },
-        { name: 'routes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media_router.mojom.MediaRouteSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaRouter_OnPresentationConnectionStateChanged_ParamsSpec, 'media_router.mojom.MediaRouter_OnPresentationConnectionStateChanged_Params', [
+      mojo.internal.StructField('route_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('state', 8, 0, blink.mojom.PresentationConnectionStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media_router.mojom.MediaRouter_OnPresentationConnectionStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouter_OnPresentationConnectionStateChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'route_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PresentationConnectionStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaRouter_OnPresentationConnectionClosed_ParamsSpec, 'media_router.mojom.MediaRouter_OnPresentationConnectionClosed_Params', [
+      mojo.internal.StructField('route_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 16, 0, blink.mojom.PresentationConnectionCloseReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-media_router.mojom.MediaRouter_OnPresentationConnectionClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouter_OnPresentationConnectionClosed_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'route_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'reason', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PresentationConnectionCloseReasonSpec, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaRouter_OnRouteMessagesReceived_ParamsSpec, 'media_router.mojom.MediaRouter_OnRouteMessagesReceived_Params', [
+      mojo.internal.StructField('route_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('messages', 8, 0, mojo.internal.Array(media_router.mojom.RouteMessageSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media_router.mojom.MediaRouter_OnRouteMessagesReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouter_OnRouteMessagesReceived_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'route_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'messages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(media_router.mojom.RouteMessageSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ParamsSpec, 'media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ResponseParamsSpec, 'media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media_router.mojom.MediaRouter_GetLogger_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouter_GetLogger_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_router.mojom.LoggerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaRouter_GetLogger_ParamsSpec, 'media_router.mojom.MediaRouter_GetLogger_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(media_router.mojom.LoggerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media_router.mojom.MediaRouter_GetDebugger_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouter_GetDebugger_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_router.mojom.DebuggerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaRouter_GetDebugger_ParamsSpec, 'media_router.mojom.MediaRouter_GetDebugger_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(media_router.mojom.DebuggerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media_router.mojom.MediaRouter_GetLogsAsString_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouter_GetLogsAsString_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.MediaRouter_GetLogsAsString_ParamsSpec, 'media_router.mojom.MediaRouter_GetLogsAsString_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    media_router.mojom.MediaRouter_GetLogsAsString_ResponseParamsSpec, 'media_router.mojom.MediaRouter_GetLogsAsString_ResponseParams', [
+      mojo.internal.StructField('logs', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media_router.mojom.MediaRouterPendingReceiver = class {
   constructor(handle) {
@@ -1110,208 +728,6 @@ media_router.mojom.MediaRouter.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RegisterMediaRouteProvider
-media_router.mojom.MediaRouter_RegisterMediaRouteProvider_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouter.RegisterMediaRouteProvider_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'provider_id', packedOffset: 8, packedBitOffset: 0, type: media_router.mojom.MediaRouteProviderIdSpec, nullable: false, minVersion: 0 },
-        { name: 'media_router_provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media_router.mojom.MediaRouteProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnSinksReceived
-media_router.mojom.MediaRouter_OnSinksReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouter.OnSinksReceived_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'provider_id', packedOffset: 24, packedBitOffset: 0, type: media_router.mojom.MediaRouteProviderIdSpec, nullable: false, minVersion: 0 },
-        { name: 'media_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'sinks', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(media_router.mojom.MediaSinkSpec, false), nullable: false, minVersion: 0 },
-        { name: 'origins', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.OriginSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for OnIssue
-media_router.mojom.MediaRouter_OnIssue_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouter.OnIssue_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'issue', packedOffset: 0, packedBitOffset: 0, type: media_router.mojom.IssueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ClearTopIssueForSink
-media_router.mojom.MediaRouter_ClearTopIssueForSink_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouter.ClearTopIssueForSink_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'sink_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnRoutesUpdated
-media_router.mojom.MediaRouter_OnRoutesUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouter.OnRoutesUpdated_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'provider_id', packedOffset: 8, packedBitOffset: 0, type: media_router.mojom.MediaRouteProviderIdSpec, nullable: false, minVersion: 0 },
-        { name: 'routes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media_router.mojom.MediaRouteSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnPresentationConnectionStateChanged
-media_router.mojom.MediaRouter_OnPresentationConnectionStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouter.OnPresentationConnectionStateChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'route_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'state', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PresentationConnectionStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnPresentationConnectionClosed
-media_router.mojom.MediaRouter_OnPresentationConnectionClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouter.OnPresentationConnectionClosed_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'route_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'reason', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PresentationConnectionCloseReasonSpec, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for OnRouteMessagesReceived
-media_router.mojom.MediaRouter_OnRouteMessagesReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouter.OnRouteMessagesReceived_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'route_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'messages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(media_router.mojom.RouteMessageSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GetMediaSinkServiceStatus
-media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouter.GetMediaSinkServiceStatus_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouter.GetMediaSinkServiceStatus_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetLogger
-media_router.mojom.MediaRouter_GetLogger_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouter.GetLogger_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_router.mojom.LoggerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetDebugger
-media_router.mojom.MediaRouter_GetDebugger_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouter.GetDebugger_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_router.mojom.DebuggerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetLogsAsString
-media_router.mojom.MediaRouter_GetLogsAsString_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouter.GetLogsAsString_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-media_router.mojom.MediaRouter_GetLogsAsString_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.MediaRouter.GetLogsAsString_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'logs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media_router.mojom.MediaRouterPtr = media_router.mojom.MediaRouterRemote;
 media_router.mojom.MediaRouterRequest = media_router.mojom.MediaRouterPendingReceiver;
 

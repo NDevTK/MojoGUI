@@ -7,121 +7,111 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 
+device.mojom.UsbDeviceManager = {};
+device.mojom.UsbDeviceManager.$interfaceName = 'device.mojom.UsbDeviceManager';
+device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ParamsSpec = { $: {} };
+device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ResponseParamsSpec = { $: {} };
+device.mojom.UsbDeviceManager_GetDevices_ParamsSpec = { $: {} };
+device.mojom.UsbDeviceManager_GetDevices_ResponseParamsSpec = { $: {} };
+device.mojom.UsbDeviceManager_GetDevice_ParamsSpec = { $: {} };
+device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec = { $: {} };
+device.mojom.UsbDeviceManager_RefreshDeviceInfo_ParamsSpec = { $: {} };
+device.mojom.UsbDeviceManager_RefreshDeviceInfo_ResponseParamsSpec = { $: {} };
+device.mojom.UsbDeviceManager_CheckAccess_ParamsSpec = { $: {} };
+device.mojom.UsbDeviceManager_CheckAccess_ResponseParamsSpec = { $: {} };
+device.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec = { $: {} };
+device.mojom.UsbDeviceManager_OpenFileDescriptor_ResponseParamsSpec = { $: {} };
+device.mojom.UsbDeviceManager_SetClient_ParamsSpec = { $: {} };
 
 // Interface: UsbDeviceManager
-device.mojom.UsbDeviceManager = {};
+mojo.internal.Struct(
+    device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ParamsSpec, 'device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_Params', [
+      mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(device.mojom.UsbDeviceManagerClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(device.mojom.UsbDeviceManagerClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ResponseParamsSpec, 'device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ResponseParams', [
+      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(device.mojom.UsbDeviceInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.UsbDeviceManager_GetDevices_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManager_GetDevices_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: device.mojom.UsbEnumerationOptionsSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.UsbDeviceManager_GetDevices_ParamsSpec, 'device.mojom.UsbDeviceManager_GetDevices_Params', [
+      mojo.internal.StructField('options', 0, 0, device.mojom.UsbEnumerationOptionsSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.UsbDeviceManager_GetDevice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManager_GetDevice_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'blocked_interface_classes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'device_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.UsbDeviceRemote), nullable: false, minVersion: 0 },
-        { name: 'device_client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.UsbDeviceClientRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.UsbDeviceManager_GetDevices_ResponseParamsSpec, 'device.mojom.UsbDeviceManager_GetDevices_ResponseParams', [
+      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(device.mojom.UsbDeviceInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManager_GetSecurityKeyDevice_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'device_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.UsbDeviceRemote), nullable: false, minVersion: 0 },
-        { name: 'device_client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.UsbDeviceClientRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.UsbDeviceManager_GetDevice_ParamsSpec, 'device.mojom.UsbDeviceManager_GetDevice_Params', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('blocked_interface_classes', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('device_receiver', 16, 0, mojo.internal.InterfaceRequest(device.mojom.UsbDeviceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('device_client', 24, 0, mojo.internal.InterfaceProxy(device.mojom.UsbDeviceClientRemote), null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
-device.mojom.UsbDeviceManager_RefreshDeviceInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManager_RefreshDeviceInfo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec, 'device.mojom.UsbDeviceManager_GetSecurityKeyDevice_Params', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('device_receiver', 8, 0, mojo.internal.InterfaceRequest(device.mojom.UsbDeviceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('device_client', 16, 0, mojo.internal.InterfaceProxy(device.mojom.UsbDeviceClientRemote), null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
-device.mojom.UsbDeviceManager_CheckAccess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManager_CheckAccess_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.UsbDeviceManager_RefreshDeviceInfo_ParamsSpec, 'device.mojom.UsbDeviceManager_RefreshDeviceInfo_Params', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManager_OpenFileDescriptor_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'allowed_interfaces_mask', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'lifeline_fd', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.UsbDeviceManager_RefreshDeviceInfo_ResponseParamsSpec, 'device.mojom.UsbDeviceManager_RefreshDeviceInfo_ResponseParams', [
+      mojo.internal.StructField('device_info', 0, 0, device.mojom.UsbDeviceInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.UsbDeviceManager_SetClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManager_SetClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(device.mojom.UsbDeviceManagerClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.UsbDeviceManager_CheckAccess_ParamsSpec, 'device.mojom.UsbDeviceManager_CheckAccess_Params', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    device.mojom.UsbDeviceManager_CheckAccess_ResponseParamsSpec, 'device.mojom.UsbDeviceManager_CheckAccess_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    device.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec, 'device.mojom.UsbDeviceManager_OpenFileDescriptor_Params', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('allowed_interfaces_mask', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('lifeline_fd', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    device.mojom.UsbDeviceManager_OpenFileDescriptor_ResponseParamsSpec, 'device.mojom.UsbDeviceManager_OpenFileDescriptor_ResponseParams', [
+      mojo.internal.StructField('fd', 0, 0, mojo_base.mojom.FileSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    device.mojom.UsbDeviceManager_SetClient_ParamsSpec, 'device.mojom.UsbDeviceManager_SetClient_Params', [
+      mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(device.mojom.UsbDeviceManagerClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 device.mojom.UsbDeviceManagerPendingReceiver = class {
   constructor(handle) {
@@ -239,191 +229,6 @@ device.mojom.UsbDeviceManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for EnumerateDevicesAndSetClient
-device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManager.EnumerateDevicesAndSetClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(device.mojom.UsbDeviceManagerClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManager.EnumerateDevicesAndSetClient_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.UsbDeviceInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetDevices
-device.mojom.UsbDeviceManager_GetDevices_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManager.GetDevices_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: device.mojom.UsbEnumerationOptionsSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-device.mojom.UsbDeviceManager_GetDevices_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManager.GetDevices_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.UsbDeviceInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetDevice
-device.mojom.UsbDeviceManager_GetDevice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManager.GetDevice_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'blocked_interface_classes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'device_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.UsbDeviceRemote), nullable: false, minVersion: 0 },
-        { name: 'device_client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.UsbDeviceClientRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for GetSecurityKeyDevice
-device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManager.GetSecurityKeyDevice_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'device_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.UsbDeviceRemote), nullable: false, minVersion: 0 },
-        { name: 'device_client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.UsbDeviceClientRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for RefreshDeviceInfo
-device.mojom.UsbDeviceManager_RefreshDeviceInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManager.RefreshDeviceInfo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-device.mojom.UsbDeviceManager_RefreshDeviceInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManager.RefreshDeviceInfo_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: device.mojom.UsbDeviceInfoSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CheckAccess
-device.mojom.UsbDeviceManager_CheckAccess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManager.CheckAccess_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-device.mojom.UsbDeviceManager_CheckAccess_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManager.CheckAccess_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OpenFileDescriptor
-device.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManager.OpenFileDescriptor_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'allowed_interfaces_mask', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'lifeline_fd', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-device.mojom.UsbDeviceManager_OpenFileDescriptor_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManager.OpenFileDescriptor_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'fd', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetClient
-device.mojom.UsbDeviceManager_SetClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManager.SetClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(device.mojom.UsbDeviceManagerClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 device.mojom.UsbDeviceManagerPtr = device.mojom.UsbDeviceManagerRemote;
 device.mojom.UsbDeviceManagerRequest = device.mojom.UsbDeviceManagerPendingReceiver;
 

@@ -8,40 +8,28 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.EpochTopicSpec = { $: {} };
+blink.mojom.BrowsingTopicsDocumentService = {};
+blink.mojom.BrowsingTopicsDocumentService.$interfaceName = 'blink.mojom.BrowsingTopicsDocumentService';
+blink.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_ParamsSpec = { $: {} };
 
 // Struct: EpochTopic
-blink.mojom.EpochTopicSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EpochTopic',
-      packedSize: 48,
-      fields: [
-        { name: 'topic', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'config_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'model_version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'taxonomy_version', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.EpochTopicSpec, 'blink.mojom.EpochTopic', [
+      mojo.internal.StructField('topic', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('version', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('config_version', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('model_version', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('taxonomy_version', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Interface: BrowsingTopicsDocumentService
-blink.mojom.BrowsingTopicsDocumentService = {};
-
-blink.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_ParamsSpec, 'blink.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_Params', [
+      mojo.internal.StructField('observe', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.BrowsingTopicsDocumentServicePendingReceiver = class {
   constructor(handle) {
@@ -96,21 +84,6 @@ blink.mojom.BrowsingTopicsDocumentService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetBrowsingTopics
-blink.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.BrowsingTopicsDocumentService.GetBrowsingTopics_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.BrowsingTopicsDocumentServicePtr = blink.mojom.BrowsingTopicsDocumentServiceRemote;
 blink.mojom.BrowsingTopicsDocumentServiceRequest = blink.mojom.BrowsingTopicsDocumentServicePendingReceiver;
 

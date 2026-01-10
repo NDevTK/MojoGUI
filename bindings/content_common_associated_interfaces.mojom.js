@@ -10,23 +10,17 @@ content.mojom = content.mojom || {};
 var blink = blink || {};
 var blink = blink || {};
 
+content.mojom.RouteProvider = {};
+content.mojom.RouteProvider.$interfaceName = 'content.mojom.RouteProvider';
+content.mojom.RouteProvider_GetRoute_ParamsSpec = { $: {} };
 
 // Interface: RouteProvider
-content.mojom.RouteProvider = {};
-
-content.mojom.RouteProvider_GetRoute_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.RouteProvider_GetRoute_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(blink.mojom.AssociatedInterfaceProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.RouteProvider_GetRoute_ParamsSpec, 'content.mojom.RouteProvider_GetRoute_Params', [
+      mojo.internal.StructField('frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.AssociatedInterfaceProviderRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 content.mojom.RouteProviderPendingReceiver = class {
   constructor(handle) {
@@ -81,22 +75,6 @@ content.mojom.RouteProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetRoute
-content.mojom.RouteProvider_GetRoute_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.RouteProvider.GetRoute_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(blink.mojom.AssociatedInterfaceProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.RouteProviderPtr = content.mojom.RouteProviderRemote;
 content.mojom.RouteProviderRequest = content.mojom.RouteProviderPendingReceiver;
 

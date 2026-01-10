@@ -9,32 +9,20 @@ var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
 var skia = skia || {};
 
+gfx.mojom.ImageSkiaRepSpec = { $: {} };
+gfx.mojom.ImageSkiaSpec = { $: {} };
 
 // Struct: ImageSkiaRep
-gfx.mojom.ImageSkiaRepSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.ImageSkiaRep',
-      packedSize: 24,
-      fields: [
-        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapWithArbitraryBppSpec, nullable: false, minVersion: 0 },
-        { name: 'scale', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.ImageSkiaRepSpec, 'gfx.mojom.ImageSkiaRep', [
+      mojo.internal.StructField('bitmap', 0, 0, skia.mojom.BitmapWithArbitraryBppSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scale', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: ImageSkia
-gfx.mojom.ImageSkiaSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.ImageSkia',
-      packedSize: 16,
-      fields: [
-        { name: 'image_reps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.ImageSkiaRepSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.ImageSkiaSpec, 'gfx.mojom.ImageSkia', [
+      mojo.internal.StructField('image_reps', 0, 0, mojo.internal.Array(gfx.mojom.ImageSkiaRepSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);

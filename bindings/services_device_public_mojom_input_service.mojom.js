@@ -8,6 +8,19 @@
 var device = device || {};
 device.mojom = device.mojom || {};
 
+device.mojom.InputDeviceSubsystemSpec = { $: mojo.internal.Enum() };
+device.mojom.InputDeviceTypeSpec = { $: mojo.internal.Enum() };
+device.mojom.InputDeviceInfoSpec = { $: {} };
+device.mojom.InputDeviceManagerClient = {};
+device.mojom.InputDeviceManagerClient.$interfaceName = 'device.mojom.InputDeviceManagerClient';
+device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec = { $: {} };
+device.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec = { $: {} };
+device.mojom.InputDeviceManager = {};
+device.mojom.InputDeviceManager.$interfaceName = 'device.mojom.InputDeviceManager';
+device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec = { $: {} };
+device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec = { $: {} };
+device.mojom.InputDeviceManager_GetDevices_ParamsSpec = { $: {} };
+device.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec = { $: {} };
 
 // Enum: InputDeviceSubsystem
 device.mojom.InputDeviceSubsystem = {
@@ -15,7 +28,6 @@ device.mojom.InputDeviceSubsystem = {
   SUBSYSTEM_INPUT: 1,
   SUBSYSTEM_UNKNOWN: 2,
 };
-device.mojom.InputDeviceSubsystemSpec = { $: mojo.internal.Enum() };
 
 // Enum: InputDeviceType
 device.mojom.InputDeviceType = {
@@ -24,61 +36,37 @@ device.mojom.InputDeviceType = {
   TYPE_SERIO: 2,
   TYPE_UNKNOWN: 3,
 };
-device.mojom.InputDeviceTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: InputDeviceInfo
-device.mojom.InputDeviceInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.InputDeviceInfo',
-      packedSize: 40,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'subsystem', packedOffset: 16, packedBitOffset: 0, type: device.mojom.InputDeviceSubsystemSpec, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 20, packedBitOffset: 0, type: device.mojom.InputDeviceTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'is_accelerometer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_joystick', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_key', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_keyboard', packedOffset: 24, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_mouse', packedOffset: 24, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_tablet', packedOffset: 24, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_touchpad', packedOffset: 24, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_touchscreen', packedOffset: 24, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.InputDeviceInfoSpec, 'device.mojom.InputDeviceInfo', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('subsystem', 16, 0, device.mojom.InputDeviceSubsystemSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 20, 0, device.mojom.InputDeviceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_accelerometer', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_joystick', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_key', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_keyboard', 24, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_mouse', 24, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_tablet', 24, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_touchpad', 24, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_touchscreen', 24, 7, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: InputDeviceManagerClient
-device.mojom.InputDeviceManagerClient = {};
+mojo.internal.Struct(
+    device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec, 'device.mojom.InputDeviceManagerClient_InputDeviceAdded_Params', [
+      mojo.internal.StructField('device_info', 0, 0, device.mojom.InputDeviceInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.InputDeviceManagerClient_InputDeviceAdded_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: device.mojom.InputDeviceInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-device.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.InputDeviceManagerClient_InputDeviceRemoved_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec, 'device.mojom.InputDeviceManagerClient_InputDeviceRemoved_Params', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 device.mojom.InputDeviceManagerClientPendingReceiver = class {
   constructor(handle) {
@@ -142,66 +130,33 @@ device.mojom.InputDeviceManagerClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for InputDeviceAdded
-device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.InputDeviceManagerClient.InputDeviceAdded_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: device.mojom.InputDeviceInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for InputDeviceRemoved
-device.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.InputDeviceManagerClient.InputDeviceRemoved_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 device.mojom.InputDeviceManagerClientPtr = device.mojom.InputDeviceManagerClientRemote;
 device.mojom.InputDeviceManagerClientRequest = device.mojom.InputDeviceManagerClientPendingReceiver;
 
 
 // Interface: InputDeviceManager
-device.mojom.InputDeviceManager = {};
+mojo.internal.Struct(
+    device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec, 'device.mojom.InputDeviceManager_GetDevicesAndSetClient_Params', [
+      mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(device.mojom.InputDeviceManagerClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.InputDeviceManager_GetDevicesAndSetClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(device.mojom.InputDeviceManagerClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec, 'device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParams', [
+      mojo.internal.StructField('devices', 0, 0, mojo.internal.Array(device.mojom.InputDeviceInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.InputDeviceManager_GetDevices_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.InputDeviceManager_GetDevices_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.InputDeviceManager_GetDevices_ParamsSpec, 'device.mojom.InputDeviceManager_GetDevices_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    device.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec, 'device.mojom.InputDeviceManager_GetDevices_ResponseParams', [
+      mojo.internal.StructField('devices', 0, 0, mojo.internal.Array(device.mojom.InputDeviceInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 device.mojom.InputDeviceManagerPendingReceiver = class {
   constructor(handle) {
@@ -265,60 +220,6 @@ device.mojom.InputDeviceManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetDevicesAndSetClient
-device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.InputDeviceManager.GetDevicesAndSetClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(device.mojom.InputDeviceManagerClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.InputDeviceManager.GetDevicesAndSetClient_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.InputDeviceInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetDevices
-device.mojom.InputDeviceManager_GetDevices_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.InputDeviceManager.GetDevices_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-device.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.InputDeviceManager.GetDevices_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.InputDeviceInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 device.mojom.InputDeviceManagerPtr = device.mojom.InputDeviceManagerRemote;
 device.mojom.InputDeviceManagerRequest = device.mojom.InputDeviceManagerPendingReceiver;
 

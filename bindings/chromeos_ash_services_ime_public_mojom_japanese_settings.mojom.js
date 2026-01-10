@@ -9,100 +9,103 @@ var ash = ash || {};
 ash.ime = ash.ime || {};
 ash.ime.mojom = ash.ime.mojom || {};
 
+ash.ime.mojom.JpUnusedEnum0Spec = { $: mojo.internal.Enum() };
+ash.ime.mojom.JpUnusedEnum1Spec = { $: mojo.internal.Enum() };
+ash.ime.mojom.JpUnusedEnum2Spec = { $: mojo.internal.Enum() };
+ash.ime.mojom.JpUnusedEnum3Spec = { $: mojo.internal.Enum() };
+ash.ime.mojom.JpUnusedEnum4Spec = { $: mojo.internal.Enum() };
+ash.ime.mojom.JpUnusedEnum5Spec = { $: mojo.internal.Enum() };
+ash.ime.mojom.JpUnusedEnum6Spec = { $: mojo.internal.Enum() };
+ash.ime.mojom.JpUnusedStructSpec = { $: {} };
+ash.ime.mojom.JpUnused = {};
+ash.ime.mojom.JpUnused.$interfaceName = 'ash.ime.mojom.JpUnused';
+ash.ime.mojom.JpUnused_Unused_ParamsSpec = { $: {} };
+ash.ime.mojom.JpUnused_Unused_ResponseParamsSpec = { $: {} };
 
 // Enum: JpUnusedEnum0
 ash.ime.mojom.JpUnusedEnum0 = {
-  kValue1: 0,
+  kValue0: 0,
+  kValue1: 1,
 };
-ash.ime.mojom.JpUnusedEnum0Spec = { $: mojo.internal.Enum() };
 
 // Enum: JpUnusedEnum1
 ash.ime.mojom.JpUnusedEnum1 = {
-  kValue1: 0,
-  kValue2: 1,
-  kValue3: 2,
+  kValue0: 0,
+  kValue1: 1,
+  kValue2: 2,
+  kValue3: 3,
 };
-ash.ime.mojom.JpUnusedEnum1Spec = { $: mojo.internal.Enum() };
 
 // Enum: JpUnusedEnum2
 ash.ime.mojom.JpUnusedEnum2 = {
-  kValue1: 0,
-  kValue2: 1,
-  kValue3: 2,
+  kValue0: 0,
+  kValue1: 1,
+  kValue2: 2,
+  kValue3: 3,
 };
-ash.ime.mojom.JpUnusedEnum2Spec = { $: mojo.internal.Enum() };
 
 // Enum: JpUnusedEnum3
 ash.ime.mojom.JpUnusedEnum3 = {
-  kValue1: 0,
-  kValue2: 1,
+  kValue0: 0,
+  kValue1: 1,
+  kValue2: 2,
 };
-ash.ime.mojom.JpUnusedEnum3Spec = { $: mojo.internal.Enum() };
 
 // Enum: JpUnusedEnum4
 ash.ime.mojom.JpUnusedEnum4 = {
   kValue0: 0,
-  kValue2: 1,
+  kValue1: 1,
+  kValue2: 2,
 };
-ash.ime.mojom.JpUnusedEnum4Spec = { $: mojo.internal.Enum() };
 
 // Enum: JpUnusedEnum5
 ash.ime.mojom.JpUnusedEnum5 = {
-  kValue1: 0,
-  kValue2: 1,
-  kValue3: 2,
-  kValue4: 3,
-  kValue5: 4,
+  kValue0: 0,
+  kValue1: 1,
+  kValue2: 2,
+  kValue3: 3,
+  kValue4: 4,
+  kValue5: 5,
+  MinVersion: 5,
 };
-ash.ime.mojom.JpUnusedEnum5Spec = { $: mojo.internal.Enum() };
 
 // Enum: JpUnusedEnum6
 ash.ime.mojom.JpUnusedEnum6 = {
   kValue0: 0,
-  kValue2: 1,
+  kValue1: 1,
+  kValue2: 2,
 };
-ash.ime.mojom.JpUnusedEnum6Spec = { $: mojo.internal.Enum() };
 
 // Struct: JpUnusedStruct
-ash.ime.mojom.JpUnusedStructSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.JpUnusedStruct',
-      packedSize: 48,
-      fields: [
-        { name: 'unused0', packedOffset: 8, packedBitOffset: 0, type: ash.ime.mojom.JpUnusedEnum0Spec, nullable: false, minVersion: 0 },
-        { name: 'unused1', packedOffset: 12, packedBitOffset: 0, type: ash.ime.mojom.JpUnusedEnum1Spec, nullable: false, minVersion: 0 },
-        { name: 'unused2', packedOffset: 16, packedBitOffset: 0, type: ash.ime.mojom.JpUnusedEnum2Spec, nullable: false, minVersion: 0 },
-        { name: 'unused3', packedOffset: 20, packedBitOffset: 0, type: ash.ime.mojom.JpUnusedEnum3Spec, nullable: false, minVersion: 0 },
-        { name: 'unused4', packedOffset: 24, packedBitOffset: 0, type: ash.ime.mojom.JpUnusedEnum4Spec, nullable: false, minVersion: 0 },
-        { name: 'unused5', packedOffset: 28, packedBitOffset: 0, type: ash.ime.mojom.JpUnusedEnum5Spec, nullable: false, minVersion: 0 },
-        { name: 'unused6', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'unused7', packedOffset: 32, packedBitOffset: 0, type: ash.ime.mojom.JpUnusedEnum6Spec, nullable: false, minVersion: 0 },
-        { name: 'unused8', packedOffset: 36, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'unused9', packedOffset: 36, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'unused10', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'unused11', packedOffset: 36, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'unused12', packedOffset: 36, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.JpUnusedStructSpec, 'ash.ime.mojom.JpUnusedStruct', [
+      mojo.internal.StructField('unused0', 8, 0, ash.ime.mojom.JpUnusedEnum0Spec, null, false, 0, undefined),
+      mojo.internal.StructField('unused1', 12, 0, ash.ime.mojom.JpUnusedEnum1Spec, null, false, 0, undefined),
+      mojo.internal.StructField('unused2', 16, 0, ash.ime.mojom.JpUnusedEnum2Spec, null, false, 0, undefined),
+      mojo.internal.StructField('unused3', 20, 0, ash.ime.mojom.JpUnusedEnum3Spec, null, false, 0, undefined),
+      mojo.internal.StructField('unused4', 24, 0, ash.ime.mojom.JpUnusedEnum4Spec, null, false, 0, undefined),
+      mojo.internal.StructField('unused5', 28, 0, ash.ime.mojom.JpUnusedEnum5Spec, null, false, 0, undefined),
+      mojo.internal.StructField('unused6', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('unused7', 32, 0, ash.ime.mojom.JpUnusedEnum6Spec, null, false, 0, undefined),
+      mojo.internal.StructField('unused8', 36, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('unused9', 36, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('unused10', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('unused11', 36, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('unused12', 36, 4, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Interface: JpUnused
-ash.ime.mojom.JpUnused = {};
+mojo.internal.Struct(
+    ash.ime.mojom.JpUnused_Unused_ParamsSpec, 'ash.ime.mojom.JpUnused_Unused_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.ime.mojom.JpUnused_Unused_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.JpUnused_Unused_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.JpUnused_Unused_ResponseParamsSpec, 'ash.ime.mojom.JpUnused_Unused_ResponseParams', [
+      mojo.internal.StructField('unused', 0, 0, ash.ime.mojom.JpUnusedStructSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.ime.mojom.JpUnusedPendingReceiver = class {
   constructor(handle) {
@@ -157,33 +160,6 @@ ash.ime.mojom.JpUnused.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Unused
-ash.ime.mojom.JpUnused_Unused_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.JpUnused.Unused_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.ime.mojom.JpUnused_Unused_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.JpUnused.Unused_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'unused', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.JpUnusedStructSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.ime.mojom.JpUnusedPtr = ash.ime.mojom.JpUnusedRemote;
 ash.ime.mojom.JpUnusedRequest = ash.ime.mojom.JpUnusedPendingReceiver;
 

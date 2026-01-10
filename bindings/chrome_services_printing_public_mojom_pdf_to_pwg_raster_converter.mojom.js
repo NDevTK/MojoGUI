@@ -7,7 +7,16 @@
 // Module namespace
 var printing = printing || {};
 printing.mojom = printing.mojom || {};
+var services = services || {};
 
+printing.mojom.TransformTypeSpec = { $: mojo.internal.Enum() };
+printing.mojom.DuplexModeSpec = { $: mojo.internal.Enum() };
+printing.mojom.PwgRasterSettingsSpec = { $: {} };
+printing.mojom.PdfToPwgRasterConverter = {};
+printing.mojom.PdfToPwgRasterConverter.$interfaceName = 'printing.mojom.PdfToPwgRasterConverter';
+printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec = { $: {} };
+printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec = { $: {} };
+printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec = { $: {} };
 
 // Enum: TransformType
 printing.mojom.TransformType = {
@@ -16,7 +25,6 @@ printing.mojom.TransformType = {
   TRANSFORM_FLIP_HORIZONTAL: 2,
   TRANSFORM_FLIP_VERTICAL: 3,
 };
-printing.mojom.TransformTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: DuplexMode
 printing.mojom.DuplexMode = {
@@ -24,52 +32,35 @@ printing.mojom.DuplexMode = {
   LONG_EDGE: 1,
   SHORT_EDGE: 2,
 };
-printing.mojom.DuplexModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: PwgRasterSettings
-printing.mojom.PwgRasterSettingsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PwgRasterSettings',
-      packedSize: 16,
-      fields: [
-        { name: 'TRANSFORM_NORMAL', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    printing.mojom.PwgRasterSettingsSpec, 'printing.mojom.PwgRasterSettings', [
+      mojo.internal.StructField('TRANSFORM_NORMAL', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: PdfToPwgRasterConverter
-printing.mojom.PdfToPwgRasterConverter = {};
+mojo.internal.Struct(
+    printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec, 'printing.mojom.PdfToPwgRasterConverter_Convert_Params', [
+      mojo.internal.StructField('pdf_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pdf_settings', 8, 0, printing.mojom.PdfRenderSettingsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pwg_raster_settings', 16, 0, printing.mojom.PwgRasterSettingsSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PdfToPwgRasterConverter_Convert_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'pdf_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-        { name: 'pdf_settings', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.PdfRenderSettingsSpec, nullable: false, minVersion: 0 },
-        { name: 'pwg_raster_settings', packedOffset: 16, packedBitOffset: 0, type: printing.mojom.PwgRasterSettingsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec, 'printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParams', [
+      mojo.internal.StructField('pwg_raster_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('page_count', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'use_skia', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec, 'printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_Params', [
+      mojo.internal.StructField('use_skia', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 printing.mojom.PdfToPwgRasterConverterPendingReceiver = class {
   constructor(handle) {
@@ -133,51 +124,6 @@ printing.mojom.PdfToPwgRasterConverter.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Convert
-printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PdfToPwgRasterConverter.Convert_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'pdf_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-        { name: 'pdf_settings', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.PdfRenderSettingsSpec, nullable: false, minVersion: 0 },
-        { name: 'pwg_raster_settings', packedOffset: 16, packedBitOffset: 0, type: printing.mojom.PwgRasterSettingsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PdfToPwgRasterConverter.Convert_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'pwg_raster_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true, minVersion: 0 },
-        { name: 'page_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SetUseSkiaRendererPolicy
-printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PdfToPwgRasterConverter.SetUseSkiaRendererPolicy_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'use_skia', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 printing.mojom.PdfToPwgRasterConverterPtr = printing.mojom.PdfToPwgRasterConverterRemote;
 printing.mojom.PdfToPwgRasterConverterRequest = printing.mojom.PdfToPwgRasterConverterPendingReceiver;
 

@@ -7,46 +7,47 @@
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
+var components = components || {};
+var services = services || {};
+var components = components || {};
+var services = services || {};
+var components = components || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 var blink = blink || {};
 var blink = blink || {};
 
+storage.mojom.CacheStorageOwnerSpec = { $: mojo.internal.Enum() };
+storage.mojom.CacheStorageObserver = {};
+storage.mojom.CacheStorageObserver.$interfaceName = 'storage.mojom.CacheStorageObserver';
+storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec = { $: {} };
+storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec = { $: {} };
+storage.mojom.CacheStorageControl = {};
+storage.mojom.CacheStorageControl.$interfaceName = 'storage.mojom.CacheStorageControl';
+storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec = { $: {} };
+storage.mojom.CacheStorageControl_AddObserver_ParamsSpec = { $: {} };
+storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec = { $: {} };
 
 // Enum: CacheStorageOwner
 storage.mojom.CacheStorageOwner = {
   kCacheAPI: 0,
   kBackgroundFetch: 1,
 };
-storage.mojom.CacheStorageOwnerSpec = { $: mojo.internal.Enum() };
 
 // Interface: CacheStorageObserver
-storage.mojom.CacheStorageObserver = {};
+mojo.internal.Struct(
+    storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec, 'storage.mojom.CacheStorageObserver_OnCacheListChanged_Params', [
+      mojo.internal.StructField('bucket_locator', 0, 0, storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.CacheStorageObserver_OnCacheListChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.CacheStorageObserver_OnCacheContentChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
-        { name: 'cache_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec, 'storage.mojom.CacheStorageObserver_OnCacheContentChanged_Params', [
+      mojo.internal.StructField('bucket_locator', 0, 0, storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cache_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 storage.mojom.CacheStorageObserverPendingReceiver = class {
   constructor(handle) {
@@ -110,87 +111,34 @@ storage.mojom.CacheStorageObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnCacheListChanged
-storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.CacheStorageObserver.OnCacheListChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnCacheContentChanged
-storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.CacheStorageObserver.OnCacheContentChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'bucket_locator', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
-        { name: 'cache_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 storage.mojom.CacheStorageObserverPtr = storage.mojom.CacheStorageObserverRemote;
 storage.mojom.CacheStorageObserverRequest = storage.mojom.CacheStorageObserverPendingReceiver;
 
 
 // Interface: CacheStorageControl
-storage.mojom.CacheStorageControl = {};
+mojo.internal.Struct(
+    storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec, 'storage.mojom.CacheStorageControl_AddReceiver_Params', [
+      mojo.internal.StructField('cross_origin_embedder_policy', 0, 0, network.mojom.CrossOriginEmbedderPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('coep_reporter', 8, 0, mojo.internal.InterfaceProxy(network.mojom.CrossOriginEmbedderPolicyReporterRemote), null, true, 0, undefined),
+      mojo.internal.StructField('document_isolation_policy', 16, 0, network.mojom.DocumentIsolationPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('dip_reporter', 24, 0, mojo.internal.InterfaceProxy(network.mojom.DocumentIsolationPolicyReporterRemote), null, true, 0, undefined),
+      mojo.internal.StructField('bucket_locator', 32, 0, storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('owner', 48, 0, storage.mojom.CacheStorageOwnerSpec, null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 40, 0, mojo.internal.InterfaceRequest(blink.mojom.CacheStorageRemote), null, false, 0, undefined),
+    ],
+    [[0, 64]]);
 
-storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.CacheStorageControl_AddReceiver_Params',
-      packedSize: 64,
-      fields: [
-        { name: 'cross_origin_embedder_policy', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CrossOriginEmbedderPolicySpec, nullable: false, minVersion: 0 },
-        { name: 'coep_reporter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.CrossOriginEmbedderPolicyReporterRemote), nullable: true, minVersion: 0 },
-        { name: 'document_isolation_policy', packedOffset: 16, packedBitOffset: 0, type: network.mojom.DocumentIsolationPolicySpec, nullable: false, minVersion: 0 },
-        { name: 'dip_reporter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.DocumentIsolationPolicyReporterRemote), nullable: true, minVersion: 0 },
-        { name: 'bucket_locator', packedOffset: 32, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
-        { name: 'owner', packedOffset: 48, packedBitOffset: 0, type: storage.mojom.CacheStorageOwnerSpec, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.CacheStorageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.CacheStorageControl_AddObserver_ParamsSpec, 'storage.mojom.CacheStorageControl_AddObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(storage.mojom.CacheStorageObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-storage.mojom.CacheStorageControl_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.CacheStorageControl_AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(storage.mojom.CacheStorageObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.CacheStorageControl_ApplyPolicyUpdates_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'policy_updates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.StoragePolicyUpdateSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec, 'storage.mojom.CacheStorageControl_ApplyPolicyUpdates_Params', [
+      mojo.internal.StructField('policy_updates', 0, 0, mojo.internal.Array(storage.mojom.StoragePolicyUpdateSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 storage.mojom.CacheStorageControlPendingReceiver = class {
   constructor(handle) {
@@ -263,55 +211,6 @@ storage.mojom.CacheStorageControl.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddReceiver
-storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.CacheStorageControl.AddReceiver_Params',
-      packedSize: 64,
-      fields: [
-        { name: 'cross_origin_embedder_policy', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CrossOriginEmbedderPolicySpec, nullable: false, minVersion: 0 },
-        { name: 'coep_reporter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.CrossOriginEmbedderPolicyReporterRemote), nullable: true, minVersion: 0 },
-        { name: 'document_isolation_policy', packedOffset: 16, packedBitOffset: 0, type: network.mojom.DocumentIsolationPolicySpec, nullable: false, minVersion: 0 },
-        { name: 'dip_reporter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.DocumentIsolationPolicyReporterRemote), nullable: true, minVersion: 0 },
-        { name: 'bucket_locator', packedOffset: 32, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
-        { name: 'owner', packedOffset: 48, packedBitOffset: 0, type: storage.mojom.CacheStorageOwnerSpec, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.CacheStorageRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
-
-// ParamsSpec for AddObserver
-storage.mojom.CacheStorageControl_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.CacheStorageControl.AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(storage.mojom.CacheStorageObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ApplyPolicyUpdates
-storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.CacheStorageControl.ApplyPolicyUpdates_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'policy_updates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.StoragePolicyUpdateSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 storage.mojom.CacheStorageControlPtr = storage.mojom.CacheStorageControlRemote;
 storage.mojom.CacheStorageControlRequest = storage.mojom.CacheStorageControlPendingReceiver;
 

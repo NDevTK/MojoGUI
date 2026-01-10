@@ -10,51 +10,33 @@ blink.mojom = blink.mojom || {};
 var blink = blink || {};
 var url = url || {};
 
+blink.mojom.OriginTrialFeatureStateSpec = { $: {} };
+blink.mojom.OriginTrialStateHost = {};
+blink.mojom.OriginTrialStateHost.$interfaceName = 'blink.mojom.OriginTrialStateHost';
+blink.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_ParamsSpec = { $: {} };
+blink.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec = { $: {} };
 
 // Struct: OriginTrialFeatureState
-blink.mojom.OriginTrialFeatureStateSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.OriginTrialFeatureState',
-      packedSize: 24,
-      fields: [
-        { name: 'is_enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'tokens', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.OriginTrialFeatureStateSpec, 'blink.mojom.OriginTrialFeatureState', [
+      mojo.internal.StructField('is_enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('tokens', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: OriginTrialStateHost
-blink.mojom.OriginTrialStateHost = {};
+mojo.internal.Struct(
+    blink.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_ParamsSpec, 'blink.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_Params', [
+      mojo.internal.StructField('origin_trial_features', 0, 0, mojo.internal.Map(blink.mojom.RuntimeFeatureSpec, blink.mojom.OriginTrialFeatureStateSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'origin_trial_features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(blink.mojom.RuntimeFeatureSpec, blink.mojom.OriginTrialFeatureStateSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.OriginTrialStateHost_EnablePersistentTrial_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'script_origins', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.OriginSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec, 'blink.mojom.OriginTrialStateHost_EnablePersistentTrial_Params', [
+      mojo.internal.StructField('token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('script_origins', 8, 0, mojo.internal.Array(url.mojom.OriginSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.OriginTrialStateHostPendingReceiver = class {
   constructor(handle) {
@@ -118,36 +100,6 @@ blink.mojom.OriginTrialStateHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ApplyFeatureDiffForOriginTrial
-blink.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.OriginTrialStateHost.ApplyFeatureDiffForOriginTrial_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'origin_trial_features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(blink.mojom.RuntimeFeatureSpec, blink.mojom.OriginTrialFeatureStateSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EnablePersistentTrial
-blink.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.OriginTrialStateHost.EnablePersistentTrial_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'script_origins', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.OriginSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.OriginTrialStateHostPtr = blink.mojom.OriginTrialStateHostRemote;
 blink.mojom.OriginTrialStateHostRequest = blink.mojom.OriginTrialStateHostPendingReceiver;
 

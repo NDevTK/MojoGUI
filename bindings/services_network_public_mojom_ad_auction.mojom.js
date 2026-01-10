@@ -9,6 +9,8 @@ var network = network || {};
 network.mojom = network.mojom || {};
 var url = url || {};
 
+network.mojom.TypeSpec = { $: mojo.internal.Enum() };
+network.mojom.AdAuctionEventRecordSpec = { $: {} };
 
 // Enum: Type
 network.mojom.Type = {
@@ -16,18 +18,10 @@ network.mojom.Type = {
   kView: 1,
   kClick: 2,
 };
-network.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: AdAuctionEventRecord
-network.mojom.AdAuctionEventRecordSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.AdAuctionEventRecord',
-      packedSize: 16,
-      fields: [
-        { name: 'kUninitialized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.AdAuctionEventRecordSpec, 'network.mojom.AdAuctionEventRecord', [
+      mojo.internal.StructField('kUninitialized', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);

@@ -8,22 +8,16 @@
 var content = content || {};
 content.mojom = content.mojom || {};
 
+content.mojom.DomAutomationControllerHost = {};
+content.mojom.DomAutomationControllerHost.$interfaceName = 'content.mojom.DomAutomationControllerHost';
+content.mojom.DomAutomationControllerHost_DomOperationResponse_ParamsSpec = { $: {} };
 
 // Interface: DomAutomationControllerHost
-content.mojom.DomAutomationControllerHost = {};
-
-content.mojom.DomAutomationControllerHost_DomOperationResponse_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.DomAutomationControllerHost_DomOperationResponse_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'json_string', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.DomAutomationControllerHost_DomOperationResponse_ParamsSpec, 'content.mojom.DomAutomationControllerHost_DomOperationResponse_Params', [
+      mojo.internal.StructField('json_string', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 content.mojom.DomAutomationControllerHostPendingReceiver = class {
   constructor(handle) {
@@ -78,21 +72,6 @@ content.mojom.DomAutomationControllerHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for DomOperationResponse
-content.mojom.DomAutomationControllerHost_DomOperationResponse_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.DomAutomationControllerHost.DomOperationResponse_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'json_string', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.DomAutomationControllerHostPtr = content.mojom.DomAutomationControllerHostRemote;
 content.mojom.DomAutomationControllerHostRequest = content.mojom.DomAutomationControllerHostPendingReceiver;
 

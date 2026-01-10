@@ -10,23 +10,27 @@ ash.settings = ash.settings || {};
 ash.settings.date_time = ash.settings.date_time || {};
 ash.settings.date_time.mojom = ash.settings.date_time.mojom || {};
 
+ash.settings.date_time.mojom.PageHandlerFactory = {};
+ash.settings.date_time.mojom.PageHandlerFactory.$interfaceName = 'ash.settings.date_time.mojom.PageHandlerFactory';
+ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+ash.settings.date_time.mojom.PageHandler = {};
+ash.settings.date_time.mojom.PageHandler.$interfaceName = 'ash.settings.date_time.mojom.PageHandler';
+ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_ParamsSpec = { $: {} };
+ash.settings.date_time.mojom.PageHandler_GetTimezones_ParamsSpec = { $: {} };
+ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec = { $: {} };
+ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec = { $: {} };
+ash.settings.date_time.mojom.Page = {};
+ash.settings.date_time.mojom.Page.$interfaceName = 'ash.settings.date_time.mojom.Page';
+ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_ParamsSpec = { $: {} };
+ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_ParamsSpec = { $: {} };
 
 // Interface: PageHandlerFactory
-ash.settings.date_time.mojom.PageHandlerFactory = {};
-
-ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.date_time.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.settings.date_time.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(ash.settings.date_time.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(ash.settings.date_time.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ash.settings.date_time.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -81,64 +85,31 @@ ash.settings.date_time.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.date_time.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.date_time.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.settings.date_time.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.settings.date_time.mojom.PageHandlerFactoryPtr = ash.settings.date_time.mojom.PageHandlerFactoryRemote;
 ash.settings.date_time.mojom.PageHandlerFactoryRequest = ash.settings.date_time.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-ash.settings.date_time.mojom.PageHandler = {};
+mojo.internal.Struct(
+    ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_ParamsSpec, 'ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.date_time.mojom.PageHandler_GetTimezones_ParamsSpec, 'ash.settings.date_time.mojom.PageHandler_GetTimezones_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.settings.date_time.mojom.PageHandler_GetTimezones_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.date_time.mojom.PageHandler_GetTimezones_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec, 'ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParams', [
+      mojo.internal.StructField('timezones', 0, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Pointer, false), false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec, 'ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.settings.date_time.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -211,91 +182,22 @@ ash.settings.date_time.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ShowParentAccessForTimezone
-ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.date_time.mojom.PageHandler.ShowParentAccessForTimezone_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for GetTimezones
-ash.settings.date_time.mojom.PageHandler_GetTimezones_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.date_time.mojom.PageHandler.GetTimezones_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.date_time.mojom.PageHandler.GetTimezones_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'timezones', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Array(mojo.internal.Pointer, false), false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ShowSetDateTimeUI
-ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.date_time.mojom.PageHandler.ShowSetDateTimeUI_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.settings.date_time.mojom.PageHandlerPtr = ash.settings.date_time.mojom.PageHandlerRemote;
 ash.settings.date_time.mojom.PageHandlerRequest = ash.settings.date_time.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-ash.settings.date_time.mojom.Page = {};
+mojo.internal.Struct(
+    ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_ParamsSpec, 'ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_Params', [
+      mojo.internal.StructField('is_allowed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_ParamsSpec, 'ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_Params', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.settings.date_time.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -359,35 +261,6 @@ ash.settings.date_time.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnSystemClockCanSetTimeChanged
-ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.date_time.mojom.Page.OnSystemClockCanSetTimeChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnParentAccessValidationComplete
-ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.date_time.mojom.Page.OnParentAccessValidationComplete_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.settings.date_time.mojom.PagePtr = ash.settings.date_time.mojom.PageRemote;
 ash.settings.date_time.mojom.PageRequest = ash.settings.date_time.mojom.PagePendingReceiver;
 

@@ -9,60 +9,65 @@ var storage = storage || {};
 storage.mojom = storage.mojom || {};
 var blink = blink || {};
 var blink = blink || {};
+var components = components || {};
+var services = services || {};
 
+storage.mojom.QuotaClient = {};
+storage.mojom.QuotaClient.$interfaceName = 'storage.mojom.QuotaClient';
+storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec = { $: {} };
+storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec = { $: {} };
+storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec = { $: {} };
+storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec = { $: {} };
+storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec = { $: {} };
+storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec = { $: {} };
+storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec = { $: {} };
+storage.mojom.QuotaClient_PerformStorageCleanup_ResponseParamsSpec = { $: {} };
 
 // Interface: QuotaClient
-storage.mojom.QuotaClient = {};
+mojo.internal.Struct(
+    storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec, 'storage.mojom.QuotaClient_GetBucketUsage_Params', [
+      mojo.internal.StructField('bucket', 0, 0, storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.QuotaClient_GetBucketUsage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bucket', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec, 'storage.mojom.QuotaClient_GetBucketUsage_ResponseParams', [
+      mojo.internal.StructField('usage', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.QuotaClient_GetDefaultStorageKeys_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec, 'storage.mojom.QuotaClient_GetDefaultStorageKeys_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.QuotaClient_DeleteBucketData_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bucket', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec, 'storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParams', [
+      mojo.internal.StructField('storage_keys', 0, 0, mojo.internal.Array(blink.mojom.StorageKeySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.QuotaClient_PerformStorageCleanup_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec, 'storage.mojom.QuotaClient_DeleteBucketData_Params', [
+      mojo.internal.StructField('bucket', 0, 0, storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec, 'storage.mojom.QuotaClient_DeleteBucketData_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, blink.mojom.QuotaStatusCodeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec, 'storage.mojom.QuotaClient_PerformStorageCleanup_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    storage.mojom.QuotaClient_PerformStorageCleanup_ResponseParamsSpec, 'storage.mojom.QuotaClient_PerformStorageCleanup_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 storage.mojom.QuotaClientPendingReceiver = class {
   constructor(handle) {
@@ -128,7 +133,7 @@ storage.mojom.QuotaClientRemoteCallHandler = class {
     return this.proxy.sendMessage(
       3,  // ordinal
       storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec,
-      null,
+      storage.mojom.QuotaClient_PerformStorageCleanup_ResponseParamsSpec,
       []);
   }
 
@@ -144,100 +149,6 @@ storage.mojom.QuotaClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetBucketUsage
-storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.QuotaClient.GetBucketUsage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bucket', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.QuotaClient.GetBucketUsage_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetDefaultStorageKeys
-storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.QuotaClient.GetDefaultStorageKeys_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.QuotaClient.GetDefaultStorageKeys_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'storage_keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.StorageKeySpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DeleteBucketData
-storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.QuotaClient.DeleteBucketData_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'bucket', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.BucketLocatorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.QuotaClient.DeleteBucketData_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.QuotaStatusCodeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for PerformStorageCleanup
-storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.QuotaClient.PerformStorageCleanup_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 storage.mojom.QuotaClientPtr = storage.mojom.QuotaClientRemote;
 storage.mojom.QuotaClientRequest = storage.mojom.QuotaClientPendingReceiver;
 

@@ -8,40 +8,66 @@
 var ash = ash || {};
 ash.ime = ash.ime || {};
 ash.ime.mojom = ash.ime.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var services = services || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var services = services || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var services = services || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var services = services || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var services = services || {};
 var url = url || {};
 
+ash.ime.mojom.InputEngineManager = {};
+ash.ime.mojom.InputEngineManager.$interfaceName = 'ash.ime.mojom.InputEngineManager';
+ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec = { $: {} };
+ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec = { $: {} };
+ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec = { $: {} };
+ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec = { $: {} };
+ash.ime.mojom.PlatformAccessProvider = {};
+ash.ime.mojom.PlatformAccessProvider.$interfaceName = 'ash.ime.mojom.PlatformAccessProvider';
+ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec = { $: {} };
+ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec = { $: {} };
+ash.ime.mojom.ImeService = {};
+ash.ime.mojom.ImeService.$interfaceName = 'ash.ime.mojom.ImeService';
+ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec = { $: {} };
+ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec = { $: {} };
+ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec = { $: {} };
 
 // Interface: InputEngineManager
-ash.ime.mojom.InputEngineManager = {};
+mojo.internal.Struct(
+    ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec, 'ash.ime.mojom.InputEngineManager_ConnectToImeEngine_Params', [
+      mojo.internal.StructField('ime_spec', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('to_engine_request', 8, 0, mojo.internal.InterfaceRequest(ash.ime.mojom.InputChannelRemote), null, false, 0, undefined),
+      mojo.internal.StructField('from_engine', 16, 0, mojo.internal.InterfaceProxy(ash.ime.mojom.InputChannelRemote), null, false, 0, undefined),
+      mojo.internal.StructField('extra', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputEngineManager_ConnectToImeEngine_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'ime_spec', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'to_engine_request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.ime.mojom.InputChannelRemote), nullable: false, minVersion: 0 },
-        { name: 'from_engine', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.ime.mojom.InputChannelRemote), nullable: false, minVersion: 0 },
-        { name: 'extra', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec, 'ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'connection_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.ime.mojom.ConnectionFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec, 'ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_Params', [
+      mojo.internal.StructField('connection_factory', 0, 0, mojo.internal.InterfaceRequest(ash.ime.mojom.ConnectionFactoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec, 'ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.ime.mojom.InputEngineManagerPendingReceiver = class {
   constructor(handle) {
@@ -105,84 +131,23 @@ ash.ime.mojom.InputEngineManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ConnectToImeEngine
-ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputEngineManager.ConnectToImeEngine_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'ime_spec', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'to_engine_request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.ime.mojom.InputChannelRemote), nullable: false, minVersion: 0 },
-        { name: 'from_engine', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.ime.mojom.InputChannelRemote), nullable: false, minVersion: 0 },
-        { name: 'extra', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputEngineManager.ConnectToImeEngine_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for InitializeConnectionFactory
-ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputEngineManager.InitializeConnectionFactory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'connection_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.ime.mojom.ConnectionFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputEngineManager.InitializeConnectionFactory_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.ime.mojom.InputEngineManagerPtr = ash.ime.mojom.InputEngineManagerRemote;
 ash.ime.mojom.InputEngineManagerRequest = ash.ime.mojom.InputEngineManagerPendingReceiver;
 
 
 // Interface: PlatformAccessProvider
-ash.ime.mojom.PlatformAccessProvider = {};
+mojo.internal.Struct(
+    ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec, 'ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('file_path', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'file_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec, 'ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParams', [
+      mojo.internal.StructField('file_path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.ime.mojom.PlatformAccessProviderPendingReceiver = class {
   constructor(handle) {
@@ -237,80 +202,28 @@ ash.ime.mojom.PlatformAccessProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for DownloadImeFileTo
-ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.PlatformAccessProvider.DownloadImeFileTo_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'file_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.PlatformAccessProvider.DownloadImeFileTo_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.ime.mojom.PlatformAccessProviderPtr = ash.ime.mojom.PlatformAccessProviderRemote;
 ash.ime.mojom.PlatformAccessProviderRequest = ash.ime.mojom.PlatformAccessProviderPendingReceiver;
 
 
 // Interface: ImeService
-ash.ime.mojom.ImeService = {};
+mojo.internal.Struct(
+    ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec, 'ash.ime.mojom.ImeService_SetPlatformAccessProvider_Params', [
+      mojo.internal.StructField('provider', 0, 0, mojo.internal.InterfaceProxy(ash.ime.mojom.PlatformAccessProviderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.ImeService_SetPlatformAccessProvider_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.ime.mojom.PlatformAccessProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec, 'ash.ime.mojom.ImeService_BindInputEngineManager_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(ash.ime.mojom.InputEngineManagerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.ImeService_BindInputEngineManager_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.ime.mojom.InputEngineManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.ImeService_BindInputMethodUserDataService_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.ime.mojom.InputMethodUserDataServiceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec, 'ash.ime.mojom.ImeService_BindInputMethodUserDataService_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(ash.ime.mojom.InputMethodUserDataServiceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.ime.mojom.ImeServicePendingReceiver = class {
   constructor(handle) {
@@ -383,49 +296,6 @@ ash.ime.mojom.ImeService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetPlatformAccessProvider
-ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.ImeService.SetPlatformAccessProvider_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.ime.mojom.PlatformAccessProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindInputEngineManager
-ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.ImeService.BindInputEngineManager_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.ime.mojom.InputEngineManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindInputMethodUserDataService
-ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.ImeService.BindInputMethodUserDataService_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.ime.mojom.InputMethodUserDataServiceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.ime.mojom.ImeServicePtr = ash.ime.mojom.ImeServiceRemote;
 ash.ime.mojom.ImeServiceRequest = ash.ime.mojom.ImeServicePendingReceiver;
 

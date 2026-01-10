@@ -8,21 +8,15 @@
 var video_capture = video_capture || {};
 video_capture.mojom = video_capture.mojom || {};
 
+video_capture.mojom.TestingControls = {};
+video_capture.mojom.TestingControls.$interfaceName = 'video_capture.mojom.TestingControls';
+video_capture.mojom.TestingControls_Crash_ParamsSpec = { $: {} };
 
 // Interface: TestingControls
-video_capture.mojom.TestingControls = {};
-
-video_capture.mojom.TestingControls_Crash_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.TestingControls_Crash_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    video_capture.mojom.TestingControls_Crash_ParamsSpec, 'video_capture.mojom.TestingControls_Crash_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 video_capture.mojom.TestingControlsPendingReceiver = class {
   constructor(handle) {
@@ -77,20 +71,6 @@ video_capture.mojom.TestingControls.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Crash
-video_capture.mojom.TestingControls_Crash_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.TestingControls.Crash_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 video_capture.mojom.TestingControlsPtr = video_capture.mojom.TestingControlsRemote;
 video_capture.mojom.TestingControlsRequest = video_capture.mojom.TestingControlsPendingReceiver;
 

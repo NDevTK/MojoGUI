@@ -9,6 +9,39 @@ var chromeos = chromeos || {};
 chromeos.sensors = chromeos.sensors || {};
 chromeos.sensors.mojom = chromeos.sensors.mojom || {};
 
+chromeos.sensors.mojom.DeviceTypeSpec = { $: mojo.internal.Enum() };
+chromeos.sensors.mojom.ObserverErrorTypeSpec = { $: mojo.internal.Enum() };
+chromeos.sensors.mojom.SensorServiceDisconnectReasonSpec = { $: mojo.internal.Enum() };
+chromeos.sensors.mojom.SensorDeviceDisconnectReasonSpec = { $: mojo.internal.Enum() };
+chromeos.sensors.mojom.SensorService = {};
+chromeos.sensors.mojom.SensorService.$interfaceName = 'chromeos.sensors.mojom.SensorService';
+chromeos.sensors.mojom.SensorService_GetDeviceIds_ParamsSpec = { $: {} };
+chromeos.sensors.mojom.SensorService_GetDeviceIds_ResponseParamsSpec = { $: {} };
+chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ParamsSpec = { $: {} };
+chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ResponseParamsSpec = { $: {} };
+chromeos.sensors.mojom.SensorService_GetDevice_ParamsSpec = { $: {} };
+chromeos.sensors.mojom.SensorDevice = {};
+chromeos.sensors.mojom.SensorDevice.$interfaceName = 'chromeos.sensors.mojom.SensorDevice';
+chromeos.sensors.mojom.SensorDevice_SetTimeout_ParamsSpec = { $: {} };
+chromeos.sensors.mojom.SensorDevice_GetAttributes_ParamsSpec = { $: {} };
+chromeos.sensors.mojom.SensorDevice_GetAttributes_ResponseParamsSpec = { $: {} };
+chromeos.sensors.mojom.SensorDevice_SetFrequency_ParamsSpec = { $: {} };
+chromeos.sensors.mojom.SensorDevice_SetFrequency_ResponseParamsSpec = { $: {} };
+chromeos.sensors.mojom.SensorDevice_StartReadingSamples_ParamsSpec = { $: {} };
+chromeos.sensors.mojom.SensorDevice_StopReadingSamples_ParamsSpec = { $: {} };
+chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ParamsSpec = { $: {} };
+chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ResponseParamsSpec = { $: {} };
+chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ParamsSpec = { $: {} };
+chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ResponseParamsSpec = { $: {} };
+chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ParamsSpec = { $: {} };
+chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ResponseParamsSpec = { $: {} };
+chromeos.sensors.mojom.SensorDeviceSamplesObserver = {};
+chromeos.sensors.mojom.SensorDeviceSamplesObserver.$interfaceName = 'chromeos.sensors.mojom.SensorDeviceSamplesObserver';
+chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnSampleUpdated_ParamsSpec = { $: {} };
+chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_ParamsSpec = { $: {} };
+chromeos.sensors.mojom.SensorServiceNewDevicesObserver = {};
+chromeos.sensors.mojom.SensorServiceNewDevicesObserver.$interfaceName = 'chromeos.sensors.mojom.SensorServiceNewDevicesObserver';
+chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSpec = { $: {} };
 
 chromeos.sensors.mojom.kScale = "scale";
 
@@ -50,85 +83,74 @@ chromeos.sensors.mojom.kTimestampChannel = "timestamp";
 
 // Enum: DeviceType
 chromeos.sensors.mojom.DeviceType = {
-  ACCEL: 0,
-  ANGLVEL: 1,
-  LIGHT: 2,
-  COUNT: 3,
-  MAGN: 4,
-  ANGL: 5,
-  BARO: 6,
-  ACCEL_UNCALIBRATED: 7,
-  ANGLVEL_UNCALIBRATED: 8,
-  MAGN_UNCALIBRATED: 9,
-  GRAVITY: 10,
+  NONE: 0,
+  ACCEL: 1,
+  ANGLVEL: 2,
+  LIGHT: 3,
+  COUNT: 4,
+  MAGN: 5,
+  ANGL: 6,
+  BARO: 7,
+  ACCEL_UNCALIBRATED: 8,
+  ANGLVEL_UNCALIBRATED: 9,
+  MAGN_UNCALIBRATED: 10,
+  GRAVITY: 11,
 };
-chromeos.sensors.mojom.DeviceTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ObserverErrorType
 chromeos.sensors.mojom.ObserverErrorType = {
-  SET_FREQUENCY_IO_FAILED: 0,
-  FREQUENCY_INVALID: 1,
-  NO_ENABLED_CHANNELS: 2,
-  GET_FD_FAILED: 3,
-  READ_FAILED: 4,
-  READ_TIMEOUT: 5,
+  ALREADY_STARTED: 0,
+  SET_FREQUENCY_IO_FAILED: 1,
+  FREQUENCY_INVALID: 2,
+  NO_ENABLED_CHANNELS: 3,
+  GET_FD_FAILED: 4,
+  READ_FAILED: 5,
+  READ_TIMEOUT: 6,
 };
-chromeos.sensors.mojom.ObserverErrorTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SensorServiceDisconnectReason
 chromeos.sensors.mojom.SensorServiceDisconnectReason = {
-  IIOSERVICE_SHUTDOWN: 0,
-  CHROME_STOPPED: 1,
+  IIOSERVICE_CRASHED: 0,
+  IIOSERVICE_SHUTDOWN: 1,
+  CHROME_STOPPED: 2,
 };
-chromeos.sensors.mojom.SensorServiceDisconnectReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: SensorDeviceDisconnectReason
 chromeos.sensors.mojom.SensorDeviceDisconnectReason = {
-  DEVICE_REMOVED: 0,
+  IIOSERVICE_CRASHED: 0,
+  DEVICE_REMOVED: 1,
 };
-chromeos.sensors.mojom.SensorDeviceDisconnectReasonSpec = { $: mojo.internal.Enum() };
 
 // Interface: SensorService
-chromeos.sensors.mojom.SensorService = {};
+mojo.internal.Struct(
+    chromeos.sensors.mojom.SensorService_GetDeviceIds_ParamsSpec, 'chromeos.sensors.mojom.SensorService_GetDeviceIds_Params', [
+      mojo.internal.StructField('type', 0, 0, chromeos.sensors.mojom.DeviceTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.sensors.mojom.SensorService_GetDeviceIds_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorService_GetDeviceIds_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: chromeos.sensors.mojom.DeviceTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.sensors.mojom.SensorService_GetDeviceIds_ResponseParamsSpec, 'chromeos.sensors.mojom.SensorService_GetDeviceIds_ResponseParams', [
+      mojo.internal.StructField('iio_device_ids', 0, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorService_GetAllDeviceIds_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ParamsSpec, 'chromeos.sensors.mojom.SensorService_GetAllDeviceIds_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromeos.sensors.mojom.SensorService_GetDevice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorService_GetDevice_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'iio_device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'device_request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.sensors.mojom.SensorDeviceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ResponseParamsSpec, 'chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ResponseParams', [
+      mojo.internal.StructField('iio_device_ids_types', 0, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.Array(chromeos.sensors.mojom.DeviceTypeSpec, false), false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.sensors.mojom.SensorService_GetDevice_ParamsSpec, 'chromeos.sensors.mojom.SensorService_GetDevice_Params', [
+      mojo.internal.StructField('iio_device_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('device_request', 0, 0, mojo.internal.InterfaceRequest(chromeos.sensors.mojom.SensorDeviceRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 chromeos.sensors.mojom.SensorServicePendingReceiver = class {
   constructor(handle) {
@@ -201,184 +223,87 @@ chromeos.sensors.mojom.SensorService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetDeviceIds
-chromeos.sensors.mojom.SensorService_GetDeviceIds_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorService.GetDeviceIds_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: chromeos.sensors.mojom.DeviceTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.sensors.mojom.SensorService_GetDeviceIds_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorService.GetDeviceIds_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'iio_device_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetAllDeviceIds
-chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorService.GetAllDeviceIds_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorService.GetAllDeviceIds_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'iio_device_ids_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int32, mojo.internal.Array(chromeos.sensors.mojom.DeviceTypeSpec, false), false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetDevice
-chromeos.sensors.mojom.SensorService_GetDevice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorService.GetDevice_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'iio_device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'device_request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.sensors.mojom.SensorDeviceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.sensors.mojom.SensorServicePtr = chromeos.sensors.mojom.SensorServiceRemote;
 chromeos.sensors.mojom.SensorServiceRequest = chromeos.sensors.mojom.SensorServicePendingReceiver;
 
 
 // Interface: SensorDevice
-chromeos.sensors.mojom.SensorDevice = {};
+mojo.internal.Struct(
+    chromeos.sensors.mojom.SensorDevice_SetTimeout_ParamsSpec, 'chromeos.sensors.mojom.SensorDevice_SetTimeout_Params', [
+      mojo.internal.StructField('timeout', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.sensors.mojom.SensorDevice_SetTimeout_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorDevice_SetTimeout_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'timeout', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.sensors.mojom.SensorDevice_GetAttributes_ParamsSpec, 'chromeos.sensors.mojom.SensorDevice_GetAttributes_Params', [
+      mojo.internal.StructField('attr_names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.sensors.mojom.SensorDevice_GetAttributes_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorDevice_GetAttributes_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'attr_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.sensors.mojom.SensorDevice_GetAttributes_ResponseParamsSpec, 'chromeos.sensors.mojom.SensorDevice_GetAttributes_ResponseParams', [
+      mojo.internal.StructField('values', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.sensors.mojom.SensorDevice_SetFrequency_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorDevice_SetFrequency_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'frequency', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.sensors.mojom.SensorDevice_SetFrequency_ParamsSpec, 'chromeos.sensors.mojom.SensorDevice_SetFrequency_Params', [
+      mojo.internal.StructField('frequency', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.sensors.mojom.SensorDevice_StartReadingSamples_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorDevice_StartReadingSamples_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.sensors.mojom.SensorDeviceSamplesObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.sensors.mojom.SensorDevice_SetFrequency_ResponseParamsSpec, 'chromeos.sensors.mojom.SensorDevice_SetFrequency_ResponseParams', [
+      mojo.internal.StructField('result_freq', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.sensors.mojom.SensorDevice_StopReadingSamples_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorDevice_StopReadingSamples_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.sensors.mojom.SensorDevice_StartReadingSamples_ParamsSpec, 'chromeos.sensors.mojom.SensorDevice_StartReadingSamples_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromeos.sensors.mojom.SensorDeviceSamplesObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.sensors.mojom.SensorDevice_StopReadingSamples_ParamsSpec, 'chromeos.sensors.mojom.SensorDevice_StopReadingSamples_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'iio_chn_indices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ParamsSpec, 'chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'iio_chn_indices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
-        { name: 'attr_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ResponseParamsSpec, 'chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ResponseParams', [
+      mojo.internal.StructField('iio_chn_ids', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ParamsSpec, 'chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_Params', [
+      mojo.internal.StructField('iio_chn_indices', 0, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ResponseParamsSpec, 'chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ResponseParams', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Array(mojo.internal.Bool, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ParamsSpec, 'chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_Params', [
+      mojo.internal.StructField('iio_chn_indices', 0, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
+      mojo.internal.StructField('attr_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ResponseParamsSpec, 'chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ResponseParams', [
+      mojo.internal.StructField('values', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromeos.sensors.mojom.SensorDevicePendingReceiver = class {
   constructor(handle) {
@@ -496,215 +421,22 @@ chromeos.sensors.mojom.SensorDevice.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetTimeout
-chromeos.sensors.mojom.SensorDevice_SetTimeout_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorDevice.SetTimeout_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'timeout', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetAttributes
-chromeos.sensors.mojom.SensorDevice_GetAttributes_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorDevice.GetAttributes_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'attr_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.sensors.mojom.SensorDevice_GetAttributes_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorDevice.GetAttributes_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetFrequency
-chromeos.sensors.mojom.SensorDevice_SetFrequency_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorDevice.SetFrequency_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'frequency', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.sensors.mojom.SensorDevice_SetFrequency_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorDevice.SetFrequency_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result_freq', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StartReadingSamples
-chromeos.sensors.mojom.SensorDevice_StartReadingSamples_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorDevice.StartReadingSamples_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.sensors.mojom.SensorDeviceSamplesObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StopReadingSamples
-chromeos.sensors.mojom.SensorDevice_StopReadingSamples_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorDevice.StopReadingSamples_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for GetAllChannelIds
-chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorDevice.GetAllChannelIds_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorDevice.GetAllChannelIds_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'iio_chn_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetChannelsEnabled
-chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorDevice.GetChannelsEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'iio_chn_indices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorDevice.GetChannelsEnabled_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Bool, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetChannelsAttributes
-chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorDevice.GetChannelsAttributes_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'iio_chn_indices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
-        { name: 'attr_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorDevice.GetChannelsAttributes_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.sensors.mojom.SensorDevicePtr = chromeos.sensors.mojom.SensorDeviceRemote;
 chromeos.sensors.mojom.SensorDeviceRequest = chromeos.sensors.mojom.SensorDevicePendingReceiver;
 
 
 // Interface: SensorDeviceSamplesObserver
-chromeos.sensors.mojom.SensorDeviceSamplesObserver = {};
+mojo.internal.Struct(
+    chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnSampleUpdated_ParamsSpec, 'chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnSampleUpdated_Params', [
+      mojo.internal.StructField('sample', 0, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.Int64, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnSampleUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnSampleUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'sample', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int32, mojo.internal.Int64, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: chromeos.sensors.mojom.ObserverErrorTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_ParamsSpec, 'chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_Params', [
+      mojo.internal.StructField('type', 0, 0, chromeos.sensors.mojom.ObserverErrorTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromeos.sensors.mojom.SensorDeviceSamplesObserverPendingReceiver = class {
   constructor(handle) {
@@ -768,55 +500,17 @@ chromeos.sensors.mojom.SensorDeviceSamplesObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnSampleUpdated
-chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnSampleUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorDeviceSamplesObserver.OnSampleUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'sample', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int32, mojo.internal.Int64, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnErrorOccurred
-chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorDeviceSamplesObserver.OnErrorOccurred_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: chromeos.sensors.mojom.ObserverErrorTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.sensors.mojom.SensorDeviceSamplesObserverPtr = chromeos.sensors.mojom.SensorDeviceSamplesObserverRemote;
 chromeos.sensors.mojom.SensorDeviceSamplesObserverRequest = chromeos.sensors.mojom.SensorDeviceSamplesObserverPendingReceiver;
 
 
 // Interface: SensorServiceNewDevicesObserver
-chromeos.sensors.mojom.SensorServiceNewDevicesObserver = {};
-
-chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'iio_device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromeos.sensors.mojom.DeviceTypeSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSpec, 'chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_Params', [
+      mojo.internal.StructField('iio_device_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('types', 0, 0, mojo.internal.Array(chromeos.sensors.mojom.DeviceTypeSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 chromeos.sensors.mojom.SensorServiceNewDevicesObserverPendingReceiver = class {
   constructor(handle) {
@@ -871,22 +565,6 @@ chromeos.sensors.mojom.SensorServiceNewDevicesObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnNewDeviceAdded
-chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorServiceNewDevicesObserver.OnNewDeviceAdded_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'iio_device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromeos.sensors.mojom.DeviceTypeSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.sensors.mojom.SensorServiceNewDevicesObserverPtr = chromeos.sensors.mojom.SensorServiceNewDevicesObserverRemote;
 chromeos.sensors.mojom.SensorServiceNewDevicesObserverRequest = chromeos.sensors.mojom.SensorServiceNewDevicesObserverPendingReceiver;
 

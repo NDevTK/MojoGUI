@@ -10,23 +10,22 @@ printing.mojom = printing.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+printing.mojom.ModeSpec = { $: mojo.internal.Enum() };
+printing.mojom.PdfRenderSettingsSpec = { $: {} };
 
 // Enum: Mode
 printing.mojom.Mode = {
   NORMAL: 0,
+  TEXTONLY: 1,
+  POSTSCRIPT_LEVEL2: 2,
+  POSTSCRIPT_LEVEL3: 3,
+  EMF_WITH_REDUCED_RASTERIZATION: 4,
+  POSTSCRIPT_LEVEL3_WITH_TYPE42_FONTS: 5,
 };
-printing.mojom.ModeSpec = { $: mojo.internal.Enum() };
 
 // Struct: PdfRenderSettings
-printing.mojom.PdfRenderSettingsSpec = {
-  $: {
-    structSpec: {
-      name: 'printing.mojom.PdfRenderSettings',
-      packedSize: 16,
-      fields: [
-        { name: 'NORMAL', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    printing.mojom.PdfRenderSettingsSpec, 'printing.mojom.PdfRenderSettings', [
+      mojo.internal.StructField('NORMAL', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);

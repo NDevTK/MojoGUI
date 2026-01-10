@@ -9,13 +9,34 @@ var ash = ash || {};
 ash.diagnostics = ash.diagnostics || {};
 ash.diagnostics.mojom = ash.diagnostics.mojom || {};
 
+ash.diagnostics.mojom.AuthenticationTypeSpec = { $: mojo.internal.Enum() };
+ash.diagnostics.mojom.NetworkStateSpec = { $: mojo.internal.Enum() };
+ash.diagnostics.mojom.NetworkTypeSpec = { $: mojo.internal.Enum() };
+ash.diagnostics.mojom.RoamingStateSpec = { $: mojo.internal.Enum() };
+ash.diagnostics.mojom.LockTypeSpec = { $: mojo.internal.Enum() };
+ash.diagnostics.mojom.SecurityTypeSpec = { $: mojo.internal.Enum() };
+ash.diagnostics.mojom.NetworkTypePropertiesSpec = { $: {} };
+ash.diagnostics.mojom.IPConfigPropertiesSpec = { $: {} };
+ash.diagnostics.mojom.CellularStatePropertiesSpec = { $: {} };
+ash.diagnostics.mojom.EthernetStatePropertiesSpec = { $: {} };
+ash.diagnostics.mojom.WiFiStatePropertiesSpec = { $: {} };
+ash.diagnostics.mojom.NetworkSpec = { $: {} };
+ash.diagnostics.mojom.NetworkListObserver = {};
+ash.diagnostics.mojom.NetworkListObserver.$interfaceName = 'ash.diagnostics.mojom.NetworkListObserver';
+ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec = { $: {} };
+ash.diagnostics.mojom.NetworkStateObserver = {};
+ash.diagnostics.mojom.NetworkStateObserver.$interfaceName = 'ash.diagnostics.mojom.NetworkStateObserver';
+ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec = { $: {} };
+ash.diagnostics.mojom.NetworkHealthProvider = {};
+ash.diagnostics.mojom.NetworkHealthProvider.$interfaceName = 'ash.diagnostics.mojom.NetworkHealthProvider';
+ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec = { $: {} };
+ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec = { $: {} };
 
 // Enum: AuthenticationType
 ash.diagnostics.mojom.AuthenticationType = {
   kNone: 0,
   k8021x: 1,
 };
-ash.diagnostics.mojom.AuthenticationTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: NetworkState
 ash.diagnostics.mojom.NetworkState = {
@@ -26,7 +47,6 @@ ash.diagnostics.mojom.NetworkState = {
   kNotConnected: 4,
   kDisabled: 5,
 };
-ash.diagnostics.mojom.NetworkStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: NetworkType
 ash.diagnostics.mojom.NetworkType = {
@@ -35,7 +55,6 @@ ash.diagnostics.mojom.NetworkType = {
   kWiFi: 2,
   kUnsupported: 3,
 };
-ash.diagnostics.mojom.NetworkTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: RoamingState
 ash.diagnostics.mojom.RoamingState = {
@@ -43,7 +62,6 @@ ash.diagnostics.mojom.RoamingState = {
   kRoaming: 1,
   kHome: 2,
 };
-ash.diagnostics.mojom.RoamingStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: LockType
 ash.diagnostics.mojom.LockType = {
@@ -52,7 +70,6 @@ ash.diagnostics.mojom.LockType = {
   kSimPuk: 2,
   kNetworkPin: 3,
 };
-ash.diagnostics.mojom.LockTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SecurityType
 ash.diagnostics.mojom.SecurityType = {
@@ -62,132 +79,89 @@ ash.diagnostics.mojom.SecurityType = {
   kWpaEap: 3,
   kWpaPsk: 4,
 };
-ash.diagnostics.mojom.SecurityTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: NetworkTypeProperties
-ash.diagnostics.mojom.NetworkTypePropertiesSpec = { $: mojo.internal.Union(
-    'ash.diagnostics.mojom.NetworkTypeProperties', {
+mojo.internal.Union(
+    ash.diagnostics.mojom.NetworkTypePropertiesSpec, 'ash.diagnostics.mojom.NetworkTypeProperties', {
       'cellular': {
         'ordinal': 0,
         'type': ash.diagnostics.mojom.CellularStatePropertiesSpec,
-      }},
+        'nullable': false,
+      },
       'ethernet': {
         'ordinal': 1,
         'type': ash.diagnostics.mojom.EthernetStatePropertiesSpec,
-      }},
+        'nullable': false,
+      },
       'wifi': {
         'ordinal': 2,
         'type': ash.diagnostics.mojom.WiFiStatePropertiesSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: IPConfigProperties
-ash.diagnostics.mojom.IPConfigPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.diagnostics.mojom.IPConfigProperties',
-      packedSize: 40,
-      fields: [
-        { name: 'name_servers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-        { name: 'routing_prefix', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'gateway', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'ip_address', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.diagnostics.mojom.IPConfigPropertiesSpec, 'ash.diagnostics.mojom.IPConfigProperties', [
+      mojo.internal.StructField('name_servers', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('routing_prefix', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('gateway', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('ip_address', 16, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: CellularStateProperties
-ash.diagnostics.mojom.CellularStatePropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.diagnostics.mojom.CellularStateProperties',
-      packedSize: 48,
-      fields: [
-        { name: 'iccid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'eid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'network_technology', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'roaming', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'roaming_state', packedOffset: 24, packedBitOffset: 0, type: ash.diagnostics.mojom.RoamingStateSpec, nullable: false, minVersion: 0 },
-        { name: 'signal_strength', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'sim_locked', packedOffset: 36, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'lock_type', packedOffset: 32, packedBitOffset: 0, type: ash.diagnostics.mojom.LockTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.diagnostics.mojom.CellularStatePropertiesSpec, 'ash.diagnostics.mojom.CellularStateProperties', [
+      mojo.internal.StructField('iccid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('eid', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('network_technology', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('roaming', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('roaming_state', 24, 0, ash.diagnostics.mojom.RoamingStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('signal_strength', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('sim_locked', 36, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('lock_type', 32, 0, ash.diagnostics.mojom.LockTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: EthernetStateProperties
-ash.diagnostics.mojom.EthernetStatePropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.diagnostics.mojom.EthernetStateProperties',
-      packedSize: 16,
-      fields: [
-        { name: 'authentication', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.AuthenticationTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.diagnostics.mojom.EthernetStatePropertiesSpec, 'ash.diagnostics.mojom.EthernetStateProperties', [
+      mojo.internal.StructField('authentication', 0, 0, ash.diagnostics.mojom.AuthenticationTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: WiFiStateProperties
-ash.diagnostics.mojom.WiFiStatePropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.diagnostics.mojom.WiFiStateProperties',
-      packedSize: 40,
-      fields: [
-        { name: 'signal_strength', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'frequency', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'ssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'bssid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'security', packedOffset: 24, packedBitOffset: 0, type: ash.diagnostics.mojom.SecurityTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.diagnostics.mojom.WiFiStatePropertiesSpec, 'ash.diagnostics.mojom.WiFiStateProperties', [
+      mojo.internal.StructField('signal_strength', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('frequency', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('ssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('bssid', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('security', 24, 0, ash.diagnostics.mojom.SecurityTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: Network
-ash.diagnostics.mojom.NetworkSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.diagnostics.mojom.Network',
-      packedSize: 64,
-      fields: [
-        { name: 'state', packedOffset: 48, packedBitOffset: 0, type: ash.diagnostics.mojom.NetworkStateSpec, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 52, packedBitOffset: 0, type: ash.diagnostics.mojom.NetworkTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'type_properties', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.NetworkTypePropertiesSpec, nullable: true, minVersion: 0 },
-        { name: 'observer_guid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'mac_address', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'ip_config', packedOffset: 40, packedBitOffset: 0, type: ash.diagnostics.mojom.IPConfigPropertiesSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.diagnostics.mojom.NetworkSpec, 'ash.diagnostics.mojom.Network', [
+      mojo.internal.StructField('state', 48, 0, ash.diagnostics.mojom.NetworkStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 52, 0, ash.diagnostics.mojom.NetworkTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type_properties', 0, 0, ash.diagnostics.mojom.NetworkTypePropertiesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('observer_guid', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('name', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('mac_address', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('ip_config', 40, 0, ash.diagnostics.mojom.IPConfigPropertiesSpec, null, true, 0, undefined),
+    ],
+    [[0, 64]]);
 
 // Interface: NetworkListObserver
-ash.diagnostics.mojom.NetworkListObserver = {};
-
-ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'network_guids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'active_guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec, 'ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_Params', [
+      mojo.internal.StructField('network_guids', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('active_guid', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ash.diagnostics.mojom.NetworkListObserverPendingReceiver = class {
   constructor(handle) {
@@ -242,41 +216,16 @@ ash.diagnostics.mojom.NetworkListObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnNetworkListChanged
-ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.diagnostics.mojom.NetworkListObserver.OnNetworkListChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'network_guids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'active_guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.diagnostics.mojom.NetworkListObserverPtr = ash.diagnostics.mojom.NetworkListObserverRemote;
 ash.diagnostics.mojom.NetworkListObserverRequest = ash.diagnostics.mojom.NetworkListObserverPendingReceiver;
 
 
 // Interface: NetworkStateObserver
-ash.diagnostics.mojom.NetworkStateObserver = {};
-
-ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'network', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.NetworkSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec, 'ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_Params', [
+      mojo.internal.StructField('network', 0, 0, ash.diagnostics.mojom.NetworkSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.diagnostics.mojom.NetworkStateObserverPendingReceiver = class {
   constructor(handle) {
@@ -331,54 +280,23 @@ ash.diagnostics.mojom.NetworkStateObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnNetworkStateChanged
-ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.diagnostics.mojom.NetworkStateObserver.OnNetworkStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'network', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.NetworkSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.diagnostics.mojom.NetworkStateObserverPtr = ash.diagnostics.mojom.NetworkStateObserverRemote;
 ash.diagnostics.mojom.NetworkStateObserverRequest = ash.diagnostics.mojom.NetworkStateObserverPendingReceiver;
 
 
 // Interface: NetworkHealthProvider
-ash.diagnostics.mojom.NetworkHealthProvider = {};
+mojo.internal.Struct(
+    ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec, 'ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.diagnostics.mojom.NetworkListObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.diagnostics.mojom.NetworkListObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.diagnostics.mojom.NetworkStateObserverRemote), nullable: false, minVersion: 0 },
-        { name: 'guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec, 'ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.diagnostics.mojom.NetworkStateObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('guid', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ash.diagnostics.mojom.NetworkHealthProviderPendingReceiver = class {
   constructor(handle) {
@@ -442,36 +360,6 @@ ash.diagnostics.mojom.NetworkHealthProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ObserveNetworkList
-ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.diagnostics.mojom.NetworkHealthProvider.ObserveNetworkList_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.diagnostics.mojom.NetworkListObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ObserveNetwork
-ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.diagnostics.mojom.NetworkHealthProvider.ObserveNetwork_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.diagnostics.mojom.NetworkStateObserverRemote), nullable: false, minVersion: 0 },
-        { name: 'guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.diagnostics.mojom.NetworkHealthProviderPtr = ash.diagnostics.mojom.NetworkHealthProviderRemote;
 ash.diagnostics.mojom.NetworkHealthProviderRequest = ash.diagnostics.mojom.NetworkHealthProviderPendingReceiver;
 

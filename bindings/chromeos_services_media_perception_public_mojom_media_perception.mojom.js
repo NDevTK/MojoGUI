@@ -9,10 +9,10 @@ var chromeos = chromeos || {};
 chromeos.media_perception = chromeos.media_perception || {};
 chromeos.media_perception.mojom = chromeos.media_perception.mojom || {};
 
+chromeos.media_perception.mojom.MediaPerception = {};
+chromeos.media_perception.mojom.MediaPerception.$interfaceName = 'chromeos.media_perception.mojom.MediaPerception';
 
 // Interface: MediaPerception
-chromeos.media_perception.mojom.MediaPerception = {};
-
 chromeos.media_perception.mojom.MediaPerceptionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -57,7 +57,6 @@ chromeos.media_perception.mojom.MediaPerception.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 chromeos.media_perception.mojom.MediaPerceptionPtr = chromeos.media_perception.mojom.MediaPerceptionRemote;
 chromeos.media_perception.mojom.MediaPerceptionRequest = chromeos.media_perception.mojom.MediaPerceptionPendingReceiver;
 

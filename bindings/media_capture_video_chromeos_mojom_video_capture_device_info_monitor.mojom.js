@@ -8,23 +8,20 @@
 var cros = cros || {};
 cros.mojom = cros.mojom || {};
 
+cros.mojom.VideoCaptureDeviceInfoObserver = {};
+cros.mojom.VideoCaptureDeviceInfoObserver.$interfaceName = 'cros.mojom.VideoCaptureDeviceInfoObserver';
+cros.mojom.VideoCaptureDeviceInfoObserver_OnGetCameraIdToDeviceIdMapping_ParamsSpec = { $: {} };
+cros.mojom.VideoCaptureDeviceInfoMonitor = {};
+cros.mojom.VideoCaptureDeviceInfoMonitor.$interfaceName = 'cros.mojom.VideoCaptureDeviceInfoMonitor';
+cros.mojom.VideoCaptureDeviceInfoMonitor_AddVideoCaptureDeviceInfoObserver_ParamsSpec = { $: {} };
 
 // Interface: VideoCaptureDeviceInfoObserver
-cros.mojom.VideoCaptureDeviceInfoObserver = {};
-
-cros.mojom.VideoCaptureDeviceInfoObserver_OnGetCameraIdToDeviceIdMapping_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.VideoCaptureDeviceInfoObserver_OnGetCameraIdToDeviceIdMapping_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'camera_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.VideoCaptureDeviceInfoObserver_OnGetCameraIdToDeviceIdMapping_ParamsSpec, 'cros.mojom.VideoCaptureDeviceInfoObserver_OnGetCameraIdToDeviceIdMapping_Params', [
+      mojo.internal.StructField('camera_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 cros.mojom.VideoCaptureDeviceInfoObserverPendingReceiver = class {
   constructor(handle) {
@@ -79,41 +76,16 @@ cros.mojom.VideoCaptureDeviceInfoObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnGetCameraIdToDeviceIdMapping
-cros.mojom.VideoCaptureDeviceInfoObserver_OnGetCameraIdToDeviceIdMapping_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.VideoCaptureDeviceInfoObserver.OnGetCameraIdToDeviceIdMapping_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'camera_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 cros.mojom.VideoCaptureDeviceInfoObserverPtr = cros.mojom.VideoCaptureDeviceInfoObserverRemote;
 cros.mojom.VideoCaptureDeviceInfoObserverRequest = cros.mojom.VideoCaptureDeviceInfoObserverPendingReceiver;
 
 
 // Interface: VideoCaptureDeviceInfoMonitor
-cros.mojom.VideoCaptureDeviceInfoMonitor = {};
-
-cros.mojom.VideoCaptureDeviceInfoMonitor_AddVideoCaptureDeviceInfoObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.VideoCaptureDeviceInfoMonitor_AddVideoCaptureDeviceInfoObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cros.mojom.VideoCaptureDeviceInfoObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.VideoCaptureDeviceInfoMonitor_AddVideoCaptureDeviceInfoObserver_ParamsSpec, 'cros.mojom.VideoCaptureDeviceInfoMonitor_AddVideoCaptureDeviceInfoObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.VideoCaptureDeviceInfoObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 cros.mojom.VideoCaptureDeviceInfoMonitorPendingReceiver = class {
   constructor(handle) {
@@ -168,21 +140,6 @@ cros.mojom.VideoCaptureDeviceInfoMonitor.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddVideoCaptureDeviceInfoObserver
-cros.mojom.VideoCaptureDeviceInfoMonitor_AddVideoCaptureDeviceInfoObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.VideoCaptureDeviceInfoMonitor.AddVideoCaptureDeviceInfoObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cros.mojom.VideoCaptureDeviceInfoObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 cros.mojom.VideoCaptureDeviceInfoMonitorPtr = cros.mojom.VideoCaptureDeviceInfoMonitorRemote;
 cros.mojom.VideoCaptureDeviceInfoMonitorRequest = cros.mojom.VideoCaptureDeviceInfoMonitorPendingReceiver;
 

@@ -7,59 +7,42 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
 var url = url || {};
 var url = url || {};
 
+network.mojom.TypeSpec = { $: mojo.internal.Enum() };
+network.mojom.SharedDictionaryAccessDetailsSpec = { $: {} };
+network.mojom.SharedDictionaryAccessObserver = {};
+network.mojom.SharedDictionaryAccessObserver.$interfaceName = 'network.mojom.SharedDictionaryAccessObserver';
+network.mojom.SharedDictionaryAccessObserver_OnSharedDictionaryAccessed_ParamsSpec = { $: {} };
+network.mojom.SharedDictionaryAccessObserver_Clone_ParamsSpec = { $: {} };
 
 // Enum: Type
 network.mojom.Type = {
   kRead: 0,
   kWrite: 1,
 };
-network.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SharedDictionaryAccessDetails
-network.mojom.SharedDictionaryAccessDetailsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.SharedDictionaryAccessDetails',
-      packedSize: 16,
-      fields: [
-        { name: 'kRead', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.SharedDictionaryAccessDetailsSpec, 'network.mojom.SharedDictionaryAccessDetails', [
+      mojo.internal.StructField('kRead', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: SharedDictionaryAccessObserver
-network.mojom.SharedDictionaryAccessObserver = {};
+mojo.internal.Struct(
+    network.mojom.SharedDictionaryAccessObserver_OnSharedDictionaryAccessed_ParamsSpec, 'network.mojom.SharedDictionaryAccessObserver_OnSharedDictionaryAccessed_Params', [
+      mojo.internal.StructField('details', 0, 0, network.mojom.SharedDictionaryAccessDetailsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.SharedDictionaryAccessObserver_OnSharedDictionaryAccessed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.SharedDictionaryAccessObserver_OnSharedDictionaryAccessed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SharedDictionaryAccessDetailsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-network.mojom.SharedDictionaryAccessObserver_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.SharedDictionaryAccessObserver_Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.SharedDictionaryAccessObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.SharedDictionaryAccessObserver_Clone_ParamsSpec, 'network.mojom.SharedDictionaryAccessObserver_Clone_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceRequest(network.mojom.SharedDictionaryAccessObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.SharedDictionaryAccessObserverPendingReceiver = class {
   constructor(handle) {
@@ -123,35 +106,6 @@ network.mojom.SharedDictionaryAccessObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnSharedDictionaryAccessed
-network.mojom.SharedDictionaryAccessObserver_OnSharedDictionaryAccessed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.SharedDictionaryAccessObserver.OnSharedDictionaryAccessed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SharedDictionaryAccessDetailsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Clone
-network.mojom.SharedDictionaryAccessObserver_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.SharedDictionaryAccessObserver.Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.SharedDictionaryAccessObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.SharedDictionaryAccessObserverPtr = network.mojom.SharedDictionaryAccessObserverRemote;
 network.mojom.SharedDictionaryAccessObserverRequest = network.mojom.SharedDictionaryAccessObserverPendingReceiver;
 

@@ -8,34 +8,22 @@
 var audio = audio || {};
 audio.mojom = audio.mojom || {};
 
+audio.mojom.MlModelManager = {};
+audio.mojom.MlModelManager.$interfaceName = 'audio.mojom.MlModelManager';
+audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec = { $: {} };
+audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_ParamsSpec = { $: {} };
 
 // Interface: MlModelManager
-audio.mojom.MlModelManager = {};
+mojo.internal.Struct(
+    audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec, 'audio.mojom.MlModelManager_SetResidualEchoEstimationModel_Params', [
+      mojo.internal.StructField('tflite_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'audio.mojom.MlModelManager_SetResidualEchoEstimationModel_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tflite_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_ParamsSpec, 'audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 audio.mojom.MlModelManagerPendingReceiver = class {
   constructor(handle) {
@@ -99,34 +87,6 @@ audio.mojom.MlModelManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetResidualEchoEstimationModel
-audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'audio.mojom.MlModelManager.SetResidualEchoEstimationModel_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tflite_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StopServingResidualEchoEstimationModel
-audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'audio.mojom.MlModelManager.StopServingResidualEchoEstimationModel_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 audio.mojom.MlModelManagerPtr = audio.mojom.MlModelManagerRemote;
 audio.mojom.MlModelManagerRequest = audio.mojom.MlModelManagerPendingReceiver;
 

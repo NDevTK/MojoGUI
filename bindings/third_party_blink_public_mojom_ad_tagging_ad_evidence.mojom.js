@@ -8,6 +8,9 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.FilterListResultSpec = { $: mojo.internal.Enum() };
+blink.mojom.FrameCreationStackEvidenceSpec = { $: mojo.internal.Enum() };
+blink.mojom.FrameAdEvidenceSpec = { $: {} };
 
 // Enum: FilterListResult
 blink.mojom.FilterListResult = {
@@ -16,29 +19,20 @@ blink.mojom.FilterListResult = {
   kMatchedNoRules: 2,
   kMatchedBlockingRule: 3,
 };
-blink.mojom.FilterListResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: FrameCreationStackEvidence
 blink.mojom.FrameCreationStackEvidence = {
   kNotCreatedByAdScript: 0,
   kCreatedByAdScript: 1,
 };
-blink.mojom.FrameCreationStackEvidenceSpec = { $: mojo.internal.Enum() };
 
 // Struct: FrameAdEvidence
-blink.mojom.FrameAdEvidenceSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameAdEvidence',
-      packedSize: 24,
-      fields: [
-        { name: 'is_complete', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'parent_is_ad', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'latest_filter_list_result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FilterListResultSpec, nullable: false, minVersion: 0 },
-        { name: 'most_restrictive_filter_list_result', packedOffset: 4, packedBitOffset: 0, type: blink.mojom.FilterListResultSpec, nullable: false, minVersion: 0 },
-        { name: 'created_by_ad_script', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FrameCreationStackEvidenceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameAdEvidenceSpec, 'blink.mojom.FrameAdEvidence', [
+      mojo.internal.StructField('is_complete', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('parent_is_ad', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('latest_filter_list_result', 0, 0, blink.mojom.FilterListResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('most_restrictive_filter_list_result', 4, 0, blink.mojom.FilterListResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('created_by_ad_script', 8, 0, blink.mojom.FrameCreationStackEvidenceSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

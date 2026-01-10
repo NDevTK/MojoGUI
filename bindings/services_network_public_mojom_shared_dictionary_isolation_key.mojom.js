@@ -7,20 +7,15 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
 var url = url || {};
 
+network.mojom.SharedDictionaryIsolationKeySpec = { $: {} };
 
 // Struct: SharedDictionaryIsolationKey
-network.mojom.SharedDictionaryIsolationKeySpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.SharedDictionaryIsolationKey',
-      packedSize: 24,
-      fields: [
-        { name: 'frame_origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'top_frame_site', packedOffset: 8, packedBitOffset: 0, type: network.mojom.SchemefulSiteSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.SharedDictionaryIsolationKeySpec, 'network.mojom.SharedDictionaryIsolationKey', [
+      mojo.internal.StructField('frame_origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('top_frame_site', 8, 0, network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

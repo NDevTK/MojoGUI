@@ -7,48 +7,44 @@
 // Module namespace
 var heap_profiling = heap_profiling || {};
 heap_profiling.mojom = heap_profiling.mojom || {};
+var components = components || {};
+var components = components || {};
 
+heap_profiling.mojom.TestConnector = {};
+heap_profiling.mojom.TestConnector.$interfaceName = 'heap_profiling.mojom.TestConnector';
+heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec = { $: {} };
+heap_profiling.mojom.TestConnector_ConnectSnapshotController_ResponseParamsSpec = { $: {} };
+heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec = { $: {} };
+heap_profiling.mojom.TestConnector_ConnectProfileCollector_ResponseParamsSpec = { $: {} };
+heap_profiling.mojom.TestConnector_Disconnect_ParamsSpec = { $: {} };
 
 // Interface: TestConnector
-heap_profiling.mojom.TestConnector = {};
+mojo.internal.Struct(
+    heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec, 'heap_profiling.mojom.TestConnector_ConnectSnapshotController_Params', [
+      mojo.internal.StructField('controller', 0, 0, mojo.internal.InterfaceRequest(heap_profiling.mojom.SnapshotControllerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'heap_profiling.mojom.TestConnector_ConnectSnapshotController_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(heap_profiling.mojom.SnapshotControllerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    heap_profiling.mojom.TestConnector_ConnectSnapshotController_ResponseParamsSpec, 'heap_profiling.mojom.TestConnector_ConnectSnapshotController_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'heap_profiling.mojom.TestConnector_ConnectProfileCollector_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'collector', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(metrics.mojom.CallStackProfileCollectorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec, 'heap_profiling.mojom.TestConnector_ConnectProfileCollector_Params', [
+      mojo.internal.StructField('collector', 0, 0, mojo.internal.InterfaceProxy(metrics.mojom.CallStackProfileCollectorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-heap_profiling.mojom.TestConnector_Disconnect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'heap_profiling.mojom.TestConnector_Disconnect_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    heap_profiling.mojom.TestConnector_ConnectProfileCollector_ResponseParamsSpec, 'heap_profiling.mojom.TestConnector_ConnectProfileCollector_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    heap_profiling.mojom.TestConnector_Disconnect_ParamsSpec, 'heap_profiling.mojom.TestConnector_Disconnect_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 heap_profiling.mojom.TestConnectorPendingReceiver = class {
   constructor(handle) {
@@ -87,7 +83,7 @@ heap_profiling.mojom.TestConnectorRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec,
-      null,
+      heap_profiling.mojom.TestConnector_ConnectSnapshotController_ResponseParamsSpec,
       [controller]);
   }
 
@@ -96,7 +92,7 @@ heap_profiling.mojom.TestConnectorRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec,
-      null,
+      heap_profiling.mojom.TestConnector_ConnectProfileCollector_ResponseParamsSpec,
       [collector]);
   }
 
@@ -121,48 +117,6 @@ heap_profiling.mojom.TestConnector.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ConnectSnapshotController
-heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'heap_profiling.mojom.TestConnector.ConnectSnapshotController_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(heap_profiling.mojom.SnapshotControllerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ConnectProfileCollector
-heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'heap_profiling.mojom.TestConnector.ConnectProfileCollector_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'collector', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(metrics.mojom.CallStackProfileCollectorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Disconnect
-heap_profiling.mojom.TestConnector_Disconnect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'heap_profiling.mojom.TestConnector.Disconnect_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 heap_profiling.mojom.TestConnectorPtr = heap_profiling.mojom.TestConnectorRemote;
 heap_profiling.mojom.TestConnectorRequest = heap_profiling.mojom.TestConnectorPendingReceiver;
 

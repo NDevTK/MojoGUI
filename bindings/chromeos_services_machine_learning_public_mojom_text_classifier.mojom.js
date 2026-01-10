@@ -9,170 +9,139 @@ var chromeos = chromeos || {};
 chromeos.machine_learning = chromeos.machine_learning || {};
 chromeos.machine_learning.mojom = chromeos.machine_learning.mojom || {};
 
+chromeos.machine_learning.mojom.AnnotationUsecaseSpec = { $: mojo.internal.Enum() };
+chromeos.machine_learning.mojom.TextEntityDataSpec = { $: {} };
+chromeos.machine_learning.mojom.TextEntitySpec = { $: {} };
+chromeos.machine_learning.mojom.TextAnnotationSpec = { $: {} };
+chromeos.machine_learning.mojom.TextAnnotationRequestSpec = { $: {} };
+chromeos.machine_learning.mojom.CodepointSpanSpec = { $: {} };
+chromeos.machine_learning.mojom.TextLanguageSpec = { $: {} };
+chromeos.machine_learning.mojom.REMOVED_TextSuggestSelectionRequestSpec = { $: {} };
+chromeos.machine_learning.mojom.TextClassifier = {};
+chromeos.machine_learning.mojom.TextClassifier.$interfaceName = 'chromeos.machine_learning.mojom.TextClassifier';
+chromeos.machine_learning.mojom.TextClassifier_Annotate_ParamsSpec = { $: {} };
+chromeos.machine_learning.mojom.TextClassifier_Annotate_ResponseParamsSpec = { $: {} };
+chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ParamsSpec = { $: {} };
+chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ResponseParamsSpec = { $: {} };
+chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ParamsSpec = { $: {} };
+chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ResponseParamsSpec = { $: {} };
 
 // Enum: AnnotationUsecase
 chromeos.machine_learning.mojom.AnnotationUsecase = {
   ANNOTATION_USECASE_SMART: 0,
   ANNOTATION_USECASE_RAW: 1,
 };
-chromeos.machine_learning.mojom.AnnotationUsecaseSpec = { $: mojo.internal.Enum() };
 
 // Union: TextEntityData
-chromeos.machine_learning.mojom.TextEntityDataSpec = { $: mojo.internal.Union(
-    'chromeos.machine_learning.mojom.TextEntityData', {
+mojo.internal.Union(
+    chromeos.machine_learning.mojom.TextEntityDataSpec, 'chromeos.machine_learning.mojom.TextEntityData', {
       'numeric_value': {
         'ordinal': 0,
         'type': mojo.internal.Double,
-      }},
+        'nullable': false,
+      },
       'string_value': {
         'ordinal': 1,
         'type': mojo.internal.String,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: TextEntity
-chromeos.machine_learning.mojom.TextEntitySpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.machine_learning.mojom.TextEntity',
-      packedSize: 40,
-      fields: [
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'confidence_score', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.TextEntityDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.machine_learning.mojom.TextEntitySpec, 'chromeos.machine_learning.mojom.TextEntity', [
+      mojo.internal.StructField('name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('confidence_score', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, chromeos.machine_learning.mojom.TextEntityDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: TextAnnotation
-chromeos.machine_learning.mojom.TextAnnotationSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.machine_learning.mojom.TextAnnotation',
-      packedSize: 24,
-      fields: [
-        { name: 'start_offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'end_offset', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'entities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromeos.machine_learning.mojom.TextEntitySpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.machine_learning.mojom.TextAnnotationSpec, 'chromeos.machine_learning.mojom.TextAnnotation', [
+      mojo.internal.StructField('start_offset', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('end_offset', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('entities', 0, 0, mojo.internal.Array(chromeos.machine_learning.mojom.TextEntitySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: TextAnnotationRequest
-chromeos.machine_learning.mojom.TextAnnotationRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.machine_learning.mojom.TextAnnotationRequest',
-      packedSize: 64,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'default_locales', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'detected_text_language_tags', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'annotation_usecase', packedOffset: 48, packedBitOffset: 0, type: chromeos.machine_learning.mojom.AnnotationUsecaseSpec, nullable: false, minVersion: 0 },
-        { name: 'reference_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true, minVersion: 0 },
-        { name: 'reference_timezone', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'enabled_entities', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-        { name: 'trigger_dictionary_on_beginner_words', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 1 },
-      ],
-      versions: [{version: 0, packedSize: 64}, {version: 1, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.machine_learning.mojom.TextAnnotationRequestSpec, 'chromeos.machine_learning.mojom.TextAnnotationRequest', [
+      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('default_locales', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('detected_text_language_tags', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('annotation_usecase', 48, 0, chromeos.machine_learning.mojom.AnnotationUsecaseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reference_time', 24, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('reference_timezone', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('enabled_entities', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('trigger_dictionary_on_beginner_words', 52, 0, mojo.internal.Bool, false, false, 1, undefined),
+    ],
+    [[0, 64], [1, 64]]);
 
 // Struct: CodepointSpan
-chromeos.machine_learning.mojom.CodepointSpanSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.machine_learning.mojom.CodepointSpan',
-      packedSize: 16,
-      fields: [
-        { name: 'start_offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'end_offset', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.machine_learning.mojom.CodepointSpanSpec, 'chromeos.machine_learning.mojom.CodepointSpan', [
+      mojo.internal.StructField('start_offset', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('end_offset', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: TextLanguage
-chromeos.machine_learning.mojom.TextLanguageSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.machine_learning.mojom.TextLanguage',
-      packedSize: 24,
-      fields: [
-        { name: 'locale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'confidence', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.machine_learning.mojom.TextLanguageSpec, 'chromeos.machine_learning.mojom.TextLanguage', [
+      mojo.internal.StructField('locale', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('confidence', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: REMOVED_TextSuggestSelectionRequest
-chromeos.machine_learning.mojom.REMOVED_TextSuggestSelectionRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.machine_learning.mojom.REMOVED_TextSuggestSelectionRequest',
-      packedSize: 48,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'user_selection', packedOffset: 8, packedBitOffset: 0, type: chromeos.machine_learning.mojom.CodepointSpanSpec, nullable: false, minVersion: 0 },
-        { name: 'default_locales', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'detected_text_language_tags', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'annotation_usecase', packedOffset: 32, packedBitOffset: 0, type: chromeos.machine_learning.mojom.AnnotationUsecaseSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.machine_learning.mojom.REMOVED_TextSuggestSelectionRequestSpec, 'chromeos.machine_learning.mojom.REMOVED_TextSuggestSelectionRequest', [
+      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('user_selection', 8, 0, chromeos.machine_learning.mojom.CodepointSpanSpec, null, false, 0, undefined),
+      mojo.internal.StructField('default_locales', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('detected_text_language_tags', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('annotation_usecase', 32, 0, chromeos.machine_learning.mojom.AnnotationUsecaseSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Interface: TextClassifier
-chromeos.machine_learning.mojom.TextClassifier = {};
+mojo.internal.Struct(
+    chromeos.machine_learning.mojom.TextClassifier_Annotate_ParamsSpec, 'chromeos.machine_learning.mojom.TextClassifier_Annotate_Params', [
+      mojo.internal.StructField('request', 0, 0, chromeos.machine_learning.mojom.TextAnnotationRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.machine_learning.mojom.TextClassifier_Annotate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.machine_learning.mojom.TextClassifier_Annotate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.TextAnnotationRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.machine_learning.mojom.TextClassifier_Annotate_ResponseParamsSpec, 'chromeos.machine_learning.mojom.TextClassifier_Annotate_ResponseParams', [
+      mojo.internal.StructField('outputs', 0, 0, mojo.internal.Array(chromeos.machine_learning.mojom.TextAnnotationSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.machine_learning.mojom.TextClassifier_FindLanguages_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ParamsSpec, 'chromeos.machine_learning.mojom.TextClassifier_FindLanguages_Params', [
+      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.REMOVED_TextSuggestSelectionRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ResponseParamsSpec, 'chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ResponseParams', [
+      mojo.internal.StructField('outputs', 0, 0, mojo.internal.Array(chromeos.machine_learning.mojom.TextLanguageSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ParamsSpec, 'chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_Params', [
+      mojo.internal.StructField('request', 0, 0, chromeos.machine_learning.mojom.REMOVED_TextSuggestSelectionRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ResponseParamsSpec, 'chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ResponseParams', [
+      mojo.internal.StructField('outputs', 0, 0, chromeos.machine_learning.mojom.CodepointSpanSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromeos.machine_learning.mojom.TextClassifierPendingReceiver = class {
   constructor(handle) {
@@ -245,88 +214,6 @@ chromeos.machine_learning.mojom.TextClassifier.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Annotate
-chromeos.machine_learning.mojom.TextClassifier_Annotate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.machine_learning.mojom.TextClassifier.Annotate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.TextAnnotationRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.machine_learning.mojom.TextClassifier_Annotate_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.machine_learning.mojom.TextClassifier.Annotate_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'outputs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromeos.machine_learning.mojom.TextAnnotationSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for FindLanguages
-chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.machine_learning.mojom.TextClassifier.FindLanguages_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.machine_learning.mojom.TextClassifier.FindLanguages_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'outputs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromeos.machine_learning.mojom.TextLanguageSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for REMOVED_1
-chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.machine_learning.mojom.TextClassifier.REMOVED_1_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.REMOVED_TextSuggestSelectionRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.machine_learning.mojom.TextClassifier.REMOVED_1_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'outputs', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.CodepointSpanSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.machine_learning.mojom.TextClassifierPtr = chromeos.machine_learning.mojom.TextClassifierRemote;
 chromeos.machine_learning.mojom.TextClassifierRequest = chromeos.machine_learning.mojom.TextClassifierPendingReceiver;
 

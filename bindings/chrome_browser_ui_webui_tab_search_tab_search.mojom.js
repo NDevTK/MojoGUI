@@ -7,9 +7,87 @@
 // Module namespace
 var tab_search = tab_search || {};
 tab_search.mojom = tab_search.mojom || {};
+var components = components || {};
 var url = url || {};
 var ui = ui || {};
 
+tab_search.mojom.TabOrganizationStateSpec = { $: mojo.internal.Enum() };
+tab_search.mojom.TabOrganizationFeatureSpec = { $: mojo.internal.Enum() };
+tab_search.mojom.TabOrganizationErrorSpec = { $: mojo.internal.Enum() };
+tab_search.mojom.TabOrganizationModelStrategySpec = { $: mojo.internal.Enum() };
+tab_search.mojom.TabSearchSectionSpec = { $: mojo.internal.Enum() };
+tab_search.mojom.UserFeedbackSpec = { $: mojo.internal.Enum() };
+tab_search.mojom.ProfileDataSpec = { $: {} };
+tab_search.mojom.WindowSpec = { $: {} };
+tab_search.mojom.TabSpec = { $: {} };
+tab_search.mojom.RecentlyClosedTabSpec = { $: {} };
+tab_search.mojom.TabGroupSpec = { $: {} };
+tab_search.mojom.RecentlyClosedTabGroupSpec = { $: {} };
+tab_search.mojom.SwitchToTabInfoSpec = { $: {} };
+tab_search.mojom.TabOrganizationSpec = { $: {} };
+tab_search.mojom.TabOrganizationSessionSpec = { $: {} };
+tab_search.mojom.TabUpdateInfoSpec = { $: {} };
+tab_search.mojom.TabsRemovedInfoSpec = { $: {} };
+tab_search.mojom.UnusedTabInfoSpec = { $: {} };
+tab_search.mojom.PageHandlerFactory = {};
+tab_search.mojom.PageHandlerFactory.$interfaceName = 'tab_search.mojom.PageHandlerFactory';
+tab_search.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler = {};
+tab_search.mojom.PageHandler.$interfaceName = 'tab_search.mojom.PageHandler';
+tab_search.mojom.PageHandler_CloseTab_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_CloseWebUiTab_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_DeclutterTabs_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_AcceptTabOrganization_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_RejectTabOrganization_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_RenameTabOrganization_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_ExcludeFromStaleTabs_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_ExcludeFromDuplicateTabs_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_GetProfileData_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_GetProfileData_ResponseParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_GetUnusedTabs_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_GetUnusedTabs_ResponseParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_GetTabSearchSection_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_GetTabSearchSection_ResponseParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_GetTabOrganizationFeature_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_GetTabOrganizationFeature_ResponseParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_GetTabOrganizationSession_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_GetTabOrganizationSession_ResponseParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_GetTabOrganizationModelStrategy_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_GetTabOrganizationModelStrategy_ResponseParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_GetIsSplit_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_GetIsSplit_ResponseParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_SwitchToTab_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_OpenRecentlyClosedEntry_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_RequestTabOrganization_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_RemoveTabFromOrganization_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_RejectSession_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_ReplaceActiveSplitTab_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_RestartSession_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_SaveRecentlyClosedExpandedPref_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_SetOrganizationFeature_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_StartTabGroupTutorial_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_TriggerFeedback_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_TriggerSignIn_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_OpenHelpPage_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_SetTabOrganizationModelStrategy_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_SetTabOrganizationUserInstruction_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_SetUserFeedback_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_NotifyOrganizationUIReadyToShow_ParamsSpec = { $: {} };
+tab_search.mojom.PageHandler_NotifySearchUIReadyToShow_ParamsSpec = { $: {} };
+tab_search.mojom.Page = {};
+tab_search.mojom.Page.$interfaceName = 'tab_search.mojom.Page';
+tab_search.mojom.Page_TabOrganizationSessionUpdated_ParamsSpec = { $: {} };
+tab_search.mojom.Page_TabOrganizationModelStrategyUpdated_ParamsSpec = { $: {} };
+tab_search.mojom.Page_HostWindowChanged_ParamsSpec = { $: {} };
+tab_search.mojom.Page_TabsChanged_ParamsSpec = { $: {} };
+tab_search.mojom.Page_TabUpdated_ParamsSpec = { $: {} };
+tab_search.mojom.Page_TabsRemoved_ParamsSpec = { $: {} };
+tab_search.mojom.Page_TabSearchSectionChanged_ParamsSpec = { $: {} };
+tab_search.mojom.Page_TabOrganizationFeatureChanged_ParamsSpec = { $: {} };
+tab_search.mojom.Page_ShowFREChanged_ParamsSpec = { $: {} };
+tab_search.mojom.Page_TabOrganizationEnabledChanged_ParamsSpec = { $: {} };
+tab_search.mojom.Page_UnusedTabsChanged_ParamsSpec = { $: {} };
+tab_search.mojom.Page_TabUnsplit_ParamsSpec = { $: {} };
 
 // Enum: TabOrganizationState
 tab_search.mojom.TabOrganizationState = {
@@ -19,15 +97,14 @@ tab_search.mojom.TabOrganizationState = {
   kSuccess: 3,
   kFailure: 4,
 };
-tab_search.mojom.TabOrganizationStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: TabOrganizationFeature
 tab_search.mojom.TabOrganizationFeature = {
-  kSelector: 0,
-  kAutoTabGroups: 1,
-  kDeclutter: 2,
+  kNone: 0,
+  kSelector: 1,
+  kAutoTabGroups: 2,
+  kDeclutter: 3,
 };
-tab_search.mojom.TabOrganizationFeatureSpec = { $: mojo.internal.Enum() };
 
 // Enum: TabOrganizationError
 tab_search.mojom.TabOrganizationError = {
@@ -35,7 +112,6 @@ tab_search.mojom.TabOrganizationError = {
   kGrouping: 1,
   kGeneric: 2,
 };
-tab_search.mojom.TabOrganizationErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: TabOrganizationModelStrategy
 tab_search.mojom.TabOrganizationModelStrategy = {
@@ -43,14 +119,13 @@ tab_search.mojom.TabOrganizationModelStrategy = {
   kTask: 1,
   kDomain: 2,
 };
-tab_search.mojom.TabOrganizationModelStrategySpec = { $: mojo.internal.Enum() };
 
 // Enum: TabSearchSection
 tab_search.mojom.TabSearchSection = {
-  kSearch: 0,
-  kOrganize: 1,
+  kNone: 0,
+  kSearch: 1,
+  kOrganize: 2,
 };
-tab_search.mojom.TabSearchSectionSpec = { $: mojo.internal.Enum() };
 
 // Enum: UserFeedback
 tab_search.mojom.UserFeedback = {
@@ -58,237 +133,143 @@ tab_search.mojom.UserFeedback = {
   kUserFeedBackPositive: 1,
   kUserFeedBackNegative: 2,
 };
-tab_search.mojom.UserFeedbackSpec = { $: mojo.internal.Enum() };
 
 // Struct: ProfileData
-tab_search.mojom.ProfileDataSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.ProfileData',
-      packedSize: 48,
-      fields: [
-        { name: 'windows', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(tab_search.mojom.WindowSpec, false), nullable: false, minVersion: 0 },
-        { name: 'tab_groups', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(tab_search.mojom.TabGroupSpec, false), nullable: false, minVersion: 0 },
-        { name: 'recently_closed_tabs', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(tab_search.mojom.RecentlyClosedTabSpec, false), nullable: false, minVersion: 0 },
-        { name: 'recently_closed_tab_groups', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(tab_search.mojom.RecentlyClosedTabGroupSpec, false), nullable: false, minVersion: 0 },
-        { name: 'recently_closed_section_expanded', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.ProfileDataSpec, 'tab_search.mojom.ProfileData', [
+      mojo.internal.StructField('windows', 0, 0, mojo.internal.Array(tab_search.mojom.WindowSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('tab_groups', 8, 0, mojo.internal.Array(tab_search.mojom.TabGroupSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('recently_closed_tabs', 16, 0, mojo.internal.Array(tab_search.mojom.RecentlyClosedTabSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('recently_closed_tab_groups', 24, 0, mojo.internal.Array(tab_search.mojom.RecentlyClosedTabGroupSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('recently_closed_section_expanded', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: Window
-tab_search.mojom.WindowSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.Window',
-      packedSize: 24,
-      fields: [
-        { name: 'active', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_host_window', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'height', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(tab_search.mojom.TabSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.WindowSpec, 'tab_search.mojom.Window', [
+      mojo.internal.StructField('active', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_host_window', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('height', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('tabs', 0, 0, mojo.internal.Array(tab_search.mojom.TabSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: Tab
-tab_search.mojom.TabSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.Tab',
-      packedSize: 80,
-      fields: [
-        { name: 'active', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'visible', packedOffset: 64, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'alert_states', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(tabs.mojom.TabAlertStateSpec, false), nullable: false, minVersion: 0 },
-        { name: 'index', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'tab_id', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'group_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: true, minVersion: 0 },
-        { name: 'pinned', packedOffset: 64, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'split', packedOffset: 64, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'favicon_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-        { name: 'is_default_favicon', packedOffset: 64, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'show_icon', packedOffset: 64, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'last_active_time_ticks', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'last_active_elapsed_text', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 80}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.TabSpec, 'tab_search.mojom.Tab', [
+      mojo.internal.StructField('active', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('visible', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('alert_states', 0, 0, mojo.internal.Array(tabs.mojom.TabAlertStateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('index', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('tab_id', 60, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('group_id', 8, 0, mojo_base.mojom.TokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('pinned', 64, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('split', 64, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('title', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('favicon_url', 32, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('is_default_favicon', 64, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('show_icon', 64, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('last_active_time_ticks', 40, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('last_active_elapsed_text', 48, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 80]]);
 
 // Struct: RecentlyClosedTab
-tab_search.mojom.RecentlyClosedTabSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.RecentlyClosedTab',
-      packedSize: 56,
-      fields: [
-        { name: 'tab_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: true, minVersion: 0 },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'last_active_time', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'last_active_elapsed_text', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.RecentlyClosedTabSpec, 'tab_search.mojom.RecentlyClosedTab', [
+      mojo.internal.StructField('tab_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('group_id', 0, 0, mojo_base.mojom.TokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('last_active_time', 24, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('last_active_elapsed_text', 32, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: TabGroup
-tab_search.mojom.TabGroupSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.TabGroup',
-      packedSize: 32,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false, minVersion: 0 },
-        { name: 'color', packedOffset: 16, packedBitOffset: 0, type: tab_groups.mojom.ColorSpec, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.TabGroupSpec, 'tab_search.mojom.TabGroup', [
+      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.TokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('color', 16, 0, tab_groups.mojom.ColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: RecentlyClosedTabGroup
-tab_search.mojom.RecentlyClosedTabGroupSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.RecentlyClosedTabGroup',
-      packedSize: 56,
-      fields: [
-        { name: 'session_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false, minVersion: 0 },
-        { name: 'color', packedOffset: 36, packedBitOffset: 0, type: tab_groups.mojom.ColorSpec, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'tab_count', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'last_active_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'last_active_elapsed_text', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.RecentlyClosedTabGroupSpec, 'tab_search.mojom.RecentlyClosedTabGroup', [
+      mojo.internal.StructField('session_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.TokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('color', 36, 0, tab_groups.mojom.ColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('tab_count', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('last_active_time', 16, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('last_active_elapsed_text', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: SwitchToTabInfo
-tab_search.mojom.SwitchToTabInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.SwitchToTabInfo',
-      packedSize: 16,
-      fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.SwitchToTabInfoSpec, 'tab_search.mojom.SwitchToTabInfo', [
+      mojo.internal.StructField('tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: TabOrganization
-tab_search.mojom.TabOrganizationSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.TabOrganization',
-      packedSize: 32,
-      fields: [
-        { name: 'organization_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(tab_search.mojom.TabSpec, false), nullable: false, minVersion: 0 },
-        { name: 'first_new_tab_index', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.TabOrganizationSpec, 'tab_search.mojom.TabOrganization', [
+      mojo.internal.StructField('organization_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('tabs', 0, 0, mojo.internal.Array(tab_search.mojom.TabSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('first_new_tab_index', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('name', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: TabOrganizationSession
-tab_search.mojom.TabOrganizationSessionSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.TabOrganizationSession',
-      packedSize: 32,
-      fields: [
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'state', packedOffset: 12, packedBitOffset: 0, type: tab_search.mojom.TabOrganizationStateSpec, nullable: false, minVersion: 0 },
-        { name: 'organizations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(tab_search.mojom.TabOrganizationSpec, false), nullable: false, minVersion: 0 },
-        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: tab_search.mojom.TabOrganizationErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'active_tab_id', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.TabOrganizationSessionSpec, 'tab_search.mojom.TabOrganizationSession', [
+      mojo.internal.StructField('session_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('state', 12, 0, tab_search.mojom.TabOrganizationStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('organizations', 0, 0, mojo.internal.Array(tab_search.mojom.TabOrganizationSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('error', 16, 0, tab_search.mojom.TabOrganizationErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('active_tab_id', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: TabUpdateInfo
-tab_search.mojom.TabUpdateInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.TabUpdateInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'in_active_window', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'in_host_window', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'tab', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.TabSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.TabUpdateInfoSpec, 'tab_search.mojom.TabUpdateInfo', [
+      mojo.internal.StructField('in_active_window', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('in_host_window', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('tab', 0, 0, tab_search.mojom.TabSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: TabsRemovedInfo
-tab_search.mojom.TabsRemovedInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.TabsRemovedInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'tab_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
-        { name: 'recently_closed_tabs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(tab_search.mojom.RecentlyClosedTabSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.TabsRemovedInfoSpec, 'tab_search.mojom.TabsRemovedInfo', [
+      mojo.internal.StructField('tab_ids', 0, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
+      mojo.internal.StructField('recently_closed_tabs', 8, 0, mojo.internal.Array(tab_search.mojom.RecentlyClosedTabSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: UnusedTabInfo
-tab_search.mojom.UnusedTabInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.UnusedTabInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'stale_tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(tab_search.mojom.TabSpec, false), nullable: false, minVersion: 0 },
-        { name: 'duplicate_tabs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.Array(tab_search.mojom.TabSpec, false), false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.UnusedTabInfoSpec, 'tab_search.mojom.UnusedTabInfo', [
+      mojo.internal.StructField('stale_tabs', 0, 0, mojo.internal.Array(tab_search.mojom.TabSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('duplicate_tabs', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Array(tab_search.mojom.TabSpec, false), false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: PageHandlerFactory
-tab_search.mojom.PageHandlerFactory = {};
-
-tab_search.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(tab_search.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(tab_search.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'tab_search.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(tab_search.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(tab_search.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 tab_search.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -343,451 +324,244 @@ tab_search.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-tab_search.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(tab_search.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(tab_search.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 tab_search.mojom.PageHandlerFactoryPtr = tab_search.mojom.PageHandlerFactoryRemote;
 tab_search.mojom.PageHandlerFactoryRequest = tab_search.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-tab_search.mojom.PageHandler = {};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_CloseTab_ParamsSpec, 'tab_search.mojom.PageHandler_CloseTab_Params', [
+      mojo.internal.StructField('tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tab_search.mojom.PageHandler_CloseTab_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_CloseTab_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_CloseWebUiTab_ParamsSpec, 'tab_search.mojom.PageHandler_CloseWebUiTab_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-tab_search.mojom.PageHandler_CloseWebUiTab_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_CloseWebUiTab_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_DeclutterTabs_ParamsSpec, 'tab_search.mojom.PageHandler_DeclutterTabs_Params', [
+      mojo.internal.StructField('tab_ids', 0, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
+      mojo.internal.StructField('urls', 8, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-tab_search.mojom.PageHandler_DeclutterTabs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_DeclutterTabs_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'tab_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
-        { name: 'urls', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_AcceptTabOrganization_ParamsSpec, 'tab_search.mojom.PageHandler_AcceptTabOrganization_Params', [
+      mojo.internal.StructField('session_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('organization_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('tabs', 0, 0, mojo.internal.Array(tab_search.mojom.TabSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-tab_search.mojom.PageHandler_AcceptTabOrganization_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_AcceptTabOrganization_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'organization_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(tab_search.mojom.TabSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_RejectTabOrganization_ParamsSpec, 'tab_search.mojom.PageHandler_RejectTabOrganization_Params', [
+      mojo.internal.StructField('session_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('organization_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tab_search.mojom.PageHandler_RejectTabOrganization_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_RejectTabOrganization_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'organization_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_RenameTabOrganization_ParamsSpec, 'tab_search.mojom.PageHandler_RenameTabOrganization_Params', [
+      mojo.internal.StructField('session_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('organization_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('name', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-tab_search.mojom.PageHandler_RenameTabOrganization_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_RenameTabOrganization_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'organization_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_ExcludeFromStaleTabs_ParamsSpec, 'tab_search.mojom.PageHandler_ExcludeFromStaleTabs_Params', [
+      mojo.internal.StructField('tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tab_search.mojom.PageHandler_ExcludeFromStaleTabs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_ExcludeFromStaleTabs_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_ExcludeFromDuplicateTabs_ParamsSpec, 'tab_search.mojom.PageHandler_ExcludeFromDuplicateTabs_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tab_search.mojom.PageHandler_ExcludeFromDuplicateTabs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_ExcludeFromDuplicateTabs_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_GetProfileData_ParamsSpec, 'tab_search.mojom.PageHandler_GetProfileData_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-tab_search.mojom.PageHandler_GetProfileData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_GetProfileData_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_GetProfileData_ResponseParamsSpec, 'tab_search.mojom.PageHandler_GetProfileData_ResponseParams', [
+      mojo.internal.StructField('profile_data', 0, 0, tab_search.mojom.ProfileDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tab_search.mojom.PageHandler_GetUnusedTabs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_GetUnusedTabs_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_GetUnusedTabs_ParamsSpec, 'tab_search.mojom.PageHandler_GetUnusedTabs_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-tab_search.mojom.PageHandler_GetTabSearchSection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_GetTabSearchSection_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_GetUnusedTabs_ResponseParamsSpec, 'tab_search.mojom.PageHandler_GetUnusedTabs_ResponseParams', [
+      mojo.internal.StructField('tabs', 0, 0, tab_search.mojom.UnusedTabInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tab_search.mojom.PageHandler_GetTabOrganizationFeature_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_GetTabOrganizationFeature_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_GetTabSearchSection_ParamsSpec, 'tab_search.mojom.PageHandler_GetTabSearchSection_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-tab_search.mojom.PageHandler_GetTabOrganizationSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_GetTabOrganizationSession_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_GetTabSearchSection_ResponseParamsSpec, 'tab_search.mojom.PageHandler_GetTabSearchSection_ResponseParams', [
+      mojo.internal.StructField('section', 0, 0, tab_search.mojom.TabSearchSectionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tab_search.mojom.PageHandler_GetTabOrganizationModelStrategy_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_GetTabOrganizationModelStrategy_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_GetTabOrganizationFeature_ParamsSpec, 'tab_search.mojom.PageHandler_GetTabOrganizationFeature_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-tab_search.mojom.PageHandler_GetIsSplit_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_GetIsSplit_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_GetTabOrganizationFeature_ResponseParamsSpec, 'tab_search.mojom.PageHandler_GetTabOrganizationFeature_ResponseParams', [
+      mojo.internal.StructField('feature', 0, 0, tab_search.mojom.TabOrganizationFeatureSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tab_search.mojom.PageHandler_SwitchToTab_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_SwitchToTab_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'switch_to_tab_info', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.SwitchToTabInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_GetTabOrganizationSession_ParamsSpec, 'tab_search.mojom.PageHandler_GetTabOrganizationSession_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-tab_search.mojom.PageHandler_OpenRecentlyClosedEntry_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_OpenRecentlyClosedEntry_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_GetTabOrganizationSession_ResponseParamsSpec, 'tab_search.mojom.PageHandler_GetTabOrganizationSession_ResponseParams', [
+      mojo.internal.StructField('session', 0, 0, tab_search.mojom.TabOrganizationSessionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tab_search.mojom.PageHandler_RequestTabOrganization_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_RequestTabOrganization_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_GetTabOrganizationModelStrategy_ParamsSpec, 'tab_search.mojom.PageHandler_GetTabOrganizationModelStrategy_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-tab_search.mojom.PageHandler_RemoveTabFromOrganization_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_RemoveTabFromOrganization_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'organization_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'tab', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.TabSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_GetTabOrganizationModelStrategy_ResponseParamsSpec, 'tab_search.mojom.PageHandler_GetTabOrganizationModelStrategy_ResponseParams', [
+      mojo.internal.StructField('strategy', 0, 0, tab_search.mojom.TabOrganizationModelStrategySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tab_search.mojom.PageHandler_RejectSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_RejectSession_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_GetIsSplit_ParamsSpec, 'tab_search.mojom.PageHandler_GetIsSplit_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-tab_search.mojom.PageHandler_ReplaceActiveSplitTab_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_ReplaceActiveSplitTab_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'replacement_tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_GetIsSplit_ResponseParamsSpec, 'tab_search.mojom.PageHandler_GetIsSplit_ResponseParams', [
+      mojo.internal.StructField('is_split', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tab_search.mojom.PageHandler_RestartSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_RestartSession_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_SwitchToTab_ParamsSpec, 'tab_search.mojom.PageHandler_SwitchToTab_Params', [
+      mojo.internal.StructField('switch_to_tab_info', 0, 0, tab_search.mojom.SwitchToTabInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tab_search.mojom.PageHandler_SaveRecentlyClosedExpandedPref_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_SaveRecentlyClosedExpandedPref_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'expanded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_OpenRecentlyClosedEntry_ParamsSpec, 'tab_search.mojom.PageHandler_OpenRecentlyClosedEntry_Params', [
+      mojo.internal.StructField('session_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tab_search.mojom.PageHandler_SetOrganizationFeature_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_SetOrganizationFeature_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.TabOrganizationFeatureSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_RequestTabOrganization_ParamsSpec, 'tab_search.mojom.PageHandler_RequestTabOrganization_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-tab_search.mojom.PageHandler_StartTabGroupTutorial_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_StartTabGroupTutorial_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_RemoveTabFromOrganization_ParamsSpec, 'tab_search.mojom.PageHandler_RemoveTabFromOrganization_Params', [
+      mojo.internal.StructField('session_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('organization_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('tab', 0, 0, tab_search.mojom.TabSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-tab_search.mojom.PageHandler_TriggerFeedback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_TriggerFeedback_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_RejectSession_ParamsSpec, 'tab_search.mojom.PageHandler_RejectSession_Params', [
+      mojo.internal.StructField('session_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tab_search.mojom.PageHandler_TriggerSignIn_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_TriggerSignIn_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_ReplaceActiveSplitTab_ParamsSpec, 'tab_search.mojom.PageHandler_ReplaceActiveSplitTab_Params', [
+      mojo.internal.StructField('replacement_tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tab_search.mojom.PageHandler_OpenHelpPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_OpenHelpPage_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_RestartSession_ParamsSpec, 'tab_search.mojom.PageHandler_RestartSession_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-tab_search.mojom.PageHandler_SetTabOrganizationModelStrategy_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_SetTabOrganizationModelStrategy_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'strategy', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.TabOrganizationModelStrategySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_SaveRecentlyClosedExpandedPref_ParamsSpec, 'tab_search.mojom.PageHandler_SaveRecentlyClosedExpandedPref_Params', [
+      mojo.internal.StructField('expanded', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tab_search.mojom.PageHandler_SetTabOrganizationUserInstruction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_SetTabOrganizationUserInstruction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'user_instruction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_SetOrganizationFeature_ParamsSpec, 'tab_search.mojom.PageHandler_SetOrganizationFeature_Params', [
+      mojo.internal.StructField('feature', 0, 0, tab_search.mojom.TabOrganizationFeatureSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tab_search.mojom.PageHandler_SetUserFeedback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_SetUserFeedback_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'feedback', packedOffset: 4, packedBitOffset: 0, type: tab_search.mojom.UserFeedbackSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_StartTabGroupTutorial_ParamsSpec, 'tab_search.mojom.PageHandler_StartTabGroupTutorial_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-tab_search.mojom.PageHandler_NotifyOrganizationUIReadyToShow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_NotifyOrganizationUIReadyToShow_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_TriggerFeedback_ParamsSpec, 'tab_search.mojom.PageHandler_TriggerFeedback_Params', [
+      mojo.internal.StructField('session_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tab_search.mojom.PageHandler_NotifySearchUIReadyToShow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler_NotifySearchUIReadyToShow_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_TriggerSignIn_ParamsSpec, 'tab_search.mojom.PageHandler_TriggerSignIn_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_OpenHelpPage_ParamsSpec, 'tab_search.mojom.PageHandler_OpenHelpPage_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_SetTabOrganizationModelStrategy_ParamsSpec, 'tab_search.mojom.PageHandler_SetTabOrganizationModelStrategy_Params', [
+      mojo.internal.StructField('strategy', 0, 0, tab_search.mojom.TabOrganizationModelStrategySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_SetTabOrganizationUserInstruction_ParamsSpec, 'tab_search.mojom.PageHandler_SetTabOrganizationUserInstruction_Params', [
+      mojo.internal.StructField('user_instruction', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_SetUserFeedback_ParamsSpec, 'tab_search.mojom.PageHandler_SetUserFeedback_Params', [
+      mojo.internal.StructField('session_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('feedback', 4, 0, tab_search.mojom.UserFeedbackSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_NotifyOrganizationUIReadyToShow_ParamsSpec, 'tab_search.mojom.PageHandler_NotifyOrganizationUIReadyToShow_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    tab_search.mojom.PageHandler_NotifySearchUIReadyToShow_ParamsSpec, 'tab_search.mojom.PageHandler_NotifySearchUIReadyToShow_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 tab_search.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -1130,714 +904,80 @@ tab_search.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CloseTab
-tab_search.mojom.PageHandler_CloseTab_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.CloseTab_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CloseWebUiTab
-tab_search.mojom.PageHandler_CloseWebUiTab_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.CloseWebUiTab_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for DeclutterTabs
-tab_search.mojom.PageHandler_DeclutterTabs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.DeclutterTabs_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'tab_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
-        { name: 'urls', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for AcceptTabOrganization
-tab_search.mojom.PageHandler_AcceptTabOrganization_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.AcceptTabOrganization_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'organization_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(tab_search.mojom.TabSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for RejectTabOrganization
-tab_search.mojom.PageHandler_RejectTabOrganization_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.RejectTabOrganization_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'organization_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RenameTabOrganization
-tab_search.mojom.PageHandler_RenameTabOrganization_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.RenameTabOrganization_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'organization_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ExcludeFromStaleTabs
-tab_search.mojom.PageHandler_ExcludeFromStaleTabs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.ExcludeFromStaleTabs_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ExcludeFromDuplicateTabs
-tab_search.mojom.PageHandler_ExcludeFromDuplicateTabs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.ExcludeFromDuplicateTabs_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetProfileData
-tab_search.mojom.PageHandler_GetProfileData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.GetProfileData_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-tab_search.mojom.PageHandler_GetProfileData_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.GetProfileData_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'profile_data', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.ProfileDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetUnusedTabs
-tab_search.mojom.PageHandler_GetUnusedTabs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.GetUnusedTabs_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-tab_search.mojom.PageHandler_GetUnusedTabs_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.GetUnusedTabs_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'tabs', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.UnusedTabInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetTabSearchSection
-tab_search.mojom.PageHandler_GetTabSearchSection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.GetTabSearchSection_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-tab_search.mojom.PageHandler_GetTabSearchSection_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.GetTabSearchSection_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'section', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.TabSearchSectionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetTabOrganizationFeature
-tab_search.mojom.PageHandler_GetTabOrganizationFeature_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.GetTabOrganizationFeature_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-tab_search.mojom.PageHandler_GetTabOrganizationFeature_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.GetTabOrganizationFeature_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.TabOrganizationFeatureSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetTabOrganizationSession
-tab_search.mojom.PageHandler_GetTabOrganizationSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.GetTabOrganizationSession_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-tab_search.mojom.PageHandler_GetTabOrganizationSession_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.GetTabOrganizationSession_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.TabOrganizationSessionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetTabOrganizationModelStrategy
-tab_search.mojom.PageHandler_GetTabOrganizationModelStrategy_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.GetTabOrganizationModelStrategy_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-tab_search.mojom.PageHandler_GetTabOrganizationModelStrategy_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.GetTabOrganizationModelStrategy_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'strategy', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.TabOrganizationModelStrategySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetIsSplit
-tab_search.mojom.PageHandler_GetIsSplit_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.GetIsSplit_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-tab_search.mojom.PageHandler_GetIsSplit_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.GetIsSplit_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'is_split', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SwitchToTab
-tab_search.mojom.PageHandler_SwitchToTab_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.SwitchToTab_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'switch_to_tab_info', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.SwitchToTabInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OpenRecentlyClosedEntry
-tab_search.mojom.PageHandler_OpenRecentlyClosedEntry_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.OpenRecentlyClosedEntry_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestTabOrganization
-tab_search.mojom.PageHandler_RequestTabOrganization_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.RequestTabOrganization_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RemoveTabFromOrganization
-tab_search.mojom.PageHandler_RemoveTabFromOrganization_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.RemoveTabFromOrganization_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'organization_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'tab', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.TabSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for RejectSession
-tab_search.mojom.PageHandler_RejectSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.RejectSession_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReplaceActiveSplitTab
-tab_search.mojom.PageHandler_ReplaceActiveSplitTab_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.ReplaceActiveSplitTab_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'replacement_tab_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RestartSession
-tab_search.mojom.PageHandler_RestartSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.RestartSession_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SaveRecentlyClosedExpandedPref
-tab_search.mojom.PageHandler_SaveRecentlyClosedExpandedPref_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.SaveRecentlyClosedExpandedPref_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'expanded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetOrganizationFeature
-tab_search.mojom.PageHandler_SetOrganizationFeature_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.SetOrganizationFeature_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.TabOrganizationFeatureSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StartTabGroupTutorial
-tab_search.mojom.PageHandler_StartTabGroupTutorial_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.StartTabGroupTutorial_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for TriggerFeedback
-tab_search.mojom.PageHandler_TriggerFeedback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.TriggerFeedback_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for TriggerSignIn
-tab_search.mojom.PageHandler_TriggerSignIn_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.TriggerSignIn_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OpenHelpPage
-tab_search.mojom.PageHandler_OpenHelpPage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.OpenHelpPage_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetTabOrganizationModelStrategy
-tab_search.mojom.PageHandler_SetTabOrganizationModelStrategy_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.SetTabOrganizationModelStrategy_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'strategy', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.TabOrganizationModelStrategySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetTabOrganizationUserInstruction
-tab_search.mojom.PageHandler_SetTabOrganizationUserInstruction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.SetTabOrganizationUserInstruction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'user_instruction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetUserFeedback
-tab_search.mojom.PageHandler_SetUserFeedback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.SetUserFeedback_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'feedback', packedOffset: 4, packedBitOffset: 0, type: tab_search.mojom.UserFeedbackSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for NotifyOrganizationUIReadyToShow
-tab_search.mojom.PageHandler_NotifyOrganizationUIReadyToShow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.NotifyOrganizationUIReadyToShow_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for NotifySearchUIReadyToShow
-tab_search.mojom.PageHandler_NotifySearchUIReadyToShow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.PageHandler.NotifySearchUIReadyToShow_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 tab_search.mojom.PageHandlerPtr = tab_search.mojom.PageHandlerRemote;
 tab_search.mojom.PageHandlerRequest = tab_search.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-tab_search.mojom.Page = {};
+mojo.internal.Struct(
+    tab_search.mojom.Page_TabOrganizationSessionUpdated_ParamsSpec, 'tab_search.mojom.Page_TabOrganizationSessionUpdated_Params', [
+      mojo.internal.StructField('session', 0, 0, tab_search.mojom.TabOrganizationSessionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tab_search.mojom.Page_TabOrganizationSessionUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.Page_TabOrganizationSessionUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.TabOrganizationSessionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.Page_TabOrganizationModelStrategyUpdated_ParamsSpec, 'tab_search.mojom.Page_TabOrganizationModelStrategyUpdated_Params', [
+      mojo.internal.StructField('strategy', 0, 0, tab_search.mojom.TabOrganizationModelStrategySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tab_search.mojom.Page_TabOrganizationModelStrategyUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.Page_TabOrganizationModelStrategyUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'strategy', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.TabOrganizationModelStrategySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.Page_HostWindowChanged_ParamsSpec, 'tab_search.mojom.Page_HostWindowChanged_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-tab_search.mojom.Page_HostWindowChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.Page_HostWindowChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.Page_TabsChanged_ParamsSpec, 'tab_search.mojom.Page_TabsChanged_Params', [
+      mojo.internal.StructField('profile_tabs', 0, 0, tab_search.mojom.ProfileDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tab_search.mojom.Page_TabsChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.Page_TabsChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'profile_tabs', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.ProfileDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.Page_TabUpdated_ParamsSpec, 'tab_search.mojom.Page_TabUpdated_Params', [
+      mojo.internal.StructField('tabUpdateInfo', 0, 0, tab_search.mojom.TabUpdateInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tab_search.mojom.Page_TabUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.Page_TabUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tabUpdateInfo', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.TabUpdateInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.Page_TabsRemoved_ParamsSpec, 'tab_search.mojom.Page_TabsRemoved_Params', [
+      mojo.internal.StructField('tabsRemovedInfo', 0, 0, tab_search.mojom.TabsRemovedInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tab_search.mojom.Page_TabsRemoved_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.Page_TabsRemoved_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tabsRemovedInfo', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.TabsRemovedInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.Page_TabSearchSectionChanged_ParamsSpec, 'tab_search.mojom.Page_TabSearchSectionChanged_Params', [
+      mojo.internal.StructField('section', 0, 0, tab_search.mojom.TabSearchSectionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tab_search.mojom.Page_TabSearchSectionChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.Page_TabSearchSectionChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'section', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.TabSearchSectionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.Page_TabOrganizationFeatureChanged_ParamsSpec, 'tab_search.mojom.Page_TabOrganizationFeatureChanged_Params', [
+      mojo.internal.StructField('feature', 0, 0, tab_search.mojom.TabOrganizationFeatureSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tab_search.mojom.Page_TabOrganizationFeatureChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.Page_TabOrganizationFeatureChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.TabOrganizationFeatureSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.Page_ShowFREChanged_ParamsSpec, 'tab_search.mojom.Page_ShowFREChanged_Params', [
+      mojo.internal.StructField('show', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tab_search.mojom.Page_ShowFREChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.Page_ShowFREChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.Page_TabOrganizationEnabledChanged_ParamsSpec, 'tab_search.mojom.Page_TabOrganizationEnabledChanged_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tab_search.mojom.Page_TabOrganizationEnabledChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.Page_TabOrganizationEnabledChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.Page_UnusedTabsChanged_ParamsSpec, 'tab_search.mojom.Page_UnusedTabsChanged_Params', [
+      mojo.internal.StructField('tabs', 0, 0, tab_search.mojom.UnusedTabInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tab_search.mojom.Page_UnusedTabsChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.Page_UnusedTabsChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tabs', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.UnusedTabInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-tab_search.mojom.Page_TabUnsplit_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.Page_TabUnsplit_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tab_search.mojom.Page_TabUnsplit_ParamsSpec, 'tab_search.mojom.Page_TabUnsplit_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 tab_search.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -1991,173 +1131,6 @@ tab_search.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for TabOrganizationSessionUpdated
-tab_search.mojom.Page_TabOrganizationSessionUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.Page.TabOrganizationSessionUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.TabOrganizationSessionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for TabOrganizationModelStrategyUpdated
-tab_search.mojom.Page_TabOrganizationModelStrategyUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.Page.TabOrganizationModelStrategyUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'strategy', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.TabOrganizationModelStrategySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for HostWindowChanged
-tab_search.mojom.Page_HostWindowChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.Page.HostWindowChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for TabsChanged
-tab_search.mojom.Page_TabsChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.Page.TabsChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'profile_tabs', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.ProfileDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for TabUpdated
-tab_search.mojom.Page_TabUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.Page.TabUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tabUpdateInfo', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.TabUpdateInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for TabsRemoved
-tab_search.mojom.Page_TabsRemoved_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.Page.TabsRemoved_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tabsRemovedInfo', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.TabsRemovedInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for TabSearchSectionChanged
-tab_search.mojom.Page_TabSearchSectionChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.Page.TabSearchSectionChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'section', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.TabSearchSectionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for TabOrganizationFeatureChanged
-tab_search.mojom.Page_TabOrganizationFeatureChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.Page.TabOrganizationFeatureChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.TabOrganizationFeatureSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ShowFREChanged
-tab_search.mojom.Page_ShowFREChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.Page.ShowFREChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for TabOrganizationEnabledChanged
-tab_search.mojom.Page_TabOrganizationEnabledChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.Page.TabOrganizationEnabledChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UnusedTabsChanged
-tab_search.mojom.Page_UnusedTabsChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.Page.UnusedTabsChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tabs', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.UnusedTabInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for TabUnsplit
-tab_search.mojom.Page_TabUnsplit_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tab_search.mojom.Page.TabUnsplit_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 tab_search.mojom.PagePtr = tab_search.mojom.PageRemote;
 tab_search.mojom.PageRequest = tab_search.mojom.PagePendingReceiver;
 

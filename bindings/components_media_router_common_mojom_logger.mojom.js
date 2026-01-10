@@ -8,6 +8,13 @@
 var media_router = media_router || {};
 media_router.mojom = media_router.mojom || {};
 
+media_router.mojom.LogCategorySpec = { $: mojo.internal.Enum() };
+media_router.mojom.Logger = {};
+media_router.mojom.Logger.$interfaceName = 'media_router.mojom.Logger';
+media_router.mojom.Logger_LogInfo_ParamsSpec = { $: {} };
+media_router.mojom.Logger_LogWarning_ParamsSpec = { $: {} };
+media_router.mojom.Logger_LogError_ParamsSpec = { $: {} };
+media_router.mojom.Logger_BindReceiver_ParamsSpec = { $: {} };
 
 // Enum: LogCategory
 media_router.mojom.LogCategory = {
@@ -16,77 +23,46 @@ media_router.mojom.LogCategory = {
   kMirroring: 2,
   kUi: 3,
 };
-media_router.mojom.LogCategorySpec = { $: mojo.internal.Enum() };
 
 // Interface: Logger
-media_router.mojom.Logger = {};
+mojo.internal.Struct(
+    media_router.mojom.Logger_LogInfo_ParamsSpec, 'media_router.mojom.Logger_LogInfo_Params', [
+      mojo.internal.StructField('category', 40, 0, media_router.mojom.LogCategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('component', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('sink_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('media_source', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('session_id', 32, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
-media_router.mojom.Logger_LogInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.Logger_LogInfo_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'category', packedOffset: 40, packedBitOffset: 0, type: media_router.mojom.LogCategorySpec, nullable: false, minVersion: 0 },
-        { name: 'component', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'sink_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'media_source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'session_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.Logger_LogWarning_ParamsSpec, 'media_router.mojom.Logger_LogWarning_Params', [
+      mojo.internal.StructField('category', 40, 0, media_router.mojom.LogCategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('component', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('sink_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('media_source', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('session_id', 32, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
-media_router.mojom.Logger_LogWarning_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.Logger_LogWarning_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'category', packedOffset: 40, packedBitOffset: 0, type: media_router.mojom.LogCategorySpec, nullable: false, minVersion: 0 },
-        { name: 'component', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'sink_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'media_source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'session_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.Logger_LogError_ParamsSpec, 'media_router.mojom.Logger_LogError_Params', [
+      mojo.internal.StructField('category', 40, 0, media_router.mojom.LogCategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('component', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('sink_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('media_source', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('session_id', 32, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
-media_router.mojom.Logger_LogError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.Logger_LogError_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'category', packedOffset: 40, packedBitOffset: 0, type: media_router.mojom.LogCategorySpec, nullable: false, minVersion: 0 },
-        { name: 'component', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'sink_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'media_source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'session_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
-
-media_router.mojom.Logger_BindReceiver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.Logger_BindReceiver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_router.mojom.LoggerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_router.mojom.Logger_BindReceiver_ParamsSpec, 'media_router.mojom.Logger_BindReceiver_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(media_router.mojom.LoggerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media_router.mojom.LoggerPendingReceiver = class {
   constructor(handle) {
@@ -168,78 +144,6 @@ media_router.mojom.Logger.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for LogInfo
-media_router.mojom.Logger_LogInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.Logger.LogInfo_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'category', packedOffset: 40, packedBitOffset: 0, type: media_router.mojom.LogCategorySpec, nullable: false, minVersion: 0 },
-        { name: 'component', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'sink_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'media_source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'session_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
-
-// ParamsSpec for LogWarning
-media_router.mojom.Logger_LogWarning_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.Logger.LogWarning_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'category', packedOffset: 40, packedBitOffset: 0, type: media_router.mojom.LogCategorySpec, nullable: false, minVersion: 0 },
-        { name: 'component', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'sink_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'media_source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'session_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
-
-// ParamsSpec for LogError
-media_router.mojom.Logger_LogError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.Logger.LogError_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'category', packedOffset: 40, packedBitOffset: 0, type: media_router.mojom.LogCategorySpec, nullable: false, minVersion: 0 },
-        { name: 'component', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'sink_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'media_source', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'session_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
-
-// ParamsSpec for BindReceiver
-media_router.mojom.Logger_BindReceiver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_router.mojom.Logger.BindReceiver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_router.mojom.LoggerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media_router.mojom.LoggerPtr = media_router.mojom.LoggerRemote;
 media_router.mojom.LoggerRequest = media_router.mojom.LoggerPendingReceiver;
 

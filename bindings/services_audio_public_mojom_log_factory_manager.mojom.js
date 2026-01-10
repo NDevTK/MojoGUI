@@ -8,22 +8,16 @@
 var audio = audio || {};
 audio.mojom = audio.mojom || {};
 
+audio.mojom.LogFactoryManager = {};
+audio.mojom.LogFactoryManager.$interfaceName = 'audio.mojom.LogFactoryManager';
+audio.mojom.LogFactoryManager_SetLogFactory_ParamsSpec = { $: {} };
 
 // Interface: LogFactoryManager
-audio.mojom.LogFactoryManager = {};
-
-audio.mojom.LogFactoryManager_SetLogFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'audio.mojom.LogFactoryManager_SetLogFactory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.AudioLogFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    audio.mojom.LogFactoryManager_SetLogFactory_ParamsSpec, 'audio.mojom.LogFactoryManager_SetLogFactory_Params', [
+      mojo.internal.StructField('factory', 0, 0, mojo.internal.InterfaceProxy(media.mojom.AudioLogFactoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 audio.mojom.LogFactoryManagerPendingReceiver = class {
   constructor(handle) {
@@ -78,21 +72,6 @@ audio.mojom.LogFactoryManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetLogFactory
-audio.mojom.LogFactoryManager_SetLogFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'audio.mojom.LogFactoryManager.SetLogFactory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.AudioLogFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 audio.mojom.LogFactoryManagerPtr = audio.mojom.LogFactoryManagerRemote;
 audio.mojom.LogFactoryManagerRequest = audio.mojom.LogFactoryManagerPendingReceiver;
 

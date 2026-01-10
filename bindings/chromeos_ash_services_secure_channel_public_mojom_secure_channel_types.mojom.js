@@ -9,6 +9,12 @@ var ash = ash || {};
 ash.secure_channel = ash.secure_channel || {};
 ash.secure_channel.mojom = ash.secure_channel.mojom || {};
 
+ash.secure_channel.mojom.FileTransferStatusSpec = { $: mojo.internal.Enum() };
+ash.secure_channel.mojom.PayloadFilesSpec = { $: {} };
+ash.secure_channel.mojom.FileTransferUpdateSpec = { $: {} };
+ash.secure_channel.mojom.FilePayloadListener = {};
+ash.secure_channel.mojom.FilePayloadListener.$interfaceName = 'ash.secure_channel.mojom.FilePayloadListener';
+ash.secure_channel.mojom.FilePayloadListener_OnFileTransferUpdate_ParamsSpec = { $: {} };
 
 // Enum: FileTransferStatus
 ash.secure_channel.mojom.FileTransferStatus = {
@@ -17,55 +23,31 @@ ash.secure_channel.mojom.FileTransferStatus = {
   kInProgress: 2,
   kCanceled: 3,
 };
-ash.secure_channel.mojom.FileTransferStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: PayloadFiles
-ash.secure_channel.mojom.PayloadFilesSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.secure_channel.mojom.PayloadFiles',
-      packedSize: 24,
-      fields: [
-        { name: 'input_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'output_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.secure_channel.mojom.PayloadFilesSpec, 'ash.secure_channel.mojom.PayloadFiles', [
+      mojo.internal.StructField('input_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('output_file', 8, 0, mojo_base.mojom.FileSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: FileTransferUpdate
-ash.secure_channel.mojom.FileTransferUpdateSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.secure_channel.mojom.FileTransferUpdate',
-      packedSize: 40,
-      fields: [
-        { name: 'payload_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 24, packedBitOffset: 0, type: ash.secure_channel.mojom.FileTransferStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'total_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'bytes_transferred', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.secure_channel.mojom.FileTransferUpdateSpec, 'ash.secure_channel.mojom.FileTransferUpdate', [
+      mojo.internal.StructField('payload_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('status', 24, 0, ash.secure_channel.mojom.FileTransferStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('total_bytes', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('bytes_transferred', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: FilePayloadListener
-ash.secure_channel.mojom.FilePayloadListener = {};
-
-ash.secure_channel.mojom.FilePayloadListener_OnFileTransferUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.secure_channel.mojom.FilePayloadListener_OnFileTransferUpdate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: ash.secure_channel.mojom.FileTransferUpdateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.secure_channel.mojom.FilePayloadListener_OnFileTransferUpdate_ParamsSpec, 'ash.secure_channel.mojom.FilePayloadListener_OnFileTransferUpdate_Params', [
+      mojo.internal.StructField('update', 0, 0, ash.secure_channel.mojom.FileTransferUpdateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.secure_channel.mojom.FilePayloadListenerPendingReceiver = class {
   constructor(handle) {
@@ -120,21 +102,6 @@ ash.secure_channel.mojom.FilePayloadListener.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnFileTransferUpdate
-ash.secure_channel.mojom.FilePayloadListener_OnFileTransferUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.secure_channel.mojom.FilePayloadListener.OnFileTransferUpdate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: ash.secure_channel.mojom.FileTransferUpdateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.secure_channel.mojom.FilePayloadListenerPtr = ash.secure_channel.mojom.FilePayloadListenerRemote;
 ash.secure_channel.mojom.FilePayloadListenerRequest = ash.secure_channel.mojom.FilePayloadListenerPendingReceiver;
 

@@ -8,67 +8,85 @@
 var chromeos = chromeos || {};
 chromeos.cdm = chromeos.cdm || {};
 chromeos.cdm.mojom = chromeos.cdm.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var chromeos = chromeos || {};
+var components = components || {};
+var chromeos = chromeos || {};
+var components = components || {};
+var chromeos = chromeos || {};
+var components = components || {};
 
+chromeos.cdm.mojom.CreateCdmStatusSpec = { $: mojo.internal.Enum() };
+chromeos.cdm.mojom.CdmFactory = {};
+chromeos.cdm.mojom.CdmFactory.$interfaceName = 'chromeos.cdm.mojom.CdmFactory';
+chromeos.cdm.mojom.CdmFactory_DEPRECATED_1_ParamsSpec = { $: {} };
+chromeos.cdm.mojom.CdmFactory_CreateCdmDeprecated_ParamsSpec = { $: {} };
+chromeos.cdm.mojom.CdmFactory_CreateCdm_ParamsSpec = { $: {} };
+chromeos.cdm.mojom.CdmFactory_CreateCdm_ResponseParamsSpec = { $: {} };
+chromeos.cdm.mojom.CdmFactoryDaemon = {};
+chromeos.cdm.mojom.CdmFactoryDaemon.$interfaceName = 'chromeos.cdm.mojom.CdmFactoryDaemon';
+chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ParamsSpec = { $: {} };
+chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ResponseParamsSpec = { $: {} };
+chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod1_ParamsSpec = { $: {} };
+chromeos.cdm.mojom.CdmFactoryDaemon_ConnectOemCrypto_ParamsSpec = { $: {} };
+chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod3_ParamsSpec = { $: {} };
+chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ParamsSpec = { $: {} };
+chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ResponseParamsSpec = { $: {} };
+chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod5_ParamsSpec = { $: {} };
+chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ParamsSpec = { $: {} };
+chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ResponseParamsSpec = { $: {} };
+chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ParamsSpec = { $: {} };
+chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ResponseParamsSpec = { $: {} };
+chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ParamsSpec = { $: {} };
+chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ResponseParamsSpec = { $: {} };
+chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ParamsSpec = { $: {} };
+chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ResponseParamsSpec = { $: {} };
 
 // Enum: CreateCdmStatus
 chromeos.cdm.mojom.CreateCdmStatus = {
-  kNoMoreInstances: 0,
-  kInsufficientGpuResources: 1,
+  kSuccess: 0,
+  kNoMoreInstances: 1,
+  kInsufficientGpuResources: 2,
 };
-chromeos.cdm.mojom.CreateCdmStatusSpec = { $: mojo.internal.Enum() };
 
 // Interface: CdmFactory
-chromeos.cdm.mojom.CdmFactory = {};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.CdmFactory_DEPRECATED_1_ParamsSpec, 'chromeos.cdm.mojom.CdmFactory_DEPRECATED_1_Params', [
+      mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(chromeos.cdm.mojom.ContentDecryptionModuleClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('storage', 8, 0, mojo.internal.AssociatedInterfaceProxy(chromeos.cdm.mojom.CdmStorageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('cdm', 16, 0, mojo.internal.AssociatedInterfaceRequest(chromeos.cdm.mojom.ContentDecryptionModuleRemote), null, false, 0, undefined),
+      mojo.internal.StructField('output_protection', 24, 0, mojo.internal.InterfaceProxy(chromeos.cdm.mojom.OutputProtectionRemote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-chromeos.cdm.mojom.CdmFactory_DEPRECATED_1_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactory_DEPRECATED_1_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(chromeos.cdm.mojom.ContentDecryptionModuleClientRemote), nullable: false, minVersion: 0 },
-        { name: 'storage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(chromeos.cdm.mojom.CdmStorageRemote), nullable: false, minVersion: 0 },
-        { name: 'cdm', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(chromeos.cdm.mojom.ContentDecryptionModuleRemote), nullable: false, minVersion: 0 },
-        { name: 'output_protection', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.cdm.mojom.OutputProtectionRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.CdmFactory_CreateCdmDeprecated_ParamsSpec, 'chromeos.cdm.mojom.CdmFactory_CreateCdmDeprecated_Params', [
+      mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(chromeos.cdm.mojom.ContentDecryptionModuleClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('storage', 8, 0, mojo.internal.AssociatedInterfaceProxy(chromeos.cdm.mojom.CdmStorageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('output_protection', 16, 0, mojo.internal.InterfaceProxy(chromeos.cdm.mojom.OutputProtectionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('cdm', 32, 0, mojo.internal.AssociatedInterfaceRequest(chromeos.cdm.mojom.ContentDecryptionModuleRemote), null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
-chromeos.cdm.mojom.CdmFactory_CreateCdmDeprecated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactory_CreateCdmDeprecated_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(chromeos.cdm.mojom.ContentDecryptionModuleClientRemote), nullable: false, minVersion: 0 },
-        { name: 'storage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(chromeos.cdm.mojom.CdmStorageRemote), nullable: false, minVersion: 0 },
-        { name: 'output_protection', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.cdm.mojom.OutputProtectionRemote), nullable: false, minVersion: 0 },
-        { name: 'host', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'cdm', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(chromeos.cdm.mojom.ContentDecryptionModuleRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.CdmFactory_CreateCdm_ParamsSpec, 'chromeos.cdm.mojom.CdmFactory_CreateCdm_Params', [
+      mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(chromeos.cdm.mojom.ContentDecryptionModuleClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('storage', 8, 0, mojo.internal.AssociatedInterfaceProxy(chromeos.cdm.mojom.CdmStorageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('output_protection', 16, 0, mojo.internal.InterfaceProxy(chromeos.cdm.mojom.OutputProtectionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('cdm', 32, 0, mojo.internal.AssociatedInterfaceRequest(chromeos.cdm.mojom.ContentDecryptionModuleRemote), null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
-chromeos.cdm.mojom.CdmFactory_CreateCdm_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactory_CreateCdm_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(chromeos.cdm.mojom.ContentDecryptionModuleClientRemote), nullable: false, minVersion: 0 },
-        { name: 'storage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(chromeos.cdm.mojom.CdmStorageRemote), nullable: false, minVersion: 0 },
-        { name: 'output_protection', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.cdm.mojom.OutputProtectionRemote), nullable: false, minVersion: 0 },
-        { name: 'host', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'cdm', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(chromeos.cdm.mojom.ContentDecryptionModuleRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.CdmFactory_CreateCdm_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmFactory_CreateCdm_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, chromeos.cdm.mojom.CreateCdmStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromeos.cdm.mojom.CdmFactoryPendingReceiver = class {
   constructor(handle) {
@@ -141,209 +159,109 @@ chromeos.cdm.mojom.CdmFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for DEPRECATED_1
-chromeos.cdm.mojom.CdmFactory_DEPRECATED_1_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactory.DEPRECATED_1_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(chromeos.cdm.mojom.ContentDecryptionModuleClientRemote), nullable: false, minVersion: 0 },
-        { name: 'storage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(chromeos.cdm.mojom.CdmStorageRemote), nullable: false, minVersion: 0 },
-        { name: 'cdm', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(chromeos.cdm.mojom.ContentDecryptionModuleRemote), nullable: false, minVersion: 0 },
-        { name: 'output_protection', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.cdm.mojom.OutputProtectionRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for CreateCdmDeprecated
-chromeos.cdm.mojom.CdmFactory_CreateCdmDeprecated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactory.CreateCdmDeprecated_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(chromeos.cdm.mojom.ContentDecryptionModuleClientRemote), nullable: false, minVersion: 0 },
-        { name: 'storage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(chromeos.cdm.mojom.CdmStorageRemote), nullable: false, minVersion: 0 },
-        { name: 'output_protection', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.cdm.mojom.OutputProtectionRemote), nullable: false, minVersion: 0 },
-        { name: 'host', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'cdm', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(chromeos.cdm.mojom.ContentDecryptionModuleRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-// ParamsSpec for CreateCdm
-chromeos.cdm.mojom.CdmFactory_CreateCdm_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactory.CreateCdm_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(chromeos.cdm.mojom.ContentDecryptionModuleClientRemote), nullable: false, minVersion: 0 },
-        { name: 'storage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(chromeos.cdm.mojom.CdmStorageRemote), nullable: false, minVersion: 0 },
-        { name: 'output_protection', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.cdm.mojom.OutputProtectionRemote), nullable: false, minVersion: 0 },
-        { name: 'host', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'cdm', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(chromeos.cdm.mojom.ContentDecryptionModuleRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-chromeos.cdm.mojom.CdmFactory_CreateCdm_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactory.CreateCdm_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.cdm.mojom.CreateCdmStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.cdm.mojom.CdmFactoryPtr = chromeos.cdm.mojom.CdmFactoryRemote;
 chromeos.cdm.mojom.CdmFactoryRequest = chromeos.cdm.mojom.CdmFactoryPendingReceiver;
 
 
 // Interface: CdmFactoryDaemon
-chromeos.cdm.mojom.CdmFactoryDaemon = {};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_Params', [
+      mojo.internal.StructField('key_system', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key_system', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ResponseParams', [
+      mojo.internal.StructField('factory', 0, 0, mojo.internal.InterfaceProxy(chromeos.cdm.mojom.CdmFactoryRemote), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod1_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod1_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod1_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod1_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromeos.cdm.mojom.CdmFactoryDaemon_ConnectOemCrypto_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactoryDaemon_ConnectOemCrypto_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'oemcryptor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(arc.mojom.OemCryptoServiceRemote), nullable: false, minVersion: 0 },
-        { name: 'protected_buffer_manager', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ProtectedBufferManagerRemote), nullable: false, minVersion: 0 },
-        { name: 'output_protection', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.cdm.mojom.OutputProtectionRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.CdmFactoryDaemon_ConnectOemCrypto_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_ConnectOemCrypto_Params', [
+      mojo.internal.StructField('oemcryptor', 0, 0, mojo.internal.InterfaceRequest(arc.mojom.OemCryptoServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('protected_buffer_manager', 8, 0, mojo.internal.InterfaceProxy(arc.mojom.ProtectedBufferManagerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('output_protection', 16, 0, mojo.internal.InterfaceProxy(chromeos.cdm.mojom.OutputProtectionRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod3_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod3_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod3_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod3_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod5_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod5_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ResponseParams', [
+      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('config_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod5_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod5_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'hw_identifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ResponseParams', [
+      mojo.internal.StructField('hdcp_key_base64', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'secure_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'offset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'stream_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_Params', [
+      mojo.internal.StructField('key_id', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('hw_identifier', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ResponseParams', [
+      mojo.internal.StructField('status', 8, 0, chromeos.cdm.mojom.DecryptStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_Params', [
+      mojo.internal.StructField('size', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ResponseParams', [
+      mojo.internal.StructField('fd', 0, 0, mojo.internal.Pointer, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_Params', [
+      mojo.internal.StructField('secure_handle', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('offset', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('stream_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ResponseParams', [
+      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('slice_header', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 chromeos.cdm.mojom.CdmFactoryDaemonPendingReceiver = class {
   constructor(handle) {
@@ -479,228 +397,6 @@ chromeos.cdm.mojom.CdmFactoryDaemon.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateFactory
-chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactoryDaemon.CreateFactory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key_system', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactoryDaemon.CreateFactory_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.cdm.mojom.CdmFactoryRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RemovedMethod1
-chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod1_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactoryDaemon.RemovedMethod1_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ConnectOemCrypto
-chromeos.cdm.mojom.CdmFactoryDaemon_ConnectOemCrypto_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactoryDaemon.ConnectOemCrypto_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'oemcryptor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(arc.mojom.OemCryptoServiceRemote), nullable: false, minVersion: 0 },
-        { name: 'protected_buffer_manager', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ProtectedBufferManagerRemote), nullable: false, minVersion: 0 },
-        { name: 'output_protection', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.cdm.mojom.OutputProtectionRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for RemovedMethod3
-chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod3_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactoryDaemon.RemovedMethod3_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for GetHwConfigData
-chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactoryDaemon.GetHwConfigData_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactoryDaemon.GetHwConfigData_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'config_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for RemovedMethod5
-chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod5_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactoryDaemon.RemovedMethod5_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for GetHdcp14Key
-chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactoryDaemon.GetHdcp14Key_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactoryDaemon.GetHdcp14Key_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'hdcp_key_base64', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetAndroidHwKeyData
-chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactoryDaemon.GetAndroidHwKeyData_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'key_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'hw_identifier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactoryDaemon.GetAndroidHwKeyData_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: chromeos.cdm.mojom.DecryptStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'key_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for AllocateSecureBuffer
-chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactoryDaemon.AllocateSecureBuffer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactoryDaemon.AllocateSecureBuffer_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ParseEncryptedSliceHeader
-chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactoryDaemon.ParseEncryptedSliceHeader_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'secure_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'offset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'stream_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.CdmFactoryDaemon.ParseEncryptedSliceHeader_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'slice_header', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.cdm.mojom.CdmFactoryDaemonPtr = chromeos.cdm.mojom.CdmFactoryDaemonRemote;
 chromeos.cdm.mojom.CdmFactoryDaemonRequest = chromeos.cdm.mojom.CdmFactoryDaemonPendingReceiver;
 

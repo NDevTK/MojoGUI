@@ -8,23 +8,17 @@
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
+arc.mojom.BackupSettingsInstance = {};
+arc.mojom.BackupSettingsInstance.$interfaceName = 'arc.mojom.BackupSettingsInstance';
+arc.mojom.BackupSettingsInstance_SetBackupEnabled_ParamsSpec = { $: {} };
 
 // Interface: BackupSettingsInstance
-arc.mojom.BackupSettingsInstance = {};
-
-arc.mojom.BackupSettingsInstance_SetBackupEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.BackupSettingsInstance_SetBackupEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'managed', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.BackupSettingsInstance_SetBackupEnabled_ParamsSpec, 'arc.mojom.BackupSettingsInstance_SetBackupEnabled_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('managed', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.BackupSettingsInstancePendingReceiver = class {
   constructor(handle) {
@@ -79,22 +73,6 @@ arc.mojom.BackupSettingsInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetBackupEnabled
-arc.mojom.BackupSettingsInstance_SetBackupEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.BackupSettingsInstance.SetBackupEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'managed', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.BackupSettingsInstancePtr = arc.mojom.BackupSettingsInstanceRemote;
 arc.mojom.BackupSettingsInstanceRequest = arc.mojom.BackupSettingsInstancePendingReceiver;
 

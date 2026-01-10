@@ -8,6 +8,8 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.FileSystemAccessStatusSpec = { $: mojo.internal.Enum() };
+blink.mojom.FileSystemAccessErrorSpec = { $: {} };
 
 // Enum: FileSystemAccessStatus
 blink.mojom.FileSystemAccessStatus = {
@@ -23,20 +25,12 @@ blink.mojom.FileSystemAccessStatus = {
   kOperationAborted: 9,
   kFileError: 10,
 };
-blink.mojom.FileSystemAccessStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: FileSystemAccessError
-blink.mojom.FileSystemAccessErrorSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileSystemAccessError',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.FileSystemAccessStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'file_error', packedOffset: 12, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FileSystemAccessErrorSpec, 'blink.mojom.FileSystemAccessError', [
+      mojo.internal.StructField('status', 8, 0, blink.mojom.FileSystemAccessStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('file_error', 12, 0, mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

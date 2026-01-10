@@ -8,33 +8,21 @@
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
+viz.mojom.VideoDetectorObserver = {};
+viz.mojom.VideoDetectorObserver.$interfaceName = 'viz.mojom.VideoDetectorObserver';
+viz.mojom.VideoDetectorObserver_OnVideoActivityStarted_ParamsSpec = { $: {} };
+viz.mojom.VideoDetectorObserver_OnVideoActivityEnded_ParamsSpec = { $: {} };
 
 // Interface: VideoDetectorObserver
-viz.mojom.VideoDetectorObserver = {};
+mojo.internal.Struct(
+    viz.mojom.VideoDetectorObserver_OnVideoActivityStarted_ParamsSpec, 'viz.mojom.VideoDetectorObserver_OnVideoActivityStarted_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-viz.mojom.VideoDetectorObserver_OnVideoActivityStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.VideoDetectorObserver_OnVideoActivityStarted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-viz.mojom.VideoDetectorObserver_OnVideoActivityEnded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.VideoDetectorObserver_OnVideoActivityEnded_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.VideoDetectorObserver_OnVideoActivityEnded_ParamsSpec, 'viz.mojom.VideoDetectorObserver_OnVideoActivityEnded_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 viz.mojom.VideoDetectorObserverPendingReceiver = class {
   constructor(handle) {
@@ -98,33 +86,6 @@ viz.mojom.VideoDetectorObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnVideoActivityStarted
-viz.mojom.VideoDetectorObserver_OnVideoActivityStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.VideoDetectorObserver.OnVideoActivityStarted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnVideoActivityEnded
-viz.mojom.VideoDetectorObserver_OnVideoActivityEnded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.VideoDetectorObserver.OnVideoActivityEnded_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 viz.mojom.VideoDetectorObserverPtr = viz.mojom.VideoDetectorObserverRemote;
 viz.mojom.VideoDetectorObserverRequest = viz.mojom.VideoDetectorObserverPendingReceiver;
 

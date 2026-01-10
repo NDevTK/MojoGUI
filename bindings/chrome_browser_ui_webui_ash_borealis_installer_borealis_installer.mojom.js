@@ -8,24 +8,32 @@
 var ash = ash || {};
 ash.borealis_installer = ash.borealis_installer || {};
 ash.borealis_installer.mojom = ash.borealis_installer.mojom || {};
+var ash = ash || {};
 
+ash.borealis_installer.mojom.PageHandlerFactory = {};
+ash.borealis_installer.mojom.PageHandlerFactory.$interfaceName = 'ash.borealis_installer.mojom.PageHandlerFactory';
+ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+ash.borealis_installer.mojom.PageHandler = {};
+ash.borealis_installer.mojom.PageHandler.$interfaceName = 'ash.borealis_installer.mojom.PageHandler';
+ash.borealis_installer.mojom.PageHandler_Install_ParamsSpec = { $: {} };
+ash.borealis_installer.mojom.PageHandler_ShutDown_ParamsSpec = { $: {} };
+ash.borealis_installer.mojom.PageHandler_Launch_ParamsSpec = { $: {} };
+ash.borealis_installer.mojom.PageHandler_CancelInstall_ParamsSpec = { $: {} };
+ash.borealis_installer.mojom.PageHandler_OnPageClosed_ParamsSpec = { $: {} };
+ash.borealis_installer.mojom.PageHandler_OpenStoragePage_ParamsSpec = { $: {} };
+ash.borealis_installer.mojom.Page = {};
+ash.borealis_installer.mojom.Page.$interfaceName = 'ash.borealis_installer.mojom.Page';
+ash.borealis_installer.mojom.Page_OnProgressUpdate_ParamsSpec = { $: {} };
+ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec = { $: {} };
+ash.borealis_installer.mojom.Page_RequestClose_ParamsSpec = { $: {} };
 
 // Interface: PageHandlerFactory
-ash.borealis_installer.mojom.PageHandlerFactory = {};
-
-ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.borealis_installer.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.borealis_installer.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(ash.borealis_installer.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(ash.borealis_installer.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ash.borealis_installer.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -80,100 +88,40 @@ ash.borealis_installer.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.borealis_installer.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.borealis_installer.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.borealis_installer.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.borealis_installer.mojom.PageHandlerFactoryPtr = ash.borealis_installer.mojom.PageHandlerFactoryRemote;
 ash.borealis_installer.mojom.PageHandlerFactoryRequest = ash.borealis_installer.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-ash.borealis_installer.mojom.PageHandler = {};
+mojo.internal.Struct(
+    ash.borealis_installer.mojom.PageHandler_Install_ParamsSpec, 'ash.borealis_installer.mojom.PageHandler_Install_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.borealis_installer.mojom.PageHandler_Install_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.borealis_installer.mojom.PageHandler_Install_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.borealis_installer.mojom.PageHandler_ShutDown_ParamsSpec, 'ash.borealis_installer.mojom.PageHandler_ShutDown_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.borealis_installer.mojom.PageHandler_ShutDown_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.borealis_installer.mojom.PageHandler_ShutDown_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.borealis_installer.mojom.PageHandler_Launch_ParamsSpec, 'ash.borealis_installer.mojom.PageHandler_Launch_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.borealis_installer.mojom.PageHandler_Launch_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.borealis_installer.mojom.PageHandler_Launch_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.borealis_installer.mojom.PageHandler_CancelInstall_ParamsSpec, 'ash.borealis_installer.mojom.PageHandler_CancelInstall_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.borealis_installer.mojom.PageHandler_CancelInstall_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.borealis_installer.mojom.PageHandler_CancelInstall_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.borealis_installer.mojom.PageHandler_OnPageClosed_ParamsSpec, 'ash.borealis_installer.mojom.PageHandler_OnPageClosed_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.borealis_installer.mojom.PageHandler_OnPageClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.borealis_installer.mojom.PageHandler_OnPageClosed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.borealis_installer.mojom.PageHandler_OpenStoragePage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.borealis_installer.mojom.PageHandler_OpenStoragePage_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.borealis_installer.mojom.PageHandler_OpenStoragePage_ParamsSpec, 'ash.borealis_installer.mojom.PageHandler_OpenStoragePage_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.borealis_installer.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -273,130 +221,28 @@ ash.borealis_installer.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Install
-ash.borealis_installer.mojom.PageHandler_Install_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.borealis_installer.mojom.PageHandler.Install_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ShutDown
-ash.borealis_installer.mojom.PageHandler_ShutDown_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.borealis_installer.mojom.PageHandler.ShutDown_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Launch
-ash.borealis_installer.mojom.PageHandler_Launch_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.borealis_installer.mojom.PageHandler.Launch_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for CancelInstall
-ash.borealis_installer.mojom.PageHandler_CancelInstall_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.borealis_installer.mojom.PageHandler.CancelInstall_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnPageClosed
-ash.borealis_installer.mojom.PageHandler_OnPageClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.borealis_installer.mojom.PageHandler.OnPageClosed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OpenStoragePage
-ash.borealis_installer.mojom.PageHandler_OpenStoragePage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.borealis_installer.mojom.PageHandler.OpenStoragePage_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.borealis_installer.mojom.PageHandlerPtr = ash.borealis_installer.mojom.PageHandlerRemote;
 ash.borealis_installer.mojom.PageHandlerRequest = ash.borealis_installer.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-ash.borealis_installer.mojom.Page = {};
+mojo.internal.Struct(
+    ash.borealis_installer.mojom.Page_OnProgressUpdate_ParamsSpec, 'ash.borealis_installer.mojom.Page_OnProgressUpdate_Params', [
+      mojo.internal.StructField('progress_fraction', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('label', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.borealis_installer.mojom.Page_OnProgressUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.borealis_installer.mojom.Page_OnProgressUpdate_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'progress_fraction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec, 'ash.borealis_installer.mojom.Page_OnInstallFinished_Params', [
+      mojo.internal.StructField('error', 0, 0, borealis.mojom.InstallResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.borealis_installer.mojom.Page_OnInstallFinished_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: borealis.mojom.InstallResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.borealis_installer.mojom.Page_RequestClose_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.borealis_installer.mojom.Page_RequestClose_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.borealis_installer.mojom.Page_RequestClose_ParamsSpec, 'ash.borealis_installer.mojom.Page_RequestClose_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.borealis_installer.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -469,49 +315,6 @@ ash.borealis_installer.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnProgressUpdate
-ash.borealis_installer.mojom.Page_OnProgressUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.borealis_installer.mojom.Page.OnProgressUpdate_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'progress_fraction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnInstallFinished
-ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.borealis_installer.mojom.Page.OnInstallFinished_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: borealis.mojom.InstallResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestClose
-ash.borealis_installer.mojom.Page_RequestClose_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.borealis_installer.mojom.Page.RequestClose_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.borealis_installer.mojom.PagePtr = ash.borealis_installer.mojom.PageRemote;
 ash.borealis_installer.mojom.PageRequest = ash.borealis_installer.mojom.PagePendingReceiver;
 

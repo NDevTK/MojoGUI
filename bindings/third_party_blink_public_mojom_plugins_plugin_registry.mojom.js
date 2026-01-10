@@ -8,56 +8,45 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.PluginMimeTypeSpec = { $: {} };
+blink.mojom.PluginInfoSpec = { $: {} };
+blink.mojom.PluginRegistry = {};
+blink.mojom.PluginRegistry.$interfaceName = 'blink.mojom.PluginRegistry';
+blink.mojom.PluginRegistry_GetPlugins_ParamsSpec = { $: {} };
+blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec = { $: {} };
 
 // Struct: PluginMimeType
-blink.mojom.PluginMimeTypeSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PluginMimeType',
-      packedSize: 32,
-      fields: [
-        { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'file_extensions', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PluginMimeTypeSpec, 'blink.mojom.PluginMimeType', [
+      mojo.internal.StructField('mime_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('description', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('file_extensions', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: PluginInfo
-blink.mojom.PluginInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PluginInfo',
-      packedSize: 48,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'description', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'filename', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'background_color', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'mime_types', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.PluginMimeTypeSpec, false), nullable: false, minVersion: 0 },
-        { name: 'may_use_external_handler', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PluginInfoSpec, 'blink.mojom.PluginInfo', [
+      mojo.internal.StructField('name', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('description', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('filename', 16, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('background_color', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('mime_types', 24, 0, mojo.internal.Array(blink.mojom.PluginMimeTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('may_use_external_handler', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Interface: PluginRegistry
-blink.mojom.PluginRegistry = {};
+mojo.internal.Struct(
+    blink.mojom.PluginRegistry_GetPlugins_ParamsSpec, 'blink.mojom.PluginRegistry_GetPlugins_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.PluginRegistry_GetPlugins_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PluginRegistry_GetPlugins_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec, 'blink.mojom.PluginRegistry_GetPlugins_ResponseParams', [
+      mojo.internal.StructField('plugins', 0, 0, mojo.internal.Array(blink.mojom.PluginInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.PluginRegistryPendingReceiver = class {
   constructor(handle) {
@@ -112,33 +101,6 @@ blink.mojom.PluginRegistry.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetPlugins
-blink.mojom.PluginRegistry_GetPlugins_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PluginRegistry.GetPlugins_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PluginRegistry.GetPlugins_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'plugins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.PluginInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.PluginRegistryPtr = blink.mojom.PluginRegistryRemote;
 blink.mojom.PluginRegistryRequest = blink.mojom.PluginRegistryPendingReceiver;
 

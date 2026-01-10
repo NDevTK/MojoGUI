@@ -8,17 +8,11 @@
 var mojo_base = mojo_base || {};
 mojo_base.mojom = mojo_base.mojom || {};
 
+mojo_base.mojom.SafeBaseNameSpec = { $: {} };
 
 // Struct: SafeBaseName
-mojo_base.mojom.SafeBaseNameSpec = {
-  $: {
-    structSpec: {
-      name: 'mojo_base.mojom.SafeBaseName',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojo_base.mojom.SafeBaseNameSpec, 'mojo_base.mojom.SafeBaseName', [
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);

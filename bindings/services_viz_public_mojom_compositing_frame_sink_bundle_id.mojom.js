@@ -8,18 +8,12 @@
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
+viz.mojom.FrameSinkBundleIdSpec = { $: {} };
 
 // Struct: FrameSinkBundleId
-viz.mojom.FrameSinkBundleIdSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.FrameSinkBundleId',
-      packedSize: 16,
-      fields: [
-        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'bundle_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.FrameSinkBundleIdSpec, 'viz.mojom.FrameSinkBundleId', [
+      mojo.internal.StructField('client_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('bundle_id', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);

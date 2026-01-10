@@ -8,45 +8,34 @@
 var file_suggestion = file_suggestion || {};
 file_suggestion.mojom = file_suggestion.mojom || {};
 
+file_suggestion.mojom.MicrosoftFilesPageHandler = {};
+file_suggestion.mojom.MicrosoftFilesPageHandler.$interfaceName = 'file_suggestion.mojom.MicrosoftFilesPageHandler';
+file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_ParamsSpec = { $: {} };
+file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_ResponseParamsSpec = { $: {} };
+file_suggestion.mojom.MicrosoftFilesPageHandler_DismissModule_ParamsSpec = { $: {} };
+file_suggestion.mojom.MicrosoftFilesPageHandler_RestoreModule_ParamsSpec = { $: {} };
 
 // Interface: MicrosoftFilesPageHandler
-file_suggestion.mojom.MicrosoftFilesPageHandler = {};
+mojo.internal.Struct(
+    file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_ParamsSpec, 'file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_ResponseParamsSpec, 'file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_ResponseParams', [
+      mojo.internal.StructField('files', 0, 0, mojo.internal.Array(file_suggestion.mojom.FileSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-file_suggestion.mojom.MicrosoftFilesPageHandler_DismissModule_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'file_suggestion.mojom.MicrosoftFilesPageHandler_DismissModule_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    file_suggestion.mojom.MicrosoftFilesPageHandler_DismissModule_ParamsSpec, 'file_suggestion.mojom.MicrosoftFilesPageHandler_DismissModule_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-file_suggestion.mojom.MicrosoftFilesPageHandler_RestoreModule_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'file_suggestion.mojom.MicrosoftFilesPageHandler_RestoreModule_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    file_suggestion.mojom.MicrosoftFilesPageHandler_RestoreModule_ParamsSpec, 'file_suggestion.mojom.MicrosoftFilesPageHandler_RestoreModule_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 file_suggestion.mojom.MicrosoftFilesPageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -119,59 +108,6 @@ file_suggestion.mojom.MicrosoftFilesPageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetFiles
-file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'file_suggestion.mojom.MicrosoftFilesPageHandler.GetFiles_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'file_suggestion.mojom.MicrosoftFilesPageHandler.GetFiles_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(file_suggestion.mojom.FileSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DismissModule
-file_suggestion.mojom.MicrosoftFilesPageHandler_DismissModule_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'file_suggestion.mojom.MicrosoftFilesPageHandler.DismissModule_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RestoreModule
-file_suggestion.mojom.MicrosoftFilesPageHandler_RestoreModule_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'file_suggestion.mojom.MicrosoftFilesPageHandler.RestoreModule_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 file_suggestion.mojom.MicrosoftFilesPageHandlerPtr = file_suggestion.mojom.MicrosoftFilesPageHandlerRemote;
 file_suggestion.mojom.MicrosoftFilesPageHandlerRequest = file_suggestion.mojom.MicrosoftFilesPageHandlerPendingReceiver;
 

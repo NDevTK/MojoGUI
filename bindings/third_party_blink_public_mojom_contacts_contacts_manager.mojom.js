@@ -7,61 +7,51 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var components = components || {};
 
+blink.mojom.ContactIconBlobSpec = { $: {} };
+blink.mojom.ContactInfoSpec = { $: {} };
+blink.mojom.ContactsManager = {};
+blink.mojom.ContactsManager.$interfaceName = 'blink.mojom.ContactsManager';
+blink.mojom.ContactsManager_Select_ParamsSpec = { $: {} };
+blink.mojom.ContactsManager_Select_ResponseParamsSpec = { $: {} };
 
 // Struct: ContactIconBlob
-blink.mojom.ContactIconBlobSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ContactIconBlob',
-      packedSize: 24,
-      fields: [
-        { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ContactIconBlobSpec, 'blink.mojom.ContactIconBlob', [
+      mojo.internal.StructField('mime_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: ContactInfo
-blink.mojom.ContactInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ContactInfo',
-      packedSize: 48,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-        { name: 'email', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-        { name: 'tel', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-        { name: 'address', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(payments.mojom.PaymentAddressSpec, false), nullable: true, minVersion: 0 },
-        { name: 'icon', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.ContactIconBlobSpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ContactInfoSpec, 'blink.mojom.ContactInfo', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('email', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('tel', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('address', 24, 0, mojo.internal.Array(payments.mojom.PaymentAddressSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('icon', 32, 0, mojo.internal.Array(blink.mojom.ContactIconBlobSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Interface: ContactsManager
-blink.mojom.ContactsManager = {};
+mojo.internal.Struct(
+    blink.mojom.ContactsManager_Select_ParamsSpec, 'blink.mojom.ContactsManager_Select_Params', [
+      mojo.internal.StructField('multiple', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('include_names', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('include_emails', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('include_tel', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('include_addresses', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('include_icons', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.ContactsManager_Select_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ContactsManager_Select_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'multiple', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'include_names', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'include_emails', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'include_tel', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'include_addresses', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'include_icons', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ContactsManager_Select_ResponseParamsSpec, 'blink.mojom.ContactsManager_Select_ResponseParams', [
+      mojo.internal.StructField('contacts', 0, 0, mojo.internal.Array(blink.mojom.ContactInfoSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.ContactsManagerPendingReceiver = class {
   constructor(handle) {
@@ -116,39 +106,6 @@ blink.mojom.ContactsManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Select
-blink.mojom.ContactsManager_Select_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ContactsManager.Select_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'multiple', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'include_names', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'include_emails', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'include_tel', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'include_addresses', packedOffset: 0, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'include_icons', packedOffset: 0, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.ContactsManager_Select_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ContactsManager.Select_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'contacts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.ContactInfoSpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.ContactsManagerPtr = blink.mojom.ContactsManagerRemote;
 blink.mojom.ContactsManagerRequest = blink.mojom.ContactsManagerPendingReceiver;
 

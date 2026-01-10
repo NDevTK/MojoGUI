@@ -9,6 +9,14 @@ var chromeos = chromeos || {};
 chromeos.cdm = chromeos.cdm || {};
 chromeos.cdm.mojom = chromeos.cdm.mojom || {};
 
+chromeos.cdm.mojom.ProtectionTypeSpec = { $: mojo.internal.Enum() };
+chromeos.cdm.mojom.LinkTypeSpec = { $: mojo.internal.Enum() };
+chromeos.cdm.mojom.OutputProtection = {};
+chromeos.cdm.mojom.OutputProtection.$interfaceName = 'chromeos.cdm.mojom.OutputProtection';
+chromeos.cdm.mojom.OutputProtection_QueryStatus_ParamsSpec = { $: {} };
+chromeos.cdm.mojom.OutputProtection_QueryStatus_ResponseParamsSpec = { $: {} };
+chromeos.cdm.mojom.OutputProtection_EnableProtection_ParamsSpec = { $: {} };
+chromeos.cdm.mojom.OutputProtection_EnableProtection_ResponseParamsSpec = { $: {} };
 
 // Enum: ProtectionType
 chromeos.cdm.mojom.ProtectionType = {
@@ -16,48 +24,44 @@ chromeos.cdm.mojom.ProtectionType = {
   HDCP_TYPE_0: 1,
   HDCP_TYPE_1: 2,
 };
-chromeos.cdm.mojom.ProtectionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: LinkType
 chromeos.cdm.mojom.LinkType = {
   NONE: 0,
   UNKNOWN: 1,
   INTERNAL: 2,
-  VGA: 3,
-  HDMI: 4,
-  DVI: 5,
-  DISPLAYPORT: 6,
-  NETWORK: 7,
+  VGA: 4,
+  HDMI: 8,
+  DVI: 16,
+  DISPLAYPORT: 32,
+  NETWORK: 64,
 };
-chromeos.cdm.mojom.LinkTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: OutputProtection
-chromeos.cdm.mojom.OutputProtection = {};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.OutputProtection_QueryStatus_ParamsSpec, 'chromeos.cdm.mojom.OutputProtection_QueryStatus_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromeos.cdm.mojom.OutputProtection_QueryStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.OutputProtection_QueryStatus_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.OutputProtection_QueryStatus_ResponseParamsSpec, 'chromeos.cdm.mojom.OutputProtection_QueryStatus_ResponseParams', [
+      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('link_mask', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('protection', 4, 0, chromeos.cdm.mojom.ProtectionTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chromeos.cdm.mojom.OutputProtection_EnableProtection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.OutputProtection_EnableProtection_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'desired_protection', packedOffset: 0, packedBitOffset: 0, type: chromeos.cdm.mojom.ProtectionTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cdm.mojom.OutputProtection_EnableProtection_ParamsSpec, 'chromeos.cdm.mojom.OutputProtection_EnableProtection_Params', [
+      mojo.internal.StructField('desired_protection', 0, 0, chromeos.cdm.mojom.ProtectionTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.cdm.mojom.OutputProtection_EnableProtection_ResponseParamsSpec, 'chromeos.cdm.mojom.OutputProtection_EnableProtection_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromeos.cdm.mojom.OutputProtectionPendingReceiver = class {
   constructor(handle) {
@@ -121,62 +125,6 @@ chromeos.cdm.mojom.OutputProtection.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for QueryStatus
-chromeos.cdm.mojom.OutputProtection_QueryStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.OutputProtection.QueryStatus_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromeos.cdm.mojom.OutputProtection_QueryStatus_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.OutputProtection.QueryStatus_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'link_mask', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'protection', packedOffset: 4, packedBitOffset: 0, type: chromeos.cdm.mojom.ProtectionTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for EnableProtection
-chromeos.cdm.mojom.OutputProtection_EnableProtection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.OutputProtection.EnableProtection_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'desired_protection', packedOffset: 0, packedBitOffset: 0, type: chromeos.cdm.mojom.ProtectionTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.cdm.mojom.OutputProtection_EnableProtection_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cdm.mojom.OutputProtection.EnableProtection_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.cdm.mojom.OutputProtectionPtr = chromeos.cdm.mojom.OutputProtectionRemote;
 chromeos.cdm.mojom.OutputProtectionRequest = chromeos.cdm.mojom.OutputProtectionPendingReceiver;
 

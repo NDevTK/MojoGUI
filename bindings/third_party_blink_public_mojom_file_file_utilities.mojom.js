@@ -8,22 +8,23 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.FileUtilitiesHost = {};
+blink.mojom.FileUtilitiesHost.$interfaceName = 'blink.mojom.FileUtilitiesHost';
+blink.mojom.FileUtilitiesHost_GetFileInfo_ParamsSpec = { $: {} };
+blink.mojom.FileUtilitiesHost_GetFileInfo_ResponseParamsSpec = { $: {} };
 
 // Interface: FileUtilitiesHost
-blink.mojom.FileUtilitiesHost = {};
+mojo.internal.Struct(
+    blink.mojom.FileUtilitiesHost_GetFileInfo_ParamsSpec, 'blink.mojom.FileUtilitiesHost_GetFileInfo_Params', [
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.FileUtilitiesHost_GetFileInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileUtilitiesHost_GetFileInfo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FileUtilitiesHost_GetFileInfo_ResponseParamsSpec, 'blink.mojom.FileUtilitiesHost_GetFileInfo_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo_base.mojom.FileInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.FileUtilitiesHostPendingReceiver = class {
   constructor(handle) {
@@ -78,34 +79,6 @@ blink.mojom.FileUtilitiesHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetFileInfo
-blink.mojom.FileUtilitiesHost_GetFileInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileUtilitiesHost.GetFileInfo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.FileUtilitiesHost_GetFileInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FileUtilitiesHost.GetFileInfo_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileInfoSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.FileUtilitiesHostPtr = blink.mojom.FileUtilitiesHostRemote;
 blink.mojom.FileUtilitiesHostRequest = blink.mojom.FileUtilitiesHostPendingReceiver;
 

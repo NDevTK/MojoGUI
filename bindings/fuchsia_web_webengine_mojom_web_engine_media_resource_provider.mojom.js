@@ -7,48 +7,37 @@
 // Module namespace
 var mojom = mojom || {};
 
+mojom.AudioConsumerRequestSpec = { $: {} };
+mojom.WebEngineMediaResourceProvider = {};
+mojom.WebEngineMediaResourceProvider.$interfaceName = 'mojom.WebEngineMediaResourceProvider';
+mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ParamsSpec = { $: {} };
+mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec = { $: {} };
+mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_ParamsSpec = { $: {} };
 
 // Struct: AudioConsumerRequest
-mojom.AudioConsumerRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.AudioConsumerRequest',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojom.AudioConsumerRequestSpec, 'mojom.AudioConsumerRequest', [
+      mojo.internal.StructField('request', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: WebEngineMediaResourceProvider
-mojom.WebEngineMediaResourceProvider = {};
+mojo.internal.Struct(
+    mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ParamsSpec, 'mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec, 'mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojom.AudioConsumerRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_ParamsSpec, 'mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_Params', [
+      mojo.internal.StructField('request', 0, 0, mojom.AudioConsumerRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 mojom.WebEngineMediaResourceProviderPendingReceiver = class {
   constructor(handle) {
@@ -112,47 +101,6 @@ mojom.WebEngineMediaResourceProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ShouldUseAudioConsumer
-mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.WebEngineMediaResourceProvider.ShouldUseAudioConsumer_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.WebEngineMediaResourceProvider.ShouldUseAudioConsumer_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CreateAudioConsumer
-mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.WebEngineMediaResourceProvider.CreateAudioConsumer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojom.AudioConsumerRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 mojom.WebEngineMediaResourceProviderPtr = mojom.WebEngineMediaResourceProviderRemote;
 mojom.WebEngineMediaResourceProviderRequest = mojom.WebEngineMediaResourceProviderPendingReceiver;
 

@@ -8,6 +8,7 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.ShareErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: ShareError
 blink.mojom.ShareError = {
@@ -16,4 +17,3 @@ blink.mojom.ShareError = {
   PERMISSION_DENIED: 2,
   CANCELED: 3,
 };
-blink.mojom.ShareErrorSpec = { $: mojo.internal.Enum() };

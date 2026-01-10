@@ -7,7 +7,11 @@
 // Module namespace
 var cros = cros || {};
 cros.mojom = cros.mojom || {};
+var chromeos = chromeos || {};
 
+cros.mojom.EntryTypeSpec = { $: mojo.internal.Enum() };
+cros.mojom.CameraMetadataEntrySpec = { $: {} };
+cros.mojom.CameraMetadataSpec = { $: {} };
 
 // Enum: EntryType
 cros.mojom.EntryType = {
@@ -19,41 +23,26 @@ cros.mojom.EntryType = {
   TYPE_RATIONAL: 5,
   NUM_TYPES: 6,
 };
-cros.mojom.EntryTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: CameraMetadataEntry
-cros.mojom.CameraMetadataEntrySpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CameraMetadataEntry',
-      packedSize: 32,
-      fields: [
-        { name: 'index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'tag', packedOffset: 12, packedBitOffset: 0, type: cros.mojom.CameraMetadataTagSpec, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: cros.mojom.EntryTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'count', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.CameraMetadataEntrySpec, 'cros.mojom.CameraMetadataEntry', [
+      mojo.internal.StructField('index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('tag', 12, 0, cros.mojom.CameraMetadataTagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 16, 0, cros.mojom.EntryTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('count', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: CameraMetadata
-cros.mojom.CameraMetadataSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CameraMetadata',
-      packedSize: 40,
-      fields: [
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'entry_count', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'entry_capacity', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'data_count', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'data_capacity', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(cros.mojom.CameraMetadataEntrySpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.CameraMetadataSpec, 'cros.mojom.CameraMetadata', [
+      mojo.internal.StructField('size', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('entry_count', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('entry_capacity', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('data_count', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('data_capacity', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('entries', 0, 0, mojo.internal.Array(cros.mojom.CameraMetadataEntrySpec, false), null, true, 0, undefined),
+    ],
+    [[0, 40]]);

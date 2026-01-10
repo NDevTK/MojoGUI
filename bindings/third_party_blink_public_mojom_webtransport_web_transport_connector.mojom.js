@@ -7,27 +7,22 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
 var url = url || {};
 
+blink.mojom.WebTransportConnector = {};
+blink.mojom.WebTransportConnector.$interfaceName = 'blink.mojom.WebTransportConnector';
+blink.mojom.WebTransportConnector_Connect_ParamsSpec = { $: {} };
 
 // Interface: WebTransportConnector
-blink.mojom.WebTransportConnector = {};
-
-blink.mojom.WebTransportConnector_Connect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebTransportConnector_Connect_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'fingerprints', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.WebTransportCertificateFingerprintSpec, false), nullable: false, minVersion: 0 },
-        { name: 'application_protocols', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.WebTransportHandshakeClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebTransportConnector_Connect_ParamsSpec, 'blink.mojom.WebTransportConnector_Connect_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('fingerprints', 8, 0, mojo.internal.Array(network.mojom.WebTransportCertificateFingerprintSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('application_protocols', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('client', 24, 0, mojo.internal.InterfaceProxy(network.mojom.WebTransportHandshakeClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 blink.mojom.WebTransportConnectorPendingReceiver = class {
   constructor(handle) {
@@ -82,24 +77,6 @@ blink.mojom.WebTransportConnector.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Connect
-blink.mojom.WebTransportConnector_Connect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebTransportConnector.Connect_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'fingerprints', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.WebTransportCertificateFingerprintSpec, false), nullable: false, minVersion: 0 },
-        { name: 'application_protocols', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.WebTransportHandshakeClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.WebTransportConnectorPtr = blink.mojom.WebTransportConnectorRemote;
 blink.mojom.WebTransportConnectorRequest = blink.mojom.WebTransportConnectorPendingReceiver;
 

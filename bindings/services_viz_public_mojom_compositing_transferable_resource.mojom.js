@@ -7,6 +7,8 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var services = services || {};
+var services = services || {};
 var ui = ui || {};
 var gfx = gfx || {};
 var ui = ui || {};
@@ -16,6 +18,10 @@ var gfx = gfx || {};
 var skia = skia || {};
 var skia = skia || {};
 
+viz.mojom.SynchronizationTypeSpec = { $: mojo.internal.Enum() };
+viz.mojom.ResourceSourceSpec = { $: mojo.internal.Enum() };
+viz.mojom.MetadataOverrideSpec = { $: {} };
+viz.mojom.TransferableResourceSpec = { $: {} };
 
 // Enum: SynchronizationType
 viz.mojom.SynchronizationType = {
@@ -23,7 +29,6 @@ viz.mojom.SynchronizationType = {
   kGpuCommandsCompleted: 1,
   kReleaseFence: 2,
 };
-viz.mojom.SynchronizationTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ResourceSource
 viz.mojom.ResourceSource = {
@@ -44,47 +49,32 @@ viz.mojom.ResourceSource = {
   kVideo: 14,
   kWebGPUSwapBuffer: 15,
 };
-viz.mojom.ResourceSourceSpec = { $: mojo.internal.Enum() };
 
 // Struct: MetadataOverride
-viz.mojom.MetadataOverrideSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.MetadataOverride',
-      packedSize: 32,
-      fields: [
-        { name: 'is_overlay_candidate_$flag', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'is_overlay_candidate_$value', originalFieldName: 'is_overlay_candidate' } },
-        { name: 'is_overlay_candidate_$value', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'is_overlay_candidate_$flag', originalFieldName: 'is_overlay_candidate' } },
-        { name: 'color_space', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.ColorSpaceSpec, nullable: true, minVersion: 0 },
-        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SurfaceOriginSpec, nullable: true, minVersion: 0 },
-        { name: 'alpha_type', packedOffset: 12, packedBitOffset: 0, type: skia.mojom.AlphaTypeSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.MetadataOverrideSpec, 'viz.mojom.MetadataOverride', [
+      mojo.internal.StructField('is_overlay_candidate_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'is_overlay_candidate_$value', originalFieldName: 'is_overlay_candidate' }),
+      mojo.internal.StructField('is_overlay_candidate_$value', 16, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'is_overlay_candidate_$flag', originalFieldName: 'is_overlay_candidate' }),
+      mojo.internal.StructField('color_space', 0, 0, gfx.mojom.ColorSpaceSpec, null, true, 0, undefined),
+      mojo.internal.StructField('origin', 8, 0, skia.mojom.SurfaceOriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('alpha_type', 12, 0, skia.mojom.AlphaTypeSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: TransferableResource
-viz.mojom.TransferableResourceSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.TransferableResource',
-      packedSize: 72,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.ResourceIdSpec, nullable: false, minVersion: 0 },
-        { name: 'shared_image', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.ExportedSharedImageSpec, nullable: false, minVersion: 0 },
-        { name: 'sync_token', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'synchronization_type', packedOffset: 48, packedBitOffset: 0, type: viz.mojom.SynchronizationTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'is_low_latency_rendering', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_backed_by_surface_view', packedOffset: 56, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'wants_promotion_hint', packedOffset: 56, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'hdr_metadata', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.HDRMetadataSpec, nullable: false, minVersion: 0 },
-        { name: 'needs_detiling', packedOffset: 56, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'ycbcr_info', packedOffset: 32, packedBitOffset: 0, type: gpu.mojom.VulkanYCbCrInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'resource_source', packedOffset: 52, packedBitOffset: 0, type: viz.mojom.ResourceSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'metadata_override', packedOffset: 40, packedBitOffset: 0, type: viz.mojom.MetadataOverrideSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 72}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.TransferableResourceSpec, 'viz.mojom.TransferableResource', [
+      mojo.internal.StructField('id', 0, 0, viz.mojom.ResourceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shared_image', 8, 0, gpu.mojom.ExportedSharedImageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sync_token', 16, 0, gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('synchronization_type', 48, 0, viz.mojom.SynchronizationTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_low_latency_rendering', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_backed_by_surface_view', 56, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('wants_promotion_hint', 56, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('hdr_metadata', 24, 0, gfx.mojom.HDRMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('needs_detiling', 56, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('ycbcr_info', 32, 0, gpu.mojom.VulkanYCbCrInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('resource_source', 52, 0, viz.mojom.ResourceSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('metadata_override', 40, 0, viz.mojom.MetadataOverrideSpec, null, false, 0, undefined),
+    ],
+    [[0, 72]]);

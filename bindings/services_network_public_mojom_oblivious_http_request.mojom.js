@@ -7,111 +7,88 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 var url = url || {};
 
+network.mojom.ObliviousHttpCompletionResultSpec = { $: {} };
+network.mojom.ObliviousHttpRequestBodySpec = { $: {} };
+network.mojom.ObliviousHttpResponseSpec = { $: {} };
+network.mojom.ObliviousHttpPaddingParametersSpec = { $: {} };
+network.mojom.ObliviousHttpRequestSpec = { $: {} };
+network.mojom.ObliviousHttpClient = {};
+network.mojom.ObliviousHttpClient.$interfaceName = 'network.mojom.ObliviousHttpClient';
+network.mojom.ObliviousHttpClient_OnCompleted_ParamsSpec = { $: {} };
 
 // Union: ObliviousHttpCompletionResult
-network.mojom.ObliviousHttpCompletionResultSpec = { $: mojo.internal.Union(
-    'network.mojom.ObliviousHttpCompletionResult', {
+mojo.internal.Union(
+    network.mojom.ObliviousHttpCompletionResultSpec, 'network.mojom.ObliviousHttpCompletionResult', {
       'net_error': {
         'ordinal': 0,
         'type': mojo.internal.Int32,
-      }},
+        'nullable': false,
+      },
       'outer_response_error_code': {
         'ordinal': 1,
         'type': mojo.internal.Int32,
-      }},
+        'nullable': false,
+      },
       'inner_response': {
         'ordinal': 2,
         'type': network.mojom.ObliviousHttpResponseSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: ObliviousHttpRequestBody
-network.mojom.ObliviousHttpRequestBodySpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ObliviousHttpRequestBody',
-      packedSize: 24,
-      fields: [
-        { name: 'content', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false, minVersion: 0 },
-        { name: 'content_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.ObliviousHttpRequestBodySpec, 'network.mojom.ObliviousHttpRequestBody', [
+      mojo.internal.StructField('content', 0, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('content_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: ObliviousHttpResponse
-network.mojom.ObliviousHttpResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ObliviousHttpResponse',
-      packedSize: 32,
-      fields: [
-        { name: 'response_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'headers', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HttpResponseHeadersSpec, nullable: false, minVersion: 0 },
-        { name: 'response_body', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.ObliviousHttpResponseSpec, 'network.mojom.ObliviousHttpResponse', [
+      mojo.internal.StructField('response_code', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('headers', 0, 0, network.mojom.HttpResponseHeadersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response_body', 8, 0, mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: ObliviousHttpPaddingParameters
-network.mojom.ObliviousHttpPaddingParametersSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ObliviousHttpPaddingParameters',
-      packedSize: 16,
-      fields: [
-        { name: 'add_exponential_pad', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'exponential_mean', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'pad_to_next_power_of_two', packedOffset: 2, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.ObliviousHttpPaddingParametersSpec, 'network.mojom.ObliviousHttpPaddingParameters', [
+      mojo.internal.StructField('add_exponential_pad', 2, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('exponential_mean', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('pad_to_next_power_of_two', 2, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: ObliviousHttpRequest
-network.mojom.ObliviousHttpRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ObliviousHttpRequest',
-      packedSize: 80,
-      fields: [
-        { name: 'relay_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'traffic_annotation', packedOffset: 8, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false, minVersion: 0 },
-        { name: 'timeout_duration', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 0 },
-        { name: 'key_config', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'resource_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'method', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'request_body', packedOffset: 48, packedBitOffset: 0, type: network.mojom.ObliviousHttpRequestBodySpec, nullable: true, minVersion: 0 },
-        { name: 'trust_token_params', packedOffset: 56, packedBitOffset: 0, type: network.mojom.TrustTokenParamsSpec, nullable: true, minVersion: 0 },
-        { name: 'padding_params', packedOffset: 64, packedBitOffset: 0, type: network.mojom.ObliviousHttpPaddingParametersSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 80}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.ObliviousHttpRequestSpec, 'network.mojom.ObliviousHttpRequest', [
+      mojo.internal.StructField('relay_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('traffic_annotation', 8, 0, network.mojom.MutableNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('timeout_duration', 16, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('key_config', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('resource_url', 32, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('method', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('request_body', 48, 0, network.mojom.ObliviousHttpRequestBodySpec, null, true, 0, undefined),
+      mojo.internal.StructField('trust_token_params', 56, 0, network.mojom.TrustTokenParamsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('padding_params', 64, 0, network.mojom.ObliviousHttpPaddingParametersSpec, null, true, 0, undefined),
+    ],
+    [[0, 80]]);
 
 // Interface: ObliviousHttpClient
-network.mojom.ObliviousHttpClient = {};
-
-network.mojom.ObliviousHttpClient_OnCompleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ObliviousHttpClient_OnCompleted_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ObliviousHttpCompletionResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.ObliviousHttpClient_OnCompleted_ParamsSpec, 'network.mojom.ObliviousHttpClient_OnCompleted_Params', [
+      mojo.internal.StructField('response', 0, 0, network.mojom.ObliviousHttpCompletionResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 network.mojom.ObliviousHttpClientPendingReceiver = class {
   constructor(handle) {
@@ -166,21 +143,6 @@ network.mojom.ObliviousHttpClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnCompleted
-network.mojom.ObliviousHttpClient_OnCompleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ObliviousHttpClient.OnCompleted_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ObliviousHttpCompletionResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.ObliviousHttpClientPtr = network.mojom.ObliviousHttpClientRemote;
 network.mojom.ObliviousHttpClientRequest = network.mojom.ObliviousHttpClientPendingReceiver;
 

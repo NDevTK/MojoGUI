@@ -7,7 +7,77 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
 
+arc.mojom.BootTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.NativeBridgeTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.CompanionLibApiIdSpec = { $: mojo.internal.Enum() };
+arc.mojom.ArcDnsQuerySpec = { $: mojo.internal.Enum() };
+arc.mojom.ArcNetworkEventSpec = { $: mojo.internal.Enum() };
+arc.mojom.ArcNetworkErrorSpec = { $: mojo.internal.Enum() };
+arc.mojom.AppKillTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.AppPrimaryAbiSpec = { $: mojo.internal.Enum() };
+arc.mojom.ArcCorePriAbiMigEventSpec = { $: mojo.internal.Enum() };
+arc.mojom.DataRestoreStatusSpec = { $: mojo.internal.Enum() };
+arc.mojom.LowLatencyStylusLibraryTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.LowLatencyStylusLibApiIdSpec = { $: mojo.internal.Enum() };
+arc.mojom.VpnServiceBuilderCompatApiIdSpec = { $: mojo.internal.Enum() };
+arc.mojom.MainAccountHashMigrationStatusSpec = { $: mojo.internal.Enum() };
+arc.mojom.WaylandTimingEventSpec = { $: mojo.internal.Enum() };
+arc.mojom.ArcKeyMintErrorSpec = { $: mojo.internal.Enum() };
+arc.mojom.ArcKeyMintLoggedOperationSpec = { $: mojo.internal.Enum() };
+arc.mojom.CertificateSigningResultSpec = { $: mojo.internal.Enum() };
+arc.mojom.AppErrorDialogTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.AndroidAppCategorySpec = { $: mojo.internal.Enum() };
+arc.mojom.AndroidDataDirectorySpec = { $: mojo.internal.Enum() };
+arc.mojom.BootProgressEventSpec = { $: {} };
+arc.mojom.GfxMetricsSpec = { $: {} };
+arc.mojom.AppKillSpec = { $: {} };
+arc.mojom.LowLatencyStylusLibPredictionTargetSpec = { $: {} };
+arc.mojom.AppCategoryDataSizeSpec = { $: {} };
+arc.mojom.DataDirectorySizeSpec = { $: {} };
+arc.mojom.MetricsHost = {};
+arc.mojom.MetricsHost.$interfaceName = 'arc.mojom.MetricsHost';
+arc.mojom.MetricsHost_ReportBootProgress_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportNativeBridge_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportCompanionLibApiUsage_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportAppKill_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportArcCorePriAbiMigEvent_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportArcCorePriAbiMigFailedTries_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportArcCorePriAbiMigDowngradeDelay_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportArcCorePriAbiMigBootTime_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportAnr_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportArcSystemHealthUpgrade_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportLowLatencyStylusLibApiUsage_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportLowLatencyStylusLibPredictionTarget_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportDnsQueryResult_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportMainAccountHashMigrationMetrics_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportArcNetworkEvent_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportArcNetworkError_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportAppPrimaryAbi_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportDataRestore_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportMemoryPressure_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportProvisioningPreSignIn_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportWaylandLateTimingEvent_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportWebViewProcessStarted_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportVpnServiceBuilderCompatApiUsage_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportNewQosSocketCount_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportQosSocketPercentage_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportArcKeyMintError_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportDragResizeLatency_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportAppErrorDialogType_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportApkCacheHit_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportAppCategoryDataSizeList_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportDataDirectorySizeList_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportArcKeyMintErrorForOperation_ParamsSpec = { $: {} };
+arc.mojom.MetricsHost_ReportCertificateSigningResult_ParamsSpec = { $: {} };
+arc.mojom.MetricsInstance = {};
+arc.mojom.MetricsInstance.$interfaceName = 'arc.mojom.MetricsInstance';
+arc.mojom.MetricsInstance_Init_ParamsSpec = { $: {} };
+arc.mojom.MetricsInstance_Init_ResponseParamsSpec = { $: {} };
+arc.mojom.MetricsInstance_GetGfxMetrics_ParamsSpec = { $: {} };
+arc.mojom.MetricsInstance_GetGfxMetrics_ResponseParamsSpec = { $: {} };
 
 // Enum: BootType
 arc.mojom.BootType = {
@@ -16,7 +86,6 @@ arc.mojom.BootType = {
   FIRST_BOOT_AFTER_UPDATE: 2,
   REGULAR_BOOT: 3,
 };
-arc.mojom.BootTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: NativeBridgeType
 arc.mojom.NativeBridgeType = {
@@ -24,7 +93,6 @@ arc.mojom.NativeBridgeType = {
   HOUDINI: 1,
   NDK_TRANSLATION: 2,
 };
-arc.mojom.NativeBridgeTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CompanionLibApiId
 arc.mojom.CompanionLibApiId = {
@@ -53,14 +121,12 @@ arc.mojom.CompanionLibApiId = {
   SET_CLIPPING_TO_TASK_DISABLE: 22,
   IS_CLIPPING_TO_TASK_DISABLED: 23,
 };
-arc.mojom.CompanionLibApiIdSpec = { $: mojo.internal.Enum() };
 
 // Enum: ArcDnsQuery
 arc.mojom.ArcDnsQuery = {
   OTHER_HOST_NAME: 0,
   ANDROID_API_HOST_NAME: 1,
 };
-arc.mojom.ArcDnsQuerySpec = { $: mojo.internal.Enum() };
 
 // Enum: ArcNetworkEvent
 arc.mojom.ArcNetworkEvent = {
@@ -97,8 +163,17 @@ arc.mojom.ArcNetworkEvent = {
   kWifiManagerForget: 30,
   kWifiManagerRegisterScanListener: 31,
   kWifiManagerAddNetworkSuggestions: 32,
+  MinVersion: 32,
+  MinVersion: 32,
+  MinVersion: 32,
+  MinVersion: 32,
+  MinVersion: 32,
+  MinVersion: 32,
+  MinVersion: 32,
+  MinVersion: 32,
+  MinVersion: 32,
+  MinVersion: 32,
 };
-arc.mojom.ArcNetworkEventSpec = { $: mojo.internal.Enum() };
 
 // Enum: ArcNetworkError
 arc.mojom.ArcNetworkError = {
@@ -126,15 +201,20 @@ arc.mojom.ArcNetworkError = {
   kNetdTetheringStopError: 21,
   kNetdSnatStartError: 22,
   kNetdSnatStopError: 23,
+  MinVersion: 23,
+  MinVersion: 23,
+  MinVersion: 23,
+  MinVersion: 23,
+  MinVersion: 23,
 };
-arc.mojom.ArcNetworkErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: AppKillType
 arc.mojom.AppKillType = {
   LMKD_KILL: 0,
   OOM_KILL: 1,
+  MinVersion: 1,
+  MinVersion: 1,
 };
-arc.mojom.AppKillTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AppPrimaryAbi
 arc.mojom.AppPrimaryAbi = {
@@ -144,7 +224,6 @@ arc.mojom.AppPrimaryAbi = {
   kX86: 3,
   kX86_64: 4,
 };
-arc.mojom.AppPrimaryAbiSpec = { $: mojo.internal.Enum() };
 
 // Enum: ArcCorePriAbiMigEvent
 arc.mojom.ArcCorePriAbiMigEvent = {
@@ -157,7 +236,6 @@ arc.mojom.ArcCorePriAbiMigEvent = {
   kWebviewDowngradeSuccess: 6,
   kWebviewDowngradeFailure: 7,
 };
-arc.mojom.ArcCorePriAbiMigEventSpec = { $: mojo.internal.Enum() };
 
 // Enum: DataRestoreStatus
 arc.mojom.DataRestoreStatus = {
@@ -165,30 +243,29 @@ arc.mojom.DataRestoreStatus = {
   kSuccess: 1,
   kFailed: 2,
 };
-arc.mojom.DataRestoreStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: LowLatencyStylusLibraryType
 arc.mojom.LowLatencyStylusLibraryType = {
-  kCPU: 0,
-  kGPU: 1,
+  kUnsupported: 0,
+  kCPU: 1,
+  kGPU: 2,
 };
-arc.mojom.LowLatencyStylusLibraryTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: LowLatencyStylusLibApiId
 arc.mojom.LowLatencyStylusLibApiId = {
-  kInkOverlayLowLatencyLibInUse: 0,
-  kGLInkOverlayLowLatencyLibInUse: 1,
-  kGLInkOverlaySetProjectionMatrix: 2,
-  kGLInkOverlaySetViewMatrix: 3,
+  kUnsupported: 0,
+  kInkOverlayLowLatencyLibInUse: 1,
+  kGLInkOverlayLowLatencyLibInUse: 2,
+  kGLInkOverlaySetProjectionMatrix: 3,
+  kGLInkOverlaySetViewMatrix: 4,
 };
-arc.mojom.LowLatencyStylusLibApiIdSpec = { $: mojo.internal.Enum() };
 
 // Enum: VpnServiceBuilderCompatApiId
 arc.mojom.VpnServiceBuilderCompatApiId = {
-  kVpnExcludeRoute: 0,
-  kVpnAddRoute: 1,
+  kUnsupported: 0,
+  kVpnExcludeRoute: 1,
+  kVpnAddRoute: 2,
 };
-arc.mojom.VpnServiceBuilderCompatApiIdSpec = { $: mojo.internal.Enum() };
 
 // Enum: MainAccountHashMigrationStatus
 arc.mojom.MainAccountHashMigrationStatus = {
@@ -198,615 +275,341 @@ arc.mojom.MainAccountHashMigrationStatus = {
   kHashCodeMigrationFailedDueToMultipleAccounts: 3,
   kHashCodeMigrationFailedDueToNoMatchingAccount: 4,
 };
-arc.mojom.MainAccountHashMigrationStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: WaylandTimingEvent
 arc.mojom.WaylandTimingEvent = {
-  kBinderReleaseClipboardData: 0,
-  kWlBufferRelease: 1,
-  kWlKeyboardLeave: 2,
-  kWlPointerMotion: 3,
-  kWlPointerLeave: 4,
-  kZauraShellActivated: 5,
-  kZauraSurfaceOcclusionChanged: 6,
-  kZcrRemoteSurfaceWindowGeometryChanged: 7,
-  kZcrRemoteSurfaceBoundsChangedInOutput: 8,
-  kZcrVsyncTimingUpdate: 9,
+  kOther: 0,
+  kBinderReleaseClipboardData: 1,
+  kWlBufferRelease: 2,
+  kWlKeyboardLeave: 3,
+  kWlPointerMotion: 4,
+  kWlPointerLeave: 5,
+  kZauraShellActivated: 6,
+  kZauraSurfaceOcclusionChanged: 7,
+  kZcrRemoteSurfaceWindowGeometryChanged: 8,
+  kZcrRemoteSurfaceBoundsChangedInOutput: 9,
+  kZcrVsyncTimingUpdate: 10,
 };
-arc.mojom.WaylandTimingEventSpec = { $: mojo.internal.Enum() };
 
 // Enum: ArcKeyMintError
 arc.mojom.ArcKeyMintError = {
-  kOk: 0,
-  kUnknownError: 1,
-  kInvalidKeyBlob: 2,
-  kInvalidArgument: 3,
-  kUnsupportedAlgorithm: 4,
-  kUnimplemented: 5,
-  kUnexpectedNullPointer: 6,
+  kOther: 0,
+  kOk: 1,
+  kUnknownError: 2,
+  kInvalidKeyBlob: 3,
+  kInvalidArgument: 4,
+  kUnsupportedAlgorithm: 5,
+  kUnimplemented: 6,
+  kUnexpectedNullPointer: 7,
 };
-arc.mojom.ArcKeyMintErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: ArcKeyMintLoggedOperation
 arc.mojom.ArcKeyMintLoggedOperation = {
-  kGenerateCertificateRequest: 0,
+  kOther: 0,
+  kGenerateCertificateRequest: 1,
 };
-arc.mojom.ArcKeyMintLoggedOperationSpec = { $: mojo.internal.Enum() };
 
 // Enum: CertificateSigningResult
 arc.mojom.CertificateSigningResult = {
-  kOk: 0,
-  kDeviceNotRegistered: 1,
-  kTimeout: 2,
-  kIOException: 3,
-  kHttp200: 4,
-  kHttp403: 5,
-  kHttp404: 6,
-  kHttp500: 7,
-  kHttp503: 8,
+  kOther: 0,
+  kOk: 1,
+  kDeviceNotRegistered: 2,
+  kTimeout: 3,
+  kIOException: 4,
+  kHttp200: 5,
+  kHttp403: 6,
+  kHttp404: 7,
+  kHttp500: 8,
+  kHttp503: 9,
+  MinVersion: 9,
+  MinVersion: 9,
 };
-arc.mojom.CertificateSigningResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: AppErrorDialogType
 arc.mojom.AppErrorDialogType = {
-  kAerrApplication: 0,
-  kAerrProcess: 1,
-  kAerrApplicationRepeated: 2,
-  kAerrProcessRepeated: 3,
-  kAnrActivityApplication: 4,
-  kAnrActivityProcess: 5,
-  kAnrApplicationProcess: 6,
-  kAnrProcess: 7,
+  kUnsupported: 0,
+  kAerrApplication: 1,
+  kAerrProcess: 2,
+  kAerrApplicationRepeated: 3,
+  kAerrProcessRepeated: 4,
+  kAnrActivityApplication: 5,
+  kAnrActivityProcess: 6,
+  kAnrApplicationProcess: 7,
+  kAnrProcess: 8,
 };
-arc.mojom.AppErrorDialogTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidAppCategory
 arc.mojom.AndroidAppCategory = {
-  kAudio: 0,
-  kGame: 1,
-  kImage: 2,
-  kProductivity: 3,
-  kSocial: 4,
-  kVideo: 5,
+  kOther: 0,
+  kAudio: 1,
+  kGame: 2,
+  kImage: 3,
+  kProductivity: 4,
+  kSocial: 5,
+  kVideo: 6,
 };
-arc.mojom.AndroidAppCategorySpec = { $: mojo.internal.Enum() };
 
 // Enum: AndroidDataDirectory
 arc.mojom.AndroidDataDirectory = {
-  kDataApp: 0,
-  kDataData: 1,
-  kDataMedia: 2,
-  kDataMediaAndroid: 3,
-  kDataUserDE: 4,
+  kData: 0,
+  kDataApp: 1,
+  kDataData: 2,
+  kDataMedia: 3,
+  kDataMediaAndroid: 4,
+  kDataUserDE: 5,
 };
-arc.mojom.AndroidDataDirectorySpec = { $: mojo.internal.Enum() };
 
 // Struct: BootProgressEvent
-arc.mojom.BootProgressEventSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.BootProgressEvent',
-      packedSize: 24,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'uptimeMillis', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.BootProgressEventSpec, 'arc.mojom.BootProgressEvent', [
+      mojo.internal.StructField('event', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('uptimeMillis', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: GfxMetrics
-arc.mojom.GfxMetricsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.GfxMetrics',
-      packedSize: 32,
-      fields: [
-        { name: 'framesTotal', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'framesJanky', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'frameTimePercentile95', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.GfxMetricsSpec, 'arc.mojom.GfxMetrics', [
+      mojo.internal.StructField('framesTotal', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('framesJanky', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('frameTimePercentile95', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: AppKill
-arc.mojom.AppKillSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppKill',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AppKillTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'count', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppKillSpec, 'arc.mojom.AppKill', [
+      mojo.internal.StructField('type', 0, 0, arc.mojom.AppKillTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('count', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: LowLatencyStylusLibPredictionTarget
-arc.mojom.LowLatencyStylusLibPredictionTargetSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.LowLatencyStylusLibPredictionTarget',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.LowLatencyStylusLibraryTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'target', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.LowLatencyStylusLibPredictionTargetSpec, 'arc.mojom.LowLatencyStylusLibPredictionTarget', [
+      mojo.internal.StructField('type', 0, 0, arc.mojom.LowLatencyStylusLibraryTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('target', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: AppCategoryDataSize
-arc.mojom.AppCategoryDataSizeSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AppCategoryDataSize',
-      packedSize: 16,
-      fields: [
-        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AndroidAppCategorySpec, nullable: false, minVersion: 0 },
-        { name: 'data_size_in_mb', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AppCategoryDataSizeSpec, 'arc.mojom.AppCategoryDataSize', [
+      mojo.internal.StructField('category', 0, 0, arc.mojom.AndroidAppCategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('data_size_in_mb', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: DataDirectorySize
-arc.mojom.DataDirectorySizeSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.DataDirectorySize',
-      packedSize: 16,
-      fields: [
-        { name: 'directory', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AndroidDataDirectorySpec, nullable: false, minVersion: 0 },
-        { name: 'size_in_mb', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.DataDirectorySizeSpec, 'arc.mojom.DataDirectorySize', [
+      mojo.internal.StructField('directory', 0, 0, arc.mojom.AndroidDataDirectorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('size_in_mb', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: MetricsHost
-arc.mojom.MetricsHost = {};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportBootProgress_ParamsSpec, 'arc.mojom.MetricsHost_ReportBootProgress_Params', [
+      mojo.internal.StructField('events', 0, 0, mojo.internal.Array(arc.mojom.BootProgressEventSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('boot_type', 8, 0, arc.mojom.BootTypeSpec, null, false, 1, undefined),
+    ],
+    [[0, 16], [1, 24]]);
 
-arc.mojom.MetricsHost_ReportBootProgress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportBootProgress_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.BootProgressEventSpec, false), nullable: false, minVersion: 0 },
-        { name: 'boot_type', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.BootTypeSpec, nullable: false, minVersion: 1 },
-      ],
-      versions: [{version: 0, packedSize: 16}, {version: 1, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportNativeBridge_ParamsSpec, 'arc.mojom.MetricsHost_ReportNativeBridge_Params', [
+      mojo.internal.StructField('native_bridge_type', 0, 0, arc.mojom.NativeBridgeTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MetricsHost_ReportNativeBridge_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportNativeBridge_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'native_bridge_type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.NativeBridgeTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportCompanionLibApiUsage_ParamsSpec, 'arc.mojom.MetricsHost_ReportCompanionLibApiUsage_Params', [
+      mojo.internal.StructField('api_id', 0, 0, arc.mojom.CompanionLibApiIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MetricsHost_ReportCompanionLibApiUsage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportCompanionLibApiUsage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'api_id', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.CompanionLibApiIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportAppKill_ParamsSpec, 'arc.mojom.MetricsHost_ReportAppKill_Params', [
+      mojo.internal.StructField('app_kill', 0, 0, arc.mojom.AppKillSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MetricsHost_ReportAppKill_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportAppKill_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app_kill', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AppKillSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportArcCorePriAbiMigEvent_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcCorePriAbiMigEvent_Params', [
+      mojo.internal.StructField('event', 0, 0, arc.mojom.ArcCorePriAbiMigEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MetricsHost_ReportArcCorePriAbiMigEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportArcCorePriAbiMigEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcCorePriAbiMigEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportArcCorePriAbiMigFailedTries_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcCorePriAbiMigFailedTries_Params', [
+      mojo.internal.StructField('failed_attempts', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MetricsHost_ReportArcCorePriAbiMigFailedTries_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportArcCorePriAbiMigFailedTries_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'failed_attempts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportArcCorePriAbiMigDowngradeDelay_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcCorePriAbiMigDowngradeDelay_Params', [
+      mojo.internal.StructField('delay', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MetricsHost_ReportArcCorePriAbiMigDowngradeDelay_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportArcCorePriAbiMigDowngradeDelay_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'delay', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportArcCorePriAbiMigBootTime_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcCorePriAbiMigBootTime_Params', [
+      mojo.internal.StructField('duration', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MetricsHost_ReportArcCorePriAbiMigBootTime_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportArcCorePriAbiMigBootTime_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportAnr_ParamsSpec, 'arc.mojom.MetricsHost_ReportAnr_Params', [
+      mojo.internal.StructField('anr', 0, 0, arc.mojom.AnrSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MetricsHost_ReportAnr_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportAnr_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'anr', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AnrSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportArcSystemHealthUpgrade_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcSystemHealthUpgrade_Params', [
+      mojo.internal.StructField('duration', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('packages_deleted', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.MetricsHost_ReportArcSystemHealthUpgrade_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportArcSystemHealthUpgrade_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'packages_deleted', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportLowLatencyStylusLibApiUsage_ParamsSpec, 'arc.mojom.MetricsHost_ReportLowLatencyStylusLibApiUsage_Params', [
+      mojo.internal.StructField('api_id', 0, 0, arc.mojom.LowLatencyStylusLibApiIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MetricsHost_ReportLowLatencyStylusLibApiUsage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportLowLatencyStylusLibApiUsage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'api_id', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.LowLatencyStylusLibApiIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportLowLatencyStylusLibPredictionTarget_ParamsSpec, 'arc.mojom.MetricsHost_ReportLowLatencyStylusLibPredictionTarget_Params', [
+      mojo.internal.StructField('prediction_target', 0, 0, arc.mojom.LowLatencyStylusLibPredictionTargetSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MetricsHost_ReportLowLatencyStylusLibPredictionTarget_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportLowLatencyStylusLibPredictionTarget_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'prediction_target', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.LowLatencyStylusLibPredictionTargetSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportDnsQueryResult_ParamsSpec, 'arc.mojom.MetricsHost_ReportDnsQueryResult_Params', [
+      mojo.internal.StructField('query', 0, 0, arc.mojom.ArcDnsQuerySpec, null, false, 0, undefined),
+      mojo.internal.StructField('success', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MetricsHost_ReportDnsQueryResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportDnsQueryResult_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcDnsQuerySpec, nullable: false, minVersion: 0 },
-        { name: 'success', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportMainAccountHashMigrationMetrics_ParamsSpec, 'arc.mojom.MetricsHost_ReportMainAccountHashMigrationMetrics_Params', [
+      mojo.internal.StructField('status', 0, 0, arc.mojom.MainAccountHashMigrationStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MetricsHost_ReportMainAccountHashMigrationMetrics_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportMainAccountHashMigrationMetrics_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.MainAccountHashMigrationStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportArcNetworkEvent_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcNetworkEvent_Params', [
+      mojo.internal.StructField('event', 0, 0, arc.mojom.ArcNetworkEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MetricsHost_ReportArcNetworkEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportArcNetworkEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcNetworkEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportArcNetworkError_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcNetworkError_Params', [
+      mojo.internal.StructField('error', 0, 0, arc.mojom.ArcNetworkErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MetricsHost_ReportArcNetworkError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportArcNetworkError_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcNetworkErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportAppPrimaryAbi_ParamsSpec, 'arc.mojom.MetricsHost_ReportAppPrimaryAbi_Params', [
+      mojo.internal.StructField('abi', 0, 0, arc.mojom.AppPrimaryAbiSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MetricsHost_ReportAppPrimaryAbi_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportAppPrimaryAbi_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'abi', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AppPrimaryAbiSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportDataRestore_ParamsSpec, 'arc.mojom.MetricsHost_ReportDataRestore_Params', [
+      mojo.internal.StructField('status', 8, 0, arc.mojom.DataRestoreStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('duration_ms', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.MetricsHost_ReportDataRestore_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportDataRestore_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.DataRestoreStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'duration_ms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportMemoryPressure_ParamsSpec, 'arc.mojom.MetricsHost_ReportMemoryPressure_Params', [
+      mojo.internal.StructField('psi_file_contents', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MetricsHost_ReportMemoryPressure_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportMemoryPressure_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'psi_file_contents', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportProvisioningPreSignIn_ParamsSpec, 'arc.mojom.MetricsHost_ReportProvisioningPreSignIn_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.MetricsHost_ReportProvisioningPreSignIn_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportProvisioningPreSignIn_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportWaylandLateTimingEvent_ParamsSpec, 'arc.mojom.MetricsHost_ReportWaylandLateTimingEvent_Params', [
+      mojo.internal.StructField('event', 8, 0, arc.mojom.WaylandTimingEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('duration', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.MetricsHost_ReportWaylandLateTimingEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportWaylandLateTimingEvent_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'event', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.WaylandTimingEventSpec, nullable: false, minVersion: 0 },
-        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportWebViewProcessStarted_ParamsSpec, 'arc.mojom.MetricsHost_ReportWebViewProcessStarted_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.MetricsHost_ReportWebViewProcessStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportWebViewProcessStarted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportVpnServiceBuilderCompatApiUsage_ParamsSpec, 'arc.mojom.MetricsHost_ReportVpnServiceBuilderCompatApiUsage_Params', [
+      mojo.internal.StructField('api_id', 0, 0, arc.mojom.VpnServiceBuilderCompatApiIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MetricsHost_ReportVpnServiceBuilderCompatApiUsage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportVpnServiceBuilderCompatApiUsage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'api_id', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.VpnServiceBuilderCompatApiIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportNewQosSocketCount_ParamsSpec, 'arc.mojom.MetricsHost_ReportNewQosSocketCount_Params', [
+      mojo.internal.StructField('count', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MetricsHost_ReportNewQosSocketCount_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportNewQosSocketCount_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportQosSocketPercentage_ParamsSpec, 'arc.mojom.MetricsHost_ReportQosSocketPercentage_Params', [
+      mojo.internal.StructField('perc', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MetricsHost_ReportQosSocketPercentage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportQosSocketPercentage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'perc', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportArcKeyMintError_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcKeyMintError_Params', [
+      mojo.internal.StructField('error', 0, 0, arc.mojom.ArcKeyMintErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MetricsHost_ReportArcKeyMintError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportArcKeyMintError_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcKeyMintErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportDragResizeLatency_ParamsSpec, 'arc.mojom.MetricsHost_ReportDragResizeLatency_Params', [
+      mojo.internal.StructField('durations', 0, 0, mojo.internal.Array(mojo_base.mojom.TimeDeltaSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MetricsHost_ReportDragResizeLatency_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportDragResizeLatency_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'durations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.TimeDeltaSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportAppErrorDialogType_ParamsSpec, 'arc.mojom.MetricsHost_ReportAppErrorDialogType_Params', [
+      mojo.internal.StructField('type', 0, 0, arc.mojom.AppErrorDialogTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MetricsHost_ReportAppErrorDialogType_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportAppErrorDialogType_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AppErrorDialogTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportApkCacheHit_ParamsSpec, 'arc.mojom.MetricsHost_ReportApkCacheHit_Params', [
+      mojo.internal.StructField('hit', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MetricsHost_ReportApkCacheHit_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportApkCacheHit_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'hit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportAppCategoryDataSizeList_ParamsSpec, 'arc.mojom.MetricsHost_ReportAppCategoryDataSizeList_Params', [
+      mojo.internal.StructField('list', 0, 0, mojo.internal.Array(arc.mojom.AppCategoryDataSizeSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MetricsHost_ReportAppCategoryDataSizeList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportAppCategoryDataSizeList_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.AppCategoryDataSizeSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportDataDirectorySizeList_ParamsSpec, 'arc.mojom.MetricsHost_ReportDataDirectorySizeList_Params', [
+      mojo.internal.StructField('list', 0, 0, mojo.internal.Array(arc.mojom.DataDirectorySizeSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MetricsHost_ReportDataDirectorySizeList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportDataDirectorySizeList_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.DataDirectorySizeSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportArcKeyMintErrorForOperation_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcKeyMintErrorForOperation_Params', [
+      mojo.internal.StructField('error', 0, 0, arc.mojom.ArcKeyMintErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('operation', 4, 0, arc.mojom.ArcKeyMintLoggedOperationSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MetricsHost_ReportArcKeyMintErrorForOperation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportArcKeyMintErrorForOperation_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcKeyMintErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'operation', packedOffset: 4, packedBitOffset: 0, type: arc.mojom.ArcKeyMintLoggedOperationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.MetricsHost_ReportCertificateSigningResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost_ReportCertificateSigningResult_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.CertificateSigningResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsHost_ReportCertificateSigningResult_ParamsSpec, 'arc.mojom.MetricsHost_ReportCertificateSigningResult_Params', [
+      mojo.internal.StructField('result', 0, 0, arc.mojom.CertificateSigningResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.MetricsHostPendingReceiver = class {
   constructor(handle) {
@@ -1149,505 +952,33 @@ arc.mojom.MetricsHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ReportBootProgress
-arc.mojom.MetricsHost_ReportBootProgress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportBootProgress_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.BootProgressEventSpec, false), nullable: false, minVersion: 0 },
-        { name: 'boot_type', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.BootTypeSpec, nullable: false, minVersion: 1 },
-      ],
-      versions: [{version: 0, packedSize: 16}, {version: 1, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ReportNativeBridge
-arc.mojom.MetricsHost_ReportNativeBridge_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportNativeBridge_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'native_bridge_type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.NativeBridgeTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReportCompanionLibApiUsage
-arc.mojom.MetricsHost_ReportCompanionLibApiUsage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportCompanionLibApiUsage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'api_id', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.CompanionLibApiIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReportAppKill
-arc.mojom.MetricsHost_ReportAppKill_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportAppKill_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'app_kill', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AppKillSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReportArcCorePriAbiMigEvent
-arc.mojom.MetricsHost_ReportArcCorePriAbiMigEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportArcCorePriAbiMigEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcCorePriAbiMigEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReportArcCorePriAbiMigFailedTries
-arc.mojom.MetricsHost_ReportArcCorePriAbiMigFailedTries_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportArcCorePriAbiMigFailedTries_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'failed_attempts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReportArcCorePriAbiMigDowngradeDelay
-arc.mojom.MetricsHost_ReportArcCorePriAbiMigDowngradeDelay_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportArcCorePriAbiMigDowngradeDelay_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'delay', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReportArcCorePriAbiMigBootTime
-arc.mojom.MetricsHost_ReportArcCorePriAbiMigBootTime_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportArcCorePriAbiMigBootTime_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReportAnr
-arc.mojom.MetricsHost_ReportAnr_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportAnr_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'anr', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AnrSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReportArcSystemHealthUpgrade
-arc.mojom.MetricsHost_ReportArcSystemHealthUpgrade_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportArcSystemHealthUpgrade_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'packages_deleted', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ReportLowLatencyStylusLibApiUsage
-arc.mojom.MetricsHost_ReportLowLatencyStylusLibApiUsage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportLowLatencyStylusLibApiUsage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'api_id', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.LowLatencyStylusLibApiIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReportLowLatencyStylusLibPredictionTarget
-arc.mojom.MetricsHost_ReportLowLatencyStylusLibPredictionTarget_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportLowLatencyStylusLibPredictionTarget_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'prediction_target', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.LowLatencyStylusLibPredictionTargetSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReportDnsQueryResult
-arc.mojom.MetricsHost_ReportDnsQueryResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportDnsQueryResult_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcDnsQuerySpec, nullable: false, minVersion: 0 },
-        { name: 'success', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReportMainAccountHashMigrationMetrics
-arc.mojom.MetricsHost_ReportMainAccountHashMigrationMetrics_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportMainAccountHashMigrationMetrics_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.MainAccountHashMigrationStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReportArcNetworkEvent
-arc.mojom.MetricsHost_ReportArcNetworkEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportArcNetworkEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcNetworkEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReportArcNetworkError
-arc.mojom.MetricsHost_ReportArcNetworkError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportArcNetworkError_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcNetworkErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReportAppPrimaryAbi
-arc.mojom.MetricsHost_ReportAppPrimaryAbi_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportAppPrimaryAbi_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'abi', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AppPrimaryAbiSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReportDataRestore
-arc.mojom.MetricsHost_ReportDataRestore_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportDataRestore_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.DataRestoreStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'duration_ms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ReportMemoryPressure
-arc.mojom.MetricsHost_ReportMemoryPressure_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportMemoryPressure_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'psi_file_contents', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReportProvisioningPreSignIn
-arc.mojom.MetricsHost_ReportProvisioningPreSignIn_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportProvisioningPreSignIn_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ReportWaylandLateTimingEvent
-arc.mojom.MetricsHost_ReportWaylandLateTimingEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportWaylandLateTimingEvent_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'event', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.WaylandTimingEventSpec, nullable: false, minVersion: 0 },
-        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ReportWebViewProcessStarted
-arc.mojom.MetricsHost_ReportWebViewProcessStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportWebViewProcessStarted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ReportVpnServiceBuilderCompatApiUsage
-arc.mojom.MetricsHost_ReportVpnServiceBuilderCompatApiUsage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportVpnServiceBuilderCompatApiUsage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'api_id', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.VpnServiceBuilderCompatApiIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReportNewQosSocketCount
-arc.mojom.MetricsHost_ReportNewQosSocketCount_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportNewQosSocketCount_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReportQosSocketPercentage
-arc.mojom.MetricsHost_ReportQosSocketPercentage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportQosSocketPercentage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'perc', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReportArcKeyMintError
-arc.mojom.MetricsHost_ReportArcKeyMintError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportArcKeyMintError_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcKeyMintErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReportDragResizeLatency
-arc.mojom.MetricsHost_ReportDragResizeLatency_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportDragResizeLatency_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'durations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.TimeDeltaSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReportAppErrorDialogType
-arc.mojom.MetricsHost_ReportAppErrorDialogType_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportAppErrorDialogType_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AppErrorDialogTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReportApkCacheHit
-arc.mojom.MetricsHost_ReportApkCacheHit_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportApkCacheHit_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'hit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReportAppCategoryDataSizeList
-arc.mojom.MetricsHost_ReportAppCategoryDataSizeList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportAppCategoryDataSizeList_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.AppCategoryDataSizeSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReportDataDirectorySizeList
-arc.mojom.MetricsHost_ReportDataDirectorySizeList_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportDataDirectorySizeList_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.DataDirectorySizeSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReportArcKeyMintErrorForOperation
-arc.mojom.MetricsHost_ReportArcKeyMintErrorForOperation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportArcKeyMintErrorForOperation_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcKeyMintErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'operation', packedOffset: 4, packedBitOffset: 0, type: arc.mojom.ArcKeyMintLoggedOperationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReportCertificateSigningResult
-arc.mojom.MetricsHost_ReportCertificateSigningResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsHost.ReportCertificateSigningResult_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.CertificateSigningResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.MetricsHostPtr = arc.mojom.MetricsHostRemote;
 arc.mojom.MetricsHostRequest = arc.mojom.MetricsHostPendingReceiver;
 
 
 // Interface: MetricsInstance
-arc.mojom.MetricsInstance = {};
+mojo.internal.Struct(
+    arc.mojom.MetricsInstance_Init_ParamsSpec, 'arc.mojom.MetricsInstance_Init_Params', [
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.MetricsHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.MetricsInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsInstance_Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.MetricsHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsInstance_Init_ResponseParamsSpec, 'arc.mojom.MetricsInstance_Init_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.MetricsInstance_GetGfxMetrics_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsInstance_GetGfxMetrics_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'packageName', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.MetricsInstance_GetGfxMetrics_ParamsSpec, 'arc.mojom.MetricsInstance_GetGfxMetrics_Params', [
+      mojo.internal.StructField('packageName', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.MetricsInstance_GetGfxMetrics_ResponseParamsSpec, 'arc.mojom.MetricsInstance_GetGfxMetrics_ResponseParams', [
+      mojo.internal.StructField('metrics', 0, 0, arc.mojom.GfxMetricsSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.MetricsInstancePendingReceiver = class {
   constructor(handle) {
@@ -1686,7 +1017,7 @@ arc.mojom.MetricsInstanceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       arc.mojom.MetricsInstance_Init_ParamsSpec,
-      null,
+      arc.mojom.MetricsInstance_Init_ResponseParamsSpec,
       [host_remote]);
   }
 
@@ -1711,48 +1042,6 @@ arc.mojom.MetricsInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Init
-arc.mojom.MetricsInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsInstance.Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.MetricsHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetGfxMetrics
-arc.mojom.MetricsInstance_GetGfxMetrics_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsInstance.GetGfxMetrics_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'packageName', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.MetricsInstance_GetGfxMetrics_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.MetricsInstance.GetGfxMetrics_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'metrics', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.GfxMetricsSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.MetricsInstancePtr = arc.mojom.MetricsInstanceRemote;
 arc.mojom.MetricsInstanceRequest = arc.mojom.MetricsInstancePendingReceiver;
 

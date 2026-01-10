@@ -8,35 +8,23 @@
 var heap_profiling = heap_profiling || {};
 heap_profiling.mojom = heap_profiling.mojom || {};
 
+heap_profiling.mojom.SnapshotController = {};
+heap_profiling.mojom.SnapshotController.$interfaceName = 'heap_profiling.mojom.SnapshotController';
+heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec = { $: {} };
+heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_ParamsSpec = { $: {} };
 
 // Interface: SnapshotController
-heap_profiling.mojom.SnapshotController = {};
+mojo.internal.Struct(
+    heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec, 'heap_profiling.mojom.SnapshotController_TakeSnapshot_Params', [
+      mojo.internal.StructField('process_probability_pct', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('process_index', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'heap_profiling.mojom.SnapshotController_TakeSnapshot_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'process_probability_pct', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'process_index', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_ParamsSpec, 'heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 heap_profiling.mojom.SnapshotControllerPendingReceiver = class {
   constructor(handle) {
@@ -100,35 +88,6 @@ heap_profiling.mojom.SnapshotController.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for TakeSnapshot
-heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'heap_profiling.mojom.SnapshotController.TakeSnapshot_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'process_probability_pct', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'process_index', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for LogMetricsWithoutSnapshot
-heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'heap_profiling.mojom.SnapshotController.LogMetricsWithoutSnapshot_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 heap_profiling.mojom.SnapshotControllerPtr = heap_profiling.mojom.SnapshotControllerRemote;
 heap_profiling.mojom.SnapshotControllerRequest = heap_profiling.mojom.SnapshotControllerPendingReceiver;
 

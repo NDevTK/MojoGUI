@@ -11,20 +11,14 @@ var ui = ui || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+display.mojom.DisplayConfigurationParamsSpec = { $: {} };
 
 // Struct: DisplayConfigurationParams
-display.mojom.DisplayConfigurationParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'display.mojom.DisplayConfigurationParams',
-      packedSize: 40,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-        { name: 'mode', packedOffset: 16, packedBitOffset: 0, type: display.mojom.DisplayModeSpec, nullable: true, minVersion: 0 },
-        { name: 'enable_vrr', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    display.mojom.DisplayConfigurationParamsSpec, 'display.mojom.DisplayConfigurationParams', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('origin', 8, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mode', 16, 0, display.mojom.DisplayModeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('enable_vrr', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 40]]);

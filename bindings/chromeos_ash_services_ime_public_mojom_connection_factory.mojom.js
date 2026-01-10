@@ -8,39 +8,50 @@
 var ash = ash || {};
 ash.ime = ash.ime || {};
 ash.ime.mojom = ash.ime.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var services = services || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var services = services || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var services = services || {};
 
+ash.ime.mojom.ConnectionFactory = {};
+ash.ime.mojom.ConnectionFactory.$interfaceName = 'ash.ime.mojom.ConnectionFactory';
+ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ParamsSpec = { $: {} };
+ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParamsSpec = { $: {} };
+ash.ime.mojom.ConnectionFactory_Unused_ParamsSpec = { $: {} };
+ash.ime.mojom.ConnectionFactory_Unused_ResponseParamsSpec = { $: {} };
 
 // Interface: ConnectionFactory
-ash.ime.mojom.ConnectionFactory = {};
+mojo.internal.Struct(
+    ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ParamsSpec, 'ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_Params', [
+      mojo.internal.StructField('ime_spec', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('input_method', 8, 0, mojo.internal.AssociatedInterfaceRequest(ash.ime.mojom.InputMethodRemote), null, false, 0, undefined),
+      mojo.internal.StructField('input_method_host', 16, 0, mojo.internal.AssociatedInterfaceProxy(ash.ime.mojom.InputMethodHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('settings', 24, 0, ash.ime.mojom.InputMethodSettingsSpec, null, true, 2, undefined),
+    ],
+    [[0, 32], [2, 48]]);
 
-ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'ime_spec', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'input_method', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(ash.ime.mojom.InputMethodRemote), nullable: false, minVersion: 0 },
-        { name: 'input_method_host', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(ash.ime.mojom.InputMethodHostRemote), nullable: false, minVersion: 0 },
-        { name: 'settings', packedOffset: 24, packedBitOffset: 0, type: ash.ime.mojom.InputMethodSettingsSpec, nullable: true, minVersion: 2 },
-      ],
-      versions: [{version: 0, packedSize: 32}, {version: 2, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParamsSpec, 'ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.ime.mojom.ConnectionFactory_Unused_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.ConnectionFactory_Unused_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'unused', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(ash.ime.mojom.JpUnusedRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.ConnectionFactory_Unused_ParamsSpec, 'ash.ime.mojom.ConnectionFactory_Unused_Params', [
+      mojo.internal.StructField('unused', 0, 0, mojo.internal.AssociatedInterfaceRequest(ash.ime.mojom.JpUnusedRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.ime.mojom.ConnectionFactory_Unused_ResponseParamsSpec, 'ash.ime.mojom.ConnectionFactory_Unused_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.ime.mojom.ConnectionFactoryPendingReceiver = class {
   constructor(handle) {
@@ -104,64 +115,6 @@ ash.ime.mojom.ConnectionFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ConnectToInputMethod
-ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.ConnectionFactory.ConnectToInputMethod_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'ime_spec', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'input_method', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(ash.ime.mojom.InputMethodRemote), nullable: false, minVersion: 0 },
-        { name: 'input_method_host', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(ash.ime.mojom.InputMethodHostRemote), nullable: false, minVersion: 0 },
-        { name: 'settings', packedOffset: 24, packedBitOffset: 0, type: ash.ime.mojom.InputMethodSettingsSpec, nullable: true, minVersion: 2 },
-      ],
-      versions: [{version: 0, packedSize: 32}, {version: 2, packedSize: 48}]
-    }
-  }
-};
-
-ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.ConnectionFactory.ConnectToInputMethod_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Unused
-ash.ime.mojom.ConnectionFactory_Unused_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.ConnectionFactory.Unused_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'unused', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(ash.ime.mojom.JpUnusedRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.ime.mojom.ConnectionFactory_Unused_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.ConnectionFactory.Unused_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.ime.mojom.ConnectionFactoryPtr = ash.ime.mojom.ConnectionFactoryRemote;
 ash.ime.mojom.ConnectionFactoryRequest = ash.ime.mojom.ConnectionFactoryPendingReceiver;
 

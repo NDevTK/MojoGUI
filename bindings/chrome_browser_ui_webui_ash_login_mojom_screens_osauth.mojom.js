@@ -9,57 +9,33 @@ var ash = ash || {};
 ash.screens_osauth = ash.screens_osauth || {};
 ash.screens_osauth.mojom = ash.screens_osauth.mojom || {};
 
+ash.screens_osauth.mojom.LocalDataLossWarningPageHandler = {};
+ash.screens_osauth.mojom.LocalDataLossWarningPageHandler.$interfaceName = 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler';
+ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec = { $: {} };
+ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSpec = { $: {} };
+ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec = { $: {} };
+ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec = { $: {} };
 
 // Interface: LocalDataLossWarningPageHandler
-ash.screens_osauth.mojom.LocalDataLossWarningPageHandler = {};
+mojo.internal.Struct(
+    ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec, 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSpec, 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec, 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec, 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -141,59 +117,6 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandler.getRemote = function() 
   return remote.$;
 };
 
-// ParamsSpec for OnPowerwash
-ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler.OnPowerwash_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnRecreateUser
-ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler.OnRecreateUser_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnCancel
-ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler.OnCancel_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnBack
-ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler.OnBack_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerPtr = ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRemote;
 ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRequest = ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerPendingReceiver;
 

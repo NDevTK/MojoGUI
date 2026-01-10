@@ -8,22 +8,16 @@
 var test = test || {};
 test.mojom = test.mojom || {};
 
+test.mojom.MojoFileSystemAccessTest = {};
+test.mojom.MojoFileSystemAccessTest.$interfaceName = 'test.mojom.MojoFileSystemAccessTest';
+test.mojom.MojoFileSystemAccessTest_ResolveTransferToken_ParamsSpec = { $: {} };
 
 // Interface: MojoFileSystemAccessTest
-test.mojom.MojoFileSystemAccessTest = {};
-
-test.mojom.MojoFileSystemAccessTest_ResolveTransferToken_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'test.mojom.MojoFileSystemAccessTest_ResolveTransferToken_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'h', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    test.mojom.MojoFileSystemAccessTest_ResolveTransferToken_ParamsSpec, 'test.mojom.MojoFileSystemAccessTest_ResolveTransferToken_Params', [
+      mojo.internal.StructField('h', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 test.mojom.MojoFileSystemAccessTestPendingReceiver = class {
   constructor(handle) {
@@ -78,21 +72,6 @@ test.mojom.MojoFileSystemAccessTest.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ResolveTransferToken
-test.mojom.MojoFileSystemAccessTest_ResolveTransferToken_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'test.mojom.MojoFileSystemAccessTest.ResolveTransferToken_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'h', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 test.mojom.MojoFileSystemAccessTestPtr = test.mojom.MojoFileSystemAccessTestRemote;
 test.mojom.MojoFileSystemAccessTestRequest = test.mojom.MojoFileSystemAccessTestPendingReceiver;
 

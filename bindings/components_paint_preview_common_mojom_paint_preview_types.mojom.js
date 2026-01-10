@@ -8,13 +8,15 @@
 var paint_preview = paint_preview || {};
 paint_preview.mojom = paint_preview.mojom || {};
 
+paint_preview.mojom.RecordingPersistenceSpec = { $: mojo.internal.Enum() };
+paint_preview.mojom.ClipCoordOverrideSpec = { $: mojo.internal.Enum() };
+paint_preview.mojom.SerializedRecordingSpec = { $: {} };
 
 // Enum: RecordingPersistence
 paint_preview.mojom.RecordingPersistence = {
   kFileSystem: 0,
   kMemoryBuffer: 1,
 };
-paint_preview.mojom.RecordingPersistenceSpec = { $: mojo.internal.Enum() };
 
 // Enum: ClipCoordOverride
 paint_preview.mojom.ClipCoordOverride = {
@@ -22,18 +24,18 @@ paint_preview.mojom.ClipCoordOverride = {
   kCenterOnScrollOffset: 1,
   kScrollOffset: 2,
 };
-paint_preview.mojom.ClipCoordOverrideSpec = { $: mojo.internal.Enum() };
 
 // Union: SerializedRecording
-paint_preview.mojom.SerializedRecordingSpec = { $: mojo.internal.Union(
-    'paint_preview.mojom.SerializedRecording', {
+mojo.internal.Union(
+    paint_preview.mojom.SerializedRecordingSpec, 'paint_preview.mojom.SerializedRecording', {
       'file': {
         'ordinal': 0,
         'type': mojo_base.mojom.FileSpec,
-      }},
+        'nullable': false,
+      },
       'buffer': {
         'ordinal': 1,
         'type': mojo_base.mojom.BigBufferSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });

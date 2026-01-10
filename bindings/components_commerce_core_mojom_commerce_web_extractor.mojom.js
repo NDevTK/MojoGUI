@@ -8,21 +8,22 @@
 var commerce_web_extractor = commerce_web_extractor || {};
 commerce_web_extractor.mojom = commerce_web_extractor.mojom || {};
 
+commerce_web_extractor.mojom.CommerceWebExtractor = {};
+commerce_web_extractor.mojom.CommerceWebExtractor.$interfaceName = 'commerce_web_extractor.mojom.CommerceWebExtractor';
+commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ParamsSpec = { $: {} };
+commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ResponseParamsSpec = { $: {} };
 
 // Interface: CommerceWebExtractor
-commerce_web_extractor.mojom.CommerceWebExtractor = {};
+mojo.internal.Struct(
+    commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ParamsSpec, 'commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ResponseParamsSpec, 'commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 commerce_web_extractor.mojom.CommerceWebExtractorPendingReceiver = class {
   constructor(handle) {
@@ -77,33 +78,6 @@ commerce_web_extractor.mojom.CommerceWebExtractor.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ExtractMetaInfo
-commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce_web_extractor.mojom.CommerceWebExtractor.ExtractMetaInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce_web_extractor.mojom.CommerceWebExtractor.ExtractMetaInfo_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 commerce_web_extractor.mojom.CommerceWebExtractorPtr = commerce_web_extractor.mojom.CommerceWebExtractorRemote;
 commerce_web_extractor.mojom.CommerceWebExtractorRequest = commerce_web_extractor.mojom.CommerceWebExtractorPendingReceiver;
 

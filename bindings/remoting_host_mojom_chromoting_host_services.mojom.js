@@ -8,22 +8,21 @@
 var remoting = remoting || {};
 remoting.mojom = remoting.mojom || {};
 
+remoting.mojom.ChromotingHostServices = {};
+remoting.mojom.ChromotingHostServices.$interfaceName = 'remoting.mojom.ChromotingHostServices';
+remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec = { $: {} };
+remoting.mojom.ChromotingSessionServices = {};
+remoting.mojom.ChromotingSessionServices.$interfaceName = 'remoting.mojom.ChromotingSessionServices';
+remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec = { $: {} };
+remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec = { $: {} };
+remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec = { $: {} };
 
 // Interface: ChromotingHostServices
-remoting.mojom.ChromotingHostServices = {};
-
-remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.ChromotingHostServices_BindSessionServices_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(remoting.mojom.ChromotingSessionServicesRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec, 'remoting.mojom.ChromotingHostServices_BindSessionServices_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(remoting.mojom.ChromotingSessionServicesRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 remoting.mojom.ChromotingHostServicesPendingReceiver = class {
   constructor(handle) {
@@ -78,66 +77,28 @@ remoting.mojom.ChromotingHostServices.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BindSessionServices
-remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.ChromotingHostServices.BindSessionServices_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(remoting.mojom.ChromotingSessionServicesRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 remoting.mojom.ChromotingHostServicesPtr = remoting.mojom.ChromotingHostServicesRemote;
 remoting.mojom.ChromotingHostServicesRequest = remoting.mojom.ChromotingHostServicesPendingReceiver;
 
 
 // Interface: ChromotingSessionServices
-remoting.mojom.ChromotingSessionServices = {};
+mojo.internal.Struct(
+    remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec, 'remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(remoting.mojom.WebAuthnProxyRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(remoting.mojom.WebAuthnProxyRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec, 'remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(remoting.mojom.RemoteUrlOpenerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(remoting.mojom.RemoteUrlOpenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(remoting.mojom.SecurityKeyForwarderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec, 'remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(remoting.mojom.SecurityKeyForwarderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 remoting.mojom.ChromotingSessionServicesPendingReceiver = class {
   constructor(handle) {
@@ -210,49 +171,6 @@ remoting.mojom.ChromotingSessionServices.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BindWebAuthnProxy
-remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.ChromotingSessionServices.BindWebAuthnProxy_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(remoting.mojom.WebAuthnProxyRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindRemoteUrlOpener
-remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.ChromotingSessionServices.BindRemoteUrlOpener_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(remoting.mojom.RemoteUrlOpenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindSecurityKeyForwarder
-remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.ChromotingSessionServices.BindSecurityKeyForwarder_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(remoting.mojom.SecurityKeyForwarderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 remoting.mojom.ChromotingSessionServicesPtr = remoting.mojom.ChromotingSessionServicesRemote;
 remoting.mojom.ChromotingSessionServicesRequest = remoting.mojom.ChromotingSessionServicesPendingReceiver;
 

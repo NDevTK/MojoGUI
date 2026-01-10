@@ -10,34 +10,25 @@ ash.settings = ash.settings || {};
 ash.settings.graduation = ash.settings.graduation || {};
 ash.settings.graduation.mojom = ash.settings.graduation.mojom || {};
 
+ash.settings.graduation.mojom.GraduationHandler = {};
+ash.settings.graduation.mojom.GraduationHandler.$interfaceName = 'ash.settings.graduation.mojom.GraduationHandler';
+ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec = { $: {} };
+ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec = { $: {} };
+ash.settings.graduation.mojom.GraduationObserver = {};
+ash.settings.graduation.mojom.GraduationObserver.$interfaceName = 'ash.settings.graduation.mojom.GraduationObserver';
+ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec = { $: {} };
 
 // Interface: GraduationHandler
-ash.settings.graduation.mojom.GraduationHandler = {};
+mojo.internal.Struct(
+    ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec, 'ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.graduation.mojom.GraduationHandler_AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.graduation.mojom.GraduationObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec, 'ash.settings.graduation.mojom.GraduationHandler_AddObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.settings.graduation.mojom.GraduationObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.settings.graduation.mojom.GraduationHandlerPendingReceiver = class {
   constructor(handle) {
@@ -101,53 +92,16 @@ ash.settings.graduation.mojom.GraduationHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for LaunchGraduationApp
-ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.graduation.mojom.GraduationHandler.LaunchGraduationApp_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for AddObserver
-ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.graduation.mojom.GraduationHandler.AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.graduation.mojom.GraduationObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.settings.graduation.mojom.GraduationHandlerPtr = ash.settings.graduation.mojom.GraduationHandlerRemote;
 ash.settings.graduation.mojom.GraduationHandlerRequest = ash.settings.graduation.mojom.GraduationHandlerPendingReceiver;
 
 
 // Interface: GraduationObserver
-ash.settings.graduation.mojom.GraduationObserver = {};
-
-ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_app_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec, 'ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_Params', [
+      mojo.internal.StructField('is_app_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.settings.graduation.mojom.GraduationObserverPendingReceiver = class {
   constructor(handle) {
@@ -202,21 +156,6 @@ ash.settings.graduation.mojom.GraduationObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnGraduationAppUpdated
-ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.graduation.mojom.GraduationObserver.OnGraduationAppUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_app_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.settings.graduation.mojom.GraduationObserverPtr = ash.settings.graduation.mojom.GraduationObserverRemote;
 ash.settings.graduation.mojom.GraduationObserverRequest = ash.settings.graduation.mojom.GraduationObserverPendingReceiver;
 

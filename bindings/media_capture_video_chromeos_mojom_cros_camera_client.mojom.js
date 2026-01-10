@@ -7,23 +7,18 @@
 // Module namespace
 var cros = cros || {};
 cros.mojom = cros.mojom || {};
+var chromeos = chromeos || {};
 
+cros.mojom.CameraHalClient = {};
+cros.mojom.CameraHalClient.$interfaceName = 'cros.mojom.CameraHalClient';
+cros.mojom.CameraHalClient_SetUpChannel_ParamsSpec = { $: {} };
 
 // Interface: CameraHalClient
-cros.mojom.CameraHalClient = {};
-
-cros.mojom.CameraHalClient_SetUpChannel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CameraHalClient_SetUpChannel_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'camera_module', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cros.mojom.CameraModuleRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.CameraHalClient_SetUpChannel_ParamsSpec, 'cros.mojom.CameraHalClient_SetUpChannel_Params', [
+      mojo.internal.StructField('camera_module', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.CameraModuleRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 cros.mojom.CameraHalClientPendingReceiver = class {
   constructor(handle) {
@@ -78,21 +73,6 @@ cros.mojom.CameraHalClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetUpChannel
-cros.mojom.CameraHalClient_SetUpChannel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CameraHalClient.SetUpChannel_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'camera_module', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cros.mojom.CameraModuleRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 cros.mojom.CameraHalClientPtr = cros.mojom.CameraHalClientRemote;
 cros.mojom.CameraHalClientRequest = cros.mojom.CameraHalClientPendingReceiver;
 

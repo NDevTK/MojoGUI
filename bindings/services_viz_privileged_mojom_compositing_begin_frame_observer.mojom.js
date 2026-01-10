@@ -7,23 +7,18 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var services = services || {};
 
+viz.mojom.BeginFrameObserver = {};
+viz.mojom.BeginFrameObserver.$interfaceName = 'viz.mojom.BeginFrameObserver';
+viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec = { $: {} };
 
 // Interface: BeginFrameObserver
-viz.mojom.BeginFrameObserver = {};
-
-viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec, 'viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_Params', [
+      mojo.internal.StructField('args', 0, 0, viz.mojom.BeginFrameArgsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 viz.mojom.BeginFrameObserverPendingReceiver = class {
   constructor(handle) {
@@ -78,21 +73,6 @@ viz.mojom.BeginFrameObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnStandaloneBeginFrame
-viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.BeginFrameObserver.OnStandaloneBeginFrame_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 viz.mojom.BeginFrameObserverPtr = viz.mojom.BeginFrameObserverRemote;
 viz.mojom.BeginFrameObserverRequest = viz.mojom.BeginFrameObserverPendingReceiver;
 

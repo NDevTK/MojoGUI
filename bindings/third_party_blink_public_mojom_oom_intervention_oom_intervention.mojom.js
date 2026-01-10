@@ -8,35 +8,26 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.DetectionArgsSpec = { $: {} };
+blink.mojom.OomInterventionHost = {};
+blink.mojom.OomInterventionHost.$interfaceName = 'blink.mojom.OomInterventionHost';
+blink.mojom.OomInterventionHost_OnHighMemoryUsage_ParamsSpec = { $: {} };
+blink.mojom.OomIntervention = {};
+blink.mojom.OomIntervention.$interfaceName = 'blink.mojom.OomIntervention';
+blink.mojom.OomIntervention_StartDetection_ParamsSpec = { $: {} };
 
 // Struct: DetectionArgs
-blink.mojom.DetectionArgsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DetectionArgs',
-      packedSize: 16,
-      fields: [
-        { name: 'private_footprint_threshold', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DetectionArgsSpec, 'blink.mojom.DetectionArgs', [
+      mojo.internal.StructField('private_footprint_threshold', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: OomInterventionHost
-blink.mojom.OomInterventionHost = {};
-
-blink.mojom.OomInterventionHost_OnHighMemoryUsage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.OomInterventionHost_OnHighMemoryUsage_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.OomInterventionHost_OnHighMemoryUsage_ParamsSpec, 'blink.mojom.OomInterventionHost_OnHighMemoryUsage_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 blink.mojom.OomInterventionHostPendingReceiver = class {
   constructor(handle) {
@@ -91,43 +82,20 @@ blink.mojom.OomInterventionHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnHighMemoryUsage
-blink.mojom.OomInterventionHost_OnHighMemoryUsage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.OomInterventionHost.OnHighMemoryUsage_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.OomInterventionHostPtr = blink.mojom.OomInterventionHostRemote;
 blink.mojom.OomInterventionHostRequest = blink.mojom.OomInterventionHostPendingReceiver;
 
 
 // Interface: OomIntervention
-blink.mojom.OomIntervention = {};
-
-blink.mojom.OomIntervention_StartDetection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.OomIntervention_StartDetection_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.OomInterventionHostRemote), nullable: false, minVersion: 0 },
-        { name: 'detection_args', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DetectionArgsSpec, nullable: false, minVersion: 0 },
-        { name: 'renderer_pause_enabled', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'navigate_ads_enabled', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'purge_v8_memory_enabled', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.OomIntervention_StartDetection_ParamsSpec, 'blink.mojom.OomIntervention_StartDetection_Params', [
+      mojo.internal.StructField('host', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.OomInterventionHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('detection_args', 8, 0, blink.mojom.DetectionArgsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('renderer_pause_enabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('navigate_ads_enabled', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('purge_v8_memory_enabled', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 blink.mojom.OomInterventionPendingReceiver = class {
   constructor(handle) {
@@ -182,25 +150,6 @@ blink.mojom.OomIntervention.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for StartDetection
-blink.mojom.OomIntervention_StartDetection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.OomIntervention.StartDetection_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.OomInterventionHostRemote), nullable: false, minVersion: 0 },
-        { name: 'detection_args', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DetectionArgsSpec, nullable: false, minVersion: 0 },
-        { name: 'renderer_pause_enabled', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'navigate_ads_enabled', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'purge_v8_memory_enabled', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.OomInterventionPtr = blink.mojom.OomInterventionRemote;
 blink.mojom.OomInterventionRequest = blink.mojom.OomInterventionPendingReceiver;
 

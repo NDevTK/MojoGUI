@@ -7,12 +7,18 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
 var blink = blink || {};
 var ui = ui || {};
 var gfx = gfx || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+blink.mojom.ViewTransitionPropertyIdSpec = { $: mojo.internal.Enum() };
+blink.mojom.ViewTransitionElementBoxSizingSpec = { $: mojo.internal.Enum() };
+blink.mojom.ViewTransitionElementLayeredBoxPropertiesSpec = { $: {} };
+blink.mojom.ViewTransitionElementSpec = { $: {} };
+blink.mojom.ViewTransitionStateSpec = { $: {} };
 
 // Enum: ViewTransitionPropertyId
 blink.mojom.ViewTransitionPropertyId = {
@@ -25,74 +31,51 @@ blink.mojom.ViewTransitionPropertyId = {
   kTextOrientation: 6,
   kWritingMode: 7,
 };
-blink.mojom.ViewTransitionPropertyIdSpec = { $: mojo.internal.Enum() };
 
 // Enum: ViewTransitionElementBoxSizing
 blink.mojom.ViewTransitionElementBoxSizing = {
   kBorderBox: 0,
   kContentBox: 1,
 };
-blink.mojom.ViewTransitionElementBoxSizingSpec = { $: mojo.internal.Enum() };
 
 // Struct: ViewTransitionElementLayeredBoxProperties
-blink.mojom.ViewTransitionElementLayeredBoxPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ViewTransitionElementLayeredBoxProperties',
-      packedSize: 32,
-      fields: [
-        { name: 'content_box', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-        { name: 'padding_box', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-        { name: 'box_sizing', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ViewTransitionElementBoxSizingSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ViewTransitionElementLayeredBoxPropertiesSpec, 'blink.mojom.ViewTransitionElementLayeredBoxProperties', [
+      mojo.internal.StructField('content_box', 0, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('padding_box', 8, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('box_sizing', 16, 0, blink.mojom.ViewTransitionElementBoxSizingSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: ViewTransitionElement
-blink.mojom.ViewTransitionElementSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ViewTransitionElement',
-      packedSize: 112,
-      fields: [
-        { name: 'tag_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'border_box_rect_in_enclosing_layer_css_space', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-        { name: 'viewport_matrix', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: false, minVersion: 0 },
-        { name: 'overflow_rect_in_layout_space', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-        { name: 'captured_rect_in_layout_space', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: true, minVersion: 0 },
-        { name: 'snapshot_id', packedOffset: 40, packedBitOffset: 0, type: viz.mojom.ViewTransitionElementResourceIdSpec, nullable: false, minVersion: 0 },
-        { name: 'paint_order', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'captured_css_properties', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Map(blink.mojom.ViewTransitionPropertyIdSpec, mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'group_children_css_properties', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Map(blink.mojom.ViewTransitionPropertyIdSpec, mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'border_offset', packedOffset: 64, packedBitOffset: 0, type: gfx.mojom.Vector2dSpec, nullable: false, minVersion: 0 },
-        { name: 'class_list', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'containing_group_name', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'layered_box_properties', packedOffset: 88, packedBitOffset: 0, type: blink.mojom.ViewTransitionElementLayeredBoxPropertiesSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 112}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ViewTransitionElementSpec, 'blink.mojom.ViewTransitionElement', [
+      mojo.internal.StructField('tag_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('border_box_rect_in_enclosing_layer_css_space', 8, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('viewport_matrix', 16, 0, gfx.mojom.TransformSpec, null, false, 0, undefined),
+      mojo.internal.StructField('overflow_rect_in_layout_space', 24, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('captured_rect_in_layout_space', 32, 0, gfx.mojom.RectFSpec, null, true, 0, undefined),
+      mojo.internal.StructField('snapshot_id', 40, 0, viz.mojom.ViewTransitionElementResourceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('paint_order', 96, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('captured_css_properties', 48, 0, mojo.internal.Map(blink.mojom.ViewTransitionPropertyIdSpec, mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('group_children_css_properties', 56, 0, mojo.internal.Map(blink.mojom.ViewTransitionPropertyIdSpec, mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('border_offset', 64, 0, gfx.mojom.Vector2dSpec, null, false, 0, undefined),
+      mojo.internal.StructField('class_list', 72, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('containing_group_name', 80, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('layered_box_properties', 88, 0, blink.mojom.ViewTransitionElementLayeredBoxPropertiesSpec, null, true, 0, undefined),
+    ],
+    [[0, 112]]);
 
 // Struct: ViewTransitionState
-blink.mojom.ViewTransitionStateSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ViewTransitionState',
-      packedSize: 64,
-      fields: [
-        { name: 'elements', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.ViewTransitionElementSpec, false), nullable: false, minVersion: 0 },
-        { name: 'transition_token', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ViewTransitionTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'snapshot_root_size_at_capture', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'device_pixel_ratio', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'next_element_resource_id', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'subframe_snapshot_id', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.ViewTransitionElementResourceIdSpec, nullable: false, minVersion: 0 },
-        { name: 'id_to_auto_name_map', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'delay_layer_tree_view_deletion', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ViewTransitionStateSpec, 'blink.mojom.ViewTransitionState', [
+      mojo.internal.StructField('elements', 0, 0, mojo.internal.Array(blink.mojom.ViewTransitionElementSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('transition_token', 8, 0, blink.mojom.ViewTransitionTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('snapshot_root_size_at_capture', 16, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_pixel_ratio', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('next_element_resource_id', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('subframe_snapshot_id', 24, 0, viz.mojom.ViewTransitionElementResourceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id_to_auto_name_map', 32, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('delay_layer_tree_view_deletion', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 64]]);

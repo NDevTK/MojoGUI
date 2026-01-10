@@ -10,34 +10,22 @@ ui.mojom = ui.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+ui.mojom.FontAttributeSpec = { $: {} };
+ui.mojom.AttributedStringSpec = { $: {} };
 
 // Struct: FontAttribute
-ui.mojom.FontAttributeSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.mojom.FontAttribute',
-      packedSize: 32,
-      fields: [
-        { name: 'font_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'font_point_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'effective_range', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ui.mojom.FontAttributeSpec, 'ui.mojom.FontAttribute', [
+      mojo.internal.StructField('font_name', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('font_point_size', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('effective_range', 8, 0, gfx.mojom.RangeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: AttributedString
-ui.mojom.AttributedStringSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.mojom.AttributedString',
-      packedSize: 24,
-      fields: [
-        { name: 'string', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'attributes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ui.mojom.FontAttributeSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ui.mojom.AttributedStringSpec, 'ui.mojom.AttributedString', [
+      mojo.internal.StructField('string', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('attributes', 8, 0, mojo.internal.Array(ui.mojom.FontAttributeSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);

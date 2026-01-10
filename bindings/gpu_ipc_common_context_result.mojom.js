@@ -8,6 +8,7 @@
 var gpu = gpu || {};
 gpu.mojom = gpu.mojom || {};
 
+gpu.mojom.ContextResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: ContextResult
 gpu.mojom.ContextResult = {
@@ -16,4 +17,3 @@ gpu.mojom.ContextResult = {
   FatalFailure: 2,
   SurfaceFailure: 3,
 };
-gpu.mojom.ContextResultSpec = { $: mojo.internal.Enum() };

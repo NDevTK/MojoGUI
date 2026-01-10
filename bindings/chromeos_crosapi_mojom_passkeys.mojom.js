@@ -7,155 +7,141 @@
 // Module namespace
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
+var chromeos = chromeos || {};
 
+crosapi.mojom.UserVerificationRequirementSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.PasskeyCreationErrorSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.PasskeyAssertionErrorSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.PasskeyCreationResultSpec = { $: {} };
+crosapi.mojom.PasskeyAssertionResultSpec = { $: {} };
+crosapi.mojom.PasskeyCreationRequestSpec = { $: {} };
+crosapi.mojom.PasskeyCreationResponseSpec = { $: {} };
+crosapi.mojom.PasskeyAssertionRequestSpec = { $: {} };
+crosapi.mojom.PasskeyAssertionResponseSpec = { $: {} };
+crosapi.mojom.PasskeyAuthenticator = {};
+crosapi.mojom.PasskeyAuthenticator.$interfaceName = 'crosapi.mojom.PasskeyAuthenticator';
+crosapi.mojom.PasskeyAuthenticator_Create_ParamsSpec = { $: {} };
+crosapi.mojom.PasskeyAuthenticator_Create_ResponseParamsSpec = { $: {} };
+crosapi.mojom.PasskeyAuthenticator_Assert_ParamsSpec = { $: {} };
+crosapi.mojom.PasskeyAuthenticator_Assert_ResponseParamsSpec = { $: {} };
 
 // Enum: UserVerificationRequirement
 crosapi.mojom.UserVerificationRequirement = {
   kDiscouraged: 0,
-  kRequired: 1,
+  kPreferred: 1,
+  kRequired: 2,
 };
-crosapi.mojom.UserVerificationRequirementSpec = { $: mojo.internal.Enum() };
 
 // Enum: PasskeyCreationError
 crosapi.mojom.PasskeyCreationError = {
-  kNonPrimaryAccount: 0,
-  kPendingRequest: 1,
-  kSecurityDomainSecretUnavailable: 2,
+  kInternalError: 0,
+  kNonPrimaryAccount: 1,
+  kPendingRequest: 2,
+  kSecurityDomainSecretUnavailable: 3,
 };
-crosapi.mojom.PasskeyCreationErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: PasskeyAssertionError
 crosapi.mojom.PasskeyAssertionError = {
-  kNonPrimaryAccount: 0,
-  kPendingRequest: 1,
-  kCredentialNotFound: 2,
-  kSecurityDomainSecretUnavailable: 3,
+  kInternalError: 0,
+  kNonPrimaryAccount: 1,
+  kPendingRequest: 2,
+  kCredentialNotFound: 3,
+  kSecurityDomainSecretUnavailable: 4,
 };
-crosapi.mojom.PasskeyAssertionErrorSpec = { $: mojo.internal.Enum() };
 
 // Union: PasskeyCreationResult
-crosapi.mojom.PasskeyCreationResultSpec = { $: mojo.internal.Union(
-    'crosapi.mojom.PasskeyCreationResult', {
+mojo.internal.Union(
+    crosapi.mojom.PasskeyCreationResultSpec, 'crosapi.mojom.PasskeyCreationResult', {
       'response': {
         'ordinal': 0,
         'type': crosapi.mojom.PasskeyCreationResponseSpec,
-      }},
+        'nullable': false,
+      },
       'error': {
         'ordinal': 1,
         'type': crosapi.mojom.PasskeyCreationErrorSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Union: PasskeyAssertionResult
-crosapi.mojom.PasskeyAssertionResultSpec = { $: mojo.internal.Union(
-    'crosapi.mojom.PasskeyAssertionResult', {
+mojo.internal.Union(
+    crosapi.mojom.PasskeyAssertionResultSpec, 'crosapi.mojom.PasskeyAssertionResult', {
       'response': {
         'ordinal': 0,
         'type': crosapi.mojom.PasskeyAssertionResponseSpec,
-      }},
+        'nullable': false,
+      },
       'error': {
         'ordinal': 1,
         'type': crosapi.mojom.PasskeyAssertionErrorSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: PasskeyCreationRequest
-crosapi.mojom.PasskeyCreationRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.PasskeyCreationRequest',
-      packedSize: 48,
-      fields: [
-        { name: 'rp_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'user_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'user_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'user_display_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'user_verification', packedOffset: 32, packedBitOffset: 0, type: crosapi.mojom.UserVerificationRequirementSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.PasskeyCreationRequestSpec, 'crosapi.mojom.PasskeyCreationRequest', [
+      mojo.internal.StructField('rp_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('user_id', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('user_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('user_display_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('user_verification', 32, 0, crosapi.mojom.UserVerificationRequirementSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: PasskeyCreationResponse
-crosapi.mojom.PasskeyCreationResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.PasskeyCreationResponse',
-      packedSize: 16,
-      fields: [
-        { name: 'authenticator_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.PasskeyCreationResponseSpec, 'crosapi.mojom.PasskeyCreationResponse', [
+      mojo.internal.StructField('authenticator_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: PasskeyAssertionRequest
-crosapi.mojom.PasskeyAssertionRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.PasskeyAssertionRequest',
-      packedSize: 48,
-      fields: [
-        { name: 'rp_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'credential_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'challenge', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'client_data_hash', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'user_verification', packedOffset: 32, packedBitOffset: 0, type: crosapi.mojom.UserVerificationRequirementSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.PasskeyAssertionRequestSpec, 'crosapi.mojom.PasskeyAssertionRequest', [
+      mojo.internal.StructField('rp_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('credential_id', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('challenge', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('client_data_hash', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('user_verification', 32, 0, crosapi.mojom.UserVerificationRequirementSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: PasskeyAssertionResponse
-crosapi.mojom.PasskeyAssertionResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.PasskeyAssertionResponse',
-      packedSize: 24,
-      fields: [
-        { name: 'signature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'authenticator_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 1 },
-      ],
-      versions: [{version: 0, packedSize: 16}, {version: 1, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.PasskeyAssertionResponseSpec, 'crosapi.mojom.PasskeyAssertionResponse', [
+      mojo.internal.StructField('signature', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('authenticator_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 1, undefined),
+    ],
+    [[0, 16], [1, 24]]);
 
 // Interface: PasskeyAuthenticator
-crosapi.mojom.PasskeyAuthenticator = {};
+mojo.internal.Struct(
+    crosapi.mojom.PasskeyAuthenticator_Create_ParamsSpec, 'crosapi.mojom.PasskeyAuthenticator_Create_Params', [
+      mojo.internal.StructField('account', 0, 0, crosapi.mojom.AccountKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 8, 0, crosapi.mojom.PasskeyCreationRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-crosapi.mojom.PasskeyAuthenticator_Create_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.PasskeyAuthenticator_Create_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'account', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.AccountKeySpec, nullable: false, minVersion: 0 },
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.PasskeyCreationRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.PasskeyAuthenticator_Create_ResponseParamsSpec, 'crosapi.mojom.PasskeyAuthenticator_Create_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, crosapi.mojom.PasskeyCreationResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-crosapi.mojom.PasskeyAuthenticator_Assert_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.PasskeyAuthenticator_Assert_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'account', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.AccountKeySpec, nullable: false, minVersion: 0 },
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.PasskeyAssertionRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.PasskeyAuthenticator_Assert_ParamsSpec, 'crosapi.mojom.PasskeyAuthenticator_Assert_Params', [
+      mojo.internal.StructField('account', 0, 0, crosapi.mojom.AccountKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('request', 8, 0, crosapi.mojom.PasskeyAssertionRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    crosapi.mojom.PasskeyAuthenticator_Assert_ResponseParamsSpec, 'crosapi.mojom.PasskeyAuthenticator_Assert_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, crosapi.mojom.PasskeyAssertionResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 crosapi.mojom.PasskeyAuthenticatorPendingReceiver = class {
   constructor(handle) {
@@ -219,63 +205,6 @@ crosapi.mojom.PasskeyAuthenticator.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Create
-crosapi.mojom.PasskeyAuthenticator_Create_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.PasskeyAuthenticator.Create_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'account', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.AccountKeySpec, nullable: false, minVersion: 0 },
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.PasskeyCreationRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-crosapi.mojom.PasskeyAuthenticator_Create_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.PasskeyAuthenticator.Create_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.PasskeyCreationResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Assert
-crosapi.mojom.PasskeyAuthenticator_Assert_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.PasskeyAuthenticator.Assert_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'account', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.AccountKeySpec, nullable: false, minVersion: 0 },
-        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.PasskeyAssertionRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-crosapi.mojom.PasskeyAuthenticator_Assert_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.PasskeyAuthenticator.Assert_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.PasskeyAssertionResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 crosapi.mojom.PasskeyAuthenticatorPtr = crosapi.mojom.PasskeyAuthenticatorRemote;
 crosapi.mojom.PasskeyAuthenticatorRequest = crosapi.mojom.PasskeyAuthenticatorPendingReceiver;
 

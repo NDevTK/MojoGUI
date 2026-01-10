@@ -7,68 +7,46 @@
 // Module namespace
 var tracing = tracing || {};
 tracing.mojom = tracing.mojom || {};
+var services = services || {};
+var services = services || {};
 
+tracing.mojom.ClientInfoSpec = { $: {} };
+tracing.mojom.TracingService = {};
+tracing.mojom.TracingService.$interfaceName = 'tracing.mojom.TracingService';
+tracing.mojom.TracingService_Initialize_ParamsSpec = { $: {} };
+tracing.mojom.TracingService_AddClient_ParamsSpec = { $: {} };
+tracing.mojom.TracingService_BindConsumerHost_ParamsSpec = { $: {} };
 
 tracing.mojom.kTracingSandbox = sandbox.mojom.Sandbox.kUtility;
 
 tracing.mojom.kTracingSandbox = sandbox.mojom.Sandbox.kService;
 
 // Struct: ClientInfo
-tracing.mojom.ClientInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'tracing.mojom.ClientInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'pid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'process', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(tracing.mojom.TracedProcessRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tracing.mojom.ClientInfoSpec, 'tracing.mojom.ClientInfo', [
+      mojo.internal.StructField('pid', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('process', 0, 0, mojo.internal.InterfaceProxy(tracing.mojom.TracedProcessRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: TracingService
-tracing.mojom.TracingService = {};
+mojo.internal.Struct(
+    tracing.mojom.TracingService_Initialize_ParamsSpec, 'tracing.mojom.TracingService_Initialize_Params', [
+      mojo.internal.StructField('clients', 0, 0, mojo.internal.Array(tracing.mojom.ClientInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tracing.mojom.TracingService_Initialize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tracing.mojom.TracingService_Initialize_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'clients', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(tracing.mojom.ClientInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tracing.mojom.TracingService_AddClient_ParamsSpec, 'tracing.mojom.TracingService_AddClient_Params', [
+      mojo.internal.StructField('client', 0, 0, tracing.mojom.ClientInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-tracing.mojom.TracingService_AddClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tracing.mojom.TracingService_AddClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: tracing.mojom.ClientInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-tracing.mojom.TracingService_BindConsumerHost_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tracing.mojom.TracingService_BindConsumerHost_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(tracing.mojom.ConsumerHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tracing.mojom.TracingService_BindConsumerHost_ParamsSpec, 'tracing.mojom.TracingService_BindConsumerHost_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(tracing.mojom.ConsumerHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 tracing.mojom.TracingServicePendingReceiver = class {
   constructor(handle) {
@@ -141,49 +119,6 @@ tracing.mojom.TracingService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Initialize
-tracing.mojom.TracingService_Initialize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tracing.mojom.TracingService.Initialize_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'clients', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(tracing.mojom.ClientInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AddClient
-tracing.mojom.TracingService_AddClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tracing.mojom.TracingService.AddClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: tracing.mojom.ClientInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindConsumerHost
-tracing.mojom.TracingService_BindConsumerHost_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tracing.mojom.TracingService.BindConsumerHost_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(tracing.mojom.ConsumerHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 tracing.mojom.TracingServicePtr = tracing.mojom.TracingServiceRemote;
 tracing.mojom.TracingServiceRequest = tracing.mojom.TracingServicePendingReceiver;
 

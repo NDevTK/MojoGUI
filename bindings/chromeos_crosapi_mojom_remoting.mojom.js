@@ -8,34 +8,36 @@
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
 
+crosapi.mojom.Remoting = {};
+crosapi.mojom.Remoting.$interfaceName = 'crosapi.mojom.Remoting';
+crosapi.mojom.Remoting_GetSupportHostDetails_ParamsSpec = { $: {} };
+crosapi.mojom.Remoting_GetSupportHostDetails_ResponseParamsSpec = { $: {} };
+crosapi.mojom.Remoting_StartSupportSession_ParamsSpec = { $: {} };
+crosapi.mojom.Remoting_StartSupportSession_ResponseParamsSpec = { $: {} };
 
 // Interface: Remoting
-crosapi.mojom.Remoting = {};
+mojo.internal.Struct(
+    crosapi.mojom.Remoting_GetSupportHostDetails_ParamsSpec, 'crosapi.mojom.Remoting_GetSupportHostDetails_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-crosapi.mojom.Remoting_GetSupportHostDetails_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Remoting_GetSupportHostDetails_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.Remoting_GetSupportHostDetails_ResponseParamsSpec, 'crosapi.mojom.Remoting_GetSupportHostDetails_ResponseParams', [
+      mojo.internal.StructField('host_details', 0, 0, remoting.mojom.SupportHostDetailsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.Remoting_StartSupportSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Remoting_StartSupportSession_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.SupportSessionParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.Remoting_StartSupportSession_ParamsSpec, 'crosapi.mojom.Remoting_StartSupportSession_Params', [
+      mojo.internal.StructField('params', 0, 0, remoting.mojom.SupportSessionParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    crosapi.mojom.Remoting_StartSupportSession_ResponseParamsSpec, 'crosapi.mojom.Remoting_StartSupportSession_ResponseParams', [
+      mojo.internal.StructField('response', 0, 0, remoting.mojom.StartSupportSessionResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 crosapi.mojom.RemotingPendingReceiver = class {
   constructor(handle) {
@@ -99,60 +101,6 @@ crosapi.mojom.Remoting.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetSupportHostDetails
-crosapi.mojom.Remoting_GetSupportHostDetails_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Remoting.GetSupportHostDetails_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-crosapi.mojom.Remoting_GetSupportHostDetails_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Remoting.GetSupportHostDetails_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'host_details', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.SupportHostDetailsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StartSupportSession
-crosapi.mojom.Remoting_StartSupportSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Remoting.StartSupportSession_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.SupportSessionParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-crosapi.mojom.Remoting_StartSupportSession_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.Remoting.StartSupportSession_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.StartSupportSessionResponseSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 crosapi.mojom.RemotingPtr = crosapi.mojom.RemotingRemote;
 crosapi.mojom.RemotingRequest = crosapi.mojom.RemotingPendingReceiver;
 

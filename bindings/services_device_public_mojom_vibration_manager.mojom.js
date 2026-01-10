@@ -8,34 +8,37 @@
 var device = device || {};
 device.mojom = device.mojom || {};
 
+device.mojom.VibrationManager = {};
+device.mojom.VibrationManager.$interfaceName = 'device.mojom.VibrationManager';
+device.mojom.VibrationManager_Vibrate_ParamsSpec = { $: {} };
+device.mojom.VibrationManager_Vibrate_ResponseParamsSpec = { $: {} };
+device.mojom.VibrationManager_Cancel_ParamsSpec = { $: {} };
+device.mojom.VibrationManager_Cancel_ResponseParamsSpec = { $: {} };
+device.mojom.VibrationManagerListener = {};
+device.mojom.VibrationManagerListener.$interfaceName = 'device.mojom.VibrationManagerListener';
+device.mojom.VibrationManagerListener_OnVibrate_ParamsSpec = { $: {} };
 
 // Interface: VibrationManager
-device.mojom.VibrationManager = {};
+mojo.internal.Struct(
+    device.mojom.VibrationManager_Vibrate_ParamsSpec, 'device.mojom.VibrationManager_Vibrate_Params', [
+      mojo.internal.StructField('milliseconds', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.VibrationManager_Vibrate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.VibrationManager_Vibrate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'milliseconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.VibrationManager_Vibrate_ResponseParamsSpec, 'device.mojom.VibrationManager_Vibrate_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-device.mojom.VibrationManager_Cancel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.VibrationManager_Cancel_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.VibrationManager_Cancel_ParamsSpec, 'device.mojom.VibrationManager_Cancel_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    device.mojom.VibrationManager_Cancel_ResponseParamsSpec, 'device.mojom.VibrationManager_Cancel_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 device.mojom.VibrationManagerPendingReceiver = class {
   constructor(handle) {
@@ -74,7 +77,7 @@ device.mojom.VibrationManagerRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       device.mojom.VibrationManager_Vibrate_ParamsSpec,
-      null,
+      device.mojom.VibrationManager_Vibrate_ResponseParamsSpec,
       [milliseconds]);
   }
 
@@ -83,7 +86,7 @@ device.mojom.VibrationManagerRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       device.mojom.VibrationManager_Cancel_ParamsSpec,
-      null,
+      device.mojom.VibrationManager_Cancel_ResponseParamsSpec,
       []);
   }
 
@@ -99,52 +102,15 @@ device.mojom.VibrationManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Vibrate
-device.mojom.VibrationManager_Vibrate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.VibrationManager.Vibrate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'milliseconds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Cancel
-device.mojom.VibrationManager_Cancel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.VibrationManager.Cancel_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 device.mojom.VibrationManagerPtr = device.mojom.VibrationManagerRemote;
 device.mojom.VibrationManagerRequest = device.mojom.VibrationManagerPendingReceiver;
 
 
 // Interface: VibrationManagerListener
-device.mojom.VibrationManagerListener = {};
-
-device.mojom.VibrationManagerListener_OnVibrate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.VibrationManagerListener_OnVibrate_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.VibrationManagerListener_OnVibrate_ParamsSpec, 'device.mojom.VibrationManagerListener_OnVibrate_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 device.mojom.VibrationManagerListenerPendingReceiver = class {
   constructor(handle) {
@@ -199,20 +165,6 @@ device.mojom.VibrationManagerListener.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnVibrate
-device.mojom.VibrationManagerListener_OnVibrate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.VibrationManagerListener.OnVibrate_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 device.mojom.VibrationManagerListenerPtr = device.mojom.VibrationManagerListenerRemote;
 device.mojom.VibrationManagerListenerRequest = device.mojom.VibrationManagerListenerPendingReceiver;
 

@@ -9,37 +9,25 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var blink = blink || {};
 
+blink.mojom.Translator = {};
+blink.mojom.Translator.$interfaceName = 'blink.mojom.Translator';
+blink.mojom.Translator_Translate_ParamsSpec = { $: {} };
+blink.mojom.Translator_TranslateStreaming_ParamsSpec = { $: {} };
 
 // Interface: Translator
-blink.mojom.Translator = {};
+mojo.internal.Struct(
+    blink.mojom.Translator_Translate_ParamsSpec, 'blink.mojom.Translator_Translate_Params', [
+      mojo.internal.StructField('input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('pending_responder', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.ModelStreamingResponderRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.Translator_Translate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.Translator_Translate_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pending_responder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.ModelStreamingResponderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.Translator_TranslateStreaming_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.Translator_TranslateStreaming_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pending_responder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.ModelStreamingResponderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.Translator_TranslateStreaming_ParamsSpec, 'blink.mojom.Translator_TranslateStreaming_Params', [
+      mojo.internal.StructField('input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('pending_responder', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.ModelStreamingResponderRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.TranslatorPendingReceiver = class {
   constructor(handle) {
@@ -103,37 +91,6 @@ blink.mojom.Translator.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Translate
-blink.mojom.Translator_Translate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.Translator.Translate_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pending_responder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.ModelStreamingResponderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for TranslateStreaming
-blink.mojom.Translator_TranslateStreaming_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.Translator.TranslateStreaming_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pending_responder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.ModelStreamingResponderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.TranslatorPtr = blink.mojom.TranslatorRemote;
 blink.mojom.TranslatorRequest = blink.mojom.TranslatorPendingReceiver;
 

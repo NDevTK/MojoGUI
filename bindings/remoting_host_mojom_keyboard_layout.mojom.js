@@ -8,6 +8,10 @@
 var remoting = remoting || {};
 remoting.mojom = remoting.mojom || {};
 
+remoting.mojom.LayoutKeyFunctionSpec = { $: mojo.internal.Enum() };
+remoting.mojom.KeyActionSpec = { $: {} };
+remoting.mojom.KeyBehaviorSpec = { $: {} };
+remoting.mojom.KeyboardLayoutSpec = { $: {} };
 
 // Enum: LayoutKeyFunction
 remoting.mojom.LayoutKeyFunction = {
@@ -76,46 +80,32 @@ remoting.mojom.LayoutKeyFunction = {
   kCommand: 62,
   kSearch: 63,
 };
-remoting.mojom.LayoutKeyFunctionSpec = { $: mojo.internal.Enum() };
 
 // Union: KeyAction
-remoting.mojom.KeyActionSpec = { $: mojo.internal.Union(
-    'remoting.mojom.KeyAction', {
+mojo.internal.Union(
+    remoting.mojom.KeyActionSpec, 'remoting.mojom.KeyAction', {
       'function': {
         'ordinal': 0,
         'type': remoting.mojom.LayoutKeyFunctionSpec,
-      }},
+        'nullable': false,
+      },
       'character': {
         'ordinal': 1,
         'type': mojo.internal.String,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: KeyBehavior
-remoting.mojom.KeyBehaviorSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.KeyBehavior',
-      packedSize: 16,
-      fields: [
-        { name: 'actions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint32, remoting.mojom.KeyActionSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.KeyBehaviorSpec, 'remoting.mojom.KeyBehavior', [
+      mojo.internal.StructField('actions', 0, 0, mojo.internal.Map(mojo.internal.Uint32, remoting.mojom.KeyActionSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: KeyboardLayout
-remoting.mojom.KeyboardLayoutSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.KeyboardLayout',
-      packedSize: 16,
-      fields: [
-        { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint32, remoting.mojom.KeyBehaviorSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.KeyboardLayoutSpec, 'remoting.mojom.KeyboardLayout', [
+      mojo.internal.StructField('keys', 0, 0, mojo.internal.Map(mojo.internal.Uint32, remoting.mojom.KeyBehaviorSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);

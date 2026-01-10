@@ -8,17 +8,11 @@
 var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
 
+extensions.mojom.ExtensionIdSpec = { $: {} };
 
 // Struct: ExtensionId
-extensions.mojom.ExtensionIdSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.ExtensionId',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mojom.ExtensionIdSpec, 'extensions.mojom.ExtensionId', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);

@@ -8,24 +8,18 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.FetchRetryOptionsSpec = { $: {} };
 
 // Struct: FetchRetryOptions
-network.mojom.FetchRetryOptionsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.FetchRetryOptions',
-      packedSize: 40,
-      fields: [
-        { name: 'max_attempts', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'initial_delay', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 0 },
-        { name: 'backoff_factor_$flag', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'backoff_factor_$value', originalFieldName: 'backoff_factor' } },
-        { name: 'backoff_factor_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'backoff_factor_$flag', originalFieldName: 'backoff_factor' } },
-        { name: 'max_age', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 0 },
-        { name: 'retry_after_unload', packedOffset: 28, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'retry_non_idempotent', packedOffset: 28, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'retry_only_if_server_unreached', packedOffset: 28, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.FetchRetryOptionsSpec, 'network.mojom.FetchRetryOptions', [
+      mojo.internal.StructField('max_attempts', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('initial_delay', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('backoff_factor_$flag', 28, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'backoff_factor_$value', originalFieldName: 'backoff_factor' }),
+      mojo.internal.StructField('backoff_factor_$value', 8, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'backoff_factor_$flag', originalFieldName: 'backoff_factor' }),
+      mojo.internal.StructField('max_age', 16, 0, mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('retry_after_unload', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('retry_non_idempotent', 28, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('retry_only_if_server_unreached', 28, 3, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 40]]);

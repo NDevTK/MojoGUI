@@ -8,54 +8,46 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.DevicePostureTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.DevicePostureProvider = {};
+blink.mojom.DevicePostureProvider.$interfaceName = 'blink.mojom.DevicePostureProvider';
+blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec = { $: {} };
+blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec = { $: {} };
+blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec = { $: {} };
+blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec = { $: {} };
+blink.mojom.DevicePostureClient = {};
+blink.mojom.DevicePostureClient.$interfaceName = 'blink.mojom.DevicePostureClient';
+blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec = { $: {} };
 
 // Enum: DevicePostureType
 blink.mojom.DevicePostureType = {
   kContinuous: 0,
   kFolded: 1,
 };
-blink.mojom.DevicePostureTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: DevicePostureProvider
-blink.mojom.DevicePostureProvider = {};
+mojo.internal.Struct(
+    blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec, 'blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_Params', [
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.DevicePostureClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.DevicePostureClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec, 'blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParams', [
+      mojo.internal.StructField('posture', 0, 0, blink.mojom.DevicePostureTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'posture', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DevicePostureTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec, 'blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_Params', [
+      mojo.internal.StructField('posture', 0, 0, blink.mojom.DevicePostureTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec, 'blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 blink.mojom.DevicePostureProviderPendingReceiver = class {
   constructor(handle) {
@@ -128,80 +120,16 @@ blink.mojom.DevicePostureProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddListenerAndGetCurrentPosture
-blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DevicePostureProvider.AddListenerAndGetCurrentPosture_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.DevicePostureClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DevicePostureProvider.AddListenerAndGetCurrentPosture_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'posture', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DevicePostureTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OverrideDevicePostureForEmulation
-blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DevicePostureProvider.OverrideDevicePostureForEmulation_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'posture', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DevicePostureTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DisableDevicePostureOverrideForEmulation
-blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DevicePostureProvider.DisableDevicePostureOverrideForEmulation_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.DevicePostureProviderPtr = blink.mojom.DevicePostureProviderRemote;
 blink.mojom.DevicePostureProviderRequest = blink.mojom.DevicePostureProviderPendingReceiver;
 
 
 // Interface: DevicePostureClient
-blink.mojom.DevicePostureClient = {};
-
-blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DevicePostureClient_OnPostureChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'posture', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DevicePostureTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec, 'blink.mojom.DevicePostureClient_OnPostureChanged_Params', [
+      mojo.internal.StructField('posture', 0, 0, blink.mojom.DevicePostureTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.DevicePostureClientPendingReceiver = class {
   constructor(handle) {
@@ -256,21 +184,6 @@ blink.mojom.DevicePostureClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnPostureChanged
-blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.DevicePostureClient.OnPostureChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'posture', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DevicePostureTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.DevicePostureClientPtr = blink.mojom.DevicePostureClientRemote;
 blink.mojom.DevicePostureClientRequest = blink.mojom.DevicePostureClientPendingReceiver;
 

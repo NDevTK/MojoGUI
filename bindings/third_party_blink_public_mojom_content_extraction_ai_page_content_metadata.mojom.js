@@ -9,47 +9,29 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var url = url || {};
 
+blink.mojom.MetaTagSpec = { $: {} };
+blink.mojom.FrameMetadataSpec = { $: {} };
+blink.mojom.PageMetadataSpec = { $: {} };
 
 // Struct: MetaTag
-blink.mojom.MetaTagSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.MetaTag',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'content', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.MetaTagSpec, 'blink.mojom.MetaTag', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('content', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: FrameMetadata
-blink.mojom.FrameMetadataSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FrameMetadata',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'meta_tags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.MetaTagSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FrameMetadataSpec, 'blink.mojom.FrameMetadata', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('meta_tags', 8, 0, mojo.internal.Array(blink.mojom.MetaTagSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: PageMetadata
-blink.mojom.PageMetadataSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PageMetadata',
-      packedSize: 16,
-      fields: [
-        { name: 'frame_metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.FrameMetadataSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PageMetadataSpec, 'blink.mojom.PageMetadata', [
+      mojo.internal.StructField('frame_metadata', 0, 0, mojo.internal.Array(blink.mojom.FrameMetadataSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);

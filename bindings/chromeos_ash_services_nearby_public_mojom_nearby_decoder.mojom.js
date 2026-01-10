@@ -7,36 +7,41 @@
 // Module namespace
 var sharing = sharing || {};
 sharing.mojom = sharing.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var services = services || {};
 
+sharing.mojom.NearbySharingDecoder = {};
+sharing.mojom.NearbySharingDecoder.$interfaceName = 'sharing.mojom.NearbySharingDecoder';
+sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ParamsSpec = { $: {} };
+sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParamsSpec = { $: {} };
+sharing.mojom.NearbySharingDecoder_DecodeFrame_ParamsSpec = { $: {} };
+sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParamsSpec = { $: {} };
 
 // Interface: NearbySharingDecoder
-sharing.mojom.NearbySharingDecoder = {};
+mojo.internal.Struct(
+    sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ParamsSpec, 'sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_Params', [
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParamsSpec, 'sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParams', [
+      mojo.internal.StructField('advertisement', 0, 0, sharing.mojom.AdvertisementSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-sharing.mojom.NearbySharingDecoder_DecodeFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.NearbySharingDecoder_DecodeFrame_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    sharing.mojom.NearbySharingDecoder_DecodeFrame_ParamsSpec, 'sharing.mojom.NearbySharingDecoder_DecodeFrame_Params', [
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParamsSpec, 'sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParams', [
+      mojo.internal.StructField('frame', 0, 0, sharing.mojom.FrameSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 sharing.mojom.NearbySharingDecoderPendingReceiver = class {
   constructor(handle) {
@@ -100,61 +105,6 @@ sharing.mojom.NearbySharingDecoder.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for DecodeAdvertisement
-sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.NearbySharingDecoder.DecodeAdvertisement_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.NearbySharingDecoder.DecodeAdvertisement_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'advertisement', packedOffset: 0, packedBitOffset: 0, type: sharing.mojom.AdvertisementSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DecodeFrame
-sharing.mojom.NearbySharingDecoder_DecodeFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.NearbySharingDecoder.DecodeFrame_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.NearbySharingDecoder.DecodeFrame_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: sharing.mojom.FrameSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 sharing.mojom.NearbySharingDecoderPtr = sharing.mojom.NearbySharingDecoderRemote;
 sharing.mojom.NearbySharingDecoderRequest = sharing.mojom.NearbySharingDecoderPendingReceiver;
 

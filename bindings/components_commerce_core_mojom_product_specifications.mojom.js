@@ -9,143 +9,120 @@ var commerce = commerce || {};
 commerce.product_specifications = commerce.product_specifications || {};
 commerce.product_specifications.mojom = commerce.product_specifications.mojom || {};
 var url = url || {};
+var components = components || {};
 
+commerce.product_specifications.mojom.DisclosureVersionSpec = { $: mojo.internal.Enum() };
+commerce.product_specifications.mojom.ShowSetDispositionSpec = { $: mojo.internal.Enum() };
+commerce.product_specifications.mojom.ProductSpecificationsHandler = {};
+commerce.product_specifications.mojom.ProductSpecificationsHandler.$interfaceName = 'commerce.product_specifications.mojom.ProductSpecificationsHandler';
+commerce.product_specifications.mojom.ProductSpecificationsHandler_SetAcceptedDisclosureVersion_ParamsSpec = { $: {} };
+commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ParamsSpec = { $: {} };
+commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ResponseParamsSpec = { $: {} };
+commerce.product_specifications.mojom.ProductSpecificationsHandler_DeclineDisclosure_ParamsSpec = { $: {} };
+commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowSyncSetupFlow_ParamsSpec = { $: {} };
+commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ParamsSpec = { $: {} };
+commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ResponseParamsSpec = { $: {} };
+commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetForUuid_ParamsSpec = { $: {} };
+commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetsForUuids_ParamsSpec = { $: {} };
+commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowComparePage_ParamsSpec = { $: {} };
+commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ParamsSpec = { $: {} };
+commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ResponseParamsSpec = { $: {} };
+commerce.product_specifications.mojom.Page = {};
+commerce.product_specifications.mojom.Page.$interfaceName = 'commerce.product_specifications.mojom.Page';
+commerce.product_specifications.mojom.Page_OnProductSpecificationsSetAdded_ParamsSpec = { $: {} };
+commerce.product_specifications.mojom.Page_OnProductSpecificationsSetUpdated_ParamsSpec = { $: {} };
+commerce.product_specifications.mojom.Page_OnProductSpecificationsSetRemoved_ParamsSpec = { $: {} };
+commerce.product_specifications.mojom.Page_OnSyncStateChanged_ParamsSpec = { $: {} };
+commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory = {};
+commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory.$interfaceName = 'commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory';
+commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory_CreateProductSpecificationsHandler_ParamsSpec = { $: {} };
 
 // Enum: DisclosureVersion
 commerce.product_specifications.mojom.DisclosureVersion = {
   kUnknown: 0,
   kV1: 1,
 };
-commerce.product_specifications.mojom.DisclosureVersionSpec = { $: mojo.internal.Enum() };
 
 // Enum: ShowSetDisposition
 commerce.product_specifications.mojom.ShowSetDisposition = {
   kInNewTabs: 0,
   kInNewWindow: 1,
 };
-commerce.product_specifications.mojom.ShowSetDispositionSpec = { $: mojo.internal.Enum() };
 
 // Interface: ProductSpecificationsHandler
-commerce.product_specifications.mojom.ProductSpecificationsHandler = {};
+mojo.internal.Struct(
+    commerce.product_specifications.mojom.ProductSpecificationsHandler_SetAcceptedDisclosureVersion_ParamsSpec, 'commerce.product_specifications.mojom.ProductSpecificationsHandler_SetAcceptedDisclosureVersion_Params', [
+      mojo.internal.StructField('version', 0, 0, commerce.product_specifications.mojom.DisclosureVersionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-commerce.product_specifications.mojom.ProductSpecificationsHandler_SetAcceptedDisclosureVersion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler_SetAcceptedDisclosureVersion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: commerce.product_specifications.mojom.DisclosureVersionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ParamsSpec, 'commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_Params', [
+      mojo.internal.StructField('urls', 0, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('set_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'set_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ResponseParamsSpec, 'commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ResponseParams', [
+      mojo.internal.StructField('disclosure_shown', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-commerce.product_specifications.mojom.ProductSpecificationsHandler_DeclineDisclosure_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler_DeclineDisclosure_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    commerce.product_specifications.mojom.ProductSpecificationsHandler_DeclineDisclosure_ParamsSpec, 'commerce.product_specifications.mojom.ProductSpecificationsHandler_DeclineDisclosure_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowSyncSetupFlow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowSyncSetupFlow_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowSyncSetupFlow_ParamsSpec, 'commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowSyncSetupFlow_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ParamsSpec, 'commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetForUuid_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetForUuid_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false, minVersion: 0 },
-        { name: 'in_new_tab', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ResponseParamsSpec, 'commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ResponseParams', [
+      mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetsForUuids_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetsForUuids_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'uuids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.UuidSpec, false), nullable: false, minVersion: 0 },
-        { name: 'disposition', packedOffset: 8, packedBitOffset: 0, type: commerce.product_specifications.mojom.ShowSetDispositionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetForUuid_ParamsSpec, 'commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetForUuid_Params', [
+      mojo.internal.StructField('uuid', 0, 0, mojo_base.mojom.UuidSpec, null, false, 0, undefined),
+      mojo.internal.StructField('in_new_tab', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowComparePage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowComparePage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'in_new_tab', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetsForUuids_ParamsSpec, 'commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetsForUuids_Params', [
+      mojo.internal.StructField('uuids', 0, 0, mojo.internal.Array(mojo_base.mojom.UuidSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('disposition', 8, 0, commerce.product_specifications.mojom.ShowSetDispositionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowComparePage_ParamsSpec, 'commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowComparePage_Params', [
+      mojo.internal.StructField('in_new_tab', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ParamsSpec, 'commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_Params', [
+      mojo.internal.StructField('uuid', 0, 0, mojo_base.mojom.UuidSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ResponseParamsSpec, 'commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ResponseParams', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 commerce.product_specifications.mojom.ProductSpecificationsHandlerPendingReceiver = class {
   constructor(handle) {
@@ -272,231 +249,33 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler.getRemote = f
   return remote.$;
 };
 
-// ParamsSpec for SetAcceptedDisclosureVersion
-commerce.product_specifications.mojom.ProductSpecificationsHandler_SetAcceptedDisclosureVersion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.SetAcceptedDisclosureVersion_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'version', packedOffset: 0, packedBitOffset: 0, type: commerce.product_specifications.mojom.DisclosureVersionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for MaybeShowDisclosure
-commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.MaybeShowDisclosure_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'set_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.MaybeShowDisclosure_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'disclosure_shown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DeclineDisclosure
-commerce.product_specifications.mojom.ProductSpecificationsHandler_DeclineDisclosure_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.DeclineDisclosure_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ShowSyncSetupFlow
-commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowSyncSetupFlow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.ShowSyncSetupFlow_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for GetPageTitleFromHistory
-commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.GetPageTitleFromHistory_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.GetPageTitleFromHistory_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ShowProductSpecificationsSetForUuid
-commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetForUuid_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.ShowProductSpecificationsSetForUuid_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false, minVersion: 0 },
-        { name: 'in_new_tab', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ShowProductSpecificationsSetsForUuids
-commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetsForUuids_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.ShowProductSpecificationsSetsForUuids_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'uuids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.UuidSpec, false), nullable: false, minVersion: 0 },
-        { name: 'disposition', packedOffset: 8, packedBitOffset: 0, type: commerce.product_specifications.mojom.ShowSetDispositionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ShowComparePage
-commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowComparePage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.ShowComparePage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'in_new_tab', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetComparisonTableUrlForUuid
-commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.GetComparisonTableUrlForUuid_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.GetComparisonTableUrlForUuid_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 commerce.product_specifications.mojom.ProductSpecificationsHandlerPtr = commerce.product_specifications.mojom.ProductSpecificationsHandlerRemote;
 commerce.product_specifications.mojom.ProductSpecificationsHandlerRequest = commerce.product_specifications.mojom.ProductSpecificationsHandlerPendingReceiver;
 
 
 // Interface: Page
-commerce.product_specifications.mojom.Page = {};
+mojo.internal.Struct(
+    commerce.product_specifications.mojom.Page_OnProductSpecificationsSetAdded_ParamsSpec, 'commerce.product_specifications.mojom.Page_OnProductSpecificationsSetAdded_Params', [
+      mojo.internal.StructField('set', 0, 0, commerce.shared.mojom.ProductSpecificationsSetSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-commerce.product_specifications.mojom.Page_OnProductSpecificationsSetAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.product_specifications.mojom.Page_OnProductSpecificationsSetAdded_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'set', packedOffset: 0, packedBitOffset: 0, type: commerce.shared.mojom.ProductSpecificationsSetSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    commerce.product_specifications.mojom.Page_OnProductSpecificationsSetUpdated_ParamsSpec, 'commerce.product_specifications.mojom.Page_OnProductSpecificationsSetUpdated_Params', [
+      mojo.internal.StructField('set', 0, 0, commerce.shared.mojom.ProductSpecificationsSetSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-commerce.product_specifications.mojom.Page_OnProductSpecificationsSetUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.product_specifications.mojom.Page_OnProductSpecificationsSetUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'set', packedOffset: 0, packedBitOffset: 0, type: commerce.shared.mojom.ProductSpecificationsSetSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    commerce.product_specifications.mojom.Page_OnProductSpecificationsSetRemoved_ParamsSpec, 'commerce.product_specifications.mojom.Page_OnProductSpecificationsSetRemoved_Params', [
+      mojo.internal.StructField('uuid', 0, 0, mojo_base.mojom.UuidSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-commerce.product_specifications.mojom.Page_OnProductSpecificationsSetRemoved_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.product_specifications.mojom.Page_OnProductSpecificationsSetRemoved_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-commerce.product_specifications.mojom.Page_OnSyncStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.product_specifications.mojom.Page_OnSyncStateChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    commerce.product_specifications.mojom.Page_OnSyncStateChanged_ParamsSpec, 'commerce.product_specifications.mojom.Page_OnSyncStateChanged_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 commerce.product_specifications.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -578,82 +357,17 @@ commerce.product_specifications.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnProductSpecificationsSetAdded
-commerce.product_specifications.mojom.Page_OnProductSpecificationsSetAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.product_specifications.mojom.Page.OnProductSpecificationsSetAdded_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'set', packedOffset: 0, packedBitOffset: 0, type: commerce.shared.mojom.ProductSpecificationsSetSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnProductSpecificationsSetUpdated
-commerce.product_specifications.mojom.Page_OnProductSpecificationsSetUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.product_specifications.mojom.Page.OnProductSpecificationsSetUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'set', packedOffset: 0, packedBitOffset: 0, type: commerce.shared.mojom.ProductSpecificationsSetSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnProductSpecificationsSetRemoved
-commerce.product_specifications.mojom.Page_OnProductSpecificationsSetRemoved_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.product_specifications.mojom.Page.OnProductSpecificationsSetRemoved_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnSyncStateChanged
-commerce.product_specifications.mojom.Page_OnSyncStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.product_specifications.mojom.Page.OnSyncStateChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 commerce.product_specifications.mojom.PagePtr = commerce.product_specifications.mojom.PageRemote;
 commerce.product_specifications.mojom.PageRequest = commerce.product_specifications.mojom.PagePendingReceiver;
 
 
 // Interface: ProductSpecificationsHandlerFactory
-commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory = {};
-
-commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory_CreateProductSpecificationsHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory_CreateProductSpecificationsHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(commerce.product_specifications.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(commerce.product_specifications.mojom.ProductSpecificationsHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory_CreateProductSpecificationsHandler_ParamsSpec, 'commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory_CreateProductSpecificationsHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(commerce.product_specifications.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(commerce.product_specifications.mojom.ProductSpecificationsHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -708,22 +422,6 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory.getRem
   return remote.$;
 };
 
-// ParamsSpec for CreateProductSpecificationsHandler
-commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory_CreateProductSpecificationsHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory.CreateProductSpecificationsHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(commerce.product_specifications.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(commerce.product_specifications.mojom.ProductSpecificationsHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryPtr = commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryRemote;
 commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryRequest = commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryPendingReceiver;
 

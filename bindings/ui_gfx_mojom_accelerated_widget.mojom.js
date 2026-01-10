@@ -8,17 +8,11 @@
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
 
+gfx.mojom.AcceleratedWidgetSpec = { $: {} };
 
 // Struct: AcceleratedWidget
-gfx.mojom.AcceleratedWidgetSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.AcceleratedWidget',
-      packedSize: 16,
-      fields: [
-        { name: 'widget', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.AcceleratedWidgetSpec, 'gfx.mojom.AcceleratedWidget', [
+      mojo.internal.StructField('widget', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);

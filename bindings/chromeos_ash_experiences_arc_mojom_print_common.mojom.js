@@ -8,196 +8,142 @@
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
+arc.mojom.PrintColorModeSpec = { $: mojo.internal.Enum() };
+arc.mojom.PrintDuplexModeSpec = { $: mojo.internal.Enum() };
+arc.mojom.PrintContentTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.PrinterStatusSpec = { $: mojo.internal.Enum() };
+arc.mojom.PrintPageRangeSpec = { $: {} };
+arc.mojom.PrintMediaSizeSpec = { $: {} };
+arc.mojom.PrintResolutionSpec = { $: {} };
+arc.mojom.PrintMarginsSpec = { $: {} };
+arc.mojom.PrintAttributesSpec = { $: {} };
+arc.mojom.PrintDocumentRequestSpec = { $: {} };
+arc.mojom.PrintJobRequestSpec = { $: {} };
+arc.mojom.PrinterCapabilitiesSpec = { $: {} };
+arc.mojom.PrinterInfoSpec = { $: {} };
 
 // Enum: PrintColorMode
 arc.mojom.PrintColorMode = {
-  MONOCHROME: 0,
-  COLOR: 1,
+  MONOCHROME: 1,
+  COLOR: 2,
 };
-arc.mojom.PrintColorModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PrintDuplexMode
 arc.mojom.PrintDuplexMode = {
-  NONE: 0,
-  LONG_EDGE: 1,
-  SHORT_EDGE: 2,
+  NONE: 1,
+  LONG_EDGE: 2,
+  SHORT_EDGE: 4,
 };
-arc.mojom.PrintDuplexModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PrintContentType
 arc.mojom.PrintContentType = {
-  UNKNOWN: 0,
-  DOCUMENT: 1,
-  PHOTO: 2,
+  UNKNOWN: -1,
+  DOCUMENT: 0,
+  PHOTO: 1,
 };
-arc.mojom.PrintContentTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: PrinterStatus
 arc.mojom.PrinterStatus = {
-  IDLE: 0,
-  BUSY: 1,
-  UNAVAILABLE: 2,
+  IDLE: 1,
+  BUSY: 2,
+  UNAVAILABLE: 3,
 };
-arc.mojom.PrinterStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: PrintPageRange
-arc.mojom.PrintPageRangeSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PrintPageRange',
-      packedSize: 16,
-      fields: [
-        { name: 'start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'end', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PrintPageRangeSpec, 'arc.mojom.PrintPageRange', [
+      mojo.internal.StructField('start', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('end', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: PrintMediaSize
-arc.mojom.PrintMediaSizeSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PrintMediaSize',
-      packedSize: 32,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'width_mils', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'height_mils', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PrintMediaSizeSpec, 'arc.mojom.PrintMediaSize', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('label', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('width_mils', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('height_mils', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: PrintResolution
-arc.mojom.PrintResolutionSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PrintResolution',
-      packedSize: 32,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'horizontal_dpi', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'vertical_dpi', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PrintResolutionSpec, 'arc.mojom.PrintResolution', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('label', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('horizontal_dpi', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('vertical_dpi', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: PrintMargins
-arc.mojom.PrintMarginsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PrintMargins',
-      packedSize: 24,
-      fields: [
-        { name: 'left_mils', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'top_mils', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'right_mils', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'bottom_mils', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PrintMarginsSpec, 'arc.mojom.PrintMargins', [
+      mojo.internal.StructField('left_mils', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('top_mils', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('right_mils', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('bottom_mils', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: PrintAttributes
-arc.mojom.PrintAttributesSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PrintAttributes',
-      packedSize: 40,
-      fields: [
-        { name: 'media_size', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.PrintMediaSizeSpec, nullable: true, minVersion: 0 },
-        { name: 'resolution', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.PrintResolutionSpec, nullable: true, minVersion: 0 },
-        { name: 'min_margins', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.PrintMarginsSpec, nullable: true, minVersion: 0 },
-        { name: 'color_mode', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.PrintColorModeSpec, nullable: false, minVersion: 0 },
-        { name: 'duplex_mode', packedOffset: 28, packedBitOffset: 0, type: arc.mojom.PrintDuplexModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PrintAttributesSpec, 'arc.mojom.PrintAttributes', [
+      mojo.internal.StructField('media_size', 0, 0, arc.mojom.PrintMediaSizeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('resolution', 8, 0, arc.mojom.PrintResolutionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('min_margins', 16, 0, arc.mojom.PrintMarginsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('color_mode', 24, 0, arc.mojom.PrintColorModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('duplex_mode', 28, 0, arc.mojom.PrintDuplexModeSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: PrintDocumentRequest
-arc.mojom.PrintDocumentRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PrintDocumentRequest',
-      packedSize: 24,
-      fields: [
-        { name: 'pages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.PrintPageRangeSpec, false), nullable: false, minVersion: 0 },
-        { name: 'attributes', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.PrintAttributesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PrintDocumentRequestSpec, 'arc.mojom.PrintDocumentRequest', [
+      mojo.internal.StructField('pages', 0, 0, mojo.internal.Array(arc.mojom.PrintPageRangeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('attributes', 8, 0, arc.mojom.PrintAttributesSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: PrintJobRequest
-arc.mojom.PrintJobRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PrintJobRequest',
-      packedSize: 88,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int8, false), nullable: false, minVersion: 0 },
-        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'printer_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'creation_time', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'copies', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'pages', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.PrintPageRangeSpec, false), nullable: false, minVersion: 0 },
-        { name: 'attributes', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.PrintAttributesSpec, nullable: false, minVersion: 0 },
-        { name: 'document_name', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'document_page_count', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'content_type', packedOffset: 72, packedBitOffset: 0, type: arc.mojom.PrintContentTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'data_size', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.Handle, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 88}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PrintJobRequestSpec, 'arc.mojom.PrintJobRequest', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Array(mojo.internal.Int8, false), null, false, 0, undefined),
+      mojo.internal.StructField('label', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('printer_id', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('creation_time', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('copies', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('pages', 32, 0, mojo.internal.Array(arc.mojom.PrintPageRangeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('attributes', 40, 0, arc.mojom.PrintAttributesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('document_name', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('document_page_count', 68, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('content_type', 72, 0, arc.mojom.PrintContentTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data_size', 56, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('data', 76, 0, mojo.internal.Handle, null, true, 0, undefined),
+    ],
+    [[0, 88]]);
 
 // Struct: PrinterCapabilities
-arc.mojom.PrinterCapabilitiesSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PrinterCapabilities',
-      packedSize: 48,
-      fields: [
-        { name: 'media_sizes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.PrintMediaSizeSpec, false), nullable: false, minVersion: 0 },
-        { name: 'resolutions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.PrintResolutionSpec, false), nullable: false, minVersion: 0 },
-        { name: 'min_margins', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.PrintMarginsSpec, nullable: false, minVersion: 0 },
-        { name: 'color_modes', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.PrintColorModeSpec, nullable: false, minVersion: 0 },
-        { name: 'duplex_modes', packedOffset: 36, packedBitOffset: 0, type: arc.mojom.PrintDuplexModeSpec, nullable: false, minVersion: 0 },
-        { name: 'defaults', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.PrintAttributesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PrinterCapabilitiesSpec, 'arc.mojom.PrinterCapabilities', [
+      mojo.internal.StructField('media_sizes', 0, 0, mojo.internal.Array(arc.mojom.PrintMediaSizeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('resolutions', 8, 0, mojo.internal.Array(arc.mojom.PrintResolutionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('min_margins', 16, 0, arc.mojom.PrintMarginsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('color_modes', 32, 0, arc.mojom.PrintColorModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('duplex_modes', 36, 0, arc.mojom.PrintDuplexModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('defaults', 24, 0, arc.mojom.PrintAttributesSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: PrinterInfo
-arc.mojom.PrinterInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PrinterInfo',
-      packedSize: 56,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.PrinterStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'info_intent', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'capabilities', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.PrinterCapabilitiesSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PrinterInfoSpec, 'arc.mojom.PrinterInfo', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('status', 40, 0, arc.mojom.PrinterStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('description', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('info_intent', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('capabilities', 32, 0, arc.mojom.PrinterCapabilitiesSpec, null, true, 0, undefined),
+    ],
+    [[0, 56]]);

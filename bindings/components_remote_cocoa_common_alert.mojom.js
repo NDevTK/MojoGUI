@@ -8,6 +8,13 @@
 var remote_cocoa = remote_cocoa || {};
 remote_cocoa.mojom = remote_cocoa.mojom || {};
 
+remote_cocoa.mojom.AlertDispositionSpec = { $: mojo.internal.Enum() };
+remote_cocoa.mojom.AlertBridgeInitParamsSpec = { $: {} };
+remote_cocoa.mojom.AlertBridge = {};
+remote_cocoa.mojom.AlertBridge.$interfaceName = 'remote_cocoa.mojom.AlertBridge';
+remote_cocoa.mojom.AlertBridge_Show_ParamsSpec = { $: {} };
+remote_cocoa.mojom.AlertBridge_Show_ResponseParamsSpec = { $: {} };
+remote_cocoa.mojom.AlertBridge_Dismiss_ParamsSpec = { $: {} };
 
 // Enum: AlertDisposition
 remote_cocoa.mojom.AlertDisposition = {
@@ -15,54 +22,38 @@ remote_cocoa.mojom.AlertDisposition = {
   SECONDARY_BUTTON: 1,
   CLOSE: 2,
 };
-remote_cocoa.mojom.AlertDispositionSpec = { $: mojo.internal.Enum() };
 
 // Struct: AlertBridgeInitParams
-remote_cocoa.mojom.AlertBridgeInitParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.AlertBridgeInitParams',
-      packedSize: 56,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'message_text', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'primary_button_text', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'secondary_button_text', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-        { name: 'text_field_text', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-        { name: 'check_box_text', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remote_cocoa.mojom.AlertBridgeInitParamsSpec, 'remote_cocoa.mojom.AlertBridgeInitParams', [
+      mojo.internal.StructField('title', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('message_text', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('primary_button_text', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('secondary_button_text', 24, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('text_field_text', 32, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('check_box_text', 40, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Interface: AlertBridge
-remote_cocoa.mojom.AlertBridge = {};
+mojo.internal.Struct(
+    remote_cocoa.mojom.AlertBridge_Show_ParamsSpec, 'remote_cocoa.mojom.AlertBridge_Show_Params', [
+      mojo.internal.StructField('params', 0, 0, remote_cocoa.mojom.AlertBridgeInitParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remote_cocoa.mojom.AlertBridge_Show_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.AlertBridge_Show_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.AlertBridgeInitParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remote_cocoa.mojom.AlertBridge_Show_ResponseParamsSpec, 'remote_cocoa.mojom.AlertBridge_Show_ResponseParams', [
+      mojo.internal.StructField('disposition', 8, 0, remote_cocoa.mojom.AlertDispositionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('text_field_value', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('check_box_value', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-remote_cocoa.mojom.AlertBridge_Dismiss_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.AlertBridge_Dismiss_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remote_cocoa.mojom.AlertBridge_Dismiss_ParamsSpec, 'remote_cocoa.mojom.AlertBridge_Dismiss_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 remote_cocoa.mojom.AlertBridgePendingReceiver = class {
   constructor(handle) {
@@ -126,49 +117,6 @@ remote_cocoa.mojom.AlertBridge.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Show
-remote_cocoa.mojom.AlertBridge_Show_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.AlertBridge.Show_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.AlertBridgeInitParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-remote_cocoa.mojom.AlertBridge_Show_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.AlertBridge.Show_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'disposition', packedOffset: 8, packedBitOffset: 0, type: remote_cocoa.mojom.AlertDispositionSpec, nullable: false, minVersion: 0 },
-        { name: 'text_field_value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'check_box_value', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Dismiss
-remote_cocoa.mojom.AlertBridge_Dismiss_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.AlertBridge.Dismiss_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 remote_cocoa.mojom.AlertBridgePtr = remote_cocoa.mojom.AlertBridgeRemote;
 remote_cocoa.mojom.AlertBridgeRequest = remote_cocoa.mojom.AlertBridgePendingReceiver;
 

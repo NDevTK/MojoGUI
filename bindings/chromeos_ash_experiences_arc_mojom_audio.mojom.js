@@ -8,13 +8,26 @@
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
+arc.mojom.AudioSwitchSpec = { $: mojo.internal.Enum() };
+arc.mojom.AudioDeviceTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.AudioHost = {};
+arc.mojom.AudioHost.$interfaceName = 'arc.mojom.AudioHost';
+arc.mojom.AudioHost_ShowVolumeControls_ParamsSpec = { $: {} };
+arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_ParamsSpec = { $: {} };
+arc.mojom.AudioInstance = {};
+arc.mojom.AudioInstance.$interfaceName = 'arc.mojom.AudioInstance';
+arc.mojom.AudioInstance_Init_ParamsSpec = { $: {} };
+arc.mojom.AudioInstance_Init_ResponseParamsSpec = { $: {} };
+arc.mojom.AudioInstance_NotifySwitchState_ParamsSpec = { $: {} };
+arc.mojom.AudioInstance_NotifyVolumeState_ParamsSpec = { $: {} };
+arc.mojom.AudioInstance_NotifySpatialAudioState_ParamsSpec = { $: {} };
+arc.mojom.AudioInstance_NotifyOutputDeviceInfo_ParamsSpec = { $: {} };
 
 // Enum: AudioSwitch
 arc.mojom.AudioSwitch = {
-  SW_HEADPHONE_INSERT: 0,
-  SW_MICROPHONE_INSERT: 1,
+  SW_HEADPHONE_INSERT: 2,
+  SW_MICROPHONE_INSERT: 4,
 };
-arc.mojom.AudioSwitchSpec = { $: mojo.internal.Enum() };
 
 // Enum: AudioDeviceType
 arc.mojom.AudioDeviceType = {
@@ -34,36 +47,20 @@ arc.mojom.AudioDeviceType = {
   POST_MIX_LOOPBACK: 13,
   POST_DSP_LOOPBACK: 14,
   ALSA_LOOPBACK: 15,
+  OTHER: 16,
 };
-arc.mojom.AudioDeviceTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: AudioHost
-arc.mojom.AudioHost = {};
+mojo.internal.Struct(
+    arc.mojom.AudioHost_ShowVolumeControls_ParamsSpec, 'arc.mojom.AudioHost_ShowVolumeControls_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.AudioHost_ShowVolumeControls_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AudioHost_ShowVolumeControls_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_ParamsSpec, 'arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_Params', [
+      mojo.internal.StructField('percent', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.AudioHostPendingReceiver = class {
   constructor(handle) {
@@ -127,106 +124,46 @@ arc.mojom.AudioHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ShowVolumeControls
-arc.mojom.AudioHost_ShowVolumeControls_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AudioHost.ShowVolumeControls_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnSystemVolumeUpdateRequest
-arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AudioHost.OnSystemVolumeUpdateRequest_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.AudioHostPtr = arc.mojom.AudioHostRemote;
 arc.mojom.AudioHostRequest = arc.mojom.AudioHostPendingReceiver;
 
 
 // Interface: AudioInstance
-arc.mojom.AudioInstance = {};
+mojo.internal.Struct(
+    arc.mojom.AudioInstance_Init_ParamsSpec, 'arc.mojom.AudioInstance_Init_Params', [
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.AudioHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AudioInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AudioInstance_Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AudioHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AudioInstance_Init_ResponseParamsSpec, 'arc.mojom.AudioInstance_Init_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.AudioInstance_NotifySwitchState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AudioInstance_NotifySwitchState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AudioInstance_NotifySwitchState_ParamsSpec, 'arc.mojom.AudioInstance_NotifySwitchState_Params', [
+      mojo.internal.StructField('state', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AudioInstance_NotifyVolumeState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AudioInstance_NotifyVolumeState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'muted', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AudioInstance_NotifyVolumeState_ParamsSpec, 'arc.mojom.AudioInstance_NotifyVolumeState_Params', [
+      mojo.internal.StructField('volume', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('muted', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AudioInstance_NotifySpatialAudioState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AudioInstance_NotifySpatialAudioState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AudioInstance_NotifySpatialAudioState_ParamsSpec, 'arc.mojom.AudioInstance_NotifySpatialAudioState_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.AudioInstance_NotifyOutputDeviceInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AudioInstance_NotifyOutputDeviceInfo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device_type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AudioDeviceTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AudioInstance_NotifyOutputDeviceInfo_ParamsSpec, 'arc.mojom.AudioInstance_NotifyOutputDeviceInfo_Params', [
+      mojo.internal.StructField('device_type', 0, 0, arc.mojom.AudioDeviceTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.AudioInstancePendingReceiver = class {
   constructor(handle) {
@@ -265,7 +202,7 @@ arc.mojom.AudioInstanceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       3,  // ordinal
       arc.mojom.AudioInstance_Init_ParamsSpec,
-      null,
+      arc.mojom.AudioInstance_Init_ResponseParamsSpec,
       [host_remote]);
   }
 
@@ -317,78 +254,6 @@ arc.mojom.AudioInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Init
-arc.mojom.AudioInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AudioInstance.Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AudioHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for NotifySwitchState
-arc.mojom.AudioInstance_NotifySwitchState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AudioInstance.NotifySwitchState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for NotifyVolumeState
-arc.mojom.AudioInstance_NotifyVolumeState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AudioInstance.NotifyVolumeState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'muted', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for NotifySpatialAudioState
-arc.mojom.AudioInstance_NotifySpatialAudioState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AudioInstance.NotifySpatialAudioState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for NotifyOutputDeviceInfo
-arc.mojom.AudioInstance_NotifyOutputDeviceInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AudioInstance.NotifyOutputDeviceInfo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'device_type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AudioDeviceTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.AudioInstancePtr = arc.mojom.AudioInstanceRemote;
 arc.mojom.AudioInstanceRequest = arc.mojom.AudioInstancePendingReceiver;
 

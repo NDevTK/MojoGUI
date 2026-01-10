@@ -11,157 +11,127 @@ var skia = skia || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+device.mojom.RequestSessionErrorSpec = { $: mojo.internal.Enum() };
+device.mojom.XRSessionFeatureSpec = { $: mojo.internal.Enum() };
+device.mojom.XRSessionModeSpec = { $: mojo.internal.Enum() };
+device.mojom.XRDepthUsageSpec = { $: mojo.internal.Enum() };
+device.mojom.XRDepthDataFormatSpec = { $: mojo.internal.Enum() };
+device.mojom.XRDepthTypeSpec = { $: mojo.internal.Enum() };
+device.mojom.XRTrackedImageSpec = { $: {} };
+device.mojom.XRDepthOptionsSpec = { $: {} };
+device.mojom.XRSessionOptionsSpec = { $: {} };
+device.mojom.XrFrameStatisticsSpec = { $: {} };
+device.mojom.XrLogMessageSpec = { $: {} };
 
 // Enum: RequestSessionError
 device.mojom.RequestSessionError = {
-  EXISTING_IMMERSIVE_SESSION: 0,
-  INVALID_CLIENT: 1,
-  USER_DENIED_CONSENT: 2,
-  NO_RUNTIME_FOUND: 3,
-  UNKNOWN_RUNTIME_ERROR: 4,
-  RUNTIME_INSTALL_FAILURE: 5,
-  RUNTIMES_CHANGED: 6,
-  FULLSCREEN_ERROR: 7,
-  UNKNOWN_FAILURE: 8,
+  EXISTING_IMMERSIVE_SESSION: 1,
+  INVALID_CLIENT: 2,
+  USER_DENIED_CONSENT: 3,
+  NO_RUNTIME_FOUND: 4,
+  UNKNOWN_RUNTIME_ERROR: 5,
+  RUNTIME_INSTALL_FAILURE: 6,
+  RUNTIMES_CHANGED: 7,
+  FULLSCREEN_ERROR: 8,
+  UNKNOWN_FAILURE: 9,
 };
-device.mojom.RequestSessionErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: XRSessionFeature
 device.mojom.XRSessionFeature = {
-  REF_SPACE_VIEWER: 0,
-  REF_SPACE_LOCAL: 1,
-  REF_SPACE_LOCAL_FLOOR: 2,
-  REF_SPACE_BOUNDED_FLOOR: 3,
-  REF_SPACE_UNBOUNDED: 4,
-  DOM_OVERLAY: 5,
-  HIT_TEST: 6,
-  LIGHT_ESTIMATION: 7,
-  ANCHORS: 8,
-  CAMERA_ACCESS: 9,
-  PLANE_DETECTION: 10,
-  DEPTH: 11,
-  IMAGE_TRACKING: 12,
-  HAND_INPUT: 13,
-  SECONDARY_VIEWS: 14,
-  LAYERS: 15,
-  FRONT_FACING: 16,
-  WEBGPU: 17,
+  REF_SPACE_VIEWER: 1,
+  REF_SPACE_LOCAL: 2,
+  REF_SPACE_LOCAL_FLOOR: 3,
+  REF_SPACE_BOUNDED_FLOOR: 4,
+  REF_SPACE_UNBOUNDED: 5,
+  DOM_OVERLAY: 6,
+  HIT_TEST: 7,
+  LIGHT_ESTIMATION: 8,
+  ANCHORS: 9,
+  CAMERA_ACCESS: 10,
+  PLANE_DETECTION: 11,
+  DEPTH: 12,
+  IMAGE_TRACKING: 13,
+  HAND_INPUT: 14,
+  SECONDARY_VIEWS: 15,
+  LAYERS: 16,
+  FRONT_FACING: 17,
+  WEBGPU: 18,
 };
-device.mojom.XRSessionFeatureSpec = { $: mojo.internal.Enum() };
 
 // Enum: XRSessionMode
 device.mojom.XRSessionMode = {
-  kInline: 0,
-  kImmersiveVr: 1,
-  kImmersiveAr: 2,
+  kInline: 1,
+  kImmersiveVr: 2,
+  kImmersiveAr: 3,
 };
-device.mojom.XRSessionModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: XRDepthUsage
 device.mojom.XRDepthUsage = {
-  kCPUOptimized: 0,
-  kGPUOptimized: 1,
+  kCPUOptimized: 1,
+  kGPUOptimized: 2,
 };
-device.mojom.XRDepthUsageSpec = { $: mojo.internal.Enum() };
 
 // Enum: XRDepthDataFormat
 device.mojom.XRDepthDataFormat = {
-  kLuminanceAlpha: 0,
-  kFloat32: 1,
-  kUnsignedShort: 2,
+  kLuminanceAlpha: 1,
+  kFloat32: 2,
+  kUnsignedShort: 3,
 };
-device.mojom.XRDepthDataFormatSpec = { $: mojo.internal.Enum() };
 
 // Enum: XRDepthType
 device.mojom.XRDepthType = {
-  kRaw: 0,
-  kSmooth: 1,
+  kRaw: 1,
+  kSmooth: 2,
 };
-device.mojom.XRDepthTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: XRTrackedImage
-device.mojom.XRTrackedImageSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.XRTrackedImage',
-      packedSize: 32,
-      fields: [
-        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: false, minVersion: 0 },
-        { name: 'size_in_pixels', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'width_in_meters', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.XRTrackedImageSpec, 'device.mojom.XRTrackedImage', [
+      mojo.internal.StructField('bitmap', 0, 0, skia.mojom.BitmapN32Spec, null, false, 0, undefined),
+      mojo.internal.StructField('size_in_pixels', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('width_in_meters', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: XRDepthOptions
-device.mojom.XRDepthOptionsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.XRDepthOptions',
-      packedSize: 40,
-      fields: [
-        { name: 'usage_preferences', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.XRDepthUsageSpec, false), nullable: false, minVersion: 0 },
-        { name: 'data_format_preferences', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.XRDepthDataFormatSpec, false), nullable: false, minVersion: 0 },
-        { name: 'depth_type_request', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.XRDepthTypeSpec, false), nullable: false, minVersion: 0 },
-        { name: 'match_depth_view', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.XRDepthOptionsSpec, 'device.mojom.XRDepthOptions', [
+      mojo.internal.StructField('usage_preferences', 0, 0, mojo.internal.Array(device.mojom.XRDepthUsageSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('data_format_preferences', 8, 0, mojo.internal.Array(device.mojom.XRDepthDataFormatSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('depth_type_request', 16, 0, mojo.internal.Array(device.mojom.XRDepthTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('match_depth_view', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: XRSessionOptions
-device.mojom.XRSessionOptionsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.XRSessionOptions',
-      packedSize: 56,
-      fields: [
-        { name: 'mode', packedOffset: 40, packedBitOffset: 0, type: device.mojom.XRSessionModeSpec, nullable: false, minVersion: 0 },
-        { name: 'required_features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.XRSessionFeatureSpec, false), nullable: false, minVersion: 0 },
-        { name: 'optional_features', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.XRSessionFeatureSpec, false), nullable: false, minVersion: 0 },
-        { name: 'tracked_images', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.XRTrackedImageSpec, false), nullable: false, minVersion: 0 },
-        { name: 'depth_options', packedOffset: 24, packedBitOffset: 0, type: device.mojom.XRDepthOptionsSpec, nullable: true, minVersion: 0 },
-        { name: 'trace_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.XRSessionOptionsSpec, 'device.mojom.XRSessionOptions', [
+      mojo.internal.StructField('mode', 40, 0, device.mojom.XRSessionModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('required_features', 0, 0, mojo.internal.Array(device.mojom.XRSessionFeatureSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('optional_features', 8, 0, mojo.internal.Array(device.mojom.XRSessionFeatureSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('tracked_images', 16, 0, mojo.internal.Array(device.mojom.XRTrackedImageSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('depth_options', 24, 0, device.mojom.XRDepthOptionsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('trace_id', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: XrFrameStatistics
-device.mojom.XrFrameStatisticsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.XrFrameStatistics',
-      packedSize: 64,
-      fields: [
-        { name: 'trace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'duration', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'num_frames', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'dropped_frames', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'frame_data_time', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'page_animation_frame_time', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'submit_frame_time', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.XrFrameStatisticsSpec, 'device.mojom.XrFrameStatistics', [
+      mojo.internal.StructField('trace_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('duration', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('num_frames', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('dropped_frames', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('frame_data_time', 32, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('page_animation_frame_time', 40, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('submit_frame_time', 48, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 64]]);
 
 // Struct: XrLogMessage
-device.mojom.XrLogMessageSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.XrLogMessage',
-      packedSize: 24,
-      fields: [
-        { name: 'trace_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.XrLogMessageSpec, 'device.mojom.XrLogMessage', [
+      mojo.internal.StructField('trace_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

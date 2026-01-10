@@ -11,22 +11,32 @@ ash.media_app_ui.mojom = ash.media_app_ui.mojom || {};
 var blink = blink || {};
 var url = url || {};
 
+ash.media_app_ui.mojom.PageHandlerFactory = {};
+ash.media_app_ui.mojom.PageHandlerFactory.$interfaceName = 'ash.media_app_ui.mojom.PageHandlerFactory';
+ash.media_app_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+ash.media_app_ui.mojom.PageHandler = {};
+ash.media_app_ui.mojom.PageHandler.$interfaceName = 'ash.media_app_ui.mojom.PageHandler';
+ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec = { $: {} };
+ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec = { $: {} };
+ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ParamsSpec = { $: {} };
+ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ResponseParamsSpec = { $: {} };
+ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ParamsSpec = { $: {} };
+ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ResponseParamsSpec = { $: {} };
+ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ParamsSpec = { $: {} };
+ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParamsSpec = { $: {} };
+ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ParamsSpec = { $: {} };
+ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParamsSpec = { $: {} };
+ash.media_app_ui.mojom.PageHandler_EditInPhotos_ParamsSpec = { $: {} };
+ash.media_app_ui.mojom.PageHandler_EditInPhotos_ResponseParamsSpec = { $: {} };
+ash.media_app_ui.mojom.PageHandler_SubmitForm_ParamsSpec = { $: {} };
+ash.media_app_ui.mojom.PageHandler_SubmitForm_ResponseParamsSpec = { $: {} };
 
 // Interface: PageHandlerFactory
-ash.media_app_ui.mojom.PageHandlerFactory = {};
-
-ash.media_app_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.media_app_ui.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.media_app_ui.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.media_app_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.media_app_ui.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.media_app_ui.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.media_app_ui.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -81,118 +91,90 @@ ash.media_app_ui.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-ash.media_app_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.media_app_ui.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.media_app_ui.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.media_app_ui.mojom.PageHandlerFactoryPtr = ash.media_app_ui.mojom.PageHandlerFactoryRemote;
 ash.media_app_ui.mojom.PageHandlerFactoryRequest = ash.media_app_ui.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-ash.media_app_ui.mojom.PageHandler = {};
+mojo.internal.Struct(
+    ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec, 'ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec, 'ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParams', [
+      mojo.internal.StructField('error_message', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ParamsSpec, 'ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ResponseParamsSpec, 'ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ParamsSpec, 'ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ResponseParamsSpec, 'ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.media_app_ui.mojom.PageHandler_EditInPhotos_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.media_app_ui.mojom.PageHandler_EditInPhotos_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), nullable: false, minVersion: 0 },
-        { name: 'mime_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ParamsSpec, 'ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_Params', [
+      mojo.internal.StructField('token', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.media_app_ui.mojom.PageHandler_SubmitForm_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.media_app_ui.mojom.PageHandler_SubmitForm_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'payload', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int8, false), nullable: false, minVersion: 0 },
-        { name: 'header', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParamsSpec, 'ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParams', [
+      mojo.internal.StructField('writable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ParamsSpec, 'ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_Params', [
+      mojo.internal.StructField('token', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParamsSpec, 'ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParams', [
+      mojo.internal.StructField('writable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.media_app_ui.mojom.PageHandler_EditInPhotos_ParamsSpec, 'ash.media_app_ui.mojom.PageHandler_EditInPhotos_Params', [
+      mojo.internal.StructField('token', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
+      mojo.internal.StructField('mime_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    ash.media_app_ui.mojom.PageHandler_EditInPhotos_ResponseParamsSpec, 'ash.media_app_ui.mojom.PageHandler_EditInPhotos_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.media_app_ui.mojom.PageHandler_SubmitForm_ParamsSpec, 'ash.media_app_ui.mojom.PageHandler_SubmitForm_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('payload', 8, 0, mojo.internal.Array(mojo.internal.Int8, false), null, false, 0, undefined),
+      mojo.internal.StructField('header', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    ash.media_app_ui.mojom.PageHandler_SubmitForm_ResponseParamsSpec, 'ash.media_app_ui.mojom.PageHandler_SubmitForm_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.media_app_ui.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -240,7 +222,7 @@ ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ParamsSpec,
-      null,
+      ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ResponseParamsSpec,
       []);
   }
 
@@ -249,7 +231,7 @@ ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = class {
     return this.proxy.sendMessage(
       2,  // ordinal
       ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ParamsSpec,
-      null,
+      ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ResponseParamsSpec,
       []);
   }
 
@@ -276,7 +258,7 @@ ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = class {
     return this.proxy.sendMessage(
       5,  // ordinal
       ash.media_app_ui.mojom.PageHandler_EditInPhotos_ParamsSpec,
-      null,
+      ash.media_app_ui.mojom.PageHandler_EditInPhotos_ResponseParamsSpec,
       [token, mime_type]);
   }
 
@@ -285,7 +267,7 @@ ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = class {
     return this.proxy.sendMessage(
       6,  // ordinal
       ash.media_app_ui.mojom.PageHandler_SubmitForm_ParamsSpec,
-      null,
+      ash.media_app_ui.mojom.PageHandler_SubmitForm_ResponseParamsSpec,
       [url, payload, header]);
   }
 
@@ -301,144 +283,6 @@ ash.media_app_ui.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OpenFeedbackDialog
-ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.media_app_ui.mojom.PageHandler.OpenFeedbackDialog_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.media_app_ui.mojom.PageHandler.OpenFeedbackDialog_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ToggleBrowserFullscreenMode
-ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.media_app_ui.mojom.PageHandler.ToggleBrowserFullscreenMode_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for MaybeTriggerPdfHats
-ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.media_app_ui.mojom.PageHandler.MaybeTriggerPdfHats_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for IsFileArcWritable
-ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.media_app_ui.mojom.PageHandler.IsFileArcWritable_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.media_app_ui.mojom.PageHandler.IsFileArcWritable_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'writable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for IsFileBrowserWritable
-ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.media_app_ui.mojom.PageHandler.IsFileBrowserWritable_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.media_app_ui.mojom.PageHandler.IsFileBrowserWritable_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'writable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EditInPhotos
-ash.media_app_ui.mojom.PageHandler_EditInPhotos_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.media_app_ui.mojom.PageHandler.EditInPhotos_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), nullable: false, minVersion: 0 },
-        { name: 'mime_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SubmitForm
-ash.media_app_ui.mojom.PageHandler_SubmitForm_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.media_app_ui.mojom.PageHandler.SubmitForm_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'payload', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int8, false), nullable: false, minVersion: 0 },
-        { name: 'header', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.media_app_ui.mojom.PageHandlerPtr = ash.media_app_ui.mojom.PageHandlerRemote;
 ash.media_app_ui.mojom.PageHandlerRequest = ash.media_app_ui.mojom.PageHandlerPendingReceiver;
 

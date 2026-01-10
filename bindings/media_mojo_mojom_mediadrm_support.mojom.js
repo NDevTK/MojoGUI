@@ -8,39 +8,34 @@
 var media = media || {};
 media.mojom = media.mojom || {};
 
+media.mojom.MediaDrmSupportResultSpec = { $: {} };
+media.mojom.MediaDrmSupport = {};
+media.mojom.MediaDrmSupport.$interfaceName = 'media.mojom.MediaDrmSupport';
+media.mojom.MediaDrmSupport_IsKeySystemSupported_ParamsSpec = { $: {} };
+media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec = { $: {} };
 
 // Struct: MediaDrmSupportResult
-media.mojom.MediaDrmSupportResultSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaDrmSupportResult',
-      packedSize: 24,
-      fields: [
-        { name: 'key_system_supports_video_mp4', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'key_system_supports_video_webm', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'key_system_version', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.VersionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaDrmSupportResultSpec, 'media.mojom.MediaDrmSupportResult', [
+      mojo.internal.StructField('key_system_supports_video_mp4', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('key_system_supports_video_webm', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('key_system_version', 0, 0, mojo_base.mojom.VersionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: MediaDrmSupport
-media.mojom.MediaDrmSupport = {};
+mojo.internal.Struct(
+    media.mojom.MediaDrmSupport_IsKeySystemSupported_ParamsSpec, 'media.mojom.MediaDrmSupport_IsKeySystemSupported_Params', [
+      mojo.internal.StructField('key_system', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_secure', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media.mojom.MediaDrmSupport_IsKeySystemSupported_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaDrmSupport_IsKeySystemSupported_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'key_system', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_secure', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec, 'media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParams', [
+      mojo.internal.StructField('key_system_supports', 0, 0, media.mojom.MediaDrmSupportResultSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.MediaDrmSupportPendingReceiver = class {
   constructor(handle) {
@@ -95,35 +90,6 @@ media.mojom.MediaDrmSupport.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for IsKeySystemSupported
-media.mojom.MediaDrmSupport_IsKeySystemSupported_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaDrmSupport.IsKeySystemSupported_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'key_system', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_secure', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.MediaDrmSupport.IsKeySystemSupported_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'key_system_supports', packedOffset: 0, packedBitOffset: 0, type: media.mojom.MediaDrmSupportResultSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.MediaDrmSupportPtr = media.mojom.MediaDrmSupportRemote;
 media.mojom.MediaDrmSupportRequest = media.mojom.MediaDrmSupportPendingReceiver;
 

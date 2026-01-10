@@ -7,37 +7,37 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
+var services = services || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+blink.mojom.PictureInPictureSessionObserver = {};
+blink.mojom.PictureInPictureSessionObserver.$interfaceName = 'blink.mojom.PictureInPictureSessionObserver';
+blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_ParamsSpec = { $: {} };
+blink.mojom.PictureInPictureSessionObserver_OnStopped_ParamsSpec = { $: {} };
+blink.mojom.PictureInPictureSession = {};
+blink.mojom.PictureInPictureSession.$interfaceName = 'blink.mojom.PictureInPictureSession';
+blink.mojom.PictureInPictureSession_Update_ParamsSpec = { $: {} };
+blink.mojom.PictureInPictureSession_Stop_ParamsSpec = { $: {} };
+blink.mojom.PictureInPictureSession_Stop_ResponseParamsSpec = { $: {} };
+blink.mojom.PictureInPictureSession_UpdateMediaPosition_ParamsSpec = { $: {} };
+blink.mojom.PictureInPictureService = {};
+blink.mojom.PictureInPictureService.$interfaceName = 'blink.mojom.PictureInPictureService';
+blink.mojom.PictureInPictureService_StartSession_ParamsSpec = { $: {} };
+blink.mojom.PictureInPictureService_StartSession_ResponseParamsSpec = { $: {} };
 
 // Interface: PictureInPictureSessionObserver
-blink.mojom.PictureInPictureSessionObserver = {};
+mojo.internal.Struct(
+    blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_ParamsSpec, 'blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_Params', [
+      mojo.internal.StructField('size', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.PictureInPictureSessionObserver_OnStopped_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PictureInPictureSessionObserver_OnStopped_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PictureInPictureSessionObserver_OnStopped_ParamsSpec, 'blink.mojom.PictureInPictureSessionObserver_OnStopped_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 blink.mojom.PictureInPictureSessionObserverPendingReceiver = class {
   constructor(handle) {
@@ -101,82 +101,36 @@ blink.mojom.PictureInPictureSessionObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnWindowSizeChanged
-blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PictureInPictureSessionObserver.OnWindowSizeChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnStopped
-blink.mojom.PictureInPictureSessionObserver_OnStopped_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PictureInPictureSessionObserver.OnStopped_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.PictureInPictureSessionObserverPtr = blink.mojom.PictureInPictureSessionObserverRemote;
 blink.mojom.PictureInPictureSessionObserverRequest = blink.mojom.PictureInPictureSessionObserverPendingReceiver;
 
 
 // Interface: PictureInPictureSession
-blink.mojom.PictureInPictureSession = {};
+mojo.internal.Struct(
+    blink.mojom.PictureInPictureSession_Update_ParamsSpec, 'blink.mojom.PictureInPictureSession_Update_Params', [
+      mojo.internal.StructField('player_id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('player_remote', 0, 0, mojo.internal.AssociatedInterfaceProxy(media.mojom.MediaPlayerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('surface_id', 8, 0, viz.mojom.SurfaceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('natural_size', 16, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('show_play_pause_button', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-blink.mojom.PictureInPictureSession_Update_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PictureInPictureSession_Update_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'player_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'player_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(media.mojom.MediaPlayerRemote), nullable: false, minVersion: 0 },
-        { name: 'surface_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.SurfaceIdSpec, nullable: false, minVersion: 0 },
-        { name: 'natural_size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'show_play_pause_button', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PictureInPictureSession_Stop_ParamsSpec, 'blink.mojom.PictureInPictureSession_Stop_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.PictureInPictureSession_Stop_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PictureInPictureSession_Stop_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PictureInPictureSession_Stop_ResponseParamsSpec, 'blink.mojom.PictureInPictureSession_Stop_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.PictureInPictureSession_UpdateMediaPosition_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PictureInPictureSession_UpdateMediaPosition_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'media_position', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaPositionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PictureInPictureSession_UpdateMediaPosition_ParamsSpec, 'blink.mojom.PictureInPictureSession_UpdateMediaPosition_Params', [
+      mojo.internal.StructField('media_position', 0, 0, media_session.mojom.MediaPositionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.PictureInPictureSessionPendingReceiver = class {
   constructor(handle) {
@@ -224,7 +178,7 @@ blink.mojom.PictureInPictureSessionRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       blink.mojom.PictureInPictureSession_Stop_ParamsSpec,
-      null,
+      blink.mojom.PictureInPictureSession_Stop_ResponseParamsSpec,
       []);
   }
 
@@ -249,77 +203,29 @@ blink.mojom.PictureInPictureSession.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Update
-blink.mojom.PictureInPictureSession_Update_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PictureInPictureSession.Update_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'player_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'player_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(media.mojom.MediaPlayerRemote), nullable: false, minVersion: 0 },
-        { name: 'surface_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.SurfaceIdSpec, nullable: false, minVersion: 0 },
-        { name: 'natural_size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'show_play_pause_button', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for Stop
-blink.mojom.PictureInPictureSession_Stop_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PictureInPictureSession.Stop_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateMediaPosition
-blink.mojom.PictureInPictureSession_UpdateMediaPosition_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PictureInPictureSession.UpdateMediaPosition_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'media_position', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaPositionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.PictureInPictureSessionPtr = blink.mojom.PictureInPictureSessionRemote;
 blink.mojom.PictureInPictureSessionRequest = blink.mojom.PictureInPictureSessionPendingReceiver;
 
 
 // Interface: PictureInPictureService
-blink.mojom.PictureInPictureService = {};
+mojo.internal.Struct(
+    blink.mojom.PictureInPictureService_StartSession_ParamsSpec, 'blink.mojom.PictureInPictureService_StartSession_Params', [
+      mojo.internal.StructField('player_id', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('player_remote', 0, 0, mojo.internal.AssociatedInterfaceProxy(media.mojom.MediaPlayerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('surface_id', 8, 0, viz.mojom.SurfaceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('natural_size', 16, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('show_play_pause_button', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('observer', 24, 0, mojo.internal.InterfaceProxy(blink.mojom.PictureInPictureSessionObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('source_bounds', 32, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
-blink.mojom.PictureInPictureService_StartSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PictureInPictureService_StartSession_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'player_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'player_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(media.mojom.MediaPlayerRemote), nullable: false, minVersion: 0 },
-        { name: 'surface_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.SurfaceIdSpec, nullable: false, minVersion: 0 },
-        { name: 'natural_size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'show_play_pause_button', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.PictureInPictureSessionObserverRemote), nullable: false, minVersion: 0 },
-        { name: 'source_bounds', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PictureInPictureService_StartSession_ResponseParamsSpec, 'blink.mojom.PictureInPictureService_StartSession_ResponseParams', [
+      mojo.internal.StructField('session', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.PictureInPictureSessionRemote), null, true, 0, undefined),
+      mojo.internal.StructField('size', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.PictureInPictureServicePendingReceiver = class {
   constructor(handle) {
@@ -374,41 +280,6 @@ blink.mojom.PictureInPictureService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for StartSession
-blink.mojom.PictureInPictureService_StartSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PictureInPictureService.StartSession_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'player_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'player_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(media.mojom.MediaPlayerRemote), nullable: false, minVersion: 0 },
-        { name: 'surface_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.SurfaceIdSpec, nullable: false, minVersion: 0 },
-        { name: 'natural_size', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'show_play_pause_button', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.PictureInPictureSessionObserverRemote), nullable: false, minVersion: 0 },
-        { name: 'source_bounds', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
-
-blink.mojom.PictureInPictureService_StartSession_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PictureInPictureService.StartSession_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.PictureInPictureSessionRemote), nullable: true, minVersion: 0 },
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.PictureInPictureServicePtr = blink.mojom.PictureInPictureServiceRemote;
 blink.mojom.PictureInPictureServiceRequest = blink.mojom.PictureInPictureServicePendingReceiver;
 

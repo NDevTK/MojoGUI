@@ -8,64 +8,71 @@
 var remoting = remoting || {};
 remoting.mojom = remoting.mojom || {};
 
+remoting.mojom.WebAuthnCreateResponseSpec = { $: {} };
+remoting.mojom.WebAuthnGetResponseSpec = { $: {} };
+remoting.mojom.WebAuthnExceptionDetailsSpec = { $: {} };
+remoting.mojom.WebAuthnRequestCanceller = {};
+remoting.mojom.WebAuthnRequestCanceller.$interfaceName = 'remoting.mojom.WebAuthnRequestCanceller';
+remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec = { $: {} };
+remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec = { $: {} };
+remoting.mojom.WebAuthnProxy = {};
+remoting.mojom.WebAuthnProxy.$interfaceName = 'remoting.mojom.WebAuthnProxy';
+remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec = { $: {} };
+remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec = { $: {} };
+remoting.mojom.WebAuthnProxy_Create_ParamsSpec = { $: {} };
+remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec = { $: {} };
+remoting.mojom.WebAuthnProxy_Get_ParamsSpec = { $: {} };
+remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec = { $: {} };
 
 // Union: WebAuthnCreateResponse
-remoting.mojom.WebAuthnCreateResponseSpec = { $: mojo.internal.Union(
-    'remoting.mojom.WebAuthnCreateResponse', {
+mojo.internal.Union(
+    remoting.mojom.WebAuthnCreateResponseSpec, 'remoting.mojom.WebAuthnCreateResponse', {
       'error_details': {
         'ordinal': 0,
         'type': remoting.mojom.WebAuthnExceptionDetailsSpec,
-      }},
+        'nullable': false,
+      },
       'response_data': {
         'ordinal': 1,
         'type': mojo.internal.String,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Union: WebAuthnGetResponse
-remoting.mojom.WebAuthnGetResponseSpec = { $: mojo.internal.Union(
-    'remoting.mojom.WebAuthnGetResponse', {
+mojo.internal.Union(
+    remoting.mojom.WebAuthnGetResponseSpec, 'remoting.mojom.WebAuthnGetResponse', {
       'error_details': {
         'ordinal': 0,
         'type': remoting.mojom.WebAuthnExceptionDetailsSpec,
-      }},
+        'nullable': false,
+      },
       'response_data': {
         'ordinal': 1,
         'type': mojo.internal.String,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: WebAuthnExceptionDetails
-remoting.mojom.WebAuthnExceptionDetailsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.WebAuthnExceptionDetails',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.WebAuthnExceptionDetailsSpec, 'remoting.mojom.WebAuthnExceptionDetails', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: WebAuthnRequestCanceller
-remoting.mojom.WebAuthnRequestCanceller = {};
+mojo.internal.Struct(
+    remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec, 'remoting.mojom.WebAuthnRequestCanceller_Cancel_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.WebAuthnRequestCanceller_Cancel_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec, 'remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParams', [
+      mojo.internal.StructField('was_canceled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 remoting.mojom.WebAuthnRequestCancellerPendingReceiver = class {
   constructor(handle) {
@@ -120,79 +127,47 @@ remoting.mojom.WebAuthnRequestCanceller.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Cancel
-remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.WebAuthnRequestCanceller.Cancel_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.WebAuthnRequestCanceller.Cancel_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'was_canceled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 remoting.mojom.WebAuthnRequestCancellerPtr = remoting.mojom.WebAuthnRequestCancellerRemote;
 remoting.mojom.WebAuthnRequestCancellerRequest = remoting.mojom.WebAuthnRequestCancellerPendingReceiver;
 
 
 // Interface: WebAuthnProxy
-remoting.mojom.WebAuthnProxy = {};
+mojo.internal.Struct(
+    remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec, 'remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec, 'remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParams', [
+      mojo.internal.StructField('is_available', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remoting.mojom.WebAuthnProxy_Create_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.WebAuthnProxy_Create_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'request_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'request_canceller', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(remoting.mojom.WebAuthnRequestCancellerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.WebAuthnProxy_Create_ParamsSpec, 'remoting.mojom.WebAuthnProxy_Create_Params', [
+      mojo.internal.StructField('request_data', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('request_canceller', 8, 0, mojo.internal.InterfaceRequest(remoting.mojom.WebAuthnRequestCancellerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-remoting.mojom.WebAuthnProxy_Get_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.WebAuthnProxy_Get_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'request_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'request_canceller', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(remoting.mojom.WebAuthnRequestCancellerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec, 'remoting.mojom.WebAuthnProxy_Create_ResponseParams', [
+      mojo.internal.StructField('response', 0, 0, remoting.mojom.WebAuthnCreateResponseSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    remoting.mojom.WebAuthnProxy_Get_ParamsSpec, 'remoting.mojom.WebAuthnProxy_Get_Params', [
+      mojo.internal.StructField('request_data', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('request_canceller', 8, 0, mojo.internal.InterfaceRequest(remoting.mojom.WebAuthnRequestCancellerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec, 'remoting.mojom.WebAuthnProxy_Get_ResponseParams', [
+      mojo.internal.StructField('response', 0, 0, remoting.mojom.WebAuthnGetResponseSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 remoting.mojom.WebAuthnProxyPendingReceiver = class {
   constructor(handle) {
@@ -265,89 +240,6 @@ remoting.mojom.WebAuthnProxy.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for IsUserVerifyingPlatformAuthenticatorAvailable
-remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.WebAuthnProxy.IsUserVerifyingPlatformAuthenticatorAvailable_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.WebAuthnProxy.IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'is_available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Create
-remoting.mojom.WebAuthnProxy_Create_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.WebAuthnProxy.Create_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'request_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'request_canceller', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(remoting.mojom.WebAuthnRequestCancellerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.WebAuthnProxy.Create_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.WebAuthnCreateResponseSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Get
-remoting.mojom.WebAuthnProxy_Get_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.WebAuthnProxy.Get_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'request_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'request_canceller', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(remoting.mojom.WebAuthnRequestCancellerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.WebAuthnProxy.Get_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.WebAuthnGetResponseSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 remoting.mojom.WebAuthnProxyPtr = remoting.mojom.WebAuthnProxyRemote;
 remoting.mojom.WebAuthnProxyRequest = remoting.mojom.WebAuthnProxyPendingReceiver;
 

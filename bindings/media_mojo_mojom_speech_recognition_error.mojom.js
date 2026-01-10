@@ -8,25 +8,19 @@
 var media = media || {};
 media.mojom = media.mojom || {};
 
+media.mojom.SpeechAudioErrorDetailsSpec = { $: mojo.internal.Enum() };
+media.mojom.SpeechRecognitionErrorSpec = { $: {} };
 
 // Enum: SpeechAudioErrorDetails
 media.mojom.SpeechAudioErrorDetails = {
   kNone: 0,
   kNoMic: 1,
 };
-media.mojom.SpeechAudioErrorDetailsSpec = { $: mojo.internal.Enum() };
 
 // Struct: SpeechRecognitionError
-media.mojom.SpeechRecognitionErrorSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.SpeechRecognitionError',
-      packedSize: 16,
-      fields: [
-        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: media.mojom.SpeechRecognitionErrorCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'details', packedOffset: 4, packedBitOffset: 0, type: media.mojom.SpeechAudioErrorDetailsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.SpeechRecognitionErrorSpec, 'media.mojom.SpeechRecognitionError', [
+      mojo.internal.StructField('code', 0, 0, media.mojom.SpeechRecognitionErrorCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('details', 4, 0, media.mojom.SpeechAudioErrorDetailsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);

@@ -8,33 +8,21 @@
 var prerender = prerender || {};
 prerender.mojom = prerender.mojom || {};
 
+prerender.mojom.NoStatePrefetchCanceler = {};
+prerender.mojom.NoStatePrefetchCanceler.$interfaceName = 'prerender.mojom.NoStatePrefetchCanceler';
+prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchForUnsupportedScheme_ParamsSpec = { $: {} };
+prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchAfterSubresourcesDiscovered_ParamsSpec = { $: {} };
 
 // Interface: NoStatePrefetchCanceler
-prerender.mojom.NoStatePrefetchCanceler = {};
+mojo.internal.Struct(
+    prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchForUnsupportedScheme_ParamsSpec, 'prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchForUnsupportedScheme_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchForUnsupportedScheme_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchForUnsupportedScheme_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchAfterSubresourcesDiscovered_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchAfterSubresourcesDiscovered_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchAfterSubresourcesDiscovered_ParamsSpec, 'prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchAfterSubresourcesDiscovered_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 prerender.mojom.NoStatePrefetchCancelerPendingReceiver = class {
   constructor(handle) {
@@ -98,33 +86,6 @@ prerender.mojom.NoStatePrefetchCanceler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CancelNoStatePrefetchForUnsupportedScheme
-prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchForUnsupportedScheme_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'prerender.mojom.NoStatePrefetchCanceler.CancelNoStatePrefetchForUnsupportedScheme_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for CancelNoStatePrefetchAfterSubresourcesDiscovered
-prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchAfterSubresourcesDiscovered_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'prerender.mojom.NoStatePrefetchCanceler.CancelNoStatePrefetchAfterSubresourcesDiscovered_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 prerender.mojom.NoStatePrefetchCancelerPtr = prerender.mojom.NoStatePrefetchCancelerRemote;
 prerender.mojom.NoStatePrefetchCancelerRequest = prerender.mojom.NoStatePrefetchCancelerPendingReceiver;
 

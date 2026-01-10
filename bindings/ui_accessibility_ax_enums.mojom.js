@@ -8,203 +8,275 @@
 var ax = ax || {};
 ax.mojom = ax.mojom || {};
 
+ax.mojom.EventSpec = { $: mojo.internal.Enum() };
+ax.mojom.RoleSpec = { $: mojo.internal.Enum() };
+ax.mojom.StateSpec = { $: mojo.internal.Enum() };
+ax.mojom.ActionSpec = { $: mojo.internal.Enum() };
+ax.mojom.ActionFlagsSpec = { $: mojo.internal.Enum() };
+ax.mojom.ScrollAlignmentSpec = { $: mojo.internal.Enum() };
+ax.mojom.ScrollBehaviorSpec = { $: mojo.internal.Enum() };
+ax.mojom.DefaultActionVerbSpec = { $: mojo.internal.Enum() };
+ax.mojom.MutationSpec = { $: mojo.internal.Enum() };
+ax.mojom.StringAttributeSpec = { $: mojo.internal.Enum() };
+ax.mojom.IntAttributeSpec = { $: mojo.internal.Enum() };
+ax.mojom.FloatAttributeSpec = { $: mojo.internal.Enum() };
+ax.mojom.BoolAttributeSpec = { $: mojo.internal.Enum() };
+ax.mojom.IntListAttributeSpec = { $: mojo.internal.Enum() };
+ax.mojom.StringListAttributeSpec = { $: mojo.internal.Enum() };
+ax.mojom.ListStyleSpec = { $: mojo.internal.Enum() };
+ax.mojom.MarkerTypeSpec = { $: mojo.internal.Enum() };
+ax.mojom.HighlightTypeSpec = { $: mojo.internal.Enum() };
+ax.mojom.MoveDirectionSpec = { $: mojo.internal.Enum() };
+ax.mojom.CommandSpec = { $: mojo.internal.Enum() };
+ax.mojom.InputEventTypeSpec = { $: mojo.internal.Enum() };
+ax.mojom.TextBoundarySpec = { $: mojo.internal.Enum() };
+ax.mojom.TextAlignSpec = { $: mojo.internal.Enum() };
+ax.mojom.WritingDirectionSpec = { $: mojo.internal.Enum() };
+ax.mojom.TextPositionSpec = { $: mojo.internal.Enum() };
+ax.mojom.TextStyleSpec = { $: mojo.internal.Enum() };
+ax.mojom.TextDecorationStyleSpec = { $: mojo.internal.Enum() };
+ax.mojom.AriaCurrentStateSpec = { $: mojo.internal.Enum() };
+ax.mojom.HasPopupSpec = { $: mojo.internal.Enum() };
+ax.mojom.IsPopupSpec = { $: mojo.internal.Enum() };
+ax.mojom.InvalidStateSpec = { $: mojo.internal.Enum() };
+ax.mojom.RestrictionSpec = { $: mojo.internal.Enum() };
+ax.mojom.CheckedStateSpec = { $: mojo.internal.Enum() };
+ax.mojom.SortDirectionSpec = { $: mojo.internal.Enum() };
+ax.mojom.NameFromSpec = { $: mojo.internal.Enum() };
+ax.mojom.DescriptionFromSpec = { $: mojo.internal.Enum() };
+ax.mojom.DetailsFromSpec = { $: mojo.internal.Enum() };
+ax.mojom.EventFromSpec = { $: mojo.internal.Enum() };
+ax.mojom.GestureSpec = { $: mojo.internal.Enum() };
+ax.mojom.TextAffinitySpec = { $: mojo.internal.Enum() };
+ax.mojom.TreeOrderSpec = { $: mojo.internal.Enum() };
+ax.mojom.AXTreeIDTypeSpec = { $: mojo.internal.Enum() };
+ax.mojom.ImageAnnotationStatusSpec = { $: mojo.internal.Enum() };
+ax.mojom.AriaNotificationInterruptSpec = { $: mojo.internal.Enum() };
+ax.mojom.AriaNotificationPrioritySpec = { $: mojo.internal.Enum() };
 
 // Enum: Event
 ax.mojom.Event = {
-  kActiveDescendantChanged: 0,
-  kAlert: 1,
-  kAriaAttributeChangedDeprecated: 2,
-  kAutocorrectionOccured: 3,
-  kBlur: 4,
-  kCheckedStateChanged: 5,
-  kChildrenChanged: 6,
-  kClicked: 7,
-  kControlsChanged: 8,
-  kDocumentSelectionChanged: 9,
-  kDocumentTitleChanged: 10,
-  kEndOfTest: 11,
-  kExpandedChanged: 12,
-  kFocus: 13,
-  kFocusAfterMenuClose: 14,
-  kFocusContext: 15,
-  kHide: 16,
-  kHitTestResult: 17,
-  kHover: 18,
-  kImageFrameUpdated: 19,
-  kLayoutComplete: 20,
-  kLiveRegionCreated: 21,
-  kLiveRegionChanged: 22,
-  kLoadComplete: 23,
-  kLoadStart: 24,
-  kLocationChanged: 25,
-  kMediaStartedPlaying: 26,
-  kMediaStoppedPlaying: 27,
-  kMenuEnd: 28,
-  kMenuListValueChangedDeprecated: 29,
-  kMenuPopupEnd: 30,
-  kMenuPopupStart: 31,
-  kMenuStart: 32,
-  kMouseCanceled: 33,
-  kMouseDragged: 34,
-  kMouseMoved: 35,
-  kMousePressed: 36,
-  kMouseReleased: 37,
-  kRowCollapsed: 38,
-  kRowCountChanged: 39,
-  kRowExpanded: 40,
-  kScrollPositionChanged: 41,
-  kScrolledToAnchor: 42,
-  kSelectedChildrenChanged: 43,
-  kSelection: 44,
-  kSelectionAdd: 45,
-  kSelectionRemove: 46,
-  kShow: 47,
-  kStateChanged: 48,
-  kTextChanged: 49,
-  kTextSelectionChanged: 50,
-  kTooltipClosed: 51,
-  kTooltipOpened: 52,
-  kTreeChanged: 53,
-  kValueChanged: 54,
-  kWindowActivated: 55,
-  kWindowDeactivated: 56,
-  kWindowVisibilityChanged: 57,
+  kNone: 0,
+  kActiveDescendantChanged: 1,
+  kAlert: 2,
+  kAriaAttributeChangedDeprecated: 3,
+  kAutocorrectionOccured: 4,
+  kBlur: 5,
+  kCheckedStateChanged: 6,
+  kChildrenChanged: 7,
+  kClicked: 8,
+  kControlsChanged: 9,
+  kDocumentSelectionChanged: 10,
+  kDocumentTitleChanged: 11,
+  kEndOfTest: 12,
+  kExpandedChanged: 13,
+  kFocus: 14,
+  kFocusAfterMenuClose: 15,
+  kFocusContext: 16,
+  kHide: 17,
+  kHitTestResult: 18,
+  kHover: 19,
+  kImageFrameUpdated: 20,
+  kLayoutComplete: 21,
+  kLiveRegionCreated: 22,
+  kLiveRegionChanged: 23,
+  kLoadComplete: 24,
+  kLoadStart: 25,
+  kLocationChanged: 26,
+  kMediaStartedPlaying: 27,
+  kMediaStoppedPlaying: 28,
+  kMenuEnd: 29,
+  kMenuListValueChangedDeprecated: 30,
+  kMenuPopupEnd: 31,
+  kMenuPopupStart: 32,
+  kMenuStart: 33,
+  kMouseCanceled: 34,
+  kMouseDragged: 35,
+  kMouseMoved: 36,
+  kMousePressed: 37,
+  kMouseReleased: 38,
+  kRowCollapsed: 39,
+  kRowCountChanged: 40,
+  kRowExpanded: 41,
+  kScrollPositionChanged: 42,
+  kScrolledToAnchor: 43,
+  kSelectedChildrenChanged: 44,
+  kSelection: 45,
+  kSelectionAdd: 46,
+  kSelectionRemove: 47,
+  kShow: 48,
+  kStateChanged: 49,
+  kTextChanged: 50,
+  kTextSelectionChanged: 51,
+  kTooltipClosed: 52,
+  kTooltipOpened: 53,
+  kTreeChanged: 54,
+  kValueChanged: 55,
+  kWindowActivated: 56,
+  kWindowDeactivated: 57,
+  kWindowVisibilityChanged: 58,
 };
-ax.mojom.EventSpec = { $: mojo.internal.Enum() };
 
 // Enum: Role
 ax.mojom.Role = {
-  kAbbr: 0,
-  kAlert: 1,
-  kAlertDialog: 2,
-  kApplication: 3,
-  kArticle: 4,
-  kAudio: 5,
-  kBanner: 6,
-  kBlockquote: 7,
-  kButton: 8,
-  kCanvas: 9,
-  kCaption: 10,
-  kCaret: 11,
-  kCell: 12,
-  kCheckBox: 13,
-  kClient: 14,
-  kCode: 15,
-  kColorWell: 16,
-  kColumn: 17,
-  kColumnHeader: 18,
-  kComboBoxGrouping: 19,
-  kComboBoxMenuButton: 20,
-  kComplementary: 21,
-  kComment: 22,
-  kContentDeletion: 23,
-  kContentInsertion: 24,
-  kContentInfo: 25,
-  kDate: 26,
-  kDateTime: 27,
-  kDefinition: 28,
-  kDescriptionList: 29,
-  kDescriptionListDetailDeprecated: 30,
-  kDescriptionListTermDeprecated: 31,
-  kDesktop: 32,
-  kDetails: 33,
-  kDialog: 34,
-  kDirectoryDeprecated: 35,
-  kDisclosureTriangle: 36,
-  kDocAbstract: 37,
-  kDocAcknowledgments: 38,
-  kDocAfterword: 39,
-  kDocAppendix: 40,
-  kDocBackLink: 41,
-  kDocBiblioEntry: 42,
-  kDocBibliography: 43,
-  kDocBiblioRef: 44,
-  kDocChapter: 45,
-  kDocColophon: 46,
-  kDocConclusion: 47,
-  kDocCover: 48,
-  kDocCredit: 49,
-  kDocCredits: 50,
-  kDocDedication: 51,
-  kDocEndnote: 52,
-  kDocEndnotes: 53,
-  kDocEpigraph: 54,
-  kDocEpilogue: 55,
-  kDocErrata: 56,
-  kDocExample: 57,
-  kDocFootnote: 58,
-  kDocForeword: 59,
-  kDocGlossary: 60,
-  kDocGlossRef: 61,
-  kDocIndex: 62,
-  kDocIntroduction: 63,
-  kDocNoteRef: 64,
-  kDocNotice: 65,
-  kDocPageBreak: 66,
-  kDocPageFooter: 67,
-  kDocPageHeader: 68,
-  kDocPageList: 69,
-  kDocPart: 70,
-  kDocPreface: 71,
-  kDocPrologue: 72,
-  kDocPullquote: 73,
-  kDocQna: 74,
-  kDocSubtitle: 75,
-  kDocTip: 76,
-  kDocToc: 77,
-  kDocument: 78,
-  kEmbeddedObject: 79,
-  kEmphasis: 80,
-  kFeed: 81,
-  kFigcaption: 82,
-  kFigure: 83,
-  kFooter: 84,
-  kSectionFooter: 85,
-  kForm: 86,
-  kGenericContainer: 87,
-  kGraphicsDocument: 88,
-  kGraphicsObject: 89,
-  kGraphicsSymbol: 90,
-  kGrid: 91,
-  kGroup: 92,
-  kHeader: 93,
-  kSectionHeader: 94,
-  kHeading: 95,
-  kIframe: 96,
-  kIframePresentational: 97,
-  kImage: 98,
-  kImeCandidate: 99,
-  kInlineTextBox: 100,
-  kInputTime: 101,
-  kKeyboard: 102,
-  kLabelText: 103,
-  kLayoutTable: 104,
-  kLayoutTableCell: 105,
-  kLayoutTableRow: 106,
-  kLegend: 107,
-  kLineBreak: 108,
-  kLink: 109,
-  kList: 110,
-  kListBox: 111,
-  kListBoxOption: 112,
-  kListGrid: 113,
-  kListItem: 114,
-  kListMarker: 115,
-  kLog: 116,
-  kMain: 117,
-  kMark: 118,
-  kMarquee: 119,
-  kMath: 120,
-  kMenu: 121,
-  kMenuBar: 122,
-  kMenuItem: 123,
-  kMenuItemCheckBox: 124,
-  kMenuItemRadio: 125,
-  kMenuListOption: 126,
-  kMenuListPopup: 127,
-  kMeter: 128,
-  kNavigation: 129,
-  kNone: 130,
+  kUnknown: 181,
+  kAbbr: 1,
+  kAlert: 2,
+  kAlertDialog: 3,
+  kApplication: 4,
+  kArticle: 5,
+  kAudio: 6,
+  kBanner: 7,
+  kBlockquote: 8,
+  kButton: 9,
+  kCanvas: 10,
+  kCaption: 11,
+  kCaret: 12,
+  kCell: 13,
+  kCheckBox: 14,
+  kClient: 15,
+  kCode: 16,
+  kColorWell: 17,
+  kColumn: 18,
+  kColumnHeader: 19,
+  kComboBoxGrouping: 20,
+  kComboBoxMenuButton: 21,
+  MinVersion: 21,
+  kComplementary: 22,
+  kComment: 23,
+  kContentDeletion: 24,
+  kContentInsertion: 25,
+  kContentInfo: 26,
+  kDate: 27,
+  kDateTime: 28,
+  kDefinition: 29,
+  kDescriptionList: 30,
+  kDescriptionListDetailDeprecated: 31,
+  kDescriptionListTermDeprecated: 32,
+  kDesktop: 33,
+  kDetails: 34,
+  kDialog: 35,
+  kDirectoryDeprecated: 36,
+  kDisclosureTriangle: 37,
+  MinVersion: 37,
+  kDocAbstract: 38,
+  kDocAcknowledgments: 39,
+  kDocAfterword: 40,
+  kDocAppendix: 41,
+  kDocBackLink: 42,
+  kDocBiblioEntry: 43,
+  kDocBibliography: 44,
+  kDocBiblioRef: 45,
+  kDocChapter: 46,
+  kDocColophon: 47,
+  kDocConclusion: 48,
+  kDocCover: 49,
+  kDocCredit: 50,
+  kDocCredits: 51,
+  kDocDedication: 52,
+  kDocEndnote: 53,
+  kDocEndnotes: 54,
+  kDocEpigraph: 55,
+  kDocEpilogue: 56,
+  kDocErrata: 57,
+  kDocExample: 58,
+  kDocFootnote: 59,
+  kDocForeword: 60,
+  kDocGlossary: 61,
+  kDocGlossRef: 62,
+  kDocIndex: 63,
+  kDocIntroduction: 64,
+  kDocNoteRef: 65,
+  kDocNotice: 66,
+  kDocPageBreak: 67,
+  kDocPageFooter: 68,
+  kDocPageHeader: 69,
+  kDocPageList: 70,
+  kDocPart: 71,
+  kDocPreface: 72,
+  kDocPrologue: 73,
+  kDocPullquote: 74,
+  kDocQna: 75,
+  kDocSubtitle: 76,
+  kDocTip: 77,
+  kDocToc: 78,
+  kDocument: 79,
+  kEmbeddedObject: 80,
+  kEmphasis: 81,
+  kFeed: 82,
+  kFigcaption: 83,
+  kFigure: 84,
+  kFooter: 85,
+  kSectionFooter: 86,
+  kForm: 87,
+  kGenericContainer: 88,
+  kGraphicsDocument: 89,
+  kGraphicsObject: 90,
+  kGraphicsSymbol: 91,
+  kGrid: 92,
+  MinVersion: 92,
+  kGroup: 93,
+  kHeader: 94,
+  kSectionHeader: 95,
+  kHeading: 96,
+  kIframe: 97,
+  kIframePresentational: 98,
+  kImage: 99,
+  kImeCandidate: 100,
+  kInlineTextBox: 101,
+  kInputTime: 102,
+  kKeyboard: 103,
+  kLabelText: 104,
+  kLayoutTable: 105,
+  kLayoutTableCell: 106,
+  kLayoutTableRow: 107,
+  kLegend: 108,
+  kLineBreak: 109,
+  kLink: 110,
+  kList: 111,
+  kListBox: 112,
+  kListBoxOption: 113,
+  kListGrid: 114,
+  kListItem: 115,
+  kListMarker: 116,
+  kLog: 117,
+  kMain: 118,
+  kMark: 119,
+  kMarquee: 120,
+  kMath: 121,
+  MinVersion: 121,
+  MinVersion: 121,
+  MinVersion: 121,
+  MinVersion: 121,
+  MinVersion: 121,
+  MinVersion: 121,
+  MinVersion: 121,
+  MinVersion: 121,
+  MinVersion: 121,
+  MinVersion: 121,
+  MinVersion: 121,
+  MinVersion: 121,
+  MinVersion: 121,
+  MinVersion: 121,
+  MinVersion: 121,
+  MinVersion: 121,
+  MinVersion: 121,
+  MinVersion: 121,
+  MinVersion: 121,
+  MinVersion: 121,
+  MinVersion: 121,
+  MinVersion: 121,
+  kMenu: 122,
+  kMenuBar: 123,
+  kMenuItem: 124,
+  kMenuItemCheckBox: 125,
+  kMenuItemRadio: 126,
+  MinVersion: 126,
+  kMenuListOption: 127,
+  kMenuListPopup: 128,
+  kMeter: 129,
+  kNavigation: 130,
+  kNone: 0,
   kNote: 131,
   kPane: 132,
   kParagraph: 133,
@@ -229,13 +301,16 @@ ax.mojom.Role = {
   kSearch: 152,
   kSearchBox: 153,
   kSection: 154,
+  MinVersion: 154,
   kSlider: 155,
   kSpinButton: 156,
   kSplitter: 157,
   kStaticText: 158,
   kStatus: 159,
   kStrong: 160,
+  MinVersion: 160,
   kSuggestion: 161,
+  MinVersion: 161,
   kSvgRoot: 162,
   kSwitch: 163,
   kTab: 164,
@@ -255,72 +330,81 @@ ax.mojom.Role = {
   kTree: 178,
   kTreeGrid: 179,
   kTreeItem: 180,
-  kVideo: 181,
-  kWebView: 182,
-  kWindow: 183,
+  kVideo: 182,
+  kWebView: 183,
+  kWindow: 184,
 };
-ax.mojom.RoleSpec = { $: mojo.internal.Enum() };
 
 // Enum: State
 ax.mojom.State = {
-  kAutofillAvailable: 0,
-  kCollapsed: 1,
-  kDefault: 2,
-  kEditable: 3,
-  kExpanded: 4,
-  kFocusable: 5,
-  kHorizontal: 6,
-  kHovered: 7,
-  kIgnored: 8,
-  kInvisible: 9,
-  kLinked: 10,
-  kMultiline: 11,
-  kMultiselectable: 12,
-  kProtected: 13,
-  kRequired: 14,
-  kRichlyEditable: 15,
-  kVertical: 16,
-  kVisited: 17,
+  kNone: 0,
+  kAutofillAvailable: 1,
+  kCollapsed: 2,
+  kDefault: 3,
+  kEditable: 4,
+  kExpanded: 5,
+  kFocusable: 6,
+  kHorizontal: 7,
+  kHovered: 8,
+  kIgnored: 9,
+  kInvisible: 10,
+  kLinked: 11,
+  kMultiline: 12,
+  kMultiselectable: 13,
+  kProtected: 14,
+  kRequired: 15,
+  kRichlyEditable: 16,
+  kVertical: 17,
+  kVisited: 18,
+  MinVersion: 18,
+  MinVersion: 18,
 };
-ax.mojom.StateSpec = { $: mojo.internal.Enum() };
 
 // Enum: Action
 ax.mojom.Action = {
-  kAnnotatePageImages: 0,
-  kBlur: 1,
-  kClearAccessibilityFocus: 2,
-  kCollapse: 3,
-  kCustomAction: 4,
-  kDecrement: 5,
-  kDoDefault: 6,
-  kExpand: 7,
-  kFocus: 8,
-  kGetImageData: 9,
-  kGetTextLocation: 10,
-  kHideTooltip: 11,
-  kHitTest: 12,
-  kIncrement: 13,
-  kInternalInvalidateTree: 14,
-  kLoadInlineTextBoxes: 15,
-  kReplaceSelectedText: 16,
-  kScrollBackward: 17,
-  kScrollDown: 18,
-  kScrollForward: 19,
-  kScrollLeft: 20,
-  kScrollRight: 21,
-  kScrollUp: 22,
-  kScrollToMakeVisible: 23,
-  kScrollToPoint: 24,
-  kSetAccessibilityFocus: 25,
-  kSetScrollOffset: 26,
-  kSetSelection: 27,
-  kSetSequentialFocusNavigationStartingPoint: 28,
-  kSetValue: 29,
-  kShowContextMenu: 30,
-  kSignalEndOfTest: 31,
-  kShowTooltip: 32,
+  kNone: 0,
+  kAnnotatePageImages: 1,
+  kBlur: 2,
+  kClearAccessibilityFocus: 3,
+  kCollapse: 4,
+  kCustomAction: 5,
+  kDecrement: 6,
+  kDoDefault: 7,
+  kExpand: 8,
+  kFocus: 9,
+  kGetImageData: 10,
+  kGetTextLocation: 11,
+  kHideTooltip: 12,
+  kHitTest: 13,
+  kIncrement: 14,
+  kInternalInvalidateTree: 15,
+  kLoadInlineTextBoxes: 16,
+  MinVersion: 16,
+  kReplaceSelectedText: 17,
+  MinVersion: 17,
+  MinVersion: 17,
+  kScrollBackward: 18,
+  kScrollDown: 19,
+  kScrollForward: 20,
+  kScrollLeft: 21,
+  kScrollRight: 22,
+  kScrollUp: 23,
+  kScrollToMakeVisible: 24,
+  kScrollToPoint: 25,
+  MinVersion: 25,
+  kSetAccessibilityFocus: 26,
+  kSetScrollOffset: 27,
+  kSetSelection: 28,
+  kSetSequentialFocusNavigationStartingPoint: 29,
+  kSetValue: 30,
+  kShowContextMenu: 31,
+  kSignalEndOfTest: 32,
+  kShowTooltip: 33,
+  MinVersion: 33,
+  MinVersion: 33,
+  MinVersion: 33,
+  MinVersion: 33,
 };
-ax.mojom.ActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: ActionFlags
 ax.mojom.ActionFlags = {
@@ -328,25 +412,24 @@ ax.mojom.ActionFlags = {
   kRequestImages: 1,
   kRequestInlineTextBoxes: 2,
 };
-ax.mojom.ActionFlagsSpec = { $: mojo.internal.Enum() };
 
 // Enum: ScrollAlignment
 ax.mojom.ScrollAlignment = {
-  kScrollAlignmentCenter: 0,
-  kScrollAlignmentTop: 1,
-  kScrollAlignmentBottom: 2,
-  kScrollAlignmentLeft: 3,
-  kScrollAlignmentRight: 4,
-  kScrollAlignmentClosestEdge: 5,
+  kNone: 0,
+  kScrollAlignmentCenter: 1,
+  kScrollAlignmentTop: 2,
+  kScrollAlignmentBottom: 3,
+  kScrollAlignmentLeft: 4,
+  kScrollAlignmentRight: 5,
+  kScrollAlignmentClosestEdge: 6,
 };
-ax.mojom.ScrollAlignmentSpec = { $: mojo.internal.Enum() };
 
 // Enum: ScrollBehavior
 ax.mojom.ScrollBehavior = {
-  kDoNotScrollIfVisible: 0,
-  kScrollIfVisible: 1,
+  kNone: 0,
+  kDoNotScrollIfVisible: 1,
+  kScrollIfVisible: 2,
 };
-ax.mojom.ScrollBehaviorSpec = { $: mojo.internal.Enum() };
 
 // Enum: DefaultActionVerb
 ax.mojom.DefaultActionVerb = {
@@ -363,7 +446,6 @@ ax.mojom.DefaultActionVerb = {
   kSelect: 10,
   kUncheck: 11,
 };
-ax.mojom.DefaultActionVerbSpec = { $: mojo.internal.Enum() };
 
 // Enum: Mutation
 ax.mojom.Mutation = {
@@ -375,170 +457,211 @@ ax.mojom.Mutation = {
   kTextChanged: 5,
   kSubtreeUpdateEnd: 6,
 };
-ax.mojom.MutationSpec = { $: mojo.internal.Enum() };
 
 // Enum: StringAttribute
 ax.mojom.StringAttribute = {
-  kAccessKey: 0,
-  kAppId: 1,
-  kAriaInvalidValueDeprecated: 2,
-  kAutoComplete: 3,
-  kCheckedStateDescription: 4,
-  kChildTreeId: 5,
-  kChildTreeNodeAppId: 6,
-  kClassName: 7,
-  kContainerLiveRelevant: 8,
-  kContainerLiveStatus: 9,
-  kDescription: 10,
-  kDisplay: 11,
-  kFontFamily: 12,
-  kHtmlTag: 13,
-  kImageAnnotation: 14,
-  kImageDataUrl: 15,
-  kInputType: 16,
-  kKeyShortcuts: 17,
-  kLanguage: 18,
-  kLiveRelevant: 19,
-  kLiveStatus: 20,
-  kMathContent: 21,
-  kName: 22,
-  kPlaceholder: 23,
-  kRole: 24,
-  kRoleDescription: 25,
-  kTooltip: 26,
-  kUrl: 27,
-  kValue: 28,
-  kVirtualContent: 29,
+  kNone: 0,
+  kAccessKey: 1,
+  kAppId: 2,
+  kAriaInvalidValueDeprecated: 3,
+  kAutoComplete: 4,
+  MinVersion: 4,
+  MinVersion: 4,
+  MinVersion: 4,
+  MinVersion: 4,
+  MinVersion: 4,
+  MinVersion: 4,
+  kCheckedStateDescription: 5,
+  kChildTreeId: 6,
+  kChildTreeNodeAppId: 7,
+  kClassName: 8,
+  kContainerLiveRelevant: 9,
+  kContainerLiveStatus: 10,
+  MinVersion: 10,
+  kDescription: 11,
+  kDisplay: 12,
+  MinVersion: 12,
+  kFontFamily: 13,
+  MinVersion: 13,
+  kHtmlTag: 14,
+  MinVersion: 14,
+  kImageAnnotation: 15,
+  kImageDataUrl: 16,
+  kInputType: 18,
+  kKeyShortcuts: 19,
+  kLanguage: 20,
+  MinVersion: 20,
+  MinVersion: 20,
+  kLiveRelevant: 22,
+  kLiveStatus: 23,
+  kMathContent: 17,
+  kName: 21,
+  kPlaceholder: 24,
+  kRole: 25,
+  kRoleDescription: 26,
+  kTooltip: 27,
+  kUrl: 28,
+  kValue: 29,
+  kVirtualContent: 30,
 };
-ax.mojom.StringAttributeSpec = { $: mojo.internal.Enum() };
 
 // Enum: IntAttribute
 ax.mojom.IntAttribute = {
-  kDefaultActionVerb: 0,
-  kScrollX: 1,
-  kScrollXMin: 2,
-  kScrollXMax: 3,
-  kScrollY: 4,
-  kScrollYMin: 5,
-  kScrollYMax: 6,
-  kTextSelStart: 7,
-  kTextSelEnd: 8,
-  kAriaColumnCount: 9,
-  kAriaCellColumnIndex: 10,
-  kAriaCellColumnSpan: 11,
-  kAriaRowCount: 12,
-  kAriaCellRowIndex: 13,
-  kAriaCellRowSpan: 14,
-  kTableRowCount: 15,
-  kTableColumnCount: 16,
-  kTableHeaderId: 17,
-  kTableRowIndex: 18,
-  kTableRowHeaderId: 19,
-  kTableColumnIndex: 20,
-  kTableColumnHeaderId: 21,
-  kTableCellColumnIndex: 22,
-  kTableCellColumnSpan: 23,
-  kTableCellRowIndex: 24,
-  kTableCellRowSpan: 25,
-  kSortDirection: 26,
-  kHierarchicalLevel: 27,
-  kNameFrom: 28,
-  kDescriptionFrom: 29,
-  kActivedescendantId: 30,
-  kErrormessageIdDeprecated: 31,
-  kInPageLinkTargetId: 32,
-  kMemberOfId: 33,
-  kNextOnLineId: 34,
-  kPopupForId: 35,
-  kPreviousOnLineId: 36,
-  kRestriction: 37,
-  kSetSize: 38,
-  kPosInSet: 39,
-  kColorValue: 40,
-  kAriaCurrentState: 41,
-  kBackgroundColor: 42,
-  kColor: 43,
-  kHasPopup: 44,
-  kImageAnnotationStatus: 45,
-  kInvalidState: 46,
-  kCheckedState: 47,
-  kListStyle: 48,
-  kTextAlign: 49,
-  kTextDirection: 50,
-  kTextPosition: 51,
-  kTextStyle: 52,
-  kTextOverlineStyle: 53,
-  kTextStrikethroughStyle: 54,
-  kTextUnderlineStyle: 55,
-  kPreviousFocusId: 56,
-  kNextFocusId: 57,
-  kDropeffectDeprecated: 58,
-  kDOMNodeIdDeprecated: 59,
+  kNone: 0,
+  kDefaultActionVerb: 1,
+  kScrollX: 2,
+  kScrollXMin: 3,
+  kScrollXMax: 4,
+  kScrollY: 5,
+  kScrollYMin: 6,
+  kScrollYMax: 7,
+  kTextSelStart: 8,
+  kTextSelEnd: 9,
+  kAriaColumnCount: 10,
+  kAriaCellColumnIndex: 11,
+  kAriaCellColumnSpan: 12,
+  kAriaRowCount: 13,
+  kAriaCellRowIndex: 14,
+  kAriaCellRowSpan: 15,
+  kTableRowCount: 16,
+  kTableColumnCount: 17,
+  kTableHeaderId: 18,
+  kTableRowIndex: 19,
+  kTableRowHeaderId: 20,
+  kTableColumnIndex: 21,
+  kTableColumnHeaderId: 22,
+  kTableCellColumnIndex: 23,
+  kTableCellColumnSpan: 24,
+  kTableCellRowIndex: 25,
+  kTableCellRowSpan: 26,
+  kSortDirection: 27,
+  kHierarchicalLevel: 28,
+  kNameFrom: 29,
+  kDescriptionFrom: 30,
+  kActivedescendantId: 31,
+  kErrormessageIdDeprecated: 32,
+  kInPageLinkTargetId: 33,
+  kMemberOfId: 34,
+  kNextOnLineId: 35,
+  kPopupForId: 36,
+  kPreviousOnLineId: 37,
+  kRestriction: 38,
+  kSetSize: 39,
+  kPosInSet: 40,
+  kColorValue: 41,
+  kAriaCurrentState: 42,
+  kBackgroundColor: 43,
+  kColor: 44,
+  kHasPopup: 45,
+  kImageAnnotationStatus: 46,
+  kInvalidState: 47,
+  kCheckedState: 48,
+  kListStyle: 49,
+  kTextAlign: 50,
+  kTextDirection: 51,
+  kTextPosition: 52,
+  kTextStyle: 53,
+  kTextOverlineStyle: 54,
+  kTextStrikethroughStyle: 55,
+  kTextUnderlineStyle: 56,
+  kPreviousFocusId: 57,
+  kNextFocusId: 58,
+  kDropeffectDeprecated: 59,
+  kDOMNodeIdDeprecated: 60,
+  MinVersion: 60,
+  MinVersion: 60,
+  MinVersion: 60,
+  MinVersion: 60,
+  MinVersion: 60,
+  MinVersion: 60,
+  MinVersion: 60,
+  MinVersion: 60,
+  MinVersion: 60,
 };
-ax.mojom.IntAttributeSpec = { $: mojo.internal.Enum() };
 
 // Enum: FloatAttribute
 ax.mojom.FloatAttribute = {
-  kValueForRange: 0,
-  kMinValueForRange: 1,
-  kMaxValueForRange: 2,
-  kStepValueForRange: 3,
-  kFontSize: 4,
-  kFontWeight: 5,
-  kTextIndent: 6,
+  kNone: 0,
+  kValueForRange: 1,
+  kMinValueForRange: 2,
+  kMaxValueForRange: 3,
+  kStepValueForRange: 4,
+  kFontSize: 5,
+  kFontWeight: 6,
+  kTextIndent: 7,
+  MinVersion: 7,
 };
-ax.mojom.FloatAttributeSpec = { $: mojo.internal.Enum() };
 
 // Enum: BoolAttribute
 ax.mojom.BoolAttribute = {
-  kBusy: 0,
-  kNonAtomicTextFieldRoot: 1,
-  kContainerLiveAtomic: 2,
-  kContainerLiveBusy: 3,
-  kLiveAtomic: 4,
-  kModal: 5,
-  kUpdateLocationOnly: 6,
-  kCanvasHasFallback: 7,
-  kScrollable: 8,
-  kClickable: 9,
-  kClipsChildren: 10,
-  kNotUserSelectableStyle: 11,
-  kSelected: 12,
-  kSelectedFromFocus: 13,
-  kSupportsTextLocation: 14,
-  kGrabbedDeprecated: 15,
-  kIsLineBreakingObject: 16,
-  kIsPageBreakingObject: 17,
-  kHasAriaAttribute: 18,
-  kTouchPassthroughDeprecated: 19,
+  kNone: 0,
+  kBusy: 1,
+  kNonAtomicTextFieldRoot: 2,
+  kContainerLiveAtomic: 3,
+  kContainerLiveBusy: 4,
+  kLiveAtomic: 5,
+  kModal: 6,
+  kUpdateLocationOnly: 7,
+  kCanvasHasFallback: 8,
+  kScrollable: 9,
+  kClickable: 10,
+  kClipsChildren: 11,
+  kNotUserSelectableStyle: 12,
+  kSelected: 13,
+  kSelectedFromFocus: 14,
+  kSupportsTextLocation: 15,
+  kGrabbedDeprecated: 16,
+  kIsLineBreakingObject: 17,
+  kIsPageBreakingObject: 18,
+  kHasAriaAttribute: 19,
+  kTouchPassthroughDeprecated: 20,
+  MinVersion: 20,
+  MinVersion: 20,
+  MinVersion: 20,
+  MinVersion: 20,
 };
-ax.mojom.BoolAttributeSpec = { $: mojo.internal.Enum() };
 
 // Enum: IntListAttribute
 ax.mojom.IntListAttribute = {
-  kIndirectChildIds: 0,
-  kControlsIds: 1,
-  kDetailsIds: 2,
-  kDescribedbyIds: 3,
-  kFlowtoIds: 4,
-  kLabelledbyIds: 5,
-  kRadioGroupIds: 6,
-  kMarkerTypes: 7,
-  kMarkerStarts: 8,
-  kMarkerEnds: 9,
-  kCharacterOffsets: 10,
-  kLineStarts: 11,
-  kWordStarts: 12,
-  kWordEnds: 13,
-  kCustomActionIds: 14,
+  kNone: 0,
+  kIndirectChildIds: 1,
+  kControlsIds: 2,
+  kDetailsIds: 3,
+  kDescribedbyIds: 4,
+  MinVersion: 4,
+  kFlowtoIds: 5,
+  kLabelledbyIds: 6,
+  kRadioGroupIds: 7,
+  MinVersion: 7,
+  kMarkerTypes: 8,
+  kMarkerStarts: 9,
+  kMarkerEnds: 10,
+  MinVersion: 10,
+  MinVersion: 10,
+  kCharacterOffsets: 11,
+  kLineStarts: 12,
+  MinVersion: 12,
+  MinVersion: 12,
+  MinVersion: 12,
+  kWordStarts: 13,
+  kWordEnds: 14,
+  kCustomActionIds: 15,
+  MinVersion: 15,
+  MinVersion: 15,
+  MinVersion: 15,
+  MinVersion: 15,
+  MinVersion: 15,
+  MinVersion: 15,
+  MinVersion: 15,
 };
-ax.mojom.IntListAttributeSpec = { $: mojo.internal.Enum() };
 
 // Enum: StringListAttribute
 ax.mojom.StringListAttribute = {
-  kCustomActionDescriptions: 0,
+  kNone: 0,
+  MinVersion: 0,
+  MinVersion: 0,
+  kCustomActionDescriptions: 1,
 };
-ax.mojom.StringListAttributeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ListStyle
 ax.mojom.ListStyle = {
@@ -550,19 +673,17 @@ ax.mojom.ListStyle = {
   kSquare: 5,
   kOther: 6,
 };
-ax.mojom.ListStyleSpec = { $: mojo.internal.Enum() };
 
 // Enum: MarkerType
 ax.mojom.MarkerType = {
   kNone: 0,
   kSpelling: 1,
   kGrammar: 2,
-  kTextMatch: 3,
-  kActiveSuggestion: 4,
-  kSuggestion: 5,
-  kHighlight: 6,
+  kTextMatch: 4,
+  kActiveSuggestion: 16,
+  kSuggestion: 32,
+  kHighlight: 64,
 };
-ax.mojom.MarkerTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: HighlightType
 ax.mojom.HighlightType = {
@@ -571,96 +692,99 @@ ax.mojom.HighlightType = {
   kSpellingError: 2,
   kGrammarError: 3,
 };
-ax.mojom.HighlightTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: MoveDirection
 ax.mojom.MoveDirection = {
-  kBackward: 0,
-  kForward: 1,
+  kNone: 0,
+  kBackward: 1,
+  kForward: 2,
 };
-ax.mojom.MoveDirectionSpec = { $: mojo.internal.Enum() };
 
 // Enum: Command
 ax.mojom.Command = {
-  kClearSelection: 0,
-  kDelete: 1,
-  kDictate: 2,
-  kExtendSelection: 3,
-  kFormat: 4,
-  kHistory: 5,
-  kInsert: 6,
-  kMarker: 7,
-  kMoveSelection: 8,
-  kSetSelection: 9,
+  kNone: 0,
+  kClearSelection: 1,
+  kDelete: 2,
+  kDictate: 3,
+  kExtendSelection: 4,
+  kFormat: 5,
+  kHistory: 6,
+  kInsert: 7,
+  kMarker: 8,
+  kMoveSelection: 9,
+  kSetSelection: 10,
 };
-ax.mojom.CommandSpec = { $: mojo.internal.Enum() };
 
 // Enum: InputEventType
 ax.mojom.InputEventType = {
-  kInsertText: 0,
-  kInsertLineBreak: 1,
-  kInsertParagraph: 2,
-  kInsertOrderedList: 3,
-  kInsertUnorderedList: 4,
-  kInsertHorizontalRule: 5,
-  kInsertFromPaste: 6,
-  kInsertFromDrop: 7,
-  kInsertFromYank: 8,
-  kInsertTranspose: 9,
-  kInsertReplacementText: 10,
-  kInsertCompositionText: 11,
-  kDeleteWordBackward: 12,
-  kDeleteWordForward: 13,
-  kDeleteSoftLineBackward: 14,
-  kDeleteSoftLineForward: 15,
-  kDeleteHardLineBackward: 16,
-  kDeleteHardLineForward: 17,
-  kDeleteContentBackward: 18,
-  kDeleteContentForward: 19,
-  kDeleteByCut: 20,
-  kDeleteByDrag: 21,
-  kHistoryUndo: 22,
-  kHistoryRedo: 23,
-  kFormatBold: 24,
-  kFormatItalic: 25,
-  kFormatUnderline: 26,
-  kFormatStrikeThrough: 27,
-  kFormatSuperscript: 28,
-  kFormatSubscript: 29,
-  kFormatJustifyCenter: 30,
-  kFormatJustifyFull: 31,
-  kFormatJustifyRight: 32,
-  kFormatJustifyLeft: 33,
-  kFormatIndent: 34,
-  kFormatOutdent: 35,
-  kFormatRemove: 36,
-  kFormatSetBlockTextDirection: 37,
+  kNone: 0,
+  kInsertText: 1,
+  kInsertLineBreak: 2,
+  kInsertParagraph: 3,
+  kInsertOrderedList: 4,
+  kInsertUnorderedList: 5,
+  kInsertHorizontalRule: 6,
+  kInsertFromPaste: 7,
+  kInsertFromDrop: 8,
+  kInsertFromYank: 9,
+  kInsertTranspose: 10,
+  kInsertReplacementText: 11,
+  kInsertCompositionText: 12,
+  MinVersion: 12,
+  kDeleteWordBackward: 13,
+  kDeleteWordForward: 14,
+  kDeleteSoftLineBackward: 15,
+  kDeleteSoftLineForward: 16,
+  kDeleteHardLineBackward: 17,
+  kDeleteHardLineForward: 18,
+  kDeleteContentBackward: 19,
+  kDeleteContentForward: 20,
+  kDeleteByCut: 21,
+  kDeleteByDrag: 22,
+  kHistoryUndo: 23,
+  kHistoryRedo: 24,
+  kFormatBold: 25,
+  kFormatItalic: 26,
+  kFormatUnderline: 27,
+  kFormatStrikeThrough: 28,
+  kFormatSuperscript: 29,
+  kFormatSubscript: 30,
+  kFormatJustifyCenter: 31,
+  kFormatJustifyFull: 32,
+  kFormatJustifyRight: 33,
+  kFormatJustifyLeft: 34,
+  kFormatIndent: 35,
+  kFormatOutdent: 36,
+  kFormatRemove: 37,
+  kFormatSetBlockTextDirection: 38,
 };
-ax.mojom.InputEventTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: TextBoundary
 ax.mojom.TextBoundary = {
-  kCharacter: 0,
-  kFormatEnd: 1,
-  kLineEnd: 2,
-  kLineStart: 3,
-  kLineStartOrEnd: 4,
-  kObject: 5,
-  kPageEnd: 6,
-  kPageStart: 7,
-  kPageStartOrEnd: 8,
-  kParagraphEnd: 9,
-  kParagraphStart: 10,
-  kParagraphStartOrEnd: 11,
-  kSentenceEnd: 12,
-  kSentenceStart: 13,
-  kSentenceStartOrEnd: 14,
-  kWebPage: 15,
-  kWordEnd: 16,
-  kWordStart: 17,
-  kWordStartOrEnd: 18,
+  kNone: 0,
+  kCharacter: 1,
+  kFormatEnd: 2,
+  MinVersion: 2,
+  MinVersion: 2,
+  kLineEnd: 3,
+  kLineStart: 4,
+  kLineStartOrEnd: 5,
+  kObject: 6,
+  kPageEnd: 7,
+  kPageStart: 8,
+  kPageStartOrEnd: 9,
+  kParagraphEnd: 10,
+  kParagraphStart: 11,
+  MinVersion: 11,
+  kParagraphStartOrEnd: 12,
+  kSentenceEnd: 13,
+  kSentenceStart: 14,
+  kSentenceStartOrEnd: 15,
+  kWebPage: 16,
+  kWordEnd: 17,
+  kWordStart: 18,
+  kWordStartOrEnd: 19,
 };
-ax.mojom.TextBoundarySpec = { $: mojo.internal.Enum() };
 
 // Enum: TextAlign
 ax.mojom.TextAlign = {
@@ -670,7 +794,6 @@ ax.mojom.TextAlign = {
   kCenter: 3,
   kJustify: 4,
 };
-ax.mojom.TextAlignSpec = { $: mojo.internal.Enum() };
 
 // Enum: WritingDirection
 ax.mojom.WritingDirection = {
@@ -680,7 +803,6 @@ ax.mojom.WritingDirection = {
   kTtb: 3,
   kBtt: 4,
 };
-ax.mojom.WritingDirectionSpec = { $: mojo.internal.Enum() };
 
 // Enum: TextPosition
 ax.mojom.TextPosition = {
@@ -688,7 +810,6 @@ ax.mojom.TextPosition = {
   kSubscript: 1,
   kSuperscript: 2,
 };
-ax.mojom.TextPositionSpec = { $: mojo.internal.Enum() };
 
 // Enum: TextStyle
 ax.mojom.TextStyle = {
@@ -699,7 +820,6 @@ ax.mojom.TextStyle = {
   kLineThrough: 4,
   kOverline: 5,
 };
-ax.mojom.TextStyleSpec = { $: mojo.internal.Enum() };
 
 // Enum: TextDecorationStyle
 ax.mojom.TextDecorationStyle = {
@@ -710,7 +830,6 @@ ax.mojom.TextDecorationStyle = {
   kDouble: 4,
   kWavy: 5,
 };
-ax.mojom.TextDecorationStyleSpec = { $: mojo.internal.Enum() };
 
 // Enum: AriaCurrentState
 ax.mojom.AriaCurrentState = {
@@ -723,7 +842,6 @@ ax.mojom.AriaCurrentState = {
   kDate: 6,
   kTime: 7,
 };
-ax.mojom.AriaCurrentStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: HasPopup
 ax.mojom.HasPopup = {
@@ -734,9 +852,8 @@ ax.mojom.HasPopup = {
   kTree: 4,
   kGrid: 5,
   kDialog: 6,
-  kNone: 7,
+  kNone: 6,
 };
-ax.mojom.HasPopupSpec = { $: mojo.internal.Enum() };
 
 // Enum: IsPopup
 ax.mojom.IsPopup = {
@@ -745,7 +862,6 @@ ax.mojom.IsPopup = {
   kAuto: 2,
   kHint: 3,
 };
-ax.mojom.IsPopupSpec = { $: mojo.internal.Enum() };
 
 // Enum: InvalidState
 ax.mojom.InvalidState = {
@@ -753,7 +869,6 @@ ax.mojom.InvalidState = {
   kFalse: 1,
   kTrue: 2,
 };
-ax.mojom.InvalidStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: Restriction
 ax.mojom.Restriction = {
@@ -761,7 +876,6 @@ ax.mojom.Restriction = {
   kReadOnly: 1,
   kDisabled: 2,
 };
-ax.mojom.RestrictionSpec = { $: mojo.internal.Enum() };
 
 // Enum: CheckedState
 ax.mojom.CheckedState = {
@@ -770,7 +884,6 @@ ax.mojom.CheckedState = {
   kTrue: 2,
   kMixed: 3,
 };
-ax.mojom.CheckedStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: SortDirection
 ax.mojom.SortDirection = {
@@ -780,7 +893,6 @@ ax.mojom.SortDirection = {
   kDescending: 3,
   kOther: 4,
 };
-ax.mojom.SortDirectionSpec = { $: mojo.internal.Enum() };
 
 // Enum: NameFrom
 ax.mojom.NameFrom = {
@@ -799,7 +911,6 @@ ax.mojom.NameFrom = {
   kPopoverTarget: 12,
   kInterestFor: 13,
 };
-ax.mojom.NameFromSpec = { $: mojo.internal.Enum() };
 
 // Enum: DescriptionFrom
 ax.mojom.DescriptionFrom = {
@@ -817,7 +928,6 @@ ax.mojom.DescriptionFrom = {
   kPopoverTarget: 11,
   kInterestFor: 12,
 };
-ax.mojom.DescriptionFromSpec = { $: mojo.internal.Enum() };
 
 // Enum: DetailsFrom
 ax.mojom.DetailsFrom = {
@@ -828,15 +938,14 @@ ax.mojom.DetailsFrom = {
   kCommandfor: 4,
   kCssScrollMarkerPseudoElement: 5,
 };
-ax.mojom.DetailsFromSpec = { $: mojo.internal.Enum() };
 
 // Enum: EventFrom
 ax.mojom.EventFrom = {
-  kUser: 0,
-  kPage: 1,
-  kAction: 2,
+  kNone: 0,
+  kUser: 1,
+  kPage: 2,
+  kAction: 3,
 };
-ax.mojom.EventFromSpec = { $: mojo.internal.Enum() };
 
 // Enum: Gesture
 ax.mojom.Gesture = {
@@ -863,14 +972,13 @@ ax.mojom.Gesture = {
   kTap4: 20,
   kTouchExplore: 21,
 };
-ax.mojom.GestureSpec = { $: mojo.internal.Enum() };
 
 // Enum: TextAffinity
 ax.mojom.TextAffinity = {
-  kDownstream: 0,
-  kUpstream: 1,
+  kNone: 0,
+  kDownstream: 1,
+  kUpstream: 2,
 };
-ax.mojom.TextAffinitySpec = { $: mojo.internal.Enum() };
 
 // Enum: TreeOrder
 ax.mojom.TreeOrder = {
@@ -880,14 +988,12 @@ ax.mojom.TreeOrder = {
   kEqual: 3,
   kAfter: 4,
 };
-ax.mojom.TreeOrderSpec = { $: mojo.internal.Enum() };
 
 // Enum: AXTreeIDType
 ax.mojom.AXTreeIDType = {
   kUnknown: 0,
   kToken: 1,
 };
-ax.mojom.AXTreeIDTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ImageAnnotationStatus
 ax.mojom.ImageAnnotationStatus = {
@@ -902,7 +1008,6 @@ ax.mojom.ImageAnnotationStatus = {
   kAnnotationAdult: 8,
   kAnnotationProcessFailed: 9,
 };
-ax.mojom.ImageAnnotationStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: AriaNotificationInterrupt
 ax.mojom.AriaNotificationInterrupt = {
@@ -910,11 +1015,9 @@ ax.mojom.AriaNotificationInterrupt = {
   kAll: 1,
   kPending: 2,
 };
-ax.mojom.AriaNotificationInterruptSpec = { $: mojo.internal.Enum() };
 
 // Enum: AriaNotificationPriority
 ax.mojom.AriaNotificationPriority = {
   kNormal: 0,
   kHigh: 1,
 };
-ax.mojom.AriaNotificationPrioritySpec = { $: mojo.internal.Enum() };

@@ -7,19 +7,14 @@
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
+var services = services || {};
 var blink = blink || {};
 
+content.mojom.DidCommitProvisionalLoadInterfaceParamsSpec = { $: {} };
 
 // Struct: DidCommitProvisionalLoadInterfaceParams
-content.mojom.DidCommitProvisionalLoadInterfaceParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.DidCommitProvisionalLoadInterfaceParams',
-      packedSize: 16,
-      fields: [
-        { name: 'browser_interface_broker_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.BrowserInterfaceBrokerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.DidCommitProvisionalLoadInterfaceParamsSpec, 'content.mojom.DidCommitProvisionalLoadInterfaceParams', [
+      mojo.internal.StructField('browser_interface_broker_receiver', 0, 0, mojo.internal.InterfaceRequest(blink.mojom.BrowserInterfaceBrokerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);

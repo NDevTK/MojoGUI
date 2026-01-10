@@ -8,6 +8,13 @@
 var custom_help_bubble = custom_help_bubble || {};
 custom_help_bubble.mojom = custom_help_bubble.mojom || {};
 
+custom_help_bubble.mojom.CustomHelpBubbleUserActionSpec = { $: mojo.internal.Enum() };
+custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory = {};
+custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory.$interfaceName = 'custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory';
+custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_ParamsSpec = { $: {} };
+custom_help_bubble.mojom.CustomHelpBubbleHandler = {};
+custom_help_bubble.mojom.CustomHelpBubbleHandler.$interfaceName = 'custom_help_bubble.mojom.CustomHelpBubbleHandler';
+custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec = { $: {} };
 
 // Enum: CustomHelpBubbleUserAction
 custom_help_bubble.mojom.CustomHelpBubbleUserAction = {
@@ -16,23 +23,13 @@ custom_help_bubble.mojom.CustomHelpBubbleUserAction = {
   kAction: 2,
   kCancel: 3,
 };
-custom_help_bubble.mojom.CustomHelpBubbleUserActionSpec = { $: mojo.internal.Enum() };
 
 // Interface: CustomHelpBubbleHandlerFactory
-custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory = {};
-
-custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(custom_help_bubble.mojom.CustomHelpBubbleHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_ParamsSpec, 'custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(custom_help_bubble.mojom.CustomHelpBubbleHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -87,40 +84,16 @@ custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateCustomHelpBubbleHandler
-custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory.CreateCustomHelpBubbleHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(custom_help_bubble.mojom.CustomHelpBubbleHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryPtr = custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryRemote;
 custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryRequest = custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryPendingReceiver;
 
 
 // Interface: CustomHelpBubbleHandler
-custom_help_bubble.mojom.CustomHelpBubbleHandler = {};
-
-custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: custom_help_bubble.mojom.CustomHelpBubbleUserActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec, 'custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_Params', [
+      mojo.internal.StructField('action', 0, 0, custom_help_bubble.mojom.CustomHelpBubbleUserActionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 custom_help_bubble.mojom.CustomHelpBubbleHandlerPendingReceiver = class {
   constructor(handle) {
@@ -175,21 +148,6 @@ custom_help_bubble.mojom.CustomHelpBubbleHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for NotifyUserAction
-custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'custom_help_bubble.mojom.CustomHelpBubbleHandler.NotifyUserAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: custom_help_bubble.mojom.CustomHelpBubbleUserActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 custom_help_bubble.mojom.CustomHelpBubbleHandlerPtr = custom_help_bubble.mojom.CustomHelpBubbleHandlerRemote;
 custom_help_bubble.mojom.CustomHelpBubbleHandlerRequest = custom_help_bubble.mojom.CustomHelpBubbleHandlerPendingReceiver;
 

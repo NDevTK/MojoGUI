@@ -8,23 +8,17 @@
 var service_manager = service_manager || {};
 service_manager.mojom = service_manager.mojom || {};
 
+service_manager.mojom.InterfaceProvider = {};
+service_manager.mojom.InterfaceProvider.$interfaceName = 'service_manager.mojom.InterfaceProvider';
+service_manager.mojom.InterfaceProvider_GetInterface_ParamsSpec = { $: {} };
 
 // Interface: InterfaceProvider
-service_manager.mojom.InterfaceProvider = {};
-
-service_manager.mojom.InterfaceProvider_GetInterface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.InterfaceProvider_GetInterface_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'interface_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    service_manager.mojom.InterfaceProvider_GetInterface_ParamsSpec, 'service_manager.mojom.InterfaceProvider_GetInterface_Params', [
+      mojo.internal.StructField('interface_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('pipe', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 service_manager.mojom.InterfaceProviderPendingReceiver = class {
   constructor(handle) {
@@ -79,22 +73,6 @@ service_manager.mojom.InterfaceProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetInterface
-service_manager.mojom.InterfaceProvider_GetInterface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.InterfaceProvider.GetInterface_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'interface_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 service_manager.mojom.InterfaceProviderPtr = service_manager.mojom.InterfaceProviderRemote;
 service_manager.mojom.InterfaceProviderRequest = service_manager.mojom.InterfaceProviderPendingReceiver;
 

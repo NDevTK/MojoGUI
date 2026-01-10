@@ -8,8 +8,47 @@
 var ash = ash || {};
 ash.personalization_app = ash.personalization_app || {};
 ash.personalization_app.mojom = ash.personalization_app.mojom || {};
+var ash = ash || {};
 var url = url || {};
 
+ash.personalization_app.mojom.MantaStatusCodeSpec = { $: mojo.internal.Enum() };
+ash.personalization_app.mojom.SeaPenQuerySpec = { $: {} };
+ash.personalization_app.mojom.SeaPenThumbnailSpec = { $: {} };
+ash.personalization_app.mojom.SeaPenUserVisibleQuerySpec = { $: {} };
+ash.personalization_app.mojom.SeaPenTemplateQuerySpec = { $: {} };
+ash.personalization_app.mojom.SeaPenFeedbackMetadataSpec = { $: {} };
+ash.personalization_app.mojom.RecentSeaPenImageInfoSpec = { $: {} };
+ash.personalization_app.mojom.RecentSeaPenThumbnailDataSpec = { $: {} };
+ash.personalization_app.mojom.TextQueryHistoryEntrySpec = { $: {} };
+ash.personalization_app.mojom.SeaPenObserver = {};
+ash.personalization_app.mojom.SeaPenObserver.$interfaceName = 'ash.personalization_app.mojom.SeaPenObserver';
+ash.personalization_app.mojom.SeaPenObserver_OnSelectedSeaPenImageChanged_ParamsSpec = { $: {} };
+ash.personalization_app.mojom.SeaPenObserver_OnTextQueryHistoryChanged_ParamsSpec = { $: {} };
+ash.personalization_app.mojom.SeaPenProvider = {};
+ash.personalization_app.mojom.SeaPenProvider.$interfaceName = 'ash.personalization_app.mojom.SeaPenProvider';
+ash.personalization_app.mojom.SeaPenProvider_SetSeaPenObserver_ParamsSpec = { $: {} };
+ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ParamsSpec = { $: {} };
+ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ResponseParamsSpec = { $: {} };
+ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ParamsSpec = { $: {} };
+ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ResponseParamsSpec = { $: {} };
+ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ParamsSpec = { $: {} };
+ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ResponseParamsSpec = { $: {} };
+ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ParamsSpec = { $: {} };
+ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ResponseParamsSpec = { $: {} };
+ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ParamsSpec = { $: {} };
+ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ResponseParamsSpec = { $: {} };
+ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ParamsSpec = { $: {} };
+ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ResponseParamsSpec = { $: {} };
+ash.personalization_app.mojom.SeaPenProvider_OpenFeedbackDialog_ParamsSpec = { $: {} };
+ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_ParamsSpec = { $: {} };
+ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_ResponseParamsSpec = { $: {} };
+ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenIntroductionDialogClosed_ParamsSpec = { $: {} };
+ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_ParamsSpec = { $: {} };
+ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_ResponseParamsSpec = { $: {} };
+ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenFreeformIntroductionDialogClosed_ParamsSpec = { $: {} };
+ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ParamsSpec = { $: {} };
+ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ResponseParamsSpec = { $: {} };
+ash.personalization_app.mojom.SeaPenProvider_MakeTransparent_ParamsSpec = { $: {} };
 
 ash.personalization_app.mojom.kMaximumGetSeaPenThumbnailsTextBytes = 3000;
 
@@ -28,160 +67,95 @@ ash.personalization_app.mojom.MantaStatusCode = {
   kNoIdentityManager: 10,
   kPerUserQuotaExceeded: 11,
   kImageHasPerson: 12,
-  kMax: 13,
+  kMax: 12,
 };
-ash.personalization_app.mojom.MantaStatusCodeSpec = { $: mojo.internal.Enum() };
 
 // Union: SeaPenQuery
-ash.personalization_app.mojom.SeaPenQuerySpec = { $: mojo.internal.Union(
-    'ash.personalization_app.mojom.SeaPenQuery', {
+mojo.internal.Union(
+    ash.personalization_app.mojom.SeaPenQuerySpec, 'ash.personalization_app.mojom.SeaPenQuery', {
       'text_query': {
         'ordinal': 0,
         'type': mojo.internal.String,
-      }},
+        'nullable': false,
+      },
       'template_query': {
         'ordinal': 1,
         'type': ash.personalization_app.mojom.SeaPenTemplateQuerySpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: SeaPenThumbnail
-ash.personalization_app.mojom.SeaPenThumbnailSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenThumbnail',
-      packedSize: 24,
-      fields: [
-        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SeaPenThumbnailSpec, 'ash.personalization_app.mojom.SeaPenThumbnail', [
+      mojo.internal.StructField('image', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: SeaPenUserVisibleQuery
-ash.personalization_app.mojom.SeaPenUserVisibleQuerySpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenUserVisibleQuery',
-      packedSize: 24,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'template_title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SeaPenUserVisibleQuerySpec, 'ash.personalization_app.mojom.SeaPenUserVisibleQuery', [
+      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('template_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: SeaPenTemplateQuery
-ash.personalization_app.mojom.SeaPenTemplateQuerySpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenTemplateQuery',
-      packedSize: 32,
-      fields: [
-        { name: 'id', packedOffset: 16, packedBitOffset: 0, type: ash.personalization_app.mojom.SeaPenTemplateIdSpec, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(ash.personalization_app.mojom.SeaPenTemplateChipSpec, ash.personalization_app.mojom.SeaPenTemplateOptionSpec, false), nullable: false, minVersion: 0 },
-        { name: 'user_visible_query', packedOffset: 8, packedBitOffset: 0, type: ash.personalization_app.mojom.SeaPenUserVisibleQuerySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SeaPenTemplateQuerySpec, 'ash.personalization_app.mojom.SeaPenTemplateQuery', [
+      mojo.internal.StructField('id', 16, 0, ash.personalization_app.mojom.SeaPenTemplateIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('options', 0, 0, mojo.internal.Map(ash.personalization_app.mojom.SeaPenTemplateChipSpec, ash.personalization_app.mojom.SeaPenTemplateOptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('user_visible_query', 8, 0, ash.personalization_app.mojom.SeaPenUserVisibleQuerySpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: SeaPenFeedbackMetadata
-ash.personalization_app.mojom.SeaPenFeedbackMetadataSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenFeedbackMetadata',
-      packedSize: 24,
-      fields: [
-        { name: 'is_positive', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'log_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'generation_seed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SeaPenFeedbackMetadataSpec, 'ash.personalization_app.mojom.SeaPenFeedbackMetadata', [
+      mojo.internal.StructField('is_positive', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('log_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('generation_seed', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: RecentSeaPenImageInfo
-ash.personalization_app.mojom.RecentSeaPenImageInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.RecentSeaPenImageInfo',
-      packedSize: 32,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.SeaPenQuerySpec, nullable: false, minVersion: 0 },
-        { name: 'creation_time', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.personalization_app.mojom.RecentSeaPenImageInfoSpec, 'ash.personalization_app.mojom.RecentSeaPenImageInfo', [
+      mojo.internal.StructField('query', 0, 0, ash.personalization_app.mojom.SeaPenQuerySpec, null, false, 0, undefined),
+      mojo.internal.StructField('creation_time', 16, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: RecentSeaPenThumbnailData
-ash.personalization_app.mojom.RecentSeaPenThumbnailDataSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.RecentSeaPenThumbnailData',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'image_info', packedOffset: 8, packedBitOffset: 0, type: ash.personalization_app.mojom.RecentSeaPenImageInfoSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.personalization_app.mojom.RecentSeaPenThumbnailDataSpec, 'ash.personalization_app.mojom.RecentSeaPenThumbnailData', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('image_info', 8, 0, ash.personalization_app.mojom.RecentSeaPenImageInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: TextQueryHistoryEntry
-ash.personalization_app.mojom.TextQueryHistoryEntrySpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.TextQueryHistoryEntry',
-      packedSize: 24,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'thumbnails', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.personalization_app.mojom.SeaPenThumbnailSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.personalization_app.mojom.TextQueryHistoryEntrySpec, 'ash.personalization_app.mojom.TextQueryHistoryEntry', [
+      mojo.internal.StructField('query', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('thumbnails', 8, 0, mojo.internal.Array(ash.personalization_app.mojom.SeaPenThumbnailSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: SeaPenObserver
-ash.personalization_app.mojom.SeaPenObserver = {};
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SeaPenObserver_OnSelectedSeaPenImageChanged_ParamsSpec, 'ash.personalization_app.mojom.SeaPenObserver_OnSelectedSeaPenImageChanged_Params', [
+      mojo.internal.StructField('id_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'id_$value', originalFieldName: 'id' }),
+      mojo.internal.StructField('id_$value', 0, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'id_$flag', originalFieldName: 'id' }),
+    ],
+    [[0, 16]]);
 
-ash.personalization_app.mojom.SeaPenObserver_OnSelectedSeaPenImageChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenObserver_OnSelectedSeaPenImageChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id_$flag', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'id_$value', originalFieldName: 'id' } },
-        { name: 'id_$value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'id_$flag', originalFieldName: 'id' } },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.personalization_app.mojom.SeaPenObserver_OnTextQueryHistoryChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenObserver_OnTextQueryHistoryChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.personalization_app.mojom.TextQueryHistoryEntrySpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SeaPenObserver_OnTextQueryHistoryChanged_ParamsSpec, 'ash.personalization_app.mojom.SeaPenObserver_OnTextQueryHistoryChanged_Params', [
+      mojo.internal.StructField('entries', 0, 0, mojo.internal.Array(ash.personalization_app.mojom.TextQueryHistoryEntrySpec, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.personalization_app.mojom.SeaPenObserverPendingReceiver = class {
   constructor(handle) {
@@ -245,219 +219,144 @@ ash.personalization_app.mojom.SeaPenObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnSelectedSeaPenImageChanged
-ash.personalization_app.mojom.SeaPenObserver_OnSelectedSeaPenImageChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenObserver.OnSelectedSeaPenImageChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id_$flag', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'id_$value', originalFieldName: 'id' } },
-        { name: 'id_$value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'id_$flag', originalFieldName: 'id' } },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnTextQueryHistoryChanged
-ash.personalization_app.mojom.SeaPenObserver_OnTextQueryHistoryChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenObserver.OnTextQueryHistoryChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.personalization_app.mojom.TextQueryHistoryEntrySpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.personalization_app.mojom.SeaPenObserverPtr = ash.personalization_app.mojom.SeaPenObserverRemote;
 ash.personalization_app.mojom.SeaPenObserverRequest = ash.personalization_app.mojom.SeaPenObserverPendingReceiver;
 
 
 // Interface: SeaPenProvider
-ash.personalization_app.mojom.SeaPenProvider = {};
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SeaPenProvider_SetSeaPenObserver_ParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_SetSeaPenObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.personalization_app.mojom.SeaPenObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.personalization_app.mojom.SeaPenProvider_SetSeaPenObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider_SetSeaPenObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.personalization_app.mojom.SeaPenObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_Params', [
+      mojo.internal.StructField('query', 0, 0, ash.personalization_app.mojom.SeaPenQuerySpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.SeaPenQuerySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ResponseParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ResponseParams', [
+      mojo.internal.StructField('thumbnails', 0, 0, mojo.internal.Array(ash.personalization_app.mojom.SeaPenThumbnailSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('statusCode', 8, 0, ash.personalization_app.mojom.MantaStatusCodeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'preview_mode', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_Params', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('preview_mode', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ResponseParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'preview_mode', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ResponseParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ResponseParams', [
+      mojo.internal.StructField('ids', 0, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_Params', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('preview_mode', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.personalization_app.mojom.SeaPenProvider_OpenFeedbackDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider_OpenFeedbackDialog_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.SeaPenFeedbackMetadataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ResponseParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_Params', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenIntroductionDialogClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenIntroductionDialogClosed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ResponseParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ResponseParams', [
+      mojo.internal.StructField('thumbnail_data', 0, 0, ash.personalization_app.mojom.RecentSeaPenThumbnailDataSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_Params', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenFreeformIntroductionDialogClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenFreeformIntroductionDialogClosed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ResponseParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SeaPenProvider_OpenFeedbackDialog_ParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_OpenFeedbackDialog_Params', [
+      mojo.internal.StructField('metadata', 0, 0, ash.personalization_app.mojom.SeaPenFeedbackMetadataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.personalization_app.mojom.SeaPenProvider_MakeTransparent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider_MakeTransparent_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_ParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_ResponseParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_ResponseParams', [
+      mojo.internal.StructField('should_show_dialog', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenIntroductionDialogClosed_ParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenIntroductionDialogClosed_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_ParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_ResponseParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_ResponseParams', [
+      mojo.internal.StructField('should_show_freeform_dialog', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenFreeformIntroductionDialogClosed_ParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenFreeformIntroductionDialogClosed_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ResponseParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ResponseParams', [
+      mojo.internal.StructField('tablet_mode', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.personalization_app.mojom.SeaPenProvider_MakeTransparent_ParamsSpec, 'ash.personalization_app.mojom.SeaPenProvider_MakeTransparent_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.personalization_app.mojom.SeaPenProviderPendingReceiver = class {
   constructor(handle) {
@@ -629,316 +528,6 @@ ash.personalization_app.mojom.SeaPenProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetSeaPenObserver
-ash.personalization_app.mojom.SeaPenProvider_SetSeaPenObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider.SetSeaPenObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.personalization_app.mojom.SeaPenObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetSeaPenThumbnails
-ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider.GetSeaPenThumbnails_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.SeaPenQuerySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider.GetSeaPenThumbnails_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'thumbnails', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.personalization_app.mojom.SeaPenThumbnailSpec, false), nullable: true, minVersion: 0 },
-        { name: 'statusCode', packedOffset: 8, packedBitOffset: 0, type: ash.personalization_app.mojom.MantaStatusCodeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SelectSeaPenThumbnail
-ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider.SelectSeaPenThumbnail_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'preview_mode', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider.SelectSeaPenThumbnail_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetRecentSeaPenImageIds
-ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider.GetRecentSeaPenImageIds_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider.GetRecentSeaPenImageIds_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SelectRecentSeaPenImage
-ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider.SelectRecentSeaPenImage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'preview_mode', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider.SelectRecentSeaPenImage_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetRecentSeaPenImageThumbnail
-ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider.GetRecentSeaPenImageThumbnail_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider.GetRecentSeaPenImageThumbnail_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'thumbnail_data', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.RecentSeaPenThumbnailDataSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DeleteRecentSeaPenImage
-ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider.DeleteRecentSeaPenImage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider.DeleteRecentSeaPenImage_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OpenFeedbackDialog
-ash.personalization_app.mojom.SeaPenProvider_OpenFeedbackDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider.OpenFeedbackDialog_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.SeaPenFeedbackMetadataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ShouldShowSeaPenIntroductionDialog
-ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider.ShouldShowSeaPenIntroductionDialog_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider.ShouldShowSeaPenIntroductionDialog_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'should_show_dialog', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for HandleSeaPenIntroductionDialogClosed
-ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenIntroductionDialogClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider.HandleSeaPenIntroductionDialogClosed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ShouldShowSeaPenFreeformIntroductionDialog
-ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider.ShouldShowSeaPenFreeformIntroductionDialog_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider.ShouldShowSeaPenFreeformIntroductionDialog_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'should_show_freeform_dialog', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for HandleSeaPenFreeformIntroductionDialogClosed
-ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenFreeformIntroductionDialogClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider.HandleSeaPenFreeformIntroductionDialogClosed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for IsInTabletMode
-ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider.IsInTabletMode_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider.IsInTabletMode_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'tablet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for MakeTransparent
-ash.personalization_app.mojom.SeaPenProvider_MakeTransparent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.personalization_app.mojom.SeaPenProvider.MakeTransparent_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.personalization_app.mojom.SeaPenProviderPtr = ash.personalization_app.mojom.SeaPenProviderRemote;
 ash.personalization_app.mojom.SeaPenProviderRequest = ash.personalization_app.mojom.SeaPenProviderPendingReceiver;
 

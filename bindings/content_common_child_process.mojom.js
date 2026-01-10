@@ -7,50 +7,58 @@
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
+var services = services || {};
+var services = services || {};
 
+content.mojom.LoggingSettingsSpec = { $: {} };
+content.mojom.ChildProcessHost = {};
+content.mojom.ChildProcessHost.$interfaceName = 'content.mojom.ChildProcessHost';
+content.mojom.ChildProcessHost_Ping_ParamsSpec = { $: {} };
+content.mojom.ChildProcessHost_Ping_ResponseParamsSpec = { $: {} };
+content.mojom.ChildProcessHost_BindHostReceiver_ParamsSpec = { $: {} };
+content.mojom.ChildProcess = {};
+content.mojom.ChildProcess.$interfaceName = 'content.mojom.ChildProcess';
+content.mojom.ChildProcess_ProcessShutdown_ParamsSpec = { $: {} };
+content.mojom.ChildProcess_GetTaskPort_ParamsSpec = { $: {} };
+content.mojom.ChildProcess_GetTaskPort_ResponseParamsSpec = { $: {} };
+content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec = { $: {} };
+content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec = { $: {} };
+content.mojom.ChildProcess_EnableSystemTracingService_ParamsSpec = { $: {} };
+content.mojom.ChildProcess_CrashHungProcess_ParamsSpec = { $: {} };
+content.mojom.ChildProcess_BindServiceInterface_ParamsSpec = { $: {} };
+content.mojom.ChildProcess_BindReceiver_ParamsSpec = { $: {} };
+content.mojom.ChildProcess_SetProfilingFile_ParamsSpec = { $: {} };
+content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec = { $: {} };
+content.mojom.ChildProcess_WriteClangProfilingProfile_ResponseParamsSpec = { $: {} };
+content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec = { $: {} };
+content.mojom.ChildProcess_ReinitializeLogging_ParamsSpec = { $: {} };
+content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec = { $: {} };
+content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec = { $: {} };
 
 // Struct: LoggingSettings
-content.mojom.LoggingSettingsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.LoggingSettings',
-      packedSize: 24,
-      fields: [
-        { name: 'logging_dest', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'log_file_descriptor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.LoggingSettingsSpec, 'content.mojom.LoggingSettings', [
+      mojo.internal.StructField('logging_dest', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('log_file_descriptor', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: ChildProcessHost
-content.mojom.ChildProcessHost = {};
+mojo.internal.Struct(
+    content.mojom.ChildProcessHost_Ping_ParamsSpec, 'content.mojom.ChildProcessHost_Ping_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.ChildProcessHost_Ping_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcessHost_Ping_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.ChildProcessHost_Ping_ResponseParamsSpec, 'content.mojom.ChildProcessHost_Ping_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.ChildProcessHost_BindHostReceiver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcessHost_BindHostReceiver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingReceiverSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.ChildProcessHost_BindHostReceiver_ParamsSpec, 'content.mojom.ChildProcessHost_BindHostReceiver_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo_base.mojom.GenericPendingReceiverSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 content.mojom.ChildProcessHostPendingReceiver = class {
   constructor(handle) {
@@ -89,7 +97,7 @@ content.mojom.ChildProcessHostRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       content.mojom.ChildProcessHost_Ping_ParamsSpec,
-      null,
+      content.mojom.ChildProcessHost_Ping_ResponseParamsSpec,
       []);
   }
 
@@ -114,218 +122,101 @@ content.mojom.ChildProcessHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Ping
-content.mojom.ChildProcessHost_Ping_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcessHost.Ping_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for BindHostReceiver
-content.mojom.ChildProcessHost_BindHostReceiver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcessHost.BindHostReceiver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingReceiverSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.ChildProcessHostPtr = content.mojom.ChildProcessHostRemote;
 content.mojom.ChildProcessHostRequest = content.mojom.ChildProcessHostPendingReceiver;
 
 
 // Interface: ChildProcess
-content.mojom.ChildProcess = {};
+mojo.internal.Struct(
+    content.mojom.ChildProcess_ProcessShutdown_ParamsSpec, 'content.mojom.ChildProcess_ProcessShutdown_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.ChildProcess_ProcessShutdown_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcess_ProcessShutdown_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.ChildProcess_GetTaskPort_ParamsSpec, 'content.mojom.ChildProcess_GetTaskPort_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.ChildProcess_GetTaskPort_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcess_GetTaskPort_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.ChildProcess_GetTaskPort_ResponseParamsSpec, 'content.mojom.ChildProcess_GetTaskPort_ResponseParams', [
+      mojo.internal.StructField('task_port', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcess_SetIPCLoggingEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'on', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec, 'content.mojom.ChildProcess_SetIPCLoggingEnabled_Params', [
+      mojo.internal.StructField('on', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(tracing.mojom.BackgroundTracingAgentProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec, 'content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(tracing.mojom.BackgroundTracingAgentProviderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.ChildProcess_EnableSystemTracingService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcess_EnableSystemTracingService_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(tracing.mojom.SystemTracingServiceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.ChildProcess_EnableSystemTracingService_ParamsSpec, 'content.mojom.ChildProcess_EnableSystemTracingService_Params', [
+      mojo.internal.StructField('remote', 0, 0, mojo.internal.InterfaceProxy(tracing.mojom.SystemTracingServiceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.ChildProcess_CrashHungProcess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcess_CrashHungProcess_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.ChildProcess_CrashHungProcess_ParamsSpec, 'content.mojom.ChildProcess_CrashHungProcess_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.ChildProcess_BindServiceInterface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcess_BindServiceInterface_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingReceiverSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.ChildProcess_BindServiceInterface_ParamsSpec, 'content.mojom.ChildProcess_BindServiceInterface_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo_base.mojom.GenericPendingReceiverSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.ChildProcess_BindReceiver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcess_BindReceiver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingReceiverSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.ChildProcess_BindReceiver_ParamsSpec, 'content.mojom.ChildProcess_BindReceiver_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo_base.mojom.GenericPendingReceiverSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.ChildProcess_SetProfilingFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcess_SetProfilingFile_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.ChildProcess_SetProfilingFile_ParamsSpec, 'content.mojom.ChildProcess_SetProfilingFile_Params', [
+      mojo.internal.StructField('file', 0, 0, mojo_base.mojom.FileSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcess_WriteClangProfilingProfile_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec, 'content.mojom.ChildProcess_WriteClangProfilingProfile_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcess_SetPseudonymizationSalt_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'salt', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.ChildProcess_WriteClangProfilingProfile_ResponseParamsSpec, 'content.mojom.ChildProcess_WriteClangProfilingProfile_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.ChildProcess_ReinitializeLogging_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcess_ReinitializeLogging_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: content.mojom.LoggingSettingsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec, 'content.mojom.ChildProcess_SetPseudonymizationSalt_Params', [
+      mojo.internal.StructField('salt', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcess_OnMemoryPressure_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'memory_pressure_level', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.MemoryPressureLevelSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.ChildProcess_ReinitializeLogging_ParamsSpec, 'content.mojom.ChildProcess_ReinitializeLogging_Params', [
+      mojo.internal.StructField('settings', 0, 0, content.mojom.LoggingSettingsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcess_SetBatterySaverMode_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'battery_saver_mode_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec, 'content.mojom.ChildProcess_OnMemoryPressure_Params', [
+      mojo.internal.StructField('memory_pressure_level', 0, 0, mojo_base.mojom.MemoryPressureLevelSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec, 'content.mojom.ChildProcess_SetBatterySaverMode_Params', [
+      mojo.internal.StructField('battery_saver_mode_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 content.mojom.ChildProcessPendingReceiver = class {
   constructor(handle) {
@@ -445,7 +336,7 @@ content.mojom.ChildProcessRemoteCallHandler = class {
     return this.proxy.sendMessage(
       9,  // ordinal
       content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec,
-      null,
+      content.mojom.ChildProcess_WriteClangProfilingProfile_ResponseParamsSpec,
       []);
   }
 
@@ -497,212 +388,6 @@ content.mojom.ChildProcess.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ProcessShutdown
-content.mojom.ChildProcess_ProcessShutdown_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcess.ProcessShutdown_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for GetTaskPort
-content.mojom.ChildProcess_GetTaskPort_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcess.GetTaskPort_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-content.mojom.ChildProcess_GetTaskPort_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcess.GetTaskPort_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'task_port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetIPCLoggingEnabled
-content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcess.SetIPCLoggingEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'on', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetBackgroundTracingAgentProvider
-content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcess.GetBackgroundTracingAgentProvider_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(tracing.mojom.BackgroundTracingAgentProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EnableSystemTracingService
-content.mojom.ChildProcess_EnableSystemTracingService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcess.EnableSystemTracingService_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(tracing.mojom.SystemTracingServiceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CrashHungProcess
-content.mojom.ChildProcess_CrashHungProcess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcess.CrashHungProcess_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for BindServiceInterface
-content.mojom.ChildProcess_BindServiceInterface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcess.BindServiceInterface_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingReceiverSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindReceiver
-content.mojom.ChildProcess_BindReceiver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcess.BindReceiver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.GenericPendingReceiverSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetProfilingFile
-content.mojom.ChildProcess_SetProfilingFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcess.SetProfilingFile_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for WriteClangProfilingProfile
-content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcess.WriteClangProfilingProfile_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetPseudonymizationSalt
-content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcess.SetPseudonymizationSalt_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'salt', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReinitializeLogging
-content.mojom.ChildProcess_ReinitializeLogging_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcess.ReinitializeLogging_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: content.mojom.LoggingSettingsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnMemoryPressure
-content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcess.OnMemoryPressure_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'memory_pressure_level', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.MemoryPressureLevelSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetBatterySaverMode
-content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.ChildProcess.SetBatterySaverMode_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'battery_saver_mode_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.ChildProcessPtr = content.mojom.ChildProcessRemote;
 content.mojom.ChildProcessRequest = content.mojom.ChildProcessPendingReceiver;
 

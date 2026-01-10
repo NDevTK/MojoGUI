@@ -9,50 +9,46 @@ var content = content || {};
 content.mojom = content.mojom || {};
 var blink = blink || {};
 
+content.mojom.FrameRoutingInfoSpec = { $: {} };
+content.mojom.RenderMessageFilter = {};
+content.mojom.RenderMessageFilter.$interfaceName = 'content.mojom.RenderMessageFilter';
+content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpec = { $: {} };
+content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec = { $: {} };
+content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec = { $: {} };
+content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec = { $: {} };
 
 // Struct: FrameRoutingInfo
-content.mojom.FrameRoutingInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.FrameRoutingInfo',
-      packedSize: 40,
-      fields: [
-        { name: 'routing_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'devtools_frame_token', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'document_token', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.DocumentTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.FrameRoutingInfoSpec, 'content.mojom.FrameRoutingInfo', [
+      mojo.internal.StructField('routing_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('devtools_frame_token', 8, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('document_token', 16, 0, blink.mojom.DocumentTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: RenderMessageFilter
-content.mojom.RenderMessageFilter = {};
+mojo.internal.Struct(
+    content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpec, 'content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec, 'content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParams', [
+      mojo.internal.StructField('info', 0, 0, content.mojom.FrameRoutingInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec, 'content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec, 'content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParams', [
+      mojo.internal.StructField('info_array', 0, 0, mojo.internal.Array(content.mojom.FrameRoutingInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 content.mojom.RenderMessageFilterPendingReceiver = class {
   constructor(handle) {
@@ -116,59 +112,6 @@ content.mojom.RenderMessageFilter.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GenerateSingleFrameRoutingInfo
-content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.RenderMessageFilter.GenerateSingleFrameRoutingInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.RenderMessageFilter.GenerateSingleFrameRoutingInfo_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: content.mojom.FrameRoutingInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GenerateFrameRoutingInfos
-content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.RenderMessageFilter.GenerateFrameRoutingInfos_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.RenderMessageFilter.GenerateFrameRoutingInfos_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'info_array', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(content.mojom.FrameRoutingInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.RenderMessageFilterPtr = content.mojom.RenderMessageFilterRemote;
 content.mojom.RenderMessageFilterRequest = content.mojom.RenderMessageFilterPendingReceiver;
 

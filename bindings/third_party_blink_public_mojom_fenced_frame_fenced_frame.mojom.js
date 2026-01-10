@@ -10,37 +10,25 @@ blink.mojom = blink.mojom || {};
 var blink = blink || {};
 var url = url || {};
 
+blink.mojom.FencedFrameOwnerHost = {};
+blink.mojom.FencedFrameOwnerHost.$interfaceName = 'blink.mojom.FencedFrameOwnerHost';
+blink.mojom.FencedFrameOwnerHost_Navigate_ParamsSpec = { $: {} };
+blink.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_ParamsSpec = { $: {} };
 
 // Interface: FencedFrameOwnerHost
-blink.mojom.FencedFrameOwnerHost = {};
+mojo.internal.Struct(
+    blink.mojom.FencedFrameOwnerHost_Navigate_ParamsSpec, 'blink.mojom.FencedFrameOwnerHost_Navigate_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('navigation_start_time', 8, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('embedder_shared_storage_context', 16, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.FencedFrameOwnerHost_Navigate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FencedFrameOwnerHost_Navigate_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'navigation_start_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'embedder_shared_storage_context', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-blink.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'frame_policy', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FramePolicySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_ParamsSpec, 'blink.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_Params', [
+      mojo.internal.StructField('frame_policy', 0, 0, blink.mojom.FramePolicySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.FencedFrameOwnerHostPendingReceiver = class {
   constructor(handle) {
@@ -104,37 +92,6 @@ blink.mojom.FencedFrameOwnerHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Navigate
-blink.mojom.FencedFrameOwnerHost_Navigate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FencedFrameOwnerHost.Navigate_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'navigation_start_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'embedder_shared_storage_context', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for DidChangeFramePolicy
-blink.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FencedFrameOwnerHost.DidChangeFramePolicy_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'frame_policy', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FramePolicySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.FencedFrameOwnerHostPtr = blink.mojom.FencedFrameOwnerHostRemote;
 blink.mojom.FencedFrameOwnerHostRequest = blink.mojom.FencedFrameOwnerHostPendingReceiver;
 

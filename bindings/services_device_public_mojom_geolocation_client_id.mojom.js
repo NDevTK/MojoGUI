@@ -8,6 +8,7 @@
 var device = device || {};
 device.mojom = device.mojom || {};
 
+device.mojom.GeolocationClientIdSpec = { $: mojo.internal.Enum() };
 
 // Enum: GeolocationClientId
 device.mojom.GeolocationClientId = {
@@ -16,4 +17,3 @@ device.mojom.GeolocationClientId = {
   kGeoLanguageProvider: 2,
   kFingerprintDataLoader: 3,
 };
-device.mojom.GeolocationClientIdSpec = { $: mojo.internal.Enum() };

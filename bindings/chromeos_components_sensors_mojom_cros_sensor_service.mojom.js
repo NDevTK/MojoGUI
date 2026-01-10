@@ -8,23 +8,22 @@
 var chromeos = chromeos || {};
 chromeos.sensors = chromeos.sensors || {};
 chromeos.sensors.mojom = chromeos.sensors.mojom || {};
+var chromeos = chromeos || {};
+var components = components || {};
 
+chromeos.sensors.mojom.SensorHalServer = {};
+chromeos.sensors.mojom.SensorHalServer.$interfaceName = 'chromeos.sensors.mojom.SensorHalServer';
+chromeos.sensors.mojom.SensorHalServer_CreateChannel_ParamsSpec = { $: {} };
+chromeos.sensors.mojom.SensorHalClient = {};
+chromeos.sensors.mojom.SensorHalClient.$interfaceName = 'chromeos.sensors.mojom.SensorHalClient';
+chromeos.sensors.mojom.SensorHalClient_SetUpChannel_ParamsSpec = { $: {} };
 
 // Interface: SensorHalServer
-chromeos.sensors.mojom.SensorHalServer = {};
-
-chromeos.sensors.mojom.SensorHalServer_CreateChannel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorHalServer_CreateChannel_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'sensor_service_request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.sensors.mojom.SensorServiceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.sensors.mojom.SensorHalServer_CreateChannel_ParamsSpec, 'chromeos.sensors.mojom.SensorHalServer_CreateChannel_Params', [
+      mojo.internal.StructField('sensor_service_request', 0, 0, mojo.internal.InterfaceRequest(chromeos.sensors.mojom.SensorServiceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromeos.sensors.mojom.SensorHalServerPendingReceiver = class {
   constructor(handle) {
@@ -79,40 +78,16 @@ chromeos.sensors.mojom.SensorHalServer.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateChannel
-chromeos.sensors.mojom.SensorHalServer_CreateChannel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorHalServer.CreateChannel_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'sensor_service_request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.sensors.mojom.SensorServiceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.sensors.mojom.SensorHalServerPtr = chromeos.sensors.mojom.SensorHalServerRemote;
 chromeos.sensors.mojom.SensorHalServerRequest = chromeos.sensors.mojom.SensorHalServerPendingReceiver;
 
 
 // Interface: SensorHalClient
-chromeos.sensors.mojom.SensorHalClient = {};
-
-chromeos.sensors.mojom.SensorHalClient_SetUpChannel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorHalClient_SetUpChannel_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'sensor_service_ptr', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.sensors.mojom.SensorServiceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.sensors.mojom.SensorHalClient_SetUpChannel_ParamsSpec, 'chromeos.sensors.mojom.SensorHalClient_SetUpChannel_Params', [
+      mojo.internal.StructField('sensor_service_ptr', 0, 0, mojo.internal.InterfaceProxy(chromeos.sensors.mojom.SensorServiceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromeos.sensors.mojom.SensorHalClientPendingReceiver = class {
   constructor(handle) {
@@ -167,21 +142,6 @@ chromeos.sensors.mojom.SensorHalClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetUpChannel
-chromeos.sensors.mojom.SensorHalClient_SetUpChannel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.sensors.mojom.SensorHalClient.SetUpChannel_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'sensor_service_ptr', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.sensors.mojom.SensorServiceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.sensors.mojom.SensorHalClientPtr = chromeos.sensors.mojom.SensorHalClientRemote;
 chromeos.sensors.mojom.SensorHalClientRequest = chromeos.sensors.mojom.SensorHalClientPendingReceiver;
 

@@ -8,6 +8,7 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.MHTMLLoadResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: MHTMLLoadResult
 blink.mojom.MHTMLLoadResult = {
@@ -17,4 +18,3 @@ blink.mojom.MHTMLLoadResult = {
   kInvalidArchive: 3,
   kMissingMainResource: 4,
 };
-blink.mojom.MHTMLLoadResultSpec = { $: mojo.internal.Enum() };

@@ -9,23 +9,17 @@ var content = content || {};
 content.mojom = content.mojom || {};
 var url = url || {};
 
+content.mojom.FrameHostTestInterface = {};
+content.mojom.FrameHostTestInterface.$interfaceName = 'content.mojom.FrameHostTestInterface';
+content.mojom.FrameHostTestInterface_Ping_ParamsSpec = { $: {} };
 
 // Interface: FrameHostTestInterface
-content.mojom.FrameHostTestInterface = {};
-
-content.mojom.FrameHostTestInterface_Ping_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.FrameHostTestInterface_Ping_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'source_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'source_event', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.FrameHostTestInterface_Ping_ParamsSpec, 'content.mojom.FrameHostTestInterface_Ping_Params', [
+      mojo.internal.StructField('source_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source_event', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 content.mojom.FrameHostTestInterfacePendingReceiver = class {
   constructor(handle) {
@@ -80,22 +74,6 @@ content.mojom.FrameHostTestInterface.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Ping
-content.mojom.FrameHostTestInterface_Ping_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.FrameHostTestInterface.Ping_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'source_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'source_event', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.FrameHostTestInterfacePtr = content.mojom.FrameHostTestInterfaceRemote;
 content.mojom.FrameHostTestInterfaceRequest = content.mojom.FrameHostTestInterfacePendingReceiver;
 

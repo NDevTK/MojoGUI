@@ -8,24 +8,18 @@
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
+viz.mojom.GpuLogging = {};
+viz.mojom.GpuLogging.$interfaceName = 'viz.mojom.GpuLogging';
+viz.mojom.GpuLogging_RecordLogMessage_ParamsSpec = { $: {} };
 
 // Interface: GpuLogging
-viz.mojom.GpuLogging = {};
-
-viz.mojom.GpuLogging_RecordLogMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.GpuLogging_RecordLogMessage_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'severity', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'header', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.GpuLogging_RecordLogMessage_ParamsSpec, 'viz.mojom.GpuLogging_RecordLogMessage_Params', [
+      mojo.internal.StructField('severity', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('header', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 viz.mojom.GpuLoggingPendingReceiver = class {
   constructor(handle) {
@@ -80,23 +74,6 @@ viz.mojom.GpuLogging.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RecordLogMessage
-viz.mojom.GpuLogging_RecordLogMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.GpuLogging.RecordLogMessage_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'severity', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'header', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 viz.mojom.GpuLoggingPtr = viz.mojom.GpuLoggingRemote;
 viz.mojom.GpuLoggingRequest = viz.mojom.GpuLoggingPendingReceiver;
 

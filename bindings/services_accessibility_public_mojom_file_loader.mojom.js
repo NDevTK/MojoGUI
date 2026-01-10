@@ -8,22 +8,23 @@
 var ax = ax || {};
 ax.mojom = ax.mojom || {};
 
+ax.mojom.AccessibilityFileLoader = {};
+ax.mojom.AccessibilityFileLoader.$interfaceName = 'ax.mojom.AccessibilityFileLoader';
+ax.mojom.AccessibilityFileLoader_Load_ParamsSpec = { $: {} };
+ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec = { $: {} };
 
 // Interface: AccessibilityFileLoader
-ax.mojom.AccessibilityFileLoader = {};
+mojo.internal.Struct(
+    ax.mojom.AccessibilityFileLoader_Load_ParamsSpec, 'ax.mojom.AccessibilityFileLoader_Load_Params', [
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.RelativeFilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ax.mojom.AccessibilityFileLoader_Load_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AccessibilityFileLoader_Load_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.RelativeFilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec, 'ax.mojom.AccessibilityFileLoader_Load_ResponseParams', [
+      mojo.internal.StructField('file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ax.mojom.AccessibilityFileLoaderPendingReceiver = class {
   constructor(handle) {
@@ -78,34 +79,6 @@ ax.mojom.AccessibilityFileLoader.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Load
-ax.mojom.AccessibilityFileLoader_Load_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AccessibilityFileLoader.Load_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.RelativeFilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AccessibilityFileLoader.Load_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ax.mojom.AccessibilityFileLoaderPtr = ax.mojom.AccessibilityFileLoaderRemote;
 ax.mojom.AccessibilityFileLoaderRequest = ax.mojom.AccessibilityFileLoaderPendingReceiver;
 

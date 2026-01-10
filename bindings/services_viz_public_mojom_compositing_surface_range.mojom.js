@@ -7,19 +7,14 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var services = services || {};
 
+viz.mojom.SurfaceRangeSpec = { $: {} };
 
 // Struct: SurfaceRange
-viz.mojom.SurfaceRangeSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.SurfaceRange',
-      packedSize: 24,
-      fields: [
-        { name: 'start', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.SurfaceIdSpec, nullable: true, minVersion: 0 },
-        { name: 'end', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.SurfaceIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.SurfaceRangeSpec, 'viz.mojom.SurfaceRange', [
+      mojo.internal.StructField('start', 0, 0, viz.mojom.SurfaceIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('end', 8, 0, viz.mojom.SurfaceIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

@@ -9,22 +9,20 @@ var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
 var url = url || {};
 
+chrome.mojom.NetworkDiagnostics = {};
+chrome.mojom.NetworkDiagnostics.$interfaceName = 'chrome.mojom.NetworkDiagnostics';
+chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec = { $: {} };
+chrome.mojom.NetworkDiagnosticsClient = {};
+chrome.mojom.NetworkDiagnosticsClient.$interfaceName = 'chrome.mojom.NetworkDiagnosticsClient';
+chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsSpec = { $: {} };
+chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec = { $: {} };
 
 // Interface: NetworkDiagnostics
-chrome.mojom.NetworkDiagnostics = {};
-
-chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'failed_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec, 'chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_Params', [
+      mojo.internal.StructField('failed_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chrome.mojom.NetworkDiagnosticsPendingReceiver = class {
   constructor(handle) {
@@ -79,53 +77,22 @@ chrome.mojom.NetworkDiagnostics.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RunNetworkDiagnostics
-chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.NetworkDiagnostics.RunNetworkDiagnostics_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'failed_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chrome.mojom.NetworkDiagnosticsPtr = chrome.mojom.NetworkDiagnosticsRemote;
 chrome.mojom.NetworkDiagnosticsRequest = chrome.mojom.NetworkDiagnosticsPendingReceiver;
 
 
 // Interface: NetworkDiagnosticsClient
-chrome.mojom.NetworkDiagnosticsClient = {};
+mojo.internal.Struct(
+    chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsSpec, 'chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_Params', [
+      mojo.internal.StructField('can_show', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'can_show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec, 'chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_Params', [
+      mojo.internal.StructField('status', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chrome.mojom.NetworkDiagnosticsClientPendingReceiver = class {
   constructor(handle) {
@@ -189,35 +156,6 @@ chrome.mojom.NetworkDiagnosticsClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetCanShowNetworkDiagnosticsDialog
-chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.NetworkDiagnosticsClient.SetCanShowNetworkDiagnosticsDialog_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'can_show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DNSProbeStatus
-chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.NetworkDiagnosticsClient.DNSProbeStatus_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chrome.mojom.NetworkDiagnosticsClientPtr = chrome.mojom.NetworkDiagnosticsClientRemote;
 chrome.mojom.NetworkDiagnosticsClientRequest = chrome.mojom.NetworkDiagnosticsClientPendingReceiver;
 

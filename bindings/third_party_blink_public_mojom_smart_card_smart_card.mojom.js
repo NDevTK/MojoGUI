@@ -7,22 +7,24 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
 
+blink.mojom.SmartCardService = {};
+blink.mojom.SmartCardService.$interfaceName = 'blink.mojom.SmartCardService';
+blink.mojom.SmartCardService_CreateContext_ParamsSpec = { $: {} };
+blink.mojom.SmartCardService_CreateContext_ResponseParamsSpec = { $: {} };
 
 // Interface: SmartCardService
-blink.mojom.SmartCardService = {};
+mojo.internal.Struct(
+    blink.mojom.SmartCardService_CreateContext_ParamsSpec, 'blink.mojom.SmartCardService_CreateContext_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.SmartCardService_CreateContext_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SmartCardService_CreateContext_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SmartCardService_CreateContext_ResponseParamsSpec, 'blink.mojom.SmartCardService_CreateContext_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, device.mojom.SmartCardCreateContextResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.SmartCardServicePendingReceiver = class {
   constructor(handle) {
@@ -77,33 +79,6 @@ blink.mojom.SmartCardService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateContext
-blink.mojom.SmartCardService_CreateContext_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SmartCardService.CreateContext_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.SmartCardService_CreateContext_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SmartCardService.CreateContext_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardCreateContextResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.SmartCardServicePtr = blink.mojom.SmartCardServiceRemote;
 blink.mojom.SmartCardServiceRequest = blink.mojom.SmartCardServicePendingReceiver;
 

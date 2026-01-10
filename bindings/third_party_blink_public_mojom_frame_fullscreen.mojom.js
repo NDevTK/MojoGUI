@@ -8,21 +8,15 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.FullscreenOptionsSpec = { $: {} };
 
 // Struct: FullscreenOptions
-blink.mojom.FullscreenOptionsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FullscreenOptions',
-      packedSize: 24,
-      fields: [
-        { name: 'prefers_navigation_bar', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'prefers_status_bar', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'is_prefixed', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_xr_overlay', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FullscreenOptionsSpec, 'blink.mojom.FullscreenOptions', [
+      mojo.internal.StructField('prefers_navigation_bar', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('prefers_status_bar', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('is_prefixed', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_xr_overlay', 8, 3, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);

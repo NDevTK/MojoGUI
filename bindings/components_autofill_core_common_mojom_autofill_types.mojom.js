@@ -11,6 +11,42 @@ var ui = ui || {};
 var gfx = gfx || {};
 var url = url || {};
 
+autofill.mojom.FormControlTypeSpec = { $: mojo.internal.Enum() };
+autofill.mojom.HtmlFieldModeSpec = { $: mojo.internal.Enum() };
+autofill.mojom.HtmlFieldTypeSpec = { $: mojo.internal.Enum() };
+autofill.mojom.SubmissionIndicatorEventSpec = { $: mojo.internal.Enum() };
+autofill.mojom.SubmissionSourceSpec = { $: mojo.internal.Enum() };
+autofill.mojom.FocusedFieldTypeSpec = { $: mojo.internal.Enum() };
+autofill.mojom.ButtonTitleTypeSpec = { $: mojo.internal.Enum() };
+autofill.mojom.SubmissionReadinessStateSpec = { $: mojo.internal.Enum() };
+autofill.mojom.CheckStatusSpec = { $: mojo.internal.Enum() };
+autofill.mojom.RoleAttributeSpec = { $: mojo.internal.Enum() };
+autofill.mojom.LabelSourceSpec = { $: mojo.internal.Enum() };
+autofill.mojom.AutofillSuggestionAvailabilitySpec = { $: mojo.internal.Enum() };
+autofill.mojom.ActionPersistenceSpec = { $: mojo.internal.Enum() };
+autofill.mojom.FormActionTypeSpec = { $: mojo.internal.Enum() };
+autofill.mojom.FieldActionTypeSpec = { $: mojo.internal.Enum() };
+autofill.mojom.AutofillSuggestionTriggerSourceSpec = { $: mojo.internal.Enum() };
+autofill.mojom.FrameTokenSpec = { $: {} };
+autofill.mojom.FrameTokenWithPredecessorSpec = { $: {} };
+autofill.mojom.FormRendererIdSpec = { $: {} };
+autofill.mojom.FieldRendererIdSpec = { $: {} };
+autofill.mojom.FillIdSpec = { $: {} };
+autofill.mojom.SelectOptionSpec = { $: {} };
+autofill.mojom.AutocompleteParsingResultSpec = { $: {} };
+autofill.mojom.FormFieldDataSpec = { $: {} };
+autofill.mojom.FormFieldData_FillDataSpec = { $: {} };
+autofill.mojom.ButtonTitleInfoSpec = { $: {} };
+autofill.mojom.FormDataSpec = { $: {} };
+autofill.mojom.FormFieldDataPredictionsSpec = { $: {} };
+autofill.mojom.FormDataPredictionsSpec = { $: {} };
+autofill.mojom.PasswordAndMetadataSpec = { $: {} };
+autofill.mojom.PasswordFormFillDataSpec = { $: {} };
+autofill.mojom.PasswordFormGenerationDataSpec = { $: {} };
+autofill.mojom.PasswordGenerationUIDataSpec = { $: {} };
+autofill.mojom.TriggeringFieldSpec = { $: {} };
+autofill.mojom.PasswordSuggestionRequestSpec = { $: {} };
+autofill.mojom.ParsingResultSpec = { $: {} };
 
 // Enum: FormControlType
 autofill.mojom.FormControlType = {
@@ -26,10 +62,9 @@ autofill.mojom.FormControlType = {
   kInputText: 9,
   kInputUrl: 10,
   kSelectOne: 11,
-  kTextArea: 12,
-  kInputDate: 13,
+  kTextArea: 14,
+  kInputDate: 15,
 };
-autofill.mojom.FormControlTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: HtmlFieldMode
 autofill.mojom.HtmlFieldMode = {
@@ -37,7 +72,6 @@ autofill.mojom.HtmlFieldMode = {
   kBilling: 1,
   kShipping: 2,
 };
-autofill.mojom.HtmlFieldModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: HtmlFieldType
 autofill.mojom.HtmlFieldType = {
@@ -58,40 +92,39 @@ autofill.mojom.HtmlFieldType = {
   kCountryCode: 14,
   kCountryName: 15,
   kPostalCode: 16,
-  kCreditCardNameFull: 17,
-  kCreditCardNameFirst: 18,
-  kCreditCardNameLast: 19,
-  kCreditCardNumber: 20,
-  kCreditCardExp: 21,
-  kCreditCardExpMonth: 22,
-  kCreditCardExpYear: 23,
-  kCreditCardVerificationCode: 24,
-  kCreditCardType: 25,
-  kTel: 26,
-  kTelCountryCode: 27,
-  kTelNational: 28,
-  kTelAreaCode: 29,
-  kTelLocal: 30,
-  kTelLocalPrefix: 31,
-  kTelLocalSuffix: 32,
-  kTelExtension: 33,
-  kEmail: 34,
-  kBirthdateDay: 35,
-  kBirthdateMonth: 36,
-  kBirthdateYear: 37,
-  kTransactionAmount: 38,
-  kTransactionCurrency: 39,
-  kAdditionalNameInitial: 40,
-  kCreditCardExpDate2DigitYear: 41,
-  kCreditCardExpDate4DigitYear: 42,
-  kCreditCardExp2DigitYear: 43,
-  kCreditCardExp4DigitYear: 44,
-  kOneTimeCode: 45,
-  kMerchantPromoCode: 46,
-  kIban: 47,
-  kUnrecognized: 48,
+  kCreditCardNameFull: 18,
+  kCreditCardNameFirst: 19,
+  kCreditCardNameLast: 20,
+  kCreditCardNumber: 21,
+  kCreditCardExp: 22,
+  kCreditCardExpMonth: 23,
+  kCreditCardExpYear: 24,
+  kCreditCardVerificationCode: 25,
+  kCreditCardType: 26,
+  kTel: 27,
+  kTelCountryCode: 28,
+  kTelNational: 29,
+  kTelAreaCode: 30,
+  kTelLocal: 31,
+  kTelLocalPrefix: 32,
+  kTelLocalSuffix: 33,
+  kTelExtension: 34,
+  kEmail: 35,
+  kBirthdateDay: 36,
+  kBirthdateMonth: 37,
+  kBirthdateYear: 38,
+  kTransactionAmount: 39,
+  kTransactionCurrency: 40,
+  kAdditionalNameInitial: 41,
+  kCreditCardExpDate2DigitYear: 42,
+  kCreditCardExpDate4DigitYear: 43,
+  kCreditCardExp2DigitYear: 44,
+  kCreditCardExp4DigitYear: 45,
+  kOneTimeCode: 47,
+  kMerchantPromoCode: 48,
+  kIban: 49,
+  kUnrecognized: 50,
 };
-autofill.mojom.HtmlFieldTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SubmissionIndicatorEvent
 autofill.mojom.SubmissionIndicatorEvent = {
@@ -100,11 +133,10 @@ autofill.mojom.SubmissionIndicatorEvent = {
   SAME_DOCUMENT_NAVIGATION: 2,
   XHR_SUCCEEDED: 3,
   FRAME_DETACHED: 4,
-  PROBABLE_FORM_SUBMISSION: 5,
-  CHANGE_PASSWORD_FORM_CLEARED: 6,
-  DOM_MUTATION_AFTER_AUTOFILL: 7,
+  PROBABLE_FORM_SUBMISSION: 10,
+  CHANGE_PASSWORD_FORM_CLEARED: 11,
+  DOM_MUTATION_AFTER_AUTOFILL: 12,
 };
-autofill.mojom.SubmissionIndicatorEventSpec = { $: mojo.internal.Enum() };
 
 // Enum: SubmissionSource
 autofill.mojom.SubmissionSource = {
@@ -116,7 +148,6 @@ autofill.mojom.SubmissionSource = {
   FORM_SUBMISSION: 5,
   DOM_MUTATION_AFTER_AUTOFILL: 6,
 };
-autofill.mojom.SubmissionSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: FocusedFieldType
 autofill.mojom.FocusedFieldType = {
@@ -129,7 +160,6 @@ autofill.mojom.FocusedFieldType = {
   kFillableUsernameField: 6,
   kFillablePasswordField: 7,
 };
-autofill.mojom.FocusedFieldTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ButtonTitleType
 autofill.mojom.ButtonTitleType = {
@@ -142,7 +172,6 @@ autofill.mojom.ButtonTitleType = {
   DIV: 6,
   SPAN: 7,
 };
-autofill.mojom.ButtonTitleTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SubmissionReadinessState
 autofill.mojom.SubmissionReadinessState = {
@@ -157,7 +186,6 @@ autofill.mojom.SubmissionReadinessState = {
   kNoPasswordField: 8,
   kLikelyHasCaptcha: 9,
 };
-autofill.mojom.SubmissionReadinessStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: CheckStatus
 autofill.mojom.CheckStatus = {
@@ -165,14 +193,12 @@ autofill.mojom.CheckStatus = {
   kCheckableButUnchecked: 1,
   kChecked: 2,
 };
-autofill.mojom.CheckStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: RoleAttribute
 autofill.mojom.RoleAttribute = {
   kPresentation: 0,
   kOther: 1,
 };
-autofill.mojom.RoleAttributeSpec = { $: mojo.internal.Enum() };
 
 // Enum: LabelSource
 autofill.mojom.LabelSource = {
@@ -193,7 +219,6 @@ autofill.mojom.LabelSource = {
   kForShadowHostName: 14,
   kOverlayingLabel: 15,
 };
-autofill.mojom.LabelSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: AutofillSuggestionAvailability
 autofill.mojom.AutofillSuggestionAvailability = {
@@ -201,21 +226,18 @@ autofill.mojom.AutofillSuggestionAvailability = {
   kAutofillAvailable: 1,
   kAutocompleteAvailable: 2,
 };
-autofill.mojom.AutofillSuggestionAvailabilitySpec = { $: mojo.internal.Enum() };
 
 // Enum: ActionPersistence
 autofill.mojom.ActionPersistence = {
   kFill: 0,
   kPreview: 1,
 };
-autofill.mojom.ActionPersistenceSpec = { $: mojo.internal.Enum() };
 
 // Enum: FormActionType
 autofill.mojom.FormActionType = {
   kFill: 0,
   kUndo: 1,
 };
-autofill.mojom.FormActionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: FieldActionType
 autofill.mojom.FieldActionType = {
@@ -223,7 +245,6 @@ autofill.mojom.FieldActionType = {
   kReplaceSelection: 1,
   kSelectAll: 2,
 };
-autofill.mojom.FieldActionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AutofillSuggestionTriggerSource
 autofill.mojom.AutofillSuggestionTriggerSource = {
@@ -234,369 +255,228 @@ autofill.mojom.AutofillSuggestionTriggerSource = {
   kTextFieldValueChanged: 4,
   kTextFieldDidReceiveKeyDown: 5,
   kOpenTextDataListChooser: 6,
-  kPasswordManager: 7,
-  kiOS: 8,
-  kManualFallbackPasswords: 9,
-  kManualFallbackPlusAddresses: 10,
-  kComposeDialogLostFocus: 11,
-  kComposeDelayedProactiveNudge: 12,
-  kPasswordManagerProcessedFocusedField: 13,
-  kPlusAddressUpdatedInBrowserProcess: 14,
-  kProactivePasswordRecovery: 15,
+  kPasswordManager: 8,
+  kiOS: 9,
+  kManualFallbackPasswords: 12,
+  kManualFallbackPlusAddresses: 13,
+  kComposeDialogLostFocus: 15,
+  kComposeDelayedProactiveNudge: 16,
+  kPasswordManagerProcessedFocusedField: 17,
+  kPlusAddressUpdatedInBrowserProcess: 19,
+  kProactivePasswordRecovery: 20,
 };
-autofill.mojom.AutofillSuggestionTriggerSourceSpec = { $: mojo.internal.Enum() };
 
 // Struct: FrameToken
-autofill.mojom.FrameTokenSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.FrameToken',
-      packedSize: 24,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'is_local', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.FrameTokenSpec, 'autofill.mojom.FrameToken', [
+      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_local', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: FrameTokenWithPredecessor
-autofill.mojom.FrameTokenWithPredecessorSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.FrameTokenWithPredecessor',
-      packedSize: 24,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FrameTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'predecessor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.FrameTokenWithPredecessorSpec, 'autofill.mojom.FrameTokenWithPredecessor', [
+      mojo.internal.StructField('token', 0, 0, autofill.mojom.FrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('predecessor', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: FormRendererId
-autofill.mojom.FormRendererIdSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.FormRendererId',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.FormRendererIdSpec, 'autofill.mojom.FormRendererId', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: FieldRendererId
-autofill.mojom.FieldRendererIdSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.FieldRendererId',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.FieldRendererIdSpec, 'autofill.mojom.FieldRendererId', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: FillId
-autofill.mojom.FillIdSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.FillId',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.FillIdSpec, 'autofill.mojom.FillId', [
+      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: SelectOption
-autofill.mojom.SelectOptionSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.SelectOption',
-      packedSize: 24,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'text', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.SelectOptionSpec, 'autofill.mojom.SelectOption', [
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('text', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: AutocompleteParsingResult
-autofill.mojom.AutocompleteParsingResultSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.AutocompleteParsingResult',
-      packedSize: 32,
-      fields: [
-        { name: 'section', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.HtmlFieldModeSpec, nullable: false, minVersion: 0 },
-        { name: 'field_type', packedOffset: 12, packedBitOffset: 0, type: autofill.mojom.HtmlFieldTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'webauthn', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'webidentity', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.AutocompleteParsingResultSpec, 'autofill.mojom.AutocompleteParsingResult', [
+      mojo.internal.StructField('section', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('mode', 8, 0, autofill.mojom.HtmlFieldModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('field_type', 12, 0, autofill.mojom.HtmlFieldTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('webauthn', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('webidentity', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: FormFieldData
-autofill.mojom.FormFieldDataSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.FormFieldData',
-      packedSize: 16,
-      fields: [
-        { name: 'kNotCheckable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.FormFieldDataSpec, 'autofill.mojom.FormFieldData', [
+      mojo.internal.StructField('kNotCheckable', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: FormFieldData_FillData
-autofill.mojom.FormFieldData_FillDataSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.FormFieldData_FillData',
-      packedSize: 40,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'renderer_id', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-        { name: 'host_form_id', packedOffset: 16, packedBitOffset: 0, type: autofill.mojom.FormRendererIdSpec, nullable: false, minVersion: 0 },
-        { name: 'is_autofilled', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'force_override', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.FormFieldData_FillDataSpec, 'autofill.mojom.FormFieldData_FillData', [
+      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('renderer_id', 8, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('host_form_id', 16, 0, autofill.mojom.FormRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_autofilled', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('force_override', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: ButtonTitleInfo
-autofill.mojom.ButtonTitleInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.ButtonTitleInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.ButtonTitleTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.ButtonTitleInfoSpec, 'autofill.mojom.ButtonTitleInfo', [
+      mojo.internal.StructField('title', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, autofill.mojom.ButtonTitleTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: FormData
-autofill.mojom.FormDataSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.FormData',
-      packedSize: 88,
-      fields: [
-        { name: 'id_attribute', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'name_attribute', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'button_titles', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(autofill.mojom.ButtonTitleInfoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'action', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'is_action_empty', packedOffset: 76, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'renderer_id', packedOffset: 40, packedBitOffset: 0, type: autofill.mojom.FormRendererIdSpec, nullable: false, minVersion: 0 },
-        { name: 'child_frames', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(autofill.mojom.FrameTokenWithPredecessorSpec, false), nullable: false, minVersion: 0 },
-        { name: 'submission_event', packedOffset: 72, packedBitOffset: 0, type: autofill.mojom.SubmissionIndicatorEventSpec, nullable: false, minVersion: 0 },
-        { name: 'fields', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(autofill.mojom.FormFieldDataSpec, false), nullable: false, minVersion: 0 },
-        { name: 'username_predictions', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(autofill.mojom.FieldRendererIdSpec, false), nullable: false, minVersion: 0 },
-        { name: 'is_gaia_with_skip_save_password_form', packedOffset: 76, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'likely_contains_captcha', packedOffset: 76, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 88}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.FormDataSpec, 'autofill.mojom.FormData', [
+      mojo.internal.StructField('id_attribute', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('name_attribute', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('name', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('button_titles', 24, 0, mojo.internal.Array(autofill.mojom.ButtonTitleInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('action', 32, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_action_empty', 76, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('renderer_id', 40, 0, autofill.mojom.FormRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('child_frames', 48, 0, mojo.internal.Array(autofill.mojom.FrameTokenWithPredecessorSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('submission_event', 72, 0, autofill.mojom.SubmissionIndicatorEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('fields', 56, 0, mojo.internal.Array(autofill.mojom.FormFieldDataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('username_predictions', 64, 0, mojo.internal.Array(autofill.mojom.FieldRendererIdSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('is_gaia_with_skip_save_password_form', 76, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('likely_contains_captcha', 76, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 88]]);
 
 // Struct: FormFieldDataPredictions
-autofill.mojom.FormFieldDataPredictionsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.FormFieldDataPredictions',
-      packedSize: 120,
-      fields: [
-        { name: 'host_form_signature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'signature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'heuristic_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pwm_ml_type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'server_type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'html_type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'overall_type', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'attribute_types', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'format_string', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'parseable_name', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'parseable_label', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'section', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'rank', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'rank_in_signature_group', packedOffset: 100, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'rank_in_host_form', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'rank_in_host_form_signature_group', packedOffset: 108, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 120}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.FormFieldDataPredictionsSpec, 'autofill.mojom.FormFieldDataPredictions', [
+      mojo.internal.StructField('host_form_signature', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('signature', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('heuristic_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('pwm_ml_type', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('server_type', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('html_type', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('overall_type', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('attribute_types', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('format_string', 64, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('parseable_name', 72, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('parseable_label', 80, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('section', 88, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('rank', 96, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('rank_in_signature_group', 100, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('rank_in_host_form', 104, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('rank_in_host_form_signature_group', 108, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 120]]);
 
 // Struct: FormDataPredictions
-autofill.mojom.FormDataPredictionsSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.FormDataPredictions',
-      packedSize: 48,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-        { name: 'signature', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'alternative_signature', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'structural_form_signature', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'fields', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(autofill.mojom.FormFieldDataPredictionsSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.FormDataPredictionsSpec, 'autofill.mojom.FormDataPredictions', [
+      mojo.internal.StructField('data', 0, 0, autofill.mojom.FormDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('signature', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('alternative_signature', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('structural_form_signature', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('fields', 32, 0, mojo.internal.Array(autofill.mojom.FormFieldDataPredictionsSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: PasswordAndMetadata
-autofill.mojom.PasswordAndMetadataSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordAndMetadata',
-      packedSize: 40,
-      fields: [
-        { name: 'username_value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'password_value', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'realm', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'uses_account_store', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_grouped_affiliation', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.PasswordAndMetadataSpec, 'autofill.mojom.PasswordAndMetadata', [
+      mojo.internal.StructField('username_value', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('password_value', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('realm', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('uses_account_store', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_grouped_affiliation', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: PasswordFormFillData
-autofill.mojom.PasswordFormFillDataSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordFormFillData',
-      packedSize: 72,
-      fields: [
-        { name: 'form_renderer_id', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormRendererIdSpec, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'username_element_renderer_id', packedOffset: 16, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-        { name: 'password_element_renderer_id', packedOffset: 24, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-        { name: 'preferred_login', packedOffset: 32, packedBitOffset: 0, type: autofill.mojom.PasswordAndMetadataSpec, nullable: false, minVersion: 0 },
-        { name: 'additional_logins', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(autofill.mojom.PasswordAndMetadataSpec, false), nullable: false, minVersion: 0 },
-        { name: 'wait_for_username', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'suggestion_banned_fields', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(autofill.mojom.FieldRendererIdSpec, false), nullable: false, minVersion: 0 },
-        { name: 'notify_browser_of_successful_filling', packedOffset: 56, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 72}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.PasswordFormFillDataSpec, 'autofill.mojom.PasswordFormFillData', [
+      mojo.internal.StructField('form_renderer_id', 0, 0, autofill.mojom.FormRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('username_element_renderer_id', 16, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('password_element_renderer_id', 24, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('preferred_login', 32, 0, autofill.mojom.PasswordAndMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('additional_logins', 40, 0, mojo.internal.Array(autofill.mojom.PasswordAndMetadataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('wait_for_username', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('suggestion_banned_fields', 48, 0, mojo.internal.Array(autofill.mojom.FieldRendererIdSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('notify_browser_of_successful_filling', 56, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 72]]);
 
 // Struct: PasswordFormGenerationData
-autofill.mojom.PasswordFormGenerationDataSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordFormGenerationData',
-      packedSize: 24,
-      fields: [
-        { name: 'new_password_renderer_id', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-        { name: 'confirmation_password_renderer_id', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.PasswordFormGenerationDataSpec, 'autofill.mojom.PasswordFormGenerationData', [
+      mojo.internal.StructField('new_password_renderer_id', 0, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('confirmation_password_renderer_id', 8, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: PasswordGenerationUIData
-autofill.mojom.PasswordGenerationUIDataSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordGenerationUIData',
-      packedSize: 56,
-      fields: [
-        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-        { name: 'max_length', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'generation_element', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'generation_element_id', packedOffset: 16, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-        { name: 'is_generation_element_password_type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'text_direction', packedOffset: 36, packedBitOffset: 0, type: mojo_base.mojom.TextDirectionSpec, nullable: false, minVersion: 0 },
-        { name: 'form_data', packedOffset: 24, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-        { name: 'generation_rejected', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.PasswordGenerationUIDataSpec, 'autofill.mojom.PasswordGenerationUIData', [
+      mojo.internal.StructField('bounds', 0, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('max_length', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('generation_element', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('generation_element_id', 16, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_generation_element_password_type', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('text_direction', 36, 0, mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('form_data', 24, 0, autofill.mojom.FormDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('generation_rejected', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: TriggeringField
-autofill.mojom.TriggeringFieldSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.TriggeringField',
-      packedSize: 48,
-      fields: [
-        { name: 'element_id', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-        { name: 'trigger_source', packedOffset: 24, packedBitOffset: 0, type: autofill.mojom.AutofillSuggestionTriggerSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'text_direction', packedOffset: 28, packedBitOffset: 0, type: mojo_base.mojom.TextDirectionSpec, nullable: false, minVersion: 0 },
-        { name: 'typed_username', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'show_webauthn_credentials', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'show_identity_credentials', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'bounds', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.TriggeringFieldSpec, 'autofill.mojom.TriggeringField', [
+      mojo.internal.StructField('element_id', 0, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('trigger_source', 24, 0, autofill.mojom.AutofillSuggestionTriggerSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('text_direction', 28, 0, mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('typed_username', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('show_webauthn_credentials', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('show_identity_credentials', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('bounds', 16, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: PasswordSuggestionRequest
-autofill.mojom.PasswordSuggestionRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.PasswordSuggestionRequest',
-      packedSize: 40,
-      fields: [
-        { name: 'field', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.TriggeringFieldSpec, nullable: false, minVersion: 0 },
-        { name: 'form_data', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
-        { name: 'username_field_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'password_field_index', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.PasswordSuggestionRequestSpec, 'autofill.mojom.PasswordSuggestionRequest', [
+      mojo.internal.StructField('field', 0, 0, autofill.mojom.TriggeringFieldSpec, null, false, 0, undefined),
+      mojo.internal.StructField('form_data', 8, 0, autofill.mojom.FormDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('username_field_index', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('password_field_index', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: ParsingResult
-autofill.mojom.ParsingResultSpec = {
-  $: {
-    structSpec: {
-      name: 'autofill.mojom.ParsingResult',
-      packedSize: 40,
-      fields: [
-        { name: 'username_renderer_id', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-        { name: 'password_renderer_id', packedOffset: 8, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-        { name: 'new_password_renderer_id', packedOffset: 16, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-        { name: 'confirm_password_renderer_id', packedOffset: 24, packedBitOffset: 0, type: autofill.mojom.FieldRendererIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    autofill.mojom.ParsingResultSpec, 'autofill.mojom.ParsingResult', [
+      mojo.internal.StructField('username_renderer_id', 0, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('password_renderer_id', 8, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('new_password_renderer_id', 16, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('confirm_password_renderer_id', 24, 0, autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);

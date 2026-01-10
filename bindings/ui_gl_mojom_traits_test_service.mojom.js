@@ -10,35 +10,37 @@ gl.mojom = gl.mojom || {};
 var ui = ui || {};
 var ui = ui || {};
 
+gl.mojom.TraitsTestService = {};
+gl.mojom.TraitsTestService.$interfaceName = 'gl.mojom.TraitsTestService';
+gl.mojom.TraitsTestService_EchoGpuPreference_ParamsSpec = { $: {} };
+gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParamsSpec = { $: {} };
+gl.mojom.TraitsTestService_EchoGLImplementationParts_ParamsSpec = { $: {} };
+gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec = { $: {} };
 
 // Interface: TraitsTestService
-gl.mojom.TraitsTestService = {};
+mojo.internal.Struct(
+    gl.mojom.TraitsTestService_EchoGpuPreference_ParamsSpec, 'gl.mojom.TraitsTestService_EchoGpuPreference_Params', [
+      mojo.internal.StructField('g', 0, 0, gl.mojom.GpuPreferenceSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-gl.mojom.TraitsTestService_EchoGpuPreference_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gl.mojom.TraitsTestService_EchoGpuPreference_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'g', packedOffset: 0, packedBitOffset: 0, type: gl.mojom.GpuPreferenceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParamsSpec, 'gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParams', [
+      mojo.internal.StructField('pass', 0, 0, gl.mojom.GpuPreferenceSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-gl.mojom.TraitsTestService_EchoGLImplementationParts_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gl.mojom.TraitsTestService_EchoGLImplementationParts_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'impl', packedOffset: 0, packedBitOffset: 0, type: gl.mojom.GLImplementationPartsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gl.mojom.TraitsTestService_EchoGLImplementationParts_ParamsSpec, 'gl.mojom.TraitsTestService_EchoGLImplementationParts_Params', [
+      mojo.internal.StructField('impl', 0, 0, gl.mojom.GLImplementationPartsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec, 'gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParams', [
+      mojo.internal.StructField('pass', 0, 0, gl.mojom.GLImplementationPartsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 gl.mojom.TraitsTestServicePendingReceiver = class {
   constructor(handle) {
@@ -102,61 +104,6 @@ gl.mojom.TraitsTestService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for EchoGpuPreference
-gl.mojom.TraitsTestService_EchoGpuPreference_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gl.mojom.TraitsTestService.EchoGpuPreference_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'g', packedOffset: 0, packedBitOffset: 0, type: gl.mojom.GpuPreferenceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gl.mojom.TraitsTestService.EchoGpuPreference_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: gl.mojom.GpuPreferenceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EchoGLImplementationParts
-gl.mojom.TraitsTestService_EchoGLImplementationParts_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gl.mojom.TraitsTestService.EchoGLImplementationParts_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'impl', packedOffset: 0, packedBitOffset: 0, type: gl.mojom.GLImplementationPartsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gl.mojom.TraitsTestService.EchoGLImplementationParts_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: gl.mojom.GLImplementationPartsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 gl.mojom.TraitsTestServicePtr = gl.mojom.TraitsTestServiceRemote;
 gl.mojom.TraitsTestServiceRequest = gl.mojom.TraitsTestServicePendingReceiver;
 

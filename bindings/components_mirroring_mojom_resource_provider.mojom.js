@@ -7,25 +7,29 @@
 // Module namespace
 var mirroring = mirroring || {};
 mirroring.mojom = mirroring.mojom || {};
+var services = services || {};
+var services = services || {};
 
+mirroring.mojom.AudioStreamCreatorClient = {};
+mirroring.mojom.AudioStreamCreatorClient.$interfaceName = 'mirroring.mojom.AudioStreamCreatorClient';
+mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec = { $: {} };
+mirroring.mojom.ResourceProvider = {};
+mirroring.mojom.ResourceProvider.$interfaceName = 'mirroring.mojom.ResourceProvider';
+mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec = { $: {} };
+mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec = { $: {} };
+mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec = { $: {} };
+mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec = { $: {} };
+mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec = { $: {} };
+mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec = { $: {} };
 
 // Interface: AudioStreamCreatorClient
-mirroring.mojom.AudioStreamCreatorClient = {};
-
-mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.AudioStreamCreatorClient_StreamCreated_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.AudioInputStreamRemote), nullable: false, minVersion: 0 },
-        { name: 'client_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.AudioInputStreamClientRemote), nullable: false, minVersion: 0 },
-        { name: 'data_pipe', packedOffset: 16, packedBitOffset: 0, type: media.mojom.ReadWriteAudioDataPipeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec, 'mirroring.mojom.AudioStreamCreatorClient_StreamCreated_Params', [
+      mojo.internal.StructField('stream', 0, 0, mojo.internal.InterfaceProxy(media.mojom.AudioInputStreamRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client_receiver', 8, 0, mojo.internal.InterfaceRequest(media.mojom.AudioInputStreamClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('data_pipe', 16, 0, media.mojom.ReadWriteAudioDataPipeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 mirroring.mojom.AudioStreamCreatorClientPendingReceiver = class {
   constructor(handle) {
@@ -80,110 +84,49 @@ mirroring.mojom.AudioStreamCreatorClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for StreamCreated
-mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.AudioStreamCreatorClient.StreamCreated_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.AudioInputStreamRemote), nullable: false, minVersion: 0 },
-        { name: 'client_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.AudioInputStreamClientRemote), nullable: false, minVersion: 0 },
-        { name: 'data_pipe', packedOffset: 16, packedBitOffset: 0, type: media.mojom.ReadWriteAudioDataPipeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 mirroring.mojom.AudioStreamCreatorClientPtr = mirroring.mojom.AudioStreamCreatorClientRemote;
 mirroring.mojom.AudioStreamCreatorClientRequest = mirroring.mojom.AudioStreamCreatorClientPendingReceiver;
 
 
 // Interface: ResourceProvider
-mirroring.mojom.ResourceProvider = {};
+mojo.internal.Struct(
+    mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec, 'mirroring.mojom.ResourceProvider_BindGpu_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(viz.mojom.GpuRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.ResourceProvider_BindGpu_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(viz.mojom.GpuRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec, 'mirroring.mojom.ResourceProvider_GetVideoCaptureHost_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(media.mojom.VideoCaptureHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.ResourceProvider_GetVideoCaptureHost_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.VideoCaptureHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec, 'mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(media.mojom.VideoEncoderMetricsProviderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.VideoEncoderMetricsProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec, 'mirroring.mojom.ResourceProvider_GetNetworkContext_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(network.mojom.NetworkContextRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.ResourceProvider_GetNetworkContext_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.NetworkContextRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec, 'mirroring.mojom.ResourceProvider_CreateAudioStream_Params', [
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(mirroring.mojom.AudioStreamCreatorClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('param', 8, 0, media.mojom.AudioParametersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shared_memory_count', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.ResourceProvider_CreateAudioStream_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(mirroring.mojom.AudioStreamCreatorClientRemote), nullable: false, minVersion: 0 },
-        { name: 'param', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false, minVersion: 0 },
-        { name: 'shared_memory_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.ResourceProvider_ConnectToRemotingSource_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'remoter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.RemoterRemote), nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.RemotingSourceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec, 'mirroring.mojom.ResourceProvider_ConnectToRemotingSource_Params', [
+      mojo.internal.StructField('remoter', 0, 0, mojo.internal.InterfaceProxy(media.mojom.RemoterRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(media.mojom.RemotingSourceRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 mirroring.mojom.ResourceProviderPendingReceiver = class {
   constructor(handle) {
@@ -283,94 +226,6 @@ mirroring.mojom.ResourceProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BindGpu
-mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.ResourceProvider.BindGpu_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(viz.mojom.GpuRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetVideoCaptureHost
-mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.ResourceProvider.GetVideoCaptureHost_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.VideoCaptureHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetVideoEncoderMetricsProvider
-mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.ResourceProvider.GetVideoEncoderMetricsProvider_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.VideoEncoderMetricsProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetNetworkContext
-mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.ResourceProvider.GetNetworkContext_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.NetworkContextRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CreateAudioStream
-mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.ResourceProvider.CreateAudioStream_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(mirroring.mojom.AudioStreamCreatorClientRemote), nullable: false, minVersion: 0 },
-        { name: 'param', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioParametersSpec, nullable: false, minVersion: 0 },
-        { name: 'shared_memory_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for ConnectToRemotingSource
-mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.ResourceProvider.ConnectToRemotingSource_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'remoter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.RemoterRemote), nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.RemotingSourceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 mirroring.mojom.ResourceProviderPtr = mirroring.mojom.ResourceProviderRemote;
 mirroring.mojom.ResourceProviderRequest = mirroring.mojom.ResourceProviderPendingReceiver;
 

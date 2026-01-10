@@ -13,68 +13,51 @@ var ui = ui || {};
 var gfx = gfx || {};
 var url = url || {};
 
+crosapi.mojom.MahiContextMenuActionTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.MahiPageInfoSpec = { $: {} };
+crosapi.mojom.MahiContextMenuRequestSpec = { $: {} };
+crosapi.mojom.MahiPageContentSpec = { $: {} };
 
 // Enum: MahiContextMenuActionType
 crosapi.mojom.MahiContextMenuActionType = {
-  kSummary: 0,
-  kOutline: 1,
-  kSettings: 2,
-  kQA: 3,
-  kElucidation: 4,
-  kSummaryOfSelection: 5,
+  kNone: 0,
+  kSummary: 1,
+  kOutline: 2,
+  kSettings: 3,
+  kQA: 4,
+  kElucidation: 5,
+  kSummaryOfSelection: 6,
 };
-crosapi.mojom.MahiContextMenuActionTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: MahiPageInfo
-crosapi.mojom.MahiPageInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.MahiPageInfo',
-      packedSize: 56,
-      fields: [
-        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'page_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'favicon_image', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true, minVersion: 0 },
-        { name: 'IsDistillable_$flag', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'IsDistillable_$value', originalFieldName: 'IsDistillable' } },
-        { name: 'IsDistillable_$value', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'IsDistillable_$flag', originalFieldName: 'IsDistillable' } },
-        { name: 'is_incognito', packedOffset: 40, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 1 },
-      ],
-      versions: [{version: 0, packedSize: 56}, {version: 1, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.MahiPageInfoSpec, 'crosapi.mojom.MahiPageInfo', [
+      mojo.internal.StructField('client_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('page_id', 8, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('title', 24, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('favicon_image', 32, 0, gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('IsDistillable_$flag', 40, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'IsDistillable_$value', originalFieldName: 'IsDistillable' }),
+      mojo.internal.StructField('IsDistillable_$value', 40, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'IsDistillable_$flag', originalFieldName: 'IsDistillable' }),
+      mojo.internal.StructField('is_incognito', 40, 2, mojo.internal.Bool, false, false, 1, undefined),
+    ],
+    [[0, 56], [1, 56]]);
 
 // Struct: MahiContextMenuRequest
-crosapi.mojom.MahiContextMenuRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.MahiContextMenuRequest',
-      packedSize: 40,
-      fields: [
-        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'action_type', packedOffset: 16, packedBitOffset: 0, type: crosapi.mojom.MahiContextMenuActionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'question', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-        { name: 'mahi_menu_bounds', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true, minVersion: 1 },
-      ],
-      versions: [{version: 0, packedSize: 32}, {version: 1, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.MahiContextMenuRequestSpec, 'crosapi.mojom.MahiContextMenuRequest', [
+      mojo.internal.StructField('display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('action_type', 16, 0, crosapi.mojom.MahiContextMenuActionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('question', 8, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('mahi_menu_bounds', 24, 0, gfx.mojom.RectSpec, null, true, 1, undefined),
+    ],
+    [[0, 32], [1, 40]]);
 
 // Struct: MahiPageContent
-crosapi.mojom.MahiPageContentSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.MahiPageContent',
-      packedSize: 32,
-      fields: [
-        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'page_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'page_content', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.MahiPageContentSpec, 'crosapi.mojom.MahiPageContent', [
+      mojo.internal.StructField('client_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('page_id', 8, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('page_content', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);

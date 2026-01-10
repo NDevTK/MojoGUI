@@ -7,22 +7,117 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var services = services || {};
 var url = url || {};
 
+arc.mojom.NetworkResultSpec = { $: mojo.internal.Enum() };
+arc.mojom.GetNetworksRequestTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.ConnectionStateTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.EapMethodSpec = { $: mojo.internal.Enum() };
+arc.mojom.EapPhase2MethodSpec = { $: mojo.internal.Enum() };
+arc.mojom.KeyManagementSpec = { $: mojo.internal.Enum() };
+arc.mojom.IPAddressTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.TetheringClientStateSpec = { $: mojo.internal.Enum() };
+arc.mojom.NetworkTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.MeteredOverrideSpec = { $: mojo.internal.Enum() };
+arc.mojom.FlagSpec = { $: mojo.internal.Enum() };
+arc.mojom.WifiBandSpec = { $: mojo.internal.Enum() };
+arc.mojom.LohsStatusSpec = { $: mojo.internal.Enum() };
+arc.mojom.IpProtocolSpec = { $: mojo.internal.Enum() };
+arc.mojom.SocketEventSpec = { $: mojo.internal.Enum() };
+arc.mojom.QosCategorySpec = { $: mojo.internal.Enum() };
+arc.mojom.NetworkDetailsSpec = { $: {} };
+arc.mojom.ArcProxyInfoSpec = { $: {} };
+arc.mojom.VisibleNetworkDetailsSpec = { $: {} };
+arc.mojom.ConfiguredNetworkDetailsSpec = { $: {} };
+arc.mojom.PasspointCredentialsSpec = { $: {} };
+arc.mojom.PasspointRemovalPropertiesSpec = { $: {} };
+arc.mojom.EapCredentialsSpec = { $: {} };
+arc.mojom.IPConfigurationSpec = { $: {} };
+arc.mojom.WiFiSpec = { $: {} };
+arc.mojom.NetworkConfigurationSpec = { $: {} };
+arc.mojom.LinkSpeedSpec = { $: {} };
+arc.mojom.WifiConfigurationSpec = { $: {} };
+arc.mojom.StaticIpv4ConfigurationSpec = { $: {} };
+arc.mojom.PacUrlProxyConfigSpec = { $: {} };
+arc.mojom.ManualProxyConfigSpec = { $: {} };
+arc.mojom.GetNetworksResponseTypeSpec = { $: {} };
+arc.mojom.AndroidVpnConfigurationSpec = { $: {} };
+arc.mojom.ArcDnsResolutionTestResultSpec = { $: {} };
+arc.mojom.ArcHttpTestResultSpec = { $: {} };
+arc.mojom.ArcPingTestResultSpec = { $: {} };
+arc.mojom.LohsConfigSpec = { $: {} };
+arc.mojom.PasspointApprovalRequestSpec = { $: {} };
+arc.mojom.PasspointApprovalResponseSpec = { $: {} };
+arc.mojom.SocketConnectionEventSpec = { $: {} };
+arc.mojom.NetHost = {};
+arc.mojom.NetHost.$interfaceName = 'arc.mojom.NetHost';
+arc.mojom.NetHost_GetWifiEnabledState_ParamsSpec = { $: {} };
+arc.mojom.NetHost_GetWifiEnabledState_ResponseParamsSpec = { $: {} };
+arc.mojom.NetHost_StartScan_ParamsSpec = { $: {} };
+arc.mojom.NetHost_SetWifiEnabledState_ParamsSpec = { $: {} };
+arc.mojom.NetHost_SetWifiEnabledState_ResponseParamsSpec = { $: {} };
+arc.mojom.NetHost_CreateNetwork_ParamsSpec = { $: {} };
+arc.mojom.NetHost_CreateNetwork_ResponseParamsSpec = { $: {} };
+arc.mojom.NetHost_ForgetNetwork_ParamsSpec = { $: {} };
+arc.mojom.NetHost_ForgetNetwork_ResponseParamsSpec = { $: {} };
+arc.mojom.NetHost_UpdateWifiNetwork_ParamsSpec = { $: {} };
+arc.mojom.NetHost_UpdateWifiNetwork_ResponseParamsSpec = { $: {} };
+arc.mojom.NetHost_StartConnect_ParamsSpec = { $: {} };
+arc.mojom.NetHost_StartConnect_ResponseParamsSpec = { $: {} };
+arc.mojom.NetHost_StartDisconnect_ParamsSpec = { $: {} };
+arc.mojom.NetHost_StartDisconnect_ResponseParamsSpec = { $: {} };
+arc.mojom.NetHost_GetNetworks_ParamsSpec = { $: {} };
+arc.mojom.NetHost_GetNetworks_ResponseParamsSpec = { $: {} };
+arc.mojom.NetHost_AndroidVpnConnected_ParamsSpec = { $: {} };
+arc.mojom.NetHost_AndroidVpnUpdated_ParamsSpec = { $: {} };
+arc.mojom.NetHost_DEPRECATED_AndroidVpnStateChanged_ParamsSpec = { $: {} };
+arc.mojom.NetHost_AndroidVpnDisconnected_ParamsSpec = { $: {} };
+arc.mojom.NetHost_SetAlwaysOnVpn_ParamsSpec = { $: {} };
+arc.mojom.NetHost_RequestPasspointAppApproval_ParamsSpec = { $: {} };
+arc.mojom.NetHost_RequestPasspointAppApproval_ResponseParamsSpec = { $: {} };
+arc.mojom.NetHost_AddPasspointCredentials_ParamsSpec = { $: {} };
+arc.mojom.NetHost_RemovePasspointCredentials_ParamsSpec = { $: {} };
+arc.mojom.NetHost_DisconnectHostVpn_ParamsSpec = { $: {} };
+arc.mojom.NetHost_StartLohs_ParamsSpec = { $: {} };
+arc.mojom.NetHost_StartLohs_ResponseParamsSpec = { $: {} };
+arc.mojom.NetHost_StopLohs_ParamsSpec = { $: {} };
+arc.mojom.NetHost_NotifyAndroidWifiMulticastLockChange_ParamsSpec = { $: {} };
+arc.mojom.NetHost_NotifySocketConnectionEvent_ParamsSpec = { $: {} };
+arc.mojom.NetHost_NotifyARCVPNSocketConnectionEvent_ParamsSpec = { $: {} };
+arc.mojom.NetInstance = {};
+arc.mojom.NetInstance.$interfaceName = 'arc.mojom.NetInstance';
+arc.mojom.NetInstance_Init_ParamsSpec = { $: {} };
+arc.mojom.NetInstance_Init_ResponseParamsSpec = { $: {} };
+arc.mojom.NetInstance_ScanCompleted_ParamsSpec = { $: {} };
+arc.mojom.NetInstance_WifiEnabledStateChanged_ParamsSpec = { $: {} };
+arc.mojom.NetInstance_DisconnectAndroidVpn_ParamsSpec = { $: {} };
+arc.mojom.NetInstance_ConfigureAndroidVpn_ParamsSpec = { $: {} };
+arc.mojom.NetInstance_ActiveNetworksChanged_ParamsSpec = { $: {} };
+arc.mojom.NetInstance_DnsResolutionTest_ParamsSpec = { $: {} };
+arc.mojom.NetInstance_DnsResolutionTest_ResponseParamsSpec = { $: {} };
+arc.mojom.NetInstance_HttpTest_ParamsSpec = { $: {} };
+arc.mojom.NetInstance_HttpTest_ResponseParamsSpec = { $: {} };
+arc.mojom.NetInstance_PingTest_ParamsSpec = { $: {} };
+arc.mojom.NetInstance_PingTest_ResponseParamsSpec = { $: {} };
+arc.mojom.NetInstance_SetUpFlag_ParamsSpec = { $: {} };
 
 // Enum: NetworkResult
 arc.mojom.NetworkResult = {
   SUCCESS: 0,
   FAILURE: 1,
 };
-arc.mojom.NetworkResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: GetNetworksRequestType
 arc.mojom.GetNetworksRequestType = {
   CONFIGURED_ONLY: 0,
   VISIBLE_ONLY: 1,
+  MinVersion: 1,
 };
-arc.mojom.GetNetworksRequestTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ConnectionStateType
 arc.mojom.ConnectionStateType = {
@@ -32,7 +127,6 @@ arc.mojom.ConnectionStateType = {
   PORTAL: 3,
   ONLINE: 4,
 };
-arc.mojom.ConnectionStateTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: EapMethod
 arc.mojom.EapMethod = {
@@ -42,7 +136,6 @@ arc.mojom.EapMethod = {
   kTls: 3,
   kTtls: 4,
 };
-arc.mojom.EapMethodSpec = { $: mojo.internal.Enum() };
 
 // Enum: EapPhase2Method
 arc.mojom.EapPhase2Method = {
@@ -51,7 +144,6 @@ arc.mojom.EapPhase2Method = {
   kMschap: 2,
   kMschapv2: 3,
 };
-arc.mojom.EapPhase2MethodSpec = { $: mojo.internal.Enum() };
 
 // Enum: KeyManagement
 arc.mojom.KeyManagement = {
@@ -65,14 +157,12 @@ arc.mojom.KeyManagement = {
   kWpaPsk: 7,
   kSae: 8,
 };
-arc.mojom.KeyManagementSpec = { $: mojo.internal.Enum() };
 
 // Enum: IPAddressType
 arc.mojom.IPAddressType = {
   IPV4: 0,
   IPV6: 1,
 };
-arc.mojom.IPAddressTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: TetheringClientState
 arc.mojom.TetheringClientState = {
@@ -80,7 +170,6 @@ arc.mojom.TetheringClientState = {
   NOT_DETECTED: 1,
   SUSPECTED: 2,
 };
-arc.mojom.TetheringClientStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: NetworkType
 arc.mojom.NetworkType = {
@@ -89,811 +178,557 @@ arc.mojom.NetworkType = {
   VPN: 2,
   WIFI: 3,
 };
-arc.mojom.NetworkTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: MeteredOverride
 arc.mojom.MeteredOverride = {
-  kMetered: 0,
-  kNotmetered: 1,
+  kNone: 0,
+  kMetered: 1,
+  kNotmetered: 2,
 };
-arc.mojom.MeteredOverrideSpec = { $: mojo.internal.Enum() };
 
 // Enum: Flag
 arc.mojom.Flag = {
-  DEPRECATED_ENABLE_ARC_HOST_VPN: 0,
+  UNKNOWN: 0,
+  DEPRECATED_ENABLE_ARC_HOST_VPN: 1,
 };
-arc.mojom.FlagSpec = { $: mojo.internal.Enum() };
 
 // Enum: WifiBand
 arc.mojom.WifiBand = {
-  k2Ghz: 0,
-  k5Ghz: 1,
-  k6Ghz: 2,
-  k60Ghz: 3,
+  kUnknown: 0,
+  k2Ghz: 1,
+  k5Ghz: 2,
+  k6Ghz: 3,
+  k60Ghz: 4,
 };
-arc.mojom.WifiBandSpec = { $: mojo.internal.Enum() };
 
 // Enum: LohsStatus
 arc.mojom.LohsStatus = {
-  kSuccess: 0,
-  kErrorGeneric: 1,
-  kErrorIncompatibleMode: 2,
-  kErrorTetheringDisallowed: 3,
+  kUnknown: 0,
+  kSuccess: 1,
+  kErrorGeneric: 2,
+  kErrorIncompatibleMode: 3,
+  kErrorTetheringDisallowed: 4,
+  MinVersion: 4,
+  MinVersion: 4,
 };
-arc.mojom.LohsStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: IpProtocol
 arc.mojom.IpProtocol = {
-  kTcp: 0,
-  kUdp: 1,
+  kUnknown: 0,
+  kTcp: 1,
+  kUdp: 2,
 };
-arc.mojom.IpProtocolSpec = { $: mojo.internal.Enum() };
 
 // Enum: SocketEvent
 arc.mojom.SocketEvent = {
-  kOpen: 0,
-  kClose: 1,
+  kUnknown: 0,
+  kOpen: 1,
+  kClose: 2,
 };
-arc.mojom.SocketEventSpec = { $: mojo.internal.Enum() };
 
 // Enum: QosCategory
 arc.mojom.QosCategory = {
-  kRealtimeInteractive: 0,
-  kMultimediaConferencing: 1,
+  kUnknown: 0,
+  kRealtimeInteractive: 1,
+  kMultimediaConferencing: 2,
 };
-arc.mojom.QosCategorySpec = { $: mojo.internal.Enum() };
 
 // Union: NetworkDetails
-arc.mojom.NetworkDetailsSpec = { $: mojo.internal.Union(
-    'arc.mojom.NetworkDetails', {
+mojo.internal.Union(
+    arc.mojom.NetworkDetailsSpec, 'arc.mojom.NetworkDetails', {
       'visible': {
         'ordinal': 0,
         'type': arc.mojom.VisibleNetworkDetailsSpec,
-      }},
+        'nullable': false,
+      },
       'configured': {
         'ordinal': 1,
         'type': arc.mojom.ConfiguredNetworkDetailsSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Union: ArcProxyInfo
-arc.mojom.ArcProxyInfoSpec = { $: mojo.internal.Union(
-    'arc.mojom.ArcProxyInfo', {
+mojo.internal.Union(
+    arc.mojom.ArcProxyInfoSpec, 'arc.mojom.ArcProxyInfo', {
       'manual_proxy': {
         'ordinal': 0,
         'type': arc.mojom.ManualProxyConfigSpec,
-      }},
+        'nullable': false,
+      },
       'pac_url_proxy': {
         'ordinal': 1,
         'type': arc.mojom.PacUrlProxyConfigSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: VisibleNetworkDetails
-arc.mojom.VisibleNetworkDetailsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.VisibleNetworkDetails',
-      packedSize: 24,
-      fields: [
-        { name: 'frequency', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'signal_strength', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'bssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.VisibleNetworkDetailsSpec, 'arc.mojom.VisibleNetworkDetails', [
+      mojo.internal.StructField('frequency', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('signal_strength', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('bssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: ConfiguredNetworkDetails
-arc.mojom.ConfiguredNetworkDetailsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ConfiguredNetworkDetails',
-      packedSize: 32,
-      fields: [
-        { name: 'passphrase', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'autoconnect', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'bssid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 33 },
-      ],
-      versions: [{version: 0, packedSize: 24}, {version: 33, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ConfiguredNetworkDetailsSpec, 'arc.mojom.ConfiguredNetworkDetails', [
+      mojo.internal.StructField('passphrase', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('autoconnect', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('bssid', 16, 0, mojo.internal.String, null, true, 33, undefined),
+    ],
+    [[0, 24], [33, 32]]);
 
 // Struct: PasspointCredentials
-arc.mojom.PasspointCredentialsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PasspointCredentials',
-      packedSize: 88,
-      fields: [
-        { name: 'domains', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'realm', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'home_ois', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint64, false), nullable: false, minVersion: 0 },
-        { name: 'required_home_ois', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint64, false), nullable: false, minVersion: 0 },
-        { name: 'roaming_consortium_ois', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint64, false), nullable: false, minVersion: 0 },
-        { name: 'eap', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.EapCredentialsSpec, nullable: false, minVersion: 0 },
-        { name: 'metered', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'package_name', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'friendly_name', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 22 },
-        { name: 'subscription_expiration_time_ms', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 22 },
-      ],
-      versions: [{version: 0, packedSize: 72}, {version: 22, packedSize: 88}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PasspointCredentialsSpec, 'arc.mojom.PasspointCredentials', [
+      mojo.internal.StructField('domains', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('realm', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('home_ois', 16, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
+      mojo.internal.StructField('required_home_ois', 24, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
+      mojo.internal.StructField('roaming_consortium_ois', 32, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
+      mojo.internal.StructField('eap', 40, 0, arc.mojom.EapCredentialsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('metered', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('package_name', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('friendly_name', 64, 0, mojo.internal.String, null, true, 22, undefined),
+      mojo.internal.StructField('subscription_expiration_time_ms', 72, 0, mojo.internal.Int64, 0, false, 22, undefined),
+    ],
+    [[0, 72], [22, 88]]);
 
 // Struct: PasspointRemovalProperties
-arc.mojom.PasspointRemovalPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PasspointRemovalProperties',
-      packedSize: 24,
-      fields: [
-        { name: 'fqdn', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'package_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PasspointRemovalPropertiesSpec, 'arc.mojom.PasspointRemovalProperties', [
+      mojo.internal.StructField('fqdn', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('package_name', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: EapCredentials
-arc.mojom.EapCredentialsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.EapCredentials',
-      packedSize: 104,
-      fields: [
-        { name: 'method', packedOffset: 80, packedBitOffset: 0, type: arc.mojom.EapMethodSpec, nullable: false, minVersion: 0 },
-        { name: 'phase2_method', packedOffset: 84, packedBitOffset: 0, type: arc.mojom.EapPhase2MethodSpec, nullable: false, minVersion: 0 },
-        { name: 'anonymous_identity', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'identity', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'password', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'key_management', packedOffset: 88, packedBitOffset: 0, type: arc.mojom.KeyManagementSpec, nullable: false, minVersion: 0 },
-        { name: 'ca_certificate_pem', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-        { name: 'client_certificate_pem', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-        { name: 'client_certificate_key', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'subject_match', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'subject_alternative_name_match_list', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-        { name: 'domain_suffix_match_list', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-        { name: 'tls_version_max', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'use_system_cas', packedOffset: 92, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'use_proactive_key_caching', packedOffset: 92, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'use_login_password', packedOffset: 92, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 104}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.EapCredentialsSpec, 'arc.mojom.EapCredentials', [
+      mojo.internal.StructField('method', 80, 0, arc.mojom.EapMethodSpec, null, false, 0, undefined),
+      mojo.internal.StructField('phase2_method', 84, 0, arc.mojom.EapPhase2MethodSpec, null, false, 0, undefined),
+      mojo.internal.StructField('anonymous_identity', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('identity', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('password', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('key_management', 88, 0, arc.mojom.KeyManagementSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ca_certificate_pem', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('client_certificate_pem', 32, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('client_certificate_key', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('subject_match', 48, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('subject_alternative_name_match_list', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('domain_suffix_match_list', 64, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('tls_version_max', 72, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('use_system_cas', 92, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('use_proactive_key_caching', 92, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('use_login_password', 92, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 104]]);
 
 // Struct: IPConfiguration
-arc.mojom.IPConfigurationSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.IPConfiguration',
-      packedSize: 40,
-      fields: [
-        { name: 'gateway', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'ip_address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'name_servers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'routing_prefix', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 28, packedBitOffset: 0, type: arc.mojom.IPAddressTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.IPConfigurationSpec, 'arc.mojom.IPConfiguration', [
+      mojo.internal.StructField('gateway', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('ip_address', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('name_servers', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('routing_prefix', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('type', 28, 0, arc.mojom.IPAddressTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: WiFi
-arc.mojom.WiFiSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WiFi',
-      packedSize: 48,
-      fields: [
-        { name: 'bssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'frequency', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'hex_ssid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'hidden_ssid', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'security', packedOffset: 20, packedBitOffset: 0, type: arc.mojom.SecurityTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'signal_strength', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'is_passpoint', packedOffset: 28, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 16 },
-        { name: 'fqdn', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 16 },
-        { name: 'rssi', packedOffset: 30, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 23 },
-      ],
-      versions: [{version: 0, packedSize: 40}, {version: 16, packedSize: 48}, {version: 23, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.WiFiSpec, 'arc.mojom.WiFi', [
+      mojo.internal.StructField('bssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('frequency', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('hex_ssid', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('hidden_ssid', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('security', 20, 0, arc.mojom.SecurityTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('signal_strength', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_passpoint', 28, 1, mojo.internal.Bool, false, false, 16, undefined),
+      mojo.internal.StructField('fqdn', 32, 0, mojo.internal.String, null, true, 16, undefined),
+      mojo.internal.StructField('rssi', 30, 0, mojo.internal.Int16, 0, false, 23, undefined),
+    ],
+    [[0, 40], [16, 48], [23, 40]]);
 
 // Struct: NetworkConfiguration
-arc.mojom.NetworkConfigurationSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetworkConfiguration',
-      packedSize: 192,
-      fields: [
-        { name: 'connection_state', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.ConnectionStateTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'deprecated_ip_configs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.IPConfigurationSpec, false), nullable: true, minVersion: 0 },
-        { name: 'deprecated_mac_address', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'type', packedOffset: 36, packedBitOffset: 0, type: arc.mojom.NetworkTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'wifi', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.WiFiSpec, nullable: true, minVersion: 0 },
-        { name: 'deprecated_tethering_client_state', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.TetheringClientStateSpec, nullable: false, minVersion: 8 },
-        { name: 'network_interface', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 10 },
-        { name: 'is_default_network', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 11 },
-        { name: 'service_name', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 12 },
-        { name: 'host_mtu', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 13 },
-        { name: 'host_ipv4_prefix_length', packedOffset: 140, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 13 },
-        { name: 'host_ipv4_address', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 13 },
-        { name: 'host_ipv4_gateway', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 13 },
-        { name: 'host_ipv6_prefix_length', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 13 },
-        { name: 'host_ipv6_global_addresses', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 13 },
-        { name: 'host_ipv6_gateway', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 13 },
-        { name: 'host_dns_addresses', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 13 },
-        { name: 'host_search_domains', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 13 },
-        { name: 'arc_ipv4_prefix_length', packedOffset: 148, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 13 },
-        { name: 'arc_ipv4_address', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 13 },
-        { name: 'arc_ipv4_gateway', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 13 },
-        { name: 'arc_network_interface', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 13 },
-        { name: 'is_metered', packedOffset: 44, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 14 },
-        { name: 'include_routes', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 15 },
-        { name: 'exclude_routes', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 15 },
-        { name: 'dns_proxy_addresses', packedOffset: 168, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 19 },
-        { name: 'link_speed', packedOffset: 176, packedBitOffset: 0, type: arc.mojom.LinkSpeedSpec, nullable: true, minVersion: 28 },
-      ],
-      versions: [{version: 0, packedSize: 48}, {version: 8, packedSize: 56}, {version: 10, packedSize: 64}, {version: 11, packedSize: 64}, {version: 12, packedSize: 72}, {version: 13, packedSize: 160}, {version: 14, packedSize: 160}, {version: 15, packedSize: 176}, {version: 19, packedSize: 184}, {version: 28, packedSize: 192}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetworkConfigurationSpec, 'arc.mojom.NetworkConfiguration', [
+      mojo.internal.StructField('connection_state', 32, 0, arc.mojom.ConnectionStateTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('deprecated_ip_configs', 8, 0, mojo.internal.Array(arc.mojom.IPConfigurationSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('deprecated_mac_address', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('type', 36, 0, arc.mojom.NetworkTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('wifi', 24, 0, arc.mojom.WiFiSpec, null, true, 0, undefined),
+      mojo.internal.StructField('deprecated_tethering_client_state', 40, 0, arc.mojom.TetheringClientStateSpec, null, false, 8, undefined),
+      mojo.internal.StructField('network_interface', 48, 0, mojo.internal.String, null, true, 10, undefined),
+      mojo.internal.StructField('is_default_network', 44, 0, mojo.internal.Bool, false, false, 11, undefined),
+      mojo.internal.StructField('service_name', 56, 0, mojo.internal.String, null, true, 12, undefined),
+      mojo.internal.StructField('host_mtu', 136, 0, mojo.internal.Uint32, 0, false, 13, undefined),
+      mojo.internal.StructField('host_ipv4_prefix_length', 140, 0, mojo.internal.Uint32, 0, false, 13, undefined),
+      mojo.internal.StructField('host_ipv4_address', 64, 0, mojo.internal.String, null, true, 13, undefined),
+      mojo.internal.StructField('host_ipv4_gateway', 72, 0, mojo.internal.String, null, true, 13, undefined),
+      mojo.internal.StructField('host_ipv6_prefix_length', 144, 0, mojo.internal.Uint32, 0, false, 13, undefined),
+      mojo.internal.StructField('host_ipv6_global_addresses', 80, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 13, undefined),
+      mojo.internal.StructField('host_ipv6_gateway', 88, 0, mojo.internal.String, null, true, 13, undefined),
+      mojo.internal.StructField('host_dns_addresses', 96, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 13, undefined),
+      mojo.internal.StructField('host_search_domains', 104, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 13, undefined),
+      mojo.internal.StructField('arc_ipv4_prefix_length', 148, 0, mojo.internal.Uint32, 0, false, 13, undefined),
+      mojo.internal.StructField('arc_ipv4_address', 112, 0, mojo.internal.String, null, true, 13, undefined),
+      mojo.internal.StructField('arc_ipv4_gateway', 120, 0, mojo.internal.String, null, true, 13, undefined),
+      mojo.internal.StructField('arc_network_interface', 128, 0, mojo.internal.String, null, true, 13, undefined),
+      mojo.internal.StructField('is_metered', 44, 1, mojo.internal.Bool, false, false, 14, undefined),
+      mojo.internal.StructField('include_routes', 152, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 15, undefined),
+      mojo.internal.StructField('exclude_routes', 160, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 15, undefined),
+      mojo.internal.StructField('dns_proxy_addresses', 168, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 19, undefined),
+      mojo.internal.StructField('link_speed', 176, 0, arc.mojom.LinkSpeedSpec, null, true, 28, undefined),
+    ],
+    [[0, 48], [8, 56], [10, 64], [11, 56], [12, 72], [13, 160], [14, 56], [15, 176], [19, 184], [28, 192]]);
 
 // Struct: LinkSpeed
-arc.mojom.LinkSpeedSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.LinkSpeed',
-      packedSize: 16,
-      fields: [
-        { name: 'uplink_speed_kbps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'downlink_speed_kbps', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.LinkSpeedSpec, 'arc.mojom.LinkSpeed', [
+      mojo.internal.StructField('uplink_speed_kbps', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('downlink_speed_kbps', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: WifiConfiguration
-arc.mojom.WifiConfigurationSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.WifiConfiguration',
-      packedSize: 136,
-      fields: [
-        { name: 'ssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'frequency', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'signal_strength', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'bssid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'security', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'guid', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 1 },
-        { name: 'hexssid', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 2 },
-        { name: 'details', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.NetworkDetailsSpec, nullable: true, minVersion: 2 },
-        { name: 'eap', packedOffset: 64, packedBitOffset: 0, type: arc.mojom.EapCredentialsSpec, nullable: true, minVersion: 16 },
-        { name: 'metered_override', packedOffset: 112, packedBitOffset: 0, type: arc.mojom.MeteredOverrideSpec, nullable: false, minVersion: 20 },
-        { name: 'http_proxy', packedOffset: 72, packedBitOffset: 0, type: arc.mojom.ArcProxyInfoSpec, nullable: true, minVersion: 20 },
-        { name: 'static_ipv4_config', packedOffset: 88, packedBitOffset: 0, type: arc.mojom.StaticIpv4ConfigurationSpec, nullable: true, minVersion: 20 },
-        { name: 'domains', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 20 },
-        { name: 'dns_servers', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 20 },
-        { name: 'bssid_allowlist', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 26 },
-      ],
-      versions: [{version: 0, packedSize: 40}, {version: 1, packedSize: 48}, {version: 2, packedSize: 72}, {version: 16, packedSize: 80}, {version: 20, packedSize: 128}, {version: 26, packedSize: 136}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.WifiConfigurationSpec, 'arc.mojom.WifiConfiguration', [
+      mojo.internal.StructField('ssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('frequency', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('signal_strength', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('bssid', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('security', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('guid', 32, 0, mojo.internal.String, null, true, 1, undefined),
+      mojo.internal.StructField('hexssid', 56, 0, mojo.internal.String, null, true, 2, undefined),
+      mojo.internal.StructField('details', 40, 0, arc.mojom.NetworkDetailsSpec, null, true, 2, undefined),
+      mojo.internal.StructField('eap', 64, 0, arc.mojom.EapCredentialsSpec, null, true, 16, undefined),
+      mojo.internal.StructField('metered_override', 112, 0, arc.mojom.MeteredOverrideSpec, null, false, 20, undefined),
+      mojo.internal.StructField('http_proxy', 72, 0, arc.mojom.ArcProxyInfoSpec, null, true, 20, undefined),
+      mojo.internal.StructField('static_ipv4_config', 88, 0, arc.mojom.StaticIpv4ConfigurationSpec, null, true, 20, undefined),
+      mojo.internal.StructField('domains', 96, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 20, undefined),
+      mojo.internal.StructField('dns_servers', 104, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 20, undefined),
+      mojo.internal.StructField('bssid_allowlist', 120, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 26, undefined),
+    ],
+    [[0, 40], [1, 48], [2, 72], [16, 80], [20, 128], [26, 136]]);
 
 // Struct: StaticIpv4Configuration
-arc.mojom.StaticIpv4ConfigurationSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.StaticIpv4Configuration',
-      packedSize: 32,
-      fields: [
-        { name: 'ipv4_addr', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'gateway_ipv4_addr', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'prefix_length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.StaticIpv4ConfigurationSpec, 'arc.mojom.StaticIpv4Configuration', [
+      mojo.internal.StructField('ipv4_addr', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('gateway_ipv4_addr', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('prefix_length', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: PacUrlProxyConfig
-arc.mojom.PacUrlProxyConfigSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PacUrlProxyConfig',
-      packedSize: 16,
-      fields: [
-        { name: 'pac_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PacUrlProxyConfigSpec, 'arc.mojom.PacUrlProxyConfig', [
+      mojo.internal.StructField('pac_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: ManualProxyConfig
-arc.mojom.ManualProxyConfigSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ManualProxyConfig',
-      packedSize: 32,
-      fields: [
-        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'port', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'exclusion_list', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ManualProxyConfigSpec, 'arc.mojom.ManualProxyConfig', [
+      mojo.internal.StructField('host', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('port', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('exclusion_list', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: GetNetworksResponseType
-arc.mojom.GetNetworksResponseTypeSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.GetNetworksResponseType',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.NetworkResultSpec, nullable: false, minVersion: 0 },
-        { name: 'networks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.NetworkConfigurationSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.GetNetworksResponseTypeSpec, 'arc.mojom.GetNetworksResponseType', [
+      mojo.internal.StructField('status', 8, 0, arc.mojom.NetworkResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('networks', 0, 0, mojo.internal.Array(arc.mojom.NetworkConfigurationSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: AndroidVpnConfiguration
-arc.mojom.AndroidVpnConfigurationSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.AndroidVpnConfiguration',
-      packedSize: 96,
-      fields: [
-        { name: 'app_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'app_label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'session_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'tunnel_chrome_traffic', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'ipv4_gateway', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'split_include', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'split_exclude', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'nameservers', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'domains', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'http_proxy', packedOffset: 72, packedBitOffset: 0, type: arc.mojom.ArcProxyInfoSpec, nullable: true, minVersion: 21 },
-        { name: 'mtu', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 38 },
-      ],
-      versions: [{version: 0, packedSize: 80}, {version: 21, packedSize: 96}, {version: 38, packedSize: 96}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AndroidVpnConfigurationSpec, 'arc.mojom.AndroidVpnConfiguration', [
+      mojo.internal.StructField('app_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('app_label', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('session_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('tunnel_chrome_traffic', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('ipv4_gateway', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('split_include', 32, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('split_exclude', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('nameservers', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('domains', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('http_proxy', 72, 0, arc.mojom.ArcProxyInfoSpec, null, true, 21, undefined),
+      mojo.internal.StructField('mtu', 68, 0, mojo.internal.Int32, 0, false, 38, undefined),
+    ],
+    [[0, 80], [21, 96], [38, 80]]);
 
 // Struct: ArcDnsResolutionTestResult
-arc.mojom.ArcDnsResolutionTestResultSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcDnsResolutionTestResult',
-      packedSize: 24,
-      fields: [
-        { name: 'is_successful', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'response_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'duration_ms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcDnsResolutionTestResultSpec, 'arc.mojom.ArcDnsResolutionTestResult', [
+      mojo.internal.StructField('is_successful', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('response_code', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('duration_ms', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: ArcHttpTestResult
-arc.mojom.ArcHttpTestResultSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcHttpTestResult',
-      packedSize: 32,
-      fields: [
-        { name: 'is_successful', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'status_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'response_header_fields', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'duration_ms', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcHttpTestResultSpec, 'arc.mojom.ArcHttpTestResult', [
+      mojo.internal.StructField('is_successful', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('status_code', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('response_header_fields', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('duration_ms', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: ArcPingTestResult
-arc.mojom.ArcPingTestResultSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ArcPingTestResult',
-      packedSize: 24,
-      fields: [
-        { name: 'is_successful', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'duration_ms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ArcPingTestResultSpec, 'arc.mojom.ArcPingTestResult', [
+      mojo.internal.StructField('is_successful', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('duration_ms', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: LohsConfig
-arc.mojom.LohsConfigSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.LohsConfig',
-      packedSize: 32,
-      fields: [
-        { name: 'band', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.WifiBandSpec, nullable: false, minVersion: 0 },
-        { name: 'security_type', packedOffset: 20, packedBitOffset: 0, type: arc.mojom.SecurityTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'hexssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'passphrase', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.LohsConfigSpec, 'arc.mojom.LohsConfig', [
+      mojo.internal.StructField('band', 16, 0, arc.mojom.WifiBandSpec, null, false, 0, undefined),
+      mojo.internal.StructField('security_type', 20, 0, arc.mojom.SecurityTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('hexssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('passphrase', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: PasspointApprovalRequest
-arc.mojom.PasspointApprovalRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PasspointApprovalRequest',
-      packedSize: 40,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'app_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'friendly_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 31 },
-        { name: 'subscription_expiration_time_ms', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 31 },
-      ],
-      versions: [{version: 0, packedSize: 24}, {version: 31, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PasspointApprovalRequestSpec, 'arc.mojom.PasspointApprovalRequest', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('app_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('friendly_name', 16, 0, mojo.internal.String, null, true, 31, undefined),
+      mojo.internal.StructField('subscription_expiration_time_ms', 24, 0, mojo.internal.Int64, 0, false, 31, undefined),
+    ],
+    [[0, 24], [31, 40]]);
 
 // Struct: PasspointApprovalResponse
-arc.mojom.PasspointApprovalResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PasspointApprovalResponse',
-      packedSize: 16,
-      fields: [
-        { name: 'allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PasspointApprovalResponseSpec, 'arc.mojom.PasspointApprovalResponse', [
+      mojo.internal.StructField('allowed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: SocketConnectionEvent
-arc.mojom.SocketConnectionEventSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.SocketConnectionEvent',
-      packedSize: 48,
-      fields: [
-        { name: 'src_addr', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
-        { name: 'dst_addr', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
-        { name: 'src_port', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'dst_port', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'proto', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.IpProtocolSpec, nullable: false, minVersion: 0 },
-        { name: 'event', packedOffset: 28, packedBitOffset: 0, type: arc.mojom.SocketEventSpec, nullable: false, minVersion: 0 },
-        { name: 'app_category', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.AppCategorySpec, nullable: false, minVersion: 0 },
-        { name: 'qos_category', packedOffset: 36, packedBitOffset: 0, type: arc.mojom.QosCategorySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.SocketConnectionEventSpec, 'arc.mojom.SocketConnectionEvent', [
+      mojo.internal.StructField('src_addr', 0, 0, network.mojom.IPAddressSpec, null, false, 0, undefined),
+      mojo.internal.StructField('dst_addr', 8, 0, network.mojom.IPAddressSpec, null, false, 0, undefined),
+      mojo.internal.StructField('src_port', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('dst_port', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('proto', 24, 0, arc.mojom.IpProtocolSpec, null, false, 0, undefined),
+      mojo.internal.StructField('event', 28, 0, arc.mojom.SocketEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('app_category', 32, 0, arc.mojom.AppCategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('qos_category', 36, 0, arc.mojom.QosCategorySpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Interface: NetHost
-arc.mojom.NetHost = {};
+mojo.internal.Struct(
+    arc.mojom.NetHost_GetWifiEnabledState_ParamsSpec, 'arc.mojom.NetHost_GetWifiEnabledState_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.NetHost_GetWifiEnabledState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost_GetWifiEnabledState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetHost_GetWifiEnabledState_ResponseParamsSpec, 'arc.mojom.NetHost_GetWifiEnabledState_ResponseParams', [
+      mojo.internal.StructField('is_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NetHost_StartScan_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost_StartScan_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetHost_StartScan_ParamsSpec, 'arc.mojom.NetHost_StartScan_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.NetHost_SetWifiEnabledState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost_SetWifiEnabledState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetHost_SetWifiEnabledState_ParamsSpec, 'arc.mojom.NetHost_SetWifiEnabledState_Params', [
+      mojo.internal.StructField('is_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NetHost_CreateNetwork_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost_CreateNetwork_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'cfg', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.WifiConfigurationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetHost_SetWifiEnabledState_ResponseParamsSpec, 'arc.mojom.NetHost_SetWifiEnabledState_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NetHost_ForgetNetwork_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost_ForgetNetwork_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetHost_CreateNetwork_ParamsSpec, 'arc.mojom.NetHost_CreateNetwork_Params', [
+      mojo.internal.StructField('cfg', 0, 0, arc.mojom.WifiConfigurationSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NetHost_UpdateWifiNetwork_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost_UpdateWifiNetwork_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'cfg', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.WifiConfigurationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetHost_CreateNetwork_ResponseParamsSpec, 'arc.mojom.NetHost_CreateNetwork_ResponseParams', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NetHost_StartConnect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost_StartConnect_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetHost_ForgetNetwork_ParamsSpec, 'arc.mojom.NetHost_ForgetNetwork_Params', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NetHost_StartDisconnect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost_StartDisconnect_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetHost_ForgetNetwork_ResponseParamsSpec, 'arc.mojom.NetHost_ForgetNetwork_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, arc.mojom.NetworkResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NetHost_GetNetworks_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost_GetNetworks_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.GetNetworksRequestTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetHost_UpdateWifiNetwork_ParamsSpec, 'arc.mojom.NetHost_UpdateWifiNetwork_Params', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('cfg', 8, 0, arc.mojom.WifiConfigurationSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.NetHost_AndroidVpnConnected_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost_AndroidVpnConnected_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'cfg', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AndroidVpnConfigurationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetHost_UpdateWifiNetwork_ResponseParamsSpec, 'arc.mojom.NetHost_UpdateWifiNetwork_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, arc.mojom.NetworkResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NetHost_AndroidVpnUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost_AndroidVpnUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'cfg', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AndroidVpnConfigurationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetHost_StartConnect_ParamsSpec, 'arc.mojom.NetHost_StartConnect_Params', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NetHost_DEPRECATED_AndroidVpnStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost_DEPRECATED_AndroidVpnStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ConnectionStateTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetHost_StartConnect_ResponseParamsSpec, 'arc.mojom.NetHost_StartConnect_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, arc.mojom.NetworkResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NetHost_AndroidVpnDisconnected_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost_AndroidVpnDisconnected_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetHost_StartDisconnect_ParamsSpec, 'arc.mojom.NetHost_StartDisconnect_Params', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NetHost_SetAlwaysOnVpn_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost_SetAlwaysOnVpn_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'vpnPackage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'lockdown', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetHost_StartDisconnect_ResponseParamsSpec, 'arc.mojom.NetHost_StartDisconnect_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, arc.mojom.NetworkResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NetHost_RequestPasspointAppApproval_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost_RequestPasspointAppApproval_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.PasspointApprovalRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetHost_GetNetworks_ParamsSpec, 'arc.mojom.NetHost_GetNetworks_Params', [
+      mojo.internal.StructField('type', 0, 0, arc.mojom.GetNetworksRequestTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NetHost_AddPasspointCredentials_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost_AddPasspointCredentials_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.PasspointCredentialsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetHost_GetNetworks_ResponseParamsSpec, 'arc.mojom.NetHost_GetNetworks_ResponseParams', [
+      mojo.internal.StructField('response', 0, 0, arc.mojom.GetNetworksResponseTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NetHost_RemovePasspointCredentials_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost_RemovePasspointCredentials_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.PasspointRemovalPropertiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetHost_AndroidVpnConnected_ParamsSpec, 'arc.mojom.NetHost_AndroidVpnConnected_Params', [
+      mojo.internal.StructField('cfg', 0, 0, arc.mojom.AndroidVpnConfigurationSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NetHost_DisconnectHostVpn_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost_DisconnectHostVpn_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetHost_AndroidVpnUpdated_ParamsSpec, 'arc.mojom.NetHost_AndroidVpnUpdated_Params', [
+      mojo.internal.StructField('cfg', 0, 0, arc.mojom.AndroidVpnConfigurationSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NetHost_StartLohs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost_StartLohs_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.LohsConfigSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetHost_DEPRECATED_AndroidVpnStateChanged_ParamsSpec, 'arc.mojom.NetHost_DEPRECATED_AndroidVpnStateChanged_Params', [
+      mojo.internal.StructField('state', 0, 0, arc.mojom.ConnectionStateTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NetHost_StopLohs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost_StopLohs_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetHost_AndroidVpnDisconnected_ParamsSpec, 'arc.mojom.NetHost_AndroidVpnDisconnected_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.NetHost_NotifyAndroidWifiMulticastLockChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost_NotifyAndroidWifiMulticastLockChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_held', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetHost_SetAlwaysOnVpn_ParamsSpec, 'arc.mojom.NetHost_SetAlwaysOnVpn_Params', [
+      mojo.internal.StructField('vpnPackage', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('lockdown', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.NetHost_NotifySocketConnectionEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost_NotifySocketConnectionEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'msg', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.SocketConnectionEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetHost_RequestPasspointAppApproval_ParamsSpec, 'arc.mojom.NetHost_RequestPasspointAppApproval_Params', [
+      mojo.internal.StructField('request', 0, 0, arc.mojom.PasspointApprovalRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NetHost_NotifyARCVPNSocketConnectionEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost_NotifyARCVPNSocketConnectionEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'msg', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.SocketConnectionEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetHost_RequestPasspointAppApproval_ResponseParamsSpec, 'arc.mojom.NetHost_RequestPasspointAppApproval_ResponseParams', [
+      mojo.internal.StructField('response', 0, 0, arc.mojom.PasspointApprovalResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.NetHost_AddPasspointCredentials_ParamsSpec, 'arc.mojom.NetHost_AddPasspointCredentials_Params', [
+      mojo.internal.StructField('credentials', 0, 0, arc.mojom.PasspointCredentialsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.NetHost_RemovePasspointCredentials_ParamsSpec, 'arc.mojom.NetHost_RemovePasspointCredentials_Params', [
+      mojo.internal.StructField('properties', 0, 0, arc.mojom.PasspointRemovalPropertiesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.NetHost_DisconnectHostVpn_ParamsSpec, 'arc.mojom.NetHost_DisconnectHostVpn_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    arc.mojom.NetHost_StartLohs_ParamsSpec, 'arc.mojom.NetHost_StartLohs_Params', [
+      mojo.internal.StructField('config', 0, 0, arc.mojom.LohsConfigSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.NetHost_StartLohs_ResponseParamsSpec, 'arc.mojom.NetHost_StartLohs_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, arc.mojom.LohsStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.NetHost_StopLohs_ParamsSpec, 'arc.mojom.NetHost_StopLohs_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    arc.mojom.NetHost_NotifyAndroidWifiMulticastLockChange_ParamsSpec, 'arc.mojom.NetHost_NotifyAndroidWifiMulticastLockChange_Params', [
+      mojo.internal.StructField('is_held', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.NetHost_NotifySocketConnectionEvent_ParamsSpec, 'arc.mojom.NetHost_NotifySocketConnectionEvent_Params', [
+      mojo.internal.StructField('msg', 0, 0, arc.mojom.SocketConnectionEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.NetHost_NotifyARCVPNSocketConnectionEvent_ParamsSpec, 'arc.mojom.NetHost_NotifyARCVPNSocketConnectionEvent_Params', [
+      mojo.internal.StructField('msg', 0, 0, arc.mojom.SocketConnectionEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.NetHostPendingReceiver = class {
   constructor(handle) {
@@ -1146,593 +981,94 @@ arc.mojom.NetHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetWifiEnabledState
-arc.mojom.NetHost_GetWifiEnabledState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.GetWifiEnabledState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-arc.mojom.NetHost_GetWifiEnabledState_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.GetWifiEnabledState_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'is_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StartScan
-arc.mojom.NetHost_StartScan_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.StartScan_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetWifiEnabledState
-arc.mojom.NetHost_SetWifiEnabledState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.SetWifiEnabledState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.NetHost_SetWifiEnabledState_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.SetWifiEnabledState_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CreateNetwork
-arc.mojom.NetHost_CreateNetwork_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.CreateNetwork_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'cfg', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.WifiConfigurationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.NetHost_CreateNetwork_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.CreateNetwork_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ForgetNetwork
-arc.mojom.NetHost_ForgetNetwork_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.ForgetNetwork_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.NetHost_ForgetNetwork_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.ForgetNetwork_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.NetworkResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateWifiNetwork
-arc.mojom.NetHost_UpdateWifiNetwork_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.UpdateWifiNetwork_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'cfg', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.WifiConfigurationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.NetHost_UpdateWifiNetwork_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.UpdateWifiNetwork_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.NetworkResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StartConnect
-arc.mojom.NetHost_StartConnect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.StartConnect_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.NetHost_StartConnect_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.StartConnect_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.NetworkResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StartDisconnect
-arc.mojom.NetHost_StartDisconnect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.StartDisconnect_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.NetHost_StartDisconnect_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.StartDisconnect_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.NetworkResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetNetworks
-arc.mojom.NetHost_GetNetworks_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.GetNetworks_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.GetNetworksRequestTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.NetHost_GetNetworks_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.GetNetworks_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.GetNetworksResponseTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AndroidVpnConnected
-arc.mojom.NetHost_AndroidVpnConnected_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.AndroidVpnConnected_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'cfg', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AndroidVpnConfigurationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AndroidVpnUpdated
-arc.mojom.NetHost_AndroidVpnUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.AndroidVpnUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'cfg', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AndroidVpnConfigurationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DEPRECATED_AndroidVpnStateChanged
-arc.mojom.NetHost_DEPRECATED_AndroidVpnStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.DEPRECATED_AndroidVpnStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ConnectionStateTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AndroidVpnDisconnected
-arc.mojom.NetHost_AndroidVpnDisconnected_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.AndroidVpnDisconnected_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetAlwaysOnVpn
-arc.mojom.NetHost_SetAlwaysOnVpn_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.SetAlwaysOnVpn_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'vpnPackage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'lockdown', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for RequestPasspointAppApproval
-arc.mojom.NetHost_RequestPasspointAppApproval_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.RequestPasspointAppApproval_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.PasspointApprovalRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.NetHost_RequestPasspointAppApproval_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.RequestPasspointAppApproval_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.PasspointApprovalResponseSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AddPasspointCredentials
-arc.mojom.NetHost_AddPasspointCredentials_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.AddPasspointCredentials_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.PasspointCredentialsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RemovePasspointCredentials
-arc.mojom.NetHost_RemovePasspointCredentials_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.RemovePasspointCredentials_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.PasspointRemovalPropertiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DisconnectHostVpn
-arc.mojom.NetHost_DisconnectHostVpn_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.DisconnectHostVpn_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for StartLohs
-arc.mojom.NetHost_StartLohs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.StartLohs_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.LohsConfigSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-arc.mojom.NetHost_StartLohs_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.StartLohs_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.LohsStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StopLohs
-arc.mojom.NetHost_StopLohs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.StopLohs_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for NotifyAndroidWifiMulticastLockChange
-arc.mojom.NetHost_NotifyAndroidWifiMulticastLockChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.NotifyAndroidWifiMulticastLockChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_held', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for NotifySocketConnectionEvent
-arc.mojom.NetHost_NotifySocketConnectionEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.NotifySocketConnectionEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'msg', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.SocketConnectionEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for NotifyARCVPNSocketConnectionEvent
-arc.mojom.NetHost_NotifyARCVPNSocketConnectionEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetHost.NotifyARCVPNSocketConnectionEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'msg', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.SocketConnectionEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.NetHostPtr = arc.mojom.NetHostRemote;
 arc.mojom.NetHostRequest = arc.mojom.NetHostPendingReceiver;
 
 
 // Interface: NetInstance
-arc.mojom.NetInstance = {};
+mojo.internal.Struct(
+    arc.mojom.NetInstance_Init_ParamsSpec, 'arc.mojom.NetInstance_Init_Params', [
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.NetHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NetInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetInstance_Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.NetHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetInstance_Init_ResponseParamsSpec, 'arc.mojom.NetInstance_Init_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.NetInstance_ScanCompleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetInstance_ScanCompleted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetInstance_ScanCompleted_ParamsSpec, 'arc.mojom.NetInstance_ScanCompleted_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.NetInstance_WifiEnabledStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetInstance_WifiEnabledStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetInstance_WifiEnabledStateChanged_ParamsSpec, 'arc.mojom.NetInstance_WifiEnabledStateChanged_Params', [
+      mojo.internal.StructField('is_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NetInstance_DisconnectAndroidVpn_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetInstance_DisconnectAndroidVpn_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetInstance_DisconnectAndroidVpn_ParamsSpec, 'arc.mojom.NetInstance_DisconnectAndroidVpn_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.NetInstance_ConfigureAndroidVpn_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetInstance_ConfigureAndroidVpn_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetInstance_ConfigureAndroidVpn_ParamsSpec, 'arc.mojom.NetInstance_ConfigureAndroidVpn_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.NetInstance_ActiveNetworksChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetInstance_ActiveNetworksChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'network', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.NetworkConfigurationSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetInstance_ActiveNetworksChanged_ParamsSpec, 'arc.mojom.NetInstance_ActiveNetworksChanged_Params', [
+      mojo.internal.StructField('network', 0, 0, mojo.internal.Array(arc.mojom.NetworkConfigurationSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NetInstance_DnsResolutionTest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetInstance_DnsResolutionTest_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'transport_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'host_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetInstance_DnsResolutionTest_ParamsSpec, 'arc.mojom.NetInstance_DnsResolutionTest_Params', [
+      mojo.internal.StructField('transport_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('host_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.NetInstance_HttpTest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetInstance_HttpTest_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'transport_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetInstance_DnsResolutionTest_ResponseParamsSpec, 'arc.mojom.NetInstance_DnsResolutionTest_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, arc.mojom.ArcDnsResolutionTestResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.NetInstance_PingTest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetInstance_PingTest_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'transport_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'ip_address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetInstance_HttpTest_ParamsSpec, 'arc.mojom.NetInstance_HttpTest_Params', [
+      mojo.internal.StructField('transport_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-arc.mojom.NetInstance_SetUpFlag_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetInstance_SetUpFlag_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'flag', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.FlagSpec, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.NetInstance_HttpTest_ResponseParamsSpec, 'arc.mojom.NetInstance_HttpTest_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, arc.mojom.ArcHttpTestResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.NetInstance_PingTest_ParamsSpec, 'arc.mojom.NetInstance_PingTest_Params', [
+      mojo.internal.StructField('transport_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('ip_address', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    arc.mojom.NetInstance_PingTest_ResponseParamsSpec, 'arc.mojom.NetInstance_PingTest_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, arc.mojom.ArcPingTestResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.NetInstance_SetUpFlag_ParamsSpec, 'arc.mojom.NetInstance_SetUpFlag_Params', [
+      mojo.internal.StructField('flag', 0, 0, arc.mojom.FlagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.NetInstancePendingReceiver = class {
   constructor(handle) {
@@ -1771,7 +1107,7 @@ arc.mojom.NetInstanceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       6,  // ordinal
       arc.mojom.NetInstance_Init_ParamsSpec,
-      null,
+      arc.mojom.NetInstance_Init_ResponseParamsSpec,
       [host_remote]);
   }
 
@@ -1868,187 +1204,6 @@ arc.mojom.NetInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Init
-arc.mojom.NetInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetInstance.Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.NetHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ScanCompleted
-arc.mojom.NetInstance_ScanCompleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetInstance.ScanCompleted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for WifiEnabledStateChanged
-arc.mojom.NetInstance_WifiEnabledStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetInstance.WifiEnabledStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DisconnectAndroidVpn
-arc.mojom.NetInstance_DisconnectAndroidVpn_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetInstance.DisconnectAndroidVpn_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ConfigureAndroidVpn
-arc.mojom.NetInstance_ConfigureAndroidVpn_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetInstance.ConfigureAndroidVpn_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ActiveNetworksChanged
-arc.mojom.NetInstance_ActiveNetworksChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetInstance.ActiveNetworksChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'network', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.NetworkConfigurationSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DnsResolutionTest
-arc.mojom.NetInstance_DnsResolutionTest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetInstance.DnsResolutionTest_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'transport_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'host_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.NetInstance_DnsResolutionTest_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetInstance.DnsResolutionTest_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcDnsResolutionTestResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for HttpTest
-arc.mojom.NetInstance_HttpTest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetInstance.HttpTest_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'transport_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.NetInstance_HttpTest_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetInstance.HttpTest_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcHttpTestResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for PingTest
-arc.mojom.NetInstance_PingTest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetInstance.PingTest_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'transport_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'ip_address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.NetInstance_PingTest_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetInstance.PingTest_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcPingTestResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetUpFlag
-arc.mojom.NetInstance_SetUpFlag_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.NetInstance.SetUpFlag_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'flag', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.FlagSpec, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.NetInstancePtr = arc.mojom.NetInstanceRemote;
 arc.mojom.NetInstanceRequest = arc.mojom.NetInstancePendingReceiver;
 

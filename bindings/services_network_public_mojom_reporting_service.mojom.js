@@ -9,7 +9,16 @@ var network = network || {};
 network.mojom = network.mojom || {};
 var url = url || {};
 var url = url || {};
+var services = services || {};
 
+network.mojom.ReportingApiReportStatusSpec = { $: mojo.internal.Enum() };
+network.mojom.ReportingApiReportSpec = { $: {} };
+network.mojom.ReportingApiEndpointSpec = { $: {} };
+network.mojom.ReportingApiObserver = {};
+network.mojom.ReportingApiObserver.$interfaceName = 'network.mojom.ReportingApiObserver';
+network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec = { $: {} };
+network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec = { $: {} };
+network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec = { $: {} };
 
 // Enum: ReportingApiReportStatus
 network.mojom.ReportingApiReportStatus = {
@@ -18,95 +27,57 @@ network.mojom.ReportingApiReportStatus = {
   kDoomed: 2,
   kSuccess: 3,
 };
-network.mojom.ReportingApiReportStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: ReportingApiReport
-network.mojom.ReportingApiReportSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ReportingApiReport',
-      packedSize: 72,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'group', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'timestamp', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'depth', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'attempts', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'body', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 56, packedBitOffset: 0, type: network.mojom.ReportingApiReportStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 72}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.ReportingApiReportSpec, 'network.mojom.ReportingApiReport', [
+      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('group', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('type', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 32, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('depth', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('attempts', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('body', 40, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('status', 56, 0, network.mojom.ReportingApiReportStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 72]]);
 
 // Struct: ReportingApiEndpoint
-network.mojom.ReportingApiEndpointSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ReportingApiEndpoint',
-      packedSize: 80,
-      fields: [
-        { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'attempted_uploads', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'successful_uploads', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'attempted_reports', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'successful_reports', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'priority', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'weight', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'origin', packedOffset: 24, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'group_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'network_anonymization_key', packedOffset: 0, packedBitOffset: 0, type: network.mojom.NetworkAnonymizationKeySpec, nullable: false, minVersion: 0 },
-        { name: 'reporting_source', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 80}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.ReportingApiEndpointSpec, 'network.mojom.ReportingApiEndpoint', [
+      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('attempted_uploads', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('successful_uploads', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('attempted_reports', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('successful_reports', 60, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('priority', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('weight', 68, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('origin', 24, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('group_name', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('network_anonymization_key', 0, 0, network.mojom.NetworkAnonymizationKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('reporting_source', 40, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+    ],
+    [[0, 80]]);
 
 // Interface: ReportingApiObserver
-network.mojom.ReportingApiObserver = {};
+mojo.internal.Struct(
+    network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec, 'network.mojom.ReportingApiObserver_OnReportAdded_Params', [
+      mojo.internal.StructField('report', 0, 0, network.mojom.ReportingApiReportSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ReportingApiObserver_OnReportAdded_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ReportingApiReportSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec, 'network.mojom.ReportingApiObserver_OnReportUpdated_Params', [
+      mojo.internal.StructField('report', 0, 0, network.mojom.ReportingApiReportSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ReportingApiObserver_OnReportUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ReportingApiReportSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'endpoints', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.ReportingApiEndpointSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec, 'network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_Params', [
+      mojo.internal.StructField('endpoints', 0, 0, mojo.internal.Array(network.mojom.ReportingApiEndpointSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.ReportingApiObserverPendingReceiver = class {
   constructor(handle) {
@@ -179,49 +150,6 @@ network.mojom.ReportingApiObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnReportAdded
-network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ReportingApiObserver.OnReportAdded_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ReportingApiReportSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnReportUpdated
-network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ReportingApiObserver.OnReportUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'report', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ReportingApiReportSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnEndpointsUpdatedForOrigin
-network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ReportingApiObserver.OnEndpointsUpdatedForOrigin_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'endpoints', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.ReportingApiEndpointSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.ReportingApiObserverPtr = network.mojom.ReportingApiObserverRemote;
 network.mojom.ReportingApiObserverRequest = network.mojom.ReportingApiObserverPendingReceiver;
 

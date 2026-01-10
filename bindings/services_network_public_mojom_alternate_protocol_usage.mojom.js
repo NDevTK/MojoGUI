@@ -8,6 +8,7 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.AlternateProtocolUsageSpec = { $: mojo.internal.Enum() };
 
 // Enum: AlternateProtocolUsage
 network.mojom.AlternateProtocolUsage = {
@@ -20,4 +21,3 @@ network.mojom.AlternateProtocolUsage = {
   kDnsAlpnH3JobWonRace: 6,
   kUnspecifiedReason: 7,
 };
-network.mojom.AlternateProtocolUsageSpec = { $: mojo.internal.Enum() };

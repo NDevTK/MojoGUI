@@ -9,27 +9,27 @@ var metrics = metrics || {};
 metrics.dwa = metrics.dwa || {};
 metrics.dwa.mojom = metrics.dwa.mojom || {};
 
+metrics.dwa.mojom.DwaEntrySpec = { $: {} };
+metrics.dwa.mojom.DwaRecorderClientInterface = {};
+metrics.dwa.mojom.DwaRecorderClientInterface.$interfaceName = 'metrics.dwa.mojom.DwaRecorderClientInterface';
+metrics.dwa.mojom.DwaRecorderInterface = {};
+metrics.dwa.mojom.DwaRecorderInterface.$interfaceName = 'metrics.dwa.mojom.DwaRecorderInterface';
+metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec = { $: {} };
+metrics.dwa.mojom.DwaRecorderFactory = {};
+metrics.dwa.mojom.DwaRecorderFactory.$interfaceName = 'metrics.dwa.mojom.DwaRecorderFactory';
+metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec = { $: {} };
 
 // Struct: DwaEntry
-metrics.dwa.mojom.DwaEntrySpec = {
-  $: {
-    structSpec: {
-      name: 'metrics.dwa.mojom.DwaEntry',
-      packedSize: 40,
-      fields: [
-        { name: 'event_hash', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'content_hash', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'studies_of_interest', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.Bool, false), nullable: false, minVersion: 0 },
-        { name: 'metrics', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint64, mojo.internal.Int64, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    metrics.dwa.mojom.DwaEntrySpec, 'metrics.dwa.mojom.DwaEntry', [
+      mojo.internal.StructField('event_hash', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('content_hash', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('studies_of_interest', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Bool, false), null, false, 0, undefined),
+      mojo.internal.StructField('metrics', 24, 0, mojo.internal.Map(mojo.internal.Uint64, mojo.internal.Int64, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: DwaRecorderClientInterface
-metrics.dwa.mojom.DwaRecorderClientInterface = {};
-
 metrics.dwa.mojom.DwaRecorderClientInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -74,26 +74,16 @@ metrics.dwa.mojom.DwaRecorderClientInterface.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 metrics.dwa.mojom.DwaRecorderClientInterfacePtr = metrics.dwa.mojom.DwaRecorderClientInterfaceRemote;
 metrics.dwa.mojom.DwaRecorderClientInterfaceRequest = metrics.dwa.mojom.DwaRecorderClientInterfacePendingReceiver;
 
 
 // Interface: DwaRecorderInterface
-metrics.dwa.mojom.DwaRecorderInterface = {};
-
-metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics.dwa.mojom.DwaRecorderInterface_AddEntry_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: metrics.dwa.mojom.DwaEntrySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec, 'metrics.dwa.mojom.DwaRecorderInterface_AddEntry_Params', [
+      mojo.internal.StructField('entry', 0, 0, metrics.dwa.mojom.DwaEntrySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 metrics.dwa.mojom.DwaRecorderInterfacePendingReceiver = class {
   constructor(handle) {
@@ -148,41 +138,17 @@ metrics.dwa.mojom.DwaRecorderInterface.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddEntry
-metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics.dwa.mojom.DwaRecorderInterface.AddEntry_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: metrics.dwa.mojom.DwaEntrySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 metrics.dwa.mojom.DwaRecorderInterfacePtr = metrics.dwa.mojom.DwaRecorderInterfaceRemote;
 metrics.dwa.mojom.DwaRecorderInterfaceRequest = metrics.dwa.mojom.DwaRecorderInterfacePendingReceiver;
 
 
 // Interface: DwaRecorderFactory
-metrics.dwa.mojom.DwaRecorderFactory = {};
-
-metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(metrics.dwa.mojom.DwaRecorderInterfaceRemote), nullable: false, minVersion: 0 },
-        { name: 'client_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(metrics.dwa.mojom.DwaRecorderClientInterfaceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec, 'metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(metrics.dwa.mojom.DwaRecorderInterfaceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client_remote', 8, 0, mojo.internal.InterfaceProxy(metrics.dwa.mojom.DwaRecorderClientInterfaceRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 metrics.dwa.mojom.DwaRecorderFactoryPendingReceiver = class {
   constructor(handle) {
@@ -237,22 +203,6 @@ metrics.dwa.mojom.DwaRecorderFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateDwaRecorder
-metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'metrics.dwa.mojom.DwaRecorderFactory.CreateDwaRecorder_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(metrics.dwa.mojom.DwaRecorderInterfaceRemote), nullable: false, minVersion: 0 },
-        { name: 'client_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(metrics.dwa.mojom.DwaRecorderClientInterfaceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 metrics.dwa.mojom.DwaRecorderFactoryPtr = metrics.dwa.mojom.DwaRecorderFactoryRemote;
 metrics.dwa.mojom.DwaRecorderFactoryRequest = metrics.dwa.mojom.DwaRecorderFactoryPendingReceiver;
 

@@ -7,106 +7,81 @@
 // Module namespace
 var webnn = webnn || {};
 webnn.mojom = webnn.mojom || {};
+var services = services || {};
+var services = services || {};
 
+webnn.mojom.ReadTensorResultSpec = { $: {} };
+webnn.mojom.TensorUsageSpec = { $: {} };
+webnn.mojom.TensorInfoSpec = { $: {} };
+webnn.mojom.WebNNTensor = {};
+webnn.mojom.WebNNTensor.$interfaceName = 'webnn.mojom.WebNNTensor';
+webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec = { $: {} };
+webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec = { $: {} };
+webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec = { $: {} };
+webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec = { $: {} };
+webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec = { $: {} };
 
 // Union: ReadTensorResult
-webnn.mojom.ReadTensorResultSpec = { $: mojo.internal.Union(
-    'webnn.mojom.ReadTensorResult', {
+mojo.internal.Union(
+    webnn.mojom.ReadTensorResultSpec, 'webnn.mojom.ReadTensorResult', {
       'buffer': {
         'ordinal': 0,
         'type': mojo_base.mojom.BigBufferSpec,
-      }},
+        'nullable': false,
+      },
       'error': {
         'ordinal': 1,
         'type': webnn.mojom.ErrorSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: TensorUsage
-webnn.mojom.TensorUsageSpec = {
-  $: {
-    structSpec: {
-      name: 'webnn.mojom.TensorUsage',
-      packedSize: 16,
-      fields: [
-        { name: 'web_gpu_interop', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'read', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'write', packedOffset: 0, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'graph_constant', packedOffset: 0, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    webnn.mojom.TensorUsageSpec, 'webnn.mojom.TensorUsage', [
+      mojo.internal.StructField('web_gpu_interop', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('read', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('write', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('graph_constant', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: TensorInfo
-webnn.mojom.TensorInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'webnn.mojom.TensorInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'descriptor', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.OperandDescriptorSpec, nullable: false, minVersion: 0 },
-        { name: 'usage', packedOffset: 8, packedBitOffset: 0, type: webnn.mojom.TensorUsageSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    webnn.mojom.TensorInfoSpec, 'webnn.mojom.TensorInfo', [
+      mojo.internal.StructField('descriptor', 0, 0, webnn.mojom.OperandDescriptorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('usage', 8, 0, webnn.mojom.TensorUsageSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: WebNNTensor
-webnn.mojom.WebNNTensor = {};
+mojo.internal.Struct(
+    webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec, 'webnn.mojom.WebNNTensor_ReadTensor_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'webnn.mojom.WebNNTensor_ReadTensor_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec, 'webnn.mojom.WebNNTensor_ReadTensor_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, webnn.mojom.ReadTensorResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'webnn.mojom.WebNNTensor_WriteTensor_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'src_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec, 'webnn.mojom.WebNNTensor_WriteTensor_Params', [
+      mojo.internal.StructField('src_buffer', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'webnn.mojom.WebNNTensor_ExportTensor_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec, 'webnn.mojom.WebNNTensor_ExportTensor_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'webnn.mojom.WebNNTensor_ImportTensor_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'fence', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec, 'webnn.mojom.WebNNTensor_ImportTensor_Params', [
+      mojo.internal.StructField('fence', 0, 0, gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 webnn.mojom.WebNNTensorPendingReceiver = class {
   constructor(handle) {
@@ -188,74 +163,6 @@ webnn.mojom.WebNNTensor.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ReadTensor
-webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'webnn.mojom.WebNNTensor.ReadTensor_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'webnn.mojom.WebNNTensor.ReadTensor_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.ReadTensorResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for WriteTensor
-webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'webnn.mojom.WebNNTensor.WriteTensor_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'src_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ExportTensor
-webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'webnn.mojom.WebNNTensor.ExportTensor_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ImportTensor
-webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'webnn.mojom.WebNNTensor.ImportTensor_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'fence', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.SyncTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 webnn.mojom.WebNNTensorPtr = webnn.mojom.WebNNTensorRemote;
 webnn.mojom.WebNNTensorRequest = webnn.mojom.WebNNTensorPendingReceiver;
 

@@ -7,89 +7,61 @@
 // Module namespace
 var attribution_reporting = attribution_reporting || {};
 attribution_reporting.mojom = attribution_reporting.mojom || {};
+var components = components || {};
+var components = components || {};
 
+attribution_reporting.mojom.DataAvailableCallsiteSpec = { $: mojo.internal.Enum() };
+attribution_reporting.mojom.DataHost = {};
+attribution_reporting.mojom.DataHost.$interfaceName = 'attribution_reporting.mojom.DataHost';
+attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec = { $: {} };
+attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec = { $: {} };
+attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec = { $: {} };
+attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec = { $: {} };
+attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec = { $: {} };
 
 // Enum: DataAvailableCallsite
 attribution_reporting.mojom.DataAvailableCallsite = {
   kBlink: 0,
   kBrowser: 1,
 };
-attribution_reporting.mojom.DataAvailableCallsiteSpec = { $: mojo.internal.Enum() };
 
 // Interface: DataHost
-attribution_reporting.mojom.DataHost = {};
+mojo.internal.Struct(
+    attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec, 'attribution_reporting.mojom.DataHost_SourceDataAvailable_Params', [
+      mojo.internal.StructField('reporting_origin', 0, 0, attribution_reporting.mojom.SuitableOriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, attribution_reporting.mojom.SourceRegistrationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('was_fetched_via_service_worker', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'attribution_reporting.mojom.DataHost_SourceDataAvailable_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'reporting_origin', packedOffset: 0, packedBitOffset: 0, type: attribution_reporting.mojom.SuitableOriginSpec, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: attribution_reporting.mojom.SourceRegistrationSpec, nullable: false, minVersion: 0 },
-        { name: 'was_fetched_via_service_worker', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec, 'attribution_reporting.mojom.DataHost_TriggerDataAvailable_Params', [
+      mojo.internal.StructField('reporting_origin', 0, 0, attribution_reporting.mojom.SuitableOriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, attribution_reporting.mojom.TriggerRegistrationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('was_fetched_via_service_worker', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'attribution_reporting.mojom.DataHost_TriggerDataAvailable_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'reporting_origin', packedOffset: 0, packedBitOffset: 0, type: attribution_reporting.mojom.SuitableOriginSpec, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: attribution_reporting.mojom.TriggerRegistrationSpec, nullable: false, minVersion: 0 },
-        { name: 'was_fetched_via_service_worker', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec, 'attribution_reporting.mojom.DataHost_OsSourceDataAvailable_Params', [
+      mojo.internal.StructField('registration', 0, 0, attribution_reporting.mojom.OsRegistrationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('was_fetched_via_service_worker', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'attribution_reporting.mojom.DataHost_OsSourceDataAvailable_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: attribution_reporting.mojom.OsRegistrationSpec, nullable: false, minVersion: 0 },
-        { name: 'was_fetched_via_service_worker', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec, 'attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_Params', [
+      mojo.internal.StructField('registration', 0, 0, attribution_reporting.mojom.OsRegistrationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('was_fetched_via_service_worker', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: attribution_reporting.mojom.OsRegistrationSpec, nullable: false, minVersion: 0 },
-        { name: 'was_fetched_via_service_worker', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'reporting_origin', packedOffset: 0, packedBitOffset: 0, type: attribution_reporting.mojom.SuitableOriginSpec, nullable: false, minVersion: 0 },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: attribution_reporting.mojom.RegistrationHeaderErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec, 'attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_Params', [
+      mojo.internal.StructField('reporting_origin', 0, 0, attribution_reporting.mojom.SuitableOriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 8, 0, attribution_reporting.mojom.RegistrationHeaderErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 attribution_reporting.mojom.DataHostPendingReceiver = class {
   constructor(handle) {
@@ -180,84 +152,6 @@ attribution_reporting.mojom.DataHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SourceDataAvailable
-attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'attribution_reporting.mojom.DataHost.SourceDataAvailable_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'reporting_origin', packedOffset: 0, packedBitOffset: 0, type: attribution_reporting.mojom.SuitableOriginSpec, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: attribution_reporting.mojom.SourceRegistrationSpec, nullable: false, minVersion: 0 },
-        { name: 'was_fetched_via_service_worker', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for TriggerDataAvailable
-attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'attribution_reporting.mojom.DataHost.TriggerDataAvailable_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'reporting_origin', packedOffset: 0, packedBitOffset: 0, type: attribution_reporting.mojom.SuitableOriginSpec, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: attribution_reporting.mojom.TriggerRegistrationSpec, nullable: false, minVersion: 0 },
-        { name: 'was_fetched_via_service_worker', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for OsSourceDataAvailable
-attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'attribution_reporting.mojom.DataHost.OsSourceDataAvailable_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: attribution_reporting.mojom.OsRegistrationSpec, nullable: false, minVersion: 0 },
-        { name: 'was_fetched_via_service_worker', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OsTriggerDataAvailable
-attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'attribution_reporting.mojom.DataHost.OsTriggerDataAvailable_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: attribution_reporting.mojom.OsRegistrationSpec, nullable: false, minVersion: 0 },
-        { name: 'was_fetched_via_service_worker', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ReportRegistrationHeaderError
-attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'attribution_reporting.mojom.DataHost.ReportRegistrationHeaderError_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'reporting_origin', packedOffset: 0, packedBitOffset: 0, type: attribution_reporting.mojom.SuitableOriginSpec, nullable: false, minVersion: 0 },
-        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: attribution_reporting.mojom.RegistrationHeaderErrorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 attribution_reporting.mojom.DataHostPtr = attribution_reporting.mojom.DataHostRemote;
 attribution_reporting.mojom.DataHostRequest = attribution_reporting.mojom.DataHostPendingReceiver;
 

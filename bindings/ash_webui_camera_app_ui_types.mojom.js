@@ -9,6 +9,9 @@ var ash = ash || {};
 ash.camera_app = ash.camera_app || {};
 ash.camera_app.mojom = ash.camera_app.mojom || {};
 
+ash.camera_app.mojom.WifiSecurityTypeSpec = { $: mojo.internal.Enum() };
+ash.camera_app.mojom.WifiEapMethodSpec = { $: mojo.internal.Enum() };
+ash.camera_app.mojom.WifiEapPhase2MethodSpec = { $: mojo.internal.Enum() };
 
 // Enum: WifiSecurityType
 ash.camera_app.mojom.WifiSecurityType = {
@@ -17,7 +20,6 @@ ash.camera_app.mojom.WifiSecurityType = {
   kWep: 2,
   kWpa: 3,
 };
-ash.camera_app.mojom.WifiSecurityTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: WifiEapMethod
 ash.camera_app.mojom.WifiEapMethod = {
@@ -26,7 +28,6 @@ ash.camera_app.mojom.WifiEapMethod = {
   kLeap: 2,
   kPeap: 3,
 };
-ash.camera_app.mojom.WifiEapMethodSpec = { $: mojo.internal.Enum() };
 
 // Enum: WifiEapPhase2Method
 ash.camera_app.mojom.WifiEapPhase2Method = {
@@ -38,4 +39,3 @@ ash.camera_app.mojom.WifiEapPhase2Method = {
   kMschapv2: 5,
   kPap: 6,
 };
-ash.camera_app.mojom.WifiEapPhase2MethodSpec = { $: mojo.internal.Enum() };

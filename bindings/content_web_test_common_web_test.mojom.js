@@ -16,6 +16,83 @@ var gfx = gfx || {};
 var url = url || {};
 var blink = blink || {};
 
+content.mojom.AutoResponseModeSpec = { $: mojo.internal.Enum() };
+content.mojom.WorkItemSpec = { $: {} };
+content.mojom.WebTestRunTestConfigurationSpec = { $: {} };
+content.mojom.WebTestRendererDumpResultSpec = { $: {} };
+content.mojom.WorkItemBackForwardSpec = { $: {} };
+content.mojom.WorkItemLoadSpec = { $: {} };
+content.mojom.WorkItemReloadSpec = { $: {} };
+content.mojom.WorkItemLoadingScriptSpec = { $: {} };
+content.mojom.WorkItemNonLoadingScriptSpec = { $: {} };
+content.mojom.WebTestRenderFrame = {};
+content.mojom.WebTestRenderFrame.$interfaceName = 'content.mojom.WebTestRenderFrame';
+content.mojom.WebTestRenderFrame_SynchronouslyCompositeAfterTest_ParamsSpec = { $: {} };
+content.mojom.WebTestRenderFrame_SynchronouslyCompositeAfterTest_ResponseParamsSpec = { $: {} };
+content.mojom.WebTestRenderFrame_DumpFrameLayout_ParamsSpec = { $: {} };
+content.mojom.WebTestRenderFrame_DumpFrameLayout_ResponseParamsSpec = { $: {} };
+content.mojom.WebTestRenderFrame_SetTestConfiguration_ParamsSpec = { $: {} };
+content.mojom.WebTestRenderFrame_OnDeactivated_ParamsSpec = { $: {} };
+content.mojom.WebTestRenderFrame_OnReactivated_ParamsSpec = { $: {} };
+content.mojom.WebTestRenderFrame_BlockTestUntilStart_ParamsSpec = { $: {} };
+content.mojom.WebTestRenderFrame_StartTest_ParamsSpec = { $: {} };
+content.mojom.WebTestRenderFrame_SetupRendererProcessForNonTestWindow_ParamsSpec = { $: {} };
+content.mojom.WebTestRenderFrame_ReplicateWebTestRuntimeFlagsChanges_ParamsSpec = { $: {} };
+content.mojom.WebTestRenderFrame_TestFinishedFromSecondaryRenderer_ParamsSpec = { $: {} };
+content.mojom.WebTestRenderFrame_ResetRendererAfterWebTest_ParamsSpec = { $: {} };
+content.mojom.WebTestRenderFrame_ProcessWorkItem_ParamsSpec = { $: {} };
+content.mojom.WebTestRenderFrame_ReplicateWorkQueueStates_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost = {};
+content.mojom.WebTestControlHost.$interfaceName = 'content.mojom.WebTestControlHost';
+content.mojom.WebTestControlHost_InitiateCaptureDump_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_TestFinishedInSecondaryRenderer_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_PrintMessageToStderr_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_PrintMessage_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_OverridePreferences_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_Reload_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_CheckForLeakedWindows_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_SetMainWindowHidden_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_SetFrameWindowHidden_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_GoToOffset_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_SendBluetoothManualChooserEvent_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_SetBluetoothManualChooser_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_ResponseParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_SetPopupBlockingEnabled_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_LoadURLForFrame_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_SimulateScreenOrientationChanged_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_SetPermission_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_BlockThirdPartyCookies_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_GetWritableDirectory_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_GetWritableDirectory_ResponseParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_SetFilePathForMockFileDialog_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ResponseParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_FocusDevtoolsSecondaryWindow_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_SetTrustTokenKeyCommitments_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_SetTrustTokenKeyCommitments_ResponseParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_ClearTrustTokenState_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_ClearTrustTokenState_ResponseParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_SimulateWebNotificationClick_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_SimulateWebNotificationClose_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_SimulateWebContentIndexDelete_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_WebTestRuntimeFlagsChanged_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ResponseParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_DropPointerLock_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_SetPointerLockWillFail_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_SetPointerLockWillRespondAsynchronously_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_AllowPointerLock_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_WorkItemAdded_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_RequestWorkItem_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_WorkQueueStatesChanged_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_SetAcceptLanguages_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_SetRegisterProtocolHandlerMode_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_EnableAutoResize_ParamsSpec = { $: {} };
+content.mojom.WebTestControlHost_DisableAutoResize_ParamsSpec = { $: {} };
+content.mojom.NonAssociatedWebTestControlHost = {};
+content.mojom.NonAssociatedWebTestControlHost.$interfaceName = 'content.mojom.NonAssociatedWebTestControlHost';
+content.mojom.NonAssociatedWebTestControlHost_SetLCPPNavigationHint_ParamsSpec = { $: {} };
 
 // Enum: AutoResponseMode
 content.mojom.AutoResponseMode = {
@@ -23,305 +100,177 @@ content.mojom.AutoResponseMode = {
   kAutoAccept: 1,
   kAutoReject: 2,
 };
-content.mojom.AutoResponseModeSpec = { $: mojo.internal.Enum() };
 
 // Union: WorkItem
-content.mojom.WorkItemSpec = { $: mojo.internal.Union(
-    'content.mojom.WorkItem', {
+mojo.internal.Union(
+    content.mojom.WorkItemSpec, 'content.mojom.WorkItem', {
       'back_forward': {
         'ordinal': 0,
         'type': content.mojom.WorkItemBackForwardSpec,
-      }},
+        'nullable': false,
+      },
       'load': {
         'ordinal': 1,
         'type': content.mojom.WorkItemLoadSpec,
-      }},
+        'nullable': false,
+      },
       'reload': {
         'ordinal': 2,
         'type': content.mojom.WorkItemReloadSpec,
-      }},
+        'nullable': false,
+      },
       'loading_script': {
         'ordinal': 3,
         'type': content.mojom.WorkItemLoadingScriptSpec,
-      }},
+        'nullable': false,
+      },
       'non_loading_script': {
         'ordinal': 4,
         'type': content.mojom.WorkItemNonLoadingScriptSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: WebTestRunTestConfiguration
-content.mojom.WebTestRunTestConfigurationSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestRunTestConfiguration',
-      packedSize: 48,
-      fields: [
-        { name: 'current_working_directory', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'temp_path', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'test_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'allow_external_pages', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'expected_pixel_hash', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'wpt_print_mode', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'protocol_mode', packedOffset: 32, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestRunTestConfigurationSpec, 'content.mojom.WebTestRunTestConfiguration', [
+      mojo.internal.StructField('current_working_directory', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('temp_path', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('test_url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('allow_external_pages', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('expected_pixel_hash', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('wpt_print_mode', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('protocol_mode', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: WebTestRendererDumpResult
-content.mojom.WebTestRendererDumpResultSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestRendererDumpResult',
-      packedSize: 48,
-      fields: [
-        { name: 'audio', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
-        { name: 'layout', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: true, minVersion: 0 },
-        { name: 'pixels', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
-        { name: 'actual_pixel_hash', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'selection_rect', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestRendererDumpResultSpec, 'content.mojom.WebTestRendererDumpResult', [
+      mojo.internal.StructField('audio', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('layout', 8, 0, mojo_base.mojom.ByteStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('pixels', 16, 0, skia.mojom.BitmapN32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('actual_pixel_hash', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('selection_rect', 32, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: WorkItemBackForward
-content.mojom.WorkItemBackForwardSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WorkItemBackForward',
-      packedSize: 16,
-      fields: [
-        { name: 'distance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WorkItemBackForwardSpec, 'content.mojom.WorkItemBackForward', [
+      mojo.internal.StructField('distance', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: WorkItemLoad
-content.mojom.WorkItemLoadSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WorkItemLoad',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'target', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WorkItemLoadSpec, 'content.mojom.WorkItemLoad', [
+      mojo.internal.StructField('url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('target', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: WorkItemReload
-content.mojom.WorkItemReloadSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WorkItemReload',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WorkItemReloadSpec, 'content.mojom.WorkItemReload', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 // Struct: WorkItemLoadingScript
-content.mojom.WorkItemLoadingScriptSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WorkItemLoadingScript',
-      packedSize: 16,
-      fields: [
-        { name: 'script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WorkItemLoadingScriptSpec, 'content.mojom.WorkItemLoadingScript', [
+      mojo.internal.StructField('script', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: WorkItemNonLoadingScript
-content.mojom.WorkItemNonLoadingScriptSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WorkItemNonLoadingScript',
-      packedSize: 16,
-      fields: [
-        { name: 'script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WorkItemNonLoadingScriptSpec, 'content.mojom.WorkItemNonLoadingScript', [
+      mojo.internal.StructField('script', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: WebTestRenderFrame
-content.mojom.WebTestRenderFrame = {};
+mojo.internal.Struct(
+    content.mojom.WebTestRenderFrame_SynchronouslyCompositeAfterTest_ParamsSpec, 'content.mojom.WebTestRenderFrame_SynchronouslyCompositeAfterTest_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.WebTestRenderFrame_SynchronouslyCompositeAfterTest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestRenderFrame_SynchronouslyCompositeAfterTest_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestRenderFrame_SynchronouslyCompositeAfterTest_ResponseParamsSpec, 'content.mojom.WebTestRenderFrame_SynchronouslyCompositeAfterTest_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.WebTestRenderFrame_DumpFrameLayout_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestRenderFrame_DumpFrameLayout_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestRenderFrame_DumpFrameLayout_ParamsSpec, 'content.mojom.WebTestRenderFrame_DumpFrameLayout_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.WebTestRenderFrame_SetTestConfiguration_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestRenderFrame_SetTestConfiguration_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: content.mojom.WebTestRunTestConfigurationSpec, nullable: false, minVersion: 0 },
-        { name: 'starting_test', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestRenderFrame_DumpFrameLayout_ResponseParamsSpec, 'content.mojom.WebTestRenderFrame_DumpFrameLayout_ResponseParams', [
+      mojo.internal.StructField('frame_layout_dump', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.WebTestRenderFrame_OnDeactivated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestRenderFrame_OnDeactivated_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestRenderFrame_SetTestConfiguration_ParamsSpec, 'content.mojom.WebTestRenderFrame_SetTestConfiguration_Params', [
+      mojo.internal.StructField('config', 0, 0, content.mojom.WebTestRunTestConfigurationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('starting_test', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-content.mojom.WebTestRenderFrame_OnReactivated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestRenderFrame_OnReactivated_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestRenderFrame_OnDeactivated_ParamsSpec, 'content.mojom.WebTestRenderFrame_OnDeactivated_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.WebTestRenderFrame_BlockTestUntilStart_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestRenderFrame_BlockTestUntilStart_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestRenderFrame_OnReactivated_ParamsSpec, 'content.mojom.WebTestRenderFrame_OnReactivated_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.WebTestRenderFrame_StartTest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestRenderFrame_StartTest_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestRenderFrame_BlockTestUntilStart_ParamsSpec, 'content.mojom.WebTestRenderFrame_BlockTestUntilStart_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.WebTestRenderFrame_SetupRendererProcessForNonTestWindow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestRenderFrame_SetupRendererProcessForNonTestWindow_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestRenderFrame_StartTest_ParamsSpec, 'content.mojom.WebTestRenderFrame_StartTest_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.WebTestRenderFrame_ReplicateWebTestRuntimeFlagsChanges_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestRenderFrame_ReplicateWebTestRuntimeFlagsChanges_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'changed_layout_test_runtime_flags', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestRenderFrame_SetupRendererProcessForNonTestWindow_ParamsSpec, 'content.mojom.WebTestRenderFrame_SetupRendererProcessForNonTestWindow_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.WebTestRenderFrame_TestFinishedFromSecondaryRenderer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestRenderFrame_TestFinishedFromSecondaryRenderer_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestRenderFrame_ReplicateWebTestRuntimeFlagsChanges_ParamsSpec, 'content.mojom.WebTestRenderFrame_ReplicateWebTestRuntimeFlagsChanges_Params', [
+      mojo.internal.StructField('changed_layout_test_runtime_flags', 0, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.WebTestRenderFrame_ResetRendererAfterWebTest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestRenderFrame_ResetRendererAfterWebTest_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestRenderFrame_TestFinishedFromSecondaryRenderer_ParamsSpec, 'content.mojom.WebTestRenderFrame_TestFinishedFromSecondaryRenderer_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.WebTestRenderFrame_ProcessWorkItem_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestRenderFrame_ProcessWorkItem_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'work_item', packedOffset: 0, packedBitOffset: 0, type: content.mojom.WorkItemSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestRenderFrame_ResetRendererAfterWebTest_ParamsSpec, 'content.mojom.WebTestRenderFrame_ResetRendererAfterWebTest_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.WebTestRenderFrame_ReplicateWorkQueueStates_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestRenderFrame_ReplicateWorkQueueStates_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'work_queue_states', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestRenderFrame_ProcessWorkItem_ParamsSpec, 'content.mojom.WebTestRenderFrame_ProcessWorkItem_Params', [
+      mojo.internal.StructField('work_item', 0, 0, content.mojom.WorkItemSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    content.mojom.WebTestRenderFrame_ReplicateWorkQueueStates_ParamsSpec, 'content.mojom.WebTestRenderFrame_ReplicateWorkQueueStates_Params', [
+      mojo.internal.StructField('work_queue_states', 0, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 content.mojom.WebTestRenderFramePendingReceiver = class {
   constructor(handle) {
@@ -360,7 +309,7 @@ content.mojom.WebTestRenderFrameRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       content.mojom.WebTestRenderFrame_SynchronouslyCompositeAfterTest_ParamsSpec,
-      null,
+      content.mojom.WebTestRenderFrame_SynchronouslyCompositeAfterTest_ResponseParamsSpec,
       []);
   }
 
@@ -484,719 +433,283 @@ content.mojom.WebTestRenderFrame.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SynchronouslyCompositeAfterTest
-content.mojom.WebTestRenderFrame_SynchronouslyCompositeAfterTest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestRenderFrame.SynchronouslyCompositeAfterTest_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for DumpFrameLayout
-content.mojom.WebTestRenderFrame_DumpFrameLayout_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestRenderFrame.DumpFrameLayout_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-content.mojom.WebTestRenderFrame_DumpFrameLayout_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestRenderFrame.DumpFrameLayout_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'frame_layout_dump', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetTestConfiguration
-content.mojom.WebTestRenderFrame_SetTestConfiguration_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestRenderFrame.SetTestConfiguration_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: content.mojom.WebTestRunTestConfigurationSpec, nullable: false, minVersion: 0 },
-        { name: 'starting_test', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnDeactivated
-content.mojom.WebTestRenderFrame_OnDeactivated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestRenderFrame.OnDeactivated_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnReactivated
-content.mojom.WebTestRenderFrame_OnReactivated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestRenderFrame.OnReactivated_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for BlockTestUntilStart
-content.mojom.WebTestRenderFrame_BlockTestUntilStart_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestRenderFrame.BlockTestUntilStart_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for StartTest
-content.mojom.WebTestRenderFrame_StartTest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestRenderFrame.StartTest_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetupRendererProcessForNonTestWindow
-content.mojom.WebTestRenderFrame_SetupRendererProcessForNonTestWindow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestRenderFrame.SetupRendererProcessForNonTestWindow_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ReplicateWebTestRuntimeFlagsChanges
-content.mojom.WebTestRenderFrame_ReplicateWebTestRuntimeFlagsChanges_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestRenderFrame.ReplicateWebTestRuntimeFlagsChanges_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'changed_layout_test_runtime_flags', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for TestFinishedFromSecondaryRenderer
-content.mojom.WebTestRenderFrame_TestFinishedFromSecondaryRenderer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestRenderFrame.TestFinishedFromSecondaryRenderer_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ResetRendererAfterWebTest
-content.mojom.WebTestRenderFrame_ResetRendererAfterWebTest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestRenderFrame.ResetRendererAfterWebTest_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ProcessWorkItem
-content.mojom.WebTestRenderFrame_ProcessWorkItem_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestRenderFrame.ProcessWorkItem_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'work_item', packedOffset: 0, packedBitOffset: 0, type: content.mojom.WorkItemSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ReplicateWorkQueueStates
-content.mojom.WebTestRenderFrame_ReplicateWorkQueueStates_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestRenderFrame.ReplicateWorkQueueStates_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'work_queue_states', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.WebTestRenderFramePtr = content.mojom.WebTestRenderFrameRemote;
 content.mojom.WebTestRenderFrameRequest = content.mojom.WebTestRenderFramePendingReceiver;
 
 
 // Interface: WebTestControlHost
-content.mojom.WebTestControlHost = {};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_InitiateCaptureDump_ParamsSpec, 'content.mojom.WebTestControlHost_InitiateCaptureDump_Params', [
+      mojo.internal.StructField('result', 0, 0, content.mojom.WebTestRendererDumpResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('capture_navigation_history', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('capture_pixels', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-content.mojom.WebTestControlHost_InitiateCaptureDump_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_InitiateCaptureDump_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: content.mojom.WebTestRendererDumpResultSpec, nullable: false, minVersion: 0 },
-        { name: 'capture_navigation_history', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'capture_pixels', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_TestFinishedInSecondaryRenderer_ParamsSpec, 'content.mojom.WebTestControlHost_TestFinishedInSecondaryRenderer_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.WebTestControlHost_TestFinishedInSecondaryRenderer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_TestFinishedInSecondaryRenderer_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_PrintMessageToStderr_ParamsSpec, 'content.mojom.WebTestControlHost_PrintMessageToStderr_Params', [
+      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.WebTestControlHost_PrintMessageToStderr_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_PrintMessageToStderr_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_PrintMessage_ParamsSpec, 'content.mojom.WebTestControlHost_PrintMessage_Params', [
+      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.WebTestControlHost_PrintMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_PrintMessage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_OverridePreferences_ParamsSpec, 'content.mojom.WebTestControlHost_OverridePreferences_Params', [
+      mojo.internal.StructField('web_preferences', 0, 0, blink.mojom.WebPreferencesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.WebTestControlHost_OverridePreferences_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_OverridePreferences_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'web_preferences', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebPreferencesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_Reload_ParamsSpec, 'content.mojom.WebTestControlHost_Reload_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.WebTestControlHost_Reload_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_Reload_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_CheckForLeakedWindows_ParamsSpec, 'content.mojom.WebTestControlHost_CheckForLeakedWindows_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.WebTestControlHost_CheckForLeakedWindows_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_CheckForLeakedWindows_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_SetMainWindowHidden_ParamsSpec, 'content.mojom.WebTestControlHost_SetMainWindowHidden_Params', [
+      mojo.internal.StructField('hidden', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.WebTestControlHost_SetMainWindowHidden_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_SetMainWindowHidden_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'hidden', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_SetFrameWindowHidden_ParamsSpec, 'content.mojom.WebTestControlHost_SetFrameWindowHidden_Params', [
+      mojo.internal.StructField('frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('hidden', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-content.mojom.WebTestControlHost_SetFrameWindowHidden_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_SetFrameWindowHidden_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'hidden', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_GoToOffset_ParamsSpec, 'content.mojom.WebTestControlHost_GoToOffset_Params', [
+      mojo.internal.StructField('offset', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.WebTestControlHost_GoToOffset_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_GoToOffset_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_SendBluetoothManualChooserEvent_ParamsSpec, 'content.mojom.WebTestControlHost_SendBluetoothManualChooserEvent_Params', [
+      mojo.internal.StructField('event', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('argument', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-content.mojom.WebTestControlHost_SendBluetoothManualChooserEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_SendBluetoothManualChooserEvent_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'argument', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_SetBluetoothManualChooser_ParamsSpec, 'content.mojom.WebTestControlHost_SetBluetoothManualChooser_Params', [
+      mojo.internal.StructField('enable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.WebTestControlHost_SetBluetoothManualChooser_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_SetBluetoothManualChooser_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_ParamsSpec, 'content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_ResponseParamsSpec, 'content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_ResponseParams', [
+      mojo.internal.StructField('events', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.WebTestControlHost_SetPopupBlockingEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_SetPopupBlockingEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'block_popups', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_SetPopupBlockingEnabled_ParamsSpec, 'content.mojom.WebTestControlHost_SetPopupBlockingEnabled_Params', [
+      mojo.internal.StructField('block_popups', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.WebTestControlHost_LoadURLForFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_LoadURLForFrame_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_LoadURLForFrame_ParamsSpec, 'content.mojom.WebTestControlHost_LoadURLForFrame_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-content.mojom.WebTestControlHost_SimulateScreenOrientationChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_SimulateScreenOrientationChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_SimulateScreenOrientationChanged_ParamsSpec, 'content.mojom.WebTestControlHost_SimulateScreenOrientationChanged_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.WebTestControlHost_SetPermission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_SetPermission_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'embedding_origin', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_SetPermission_ParamsSpec, 'content.mojom.WebTestControlHost_SetPermission_Params', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('status', 24, 0, blink.mojom.PermissionStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('origin', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('embedding_origin', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-content.mojom.WebTestControlHost_BlockThirdPartyCookies_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_BlockThirdPartyCookies_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'block', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_BlockThirdPartyCookies_ParamsSpec, 'content.mojom.WebTestControlHost_BlockThirdPartyCookies_Params', [
+      mojo.internal.StructField('block', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.WebTestControlHost_GetWritableDirectory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_GetWritableDirectory_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_GetWritableDirectory_ParamsSpec, 'content.mojom.WebTestControlHost_GetWritableDirectory_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.WebTestControlHost_SetFilePathForMockFileDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_SetFilePathForMockFileDialog_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_GetWritableDirectory_ResponseParamsSpec, 'content.mojom.WebTestControlHost_GetWritableDirectory_ResponseParams', [
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'disallowed_suffixes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_SetFilePathForMockFileDialog_ParamsSpec, 'content.mojom.WebTestControlHost_SetFilePathForMockFileDialog_Params', [
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.WebTestControlHost_FocusDevtoolsSecondaryWindow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_FocusDevtoolsSecondaryWindow_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ParamsSpec, 'content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_Params', [
+      mojo.internal.StructField('disallowed_suffixes', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.WebTestControlHost_SetTrustTokenKeyCommitments_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_SetTrustTokenKeyCommitments_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'raw_commitments', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ResponseParamsSpec, 'content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ResponseParams', [
+      mojo.internal.StructField('file', 0, 0, mojo_base.mojom.FileSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.WebTestControlHost_ClearTrustTokenState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_ClearTrustTokenState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_FocusDevtoolsSecondaryWindow_ParamsSpec, 'content.mojom.WebTestControlHost_FocusDevtoolsSecondaryWindow_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.WebTestControlHost_SimulateWebNotificationClick_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_SimulateWebNotificationClick_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'action_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'reply', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_SetTrustTokenKeyCommitments_ParamsSpec, 'content.mojom.WebTestControlHost_SetTrustTokenKeyCommitments_Params', [
+      mojo.internal.StructField('raw_commitments', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.WebTestControlHost_SimulateWebNotificationClose_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_SimulateWebNotificationClose_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'by_user', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_SetTrustTokenKeyCommitments_ResponseParamsSpec, 'content.mojom.WebTestControlHost_SetTrustTokenKeyCommitments_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.WebTestControlHost_SimulateWebContentIndexDelete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_SimulateWebContentIndexDelete_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_ClearTrustTokenState_ParamsSpec, 'content.mojom.WebTestControlHost_ClearTrustTokenState_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.WebTestControlHost_WebTestRuntimeFlagsChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_WebTestRuntimeFlagsChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'changed_web_test_runtime_flags', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_ClearTrustTokenState_ResponseParamsSpec, 'content.mojom.WebTestControlHost_ClearTrustTokenState_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'file_paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_SimulateWebNotificationClick_ParamsSpec, 'content.mojom.WebTestControlHost_SimulateWebNotificationClick_Params', [
+      mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('action_index', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('reply', 8, 0, mojo_base.mojom.String16Spec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
-content.mojom.WebTestControlHost_DropPointerLock_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_DropPointerLock_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_SimulateWebNotificationClose_ParamsSpec, 'content.mojom.WebTestControlHost_SimulateWebNotificationClose_Params', [
+      mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('by_user', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-content.mojom.WebTestControlHost_SetPointerLockWillFail_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_SetPointerLockWillFail_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_SimulateWebContentIndexDelete_ParamsSpec, 'content.mojom.WebTestControlHost_SimulateWebContentIndexDelete_Params', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.WebTestControlHost_SetPointerLockWillRespondAsynchronously_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_SetPointerLockWillRespondAsynchronously_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_WebTestRuntimeFlagsChanged_ParamsSpec, 'content.mojom.WebTestControlHost_WebTestRuntimeFlagsChanged_Params', [
+      mojo.internal.StructField('changed_web_test_runtime_flags', 0, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.WebTestControlHost_AllowPointerLock_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_AllowPointerLock_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ParamsSpec, 'content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_Params', [
+      mojo.internal.StructField('file_paths', 0, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.WebTestControlHost_WorkItemAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_WorkItemAdded_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'work_item', packedOffset: 0, packedBitOffset: 0, type: content.mojom.WorkItemSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ResponseParamsSpec, 'content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ResponseParams', [
+      mojo.internal.StructField('filesystem_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.WebTestControlHost_RequestWorkItem_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_RequestWorkItem_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_DropPointerLock_ParamsSpec, 'content.mojom.WebTestControlHost_DropPointerLock_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.WebTestControlHost_WorkQueueStatesChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_WorkQueueStatesChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'changed_work_queue_states', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_SetPointerLockWillFail_ParamsSpec, 'content.mojom.WebTestControlHost_SetPointerLockWillFail_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.WebTestControlHost_SetAcceptLanguages_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_SetAcceptLanguages_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'accept_languages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_SetPointerLockWillRespondAsynchronously_ParamsSpec, 'content.mojom.WebTestControlHost_SetPointerLockWillRespondAsynchronously_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.WebTestControlHost_SetRegisterProtocolHandlerMode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_SetRegisterProtocolHandlerMode_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: content.mojom.AutoResponseModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_AllowPointerLock_ParamsSpec, 'content.mojom.WebTestControlHost_AllowPointerLock_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-content.mojom.WebTestControlHost_EnableAutoResize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_EnableAutoResize_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'min_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'max_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_WorkItemAdded_ParamsSpec, 'content.mojom.WebTestControlHost_WorkItemAdded_Params', [
+      mojo.internal.StructField('work_item', 0, 0, content.mojom.WorkItemSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-content.mojom.WebTestControlHost_DisableAutoResize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost_DisableAutoResize_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'new_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_RequestWorkItem_ParamsSpec, 'content.mojom.WebTestControlHost_RequestWorkItem_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_WorkQueueStatesChanged_ParamsSpec, 'content.mojom.WebTestControlHost_WorkQueueStatesChanged_Params', [
+      mojo.internal.StructField('changed_work_queue_states', 0, 0, mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_SetAcceptLanguages_ParamsSpec, 'content.mojom.WebTestControlHost_SetAcceptLanguages_Params', [
+      mojo.internal.StructField('accept_languages', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_SetRegisterProtocolHandlerMode_ParamsSpec, 'content.mojom.WebTestControlHost_SetRegisterProtocolHandlerMode_Params', [
+      mojo.internal.StructField('mode', 0, 0, content.mojom.AutoResponseModeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_EnableAutoResize_ParamsSpec, 'content.mojom.WebTestControlHost_EnableAutoResize_Params', [
+      mojo.internal.StructField('min_size', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('max_size', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    content.mojom.WebTestControlHost_DisableAutoResize_ParamsSpec, 'content.mojom.WebTestControlHost_DisableAutoResize_Params', [
+      mojo.internal.StructField('new_size', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 content.mojom.WebTestControlHostPendingReceiver = class {
   constructor(handle) {
@@ -1433,7 +946,7 @@ content.mojom.WebTestControlHostRemoteCallHandler = class {
     return this.proxy.sendMessage(
       22,  // ordinal
       content.mojom.WebTestControlHost_SetTrustTokenKeyCommitments_ParamsSpec,
-      null,
+      content.mojom.WebTestControlHost_SetTrustTokenKeyCommitments_ResponseParamsSpec,
       [raw_commitments]);
   }
 
@@ -1442,7 +955,7 @@ content.mojom.WebTestControlHostRemoteCallHandler = class {
     return this.proxy.sendMessage(
       23,  // ordinal
       content.mojom.WebTestControlHost_ClearTrustTokenState_ParamsSpec,
-      null,
+      content.mojom.WebTestControlHost_ClearTrustTokenState_ResponseParamsSpec,
       []);
   }
 
@@ -1602,637 +1115,16 @@ content.mojom.WebTestControlHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for InitiateCaptureDump
-content.mojom.WebTestControlHost_InitiateCaptureDump_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.InitiateCaptureDump_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: content.mojom.WebTestRendererDumpResultSpec, nullable: false, minVersion: 0 },
-        { name: 'capture_navigation_history', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'capture_pixels', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for TestFinishedInSecondaryRenderer
-content.mojom.WebTestControlHost_TestFinishedInSecondaryRenderer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.TestFinishedInSecondaryRenderer_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for PrintMessageToStderr
-content.mojom.WebTestControlHost_PrintMessageToStderr_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.PrintMessageToStderr_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for PrintMessage
-content.mojom.WebTestControlHost_PrintMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.PrintMessage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OverridePreferences
-content.mojom.WebTestControlHost_OverridePreferences_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.OverridePreferences_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'web_preferences', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebPreferencesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Reload
-content.mojom.WebTestControlHost_Reload_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.Reload_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for CheckForLeakedWindows
-content.mojom.WebTestControlHost_CheckForLeakedWindows_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.CheckForLeakedWindows_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetMainWindowHidden
-content.mojom.WebTestControlHost_SetMainWindowHidden_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.SetMainWindowHidden_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'hidden', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetFrameWindowHidden
-content.mojom.WebTestControlHost_SetFrameWindowHidden_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.SetFrameWindowHidden_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'hidden', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GoToOffset
-content.mojom.WebTestControlHost_GoToOffset_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.GoToOffset_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SendBluetoothManualChooserEvent
-content.mojom.WebTestControlHost_SendBluetoothManualChooserEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.SendBluetoothManualChooserEvent_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'event', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'argument', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SetBluetoothManualChooser
-content.mojom.WebTestControlHost_SetBluetoothManualChooser_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.SetBluetoothManualChooser_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetBluetoothManualChooserEvents
-content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.GetBluetoothManualChooserEvents_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.GetBluetoothManualChooserEvents_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetPopupBlockingEnabled
-content.mojom.WebTestControlHost_SetPopupBlockingEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.SetPopupBlockingEnabled_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'block_popups', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for LoadURLForFrame
-content.mojom.WebTestControlHost_LoadURLForFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.LoadURLForFrame_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SimulateScreenOrientationChanged
-content.mojom.WebTestControlHost_SimulateScreenOrientationChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.SimulateScreenOrientationChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetPermission
-content.mojom.WebTestControlHost_SetPermission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.SetPermission_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'embedding_origin', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for BlockThirdPartyCookies
-content.mojom.WebTestControlHost_BlockThirdPartyCookies_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.BlockThirdPartyCookies_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'block', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetWritableDirectory
-content.mojom.WebTestControlHost_GetWritableDirectory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.GetWritableDirectory_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-content.mojom.WebTestControlHost_GetWritableDirectory_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.GetWritableDirectory_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetFilePathForMockFileDialog
-content.mojom.WebTestControlHost_SetFilePathForMockFileDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.SetFilePathForMockFileDialog_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CreateSubresourceFilterRulesetFile
-content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.CreateSubresourceFilterRulesetFile_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'disallowed_suffixes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.CreateSubresourceFilterRulesetFile_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for FocusDevtoolsSecondaryWindow
-content.mojom.WebTestControlHost_FocusDevtoolsSecondaryWindow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.FocusDevtoolsSecondaryWindow_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetTrustTokenKeyCommitments
-content.mojom.WebTestControlHost_SetTrustTokenKeyCommitments_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.SetTrustTokenKeyCommitments_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'raw_commitments', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ClearTrustTokenState
-content.mojom.WebTestControlHost_ClearTrustTokenState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.ClearTrustTokenState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SimulateWebNotificationClick
-content.mojom.WebTestControlHost_SimulateWebNotificationClick_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.SimulateWebNotificationClick_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'action_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'reply', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for SimulateWebNotificationClose
-content.mojom.WebTestControlHost_SimulateWebNotificationClose_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.SimulateWebNotificationClose_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'by_user', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SimulateWebContentIndexDelete
-content.mojom.WebTestControlHost_SimulateWebContentIndexDelete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.SimulateWebContentIndexDelete_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for WebTestRuntimeFlagsChanged
-content.mojom.WebTestControlHost_WebTestRuntimeFlagsChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.WebTestRuntimeFlagsChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'changed_web_test_runtime_flags', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RegisterIsolatedFileSystem
-content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.RegisterIsolatedFileSystem_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'file_paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.RegisterIsolatedFileSystem_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'filesystem_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DropPointerLock
-content.mojom.WebTestControlHost_DropPointerLock_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.DropPointerLock_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetPointerLockWillFail
-content.mojom.WebTestControlHost_SetPointerLockWillFail_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.SetPointerLockWillFail_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetPointerLockWillRespondAsynchronously
-content.mojom.WebTestControlHost_SetPointerLockWillRespondAsynchronously_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.SetPointerLockWillRespondAsynchronously_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for AllowPointerLock
-content.mojom.WebTestControlHost_AllowPointerLock_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.AllowPointerLock_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for WorkItemAdded
-content.mojom.WebTestControlHost_WorkItemAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.WorkItemAdded_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'work_item', packedOffset: 0, packedBitOffset: 0, type: content.mojom.WorkItemSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for RequestWorkItem
-content.mojom.WebTestControlHost_RequestWorkItem_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.RequestWorkItem_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for WorkQueueStatesChanged
-content.mojom.WebTestControlHost_WorkQueueStatesChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.WorkQueueStatesChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'changed_work_queue_states', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetAcceptLanguages
-content.mojom.WebTestControlHost_SetAcceptLanguages_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.SetAcceptLanguages_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'accept_languages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetRegisterProtocolHandlerMode
-content.mojom.WebTestControlHost_SetRegisterProtocolHandlerMode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.SetRegisterProtocolHandlerMode_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: content.mojom.AutoResponseModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EnableAutoResize
-content.mojom.WebTestControlHost_EnableAutoResize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.EnableAutoResize_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'min_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'max_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for DisableAutoResize
-content.mojom.WebTestControlHost_DisableAutoResize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.WebTestControlHost.DisableAutoResize_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'new_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.WebTestControlHostPtr = content.mojom.WebTestControlHostRemote;
 content.mojom.WebTestControlHostRequest = content.mojom.WebTestControlHostPendingReceiver;
 
 
 // Interface: NonAssociatedWebTestControlHost
-content.mojom.NonAssociatedWebTestControlHost = {};
-
-content.mojom.NonAssociatedWebTestControlHost_SetLCPPNavigationHint_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.NonAssociatedWebTestControlHost_SetLCPPNavigationHint_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'hint', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LCPCriticalPathPredictorNavigationTimeHintSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.NonAssociatedWebTestControlHost_SetLCPPNavigationHint_ParamsSpec, 'content.mojom.NonAssociatedWebTestControlHost_SetLCPPNavigationHint_Params', [
+      mojo.internal.StructField('hint', 0, 0, blink.mojom.LCPCriticalPathPredictorNavigationTimeHintSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 content.mojom.NonAssociatedWebTestControlHostPendingReceiver = class {
   constructor(handle) {
@@ -2287,21 +1179,6 @@ content.mojom.NonAssociatedWebTestControlHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetLCPPNavigationHint
-content.mojom.NonAssociatedWebTestControlHost_SetLCPPNavigationHint_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.NonAssociatedWebTestControlHost.SetLCPPNavigationHint_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'hint', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LCPCriticalPathPredictorNavigationTimeHintSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.NonAssociatedWebTestControlHostPtr = content.mojom.NonAssociatedWebTestControlHostRemote;
 content.mojom.NonAssociatedWebTestControlHostRequest = content.mojom.NonAssociatedWebTestControlHostPendingReceiver;
 

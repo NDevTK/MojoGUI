@@ -9,25 +9,19 @@ var chromecast = chromecast || {};
 chromecast.metrics = chromecast.metrics || {};
 chromecast.metrics.mojom = chromecast.metrics.mojom || {};
 
+chromecast.metrics.mojom.MetricsHelper = {};
+chromecast.metrics.mojom.MetricsHelper.$interfaceName = 'chromecast.metrics.mojom.MetricsHelper';
+chromecast.metrics.mojom.MetricsHelper_RecordApplicationEvent_ParamsSpec = { $: {} };
 
 // Interface: MetricsHelper
-chromecast.metrics.mojom.MetricsHelper = {};
-
-chromecast.metrics.mojom.MetricsHelper_RecordApplicationEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.metrics.mojom.MetricsHelper_RecordApplicationEvent_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'sdk_version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'event', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.metrics.mojom.MetricsHelper_RecordApplicationEvent_ParamsSpec, 'chromecast.metrics.mojom.MetricsHelper_RecordApplicationEvent_Params', [
+      mojo.internal.StructField('app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('session_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('sdk_version', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('event', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 chromecast.metrics.mojom.MetricsHelperPendingReceiver = class {
   constructor(handle) {
@@ -82,24 +76,6 @@ chromecast.metrics.mojom.MetricsHelper.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RecordApplicationEvent
-chromecast.metrics.mojom.MetricsHelper_RecordApplicationEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.metrics.mojom.MetricsHelper.RecordApplicationEvent_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'sdk_version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'event', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.metrics.mojom.MetricsHelperPtr = chromecast.metrics.mojom.MetricsHelperRemote;
 chromecast.metrics.mojom.MetricsHelperRequest = chromecast.metrics.mojom.MetricsHelperPendingReceiver;
 

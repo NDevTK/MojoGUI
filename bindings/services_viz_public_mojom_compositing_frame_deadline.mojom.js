@@ -8,20 +8,14 @@
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
+viz.mojom.FrameDeadlineSpec = { $: {} };
 
 // Struct: FrameDeadline
-viz.mojom.FrameDeadlineSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.FrameDeadline',
-      packedSize: 32,
-      fields: [
-        { name: 'frame_start_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'deadline_in_frames', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'frame_interval', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'use_default_lower_bound_deadline', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.FrameDeadlineSpec, 'viz.mojom.FrameDeadline', [
+      mojo.internal.StructField('frame_start_time', 0, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('deadline_in_frames', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('frame_interval', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('use_default_lower_bound_deadline', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);

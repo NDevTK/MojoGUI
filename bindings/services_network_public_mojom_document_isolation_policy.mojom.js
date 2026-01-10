@@ -8,7 +8,14 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 var url = url || {};
+var services = services || {};
 
+network.mojom.DocumentIsolationPolicyValueSpec = { $: mojo.internal.Enum() };
+network.mojom.DocumentIsolationPolicySpec = { $: {} };
+network.mojom.DocumentIsolationPolicyReporter = {};
+network.mojom.DocumentIsolationPolicyReporter.$interfaceName = 'network.mojom.DocumentIsolationPolicyReporter';
+network.mojom.DocumentIsolationPolicyReporter_QueueCorpViolationReport_ParamsSpec = { $: {} };
+network.mojom.DocumentIsolationPolicyReporter_Clone_ParamsSpec = { $: {} };
 
 // Enum: DocumentIsolationPolicyValue
 network.mojom.DocumentIsolationPolicyValue = {
@@ -16,54 +23,30 @@ network.mojom.DocumentIsolationPolicyValue = {
   kIsolateAndRequireCorp: 1,
   kIsolateAndCredentialless: 2,
 };
-network.mojom.DocumentIsolationPolicyValueSpec = { $: mojo.internal.Enum() };
 
 // Struct: DocumentIsolationPolicy
-network.mojom.DocumentIsolationPolicySpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DocumentIsolationPolicy',
-      packedSize: 32,
-      fields: [
-        { name: 'value', packedOffset: 16, packedBitOffset: 0, type: network.mojom.DocumentIsolationPolicyValueSpec, nullable: false, minVersion: 0 },
-        { name: 'reporting_endpoint', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'report_only_reporting_endpoint', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.DocumentIsolationPolicySpec, 'network.mojom.DocumentIsolationPolicy', [
+      mojo.internal.StructField('value', 16, 0, network.mojom.DocumentIsolationPolicyValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reporting_endpoint', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('report_only_reporting_endpoint', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: DocumentIsolationPolicyReporter
-network.mojom.DocumentIsolationPolicyReporter = {};
+mojo.internal.Struct(
+    network.mojom.DocumentIsolationPolicyReporter_QueueCorpViolationReport_ParamsSpec, 'network.mojom.DocumentIsolationPolicyReporter_QueueCorpViolationReport_Params', [
+      mojo.internal.StructField('blocked_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('destination', 8, 0, network.mojom.RequestDestinationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('report_only', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-network.mojom.DocumentIsolationPolicyReporter_QueueCorpViolationReport_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DocumentIsolationPolicyReporter_QueueCorpViolationReport_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'blocked_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'destination', packedOffset: 8, packedBitOffset: 0, type: network.mojom.RequestDestinationSpec, nullable: false, minVersion: 0 },
-        { name: 'report_only', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-network.mojom.DocumentIsolationPolicyReporter_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DocumentIsolationPolicyReporter_Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.DocumentIsolationPolicyReporterRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.DocumentIsolationPolicyReporter_Clone_ParamsSpec, 'network.mojom.DocumentIsolationPolicyReporter_Clone_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(network.mojom.DocumentIsolationPolicyReporterRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.DocumentIsolationPolicyReporterPendingReceiver = class {
   constructor(handle) {
@@ -127,37 +110,6 @@ network.mojom.DocumentIsolationPolicyReporter.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for QueueCorpViolationReport
-network.mojom.DocumentIsolationPolicyReporter_QueueCorpViolationReport_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DocumentIsolationPolicyReporter.QueueCorpViolationReport_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'blocked_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'destination', packedOffset: 8, packedBitOffset: 0, type: network.mojom.RequestDestinationSpec, nullable: false, minVersion: 0 },
-        { name: 'report_only', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Clone
-network.mojom.DocumentIsolationPolicyReporter_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DocumentIsolationPolicyReporter.Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.DocumentIsolationPolicyReporterRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.DocumentIsolationPolicyReporterPtr = network.mojom.DocumentIsolationPolicyReporterRemote;
 network.mojom.DocumentIsolationPolicyReporterRequest = network.mojom.DocumentIsolationPolicyReporterPendingReceiver;
 

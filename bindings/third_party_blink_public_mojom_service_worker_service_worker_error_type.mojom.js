@@ -8,6 +8,8 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.ServiceWorkerErrorTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.ServiceWorkerResponseErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: ServiceWorkerErrorType
 blink.mojom.ServiceWorkerErrorType = {
@@ -26,7 +28,6 @@ blink.mojom.ServiceWorkerErrorType = {
   kType: 12,
   kUnknown: 13,
 };
-blink.mojom.ServiceWorkerErrorTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ServiceWorkerResponseError
 blink.mojom.ServiceWorkerResponseError = {
@@ -48,4 +49,3 @@ blink.mojom.ServiceWorkerResponseError = {
   kDisallowedByCorp: 15,
   kRequestBodyUnusable: 16,
 };
-blink.mojom.ServiceWorkerResponseErrorSpec = { $: mojo.internal.Enum() };

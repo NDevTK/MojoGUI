@@ -7,21 +7,15 @@
 // Module namespace
 var mojom = mojom || {};
 
+mojom.ResetPasswordHandler = {};
+mojom.ResetPasswordHandler.$interfaceName = 'mojom.ResetPasswordHandler';
+mojom.ResetPasswordHandler_HandlePasswordReset_ParamsSpec = { $: {} };
 
 // Interface: ResetPasswordHandler
-mojom.ResetPasswordHandler = {};
-
-mojom.ResetPasswordHandler_HandlePasswordReset_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.ResetPasswordHandler_HandlePasswordReset_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojom.ResetPasswordHandler_HandlePasswordReset_ParamsSpec, 'mojom.ResetPasswordHandler_HandlePasswordReset_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 mojom.ResetPasswordHandlerPendingReceiver = class {
   constructor(handle) {
@@ -76,20 +70,6 @@ mojom.ResetPasswordHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for HandlePasswordReset
-mojom.ResetPasswordHandler_HandlePasswordReset_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.ResetPasswordHandler.HandlePasswordReset_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 mojom.ResetPasswordHandlerPtr = mojom.ResetPasswordHandlerRemote;
 mojom.ResetPasswordHandlerRequest = mojom.ResetPasswordHandlerPendingReceiver;
 

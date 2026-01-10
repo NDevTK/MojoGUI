@@ -7,35 +7,35 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
+var services = services || {};
 
+device.mojom.ScreenOrientation = {};
+device.mojom.ScreenOrientation.$interfaceName = 'device.mojom.ScreenOrientation';
+device.mojom.ScreenOrientation_LockOrientation_ParamsSpec = { $: {} };
+device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec = { $: {} };
+device.mojom.ScreenOrientation_UnlockOrientation_ParamsSpec = { $: {} };
+device.mojom.ScreenOrientationListener = {};
+device.mojom.ScreenOrientationListener.$interfaceName = 'device.mojom.ScreenOrientationListener';
+device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ParamsSpec = { $: {} };
+device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec = { $: {} };
 
 // Interface: ScreenOrientation
-device.mojom.ScreenOrientation = {};
+mojo.internal.Struct(
+    device.mojom.ScreenOrientation_LockOrientation_ParamsSpec, 'device.mojom.ScreenOrientation_LockOrientation_Params', [
+      mojo.internal.StructField('orientation', 0, 0, device.mojom.ScreenOrientationLockTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.ScreenOrientation_LockOrientation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.ScreenOrientation_LockOrientation_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'orientation', packedOffset: 0, packedBitOffset: 0, type: device.mojom.ScreenOrientationLockTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec, 'device.mojom.ScreenOrientation_LockOrientation_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, device.mojom.ScreenOrientationLockResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.ScreenOrientation_UnlockOrientation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.ScreenOrientation_UnlockOrientation_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.ScreenOrientation_UnlockOrientation_ParamsSpec, 'device.mojom.ScreenOrientation_UnlockOrientation_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 device.mojom.ScreenOrientationPendingReceiver = class {
   constructor(handle) {
@@ -99,65 +99,21 @@ device.mojom.ScreenOrientation.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for LockOrientation
-device.mojom.ScreenOrientation_LockOrientation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.ScreenOrientation.LockOrientation_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'orientation', packedOffset: 0, packedBitOffset: 0, type: device.mojom.ScreenOrientationLockTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.ScreenOrientation.LockOrientation_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.ScreenOrientationLockResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UnlockOrientation
-device.mojom.ScreenOrientation_UnlockOrientation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.ScreenOrientation.UnlockOrientation_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 device.mojom.ScreenOrientationPtr = device.mojom.ScreenOrientationRemote;
 device.mojom.ScreenOrientationRequest = device.mojom.ScreenOrientationPendingReceiver;
 
 
 // Interface: ScreenOrientationListener
-device.mojom.ScreenOrientationListener = {};
+mojo.internal.Struct(
+    device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ParamsSpec, 'device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec, 'device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParams', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 device.mojom.ScreenOrientationListenerPendingReceiver = class {
   constructor(handle) {
@@ -212,33 +168,6 @@ device.mojom.ScreenOrientationListener.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for IsAutoRotateEnabledByUser
-device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.ScreenOrientationListener.IsAutoRotateEnabledByUser_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.ScreenOrientationListener.IsAutoRotateEnabledByUser_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 device.mojom.ScreenOrientationListenerPtr = device.mojom.ScreenOrientationListenerRemote;
 device.mojom.ScreenOrientationListenerRequest = device.mojom.ScreenOrientationListenerPendingReceiver;
 

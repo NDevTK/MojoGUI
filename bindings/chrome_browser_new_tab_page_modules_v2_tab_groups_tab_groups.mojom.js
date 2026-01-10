@@ -8,93 +8,66 @@
 var ntp = ntp || {};
 ntp.tab_groups = ntp.tab_groups || {};
 ntp.tab_groups.mojom = ntp.tab_groups.mojom || {};
+var components = components || {};
 var url = url || {};
 
+ntp.tab_groups.mojom.TabGroupSpec = { $: {} };
+ntp.tab_groups.mojom.PageHandler = {};
+ntp.tab_groups.mojom.PageHandler.$interfaceName = 'ntp.tab_groups.mojom.PageHandler';
+ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_ParamsSpec = { $: {} };
+ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec = { $: {} };
+ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec = { $: {} };
+ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec = { $: {} };
+ntp.tab_groups.mojom.PageHandler_DismissModule_ParamsSpec = { $: {} };
+ntp.tab_groups.mojom.PageHandler_RestoreModule_ParamsSpec = { $: {} };
 
 // Struct: TabGroup
-ntp.tab_groups.mojom.TabGroupSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.tab_groups.mojom.TabGroup',
-      packedSize: 64,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'update_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'device_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'total_tab_count', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'color', packedOffset: 44, packedBitOffset: 0, type: tab_groups.mojom.ColorSpec, nullable: false, minVersion: 0 },
-        { name: 'favicon_urls', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
-        { name: 'is_shared_tab_group', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ntp.tab_groups.mojom.TabGroupSpec, 'ntp.tab_groups.mojom.TabGroup', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('update_time', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('device_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('total_tab_count', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('color', 44, 0, tab_groups.mojom.ColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('favicon_urls', 32, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('is_shared_tab_group', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 64]]);
 
 // Interface: PageHandler
-ntp.tab_groups.mojom.PageHandler = {};
+mojo.internal.Struct(
+    ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_ParamsSpec, 'ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec, 'ntp.tab_groups.mojom.PageHandler_GetTabGroups_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.tab_groups.mojom.PageHandler_GetTabGroups_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec, 'ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParams', [
+      mojo.internal.StructField('tab_groups', 0, 0, mojo.internal.Array(ntp.tab_groups.mojom.TabGroupSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('showZeroState', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.tab_groups.mojom.PageHandler_OpenTabGroup_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec, 'ntp.tab_groups.mojom.PageHandler_OpenTabGroup_Params', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ntp.tab_groups.mojom.PageHandler_DismissModule_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.tab_groups.mojom.PageHandler_DismissModule_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ntp.tab_groups.mojom.PageHandler_DismissModule_ParamsSpec, 'ntp.tab_groups.mojom.PageHandler_DismissModule_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ntp.tab_groups.mojom.PageHandler_RestoreModule_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.tab_groups.mojom.PageHandler_RestoreModule_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ntp.tab_groups.mojom.PageHandler_RestoreModule_ParamsSpec, 'ntp.tab_groups.mojom.PageHandler_RestoreModule_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ntp.tab_groups.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -185,87 +158,6 @@ ntp.tab_groups.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateNewTabGroup
-ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.tab_groups.mojom.PageHandler.CreateNewTabGroup_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for GetTabGroups
-ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.tab_groups.mojom.PageHandler.GetTabGroups_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.tab_groups.mojom.PageHandler.GetTabGroups_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'tab_groups', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ntp.tab_groups.mojom.TabGroupSpec, false), nullable: true, minVersion: 0 },
-        { name: 'showZeroState', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OpenTabGroup
-ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.tab_groups.mojom.PageHandler.OpenTabGroup_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DismissModule
-ntp.tab_groups.mojom.PageHandler_DismissModule_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.tab_groups.mojom.PageHandler.DismissModule_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RestoreModule
-ntp.tab_groups.mojom.PageHandler_RestoreModule_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.tab_groups.mojom.PageHandler.RestoreModule_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ntp.tab_groups.mojom.PageHandlerPtr = ntp.tab_groups.mojom.PageHandlerRemote;
 ntp.tab_groups.mojom.PageHandlerRequest = ntp.tab_groups.mojom.PageHandlerPendingReceiver;
 

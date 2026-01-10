@@ -9,19 +9,13 @@ var viz = viz || {};
 viz.mojom = viz.mojom || {};
 var skia = skia || {};
 
+viz.mojom.BitmapInSharedMemorySpec = { $: {} };
 
 // Struct: BitmapInSharedMemory
-viz.mojom.BitmapInSharedMemorySpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.BitmapInSharedMemory',
-      packedSize: 32,
-      fields: [
-        { name: 'image_info', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.ImageInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'row_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'pixels', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.WritableSharedMemoryRegionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.BitmapInSharedMemorySpec, 'viz.mojom.BitmapInSharedMemory', [
+      mojo.internal.StructField('image_info', 0, 0, skia.mojom.ImageInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('row_bytes', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('pixels', 16, 0, mojo_base.mojom.WritableSharedMemoryRegionSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);

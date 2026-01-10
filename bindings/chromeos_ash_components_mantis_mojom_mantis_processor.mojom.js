@@ -8,141 +8,157 @@
 var mantis = mantis || {};
 mantis.mojom = mantis.mojom || {};
 
+mantis.mojom.MantisErrorSpec = { $: mojo.internal.Enum() };
+mantis.mojom.SafetyClassifierVerdictSpec = { $: mojo.internal.Enum() };
+mantis.mojom.SegmentationModeSpec = { $: mojo.internal.Enum() };
+mantis.mojom.MantisResultSpec = { $: {} };
+mantis.mojom.TouchPointSpec = { $: {} };
+mantis.mojom.MantisProcessor = {};
+mantis.mojom.MantisProcessor.$interfaceName = 'mantis.mojom.MantisProcessor';
+mantis.mojom.MantisProcessor_Inpainting_ParamsSpec = { $: {} };
+mantis.mojom.MantisProcessor_Inpainting_ResponseParamsSpec = { $: {} };
+mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec = { $: {} };
+mantis.mojom.MantisProcessor_GenerativeFill_ResponseParamsSpec = { $: {} };
+mantis.mojom.MantisProcessor_Segmentation_ParamsSpec = { $: {} };
+mantis.mojom.MantisProcessor_Segmentation_ResponseParamsSpec = { $: {} };
+mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec = { $: {} };
+mantis.mojom.MantisProcessor_ClassifyImageSafety_ResponseParamsSpec = { $: {} };
+mantis.mojom.MantisProcessor_Outpainting_ParamsSpec = { $: {} };
+mantis.mojom.MantisProcessor_Outpainting_ResponseParamsSpec = { $: {} };
+mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec = { $: {} };
+mantis.mojom.MantisProcessor_InferSegmentationMode_ResponseParamsSpec = { $: {} };
 
 // Enum: MantisError
 mantis.mojom.MantisError = {
+  kUnknownError: 0,
+  MinVersion: 0,
+  MinVersion: 0,
+  MinVersion: 0,
+  MinVersion: 0,
+  MinVersion: 0,
+  MinVersion: 0,
+  MinVersion: 0,
 };
-mantis.mojom.MantisErrorSpec = { $: mojo.internal.Enum() };
 
 // Enum: SafetyClassifierVerdict
 mantis.mojom.SafetyClassifierVerdict = {
   kPass: 0,
+  kFail: 1,
+  MinVersion: 1,
+  MinVersion: 1,
+  MinVersion: 1,
+  MinVersion: 1,
 };
-mantis.mojom.SafetyClassifierVerdictSpec = { $: mojo.internal.Enum() };
 
 // Enum: SegmentationMode
 mantis.mojom.SegmentationMode = {
-  kLasso: 0,
+  kScribble: 0,
+  kLasso: 1,
 };
-mantis.mojom.SegmentationModeSpec = { $: mojo.internal.Enum() };
 
 // Union: MantisResult
-mantis.mojom.MantisResultSpec = { $: mojo.internal.Union(
-    'mantis.mojom.MantisResult', {
+mojo.internal.Union(
+    mantis.mojom.MantisResultSpec, 'mantis.mojom.MantisResult', {
       'error': {
         'ordinal': 0,
         'type': mantis.mojom.MantisErrorSpec,
-      }},
+        'nullable': false,
+      },
       'result_image': {
         'ordinal': 1,
         'type': mojo.internal.Array(mojo.internal.Uint8, false),
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: TouchPoint
-mantis.mojom.TouchPointSpec = {
-  $: {
-    structSpec: {
-      name: 'mantis.mojom.TouchPoint',
-      packedSize: 16,
-      fields: [
-        { name: 'x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'y', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mantis.mojom.TouchPointSpec, 'mantis.mojom.TouchPoint', [
+      mojo.internal.StructField('x', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('y', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: MantisProcessor
-mantis.mojom.MantisProcessor = {};
+mojo.internal.Struct(
+    mantis.mojom.MantisProcessor_Inpainting_ParamsSpec, 'mantis.mojom.MantisProcessor_Inpainting_Params', [
+      mojo.internal.StructField('image', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('mask', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('seed', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-mantis.mojom.MantisProcessor_Inpainting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mantis.mojom.MantisProcessor_Inpainting_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'mask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'seed', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mantis.mojom.MantisProcessor_Inpainting_ResponseParamsSpec, 'mantis.mojom.MantisProcessor_Inpainting_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mantis.mojom.MantisResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mantis.mojom.MantisProcessor_GenerativeFill_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'mask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'seed', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'prompt', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec, 'mantis.mojom.MantisProcessor_GenerativeFill_Params', [
+      mojo.internal.StructField('image', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('mask', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('seed', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('prompt', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-mantis.mojom.MantisProcessor_Segmentation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mantis.mojom.MantisProcessor_Segmentation_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'prior', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mantis.mojom.MantisProcessor_GenerativeFill_ResponseParamsSpec, 'mantis.mojom.MantisProcessor_GenerativeFill_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mantis.mojom.MantisResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mantis.mojom.MantisProcessor_ClassifyImageSafety_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mantis.mojom.MantisProcessor_Segmentation_ParamsSpec, 'mantis.mojom.MantisProcessor_Segmentation_Params', [
+      mojo.internal.StructField('image', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('prior', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-mantis.mojom.MantisProcessor_Outpainting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mantis.mojom.MantisProcessor_Outpainting_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'mask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'seed', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mantis.mojom.MantisProcessor_Segmentation_ResponseParamsSpec, 'mantis.mojom.MantisProcessor_Segmentation_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mantis.mojom.MantisResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mantis.mojom.MantisProcessor_InferSegmentationMode_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'gesture', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mantis.mojom.TouchPointSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec, 'mantis.mojom.MantisProcessor_ClassifyImageSafety_Params', [
+      mojo.internal.StructField('image', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mantis.mojom.MantisProcessor_ClassifyImageSafety_ResponseParamsSpec, 'mantis.mojom.MantisProcessor_ClassifyImageSafety_ResponseParams', [
+      mojo.internal.StructField('verdict', 0, 0, mantis.mojom.SafetyClassifierVerdictSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mantis.mojom.MantisProcessor_Outpainting_ParamsSpec, 'mantis.mojom.MantisProcessor_Outpainting_Params', [
+      mojo.internal.StructField('image', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('mask', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('seed', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mantis.mojom.MantisProcessor_Outpainting_ResponseParamsSpec, 'mantis.mojom.MantisProcessor_Outpainting_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mantis.mojom.MantisResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec, 'mantis.mojom.MantisProcessor_InferSegmentationMode_Params', [
+      mojo.internal.StructField('gesture', 0, 0, mojo.internal.Array(mantis.mojom.TouchPointSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mantis.mojom.MantisProcessor_InferSegmentationMode_ResponseParamsSpec, 'mantis.mojom.MantisProcessor_InferSegmentationMode_ResponseParams', [
+      mojo.internal.StructField('mode', 0, 0, mantis.mojom.SegmentationModeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 mantis.mojom.MantisProcessorPendingReceiver = class {
   constructor(handle) {
@@ -242,177 +258,6 @@ mantis.mojom.MantisProcessor.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Inpainting
-mantis.mojom.MantisProcessor_Inpainting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mantis.mojom.MantisProcessor.Inpainting_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'mask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'seed', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-mantis.mojom.MantisProcessor_Inpainting_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mantis.mojom.MantisProcessor.Inpainting_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.MantisResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GenerativeFill
-mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mantis.mojom.MantisProcessor.GenerativeFill_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'mask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'seed', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'prompt', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-mantis.mojom.MantisProcessor_GenerativeFill_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mantis.mojom.MantisProcessor.GenerativeFill_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.MantisResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Segmentation
-mantis.mojom.MantisProcessor_Segmentation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mantis.mojom.MantisProcessor.Segmentation_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'prior', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-mantis.mojom.MantisProcessor_Segmentation_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mantis.mojom.MantisProcessor.Segmentation_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.MantisResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ClassifyImageSafety
-mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mantis.mojom.MantisProcessor.ClassifyImageSafety_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-mantis.mojom.MantisProcessor_ClassifyImageSafety_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mantis.mojom.MantisProcessor.ClassifyImageSafety_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'verdict', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.SafetyClassifierVerdictSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Outpainting
-mantis.mojom.MantisProcessor_Outpainting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mantis.mojom.MantisProcessor.Outpainting_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'mask', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'seed', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-mantis.mojom.MantisProcessor_Outpainting_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mantis.mojom.MantisProcessor.Outpainting_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.MantisResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for InferSegmentationMode
-mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mantis.mojom.MantisProcessor.InferSegmentationMode_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'gesture', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mantis.mojom.TouchPointSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-mantis.mojom.MantisProcessor_InferSegmentationMode_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mantis.mojom.MantisProcessor.InferSegmentationMode_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.SegmentationModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 mantis.mojom.MantisProcessorPtr = mantis.mojom.MantisProcessorRemote;
 mantis.mojom.MantisProcessorRequest = mantis.mojom.MantisProcessorPendingReceiver;
 

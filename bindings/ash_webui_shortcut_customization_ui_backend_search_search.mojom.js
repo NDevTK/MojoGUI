@@ -8,38 +8,32 @@
 var ash = ash || {};
 ash.shortcut_customization = ash.shortcut_customization || {};
 ash.shortcut_customization.mojom = ash.shortcut_customization.mojom || {};
+var ash = ash || {};
 
+ash.shortcut_customization.mojom.SearchResultSpec = { $: {} };
+ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver = {};
+ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver.$interfaceName = 'ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver';
+ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_ParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.SearchHandler = {};
+ash.shortcut_customization.mojom.SearchHandler.$interfaceName = 'ash.shortcut_customization.mojom.SearchHandler';
+ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec = { $: {} };
+ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_ParamsSpec = { $: {} };
 
 // Struct: SearchResult
-ash.shortcut_customization.mojom.SearchResultSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.SearchResult',
-      packedSize: 32,
-      fields: [
-        { name: 'accelerator_layout_info', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.AcceleratorLayoutInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'accelerator_infos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.mojom.AcceleratorInfoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'relevance_score', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.SearchResultSpec, 'ash.shortcut_customization.mojom.SearchResult', [
+      mojo.internal.StructField('accelerator_layout_info', 0, 0, ash.mojom.AcceleratorLayoutInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('accelerator_infos', 8, 0, mojo.internal.Array(ash.mojom.AcceleratorInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('relevance_score', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: SearchResultsAvailabilityObserver
-ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver = {};
-
-ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_ParamsSpec, 'ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverPendingReceiver = class {
   constructor(handle) {
@@ -94,53 +88,29 @@ ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver.getRemote = f
   return remote.$;
 };
 
-// ParamsSpec for OnSearchResultsAvailabilityChanged
-ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver.OnSearchResultsAvailabilityChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverPtr = ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverRemote;
 ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverRequest = ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverPendingReceiver;
 
 
 // Interface: SearchHandler
-ash.shortcut_customization.mojom.SearchHandler = {};
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec, 'ash.shortcut_customization.mojom.SearchHandler_Search_Params', [
+      mojo.internal.StructField('query', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('max_num_results', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.SearchHandler_Search_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'max_num_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec, 'ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParams', [
+      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(ash.shortcut_customization.mojom.SearchResultSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_ParamsSpec, 'ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.shortcut_customization.mojom.SearchHandlerPendingReceiver = class {
   constructor(handle) {
@@ -204,49 +174,6 @@ ash.shortcut_customization.mojom.SearchHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Search
-ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.SearchHandler.Search_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'max_num_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.SearchHandler.Search_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.shortcut_customization.mojom.SearchResultSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AddSearchResultsAvailabilityObserver
-ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.shortcut_customization.mojom.SearchHandler.AddSearchResultsAvailabilityObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.shortcut_customization.mojom.SearchHandlerPtr = ash.shortcut_customization.mojom.SearchHandlerRemote;
 ash.shortcut_customization.mojom.SearchHandlerRequest = ash.shortcut_customization.mojom.SearchHandlerPendingReceiver;
 

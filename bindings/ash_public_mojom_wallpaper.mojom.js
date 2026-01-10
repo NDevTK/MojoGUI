@@ -8,41 +8,38 @@
 var ash = ash || {};
 ash.mojom = ash.mojom || {};
 
+ash.mojom.WallpaperLayoutSpec = { $: mojo.internal.Enum() };
+ash.mojom.SetWallpaperResultSpec = { $: {} };
+ash.mojom.WallpaperSettingsSpec = { $: {} };
 
 // Enum: WallpaperLayout
 ash.mojom.WallpaperLayout = {
-  kStretch: 0,
-  kCenter: 1,
-  kCenterCropped: 2,
+  kNone: 0,
+  kStretch: 1,
+  kCenter: 2,
+  kCenterCropped: 3,
 };
-ash.mojom.WallpaperLayoutSpec = { $: mojo.internal.Enum() };
 
 // Union: SetWallpaperResult
-ash.mojom.SetWallpaperResultSpec = { $: mojo.internal.Union(
-    'ash.mojom.SetWallpaperResult', {
+mojo.internal.Union(
+    ash.mojom.SetWallpaperResultSpec, 'ash.mojom.SetWallpaperResult', {
       'thumbnail_data': {
         'ordinal': 0,
         'type': mojo.internal.Array(mojo.internal.Uint8, false),
-      }},
+        'nullable': false,
+      },
       'error_message': {
         'ordinal': 1,
         'type': mojo.internal.String,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: WallpaperSettings
-ash.mojom.WallpaperSettingsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.WallpaperSettings',
-      packedSize: 32,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'layout', packedOffset: 16, packedBitOffset: 0, type: ash.mojom.WallpaperLayoutSpec, nullable: false, minVersion: 0 },
-        { name: 'filename', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.mojom.WallpaperSettingsSpec, 'ash.mojom.WallpaperSettings', [
+      mojo.internal.StructField('data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('layout', 16, 0, ash.mojom.WallpaperLayoutSpec, null, false, 0, undefined),
+      mojo.internal.StructField('filename', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);

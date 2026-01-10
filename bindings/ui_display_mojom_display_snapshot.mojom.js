@@ -17,63 +17,51 @@ var gfx = gfx || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+display.mojom.DisplaySnapshotColorInfoSpec = { $: {} };
+display.mojom.DisplaySnapshotSpec = { $: {} };
 
 // Struct: DisplaySnapshotColorInfo
-display.mojom.DisplaySnapshotColorInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'display.mojom.DisplaySnapshotColorInfo',
-      packedSize: 48,
-      fields: [
-        { name: 'color_space', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.ColorSpaceSpec, nullable: false, minVersion: 0 },
-        { name: 'edid_primaries', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpacePrimariesSpec, nullable: false, minVersion: 0 },
-        { name: 'edid_gamma', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'hdr_static_metadata', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.HDRStaticMetadataSpec, nullable: true, minVersion: 0 },
-        { name: 'supports_color_temperature_adjustment', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'bits_per_channel', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    display.mojom.DisplaySnapshotColorInfoSpec, 'display.mojom.DisplaySnapshotColorInfo', [
+      mojo.internal.StructField('color_space', 0, 0, gfx.mojom.ColorSpaceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('edid_primaries', 8, 0, skia.mojom.SkColorSpacePrimariesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('edid_gamma', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('hdr_static_metadata', 16, 0, gfx.mojom.HDRStaticMetadataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('supports_color_temperature_adjustment', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('bits_per_channel', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: DisplaySnapshot
-display.mojom.DisplaySnapshotSpec = {
-  $: {
-    structSpec: {
-      name: 'display.mojom.DisplaySnapshot',
-      packedSize: 168,
-      fields: [
-        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'port_display_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'edid_display_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'connector_index', packedOffset: 156, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'origin', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-        { name: 'physical_size', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 136, packedBitOffset: 0, type: display.mojom.DisplayConnectionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'base_connector_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'path_topology', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint64, false), nullable: false, minVersion: 0 },
-        { name: 'is_aspect_preserving_scaling', packedOffset: 158, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_overscan', packedOffset: 158, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'privacy_screen_state', packedOffset: 140, packedBitOffset: 0, type: display.mojom.PrivacyScreenStateSpec, nullable: false, minVersion: 0 },
-        { name: 'has_content_protection_key', packedOffset: 158, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'color_info', packedOffset: 56, packedBitOffset: 0, type: display.mojom.DisplaySnapshotColorInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'display_name', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'sys_path', packedOffset: 72, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'modes', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array(display.mojom.DisplayModeSpec, false), nullable: false, minVersion: 0 },
-        { name: 'panel_orientation', packedOffset: 144, packedBitOffset: 0, type: display.mojom.PanelOrientationSpec, nullable: false, minVersion: 0 },
-        { name: 'edid', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'current_mode_index', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'has_current_mode', packedOffset: 158, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'native_mode_index', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'has_native_mode', packedOffset: 158, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'product_code', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'year_of_manufacture', packedOffset: 148, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'maximum_cursor_size', packedOffset: 120, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'variable_refresh_rate_state', packedOffset: 152, packedBitOffset: 0, type: display.mojom.VariableRefreshRateStateSpec, nullable: false, minVersion: 0 },
-        { name: 'drm_formats_and_modifiers', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Array(mojo.internal.Uint64, false), false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 168}]
-    }
-  }
-};
+mojo.internal.Struct(
+    display.mojom.DisplaySnapshotSpec, 'display.mojom.DisplaySnapshot', [
+      mojo.internal.StructField('display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('port_display_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('edid_display_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('connector_index', 156, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('origin', 24, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('physical_size', 32, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 136, 0, display.mojom.DisplayConnectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('base_connector_id', 40, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('path_topology', 48, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
+      mojo.internal.StructField('is_aspect_preserving_scaling', 158, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_overscan', 158, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('privacy_screen_state', 140, 0, display.mojom.PrivacyScreenStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('has_content_protection_key', 158, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('color_info', 56, 0, display.mojom.DisplaySnapshotColorInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('display_name', 64, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('sys_path', 72, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('modes', 80, 0, mojo.internal.Array(display.mojom.DisplayModeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('panel_orientation', 144, 0, display.mojom.PanelOrientationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('edid', 88, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('current_mode_index', 96, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('has_current_mode', 158, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('native_mode_index', 104, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('has_native_mode', 158, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('product_code', 112, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('year_of_manufacture', 148, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('maximum_cursor_size', 120, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('variable_refresh_rate_state', 152, 0, display.mojom.VariableRefreshRateStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('drm_formats_and_modifiers', 128, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Array(mojo.internal.Uint64, false), false), null, false, 0, undefined),
+    ],
+    [[0, 168]]);

@@ -9,49 +9,38 @@ var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
 var blink = blink || {};
 
+chromecast.mojom.ApiBindingSpec = { $: {} };
+chromecast.mojom.ApiBindings = {};
+chromecast.mojom.ApiBindings.$interfaceName = 'chromecast.mojom.ApiBindings';
+chromecast.mojom.ApiBindings_GetAll_ParamsSpec = { $: {} };
+chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec = { $: {} };
+chromecast.mojom.ApiBindings_Connect_ParamsSpec = { $: {} };
 
 // Struct: ApiBinding
-chromecast.mojom.ApiBindingSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.ApiBinding',
-      packedSize: 16,
-      fields: [
-        { name: 'script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.ApiBindingSpec, 'chromecast.mojom.ApiBinding', [
+      mojo.internal.StructField('script', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: ApiBindings
-chromecast.mojom.ApiBindings = {};
+mojo.internal.Struct(
+    chromecast.mojom.ApiBindings_GetAll_ParamsSpec, 'chromecast.mojom.ApiBindings_GetAll_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromecast.mojom.ApiBindings_GetAll_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.ApiBindings_GetAll_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec, 'chromecast.mojom.ApiBindings_GetAll_ResponseParams', [
+      mojo.internal.StructField('bindings', 0, 0, mojo.internal.Array(chromecast.mojom.ApiBindingSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.mojom.ApiBindings_Connect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.ApiBindings_Connect_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'port_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'port', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MessagePortDescriptorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.ApiBindings_Connect_ParamsSpec, 'chromecast.mojom.ApiBindings_Connect_Params', [
+      mojo.internal.StructField('port_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('port', 8, 0, blink.mojom.MessagePortDescriptorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 chromecast.mojom.ApiBindingsPendingReceiver = class {
   constructor(handle) {
@@ -115,48 +104,6 @@ chromecast.mojom.ApiBindings.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetAll
-chromecast.mojom.ApiBindings_GetAll_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.ApiBindings.GetAll_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.ApiBindings.GetAll_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'bindings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromecast.mojom.ApiBindingSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Connect
-chromecast.mojom.ApiBindings_Connect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.ApiBindings.Connect_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'port_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'port', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.MessagePortDescriptorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.mojom.ApiBindingsPtr = chromecast.mojom.ApiBindingsRemote;
 chromecast.mojom.ApiBindingsRequest = chromecast.mojom.ApiBindingsPendingReceiver;
 

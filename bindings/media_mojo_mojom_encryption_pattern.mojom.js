@@ -8,18 +8,12 @@
 var media = media || {};
 media.mojom = media.mojom || {};
 
+media.mojom.EncryptionPatternSpec = { $: {} };
 
 // Struct: EncryptionPattern
-media.mojom.EncryptionPatternSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.EncryptionPattern',
-      packedSize: 16,
-      fields: [
-        { name: 'crypt_byte_block', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'skip_byte_block', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.EncryptionPatternSpec, 'media.mojom.EncryptionPattern', [
+      mojo.internal.StructField('crypt_byte_block', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('skip_byte_block', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);

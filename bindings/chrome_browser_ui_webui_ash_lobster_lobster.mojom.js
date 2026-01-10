@@ -11,227 +11,196 @@ var url = url || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+lobster.mojom.StatusCodeSpec = { $: mojo.internal.Enum() };
+lobster.mojom.WebUIMetricEventSpec = { $: mojo.internal.Enum() };
+lobster.mojom.ResponseSpec = { $: {} };
+lobster.mojom.CandidateSpec = { $: {} };
+lobster.mojom.ErrorSpec = { $: {} };
+lobster.mojom.FeedbackPreviewSpec = { $: {} };
+lobster.mojom.UntrustedLobsterPageHandler = {};
+lobster.mojom.UntrustedLobsterPageHandler.$interfaceName = 'lobster.mojom.UntrustedLobsterPageHandler';
+lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ParamsSpec = { $: {} };
+lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParamsSpec = { $: {} };
+lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ParamsSpec = { $: {} };
+lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ResponseParamsSpec = { $: {} };
+lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ParamsSpec = { $: {} };
+lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ResponseParamsSpec = { $: {} };
+lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ParamsSpec = { $: {} };
+lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ResponseParamsSpec = { $: {} };
+lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ParamsSpec = { $: {} };
+lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParamsSpec = { $: {} };
+lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ParamsSpec = { $: {} };
+lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ResponseParamsSpec = { $: {} };
+lobster.mojom.UntrustedLobsterPageHandler_ShowUI_ParamsSpec = { $: {} };
+lobster.mojom.UntrustedLobsterPageHandler_CloseUI_ParamsSpec = { $: {} };
+lobster.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_ParamsSpec = { $: {} };
+lobster.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_ParamsSpec = { $: {} };
 
 // Enum: StatusCode
 lobster.mojom.StatusCode = {
-  kOk: 0,
-  kBlockedOutputs: 1,
-  kNoInternetConnection: 2,
-  kResourceExhausted: 3,
-  kInvalidArgument: 4,
-  kBackendFailure: 5,
-  kUnsupportedLanguage: 6,
-  kRestrictedRegion: 7,
+  kUnknown: 0,
+  kOk: 1,
+  kBlockedOutputs: 2,
+  kNoInternetConnection: 3,
+  kResourceExhausted: 4,
+  kInvalidArgument: 5,
+  kBackendFailure: 6,
+  kUnsupportedLanguage: 7,
+  kRestrictedRegion: 8,
+  MinVersion: 8,
 };
-lobster.mojom.StatusCodeSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebUIMetricEvent
 lobster.mojom.WebUIMetricEvent = {
-  kQueryPageImpression: 0,
-  kRequestInitialCandidates: 1,
-  kRequestInitialCandidatesSuccess: 2,
-  kRequestInitialCandidatesError: 3,
-  kInitialCandidatesImpression: 4,
-  kRequestMoreCandidates: 5,
-  kRequestMoreCandidatesSuccess: 6,
-  kRequestMoreCandidatesError: 7,
-  kMoreCandidatesAppended: 8,
-  kFeedbackThumbsUp: 9,
-  kFeedbackThumbsDown: 10,
+  kUnknown: 0,
+  kQueryPageImpression: 1,
+  kRequestInitialCandidates: 2,
+  kRequestInitialCandidatesSuccess: 3,
+  kRequestInitialCandidatesError: 4,
+  kInitialCandidatesImpression: 5,
+  kRequestMoreCandidates: 6,
+  kRequestMoreCandidatesSuccess: 7,
+  kRequestMoreCandidatesError: 8,
+  kMoreCandidatesAppended: 9,
+  kFeedbackThumbsUp: 10,
+  kFeedbackThumbsDown: 11,
 };
-lobster.mojom.WebUIMetricEventSpec = { $: mojo.internal.Enum() };
 
 // Union: Response
-lobster.mojom.ResponseSpec = { $: mojo.internal.Union(
-    'lobster.mojom.Response', {
+mojo.internal.Union(
+    lobster.mojom.ResponseSpec, 'lobster.mojom.Response', {
       'candidates': {
         'ordinal': 0,
         'type': mojo.internal.Array(lobster.mojom.CandidateSpec, false),
-      }},
+        'nullable': false,
+      },
       'error': {
         'ordinal': 1,
         'type': lobster.mojom.ErrorSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: Candidate
-lobster.mojom.CandidateSpec = {
-  $: {
-    structSpec: {
-      name: 'lobster.mojom.Candidate',
-      packedSize: 24,
-      fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'data_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lobster.mojom.CandidateSpec, 'lobster.mojom.Candidate', [
+      mojo.internal.StructField('id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('data_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: Error
-lobster.mojom.ErrorSpec = {
-  $: {
-    structSpec: {
-      name: 'lobster.mojom.Error',
-      packedSize: 24,
-      fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: lobster.mojom.StatusCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lobster.mojom.ErrorSpec, 'lobster.mojom.Error', [
+      mojo.internal.StructField('code', 8, 0, lobster.mojom.StatusCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: FeedbackPreview
-lobster.mojom.FeedbackPreviewSpec = {
-  $: {
-    structSpec: {
-      name: 'lobster.mojom.FeedbackPreview',
-      packedSize: 24,
-      fields: [
-        { name: 'fields', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'preview_data_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lobster.mojom.FeedbackPreviewSpec, 'lobster.mojom.FeedbackPreview', [
+      mojo.internal.StructField('fields', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('preview_data_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: UntrustedLobsterPageHandler
-lobster.mojom.UntrustedLobsterPageHandler = {};
+mojo.internal.Struct(
+    lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ParamsSpec, 'lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_Params', [
+      mojo.internal.StructField('query', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('num_candidates', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'num_candidates', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParamsSpec, 'lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParams', [
+      mojo.internal.StructField('response', 0, 0, lobster.mojom.ResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'candidate_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ParamsSpec, 'lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_Params', [
+      mojo.internal.StructField('candidate_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'candidate_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ResponseParamsSpec, 'lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'candidate_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ParamsSpec, 'lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_Params', [
+      mojo.internal.StructField('candidate_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'candidate_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ResponseParamsSpec, 'lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'candidate_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ParamsSpec, 'lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_Params', [
+      mojo.internal.StructField('candidate_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-lobster.mojom.UntrustedLobsterPageHandler_ShowUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lobster.mojom.UntrustedLobsterPageHandler_ShowUI_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ResponseParamsSpec, 'lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-lobster.mojom.UntrustedLobsterPageHandler_CloseUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lobster.mojom.UntrustedLobsterPageHandler_CloseUI_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ParamsSpec, 'lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_Params', [
+      mojo.internal.StructField('candidate_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-lobster.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lobster.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'metric_event', packedOffset: 0, packedBitOffset: 0, type: lobster.mojom.WebUIMetricEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParamsSpec, 'lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParams', [
+      mojo.internal.StructField('preview', 0, 0, lobster.mojom.FeedbackPreviewSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-lobster.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lobster.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ParamsSpec, 'lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_Params', [
+      mojo.internal.StructField('candidate_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('description', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ResponseParamsSpec, 'lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    lobster.mojom.UntrustedLobsterPageHandler_ShowUI_ParamsSpec, 'lobster.mojom.UntrustedLobsterPageHandler_ShowUI_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    lobster.mojom.UntrustedLobsterPageHandler_CloseUI_ParamsSpec, 'lobster.mojom.UntrustedLobsterPageHandler_CloseUI_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    lobster.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_ParamsSpec, 'lobster.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_Params', [
+      mojo.internal.StructField('metric_event', 0, 0, lobster.mojom.WebUIMetricEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    lobster.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_ParamsSpec, 'lobster.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 lobster.mojom.UntrustedLobsterPageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -367,225 +336,6 @@ lobster.mojom.UntrustedLobsterPageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RequestCandidates
-lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lobster.mojom.UntrustedLobsterPageHandler.RequestCandidates_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'num_candidates', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lobster.mojom.UntrustedLobsterPageHandler.RequestCandidates_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: lobster.mojom.ResponseSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for DownloadCandidate
-lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lobster.mojom.UntrustedLobsterPageHandler.DownloadCandidate_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'candidate_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lobster.mojom.UntrustedLobsterPageHandler.DownloadCandidate_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CommitAsInsert
-lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lobster.mojom.UntrustedLobsterPageHandler.CommitAsInsert_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'candidate_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lobster.mojom.UntrustedLobsterPageHandler.CommitAsInsert_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CommitAsDownload
-lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lobster.mojom.UntrustedLobsterPageHandler.CommitAsDownload_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'candidate_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lobster.mojom.UntrustedLobsterPageHandler.CommitAsDownload_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for PreviewFeedback
-lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lobster.mojom.UntrustedLobsterPageHandler.PreviewFeedback_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'candidate_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lobster.mojom.UntrustedLobsterPageHandler.PreviewFeedback_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'preview', packedOffset: 0, packedBitOffset: 0, type: lobster.mojom.FeedbackPreviewSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SubmitFeedback
-lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lobster.mojom.UntrustedLobsterPageHandler.SubmitFeedback_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'candidate_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lobster.mojom.UntrustedLobsterPageHandler.SubmitFeedback_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ShowUI
-lobster.mojom.UntrustedLobsterPageHandler_ShowUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lobster.mojom.UntrustedLobsterPageHandler.ShowUI_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for CloseUI
-lobster.mojom.UntrustedLobsterPageHandler_CloseUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lobster.mojom.UntrustedLobsterPageHandler.CloseUI_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for EmitMetricEvent
-lobster.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lobster.mojom.UntrustedLobsterPageHandler.EmitMetricEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'metric_event', packedOffset: 0, packedBitOffset: 0, type: lobster.mojom.WebUIMetricEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OpenUrlInNewWindow
-lobster.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'lobster.mojom.UntrustedLobsterPageHandler.OpenUrlInNewWindow_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 lobster.mojom.UntrustedLobsterPageHandlerPtr = lobster.mojom.UntrustedLobsterPageHandlerRemote;
 lobster.mojom.UntrustedLobsterPageHandlerRequest = lobster.mojom.UntrustedLobsterPageHandlerPendingReceiver;
 

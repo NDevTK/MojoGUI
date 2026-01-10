@@ -10,35 +10,37 @@ gfx.mojom = gfx.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+gfx.mojom.ImageTraitsTestService = {};
+gfx.mojom.ImageTraitsTestService.$interfaceName = 'gfx.mojom.ImageTraitsTestService';
+gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec = { $: {} };
+gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec = { $: {} };
+gfx.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec = { $: {} };
+gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec = { $: {} };
 
 // Interface: ImageTraitsTestService
-gfx.mojom.ImageTraitsTestService = {};
+mojo.internal.Struct(
+    gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec, 'gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_Params', [
+      mojo.internal.StructField('in', 0, 0, gfx.mojom.ImageSkiaRepSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.ImageSkiaRepSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec, 'gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParams', [
+      mojo.internal.StructField('out', 0, 0, gfx.mojom.ImageSkiaRepSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-gfx.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.ImageTraitsTestService_EchoImageSkia_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec, 'gfx.mojom.ImageTraitsTestService_EchoImageSkia_Params', [
+      mojo.internal.StructField('in', 0, 0, gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec, 'gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParams', [
+      mojo.internal.StructField('out', 0, 0, gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 gfx.mojom.ImageTraitsTestServicePendingReceiver = class {
   constructor(handle) {
@@ -102,61 +104,6 @@ gfx.mojom.ImageTraitsTestService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for EchoImageSkiaRep
-gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.ImageTraitsTestService.EchoImageSkiaRep_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.ImageSkiaRepSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.ImageTraitsTestService.EchoImageSkiaRep_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.ImageSkiaRepSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EchoImageSkia
-gfx.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.ImageTraitsTestService.EchoImageSkia_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.ImageTraitsTestService.EchoImageSkia_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 gfx.mojom.ImageTraitsTestServicePtr = gfx.mojom.ImageTraitsTestServiceRemote;
 gfx.mojom.ImageTraitsTestServiceRequest = gfx.mojom.ImageTraitsTestServicePendingReceiver;
 

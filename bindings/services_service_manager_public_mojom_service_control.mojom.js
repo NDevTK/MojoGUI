@@ -8,21 +8,15 @@
 var service_manager = service_manager || {};
 service_manager.mojom = service_manager.mojom || {};
 
+service_manager.mojom.ServiceControl = {};
+service_manager.mojom.ServiceControl.$interfaceName = 'service_manager.mojom.ServiceControl';
+service_manager.mojom.ServiceControl_RequestQuit_ParamsSpec = { $: {} };
 
 // Interface: ServiceControl
-service_manager.mojom.ServiceControl = {};
-
-service_manager.mojom.ServiceControl_RequestQuit_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.ServiceControl_RequestQuit_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    service_manager.mojom.ServiceControl_RequestQuit_ParamsSpec, 'service_manager.mojom.ServiceControl_RequestQuit_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 service_manager.mojom.ServiceControlPendingReceiver = class {
   constructor(handle) {
@@ -77,20 +71,6 @@ service_manager.mojom.ServiceControl.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RequestQuit
-service_manager.mojom.ServiceControl_RequestQuit_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.ServiceControl.RequestQuit_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 service_manager.mojom.ServiceControlPtr = service_manager.mojom.ServiceControlRemote;
 service_manager.mojom.ServiceControlRequest = service_manager.mojom.ServiceControlPendingReceiver;
 

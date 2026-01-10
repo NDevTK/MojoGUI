@@ -9,40 +9,29 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var url = url || {};
 
+blink.mojom.LengthUnitSpec = { $: mojo.internal.Enum() };
+blink.mojom.AdSizeSpec = { $: {} };
+blink.mojom.AdDescriptorSpec = { $: {} };
 
 // Enum: LengthUnit
 blink.mojom.LengthUnit = {
-  kPixels: 0,
-  kScreenWidth: 1,
-  kScreenHeight: 2,
+  kInvalid: 0,
+  kPixels: 1,
+  kScreenWidth: 2,
+  kScreenHeight: 3,
 };
-blink.mojom.LengthUnitSpec = { $: mojo.internal.Enum() };
 
 // Struct: AdSize
-blink.mojom.AdSizeSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AdSize',
-      packedSize: 16,
-      fields: [
-        { name: 'kInvalid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.AdSizeSpec, 'blink.mojom.AdSize', [
+      mojo.internal.StructField('kInvalid', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: AdDescriptor
-blink.mojom.AdDescriptorSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AdDescriptor',
-      packedSize: 24,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AdSizeSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.AdDescriptorSpec, 'blink.mojom.AdDescriptor', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('size', 8, 0, blink.mojom.AdSizeSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);

@@ -9,6 +9,19 @@ var ash = ash || {};
 ash.diagnostics = ash.diagnostics || {};
 ash.diagnostics.mojom = ash.diagnostics.mojom || {};
 
+ash.diagnostics.mojom.RoutineTypeSpec = { $: mojo.internal.Enum() };
+ash.diagnostics.mojom.StandardRoutineResultSpec = { $: mojo.internal.Enum() };
+ash.diagnostics.mojom.RoutineResultSpec = { $: {} };
+ash.diagnostics.mojom.PowerRoutineResultSpec = { $: {} };
+ash.diagnostics.mojom.RoutineResultInfoSpec = { $: {} };
+ash.diagnostics.mojom.RoutineRunner = {};
+ash.diagnostics.mojom.RoutineRunner.$interfaceName = 'ash.diagnostics.mojom.RoutineRunner';
+ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec = { $: {} };
+ash.diagnostics.mojom.SystemRoutineController = {};
+ash.diagnostics.mojom.SystemRoutineController.$interfaceName = 'ash.diagnostics.mojom.SystemRoutineController';
+ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec = { $: {} };
+ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec = { $: {} };
+ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec = { $: {} };
 
 // Enum: RoutineType
 ash.diagnostics.mojom.RoutineType = {
@@ -34,7 +47,6 @@ ash.diagnostics.mojom.RoutineType = {
   kArcPing: 19,
   kArcDnsResolution: 20,
 };
-ash.diagnostics.mojom.RoutineTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: StandardRoutineResult
 ash.diagnostics.mojom.StandardRoutineResult = {
@@ -43,68 +55,45 @@ ash.diagnostics.mojom.StandardRoutineResult = {
   kExecutionError: 2,
   kUnableToRun: 3,
 };
-ash.diagnostics.mojom.StandardRoutineResultSpec = { $: mojo.internal.Enum() };
 
 // Union: RoutineResult
-ash.diagnostics.mojom.RoutineResultSpec = { $: mojo.internal.Union(
-    'ash.diagnostics.mojom.RoutineResult', {
+mojo.internal.Union(
+    ash.diagnostics.mojom.RoutineResultSpec, 'ash.diagnostics.mojom.RoutineResult', {
       'simple_result': {
         'ordinal': 0,
         'type': ash.diagnostics.mojom.StandardRoutineResultSpec,
-      }},
+        'nullable': false,
+      },
       'power_result': {
         'ordinal': 1,
         'type': ash.diagnostics.mojom.PowerRoutineResultSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: PowerRoutineResult
-ash.diagnostics.mojom.PowerRoutineResultSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.diagnostics.mojom.PowerRoutineResult',
-      packedSize: 24,
-      fields: [
-        { name: 'simple_result', packedOffset: 8, packedBitOffset: 0, type: ash.diagnostics.mojom.StandardRoutineResultSpec, nullable: false, minVersion: 0 },
-        { name: 'percent_change', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'time_elapsed_seconds', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.diagnostics.mojom.PowerRoutineResultSpec, 'ash.diagnostics.mojom.PowerRoutineResult', [
+      mojo.internal.StructField('simple_result', 8, 0, ash.diagnostics.mojom.StandardRoutineResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('percent_change', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('time_elapsed_seconds', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: RoutineResultInfo
-ash.diagnostics.mojom.RoutineResultInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.diagnostics.mojom.RoutineResultInfo',
-      packedSize: 32,
-      fields: [
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: ash.diagnostics.mojom.RoutineTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.RoutineResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.diagnostics.mojom.RoutineResultInfoSpec, 'ash.diagnostics.mojom.RoutineResultInfo', [
+      mojo.internal.StructField('type', 16, 0, ash.diagnostics.mojom.RoutineTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, ash.diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: RoutineRunner
-ash.diagnostics.mojom.RoutineRunner = {};
-
-ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.RoutineResultInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec, 'ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_Params', [
+      mojo.internal.StructField('info', 0, 0, ash.diagnostics.mojom.RoutineResultInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.diagnostics.mojom.RoutineRunnerPendingReceiver = class {
   constructor(handle) {
@@ -159,53 +148,28 @@ ash.diagnostics.mojom.RoutineRunner.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnRoutineResult
-ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.diagnostics.mojom.RoutineRunner.OnRoutineResult_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.RoutineResultInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.diagnostics.mojom.RoutineRunnerPtr = ash.diagnostics.mojom.RoutineRunnerRemote;
 ash.diagnostics.mojom.RoutineRunnerRequest = ash.diagnostics.mojom.RoutineRunnerPendingReceiver;
 
 
 // Interface: SystemRoutineController
-ash.diagnostics.mojom.SystemRoutineController = {};
+mojo.internal.Struct(
+    ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec, 'ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec, 'ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParams', [
+      mojo.internal.StructField('routines', 0, 0, mojo.internal.Array(ash.diagnostics.mojom.RoutineTypeSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.diagnostics.mojom.SystemRoutineController_RunRoutine_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ash.diagnostics.mojom.RoutineTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'runner', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.diagnostics.mojom.RoutineRunnerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec, 'ash.diagnostics.mojom.SystemRoutineController_RunRoutine_Params', [
+      mojo.internal.StructField('type', 8, 0, ash.diagnostics.mojom.RoutineTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('runner', 0, 0, mojo.internal.InterfaceProxy(ash.diagnostics.mojom.RoutineRunnerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ash.diagnostics.mojom.SystemRoutineControllerPendingReceiver = class {
   constructor(handle) {
@@ -269,48 +233,6 @@ ash.diagnostics.mojom.SystemRoutineController.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetSupportedRoutines
-ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.diagnostics.mojom.SystemRoutineController.GetSupportedRoutines_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.diagnostics.mojom.SystemRoutineController.GetSupportedRoutines_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'routines', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.diagnostics.mojom.RoutineTypeSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RunRoutine
-ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.diagnostics.mojom.SystemRoutineController.RunRoutine_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ash.diagnostics.mojom.RoutineTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'runner', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.diagnostics.mojom.RoutineRunnerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.diagnostics.mojom.SystemRoutineControllerPtr = ash.diagnostics.mojom.SystemRoutineControllerRemote;
 ash.diagnostics.mojom.SystemRoutineControllerRequest = ash.diagnostics.mojom.SystemRoutineControllerPendingReceiver;
 

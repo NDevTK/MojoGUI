@@ -8,23 +8,22 @@
 var comments = comments || {};
 comments.mojom = comments.mojom || {};
 
+comments.mojom.PageHandlerFactory = {};
+comments.mojom.PageHandlerFactory.$interfaceName = 'comments.mojom.PageHandlerFactory';
+comments.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+comments.mojom.PageHandler = {};
+comments.mojom.PageHandler.$interfaceName = 'comments.mojom.PageHandler';
+comments.mojom.PageHandler_ShowUI_ParamsSpec = { $: {} };
+comments.mojom.Page = {};
+comments.mojom.Page.$interfaceName = 'comments.mojom.Page';
 
 // Interface: PageHandlerFactory
-comments.mojom.PageHandlerFactory = {};
-
-comments.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'comments.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(comments.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(comments.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    comments.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'comments.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(comments.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(comments.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 comments.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -79,40 +78,15 @@ comments.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-comments.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'comments.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(comments.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(comments.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 comments.mojom.PageHandlerFactoryPtr = comments.mojom.PageHandlerFactoryRemote;
 comments.mojom.PageHandlerFactoryRequest = comments.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-comments.mojom.PageHandler = {};
-
-comments.mojom.PageHandler_ShowUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'comments.mojom.PageHandler_ShowUI_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    comments.mojom.PageHandler_ShowUI_ParamsSpec, 'comments.mojom.PageHandler_ShowUI_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 comments.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -167,27 +141,11 @@ comments.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ShowUI
-comments.mojom.PageHandler_ShowUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'comments.mojom.PageHandler.ShowUI_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 comments.mojom.PageHandlerPtr = comments.mojom.PageHandlerRemote;
 comments.mojom.PageHandlerRequest = comments.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-comments.mojom.Page = {};
-
 comments.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -232,7 +190,6 @@ comments.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 comments.mojom.PagePtr = comments.mojom.PageRemote;
 comments.mojom.PageRequest = comments.mojom.PagePendingReceiver;
 

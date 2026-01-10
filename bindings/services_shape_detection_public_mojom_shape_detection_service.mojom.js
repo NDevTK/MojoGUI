@@ -7,7 +7,15 @@
 // Module namespace
 var shape_detection = shape_detection || {};
 shape_detection.mojom = shape_detection.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 
+shape_detection.mojom.ShapeDetectionService = {};
+shape_detection.mojom.ShapeDetectionService.$interfaceName = 'shape_detection.mojom.ShapeDetectionService';
+shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsSpec = { $: {} };
+shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec = { $: {} };
+shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec = { $: {} };
 
 shape_detection.mojom.kShapeDetectionSandbox = sandbox.mojom.Sandbox.kShapeDetection;
 
@@ -16,46 +24,23 @@ shape_detection.mojom.kShapeDetectionSandbox = sandbox.mojom.Sandbox.kUtility;
 shape_detection.mojom.kShapeDetectionSandbox = sandbox.mojom.Sandbox.kGpu;
 
 // Interface: ShapeDetectionService
-shape_detection.mojom.ShapeDetectionService = {};
+mojo.internal.Struct(
+    shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsSpec, 'shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(shape_detection.mojom.BarcodeDetectionProviderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(shape_detection.mojom.BarcodeDetectionProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec, 'shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(shape_detection.mojom.FaceDetectionProviderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(shape_detection.mojom.FaceDetectionProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'shape_detection.mojom.ShapeDetectionService_BindTextDetection_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(shape_detection.mojom.TextDetectionRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec, 'shape_detection.mojom.ShapeDetectionService_BindTextDetection_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(shape_detection.mojom.TextDetectionRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 shape_detection.mojom.ShapeDetectionServicePendingReceiver = class {
   constructor(handle) {
@@ -128,49 +113,6 @@ shape_detection.mojom.ShapeDetectionService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BindBarcodeDetectionProvider
-shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'shape_detection.mojom.ShapeDetectionService.BindBarcodeDetectionProvider_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(shape_detection.mojom.BarcodeDetectionProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindFaceDetectionProvider
-shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'shape_detection.mojom.ShapeDetectionService.BindFaceDetectionProvider_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(shape_detection.mojom.FaceDetectionProviderRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindTextDetection
-shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'shape_detection.mojom.ShapeDetectionService.BindTextDetection_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(shape_detection.mojom.TextDetectionRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 shape_detection.mojom.ShapeDetectionServicePtr = shape_detection.mojom.ShapeDetectionServiceRemote;
 shape_detection.mojom.ShapeDetectionServiceRequest = shape_detection.mojom.ShapeDetectionServicePendingReceiver;
 

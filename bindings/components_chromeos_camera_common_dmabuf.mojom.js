@@ -8,39 +8,27 @@
 var chromeos_camera = chromeos_camera || {};
 chromeos_camera.mojom = chromeos_camera.mojom || {};
 
+chromeos_camera.mojom.DmaBufPlaneSpec = { $: {} };
+chromeos_camera.mojom.DmaBufVideoFrameSpec = { $: {} };
 
 // Struct: DmaBufPlane
-chromeos_camera.mojom.DmaBufPlaneSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos_camera.mojom.DmaBufPlane',
-      packedSize: 24,
-      fields: [
-        { name: 'fd_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-        { name: 'stride', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos_camera.mojom.DmaBufPlaneSpec, 'chromeos_camera.mojom.DmaBufPlane', [
+      mojo.internal.StructField('fd_handle', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('stride', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('offset', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('size', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: DmaBufVideoFrame
-chromeos_camera.mojom.DmaBufVideoFrameSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos_camera.mojom.DmaBufVideoFrame',
-      packedSize: 48,
-      fields: [
-        { name: 'format', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoPixelFormatSpec, nullable: false, minVersion: 0 },
-        { name: 'coded_width', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'coded_height', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'planes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(chromeos_camera.mojom.DmaBufPlaneSpec, false), nullable: false, minVersion: 0 },
-        { name: 'has_modifier', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 1 },
-        { name: 'modifier', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 1 },
-      ],
-      versions: [{version: 0, packedSize: 32}, {version: 1, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos_camera.mojom.DmaBufVideoFrameSpec, 'chromeos_camera.mojom.DmaBufVideoFrame', [
+      mojo.internal.StructField('format', 0, 0, media.mojom.VideoPixelFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('coded_width', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('coded_height', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('planes', 8, 0, mojo.internal.Array(chromeos_camera.mojom.DmaBufPlaneSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('has_modifier', 32, 0, mojo.internal.Bool, false, false, 1, undefined),
+      mojo.internal.StructField('modifier', 24, 0, mojo.internal.Uint64, 0, false, 1, undefined),
+    ],
+    [[0, 32], [1, 48]]);

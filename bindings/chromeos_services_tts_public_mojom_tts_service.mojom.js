@@ -9,53 +9,69 @@ var chromeos = chromeos || {};
 chromeos.tts = chromeos.tts || {};
 chromeos.tts.mojom = chromeos.tts.mojom || {};
 
+chromeos.tts.mojom.AudioParametersSpec = { $: {} };
+chromeos.tts.mojom.TtsService = {};
+chromeos.tts.mojom.TtsService.$interfaceName = 'chromeos.tts.mojom.TtsService';
+chromeos.tts.mojom.TtsService_BindGoogleTtsStream_ParamsSpec = { $: {} };
+chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec = { $: {} };
+chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec = { $: {} };
+chromeos.tts.mojom.GoogleTtsStream = {};
+chromeos.tts.mojom.GoogleTtsStream.$interfaceName = 'chromeos.tts.mojom.GoogleTtsStream';
+chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ParamsSpec = { $: {} };
+chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ResponseParamsSpec = { $: {} };
+chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ParamsSpec = { $: {} };
+chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ResponseParamsSpec = { $: {} };
+chromeos.tts.mojom.GoogleTtsStream_Speak_ParamsSpec = { $: {} };
+chromeos.tts.mojom.GoogleTtsStream_Speak_ResponseParamsSpec = { $: {} };
+chromeos.tts.mojom.GoogleTtsStream_Stop_ParamsSpec = { $: {} };
+chromeos.tts.mojom.GoogleTtsStream_SetVolume_ParamsSpec = { $: {} };
+chromeos.tts.mojom.GoogleTtsStream_Pause_ParamsSpec = { $: {} };
+chromeos.tts.mojom.GoogleTtsStream_Resume_ParamsSpec = { $: {} };
+chromeos.tts.mojom.PlaybackTtsStream = {};
+chromeos.tts.mojom.PlaybackTtsStream.$interfaceName = 'chromeos.tts.mojom.PlaybackTtsStream';
+chromeos.tts.mojom.PlaybackTtsStream_Play_ParamsSpec = { $: {} };
+chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParamsSpec = { $: {} };
+chromeos.tts.mojom.PlaybackTtsStream_SendAudioBuffer_ParamsSpec = { $: {} };
+chromeos.tts.mojom.PlaybackTtsStream_Stop_ParamsSpec = { $: {} };
+chromeos.tts.mojom.PlaybackTtsStream_SetVolume_ParamsSpec = { $: {} };
+chromeos.tts.mojom.PlaybackTtsStream_Pause_ParamsSpec = { $: {} };
+chromeos.tts.mojom.PlaybackTtsStream_Resume_ParamsSpec = { $: {} };
+chromeos.tts.mojom.TtsEventObserver = {};
+chromeos.tts.mojom.TtsEventObserver.$interfaceName = 'chromeos.tts.mojom.TtsEventObserver';
+chromeos.tts.mojom.TtsEventObserver_OnStart_ParamsSpec = { $: {} };
+chromeos.tts.mojom.TtsEventObserver_OnTimepoint_ParamsSpec = { $: {} };
+chromeos.tts.mojom.TtsEventObserver_OnEnd_ParamsSpec = { $: {} };
+chromeos.tts.mojom.TtsEventObserver_OnError_ParamsSpec = { $: {} };
 
 // Struct: AudioParameters
-chromeos.tts.mojom.AudioParametersSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.AudioParameters',
-      packedSize: 16,
-      fields: [
-        { name: 'sample_rate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'buffer_size', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.tts.mojom.AudioParametersSpec, 'chromeos.tts.mojom.AudioParameters', [
+      mojo.internal.StructField('sample_rate', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('buffer_size', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: TtsService
-chromeos.tts.mojom.TtsService = {};
+mojo.internal.Struct(
+    chromeos.tts.mojom.TtsService_BindGoogleTtsStream_ParamsSpec, 'chromeos.tts.mojom.TtsService_BindGoogleTtsStream_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(chromeos.tts.mojom.GoogleTtsStreamRemote), null, false, 0, undefined),
+      mojo.internal.StructField('stream_factory', 8, 0, mojo.internal.InterfaceProxy(media.mojom.AudioStreamFactoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chromeos.tts.mojom.TtsService_BindGoogleTtsStream_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.TtsService_BindGoogleTtsStream_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.tts.mojom.GoogleTtsStreamRemote), nullable: false, minVersion: 0 },
-        { name: 'stream_factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.AudioStreamFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec, 'chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(chromeos.tts.mojom.PlaybackTtsStreamRemote), null, false, 0, undefined),
+      mojo.internal.StructField('stream_factory', 8, 0, mojo.internal.InterfaceProxy(media.mojom.AudioStreamFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('desired_audio_parameters', 16, 0, chromeos.tts.mojom.AudioParametersSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
-chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.tts.mojom.PlaybackTtsStreamRemote), nullable: false, minVersion: 0 },
-        { name: 'stream_factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.AudioStreamFactoryRemote), nullable: false, minVersion: 0 },
-        { name: 'desired_audio_parameters', packedOffset: 16, packedBitOffset: 0, type: chromeos.tts.mojom.AudioParametersSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec, 'chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ResponseParams', [
+      mojo.internal.StructField('audio_parameters', 0, 0, chromeos.tts.mojom.AudioParametersSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromeos.tts.mojom.TtsServicePendingReceiver = class {
   constructor(handle) {
@@ -119,147 +135,69 @@ chromeos.tts.mojom.TtsService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BindGoogleTtsStream
-chromeos.tts.mojom.TtsService_BindGoogleTtsStream_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.TtsService.BindGoogleTtsStream_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.tts.mojom.GoogleTtsStreamRemote), nullable: false, minVersion: 0 },
-        { name: 'stream_factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.AudioStreamFactoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for BindPlaybackTtsStream
-chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.TtsService.BindPlaybackTtsStream_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.tts.mojom.PlaybackTtsStreamRemote), nullable: false, minVersion: 0 },
-        { name: 'stream_factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.AudioStreamFactoryRemote), nullable: false, minVersion: 0 },
-        { name: 'desired_audio_parameters', packedOffset: 16, packedBitOffset: 0, type: chromeos.tts.mojom.AudioParametersSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.TtsService.BindPlaybackTtsStream_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'audio_parameters', packedOffset: 0, packedBitOffset: 0, type: chromeos.tts.mojom.AudioParametersSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.tts.mojom.TtsServicePtr = chromeos.tts.mojom.TtsServiceRemote;
 chromeos.tts.mojom.TtsServiceRequest = chromeos.tts.mojom.TtsServicePendingReceiver;
 
 
 // Interface: GoogleTtsStream
-chromeos.tts.mojom.GoogleTtsStream = {};
+mojo.internal.Struct(
+    chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ParamsSpec, 'chromeos.tts.mojom.GoogleTtsStream_InstallVoice_Params', [
+      mojo.internal.StructField('voice_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('voice_bytes', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.GoogleTtsStream_InstallVoice_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'voice_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'voice_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ResponseParamsSpec, 'chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.GoogleTtsStream_SelectVoice_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'voice_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ParamsSpec, 'chromeos.tts.mojom.GoogleTtsStream_SelectVoice_Params', [
+      mojo.internal.StructField('voice_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.tts.mojom.GoogleTtsStream_Speak_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.GoogleTtsStream_Speak_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'text_jspb', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'speaker_params_jspb', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ResponseParamsSpec, 'chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.tts.mojom.GoogleTtsStream_Stop_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.GoogleTtsStream_Stop_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.tts.mojom.GoogleTtsStream_Speak_ParamsSpec, 'chromeos.tts.mojom.GoogleTtsStream_Speak_Params', [
+      mojo.internal.StructField('text_jspb', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('speaker_params_jspb', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chromeos.tts.mojom.GoogleTtsStream_SetVolume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.GoogleTtsStream_SetVolume_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.tts.mojom.GoogleTtsStream_Speak_ResponseParamsSpec, 'chromeos.tts.mojom.GoogleTtsStream_Speak_ResponseParams', [
+      mojo.internal.StructField('event_observer', 0, 0, mojo.internal.InterfaceRequest(chromeos.tts.mojom.TtsEventObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.tts.mojom.GoogleTtsStream_Pause_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.GoogleTtsStream_Pause_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.tts.mojom.GoogleTtsStream_Stop_ParamsSpec, 'chromeos.tts.mojom.GoogleTtsStream_Stop_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromeos.tts.mojom.GoogleTtsStream_Resume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.GoogleTtsStream_Resume_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.tts.mojom.GoogleTtsStream_SetVolume_ParamsSpec, 'chromeos.tts.mojom.GoogleTtsStream_SetVolume_Params', [
+      mojo.internal.StructField('volume', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.tts.mojom.GoogleTtsStream_Pause_ParamsSpec, 'chromeos.tts.mojom.GoogleTtsStream_Pause_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    chromeos.tts.mojom.GoogleTtsStream_Resume_ParamsSpec, 'chromeos.tts.mojom.GoogleTtsStream_Resume_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 chromeos.tts.mojom.GoogleTtsStreamPendingReceiver = class {
   constructor(handle) {
@@ -368,225 +306,50 @@ chromeos.tts.mojom.GoogleTtsStream.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for InstallVoice
-chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.GoogleTtsStream.InstallVoice_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'voice_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'voice_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.GoogleTtsStream.InstallVoice_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SelectVoice
-chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.GoogleTtsStream.SelectVoice_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'voice_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.GoogleTtsStream.SelectVoice_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Speak
-chromeos.tts.mojom.GoogleTtsStream_Speak_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.GoogleTtsStream.Speak_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'text_jspb', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'speaker_params_jspb', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-chromeos.tts.mojom.GoogleTtsStream_Speak_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.GoogleTtsStream.Speak_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'event_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.tts.mojom.TtsEventObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Stop
-chromeos.tts.mojom.GoogleTtsStream_Stop_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.GoogleTtsStream.Stop_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetVolume
-chromeos.tts.mojom.GoogleTtsStream_SetVolume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.GoogleTtsStream.SetVolume_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Pause
-chromeos.tts.mojom.GoogleTtsStream_Pause_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.GoogleTtsStream.Pause_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Resume
-chromeos.tts.mojom.GoogleTtsStream_Resume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.GoogleTtsStream.Resume_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.tts.mojom.GoogleTtsStreamPtr = chromeos.tts.mojom.GoogleTtsStreamRemote;
 chromeos.tts.mojom.GoogleTtsStreamRequest = chromeos.tts.mojom.GoogleTtsStreamPendingReceiver;
 
 
 // Interface: PlaybackTtsStream
-chromeos.tts.mojom.PlaybackTtsStream = {};
+mojo.internal.Struct(
+    chromeos.tts.mojom.PlaybackTtsStream_Play_ParamsSpec, 'chromeos.tts.mojom.PlaybackTtsStream_Play_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromeos.tts.mojom.PlaybackTtsStream_Play_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.PlaybackTtsStream_Play_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParamsSpec, 'chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParams', [
+      mojo.internal.StructField('event_observer', 0, 0, mojo.internal.InterfaceRequest(chromeos.tts.mojom.TtsEventObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.tts.mojom.PlaybackTtsStream_SendAudioBuffer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.PlaybackTtsStream_SendAudioBuffer_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'frames_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Float, false), nullable: false, minVersion: 0 },
-        { name: 'char_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'last_buffer', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.tts.mojom.PlaybackTtsStream_SendAudioBuffer_ParamsSpec, 'chromeos.tts.mojom.PlaybackTtsStream_SendAudioBuffer_Params', [
+      mojo.internal.StructField('frames_buffer', 0, 0, mojo.internal.Array(mojo.internal.Float, false), null, false, 0, undefined),
+      mojo.internal.StructField('char_index', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('last_buffer', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chromeos.tts.mojom.PlaybackTtsStream_Stop_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.PlaybackTtsStream_Stop_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.tts.mojom.PlaybackTtsStream_Stop_ParamsSpec, 'chromeos.tts.mojom.PlaybackTtsStream_Stop_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromeos.tts.mojom.PlaybackTtsStream_SetVolume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.PlaybackTtsStream_SetVolume_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.tts.mojom.PlaybackTtsStream_SetVolume_ParamsSpec, 'chromeos.tts.mojom.PlaybackTtsStream_SetVolume_Params', [
+      mojo.internal.StructField('volume', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.tts.mojom.PlaybackTtsStream_Pause_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.PlaybackTtsStream_Pause_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.tts.mojom.PlaybackTtsStream_Pause_ParamsSpec, 'chromeos.tts.mojom.PlaybackTtsStream_Pause_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromeos.tts.mojom.PlaybackTtsStream_Resume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.PlaybackTtsStream_Resume_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.tts.mojom.PlaybackTtsStream_Resume_ParamsSpec, 'chromeos.tts.mojom.PlaybackTtsStream_Resume_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 chromeos.tts.mojom.PlaybackTtsStreamPendingReceiver = class {
   constructor(handle) {
@@ -686,157 +449,31 @@ chromeos.tts.mojom.PlaybackTtsStream.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Play
-chromeos.tts.mojom.PlaybackTtsStream_Play_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.PlaybackTtsStream.Play_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.PlaybackTtsStream.Play_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'event_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.tts.mojom.TtsEventObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SendAudioBuffer
-chromeos.tts.mojom.PlaybackTtsStream_SendAudioBuffer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.PlaybackTtsStream.SendAudioBuffer_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'frames_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Float, false), nullable: false, minVersion: 0 },
-        { name: 'char_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'last_buffer', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Stop
-chromeos.tts.mojom.PlaybackTtsStream_Stop_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.PlaybackTtsStream.Stop_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetVolume
-chromeos.tts.mojom.PlaybackTtsStream_SetVolume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.PlaybackTtsStream.SetVolume_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Pause
-chromeos.tts.mojom.PlaybackTtsStream_Pause_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.PlaybackTtsStream.Pause_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Resume
-chromeos.tts.mojom.PlaybackTtsStream_Resume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.PlaybackTtsStream.Resume_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.tts.mojom.PlaybackTtsStreamPtr = chromeos.tts.mojom.PlaybackTtsStreamRemote;
 chromeos.tts.mojom.PlaybackTtsStreamRequest = chromeos.tts.mojom.PlaybackTtsStreamPendingReceiver;
 
 
 // Interface: TtsEventObserver
-chromeos.tts.mojom.TtsEventObserver = {};
+mojo.internal.Struct(
+    chromeos.tts.mojom.TtsEventObserver_OnStart_ParamsSpec, 'chromeos.tts.mojom.TtsEventObserver_OnStart_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromeos.tts.mojom.TtsEventObserver_OnStart_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.TtsEventObserver_OnStart_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.tts.mojom.TtsEventObserver_OnTimepoint_ParamsSpec, 'chromeos.tts.mojom.TtsEventObserver_OnTimepoint_Params', [
+      mojo.internal.StructField('char_index', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.tts.mojom.TtsEventObserver_OnTimepoint_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.TtsEventObserver_OnTimepoint_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'char_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.tts.mojom.TtsEventObserver_OnEnd_ParamsSpec, 'chromeos.tts.mojom.TtsEventObserver_OnEnd_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromeos.tts.mojom.TtsEventObserver_OnEnd_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.TtsEventObserver_OnEnd_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromeos.tts.mojom.TtsEventObserver_OnError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.TtsEventObserver_OnError_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.tts.mojom.TtsEventObserver_OnError_ParamsSpec, 'chromeos.tts.mojom.TtsEventObserver_OnError_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 chromeos.tts.mojom.TtsEventObserverPendingReceiver = class {
   constructor(handle) {
@@ -918,60 +555,6 @@ chromeos.tts.mojom.TtsEventObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnStart
-chromeos.tts.mojom.TtsEventObserver_OnStart_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.TtsEventObserver.OnStart_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnTimepoint
-chromeos.tts.mojom.TtsEventObserver_OnTimepoint_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.TtsEventObserver.OnTimepoint_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'char_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnEnd
-chromeos.tts.mojom.TtsEventObserver_OnEnd_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.TtsEventObserver.OnEnd_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnError
-chromeos.tts.mojom.TtsEventObserver_OnError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.tts.mojom.TtsEventObserver.OnError_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.tts.mojom.TtsEventObserverPtr = chromeos.tts.mojom.TtsEventObserverRemote;
 chromeos.tts.mojom.TtsEventObserverRequest = chromeos.tts.mojom.TtsEventObserverPendingReceiver;
 

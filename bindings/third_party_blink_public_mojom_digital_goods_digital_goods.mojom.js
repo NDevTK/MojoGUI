@@ -7,60 +7,72 @@
 // Module namespace
 var payments = payments || {};
 payments.mojom = payments.mojom || {};
+var components = components || {};
 
+payments.mojom.DigitalGoods = {};
+payments.mojom.DigitalGoods.$interfaceName = 'payments.mojom.DigitalGoods';
+payments.mojom.DigitalGoods_GetDetails_ParamsSpec = { $: {} };
+payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec = { $: {} };
+payments.mojom.DigitalGoods_ListPurchases_ParamsSpec = { $: {} };
+payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec = { $: {} };
+payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec = { $: {} };
+payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec = { $: {} };
+payments.mojom.DigitalGoods_Consume_ParamsSpec = { $: {} };
+payments.mojom.DigitalGoods_Consume_ResponseParamsSpec = { $: {} };
+payments.mojom.DigitalGoodsFactory = {};
+payments.mojom.DigitalGoodsFactory.$interfaceName = 'payments.mojom.DigitalGoodsFactory';
+payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec = { $: {} };
+payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec = { $: {} };
 
 // Interface: DigitalGoods
-payments.mojom.DigitalGoods = {};
+mojo.internal.Struct(
+    payments.mojom.DigitalGoods_GetDetails_ParamsSpec, 'payments.mojom.DigitalGoods_GetDetails_Params', [
+      mojo.internal.StructField('item_ids', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-payments.mojom.DigitalGoods_GetDetails_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.DigitalGoods_GetDetails_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'item_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec, 'payments.mojom.DigitalGoods_GetDetails_ResponseParams', [
+      mojo.internal.StructField('code', 8, 0, payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('item_details_list', 0, 0, mojo.internal.Array(payments.mojom.ItemDetailsSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-payments.mojom.DigitalGoods_ListPurchases_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.DigitalGoods_ListPurchases_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    payments.mojom.DigitalGoods_ListPurchases_ParamsSpec, 'payments.mojom.DigitalGoods_ListPurchases_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.DigitalGoods_ListPurchaseHistory_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec, 'payments.mojom.DigitalGoods_ListPurchases_ResponseParams', [
+      mojo.internal.StructField('code', 8, 0, payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('purchase_reference_list', 0, 0, mojo.internal.Array(payments.mojom.PurchaseReferenceSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-payments.mojom.DigitalGoods_Consume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.DigitalGoods_Consume_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'purchase_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec, 'payments.mojom.DigitalGoods_ListPurchaseHistory_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec, 'payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParams', [
+      mojo.internal.StructField('code', 8, 0, payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('purchase_reference_list', 0, 0, mojo.internal.Array(payments.mojom.PurchaseReferenceSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    payments.mojom.DigitalGoods_Consume_ParamsSpec, 'payments.mojom.DigitalGoods_Consume_Params', [
+      mojo.internal.StructField('purchase_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    payments.mojom.DigitalGoods_Consume_ResponseParamsSpec, 'payments.mojom.DigitalGoods_Consume_ResponseParams', [
+      mojo.internal.StructField('code', 0, 0, payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 payments.mojom.DigitalGoodsPendingReceiver = class {
   constructor(handle) {
@@ -142,135 +154,23 @@ payments.mojom.DigitalGoods.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetDetails
-payments.mojom.DigitalGoods_GetDetails_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.DigitalGoods.GetDetails_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'item_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.DigitalGoods.GetDetails_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.BillingResponseCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'item_details_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(payments.mojom.ItemDetailsSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ListPurchases
-payments.mojom.DigitalGoods_ListPurchases_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.DigitalGoods.ListPurchases_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.DigitalGoods.ListPurchases_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.BillingResponseCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'purchase_reference_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(payments.mojom.PurchaseReferenceSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ListPurchaseHistory
-payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.DigitalGoods.ListPurchaseHistory_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.DigitalGoods.ListPurchaseHistory_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.BillingResponseCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'purchase_reference_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(payments.mojom.PurchaseReferenceSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Consume
-payments.mojom.DigitalGoods_Consume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.DigitalGoods.Consume_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'purchase_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-payments.mojom.DigitalGoods_Consume_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.DigitalGoods.Consume_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.BillingResponseCodeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 payments.mojom.DigitalGoodsPtr = payments.mojom.DigitalGoodsRemote;
 payments.mojom.DigitalGoodsRequest = payments.mojom.DigitalGoodsPendingReceiver;
 
 
 // Interface: DigitalGoodsFactory
-payments.mojom.DigitalGoodsFactory = {};
+mojo.internal.Struct(
+    payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec, 'payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_Params', [
+      mojo.internal.StructField('payment_method', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'payment_method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec, 'payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParams', [
+      mojo.internal.StructField('code', 8, 0, payments.mojom.CreateDigitalGoodsResponseCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('digital_goods', 0, 0, mojo.internal.InterfaceProxy(payments.mojom.DigitalGoodsRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 payments.mojom.DigitalGoodsFactoryPendingReceiver = class {
   constructor(handle) {
@@ -325,35 +225,6 @@ payments.mojom.DigitalGoodsFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateDigitalGoods
-payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.DigitalGoodsFactory.CreateDigitalGoods_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'payment_method', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'payments.mojom.DigitalGoodsFactory.CreateDigitalGoods_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.CreateDigitalGoodsResponseCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'digital_goods', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(payments.mojom.DigitalGoodsRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 payments.mojom.DigitalGoodsFactoryPtr = payments.mojom.DigitalGoodsFactoryRemote;
 payments.mojom.DigitalGoodsFactoryRequest = payments.mojom.DigitalGoodsFactoryPendingReceiver;
 

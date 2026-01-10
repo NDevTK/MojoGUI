@@ -11,6 +11,17 @@ var ui = ui || {};
 var gfx = gfx || {};
 var skia = skia || {};
 
+lens.mojom.WritingDirectionSpec = { $: mojo.internal.Enum() };
+lens.mojom.AlignmentSpec = { $: mojo.internal.Enum() };
+lens.mojom.TextSpec = { $: {} };
+lens.mojom.TextLayoutSpec = { $: {} };
+lens.mojom.WordSpec = { $: {} };
+lens.mojom.LineSpec = { $: {} };
+lens.mojom.BackgroundImageDataSpec = { $: {} };
+lens.mojom.TranslatedLineSpec = { $: {} };
+lens.mojom.TranslatedParagraphSpec = { $: {} };
+lens.mojom.ParagraphSpec = { $: {} };
+lens.mojom.FormulaMetadataSpec = { $: {} };
 
 // Enum: WritingDirection
 lens.mojom.WritingDirection = {
@@ -18,7 +29,6 @@ lens.mojom.WritingDirection = {
   kRightToLeft: 1,
   kTopToBottom: 2,
 };
-lens.mojom.WritingDirectionSpec = { $: mojo.internal.Enum() };
 
 // Enum: Alignment
 lens.mojom.Alignment = {
@@ -26,153 +36,89 @@ lens.mojom.Alignment = {
   kRightAligned: 1,
   kCenterAligned: 2,
 };
-lens.mojom.AlignmentSpec = { $: mojo.internal.Enum() };
 
 // Struct: Text
-lens.mojom.TextSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.Text',
-      packedSize: 24,
-      fields: [
-        { name: 'text_layout', packedOffset: 0, packedBitOffset: 0, type: lens.mojom.TextLayoutSpec, nullable: true, minVersion: 0 },
-        { name: 'content_language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.TextSpec, 'lens.mojom.Text', [
+      mojo.internal.StructField('text_layout', 0, 0, lens.mojom.TextLayoutSpec, null, true, 0, undefined),
+      mojo.internal.StructField('content_language', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: TextLayout
-lens.mojom.TextLayoutSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.TextLayout',
-      packedSize: 16,
-      fields: [
-        { name: 'paragraphs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(lens.mojom.ParagraphSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.TextLayoutSpec, 'lens.mojom.TextLayout', [
+      mojo.internal.StructField('paragraphs', 0, 0, mojo.internal.Array(lens.mojom.ParagraphSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: Word
-lens.mojom.WordSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.Word',
-      packedSize: 48,
-      fields: [
-        { name: 'plain_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'text_separator', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'geometry', packedOffset: 16, packedBitOffset: 0, type: lens.mojom.GeometrySpec, nullable: true, minVersion: 0 },
-        { name: 'writing_direction', packedOffset: 32, packedBitOffset: 0, type: lens.mojom.WritingDirectionSpec, nullable: true, minVersion: 0 },
-        { name: 'formula_metadata', packedOffset: 24, packedBitOffset: 0, type: lens.mojom.FormulaMetadataSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.WordSpec, 'lens.mojom.Word', [
+      mojo.internal.StructField('plain_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('text_separator', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('geometry', 16, 0, lens.mojom.GeometrySpec, null, true, 0, undefined),
+      mojo.internal.StructField('writing_direction', 32, 0, lens.mojom.WritingDirectionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('formula_metadata', 24, 0, lens.mojom.FormulaMetadataSpec, null, true, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: Line
-lens.mojom.LineSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.Line',
-      packedSize: 24,
-      fields: [
-        { name: 'words', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(lens.mojom.WordSpec, false), nullable: false, minVersion: 0 },
-        { name: 'geometry', packedOffset: 8, packedBitOffset: 0, type: lens.mojom.GeometrySpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.LineSpec, 'lens.mojom.Line', [
+      mojo.internal.StructField('words', 0, 0, mojo.internal.Array(lens.mojom.WordSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('geometry', 8, 0, lens.mojom.GeometrySpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: BackgroundImageData
-lens.mojom.BackgroundImageDataSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.BackgroundImageData',
-      packedSize: 56,
-      fields: [
-        { name: 'background_image', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-        { name: 'image_size', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'vertical_padding', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'horizontal_padding', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'text_mask', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.BackgroundImageDataSpec, 'lens.mojom.BackgroundImageData', [
+      mojo.internal.StructField('background_image', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('image_size', 32, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('vertical_padding', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('horizontal_padding', 44, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('text_mask', 16, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: TranslatedLine
-lens.mojom.TranslatedLineSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.TranslatedLine',
-      packedSize: 56,
-      fields: [
-        { name: 'words', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(lens.mojom.WordSpec, false), nullable: false, minVersion: 0 },
-        { name: 'translation', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'text_color', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-        { name: 'background_primary_color', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-        { name: 'background_image_data', packedOffset: 32, packedBitOffset: 0, type: lens.mojom.BackgroundImageDataSpec, nullable: true, minVersion: 0 },
-        { name: 'geometry', packedOffset: 40, packedBitOffset: 0, type: lens.mojom.GeometrySpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.TranslatedLineSpec, 'lens.mojom.TranslatedLine', [
+      mojo.internal.StructField('words', 0, 0, mojo.internal.Array(lens.mojom.WordSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('translation', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('text_color', 16, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('background_primary_color', 24, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('background_image_data', 32, 0, lens.mojom.BackgroundImageDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('geometry', 40, 0, lens.mojom.GeometrySpec, null, true, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: TranslatedParagraph
-lens.mojom.TranslatedParagraphSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.TranslatedParagraph',
-      packedSize: 40,
-      fields: [
-        { name: 'lines', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(lens.mojom.TranslatedLineSpec, false), nullable: false, minVersion: 0 },
-        { name: 'resized_bitmap_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'alignment', packedOffset: 24, packedBitOffset: 0, type: lens.mojom.AlignmentSpec, nullable: true, minVersion: 0 },
-        { name: 'writing_direction', packedOffset: 28, packedBitOffset: 0, type: lens.mojom.WritingDirectionSpec, nullable: true, minVersion: 0 },
-        { name: 'content_language', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.TranslatedParagraphSpec, 'lens.mojom.TranslatedParagraph', [
+      mojo.internal.StructField('lines', 0, 0, mojo.internal.Array(lens.mojom.TranslatedLineSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('resized_bitmap_size', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('alignment', 24, 0, lens.mojom.AlignmentSpec, null, true, 0, undefined),
+      mojo.internal.StructField('writing_direction', 28, 0, lens.mojom.WritingDirectionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('content_language', 16, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: Paragraph
-lens.mojom.ParagraphSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.Paragraph',
-      packedSize: 48,
-      fields: [
-        { name: 'lines', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(lens.mojom.LineSpec, false), nullable: false, minVersion: 0 },
-        { name: 'translation', packedOffset: 8, packedBitOffset: 0, type: lens.mojom.TranslatedParagraphSpec, nullable: true, minVersion: 0 },
-        { name: 'geometry', packedOffset: 16, packedBitOffset: 0, type: lens.mojom.GeometrySpec, nullable: true, minVersion: 0 },
-        { name: 'writing_direction', packedOffset: 32, packedBitOffset: 0, type: lens.mojom.WritingDirectionSpec, nullable: true, minVersion: 0 },
-        { name: 'content_language', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.ParagraphSpec, 'lens.mojom.Paragraph', [
+      mojo.internal.StructField('lines', 0, 0, mojo.internal.Array(lens.mojom.LineSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('translation', 8, 0, lens.mojom.TranslatedParagraphSpec, null, true, 0, undefined),
+      mojo.internal.StructField('geometry', 16, 0, lens.mojom.GeometrySpec, null, true, 0, undefined),
+      mojo.internal.StructField('writing_direction', 32, 0, lens.mojom.WritingDirectionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('content_language', 24, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: FormulaMetadata
-lens.mojom.FormulaMetadataSpec = {
-  $: {
-    structSpec: {
-      name: 'lens.mojom.FormulaMetadata',
-      packedSize: 16,
-      fields: [
-        { name: 'latex', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    lens.mojom.FormulaMetadataSpec, 'lens.mojom.FormulaMetadata', [
+      mojo.internal.StructField('latex', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);

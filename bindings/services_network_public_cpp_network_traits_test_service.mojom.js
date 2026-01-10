@@ -7,23 +7,25 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
 
+network.mojom.TraitsTestService = {};
+network.mojom.TraitsTestService.$interfaceName = 'network.mojom.TraitsTestService';
+network.mojom.TraitsTestService_EchoHttpRequestHeaders_ParamsSpec = { $: {} };
+network.mojom.TraitsTestService_EchoHttpRequestHeaders_ResponseParamsSpec = { $: {} };
 
 // Interface: TraitsTestService
-network.mojom.TraitsTestService = {};
+mojo.internal.Struct(
+    network.mojom.TraitsTestService_EchoHttpRequestHeaders_ParamsSpec, 'network.mojom.TraitsTestService_EchoHttpRequestHeaders_Params', [
+      mojo.internal.StructField('headers', 0, 0, network.mojom.HttpRequestHeadersSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.TraitsTestService_EchoHttpRequestHeaders_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.TraitsTestService_EchoHttpRequestHeaders_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'headers', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HttpRequestHeadersSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.TraitsTestService_EchoHttpRequestHeaders_ResponseParamsSpec, 'network.mojom.TraitsTestService_EchoHttpRequestHeaders_ResponseParams', [
+      mojo.internal.StructField('pass', 0, 0, network.mojom.HttpRequestHeadersSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.TraitsTestServicePendingReceiver = class {
   constructor(handle) {
@@ -78,34 +80,6 @@ network.mojom.TraitsTestService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for EchoHttpRequestHeaders
-network.mojom.TraitsTestService_EchoHttpRequestHeaders_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.TraitsTestService.EchoHttpRequestHeaders_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'headers', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HttpRequestHeadersSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-network.mojom.TraitsTestService_EchoHttpRequestHeaders_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.TraitsTestService.EchoHttpRequestHeaders_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HttpRequestHeadersSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.TraitsTestServicePtr = network.mojom.TraitsTestServiceRemote;
 network.mojom.TraitsTestServiceRequest = network.mojom.TraitsTestServicePendingReceiver;
 

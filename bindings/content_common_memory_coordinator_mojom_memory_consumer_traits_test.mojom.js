@@ -9,22 +9,23 @@ var content = content || {};
 content.mojom = content.mojom || {};
 var content = content || {};
 
+content.mojom.MemoryConsumerTraitsTest = {};
+content.mojom.MemoryConsumerTraitsTest.$interfaceName = 'content.mojom.MemoryConsumerTraitsTest';
+content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ParamsSpec = { $: {} };
+content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParamsSpec = { $: {} };
 
 // Interface: MemoryConsumerTraitsTest
-content.mojom.MemoryConsumerTraitsTest = {};
+mojo.internal.Struct(
+    content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ParamsSpec, 'content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_Params', [
+      mojo.internal.StructField('in', 0, 0, content.mojom.MemoryConsumerTraitsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: content.mojom.MemoryConsumerTraitsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParamsSpec, 'content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParams', [
+      mojo.internal.StructField('out', 0, 0, content.mojom.MemoryConsumerTraitsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 content.mojom.MemoryConsumerTraitsTestPendingReceiver = class {
   constructor(handle) {
@@ -79,34 +80,6 @@ content.mojom.MemoryConsumerTraitsTest.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for EchoMemoryConsumerTraits
-content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MemoryConsumerTraitsTest.EchoMemoryConsumerTraits_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'in', packedOffset: 0, packedBitOffset: 0, type: content.mojom.MemoryConsumerTraitsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content.mojom.MemoryConsumerTraitsTest.EchoMemoryConsumerTraits_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'out', packedOffset: 0, packedBitOffset: 0, type: content.mojom.MemoryConsumerTraitsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 content.mojom.MemoryConsumerTraitsTestPtr = content.mojom.MemoryConsumerTraitsTestRemote;
 content.mojom.MemoryConsumerTraitsTestRequest = content.mojom.MemoryConsumerTraitsTestPendingReceiver;
 

@@ -8,22 +8,16 @@
 var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
 
+extensions.mojom.AppWindow = {};
+extensions.mojom.AppWindow.$interfaceName = 'extensions.mojom.AppWindow';
+extensions.mojom.AppWindow_SetVisuallyDeemphasized_ParamsSpec = { $: {} };
 
 // Interface: AppWindow
-extensions.mojom.AppWindow = {};
-
-extensions.mojom.AppWindow_SetVisuallyDeemphasized_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.AppWindow_SetVisuallyDeemphasized_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'deemphasized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mojom.AppWindow_SetVisuallyDeemphasized_ParamsSpec, 'extensions.mojom.AppWindow_SetVisuallyDeemphasized_Params', [
+      mojo.internal.StructField('deemphasized', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 extensions.mojom.AppWindowPendingReceiver = class {
   constructor(handle) {
@@ -78,21 +72,6 @@ extensions.mojom.AppWindow.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetVisuallyDeemphasized
-extensions.mojom.AppWindow_SetVisuallyDeemphasized_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.AppWindow.SetVisuallyDeemphasized_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'deemphasized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 extensions.mojom.AppWindowPtr = extensions.mojom.AppWindowRemote;
 extensions.mojom.AppWindowRequest = extensions.mojom.AppWindowPendingReceiver;
 

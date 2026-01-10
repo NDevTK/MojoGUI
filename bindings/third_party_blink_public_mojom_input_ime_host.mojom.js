@@ -11,70 +11,46 @@ var skia = skia || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+blink.mojom.EditorBoundsInfoSpec = { $: {} };
+blink.mojom.TextAppearanceInfoSpec = { $: {} };
+blink.mojom.InputCursorAnchorInfoSpec = { $: {} };
+blink.mojom.ImeRenderWidgetHost = {};
+blink.mojom.ImeRenderWidgetHost.$interfaceName = 'blink.mojom.ImeRenderWidgetHost';
+blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec = { $: {} };
 
 // Struct: EditorBoundsInfo
-blink.mojom.EditorBoundsInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.EditorBoundsInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'editor_bounds', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-        { name: 'handwriting_bounds', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.EditorBoundsInfoSpec, 'blink.mojom.EditorBoundsInfo', [
+      mojo.internal.StructField('editor_bounds', 0, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('handwriting_bounds', 8, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: TextAppearanceInfo
-blink.mojom.TextAppearanceInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TextAppearanceInfo',
-      packedSize: 16,
-      fields: [
-        { name: 'text_color', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.TextAppearanceInfoSpec, 'blink.mojom.TextAppearanceInfo', [
+      mojo.internal.StructField('text_color', 0, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: InputCursorAnchorInfo
-blink.mojom.InputCursorAnchorInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.InputCursorAnchorInfo',
-      packedSize: 56,
-      fields: [
-        { name: 'character_bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.RectSpec, false), nullable: false, minVersion: 0 },
-        { name: 'editor_bounds_info', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.EditorBoundsInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'text_appearance_info', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.TextAppearanceInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'visible_line_bounds', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.RectSpec, false), nullable: false, minVersion: 0 },
-        { name: 'insertion_marker', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true, minVersion: 0 },
-        { name: 'requested', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.InputCursorAnchorInfoSpec, 'blink.mojom.InputCursorAnchorInfo', [
+      mojo.internal.StructField('character_bounds', 0, 0, mojo.internal.Array(gfx.mojom.RectSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('editor_bounds_info', 8, 0, blink.mojom.EditorBoundsInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('text_appearance_info', 16, 0, blink.mojom.TextAppearanceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('visible_line_bounds', 24, 0, mojo.internal.Array(gfx.mojom.RectSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('insertion_marker', 32, 0, gfx.mojom.RectSpec, null, true, 0, undefined),
+      mojo.internal.StructField('requested', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Interface: ImeRenderWidgetHost
-blink.mojom.ImeRenderWidgetHost = {};
-
-blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'cursor_anchor_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.InputCursorAnchorInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec, 'blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_Params', [
+      mojo.internal.StructField('cursor_anchor_info', 0, 0, blink.mojom.InputCursorAnchorInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.ImeRenderWidgetHostPendingReceiver = class {
   constructor(handle) {
@@ -129,21 +105,6 @@ blink.mojom.ImeRenderWidgetHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for UpdateCursorAnchorInfo
-blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ImeRenderWidgetHost.UpdateCursorAnchorInfo_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'cursor_anchor_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.InputCursorAnchorInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.ImeRenderWidgetHostPtr = blink.mojom.ImeRenderWidgetHostRemote;
 blink.mojom.ImeRenderWidgetHostRequest = blink.mojom.ImeRenderWidgetHostPendingReceiver;
 

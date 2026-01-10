@@ -8,13 +8,15 @@
 var ui = ui || {};
 ui.mojom = ui.mojom || {};
 
+ui.mojom.WindowShowStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: WindowShowState
 ui.mojom.WindowShowState = {
-  kNormal: 0,
-  kMinimized: 1,
-  kMaximized: 2,
-  kInactive: 3,
-  kFullscreen: 4,
+  kDefault: 0,
+  kNormal: 1,
+  kMinimized: 2,
+  kMaximized: 3,
+  kInactive: 4,
+  kFullscreen: 5,
+  MinVersion: 5,
 };
-ui.mojom.WindowShowStateSpec = { $: mojo.internal.Enum() };

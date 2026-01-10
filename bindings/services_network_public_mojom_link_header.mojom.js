@@ -7,8 +7,13 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
 var url = url || {};
 
+network.mojom.LinkRelAttributeSpec = { $: mojo.internal.Enum() };
+network.mojom.LinkAsAttributeSpec = { $: mojo.internal.Enum() };
+network.mojom.CrossOriginAttributeSpec = { $: mojo.internal.Enum() };
+network.mojom.LinkHeaderSpec = { $: {} };
 
 // Enum: LinkRelAttribute
 network.mojom.LinkRelAttribute = {
@@ -17,7 +22,6 @@ network.mojom.LinkRelAttribute = {
   kPreload: 2,
   kModulePreload: 3,
 };
-network.mojom.LinkRelAttributeSpec = { $: mojo.internal.Enum() };
 
 // Enum: LinkAsAttribute
 network.mojom.LinkAsAttribute = {
@@ -28,7 +32,6 @@ network.mojom.LinkAsAttribute = {
   kStyleSheet: 4,
   kFetch: 5,
 };
-network.mojom.LinkAsAttributeSpec = { $: mojo.internal.Enum() };
 
 // Enum: CrossOriginAttribute
 network.mojom.CrossOriginAttribute = {
@@ -36,23 +39,15 @@ network.mojom.CrossOriginAttribute = {
   kAnonymous: 1,
   kUseCredentials: 2,
 };
-network.mojom.CrossOriginAttributeSpec = { $: mojo.internal.Enum() };
 
 // Struct: LinkHeader
-network.mojom.LinkHeaderSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.LinkHeader',
-      packedSize: 40,
-      fields: [
-        { name: 'href', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'rel', packedOffset: 16, packedBitOffset: 0, type: network.mojom.LinkRelAttributeSpec, nullable: false, minVersion: 0 },
-        { name: 'as', packedOffset: 20, packedBitOffset: 0, type: network.mojom.LinkAsAttributeSpec, nullable: false, minVersion: 0 },
-        { name: 'cross_origin', packedOffset: 24, packedBitOffset: 0, type: network.mojom.CrossOriginAttributeSpec, nullable: false, minVersion: 0 },
-        { name: 'fetch_priority', packedOffset: 28, packedBitOffset: 0, type: network.mojom.FetchPriorityAttributeSpec, nullable: false, minVersion: 0 },
-        { name: 'mime_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.LinkHeaderSpec, 'network.mojom.LinkHeader', [
+      mojo.internal.StructField('href', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('rel', 16, 0, network.mojom.LinkRelAttributeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('as', 20, 0, network.mojom.LinkAsAttributeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cross_origin', 24, 0, network.mojom.CrossOriginAttributeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('fetch_priority', 28, 0, network.mojom.FetchPriorityAttributeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mime_type', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 40]]);

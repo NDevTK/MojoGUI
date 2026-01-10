@@ -12,6 +12,13 @@ var ui = ui || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+ax.mojom.SyntheticMouseEventButtonSpec = { $: mojo.internal.Enum() };
+ax.mojom.SyntheticKeyEventSpec = { $: {} };
+ax.mojom.SyntheticMouseEventSpec = { $: {} };
+ax.mojom.UserInput = {};
+ax.mojom.UserInput.$interfaceName = 'ax.mojom.UserInput';
+ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec = { $: {} };
+ax.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec = { $: {} };
 
 // Enum: SyntheticMouseEventButton
 ax.mojom.SyntheticMouseEventButton = {
@@ -21,70 +28,39 @@ ax.mojom.SyntheticMouseEventButton = {
   kBack: 3,
   kForward: 4,
 };
-ax.mojom.SyntheticMouseEventButtonSpec = { $: mojo.internal.Enum() };
 
 // Struct: SyntheticKeyEvent
-ax.mojom.SyntheticKeyEventSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.SyntheticKeyEvent',
-      packedSize: 24,
-      fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.EventTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'key_data', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.KeyDataSpec, nullable: false, minVersion: 0 },
-        { name: 'flags', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.SyntheticKeyEventSpec, 'ax.mojom.SyntheticKeyEvent', [
+      mojo.internal.StructField('type', 8, 0, ui.mojom.EventTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('key_data', 0, 0, ui.mojom.KeyDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('flags', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: SyntheticMouseEvent
-ax.mojom.SyntheticMouseEventSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.SyntheticMouseEvent',
-      packedSize: 32,
-      fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.EventTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-        { name: 'mouse_button', packedOffset: 12, packedBitOffset: 0, type: ax.mojom.SyntheticMouseEventButtonSpec, nullable: true, minVersion: 0 },
-        { name: 'touch_accessibility_$flag', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'touch_accessibility_$value', originalFieldName: 'touch_accessibility' } },
-        { name: 'touch_accessibility_$value', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'touch_accessibility_$flag', originalFieldName: 'touch_accessibility' } },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.SyntheticMouseEventSpec, 'ax.mojom.SyntheticMouseEvent', [
+      mojo.internal.StructField('type', 8, 0, ui.mojom.EventTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('point', 0, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mouse_button', 12, 0, ax.mojom.SyntheticMouseEventButtonSpec, null, true, 0, undefined),
+      mojo.internal.StructField('touch_accessibility_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'touch_accessibility_$value', originalFieldName: 'touch_accessibility' }),
+      mojo.internal.StructField('touch_accessibility_$value', 16, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'touch_accessibility_$flag', originalFieldName: 'touch_accessibility' }),
+    ],
+    [[0, 32]]);
 
 // Interface: UserInput
-ax.mojom.UserInput = {};
+mojo.internal.Struct(
+    ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec, 'ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_Params', [
+      mojo.internal.StructField('key_event', 0, 0, ax.mojom.SyntheticKeyEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key_event', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.SyntheticKeyEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ax.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.UserInput_SendSyntheticMouseEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mouse_event', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.SyntheticMouseEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec, 'ax.mojom.UserInput_SendSyntheticMouseEvent_Params', [
+      mojo.internal.StructField('mouse_event', 0, 0, ax.mojom.SyntheticMouseEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ax.mojom.UserInputPendingReceiver = class {
   constructor(handle) {
@@ -148,35 +124,6 @@ ax.mojom.UserInput.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SendSyntheticKeyEventForShortcutOrNavigation
-ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.UserInput.SendSyntheticKeyEventForShortcutOrNavigation_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'key_event', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.SyntheticKeyEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SendSyntheticMouseEvent
-ax.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.UserInput.SendSyntheticMouseEvent_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mouse_event', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.SyntheticMouseEventSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ax.mojom.UserInputPtr = ax.mojom.UserInputRemote;
 ax.mojom.UserInputRequest = ax.mojom.UserInputPendingReceiver;
 

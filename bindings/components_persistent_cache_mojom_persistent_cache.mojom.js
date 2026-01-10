@@ -8,36 +8,24 @@
 var persistent_cache = persistent_cache || {};
 persistent_cache.mojom = persistent_cache.mojom || {};
 
+persistent_cache.mojom.PendingReadOnlyBackendSpec = { $: {} };
+persistent_cache.mojom.PendingReadWriteBackendSpec = { $: {} };
 
 // Struct: PendingReadOnlyBackend
-persistent_cache.mojom.PendingReadOnlyBackendSpec = {
-  $: {
-    structSpec: {
-      name: 'persistent_cache.mojom.PendingReadOnlyBackend',
-      packedSize: 32,
-      fields: [
-        { name: 'db_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'journal_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'shared_lock', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    persistent_cache.mojom.PendingReadOnlyBackendSpec, 'persistent_cache.mojom.PendingReadOnlyBackend', [
+      mojo.internal.StructField('db_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('journal_file', 8, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('shared_lock', 16, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: PendingReadWriteBackend
-persistent_cache.mojom.PendingReadWriteBackendSpec = {
-  $: {
-    structSpec: {
-      name: 'persistent_cache.mojom.PendingReadWriteBackend',
-      packedSize: 40,
-      fields: [
-        { name: 'db_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
-        { name: 'journal_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
-        { name: 'wal_file', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true, minVersion: 0 },
-        { name: 'shared_lock', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    persistent_cache.mojom.PendingReadWriteBackendSpec, 'persistent_cache.mojom.PendingReadWriteBackend', [
+      mojo.internal.StructField('db_file', 0, 0, mojo_base.mojom.FileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('journal_file', 8, 0, mojo_base.mojom.FileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('wal_file', 16, 0, mojo_base.mojom.FileSpec, null, true, 0, undefined),
+      mojo.internal.StructField('shared_lock', 24, 0, mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);

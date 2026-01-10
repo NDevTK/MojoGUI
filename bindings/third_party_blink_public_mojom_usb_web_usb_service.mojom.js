@@ -7,90 +7,77 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 
+blink.mojom.WebUsbRequestDeviceOptionsSpec = { $: {} };
+blink.mojom.WebUsbService = {};
+blink.mojom.WebUsbService.$interfaceName = 'blink.mojom.WebUsbService';
+blink.mojom.WebUsbService_GetDevices_ParamsSpec = { $: {} };
+blink.mojom.WebUsbService_GetDevices_ResponseParamsSpec = { $: {} };
+blink.mojom.WebUsbService_GetDevice_ParamsSpec = { $: {} };
+blink.mojom.WebUsbService_GetPermission_ParamsSpec = { $: {} };
+blink.mojom.WebUsbService_GetPermission_ResponseParamsSpec = { $: {} };
+blink.mojom.WebUsbService_ForgetDevice_ParamsSpec = { $: {} };
+blink.mojom.WebUsbService_ForgetDevice_ResponseParamsSpec = { $: {} };
+blink.mojom.WebUsbService_SetClient_ParamsSpec = { $: {} };
 
 // Struct: WebUsbRequestDeviceOptions
-blink.mojom.WebUsbRequestDeviceOptionsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebUsbRequestDeviceOptions',
-      packedSize: 24,
-      fields: [
-        { name: 'filters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.UsbDeviceFilterSpec, false), nullable: false, minVersion: 0 },
-        { name: 'exclusion_filters', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.UsbDeviceFilterSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebUsbRequestDeviceOptionsSpec, 'blink.mojom.WebUsbRequestDeviceOptions', [
+      mojo.internal.StructField('filters', 0, 0, mojo.internal.Array(device.mojom.UsbDeviceFilterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('exclusion_filters', 8, 0, mojo.internal.Array(device.mojom.UsbDeviceFilterSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: WebUsbService
-blink.mojom.WebUsbService = {};
+mojo.internal.Struct(
+    blink.mojom.WebUsbService_GetDevices_ParamsSpec, 'blink.mojom.WebUsbService_GetDevices_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.WebUsbService_GetDevices_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebUsbService_GetDevices_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebUsbService_GetDevices_ResponseParamsSpec, 'blink.mojom.WebUsbService_GetDevices_ResponseParams', [
+      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(device.mojom.UsbDeviceInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.WebUsbService_GetDevice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebUsbService_GetDevice_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'device_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.UsbDeviceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebUsbService_GetDevice_ParamsSpec, 'blink.mojom.WebUsbService_GetDevice_Params', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('device_receiver', 8, 0, mojo.internal.InterfaceRequest(device.mojom.UsbDeviceRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.WebUsbService_GetPermission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebUsbService_GetPermission_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebUsbRequestDeviceOptionsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebUsbService_GetPermission_ParamsSpec, 'blink.mojom.WebUsbService_GetPermission_Params', [
+      mojo.internal.StructField('options', 0, 0, blink.mojom.WebUsbRequestDeviceOptionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.WebUsbService_ForgetDevice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebUsbService_ForgetDevice_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebUsbService_GetPermission_ResponseParamsSpec, 'blink.mojom.WebUsbService_GetPermission_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, device.mojom.UsbDeviceInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.WebUsbService_SetClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebUsbService_SetClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(device.mojom.UsbDeviceManagerClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebUsbService_ForgetDevice_ParamsSpec, 'blink.mojom.WebUsbService_ForgetDevice_Params', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    blink.mojom.WebUsbService_ForgetDevice_ResponseParamsSpec, 'blink.mojom.WebUsbService_ForgetDevice_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    blink.mojom.WebUsbService_SetClient_ParamsSpec, 'blink.mojom.WebUsbService_SetClient_Params', [
+      mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(device.mojom.UsbDeviceManagerClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.WebUsbServicePendingReceiver = class {
   constructor(handle) {
@@ -156,7 +143,7 @@ blink.mojom.WebUsbServiceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       3,  // ordinal
       blink.mojom.WebUsbService_ForgetDevice_ParamsSpec,
-      null,
+      blink.mojom.WebUsbService_ForgetDevice_ResponseParamsSpec,
       [guid]);
   }
 
@@ -181,103 +168,6 @@ blink.mojom.WebUsbService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetDevices
-blink.mojom.WebUsbService_GetDevices_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebUsbService.GetDevices_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.WebUsbService_GetDevices_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebUsbService.GetDevices_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.UsbDeviceInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetDevice
-blink.mojom.WebUsbService_GetDevice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebUsbService.GetDevice_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'device_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.UsbDeviceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GetPermission
-blink.mojom.WebUsbService_GetPermission_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebUsbService.GetPermission_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebUsbRequestDeviceOptionsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.WebUsbService_GetPermission_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebUsbService.GetPermission_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.UsbDeviceInfoSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ForgetDevice
-blink.mojom.WebUsbService_ForgetDevice_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebUsbService.ForgetDevice_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetClient
-blink.mojom.WebUsbService_SetClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebUsbService.SetClient_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(device.mojom.UsbDeviceManagerClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.WebUsbServicePtr = blink.mojom.WebUsbServiceRemote;
 blink.mojom.WebUsbServiceRequest = blink.mojom.WebUsbServicePendingReceiver;
 

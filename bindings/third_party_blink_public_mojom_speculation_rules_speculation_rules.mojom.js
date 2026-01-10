@@ -7,9 +7,20 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
 var blink = blink || {};
 var url = url || {};
 
+blink.mojom.SpeculationActionSpec = { $: mojo.internal.Enum() };
+blink.mojom.SpeculationTargetHintSpec = { $: mojo.internal.Enum() };
+blink.mojom.SpeculationEagernessSpec = { $: mojo.internal.Enum() };
+blink.mojom.SpeculationInjectionTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.SpeculationCandidateSpec = { $: {} };
+blink.mojom.SpeculationHost = {};
+blink.mojom.SpeculationHost.$interfaceName = 'blink.mojom.SpeculationHost';
+blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec = { $: {} };
+blink.mojom.SpeculationHost_OnLCPPredicted_ParamsSpec = { $: {} };
+blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec = { $: {} };
 
 // Enum: SpeculationAction
 blink.mojom.SpeculationAction = {
@@ -17,7 +28,6 @@ blink.mojom.SpeculationAction = {
   kPrerenderUntilScript: 1,
   kPrerender: 2,
 };
-blink.mojom.SpeculationActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: SpeculationTargetHint
 blink.mojom.SpeculationTargetHint = {
@@ -25,7 +35,6 @@ blink.mojom.SpeculationTargetHint = {
   kBlank: 1,
   kSelf: 2,
 };
-blink.mojom.SpeculationTargetHintSpec = { $: mojo.internal.Enum() };
 
 // Enum: SpeculationEagerness
 blink.mojom.SpeculationEagerness = {
@@ -34,7 +43,6 @@ blink.mojom.SpeculationEagerness = {
   kImmediate: 2,
   kEager: 3,
 };
-blink.mojom.SpeculationEagernessSpec = { $: mojo.internal.Enum() };
 
 // Enum: SpeculationInjectionType
 blink.mojom.SpeculationInjectionType = {
@@ -43,72 +51,41 @@ blink.mojom.SpeculationInjectionType = {
   kIsolatedWorldScript: 2,
   kAutoSpeculationRules: 3,
 };
-blink.mojom.SpeculationInjectionTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: SpeculationCandidate
-blink.mojom.SpeculationCandidateSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeculationCandidate',
-      packedSize: 80,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'action', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.SpeculationActionSpec, nullable: false, minVersion: 0 },
-        { name: 'referrer', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ReferrerSpec, nullable: false, minVersion: 0 },
-        { name: 'requires_anonymous_client_ip_when_cross_origin', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'target_browsing_context_name_hint', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.SpeculationTargetHintSpec, nullable: false, minVersion: 0 },
-        { name: 'eagerness', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.SpeculationEagernessSpec, nullable: false, minVersion: 0 },
-        { name: 'no_vary_search_hint', packedOffset: 40, packedBitOffset: 0, type: network.mojom.NoVarySearchSpec, nullable: true, minVersion: 0 },
-        { name: 'injection_type', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.SpeculationInjectionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'tags', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-        { name: 'form_submission', packedOffset: 64, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 80}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SpeculationCandidateSpec, 'blink.mojom.SpeculationCandidate', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('action', 8, 0, blink.mojom.SpeculationActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('referrer', 16, 0, blink.mojom.ReferrerSpec, null, false, 0, undefined),
+      mojo.internal.StructField('requires_anonymous_client_ip_when_cross_origin', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('target_browsing_context_name_hint', 24, 0, blink.mojom.SpeculationTargetHintSpec, null, false, 0, undefined),
+      mojo.internal.StructField('eagerness', 32, 0, blink.mojom.SpeculationEagernessSpec, null, false, 0, undefined),
+      mojo.internal.StructField('no_vary_search_hint', 40, 0, network.mojom.NoVarySearchSpec, null, true, 0, undefined),
+      mojo.internal.StructField('injection_type', 48, 0, blink.mojom.SpeculationInjectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tags', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('form_submission', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 80]]);
 
 // Interface: SpeculationHost
-blink.mojom.SpeculationHost = {};
+mojo.internal.Struct(
+    blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec, 'blink.mojom.SpeculationHost_UpdateSpeculationCandidates_Params', [
+      mojo.internal.StructField('candidates', 0, 0, mojo.internal.Array(blink.mojom.SpeculationCandidateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('enable_cross_origin_prerender_iframes', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeculationHost_UpdateSpeculationCandidates_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'candidates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SpeculationCandidateSpec, false), nullable: false, minVersion: 0 },
-        { name: 'enable_cross_origin_prerender_iframes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SpeculationHost_OnLCPPredicted_ParamsSpec, 'blink.mojom.SpeculationHost_OnLCPPredicted_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.SpeculationHost_OnLCPPredicted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeculationHost_OnLCPPredicted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeculationHost_InitiatePreview_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec, 'blink.mojom.SpeculationHost_InitiatePreview_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.SpeculationHostPendingReceiver = class {
   constructor(handle) {
@@ -181,49 +158,6 @@ blink.mojom.SpeculationHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for UpdateSpeculationCandidates
-blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeculationHost.UpdateSpeculationCandidates_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'candidates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SpeculationCandidateSpec, false), nullable: false, minVersion: 0 },
-        { name: 'enable_cross_origin_prerender_iframes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnLCPPredicted
-blink.mojom.SpeculationHost_OnLCPPredicted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeculationHost.OnLCPPredicted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for InitiatePreview
-blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SpeculationHost.InitiatePreview_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.SpeculationHostPtr = blink.mojom.SpeculationHostRemote;
 blink.mojom.SpeculationHostRequest = blink.mojom.SpeculationHostPendingReceiver;
 

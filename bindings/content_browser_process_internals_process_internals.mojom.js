@@ -8,6 +8,28 @@
 var mojom = mojom || {};
 var url = url || {};
 
+mojom.TypeSpec = { $: mojo.internal.Enum() };
+mojom.ProcessCountInfoSpec = { $: {} };
+mojom.SiteInstanceInfoSpec = { $: {} };
+mojom.FrameInfoSpec = { $: {} };
+mojom.WebContentsInfoSpec = { $: {} };
+mojom.IsolatedOriginInfoSpec = { $: {} };
+mojom.ProcessInternalsHandler = {};
+mojom.ProcessInternalsHandler.$interfaceName = 'mojom.ProcessInternalsHandler';
+mojom.ProcessInternalsHandler_GetProcessCountInfo_ParamsSpec = { $: {} };
+mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec = { $: {} };
+mojom.ProcessInternalsHandler_GetIsolationMode_ParamsSpec = { $: {} };
+mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParamsSpec = { $: {} };
+mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ParamsSpec = { $: {} };
+mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParamsSpec = { $: {} };
+mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ParamsSpec = { $: {} };
+mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParamsSpec = { $: {} };
+mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ParamsSpec = { $: {} };
+mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParamsSpec = { $: {} };
+mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ParamsSpec = { $: {} };
+mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec = { $: {} };
+mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ParamsSpec = { $: {} };
+mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec = { $: {} };
 
 // Enum: Type
 mojom.Type = {
@@ -15,188 +37,143 @@ mojom.Type = {
   kBackForwardCache: 1,
   kPrerender: 2,
 };
-mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: ProcessCountInfo
-mojom.ProcessCountInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.ProcessCountInfo',
-      packedSize: 40,
-      fields: [
-        { name: 'renderer_process_limit', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'renderer_process_count_total', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'live_renderer_processes_count_total', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'renderer_process_count_for_limit', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojom.ProcessCountInfoSpec, 'mojom.ProcessCountInfo', [
+      mojo.internal.StructField('renderer_process_limit', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('renderer_process_count_total', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('live_renderer_processes_count_total', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('renderer_process_count_for_limit', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: SiteInstanceInfo
-mojom.SiteInstanceInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.SiteInstanceInfo',
-      packedSize: 48,
-      fields: [
-        { name: 'id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'site_instance_group_id', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'browsing_instance_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'locked', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'site_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-        { name: 'process_lock_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-        { name: 'requires_origin_keyed_process', packedOffset: 36, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_sandbox_for_iframes', packedOffset: 36, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_guest', packedOffset: 36, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_pdf', packedOffset: 36, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'are_javascript_optimizers_enabled', packedOffset: 36, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'storage_partition', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojom.SiteInstanceInfoSpec, 'mojom.SiteInstanceInfo', [
+      mojo.internal.StructField('id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('site_instance_group_id', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('browsing_instance_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('locked', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('site_url', 0, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('process_lock_url', 8, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('requires_origin_keyed_process', 36, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_sandbox_for_iframes', 36, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_guest', 36, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_pdf', 36, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('are_javascript_optimizers_enabled', 36, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('storage_partition', 16, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: FrameInfo
-mojom.FrameInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.FrameInfo',
-      packedSize: 56,
-      fields: [
-        { name: 'routing_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'agent_scheduling_group_id', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'process_id', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'site_instance', packedOffset: 0, packedBitOffset: 0, type: mojom.SiteInstanceInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'last_committed_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-        { name: 'subframes', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojom.FrameInfoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'kActive', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojom.FrameInfoSpec, 'mojom.FrameInfo', [
+      mojo.internal.StructField('routing_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('agent_scheduling_group_id', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('process_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('site_instance', 0, 0, mojom.SiteInstanceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('last_committed_url', 8, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('subframes', 16, 0, mojo.internal.Array(mojom.FrameInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('kActive', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: WebContentsInfo
-mojom.WebContentsInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.WebContentsInfo',
-      packedSize: 40,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'root_frame', packedOffset: 8, packedBitOffset: 0, type: mojom.FrameInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'bfcached_root_frames', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojom.FrameInfoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'prerender_root_frames', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojom.FrameInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojom.WebContentsInfoSpec, 'mojom.WebContentsInfo', [
+      mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('root_frame', 8, 0, mojom.FrameInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bfcached_root_frames', 16, 0, mojo.internal.Array(mojom.FrameInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('prerender_root_frames', 24, 0, mojo.internal.Array(mojom.FrameInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: IsolatedOriginInfo
-mojom.IsolatedOriginInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.IsolatedOriginInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojom.IsolatedOriginInfoSpec, 'mojom.IsolatedOriginInfo', [
+      mojo.internal.StructField('origin', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('source', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: ProcessInternalsHandler
-mojom.ProcessInternalsHandler = {};
+mojo.internal.Struct(
+    mojom.ProcessInternalsHandler_GetProcessCountInfo_ParamsSpec, 'mojom.ProcessInternalsHandler_GetProcessCountInfo_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-mojom.ProcessInternalsHandler_GetProcessCountInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.ProcessInternalsHandler_GetProcessCountInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec, 'mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParams', [
+      mojo.internal.StructField('info', 0, 0, mojom.ProcessCountInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-mojom.ProcessInternalsHandler_GetIsolationMode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.ProcessInternalsHandler_GetIsolationMode_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojom.ProcessInternalsHandler_GetIsolationMode_ParamsSpec, 'mojom.ProcessInternalsHandler_GetIsolationMode_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.ProcessInternalsHandler_GetProcessPerSiteMode_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParamsSpec, 'mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParams', [
+      mojo.internal.StructField('mode', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ParamsSpec, 'mojom.ProcessInternalsHandler_GetProcessPerSiteMode_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParamsSpec, 'mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParams', [
+      mojo.internal.StructField('mode', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ParamsSpec, 'mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.ProcessInternalsHandler_GetAllWebContentsInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParamsSpec, 'mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParams', [
+      mojo.internal.StructField('isolated_origins', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ParamsSpec, 'mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParamsSpec, 'mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParams', [
+      mojo.internal.StructField('isolated_origins', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ParamsSpec, 'mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec, 'mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParams', [
+      mojo.internal.StructField('isolated_origins', 0, 0, mojo.internal.Array(mojom.IsolatedOriginInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ParamsSpec, 'mojom.ProcessInternalsHandler_GetAllWebContentsInfo_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec, 'mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParams', [
+      mojo.internal.StructField('infos', 0, 0, mojo.internal.Array(mojom.WebContentsInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 mojom.ProcessInternalsHandlerPendingReceiver = class {
   constructor(handle) {
@@ -305,189 +282,6 @@ mojom.ProcessInternalsHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetProcessCountInfo
-mojom.ProcessInternalsHandler_GetProcessCountInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.ProcessInternalsHandler.GetProcessCountInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.ProcessInternalsHandler.GetProcessCountInfo_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojom.ProcessCountInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetIsolationMode
-mojom.ProcessInternalsHandler_GetIsolationMode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.ProcessInternalsHandler.GetIsolationMode_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.ProcessInternalsHandler.GetIsolationMode_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetProcessPerSiteMode
-mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.ProcessInternalsHandler.GetProcessPerSiteMode_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.ProcessInternalsHandler.GetProcessPerSiteMode_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetUserTriggeredIsolatedOrigins
-mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.ProcessInternalsHandler.GetUserTriggeredIsolatedOrigins_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.ProcessInternalsHandler.GetUserTriggeredIsolatedOrigins_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'isolated_origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetWebTriggeredIsolatedOrigins
-mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.ProcessInternalsHandler.GetWebTriggeredIsolatedOrigins_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.ProcessInternalsHandler.GetWebTriggeredIsolatedOrigins_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'isolated_origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetGloballyIsolatedOrigins
-mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.ProcessInternalsHandler.GetGloballyIsolatedOrigins_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.ProcessInternalsHandler.GetGloballyIsolatedOrigins_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'isolated_origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojom.IsolatedOriginInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetAllWebContentsInfo
-mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.ProcessInternalsHandler.GetAllWebContentsInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mojom.ProcessInternalsHandler.GetAllWebContentsInfo_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'infos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojom.WebContentsInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 mojom.ProcessInternalsHandlerPtr = mojom.ProcessInternalsHandlerRemote;
 mojom.ProcessInternalsHandlerRequest = mojom.ProcessInternalsHandlerPendingReceiver;
 

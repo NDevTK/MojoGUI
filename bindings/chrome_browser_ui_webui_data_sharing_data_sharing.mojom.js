@@ -7,8 +7,47 @@
 // Module namespace
 var data_sharing = data_sharing || {};
 data_sharing.mojom = data_sharing.mojom || {};
+var components = components || {};
 var url = url || {};
 
+data_sharing.mojom.GroupActionSpec = { $: mojo.internal.Enum() };
+data_sharing.mojom.GroupActionProgressSpec = { $: mojo.internal.Enum() };
+data_sharing.mojom.ReadGroupsParamsSpec = { $: {} };
+data_sharing.mojom.ReadGroupParamsSpec = { $: {} };
+data_sharing.mojom.ReadGroupsResultSpec = { $: {} };
+data_sharing.mojom.ReadGroupWithTokenParamSpec = { $: {} };
+data_sharing.mojom.ReadGroupWithTokenResultSpec = { $: {} };
+data_sharing.mojom.SharedTabSpec = { $: {} };
+data_sharing.mojom.GroupPreviewSpec = { $: {} };
+data_sharing.mojom.PageHandlerFactory = {};
+data_sharing.mojom.PageHandlerFactory.$interfaceName = 'data_sharing.mojom.PageHandlerFactory';
+data_sharing.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+data_sharing.mojom.PageHandler = {};
+data_sharing.mojom.PageHandler.$interfaceName = 'data_sharing.mojom.PageHandler';
+data_sharing.mojom.PageHandler_ShowUI_ParamsSpec = { $: {} };
+data_sharing.mojom.PageHandler_CloseUI_ParamsSpec = { $: {} };
+data_sharing.mojom.PageHandler_ApiInitComplete_ParamsSpec = { $: {} };
+data_sharing.mojom.PageHandler_MakeTabGroupShared_ParamsSpec = { $: {} };
+data_sharing.mojom.PageHandler_MakeTabGroupShared_ResponseParamsSpec = { $: {} };
+data_sharing.mojom.PageHandler_GetShareLink_ParamsSpec = { $: {} };
+data_sharing.mojom.PageHandler_GetShareLink_ResponseParamsSpec = { $: {} };
+data_sharing.mojom.PageHandler_GetTabGroupPreview_ParamsSpec = { $: {} };
+data_sharing.mojom.PageHandler_GetTabGroupPreview_ResponseParamsSpec = { $: {} };
+data_sharing.mojom.PageHandler_OpenTabGroup_ParamsSpec = { $: {} };
+data_sharing.mojom.PageHandler_AboutToUnShareTabGroup_ParamsSpec = { $: {} };
+data_sharing.mojom.PageHandler_OnTabGroupUnShareComplete_ParamsSpec = { $: {} };
+data_sharing.mojom.PageHandler_OnGroupAction_ParamsSpec = { $: {} };
+data_sharing.mojom.Page = {};
+data_sharing.mojom.Page.$interfaceName = 'data_sharing.mojom.Page';
+data_sharing.mojom.Page_OnAccessTokenFetched_ParamsSpec = { $: {} };
+data_sharing.mojom.Page_ReadGroups_ParamsSpec = { $: {} };
+data_sharing.mojom.Page_ReadGroups_ResponseParamsSpec = { $: {} };
+data_sharing.mojom.Page_ReadGroupWithToken_ParamsSpec = { $: {} };
+data_sharing.mojom.Page_ReadGroupWithToken_ResponseParamsSpec = { $: {} };
+data_sharing.mojom.Page_DeleteGroup_ParamsSpec = { $: {} };
+data_sharing.mojom.Page_DeleteGroup_ResponseParamsSpec = { $: {} };
+data_sharing.mojom.Page_LeaveGroup_ParamsSpec = { $: {} };
+data_sharing.mojom.Page_LeaveGroup_ResponseParamsSpec = { $: {} };
 
 // Enum: GroupAction
 data_sharing.mojom.GroupAction = {
@@ -19,7 +58,6 @@ data_sharing.mojom.GroupAction = {
   kKeepGroup: 4,
   kStopSharing: 5,
 };
-data_sharing.mojom.GroupActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: GroupActionProgress
 data_sharing.mojom.GroupActionProgress = {
@@ -28,129 +66,70 @@ data_sharing.mojom.GroupActionProgress = {
   kFailed: 2,
   kSuccess: 3,
 };
-data_sharing.mojom.GroupActionProgressSpec = { $: mojo.internal.Enum() };
 
 // Struct: ReadGroupsParams
-data_sharing.mojom.ReadGroupsParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.ReadGroupsParams',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(data_sharing.mojom.ReadGroupParamsSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_sharing.mojom.ReadGroupsParamsSpec, 'data_sharing.mojom.ReadGroupsParams', [
+      mojo.internal.StructField('params', 0, 0, mojo.internal.Array(data_sharing.mojom.ReadGroupParamsSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: ReadGroupParams
-data_sharing.mojom.ReadGroupParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.ReadGroupParams',
-      packedSize: 24,
-      fields: [
-        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'consistency_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_sharing.mojom.ReadGroupParamsSpec, 'data_sharing.mojom.ReadGroupParams', [
+      mojo.internal.StructField('group_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('consistency_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: ReadGroupsResult
-data_sharing.mojom.ReadGroupsResultSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.ReadGroupsResult',
-      packedSize: 24,
-      fields: [
-        { name: 'groups', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(data_sharing.mojom.GroupDataSpec, false), nullable: false, minVersion: 0 },
-        { name: 'status_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_sharing.mojom.ReadGroupsResultSpec, 'data_sharing.mojom.ReadGroupsResult', [
+      mojo.internal.StructField('groups', 0, 0, mojo.internal.Array(data_sharing.mojom.GroupDataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('status_code', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: ReadGroupWithTokenParam
-data_sharing.mojom.ReadGroupWithTokenParamSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.ReadGroupWithTokenParam',
-      packedSize: 24,
-      fields: [
-        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'access_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_sharing.mojom.ReadGroupWithTokenParamSpec, 'data_sharing.mojom.ReadGroupWithTokenParam', [
+      mojo.internal.StructField('group_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('access_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: ReadGroupWithTokenResult
-data_sharing.mojom.ReadGroupWithTokenResultSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.ReadGroupWithTokenResult',
-      packedSize: 24,
-      fields: [
-        { name: 'group', packedOffset: 0, packedBitOffset: 0, type: data_sharing.mojom.GroupDataSpec, nullable: true, minVersion: 0 },
-        { name: 'status_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_sharing.mojom.ReadGroupWithTokenResultSpec, 'data_sharing.mojom.ReadGroupWithTokenResult', [
+      mojo.internal.StructField('group', 0, 0, data_sharing.mojom.GroupDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('status_code', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: SharedTab
-data_sharing.mojom.SharedTabSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.SharedTab',
-      packedSize: 24,
-      fields: [
-        { name: 'display_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'favicon_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_sharing.mojom.SharedTabSpec, 'data_sharing.mojom.SharedTab', [
+      mojo.internal.StructField('display_url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('favicon_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: GroupPreview
-data_sharing.mojom.GroupPreviewSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.GroupPreview',
-      packedSize: 32,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'shared_tabs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(data_sharing.mojom.SharedTabSpec, false), nullable: false, minVersion: 0 },
-        { name: 'status_code', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.AbslStatusCodeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_sharing.mojom.GroupPreviewSpec, 'data_sharing.mojom.GroupPreview', [
+      mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('shared_tabs', 8, 0, mojo.internal.Array(data_sharing.mojom.SharedTabSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('status_code', 16, 0, mojo_base.mojom.AbslStatusCodeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: PageHandlerFactory
-data_sharing.mojom.PageHandlerFactory = {};
-
-data_sharing.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(data_sharing.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(data_sharing.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_sharing.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'data_sharing.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(data_sharing.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(data_sharing.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 data_sharing.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -205,161 +184,91 @@ data_sharing.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-data_sharing.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(data_sharing.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(data_sharing.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 data_sharing.mojom.PageHandlerFactoryPtr = data_sharing.mojom.PageHandlerFactoryRemote;
 data_sharing.mojom.PageHandlerFactoryRequest = data_sharing.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-data_sharing.mojom.PageHandler = {};
+mojo.internal.Struct(
+    data_sharing.mojom.PageHandler_ShowUI_ParamsSpec, 'data_sharing.mojom.PageHandler_ShowUI_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-data_sharing.mojom.PageHandler_ShowUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.PageHandler_ShowUI_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_sharing.mojom.PageHandler_CloseUI_ParamsSpec, 'data_sharing.mojom.PageHandler_CloseUI_Params', [
+      mojo.internal.StructField('status_code', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-data_sharing.mojom.PageHandler_CloseUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.PageHandler_CloseUI_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_sharing.mojom.PageHandler_ApiInitComplete_ParamsSpec, 'data_sharing.mojom.PageHandler_ApiInitComplete_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-data_sharing.mojom.PageHandler_ApiInitComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.PageHandler_ApiInitComplete_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_sharing.mojom.PageHandler_MakeTabGroupShared_ParamsSpec, 'data_sharing.mojom.PageHandler_MakeTabGroupShared_Params', [
+      mojo.internal.StructField('tab_group_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('group_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('access_token', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-data_sharing.mojom.PageHandler_MakeTabGroupShared_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.PageHandler_MakeTabGroupShared_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'tab_group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'group_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'access_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_sharing.mojom.PageHandler_MakeTabGroupShared_ResponseParamsSpec, 'data_sharing.mojom.PageHandler_MakeTabGroupShared_ResponseParams', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-data_sharing.mojom.PageHandler_GetShareLink_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.PageHandler_GetShareLink_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'access_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_sharing.mojom.PageHandler_GetShareLink_ParamsSpec, 'data_sharing.mojom.PageHandler_GetShareLink_Params', [
+      mojo.internal.StructField('group_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('access_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-data_sharing.mojom.PageHandler_GetTabGroupPreview_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.PageHandler_GetTabGroupPreview_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'access_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_sharing.mojom.PageHandler_GetShareLink_ResponseParamsSpec, 'data_sharing.mojom.PageHandler_GetShareLink_ResponseParams', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-data_sharing.mojom.PageHandler_OpenTabGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.PageHandler_OpenTabGroup_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_sharing.mojom.PageHandler_GetTabGroupPreview_ParamsSpec, 'data_sharing.mojom.PageHandler_GetTabGroupPreview_Params', [
+      mojo.internal.StructField('group_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('access_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-data_sharing.mojom.PageHandler_AboutToUnShareTabGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.PageHandler_AboutToUnShareTabGroup_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tab_group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_sharing.mojom.PageHandler_GetTabGroupPreview_ResponseParamsSpec, 'data_sharing.mojom.PageHandler_GetTabGroupPreview_ResponseParams', [
+      mojo.internal.StructField('group_preview', 0, 0, data_sharing.mojom.GroupPreviewSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-data_sharing.mojom.PageHandler_OnTabGroupUnShareComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.PageHandler_OnTabGroupUnShareComplete_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tab_group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_sharing.mojom.PageHandler_OpenTabGroup_ParamsSpec, 'data_sharing.mojom.PageHandler_OpenTabGroup_Params', [
+      mojo.internal.StructField('group_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-data_sharing.mojom.PageHandler_OnGroupAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.PageHandler_OnGroupAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: data_sharing.mojom.GroupActionSpec, nullable: false, minVersion: 0 },
-        { name: 'progress', packedOffset: 4, packedBitOffset: 0, type: data_sharing.mojom.GroupActionProgressSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_sharing.mojom.PageHandler_AboutToUnShareTabGroup_ParamsSpec, 'data_sharing.mojom.PageHandler_AboutToUnShareTabGroup_Params', [
+      mojo.internal.StructField('tab_group_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    data_sharing.mojom.PageHandler_OnTabGroupUnShareComplete_ParamsSpec, 'data_sharing.mojom.PageHandler_OnTabGroupUnShareComplete_Params', [
+      mojo.internal.StructField('tab_group_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    data_sharing.mojom.PageHandler_OnGroupAction_ParamsSpec, 'data_sharing.mojom.PageHandler_OnGroupAction_Params', [
+      mojo.internal.StructField('action', 0, 0, data_sharing.mojom.GroupActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('progress', 4, 0, data_sharing.mojom.GroupActionProgressSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 data_sharing.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -495,260 +404,64 @@ data_sharing.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ShowUI
-data_sharing.mojom.PageHandler_ShowUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.PageHandler.ShowUI_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for CloseUI
-data_sharing.mojom.PageHandler_CloseUI_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.PageHandler.CloseUI_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ApiInitComplete
-data_sharing.mojom.PageHandler_ApiInitComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.PageHandler.ApiInitComplete_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for MakeTabGroupShared
-data_sharing.mojom.PageHandler_MakeTabGroupShared_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.PageHandler.MakeTabGroupShared_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'tab_group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'group_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'access_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-data_sharing.mojom.PageHandler_MakeTabGroupShared_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.PageHandler.MakeTabGroupShared_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetShareLink
-data_sharing.mojom.PageHandler_GetShareLink_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.PageHandler.GetShareLink_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'access_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-data_sharing.mojom.PageHandler_GetShareLink_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.PageHandler.GetShareLink_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetTabGroupPreview
-data_sharing.mojom.PageHandler_GetTabGroupPreview_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.PageHandler.GetTabGroupPreview_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'access_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-data_sharing.mojom.PageHandler_GetTabGroupPreview_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.PageHandler.GetTabGroupPreview_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'group_preview', packedOffset: 0, packedBitOffset: 0, type: data_sharing.mojom.GroupPreviewSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OpenTabGroup
-data_sharing.mojom.PageHandler_OpenTabGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.PageHandler.OpenTabGroup_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AboutToUnShareTabGroup
-data_sharing.mojom.PageHandler_AboutToUnShareTabGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.PageHandler.AboutToUnShareTabGroup_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tab_group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnTabGroupUnShareComplete
-data_sharing.mojom.PageHandler_OnTabGroupUnShareComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.PageHandler.OnTabGroupUnShareComplete_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'tab_group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnGroupAction
-data_sharing.mojom.PageHandler_OnGroupAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.PageHandler.OnGroupAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: data_sharing.mojom.GroupActionSpec, nullable: false, minVersion: 0 },
-        { name: 'progress', packedOffset: 4, packedBitOffset: 0, type: data_sharing.mojom.GroupActionProgressSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 data_sharing.mojom.PageHandlerPtr = data_sharing.mojom.PageHandlerRemote;
 data_sharing.mojom.PageHandlerRequest = data_sharing.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-data_sharing.mojom.Page = {};
+mojo.internal.Struct(
+    data_sharing.mojom.Page_OnAccessTokenFetched_ParamsSpec, 'data_sharing.mojom.Page_OnAccessTokenFetched_Params', [
+      mojo.internal.StructField('access_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-data_sharing.mojom.Page_OnAccessTokenFetched_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.Page_OnAccessTokenFetched_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'access_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_sharing.mojom.Page_ReadGroups_ParamsSpec, 'data_sharing.mojom.Page_ReadGroups_Params', [
+      mojo.internal.StructField('read_groups_params', 0, 0, data_sharing.mojom.ReadGroupsParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-data_sharing.mojom.Page_ReadGroups_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.Page_ReadGroups_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'read_groups_params', packedOffset: 0, packedBitOffset: 0, type: data_sharing.mojom.ReadGroupsParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_sharing.mojom.Page_ReadGroups_ResponseParamsSpec, 'data_sharing.mojom.Page_ReadGroups_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, data_sharing.mojom.ReadGroupsResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-data_sharing.mojom.Page_ReadGroupWithToken_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.Page_ReadGroupWithToken_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'param', packedOffset: 0, packedBitOffset: 0, type: data_sharing.mojom.ReadGroupWithTokenParamSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_sharing.mojom.Page_ReadGroupWithToken_ParamsSpec, 'data_sharing.mojom.Page_ReadGroupWithToken_Params', [
+      mojo.internal.StructField('param', 0, 0, data_sharing.mojom.ReadGroupWithTokenParamSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-data_sharing.mojom.Page_DeleteGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.Page_DeleteGroup_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_sharing.mojom.Page_ReadGroupWithToken_ResponseParamsSpec, 'data_sharing.mojom.Page_ReadGroupWithToken_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, data_sharing.mojom.ReadGroupWithTokenResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-data_sharing.mojom.Page_LeaveGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.Page_LeaveGroup_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_sharing.mojom.Page_DeleteGroup_ParamsSpec, 'data_sharing.mojom.Page_DeleteGroup_Params', [
+      mojo.internal.StructField('group_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    data_sharing.mojom.Page_DeleteGroup_ResponseParamsSpec, 'data_sharing.mojom.Page_DeleteGroup_ResponseParams', [
+      mojo.internal.StructField('status_code', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    data_sharing.mojom.Page_LeaveGroup_ParamsSpec, 'data_sharing.mojom.Page_LeaveGroup_Params', [
+      mojo.internal.StructField('group_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    data_sharing.mojom.Page_LeaveGroup_ResponseParamsSpec, 'data_sharing.mojom.Page_LeaveGroup_ResponseParams', [
+      mojo.internal.StructField('status_code', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 data_sharing.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -839,129 +552,6 @@ data_sharing.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnAccessTokenFetched
-data_sharing.mojom.Page_OnAccessTokenFetched_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.Page.OnAccessTokenFetched_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'access_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReadGroups
-data_sharing.mojom.Page_ReadGroups_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.Page.ReadGroups_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'read_groups_params', packedOffset: 0, packedBitOffset: 0, type: data_sharing.mojom.ReadGroupsParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-data_sharing.mojom.Page_ReadGroups_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.Page.ReadGroups_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: data_sharing.mojom.ReadGroupsResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReadGroupWithToken
-data_sharing.mojom.Page_ReadGroupWithToken_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.Page.ReadGroupWithToken_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'param', packedOffset: 0, packedBitOffset: 0, type: data_sharing.mojom.ReadGroupWithTokenParamSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-data_sharing.mojom.Page_ReadGroupWithToken_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.Page.ReadGroupWithToken_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: data_sharing.mojom.ReadGroupWithTokenResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DeleteGroup
-data_sharing.mojom.Page_DeleteGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.Page.DeleteGroup_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-data_sharing.mojom.Page_DeleteGroup_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.Page.DeleteGroup_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for LeaveGroup
-data_sharing.mojom.Page_LeaveGroup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.Page.LeaveGroup_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'group_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-data_sharing.mojom.Page_LeaveGroup_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_sharing.mojom.Page.LeaveGroup_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 data_sharing.mojom.PagePtr = data_sharing.mojom.PageRemote;
 data_sharing.mojom.PageRequest = data_sharing.mojom.PagePendingReceiver;
 

@@ -8,6 +8,9 @@
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
+arc.mojom.AnrTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.AnrSourceSpec = { $: mojo.internal.Enum() };
+arc.mojom.AnrSpec = { $: {} };
 
 // Enum: AnrType
 arc.mojom.AnrType = {
@@ -20,7 +23,6 @@ arc.mojom.AnrType = {
   PROCESS: 6,
   BACKGROUND_SERVICE: 7,
 };
-arc.mojom.AnrTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: AnrSource
 arc.mojom.AnrSource = {
@@ -33,19 +35,11 @@ arc.mojom.AnrSource = {
   ARC_OTHER: 6,
   ARC_APP_LAUNCHER: 7,
 };
-arc.mojom.AnrSourceSpec = { $: mojo.internal.Enum() };
 
 // Struct: Anr
-arc.mojom.AnrSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.Anr',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AnrTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'source', packedOffset: 4, packedBitOffset: 0, type: arc.mojom.AnrSourceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.AnrSpec, 'arc.mojom.Anr', [
+      mojo.internal.StructField('type', 0, 0, arc.mojom.AnrTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source', 4, 0, arc.mojom.AnrSourceSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);

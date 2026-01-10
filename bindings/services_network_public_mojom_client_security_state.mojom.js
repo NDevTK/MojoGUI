@@ -7,7 +7,12 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 
+network.mojom.PrivateNetworkRequestPolicySpec = { $: mojo.internal.Enum() };
+network.mojom.ClientSecurityStateSpec = { $: {} };
 
 // Enum: PrivateNetworkRequestPolicy
 network.mojom.PrivateNetworkRequestPolicy = {
@@ -17,22 +22,14 @@ network.mojom.PrivateNetworkRequestPolicy = {
   kPermissionWarn: 3,
   kPermissionBlock: 4,
 };
-network.mojom.PrivateNetworkRequestPolicySpec = { $: mojo.internal.Enum() };
 
 // Struct: ClientSecurityState
-network.mojom.ClientSecurityStateSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ClientSecurityState',
-      packedSize: 40,
-      fields: [
-        { name: 'cross_origin_embedder_policy', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CrossOriginEmbedderPolicySpec, nullable: false, minVersion: 0 },
-        { name: 'is_web_secure_context', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'ip_address_space', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPAddressSpaceSpec, nullable: false, minVersion: 0 },
-        { name: 'private_network_request_policy', packedOffset: 20, packedBitOffset: 0, type: network.mojom.PrivateNetworkRequestPolicySpec, nullable: false, minVersion: 0 },
-        { name: 'document_isolation_policy', packedOffset: 8, packedBitOffset: 0, type: network.mojom.DocumentIsolationPolicySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.ClientSecurityStateSpec, 'network.mojom.ClientSecurityState', [
+      mojo.internal.StructField('cross_origin_embedder_policy', 0, 0, network.mojom.CrossOriginEmbedderPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_web_secure_context', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('ip_address_space', 16, 0, network.mojom.IPAddressSpaceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('private_network_request_policy', 20, 0, network.mojom.PrivateNetworkRequestPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('document_isolation_policy', 8, 0, network.mojom.DocumentIsolationPolicySpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);

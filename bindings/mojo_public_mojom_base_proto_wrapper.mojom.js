@@ -8,18 +8,12 @@
 var mojo_base = mojo_base || {};
 mojo_base.mojom = mojo_base.mojom || {};
 
+mojo_base.mojom.ProtoWrapperSpec = { $: {} };
 
 // Struct: ProtoWrapper
-mojo_base.mojom.ProtoWrapperSpec = {
-  $: {
-    structSpec: {
-      name: 'mojo_base.mojom.ProtoWrapper',
-      packedSize: 32,
-      fields: [
-        { name: 'proto_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'smuggled', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mojo_base.mojom.ProtoWrapperSpec, 'mojo_base.mojom.ProtoWrapper', [
+      mojo.internal.StructField('proto_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('smuggled', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);

@@ -7,64 +7,53 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var services = services || {};
 
+viz.mojom.ExternalBeginFrameController = {};
+viz.mojom.ExternalBeginFrameController.$interfaceName = 'viz.mojom.ExternalBeginFrameController';
+viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec = { $: {} };
+viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec = { $: {} };
+viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec = { $: {} };
+viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec = { $: {} };
+viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec = { $: {} };
+viz.mojom.ExternalBeginFrameControllerClient = {};
+viz.mojom.ExternalBeginFrameControllerClient.$interfaceName = 'viz.mojom.ExternalBeginFrameControllerClient';
+viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec = { $: {} };
+viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec = { $: {} };
+viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec = { $: {} };
 
 // Interface: ExternalBeginFrameController
-viz.mojom.ExternalBeginFrameController = {};
+mojo.internal.Struct(
+    viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec, 'viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_Params', [
+      mojo.internal.StructField('args', 0, 0, viz.mojom.BeginFrameArgsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('force', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false, minVersion: 0 },
-        { name: 'force', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec, 'viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParams', [
+      mojo.internal.StructField('ack', 0, 0, viz.mojom.BeginFrameAckSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec, 'viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_Params', [
+      mojo.internal.StructField('args', 0, 0, viz.mojom.BeginFrameArgsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.ExternalBeginFrameController_IssueExternalVSync_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.CADisplayLinkParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec, 'viz.mojom.ExternalBeginFrameController_IssueExternalVSync_Params', [
+      mojo.internal.StructField('params', 0, 0, viz.mojom.CADisplayLinkParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'is_supported', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec, 'viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_Params', [
+      mojo.internal.StructField('display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('is_supported', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 viz.mojom.ExternalBeginFrameControllerPendingReceiver = class {
   constructor(handle) {
@@ -146,124 +135,29 @@ viz.mojom.ExternalBeginFrameController.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for IssueExternalBeginFrame
-viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.ExternalBeginFrameController.IssueExternalBeginFrame_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false, minVersion: 0 },
-        { name: 'force', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.ExternalBeginFrameController.IssueExternalBeginFrame_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'ack', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.BeginFrameAckSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for IssueExternalBeginFrameNoAck
-viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.ExternalBeginFrameController.IssueExternalBeginFrameNoAck_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.BeginFrameArgsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for IssueExternalVSync
-viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.ExternalBeginFrameController.IssueExternalVSync_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.CADisplayLinkParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetSupportedDisplayLinkId
-viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.ExternalBeginFrameController.SetSupportedDisplayLinkId_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'is_supported', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 viz.mojom.ExternalBeginFrameControllerPtr = viz.mojom.ExternalBeginFrameControllerRemote;
 viz.mojom.ExternalBeginFrameControllerRequest = viz.mojom.ExternalBeginFrameControllerPendingReceiver;
 
 
 // Interface: ExternalBeginFrameControllerClient
-viz.mojom.ExternalBeginFrameControllerClient = {};
+mojo.internal.Struct(
+    viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec, 'viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_Params', [
+      mojo.internal.StructField('needs_begin_frames', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'needs_begin_frames', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec, 'viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_Params', [
+      mojo.internal.StructField('display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('needs_begin_frames', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'needs_begin_frames', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'interval', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec, 'viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_Params', [
+      mojo.internal.StructField('interval', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 viz.mojom.ExternalBeginFrameControllerClientPendingReceiver = class {
   constructor(handle) {
@@ -336,50 +230,6 @@ viz.mojom.ExternalBeginFrameControllerClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetNeedsBeginFrame
-viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.ExternalBeginFrameControllerClient.SetNeedsBeginFrame_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'needs_begin_frames', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for NeedsBeginFrameWithId
-viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.ExternalBeginFrameControllerClient.NeedsBeginFrameWithId_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'needs_begin_frames', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SetPreferredInterval
-viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.ExternalBeginFrameControllerClient.SetPreferredInterval_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'interval', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 viz.mojom.ExternalBeginFrameControllerClientPtr = viz.mojom.ExternalBeginFrameControllerClientRemote;
 viz.mojom.ExternalBeginFrameControllerClientRequest = viz.mojom.ExternalBeginFrameControllerClientPendingReceiver;
 

@@ -12,36 +12,24 @@ var gfx = gfx || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+cc.mojom.LayerSelectionBoundSpec = { $: {} };
+cc.mojom.LayerSelectionSpec = { $: {} };
 
 // Struct: LayerSelectionBound
-cc.mojom.LayerSelectionBoundSpec = {
-  $: {
-    structSpec: {
-      name: 'cc.mojom.LayerSelectionBound',
-      packedSize: 40,
-      fields: [
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SelectionBoundTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'edge_start', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-        { name: 'edge_end', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-        { name: 'layer_id', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'hidden', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cc.mojom.LayerSelectionBoundSpec, 'cc.mojom.LayerSelectionBound', [
+      mojo.internal.StructField('type', 16, 0, gfx.mojom.SelectionBoundTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('edge_start', 0, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('edge_end', 8, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('layer_id', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('hidden', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: LayerSelection
-cc.mojom.LayerSelectionSpec = {
-  $: {
-    structSpec: {
-      name: 'cc.mojom.LayerSelection',
-      packedSize: 24,
-      fields: [
-        { name: 'start', packedOffset: 0, packedBitOffset: 0, type: cc.mojom.LayerSelectionBoundSpec, nullable: false, minVersion: 0 },
-        { name: 'end', packedOffset: 8, packedBitOffset: 0, type: cc.mojom.LayerSelectionBoundSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cc.mojom.LayerSelectionSpec, 'cc.mojom.LayerSelection', [
+      mojo.internal.StructField('start', 0, 0, cc.mojom.LayerSelectionBoundSpec, null, false, 0, undefined),
+      mojo.internal.StructField('end', 8, 0, cc.mojom.LayerSelectionBoundSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

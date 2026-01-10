@@ -7,86 +7,63 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 
+blink.mojom.PolicyContainerPoliciesSpec = { $: {} };
+blink.mojom.PolicyContainerSpec = { $: {} };
+blink.mojom.PolicyContainerBindParamsSpec = { $: {} };
+blink.mojom.PolicyContainerHost = {};
+blink.mojom.PolicyContainerHost.$interfaceName = 'blink.mojom.PolicyContainerHost';
+blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec = { $: {} };
+blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec = { $: {} };
 
 // Struct: PolicyContainerPolicies
-blink.mojom.PolicyContainerPoliciesSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PolicyContainerPolicies',
-      packedSize: 56,
-      fields: [
-        { name: 'connection_allowlists', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ConnectionAllowlistsSpec, nullable: false, minVersion: 0 },
-        { name: 'cross_origin_embedder_policy', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CrossOriginEmbedderPolicySpec, nullable: false, minVersion: 0 },
-        { name: 'integrity_policy', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IntegrityPolicySpec, nullable: false, minVersion: 0 },
-        { name: 'integrity_policy_report_only', packedOffset: 24, packedBitOffset: 0, type: network.mojom.IntegrityPolicySpec, nullable: false, minVersion: 0 },
-        { name: 'content_security_policies', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.ContentSecurityPolicySpec, false), nullable: false, minVersion: 0 },
-        { name: 'is_credentialless', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'can_navigate_top_without_user_gesture', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'cross_origin_isolation_enabled_by_dip', packedOffset: 40, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PolicyContainerPoliciesSpec, 'blink.mojom.PolicyContainerPolicies', [
+      mojo.internal.StructField('connection_allowlists', 0, 0, network.mojom.ConnectionAllowlistsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cross_origin_embedder_policy', 8, 0, network.mojom.CrossOriginEmbedderPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('integrity_policy', 16, 0, network.mojom.IntegrityPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('integrity_policy_report_only', 24, 0, network.mojom.IntegrityPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('content_security_policies', 32, 0, mojo.internal.Array(network.mojom.ContentSecurityPolicySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('is_credentialless', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('can_navigate_top_without_user_gesture', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('cross_origin_isolation_enabled_by_dip', 40, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: PolicyContainer
-blink.mojom.PolicyContainerSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PolicyContainer',
-      packedSize: 24,
-      fields: [
-        { name: 'policies', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PolicyContainerPoliciesSpec, nullable: false, minVersion: 0 },
-        { name: 'remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.PolicyContainerHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PolicyContainerSpec, 'blink.mojom.PolicyContainer', [
+      mojo.internal.StructField('policies', 0, 0, blink.mojom.PolicyContainerPoliciesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('remote', 8, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.PolicyContainerHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: PolicyContainerBindParams
-blink.mojom.PolicyContainerBindParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PolicyContainerBindParams',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(blink.mojom.PolicyContainerHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PolicyContainerBindParamsSpec, 'blink.mojom.PolicyContainerBindParams', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.PolicyContainerHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: PolicyContainerHost
-blink.mojom.PolicyContainerHost = {};
+mojo.internal.Struct(
+    blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec, 'blink.mojom.PolicyContainerHost_SetReferrerPolicy_Params', [
+      mojo.internal.StructField('referrer_policy', 0, 0, network.mojom.ReferrerPolicySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PolicyContainerHost_SetReferrerPolicy_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'referrer_policy', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ReferrerPolicySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'content_security_policies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.ContentSecurityPolicySpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec, 'blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_Params', [
+      mojo.internal.StructField('content_security_policies', 0, 0, mojo.internal.Array(network.mojom.ContentSecurityPolicySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.PolicyContainerHostPendingReceiver = class {
   constructor(handle) {
@@ -150,35 +127,6 @@ blink.mojom.PolicyContainerHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetReferrerPolicy
-blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PolicyContainerHost.SetReferrerPolicy_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'referrer_policy', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ReferrerPolicySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AddContentSecurityPolicies
-blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.PolicyContainerHost.AddContentSecurityPolicies_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'content_security_policies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.ContentSecurityPolicySpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.PolicyContainerHostPtr = blink.mojom.PolicyContainerHostRemote;
 blink.mojom.PolicyContainerHostRequest = blink.mojom.PolicyContainerHostPendingReceiver;
 

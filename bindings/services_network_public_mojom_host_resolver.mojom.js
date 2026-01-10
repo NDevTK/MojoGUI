@@ -7,8 +7,54 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 var url = url || {};
 
+network.mojom.OptionalSecureDnsModeSpec = { $: mojo.internal.Enum() };
+network.mojom.SecureDnsModeSpec = { $: mojo.internal.Enum() };
+network.mojom.SecureDnsPolicySpec = { $: mojo.internal.Enum() };
+network.mojom.TristateSpec = { $: mojo.internal.Enum() };
+network.mojom.DnsQueryTypeSpec = { $: mojo.internal.Enum() };
+network.mojom.SourceSpec = { $: mojo.internal.Enum() };
+network.mojom.CacheUsageSpec = { $: mojo.internal.Enum() };
+network.mojom.PurposeSpec = { $: mojo.internal.Enum() };
+network.mojom.UpdateTypeSpec = { $: mojo.internal.Enum() };
+network.mojom.HostResolverHostSpec = { $: {} };
+network.mojom.DnsOverHttpsServerConfigSpec = { $: {} };
+network.mojom.DnsOverHttpsConfigSpec = { $: {} };
+network.mojom.DnsConfigOverridesSpec = { $: {} };
+network.mojom.ResolveHostParametersSpec = { $: {} };
+network.mojom.ResolveHostHandle = {};
+network.mojom.ResolveHostHandle.$interfaceName = 'network.mojom.ResolveHostHandle';
+network.mojom.ResolveHostHandle_Cancel_ParamsSpec = { $: {} };
+network.mojom.ResolveHostClient = {};
+network.mojom.ResolveHostClient.$interfaceName = 'network.mojom.ResolveHostClient';
+network.mojom.ResolveHostClient_OnComplete_ParamsSpec = { $: {} };
+network.mojom.ResolveHostClient_OnTextResults_ParamsSpec = { $: {} };
+network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec = { $: {} };
+network.mojom.MdnsListenClient = {};
+network.mojom.MdnsListenClient.$interfaceName = 'network.mojom.MdnsListenClient';
+network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec = { $: {} };
+network.mojom.MdnsListenClient_OnTextResult_ParamsSpec = { $: {} };
+network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec = { $: {} };
+network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec = { $: {} };
+network.mojom.HostResolver = {};
+network.mojom.HostResolver.$interfaceName = 'network.mojom.HostResolver';
+network.mojom.HostResolver_ResolveHost_ParamsSpec = { $: {} };
+network.mojom.HostResolver_MdnsListen_ParamsSpec = { $: {} };
+network.mojom.HostResolver_MdnsListen_ResponseParamsSpec = { $: {} };
+network.mojom.DnsConfigChangeManagerClient = {};
+network.mojom.DnsConfigChangeManagerClient.$interfaceName = 'network.mojom.DnsConfigChangeManagerClient';
+network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec = { $: {} };
+network.mojom.DnsConfigChangeManager = {};
+network.mojom.DnsConfigChangeManager.$interfaceName = 'network.mojom.DnsConfigChangeManager';
+network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec = { $: {} };
 
 // Enum: OptionalSecureDnsMode
 network.mojom.OptionalSecureDnsMode = {
@@ -17,7 +63,6 @@ network.mojom.OptionalSecureDnsMode = {
   AUTOMATIC: 2,
   SECURE: 3,
 };
-network.mojom.OptionalSecureDnsModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SecureDnsMode
 network.mojom.SecureDnsMode = {
@@ -25,14 +70,12 @@ network.mojom.SecureDnsMode = {
   AUTOMATIC: 1,
   SECURE: 2,
 };
-network.mojom.SecureDnsModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: SecureDnsPolicy
 network.mojom.SecureDnsPolicy = {
   ALLOW: 0,
   DISABLE: 1,
 };
-network.mojom.SecureDnsPolicySpec = { $: mojo.internal.Enum() };
 
 // Enum: Tristate
 network.mojom.Tristate = {
@@ -40,7 +83,6 @@ network.mojom.Tristate = {
   TRISTATE_TRUE: 1,
   TRISTATE_FALSE: 2,
 };
-network.mojom.TristateSpec = { $: mojo.internal.Enum() };
 
 // Enum: DnsQueryType
 network.mojom.DnsQueryType = {
@@ -52,7 +94,6 @@ network.mojom.DnsQueryType = {
   SRV: 5,
   HTTPS: 6,
 };
-network.mojom.DnsQueryTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Source
 network.mojom.Source = {
@@ -62,7 +103,6 @@ network.mojom.Source = {
   MULTICAST_DNS: 3,
   LOCAL_ONLY: 4,
 };
-network.mojom.SourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: CacheUsage
 network.mojom.CacheUsage = {
@@ -70,14 +110,12 @@ network.mojom.CacheUsage = {
   STALE_ALLOWED: 1,
   DISALLOWED: 2,
 };
-network.mojom.CacheUsageSpec = { $: mojo.internal.Enum() };
 
 // Enum: Purpose
 network.mojom.Purpose = {
   kUnspecified: 0,
   kPreconnect: 1,
 };
-network.mojom.PurposeSpec = { $: mojo.internal.Enum() };
 
 // Enum: UpdateType
 network.mojom.UpdateType = {
@@ -85,96 +123,59 @@ network.mojom.UpdateType = {
   CHANGED: 1,
   REMOVED: 2,
 };
-network.mojom.UpdateTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: HostResolverHost
-network.mojom.HostResolverHostSpec = { $: mojo.internal.Union(
-    'network.mojom.HostResolverHost', {
+mojo.internal.Union(
+    network.mojom.HostResolverHostSpec, 'network.mojom.HostResolverHost', {
       'scheme_host_port': {
         'ordinal': 0,
         'type': url.mojom.SchemeHostPortSpec,
-      }},
+        'nullable': false,
+      },
       'host_port_pair': {
         'ordinal': 1,
         'type': network.mojom.HostPortPairSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: DnsOverHttpsServerConfig
-network.mojom.DnsOverHttpsServerConfigSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DnsOverHttpsServerConfig',
-      packedSize: 24,
-      fields: [
-        { name: 'server_template', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'endpoints', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Array(network.mojom.IPAddressSpec, false), false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.DnsOverHttpsServerConfigSpec, 'network.mojom.DnsOverHttpsServerConfig', [
+      mojo.internal.StructField('server_template', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('endpoints', 8, 0, mojo.internal.Array(mojo.internal.Array(network.mojom.IPAddressSpec, false), false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: DnsOverHttpsConfig
-network.mojom.DnsOverHttpsConfigSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DnsOverHttpsConfig',
-      packedSize: 16,
-      fields: [
-        { name: 'servers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.DnsOverHttpsServerConfigSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.DnsOverHttpsConfigSpec, 'network.mojom.DnsOverHttpsConfig', [
+      mojo.internal.StructField('servers', 0, 0, mojo.internal.Array(network.mojom.DnsOverHttpsServerConfigSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: DnsConfigOverrides
-network.mojom.DnsConfigOverridesSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DnsConfigOverrides',
-      packedSize: 16,
-      fields: [
-        { name: 'NO_OVERRIDE', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.DnsConfigOverridesSpec, 'network.mojom.DnsConfigOverrides', [
+      mojo.internal.StructField('NO_OVERRIDE', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: ResolveHostParameters
-network.mojom.ResolveHostParametersSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ResolveHostParameters',
-      packedSize: 24,
-      fields: [
-        { name: 'dns_query_type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'initial_priority', packedOffset: 12, packedBitOffset: 0, type: network.mojom.RequestPrioritySpec, nullable: false, minVersion: 0 },
-        { name: 'ANY', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.ResolveHostParametersSpec, 'network.mojom.ResolveHostParameters', [
+      mojo.internal.StructField('dns_query_type', 8, 0, network.mojom.DnsQueryTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('initial_priority', 12, 0, network.mojom.RequestPrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('ANY', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: ResolveHostHandle
-network.mojom.ResolveHostHandle = {};
-
-network.mojom.ResolveHostHandle_Cancel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ResolveHostHandle_Cancel_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.ResolveHostHandle_Cancel_ParamsSpec, 'network.mojom.ResolveHostHandle_Cancel_Params', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.ResolveHostHandlePendingReceiver = class {
   constructor(handle) {
@@ -229,69 +230,31 @@ network.mojom.ResolveHostHandle.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Cancel
-network.mojom.ResolveHostHandle_Cancel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ResolveHostHandle.Cancel_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.ResolveHostHandlePtr = network.mojom.ResolveHostHandleRemote;
 network.mojom.ResolveHostHandleRequest = network.mojom.ResolveHostHandlePendingReceiver;
 
 
 // Interface: ResolveHostClient
-network.mojom.ResolveHostClient = {};
+mojo.internal.Struct(
+    network.mojom.ResolveHostClient_OnComplete_ParamsSpec, 'network.mojom.ResolveHostClient_OnComplete_Params', [
+      mojo.internal.StructField('result', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('resolve_error_info', 0, 0, network.mojom.ResolveErrorInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('resolved_addresses', 8, 0, network.mojom.AddressListSpec, null, false, 0, undefined),
+      mojo.internal.StructField('alternative_endpoints', 16, 0, mojo.internal.Array(network.mojom.HostResolverEndpointResultSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-network.mojom.ResolveHostClient_OnComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ResolveHostClient_OnComplete_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'result', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'resolve_error_info', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ResolveErrorInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'resolved_addresses', packedOffset: 8, packedBitOffset: 0, type: network.mojom.AddressListSpec, nullable: false, minVersion: 0 },
-        { name: 'alternative_endpoints', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.HostResolverEndpointResultSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.ResolveHostClient_OnTextResults_ParamsSpec, 'network.mojom.ResolveHostClient_OnTextResults_Params', [
+      mojo.internal.StructField('text_results', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-network.mojom.ResolveHostClient_OnTextResults_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ResolveHostClient_OnTextResults_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'text_results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ResolveHostClient_OnHostnameResults_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'hosts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.HostPortPairSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec, 'network.mojom.ResolveHostClient_OnHostnameResults_Params', [
+      mojo.internal.StructField('hosts', 0, 0, mojo.internal.Array(network.mojom.HostPortPairSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.ResolveHostClientPendingReceiver = class {
   constructor(handle) {
@@ -364,117 +327,41 @@ network.mojom.ResolveHostClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnComplete
-network.mojom.ResolveHostClient_OnComplete_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ResolveHostClient.OnComplete_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'result', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'resolve_error_info', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ResolveErrorInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'resolved_addresses', packedOffset: 8, packedBitOffset: 0, type: network.mojom.AddressListSpec, nullable: false, minVersion: 0 },
-        { name: 'alternative_endpoints', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.HostResolverEndpointResultSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for OnTextResults
-network.mojom.ResolveHostClient_OnTextResults_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ResolveHostClient.OnTextResults_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'text_results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnHostnameResults
-network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ResolveHostClient.OnHostnameResults_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'hosts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.HostPortPairSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.ResolveHostClientPtr = network.mojom.ResolveHostClientRemote;
 network.mojom.ResolveHostClientRequest = network.mojom.ResolveHostClientPendingReceiver;
 
 
 // Interface: MdnsListenClient
-network.mojom.MdnsListenClient = {};
+mojo.internal.Struct(
+    network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec, 'network.mojom.MdnsListenClient_OnAddressResult_Params', [
+      mojo.internal.StructField('update_type', 8, 0, network.mojom.UpdateTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('query_type', 12, 0, network.mojom.DnsQueryTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('endpoint', 0, 0, network.mojom.IPEndPointSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.MdnsListenClient_OnAddressResult_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'update_type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.UpdateTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'query_type', packedOffset: 12, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'endpoint', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.MdnsListenClient_OnTextResult_ParamsSpec, 'network.mojom.MdnsListenClient_OnTextResult_Params', [
+      mojo.internal.StructField('update_type', 8, 0, network.mojom.UpdateTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('query_type', 12, 0, network.mojom.DnsQueryTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('text_records', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-network.mojom.MdnsListenClient_OnTextResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.MdnsListenClient_OnTextResult_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'update_type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.UpdateTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'query_type', packedOffset: 12, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'text_records', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec, 'network.mojom.MdnsListenClient_OnHostnameResult_Params', [
+      mojo.internal.StructField('update_type', 8, 0, network.mojom.UpdateTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('query_type', 12, 0, network.mojom.DnsQueryTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('host', 0, 0, network.mojom.HostPortPairSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.MdnsListenClient_OnHostnameResult_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'update_type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.UpdateTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'query_type', packedOffset: 12, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HostPortPairSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.MdnsListenClient_OnUnhandledResult_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'update_type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.UpdateTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'query_type', packedOffset: 4, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec, 'network.mojom.MdnsListenClient_OnUnhandledResult_Params', [
+      mojo.internal.StructField('update_type', 0, 0, network.mojom.UpdateTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('query_type', 4, 0, network.mojom.DnsQueryTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.MdnsListenClientPendingReceiver = class {
   constructor(handle) {
@@ -556,107 +443,33 @@ network.mojom.MdnsListenClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnAddressResult
-network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.MdnsListenClient.OnAddressResult_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'update_type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.UpdateTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'query_type', packedOffset: 12, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'endpoint', packedOffset: 0, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnTextResult
-network.mojom.MdnsListenClient_OnTextResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.MdnsListenClient.OnTextResult_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'update_type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.UpdateTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'query_type', packedOffset: 12, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'text_records', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnHostnameResult
-network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.MdnsListenClient.OnHostnameResult_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'update_type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.UpdateTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'query_type', packedOffset: 12, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HostPortPairSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnUnhandledResult
-network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.MdnsListenClient.OnUnhandledResult_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'update_type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.UpdateTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'query_type', packedOffset: 4, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.MdnsListenClientPtr = network.mojom.MdnsListenClientRemote;
 network.mojom.MdnsListenClientRequest = network.mojom.MdnsListenClientPendingReceiver;
 
 
 // Interface: HostResolver
-network.mojom.HostResolver = {};
+mojo.internal.Struct(
+    network.mojom.HostResolver_ResolveHost_ParamsSpec, 'network.mojom.HostResolver_ResolveHost_Params', [
+      mojo.internal.StructField('host', 0, 0, network.mojom.HostResolverHostSpec, null, false, 0, undefined),
+      mojo.internal.StructField('network_anonymization_key', 16, 0, network.mojom.NetworkAnonymizationKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('optional_parameters', 32, 0, network.mojom.ResolveHostParametersSpec, null, true, 0, undefined),
+      mojo.internal.StructField('response_client', 40, 0, mojo.internal.InterfaceProxy(network.mojom.ResolveHostClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
-network.mojom.HostResolver_ResolveHost_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HostResolver_ResolveHost_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HostResolverHostSpec, nullable: false, minVersion: 0 },
-        { name: 'network_anonymization_key', packedOffset: 16, packedBitOffset: 0, type: network.mojom.NetworkAnonymizationKeySpec, nullable: false, minVersion: 0 },
-        { name: 'optional_parameters', packedOffset: 32, packedBitOffset: 0, type: network.mojom.ResolveHostParametersSpec, nullable: true, minVersion: 0 },
-        { name: 'response_client', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.ResolveHostClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.HostResolver_MdnsListen_ParamsSpec, 'network.mojom.HostResolver_MdnsListen_Params', [
+      mojo.internal.StructField('host', 0, 0, network.mojom.HostPortPairSpec, null, false, 0, undefined),
+      mojo.internal.StructField('query_type', 16, 0, network.mojom.DnsQueryTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('response_client', 8, 0, mojo.internal.InterfaceProxy(network.mojom.MdnsListenClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-network.mojom.HostResolver_MdnsListen_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HostResolver_MdnsListen_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HostPortPairSpec, nullable: false, minVersion: 0 },
-        { name: 'query_type', packedOffset: 16, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'response_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.MdnsListenClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.HostResolver_MdnsListen_ResponseParamsSpec, 'network.mojom.HostResolver_MdnsListen_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.HostResolverPendingReceiver = class {
   constructor(handle) {
@@ -720,71 +533,15 @@ network.mojom.HostResolver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ResolveHost
-network.mojom.HostResolver_ResolveHost_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HostResolver.ResolveHost_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HostResolverHostSpec, nullable: false, minVersion: 0 },
-        { name: 'network_anonymization_key', packedOffset: 16, packedBitOffset: 0, type: network.mojom.NetworkAnonymizationKeySpec, nullable: false, minVersion: 0 },
-        { name: 'optional_parameters', packedOffset: 32, packedBitOffset: 0, type: network.mojom.ResolveHostParametersSpec, nullable: true, minVersion: 0 },
-        { name: 'response_client', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.ResolveHostClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
-
-// ParamsSpec for MdnsListen
-network.mojom.HostResolver_MdnsListen_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HostResolver.MdnsListen_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HostPortPairSpec, nullable: false, minVersion: 0 },
-        { name: 'query_type', packedOffset: 16, packedBitOffset: 0, type: network.mojom.DnsQueryTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'response_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.MdnsListenClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-network.mojom.HostResolver_MdnsListen_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.HostResolver.MdnsListen_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.HostResolverPtr = network.mojom.HostResolverRemote;
 network.mojom.HostResolverRequest = network.mojom.HostResolverPendingReceiver;
 
 
 // Interface: DnsConfigChangeManagerClient
-network.mojom.DnsConfigChangeManagerClient = {};
-
-network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec, 'network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 network.mojom.DnsConfigChangeManagerClientPendingReceiver = class {
   constructor(handle) {
@@ -839,39 +596,16 @@ network.mojom.DnsConfigChangeManagerClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnDnsConfigChanged
-network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DnsConfigChangeManagerClient.OnDnsConfigChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.DnsConfigChangeManagerClientPtr = network.mojom.DnsConfigChangeManagerClientRemote;
 network.mojom.DnsConfigChangeManagerClientRequest = network.mojom.DnsConfigChangeManagerClientPendingReceiver;
 
 
 // Interface: DnsConfigChangeManager
-network.mojom.DnsConfigChangeManager = {};
-
-network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DnsConfigChangeManager_RequestNotifications_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.DnsConfigChangeManagerClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec, 'network.mojom.DnsConfigChangeManager_RequestNotifications_Params', [
+      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(network.mojom.DnsConfigChangeManagerClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.DnsConfigChangeManagerPendingReceiver = class {
   constructor(handle) {
@@ -926,21 +660,6 @@ network.mojom.DnsConfigChangeManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RequestNotifications
-network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DnsConfigChangeManager.RequestNotifications_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.DnsConfigChangeManagerClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.DnsConfigChangeManagerPtr = network.mojom.DnsConfigChangeManagerRemote;
 network.mojom.DnsConfigChangeManagerRequest = network.mojom.DnsConfigChangeManagerPendingReceiver;
 

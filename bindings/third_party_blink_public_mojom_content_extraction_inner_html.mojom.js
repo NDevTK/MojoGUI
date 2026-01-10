@@ -8,21 +8,22 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.InnerHtmlAgent = {};
+blink.mojom.InnerHtmlAgent.$interfaceName = 'blink.mojom.InnerHtmlAgent';
+blink.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec = { $: {} };
+blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec = { $: {} };
 
 // Interface: InnerHtmlAgent
-blink.mojom.InnerHtmlAgent = {};
+mojo.internal.Struct(
+    blink.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec, 'blink.mojom.InnerHtmlAgent_GetInnerHtml_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-blink.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.InnerHtmlAgent_GetInnerHtml_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec, 'blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParams', [
+      mojo.internal.StructField('inner_html', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.InnerHtmlAgentPendingReceiver = class {
   constructor(handle) {
@@ -77,33 +78,6 @@ blink.mojom.InnerHtmlAgent.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetInnerHtml
-blink.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.InnerHtmlAgent.GetInnerHtml_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.InnerHtmlAgent.GetInnerHtml_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'inner_html', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.InnerHtmlAgentPtr = blink.mojom.InnerHtmlAgentRemote;
 blink.mojom.InnerHtmlAgentRequest = blink.mojom.InnerHtmlAgentPendingReceiver;
 

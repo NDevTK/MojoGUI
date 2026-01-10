@@ -8,6 +8,9 @@
 var attribution_reporting = attribution_reporting || {};
 attribution_reporting.mojom = attribution_reporting.mojom || {};
 
+attribution_reporting.mojom.ReportTypeSpec = { $: mojo.internal.Enum() };
+attribution_reporting.mojom.RegistrationTypeSpec = { $: mojo.internal.Enum() };
+attribution_reporting.mojom.OsRegistrationResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: ReportType
 attribution_reporting.mojom.ReportType = {
@@ -15,20 +18,17 @@ attribution_reporting.mojom.ReportType = {
   kAggregatableAttribution: 1,
   kNullAggregatable: 2,
 };
-attribution_reporting.mojom.ReportTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: RegistrationType
 attribution_reporting.mojom.RegistrationType = {
   kSource: 0,
   kTrigger: 1,
 };
-attribution_reporting.mojom.RegistrationTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: OsRegistrationResult
 attribution_reporting.mojom.OsRegistrationResult = {
   kPassedToOs: 0,
-  kInvalidRegistrationUrl: 1,
-  kProhibitedByBrowserPolicy: 2,
-  kRejectedByOs: 3,
+  kInvalidRegistrationUrl: 2,
+  kProhibitedByBrowserPolicy: 3,
+  kRejectedByOs: 5,
 };
-attribution_reporting.mojom.OsRegistrationResultSpec = { $: mojo.internal.Enum() };

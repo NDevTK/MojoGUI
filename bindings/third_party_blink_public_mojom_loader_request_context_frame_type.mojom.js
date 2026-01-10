@@ -8,6 +8,7 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.RequestContextFrameTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: RequestContextFrameType
 blink.mojom.RequestContextFrameType = {
@@ -16,4 +17,3 @@ blink.mojom.RequestContextFrameType = {
   kNone: 2,
   kTopLevel: 3,
 };
-blink.mojom.RequestContextFrameTypeSpec = { $: mojo.internal.Enum() };

@@ -10,32 +10,20 @@ viz.mojom = viz.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+viz.mojom.CropIdBoundsPairSpec = { $: {} };
+viz.mojom.RegionCaptureBoundsSpec = { $: {} };
 
 // Struct: CropIdBoundsPair
-viz.mojom.CropIdBoundsPairSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.CropIdBoundsPair',
-      packedSize: 24,
-      fields: [
-        { name: 'crop_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false, minVersion: 0 },
-        { name: 'bounds', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.CropIdBoundsPairSpec, 'viz.mojom.CropIdBoundsPair', [
+      mojo.internal.StructField('crop_id', 0, 0, mojo_base.mojom.TokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('bounds', 8, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: RegionCaptureBounds
-viz.mojom.RegionCaptureBoundsSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.RegionCaptureBounds',
-      packedSize: 16,
-      fields: [
-        { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.CropIdBoundsPairSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.RegionCaptureBoundsSpec, 'viz.mojom.RegionCaptureBounds', [
+      mojo.internal.StructField('bounds', 0, 0, mojo.internal.Array(viz.mojom.CropIdBoundsPairSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);

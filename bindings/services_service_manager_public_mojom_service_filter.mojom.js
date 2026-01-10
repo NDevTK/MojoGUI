@@ -8,20 +8,14 @@
 var service_manager = service_manager || {};
 service_manager.mojom = service_manager.mojom || {};
 
+service_manager.mojom.ServiceFilterSpec = { $: {} };
 
 // Struct: ServiceFilter
-service_manager.mojom.ServiceFilterSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.ServiceFilter',
-      packedSize: 40,
-      fields: [
-        { name: 'service_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'instance_group', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: true, minVersion: 0 },
-        { name: 'instance_id', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: true, minVersion: 0 },
-        { name: 'globally_unique_id', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    service_manager.mojom.ServiceFilterSpec, 'service_manager.mojom.ServiceFilter', [
+      mojo.internal.StructField('service_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('instance_group', 8, 0, mojo_base.mojom.TokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('instance_id', 16, 0, mojo_base.mojom.TokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('globally_unique_id', 24, 0, mojo_base.mojom.TokenSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);

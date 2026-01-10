@@ -9,38 +9,29 @@ var chromecast = chromecast || {};
 chromecast.media = chromecast.media || {};
 chromecast.media.mojom = chromecast.media.mojom || {};
 
+chromecast.media.mojom.CodecProfileLevelSpec = { $: {} };
+chromecast.media.mojom.MediaCaps = {};
+chromecast.media.mojom.MediaCaps.$interfaceName = 'chromecast.media.mojom.MediaCaps';
+chromecast.media.mojom.MediaCaps_AddObserver_ParamsSpec = { $: {} };
+chromecast.media.mojom.MediaCapsObserver = {};
+chromecast.media.mojom.MediaCapsObserver.$interfaceName = 'chromecast.media.mojom.MediaCapsObserver';
+chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_ParamsSpec = { $: {} };
 
 // Struct: CodecProfileLevel
-chromecast.media.mojom.CodecProfileLevelSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.media.mojom.CodecProfileLevel',
-      packedSize: 24,
-      fields: [
-        { name: 'codec', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'profile', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'level', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.media.mojom.CodecProfileLevelSpec, 'chromecast.media.mojom.CodecProfileLevel', [
+      mojo.internal.StructField('codec', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('profile', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('level', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: MediaCaps
-chromecast.media.mojom.MediaCaps = {};
-
-chromecast.media.mojom.MediaCaps_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.media.mojom.MediaCaps_AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.media.mojom.MediaCapsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.media.mojom.MediaCaps_AddObserver_ParamsSpec, 'chromecast.media.mojom.MediaCaps_AddObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromecast.media.mojom.MediaCapsObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromecast.media.mojom.MediaCapsPendingReceiver = class {
   constructor(handle) {
@@ -95,40 +86,16 @@ chromecast.media.mojom.MediaCaps.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddObserver
-chromecast.media.mojom.MediaCaps_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.media.mojom.MediaCaps.AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.media.mojom.MediaCapsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.media.mojom.MediaCapsPtr = chromecast.media.mojom.MediaCapsRemote;
 chromecast.media.mojom.MediaCapsRequest = chromecast.media.mojom.MediaCapsPendingReceiver;
 
 
 // Interface: MediaCapsObserver
-chromecast.media.mojom.MediaCapsObserver = {};
-
-chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'codec_profile_level', packedOffset: 0, packedBitOffset: 0, type: chromecast.media.mojom.CodecProfileLevelSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_ParamsSpec, 'chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_Params', [
+      mojo.internal.StructField('codec_profile_level', 0, 0, chromecast.media.mojom.CodecProfileLevelSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromecast.media.mojom.MediaCapsObserverPendingReceiver = class {
   constructor(handle) {
@@ -183,21 +150,6 @@ chromecast.media.mojom.MediaCapsObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddSupportedCodecProfileLevel
-chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.media.mojom.MediaCapsObserver.AddSupportedCodecProfileLevel_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'codec_profile_level', packedOffset: 0, packedBitOffset: 0, type: chromecast.media.mojom.CodecProfileLevelSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.media.mojom.MediaCapsObserverPtr = chromecast.media.mojom.MediaCapsObserverRemote;
 chromecast.media.mojom.MediaCapsObserverRequest = chromecast.media.mojom.MediaCapsObserverPendingReceiver;
 

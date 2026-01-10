@@ -8,6 +8,11 @@
 var data_decoder = data_decoder || {};
 data_decoder.mojom = data_decoder.mojom || {};
 
+data_decoder.mojom.WhitespaceBehaviorSpec = { $: mojo.internal.Enum() };
+data_decoder.mojom.XmlParser = {};
+data_decoder.mojom.XmlParser.$interfaceName = 'data_decoder.mojom.XmlParser';
+data_decoder.mojom.XmlParser_Parse_ParamsSpec = { $: {} };
+data_decoder.mojom.XmlParser_Parse_ResponseParamsSpec = { $: {} };
 
 data_decoder.mojom.kTypeKey = "type";
 
@@ -32,24 +37,21 @@ data_decoder.mojom.WhitespaceBehavior = {
   kIgnore: 0,
   kPreserveSignificant: 1,
 };
-data_decoder.mojom.WhitespaceBehaviorSpec = { $: mojo.internal.Enum() };
 
 // Interface: XmlParser
-data_decoder.mojom.XmlParser = {};
+mojo.internal.Struct(
+    data_decoder.mojom.XmlParser_Parse_ParamsSpec, 'data_decoder.mojom.XmlParser_Parse_Params', [
+      mojo.internal.StructField('xml', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('whitespace_behavior', 8, 0, data_decoder.mojom.WhitespaceBehaviorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-data_decoder.mojom.XmlParser_Parse_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.XmlParser_Parse_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'xml', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'whitespace_behavior', packedOffset: 8, packedBitOffset: 0, type: data_decoder.mojom.WhitespaceBehaviorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_decoder.mojom.XmlParser_Parse_ResponseParamsSpec, 'data_decoder.mojom.XmlParser_Parse_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo_base.mojom.ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('error', 16, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 data_decoder.mojom.XmlParserPendingReceiver = class {
   constructor(handle) {
@@ -104,36 +106,6 @@ data_decoder.mojom.XmlParser.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Parse
-data_decoder.mojom.XmlParser_Parse_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.XmlParser.Parse_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'xml', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'whitespace_behavior', packedOffset: 8, packedBitOffset: 0, type: data_decoder.mojom.WhitespaceBehaviorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-data_decoder.mojom.XmlParser_Parse_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.XmlParser.Parse_ResponseParams',
-      packedSize: 32,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true, minVersion: 0 },
-        { name: 'error', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 data_decoder.mojom.XmlParserPtr = data_decoder.mojom.XmlParserRemote;
 data_decoder.mojom.XmlParserRequest = data_decoder.mojom.XmlParserPendingReceiver;
 

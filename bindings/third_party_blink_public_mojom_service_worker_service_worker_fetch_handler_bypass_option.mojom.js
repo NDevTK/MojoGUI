@@ -8,6 +8,7 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.ServiceWorkerFetchHandlerBypassOptionSpec = { $: mojo.internal.Enum() };
 
 // Enum: ServiceWorkerFetchHandlerBypassOption
 blink.mojom.ServiceWorkerFetchHandlerBypassOption = {
@@ -19,4 +20,3 @@ blink.mojom.ServiceWorkerFetchHandlerBypassOption = {
   kSyntheticResponse: 5,
   kSyntheticResponseDryRunMode: 6,
 };
-blink.mojom.ServiceWorkerFetchHandlerBypassOptionSpec = { $: mojo.internal.Enum() };

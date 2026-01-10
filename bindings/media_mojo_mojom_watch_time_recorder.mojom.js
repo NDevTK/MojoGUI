@@ -10,173 +10,107 @@ media.mojom = media.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+media.mojom.PlaybackPropertiesSpec = { $: {} };
+media.mojom.SecondaryPlaybackPropertiesSpec = { $: {} };
+media.mojom.WatchTimeRecorder = {};
+media.mojom.WatchTimeRecorder.$interfaceName = 'media.mojom.WatchTimeRecorder';
+media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec = { $: {} };
+media.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec = { $: {} };
+media.mojom.WatchTimeRecorder_OnError_ParamsSpec = { $: {} };
+media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec = { $: {} };
+media.mojom.WatchTimeRecorder_SetAutoplayInitiated_ParamsSpec = { $: {} };
+media.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec = { $: {} };
+media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec = { $: {} };
+media.mojom.WatchTimeRecorder_UpdateUnderflowCount_ParamsSpec = { $: {} };
+media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec = { $: {} };
 
 // Struct: PlaybackProperties
-media.mojom.PlaybackPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.PlaybackProperties',
-      packedSize: 24,
-      fields: [
-        { name: 'has_audio', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_video', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_background', packedOffset: 12, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_muted', packedOffset: 12, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_eme', packedOffset: 12, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_embedded_media_experience', packedOffset: 12, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'media_stream_type', packedOffset: 0, packedBitOffset: 0, type: media.mojom.MediaStreamTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'renderer_type', packedOffset: 4, packedBitOffset: 0, type: media.mojom.RendererTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'demuxer_type', packedOffset: 8, packedBitOffset: 0, type: media.mojom.DemuxerTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.PlaybackPropertiesSpec, 'media.mojom.PlaybackProperties', [
+      mojo.internal.StructField('has_audio', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_video', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_background', 12, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_muted', 12, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_eme', 12, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_embedded_media_experience', 12, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('media_stream_type', 0, 0, media.mojom.MediaStreamTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('renderer_type', 4, 0, media.mojom.RendererTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('demuxer_type', 8, 0, media.mojom.DemuxerTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: SecondaryPlaybackProperties
-media.mojom.SecondaryPlaybackPropertiesSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.SecondaryPlaybackProperties',
-      packedSize: 80,
-      fields: [
-        { name: 'audio_codec', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioCodecSpec, nullable: false, minVersion: 0 },
-        { name: 'video_codec', packedOffset: 8, packedBitOffset: 0, type: media.mojom.VideoCodecSpec, nullable: false, minVersion: 0 },
-        { name: 'audio_codec_profile', packedOffset: 16, packedBitOffset: 0, type: media.mojom.AudioCodecProfileSpec, nullable: false, minVersion: 0 },
-        { name: 'video_codec_profile', packedOffset: 24, packedBitOffset: 0, type: media.mojom.VideoCodecProfileSpec, nullable: false, minVersion: 0 },
-        { name: 'audio_decoder', packedOffset: 32, packedBitOffset: 0, type: media.mojom.AudioDecoderTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'video_decoder', packedOffset: 40, packedBitOffset: 0, type: media.mojom.VideoDecoderTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'audio_encryption_scheme', packedOffset: 48, packedBitOffset: 0, type: media.mojom.EncryptionSchemeSpec, nullable: false, minVersion: 0 },
-        { name: 'video_encryption_scheme', packedOffset: 56, packedBitOffset: 0, type: media.mojom.EncryptionSchemeSpec, nullable: false, minVersion: 0 },
-        { name: 'natural_size', packedOffset: 64, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 80}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.SecondaryPlaybackPropertiesSpec, 'media.mojom.SecondaryPlaybackProperties', [
+      mojo.internal.StructField('audio_codec', 0, 0, media.mojom.AudioCodecSpec, null, false, 0, undefined),
+      mojo.internal.StructField('video_codec', 8, 0, media.mojom.VideoCodecSpec, null, false, 0, undefined),
+      mojo.internal.StructField('audio_codec_profile', 16, 0, media.mojom.AudioCodecProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('video_codec_profile', 24, 0, media.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('audio_decoder', 32, 0, media.mojom.AudioDecoderTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('video_decoder', 40, 0, media.mojom.VideoDecoderTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('audio_encryption_scheme', 48, 0, media.mojom.EncryptionSchemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('video_encryption_scheme', 56, 0, media.mojom.EncryptionSchemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('natural_size', 64, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 80]]);
 
 // Interface: WatchTimeRecorder
-media.mojom.WatchTimeRecorder = {};
+mojo.internal.Struct(
+    media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec, 'media.mojom.WatchTimeRecorder_RecordWatchTime_Params', [
+      mojo.internal.StructField('key', 0, 0, media.mojom.WatchTimeKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('watch_time', 8, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.WatchTimeRecorder_RecordWatchTime_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: media.mojom.WatchTimeKeySpec, nullable: false, minVersion: 0 },
-        { name: 'watch_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec, 'media.mojom.WatchTimeRecorder_FinalizeWatchTime_Params', [
+      mojo.internal.StructField('watch_time_keys', 0, 0, mojo.internal.Array(media.mojom.WatchTimeKeySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.WatchTimeRecorder_FinalizeWatchTime_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'watch_time_keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.WatchTimeKeySpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.WatchTimeRecorder_OnError_ParamsSpec, 'media.mojom.WatchTimeRecorder_OnError_Params', [
+      mojo.internal.StructField('status', 0, 0, media.mojom.PipelineStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.WatchTimeRecorder_OnError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.WatchTimeRecorder_OnError_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PipelineStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec, 'media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_Params', [
+      mojo.internal.StructField('secondary_properties', 0, 0, media.mojom.SecondaryPlaybackPropertiesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'secondary_properties', packedOffset: 0, packedBitOffset: 0, type: media.mojom.SecondaryPlaybackPropertiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.WatchTimeRecorder_SetAutoplayInitiated_ParamsSpec, 'media.mojom.WatchTimeRecorder_SetAutoplayInitiated_Params', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.WatchTimeRecorder_SetAutoplayInitiated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.WatchTimeRecorder_SetAutoplayInitiated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec, 'media.mojom.WatchTimeRecorder_OnDurationChanged_Params', [
+      mojo.internal.StructField('duration', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.WatchTimeRecorder_OnDurationChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec, 'media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_Params', [
+      mojo.internal.StructField('frames_decoded', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('frames_dropped', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'frames_decoded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'frames_dropped', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.WatchTimeRecorder_UpdateUnderflowCount_ParamsSpec, 'media.mojom.WatchTimeRecorder_UpdateUnderflowCount_Params', [
+      mojo.internal.StructField('total_count', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.WatchTimeRecorder_UpdateUnderflowCount_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.WatchTimeRecorder_UpdateUnderflowCount_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'total_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'total_completed_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'total_duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec, 'media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_Params', [
+      mojo.internal.StructField('total_completed_count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('total_duration', 0, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 media.mojom.WatchTimeRecorderPendingReceiver = class {
   constructor(handle) {
@@ -303,136 +237,6 @@ media.mojom.WatchTimeRecorder.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RecordWatchTime
-media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.WatchTimeRecorder.RecordWatchTime_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'key', packedOffset: 0, packedBitOffset: 0, type: media.mojom.WatchTimeKeySpec, nullable: false, minVersion: 0 },
-        { name: 'watch_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for FinalizeWatchTime
-media.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.WatchTimeRecorder.FinalizeWatchTime_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'watch_time_keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.WatchTimeKeySpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnError
-media.mojom.WatchTimeRecorder_OnError_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.WatchTimeRecorder.OnError_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PipelineStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateSecondaryProperties
-media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.WatchTimeRecorder.UpdateSecondaryProperties_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'secondary_properties', packedOffset: 0, packedBitOffset: 0, type: media.mojom.SecondaryPlaybackPropertiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetAutoplayInitiated
-media.mojom.WatchTimeRecorder_SetAutoplayInitiated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.WatchTimeRecorder.SetAutoplayInitiated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnDurationChanged
-media.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.WatchTimeRecorder.OnDurationChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateVideoDecodeStats
-media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.WatchTimeRecorder.UpdateVideoDecodeStats_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'frames_decoded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'frames_dropped', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateUnderflowCount
-media.mojom.WatchTimeRecorder_UpdateUnderflowCount_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.WatchTimeRecorder.UpdateUnderflowCount_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'total_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateUnderflowDuration
-media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.WatchTimeRecorder.UpdateUnderflowDuration_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'total_completed_count', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'total_duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.WatchTimeRecorderPtr = media.mojom.WatchTimeRecorderRemote;
 media.mojom.WatchTimeRecorderRequest = media.mojom.WatchTimeRecorderPendingReceiver;
 

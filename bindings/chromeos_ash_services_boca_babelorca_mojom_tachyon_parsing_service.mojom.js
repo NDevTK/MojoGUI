@@ -9,6 +9,14 @@ var ash = ash || {};
 ash.babelorca = ash.babelorca || {};
 ash.babelorca.mojom = ash.babelorca.mojom || {};
 
+ash.babelorca.mojom.ParsingStateSpec = { $: mojo.internal.Enum() };
+ash.babelorca.mojom.TranscriptPartSpec = { $: {} };
+ash.babelorca.mojom.BabelOrcaMessageSpec = { $: {} };
+ash.babelorca.mojom.StreamStatusSpec = { $: {} };
+ash.babelorca.mojom.TachyonParsingService = {};
+ash.babelorca.mojom.TachyonParsingService.$interfaceName = 'ash.babelorca.mojom.TachyonParsingService';
+ash.babelorca.mojom.TachyonParsingService_Parse_ParamsSpec = { $: {} };
+ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec = { $: {} };
 
 // Enum: ParsingState
 ash.babelorca.mojom.ParsingState = {
@@ -16,75 +24,52 @@ ash.babelorca.mojom.ParsingState = {
   kError: 1,
   kClosed: 2,
 };
-ash.babelorca.mojom.ParsingStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: TranscriptPart
-ash.babelorca.mojom.TranscriptPartSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.babelorca.mojom.TranscriptPart',
-      packedSize: 48,
-      fields: [
-        { name: 'transcript_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'text_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_final', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'language', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.babelorca.mojom.TranscriptPartSpec, 'ash.babelorca.mojom.TranscriptPart', [
+      mojo.internal.StructField('transcript_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('text_index', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('text', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_final', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('language', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: BabelOrcaMessage
-ash.babelorca.mojom.BabelOrcaMessageSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.babelorca.mojom.BabelOrcaMessage',
-      packedSize: 56,
-      fields: [
-        { name: 'sender_email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'session_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'init_timestamp_ms', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'order', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'previous_transcript', packedOffset: 32, packedBitOffset: 0, type: ash.babelorca.mojom.TranscriptPartSpec, nullable: true, minVersion: 0 },
-        { name: 'current_transcript', packedOffset: 40, packedBitOffset: 0, type: ash.babelorca.mojom.TranscriptPartSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.babelorca.mojom.BabelOrcaMessageSpec, 'ash.babelorca.mojom.BabelOrcaMessage', [
+      mojo.internal.StructField('sender_email', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('session_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('init_timestamp_ms', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('order', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('previous_transcript', 32, 0, ash.babelorca.mojom.TranscriptPartSpec, null, true, 0, undefined),
+      mojo.internal.StructField('current_transcript', 40, 0, ash.babelorca.mojom.TranscriptPartSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: StreamStatus
-ash.babelorca.mojom.StreamStatusSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.babelorca.mojom.StreamStatus',
-      packedSize: 24,
-      fields: [
-        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.babelorca.mojom.StreamStatusSpec, 'ash.babelorca.mojom.StreamStatus', [
+      mojo.internal.StructField('code', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: TachyonParsingService
-ash.babelorca.mojom.TachyonParsingService = {};
+mojo.internal.Struct(
+    ash.babelorca.mojom.TachyonParsingService_Parse_ParamsSpec, 'ash.babelorca.mojom.TachyonParsingService_Parse_Params', [
+      mojo.internal.StructField('stream_data', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.babelorca.mojom.TachyonParsingService_Parse_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.babelorca.mojom.TachyonParsingService_Parse_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'stream_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec, 'ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParams', [
+      mojo.internal.StructField('state', 16, 0, ash.babelorca.mojom.ParsingStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('messages', 0, 0, mojo.internal.Array(ash.babelorca.mojom.BabelOrcaMessageSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('stream_status', 8, 0, ash.babelorca.mojom.StreamStatusSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 ash.babelorca.mojom.TachyonParsingServicePendingReceiver = class {
   constructor(handle) {
@@ -139,36 +124,6 @@ ash.babelorca.mojom.TachyonParsingService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Parse
-ash.babelorca.mojom.TachyonParsingService_Parse_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.babelorca.mojom.TachyonParsingService.Parse_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'stream_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.babelorca.mojom.TachyonParsingService.Parse_ResponseParams',
-      packedSize: 32,
-      fields: [
-        { name: 'state', packedOffset: 16, packedBitOffset: 0, type: ash.babelorca.mojom.ParsingStateSpec, nullable: false, minVersion: 0 },
-        { name: 'messages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.babelorca.mojom.BabelOrcaMessageSpec, false), nullable: false, minVersion: 0 },
-        { name: 'stream_status', packedOffset: 8, packedBitOffset: 0, type: ash.babelorca.mojom.StreamStatusSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.babelorca.mojom.TachyonParsingServicePtr = ash.babelorca.mojom.TachyonParsingServiceRemote;
 ash.babelorca.mojom.TachyonParsingServiceRequest = ash.babelorca.mojom.TachyonParsingServicePendingReceiver;
 

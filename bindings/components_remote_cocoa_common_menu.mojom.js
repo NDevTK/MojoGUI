@@ -7,134 +7,106 @@
 // Module namespace
 var remote_cocoa = remote_cocoa || {};
 remote_cocoa.mojom = remote_cocoa.mojom || {};
+var components = components || {};
 var skia = skia || {};
 var ui = ui || {};
 var gfx = gfx || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+remote_cocoa.mojom.MenuItemSpec = { $: {} };
+remote_cocoa.mojom.MenuItemCommonFieldsSpec = { $: {} };
+remote_cocoa.mojom.SubmenuMenuItemSpec = { $: {} };
+remote_cocoa.mojom.MenuControllerParamsSpec = { $: {} };
+remote_cocoa.mojom.ContextMenuSpec = { $: {} };
+remote_cocoa.mojom.MenuHost = {};
+remote_cocoa.mojom.MenuHost.$interfaceName = 'remote_cocoa.mojom.MenuHost';
+remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec = { $: {} };
+remote_cocoa.mojom.MenuHost_MenuClosed_ParamsSpec = { $: {} };
+remote_cocoa.mojom.Menu = {};
+remote_cocoa.mojom.Menu.$interfaceName = 'remote_cocoa.mojom.Menu';
+remote_cocoa.mojom.Menu_Cancel_ParamsSpec = { $: {} };
+remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec = { $: {} };
 
 // Union: MenuItem
-remote_cocoa.mojom.MenuItemSpec = { $: mojo.internal.Union(
-    'remote_cocoa.mojom.MenuItem', {
+mojo.internal.Union(
+    remote_cocoa.mojom.MenuItemSpec, 'remote_cocoa.mojom.MenuItem', {
       'separator': {
         'ordinal': 0,
         'type': remote_cocoa.mojom.MenuItemCommonFieldsSpec,
-      }},
+        'nullable': false,
+      },
       'regular': {
         'ordinal': 1,
         'type': remote_cocoa.mojom.MenuItemCommonFieldsSpec,
-      }},
+        'nullable': false,
+      },
       'submenu': {
         'ordinal': 2,
         'type': remote_cocoa.mojom.SubmenuMenuItemSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: MenuItemCommonFields
-remote_cocoa.mojom.MenuItemCommonFieldsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.MenuItemCommonFields',
-      packedSize: 32,
-      fields: [
-        { name: 'command_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'may_have_mnemonics', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_checked', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'icon', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true, minVersion: 0 },
-        { name: 'is_enabled', packedOffset: 20, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_visible', packedOffset: 20, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_alerted', packedOffset: 20, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_new_feature', packedOffset: 20, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remote_cocoa.mojom.MenuItemCommonFieldsSpec, 'remote_cocoa.mojom.MenuItemCommonFields', [
+      mojo.internal.StructField('command_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('label', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('may_have_mnemonics', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_checked', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('icon', 8, 0, gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('is_enabled', 20, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_visible', 20, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_alerted', 20, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_new_feature', 20, 5, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: SubmenuMenuItem
-remote_cocoa.mojom.SubmenuMenuItemSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.SubmenuMenuItem',
-      packedSize: 24,
-      fields: [
-        { name: 'common', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.MenuItemCommonFieldsSpec, nullable: false, minVersion: 0 },
-        { name: 'children', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(remote_cocoa.mojom.MenuItemSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remote_cocoa.mojom.SubmenuMenuItemSpec, 'remote_cocoa.mojom.SubmenuMenuItem', [
+      mojo.internal.StructField('common', 0, 0, remote_cocoa.mojom.MenuItemCommonFieldsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('children', 8, 0, mojo.internal.Array(remote_cocoa.mojom.MenuItemSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: MenuControllerParams
-remote_cocoa.mojom.MenuControllerParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.MenuControllerParams',
-      packedSize: 56,
-      fields: [
-        { name: 'badge_font', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.FontSpec, nullable: false, minVersion: 0 },
-        { name: 'badge_color', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-        { name: 'badge_text_color', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-        { name: 'badge_horizontal_margin', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'badge_internal_padding', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'badge_min_height', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'badge_radius', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'iph_dot_color', packedOffset: 24, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remote_cocoa.mojom.MenuControllerParamsSpec, 'remote_cocoa.mojom.MenuControllerParams', [
+      mojo.internal.StructField('badge_font', 0, 0, remote_cocoa.mojom.FontSpec, null, false, 0, undefined),
+      mojo.internal.StructField('badge_color', 8, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('badge_text_color', 16, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('badge_horizontal_margin', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('badge_internal_padding', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('badge_min_height', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('badge_radius', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('iph_dot_color', 24, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: ContextMenu
-remote_cocoa.mojom.ContextMenuSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.ContextMenu',
-      packedSize: 40,
-      fields: [
-        { name: 'items', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(remote_cocoa.mojom.MenuItemSpec, false), nullable: false, minVersion: 0 },
-        { name: 'anchor', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-        { name: 'target_view_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'params', packedOffset: 24, packedBitOffset: 0, type: remote_cocoa.mojom.MenuControllerParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remote_cocoa.mojom.ContextMenuSpec, 'remote_cocoa.mojom.ContextMenu', [
+      mojo.internal.StructField('items', 0, 0, mojo.internal.Array(remote_cocoa.mojom.MenuItemSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('anchor', 8, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('target_view_id', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('params', 24, 0, remote_cocoa.mojom.MenuControllerParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: MenuHost
-remote_cocoa.mojom.MenuHost = {};
+mojo.internal.Struct(
+    remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec, 'remote_cocoa.mojom.MenuHost_CommandActivated_Params', [
+      mojo.internal.StructField('command_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('event_flags', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.MenuHost_CommandActivated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'command_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'event_flags', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-remote_cocoa.mojom.MenuHost_MenuClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.MenuHost_MenuClosed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remote_cocoa.mojom.MenuHost_MenuClosed_ParamsSpec, 'remote_cocoa.mojom.MenuHost_MenuClosed_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 remote_cocoa.mojom.MenuHostPendingReceiver = class {
   constructor(handle) {
@@ -198,69 +170,24 @@ remote_cocoa.mojom.MenuHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CommandActivated
-remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.MenuHost.CommandActivated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'command_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'event_flags', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for MenuClosed
-remote_cocoa.mojom.MenuHost_MenuClosed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.MenuHost.MenuClosed_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 remote_cocoa.mojom.MenuHostPtr = remote_cocoa.mojom.MenuHostRemote;
 remote_cocoa.mojom.MenuHostRequest = remote_cocoa.mojom.MenuHostPendingReceiver;
 
 
 // Interface: Menu
-remote_cocoa.mojom.Menu = {};
+mojo.internal.Struct(
+    remote_cocoa.mojom.Menu_Cancel_ParamsSpec, 'remote_cocoa.mojom.Menu_Cancel_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-remote_cocoa.mojom.Menu_Cancel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.Menu_Cancel_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.Menu_UpdateMenuItem_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'command_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'enabled', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'visible', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec, 'remote_cocoa.mojom.Menu_UpdateMenuItem_Params', [
+      mojo.internal.StructField('command_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('enabled', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('visible', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('label', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 remote_cocoa.mojom.MenuPendingReceiver = class {
   constructor(handle) {
@@ -324,37 +251,6 @@ remote_cocoa.mojom.Menu.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Cancel
-remote_cocoa.mojom.Menu_Cancel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.Menu.Cancel_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateMenuItem
-remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'remote_cocoa.mojom.Menu.UpdateMenuItem_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'command_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'enabled', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'visible', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'label', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 remote_cocoa.mojom.MenuPtr = remote_cocoa.mojom.MenuRemote;
 remote_cocoa.mojom.MenuRequest = remote_cocoa.mojom.MenuPendingReceiver;
 

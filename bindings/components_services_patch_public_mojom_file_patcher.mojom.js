@@ -8,6 +8,13 @@
 var patch = patch || {};
 patch.mojom = patch.mojom || {};
 
+patch.mojom.ZucchiniStatusSpec = { $: mojo.internal.Enum() };
+patch.mojom.FilePatcher = {};
+patch.mojom.FilePatcher.$interfaceName = 'patch.mojom.FilePatcher';
+patch.mojom.FilePatcher_PatchFilePuffPatch_ParamsSpec = { $: {} };
+patch.mojom.FilePatcher_PatchFilePuffPatch_ResponseParamsSpec = { $: {} };
+patch.mojom.FilePatcher_PatchFileZucchini_ParamsSpec = { $: {} };
+patch.mojom.FilePatcher_PatchFileZucchini_ResponseParamsSpec = { $: {} };
 
 // Enum: ZucchiniStatus
 patch.mojom.ZucchiniStatus = {
@@ -23,40 +30,35 @@ patch.mojom.ZucchiniStatus = {
   kStatusIoError: 9,
   kStatusFatal: 10,
 };
-patch.mojom.ZucchiniStatusSpec = { $: mojo.internal.Enum() };
 
 // Interface: FilePatcher
-patch.mojom.FilePatcher = {};
+mojo.internal.Struct(
+    patch.mojom.FilePatcher_PatchFilePuffPatch_ParamsSpec, 'patch.mojom.FilePatcher_PatchFilePuffPatch_Params', [
+      mojo.internal.StructField('input_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('patch_file', 8, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('output_file', 16, 0, mojo_base.mojom.FileSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-patch.mojom.FilePatcher_PatchFilePuffPatch_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'patch.mojom.FilePatcher_PatchFilePuffPatch_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'input_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'patch_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'output_file', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    patch.mojom.FilePatcher_PatchFilePuffPatch_ResponseParamsSpec, 'patch.mojom.FilePatcher_PatchFilePuffPatch_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-patch.mojom.FilePatcher_PatchFileZucchini_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'patch.mojom.FilePatcher_PatchFileZucchini_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'input_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'patch_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'output_file', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    patch.mojom.FilePatcher_PatchFileZucchini_ParamsSpec, 'patch.mojom.FilePatcher_PatchFileZucchini_Params', [
+      mojo.internal.StructField('input_file', 0, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('patch_file', 8, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('output_file', 16, 0, mojo_base.mojom.FileSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    patch.mojom.FilePatcher_PatchFileZucchini_ResponseParamsSpec, 'patch.mojom.FilePatcher_PatchFileZucchini_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, patch.mojom.ZucchiniStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 patch.mojom.FilePatcherPendingReceiver = class {
   constructor(handle) {
@@ -120,65 +122,6 @@ patch.mojom.FilePatcher.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for PatchFilePuffPatch
-patch.mojom.FilePatcher_PatchFilePuffPatch_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'patch.mojom.FilePatcher.PatchFilePuffPatch_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'input_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'patch_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'output_file', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-patch.mojom.FilePatcher_PatchFilePuffPatch_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'patch.mojom.FilePatcher.PatchFilePuffPatch_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for PatchFileZucchini
-patch.mojom.FilePatcher_PatchFileZucchini_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'patch.mojom.FilePatcher.PatchFileZucchini_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'input_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'patch_file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'output_file', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-patch.mojom.FilePatcher_PatchFileZucchini_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'patch.mojom.FilePatcher.PatchFileZucchini_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: patch.mojom.ZucchiniStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 patch.mojom.FilePatcherPtr = patch.mojom.FilePatcherRemote;
 patch.mojom.FilePatcherRequest = patch.mojom.FilePatcherPendingReceiver;
 

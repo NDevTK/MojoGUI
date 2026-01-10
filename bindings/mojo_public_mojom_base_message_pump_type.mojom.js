@@ -8,6 +8,7 @@
 var mojo_base = mojo_base || {};
 mojo_base.mojom = mojo_base.mojom || {};
 
+mojo_base.mojom.MessagePumpTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: MessagePumpType
 mojo_base.mojom.MessagePumpType = {
@@ -15,5 +16,7 @@ mojo_base.mojom.MessagePumpType = {
   kUi: 1,
   kCustom: 2,
   kIo: 3,
+  kJava: 4,
+  kNsRunloop: 5,
+  kNsRunloop: 6,
 };
-mojo_base.mojom.MessagePumpTypeSpec = { $: mojo.internal.Enum() };

@@ -8,50 +8,46 @@
 var enterprise_companion = enterprise_companion || {};
 enterprise_companion.mojom = enterprise_companion.mojom || {};
 
+enterprise_companion.mojom.StatusSpec = { $: {} };
+enterprise_companion.mojom.EnterpriseCompanion = {};
+enterprise_companion.mojom.EnterpriseCompanion.$interfaceName = 'enterprise_companion.mojom.EnterpriseCompanion';
+enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ParamsSpec = { $: {} };
+enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ResponseParamsSpec = { $: {} };
+enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ParamsSpec = { $: {} };
+enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParamsSpec = { $: {} };
 
 // Struct: Status
-enterprise_companion.mojom.StatusSpec = {
-  $: {
-    structSpec: {
-      name: 'enterprise_companion.mojom.Status',
-      packedSize: 24,
-      fields: [
-        { name: 'space', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'code', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    enterprise_companion.mojom.StatusSpec, 'enterprise_companion.mojom.Status', [
+      mojo.internal.StructField('space', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('code', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('description', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: EnterpriseCompanion
-enterprise_companion.mojom.EnterpriseCompanion = {};
+mojo.internal.Struct(
+    enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ParamsSpec, 'enterprise_companion.mojom.EnterpriseCompanion_Shutdown_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'enterprise_companion.mojom.EnterpriseCompanion_Shutdown_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ResponseParamsSpec, 'enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, enterprise_companion.mojom.StatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: enterprise_companion.mojom.PolicyFetchReasonSpec, nullable: false, minVersion: 1 },
-      ],
-      versions: [{version: 1, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ParamsSpec, 'enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_Params', [
+      mojo.internal.StructField('reason', 0, 0, enterprise_companion.mojom.PolicyFetchReasonSpec, null, false, 1, undefined),
+    ],
+    [[0, 8], [1, 16]]);
+
+mojo.internal.Struct(
+    enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParamsSpec, 'enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, enterprise_companion.mojom.StatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 enterprise_companion.mojom.EnterpriseCompanionPendingReceiver = class {
   constructor(handle) {
@@ -115,60 +111,6 @@ enterprise_companion.mojom.EnterpriseCompanion.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Shutdown
-enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'enterprise_companion.mojom.EnterpriseCompanion.Shutdown_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'enterprise_companion.mojom.EnterpriseCompanion.Shutdown_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: enterprise_companion.mojom.StatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for FetchPolicies
-enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'enterprise_companion.mojom.EnterpriseCompanion.FetchPolicies_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: enterprise_companion.mojom.PolicyFetchReasonSpec, nullable: false, minVersion: 1 },
-      ],
-      versions: [{version: 1, packedSize: 16}]
-    }
-  }
-};
-
-enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'enterprise_companion.mojom.EnterpriseCompanion.FetchPolicies_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: enterprise_companion.mojom.StatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 enterprise_companion.mojom.EnterpriseCompanionPtr = enterprise_companion.mojom.EnterpriseCompanionRemote;
 enterprise_companion.mojom.EnterpriseCompanionRequest = enterprise_companion.mojom.EnterpriseCompanionPendingReceiver;
 

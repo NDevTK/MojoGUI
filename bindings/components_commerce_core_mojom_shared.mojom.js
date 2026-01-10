@@ -10,57 +10,39 @@ commerce.shared = commerce.shared || {};
 commerce.shared.mojom = commerce.shared.mojom || {};
 var url = url || {};
 
+commerce.shared.mojom.ProductInfoSpec = { $: {} };
+commerce.shared.mojom.BookmarkProductInfoSpec = { $: {} };
+commerce.shared.mojom.ProductSpecificationsSetSpec = { $: {} };
 
 // Struct: ProductInfo
-commerce.shared.mojom.ProductInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.shared.mojom.ProductInfo',
-      packedSize: 88,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'cluster_title', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'domain', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'image_url', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'product_url', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'current_price', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'previous_price', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'cluster_id', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'category_labels', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'price_summary', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 88}]
-    }
-  }
-};
+mojo.internal.Struct(
+    commerce.shared.mojom.ProductInfoSpec, 'commerce.shared.mojom.ProductInfo', [
+      mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('cluster_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('domain', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('image_url', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('product_url', 32, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('current_price', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('previous_price', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('cluster_id', 56, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('category_labels', 64, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('price_summary', 72, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 88]]);
 
 // Struct: BookmarkProductInfo
-commerce.shared.mojom.BookmarkProductInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.shared.mojom.BookmarkProductInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'bookmark_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: commerce.shared.mojom.ProductInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    commerce.shared.mojom.BookmarkProductInfoSpec, 'commerce.shared.mojom.BookmarkProductInfo', [
+      mojo.internal.StructField('bookmark_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('info', 8, 0, commerce.shared.mojom.ProductInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: ProductSpecificationsSet
-commerce.shared.mojom.ProductSpecificationsSetSpec = {
-  $: {
-    structSpec: {
-      name: 'commerce.shared.mojom.ProductSpecificationsSet',
-      packedSize: 32,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false, minVersion: 0 },
-        { name: 'urls', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    commerce.shared.mojom.ProductSpecificationsSetSpec, 'commerce.shared.mojom.ProductSpecificationsSet', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('uuid', 8, 0, mojo_base.mojom.UuidSpec, null, false, 0, undefined),
+      mojo.internal.StructField('urls', 16, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);

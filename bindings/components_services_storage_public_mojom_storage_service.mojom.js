@@ -7,81 +7,57 @@
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
+var components = components || {};
+var services = services || {};
+var components = components || {};
+var services = services || {};
+var components = components || {};
+var services = services || {};
 
+storage.mojom.StorageService = {};
+storage.mojom.StorageService.$interfaceName = 'storage.mojom.StorageService';
+storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec = { $: {} };
+storage.mojom.StorageService_SetDataDirectory_ParamsSpec = { $: {} };
+storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec = { $: {} };
+storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec = { $: {} };
+storage.mojom.StorageService_BindTestApi_ParamsSpec = { $: {} };
 
 storage.mojom.kStorageSandbox = sandbox.mojom.Sandbox.kUtility;
 
 storage.mojom.kStorageSandbox = sandbox.mojom.Sandbox.kService;
 
 // Interface: StorageService
-storage.mojom.StorageService = {};
+mojo.internal.Struct(
+    storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec, 'storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.StorageService_SetDataDirectory_ParamsSpec, 'storage.mojom.StorageService_SetDataDirectory_Params', [
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('directory', 8, 0, mojo.internal.InterfaceProxy(storage.mojom.DirectoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-storage.mojom.StorageService_SetDataDirectory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.StorageService_SetDataDirectory_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'directory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(storage.mojom.DirectoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec, 'storage.mojom.StorageService_BindSessionStorageControl_Params', [
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, true, 0, undefined),
+      mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(storage.mojom.SessionStorageControlRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.StorageService_BindSessionStorageControl_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: true, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(storage.mojom.SessionStorageControlRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec, 'storage.mojom.StorageService_BindLocalStorageControl_Params', [
+      mojo.internal.StructField('path', 0, 0, mojo_base.mojom.FilePathSpec, null, true, 0, undefined),
+      mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(storage.mojom.LocalStorageControlRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.StorageService_BindLocalStorageControl_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: true, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(storage.mojom.LocalStorageControlRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-storage.mojom.StorageService_BindTestApi_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.StorageService_BindTestApi_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'test_api_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.StorageService_BindTestApi_ParamsSpec, 'storage.mojom.StorageService_BindTestApi_Params', [
+      mojo.internal.StructField('test_api_receiver', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 storage.mojom.StorageServicePendingReceiver = class {
   constructor(handle) {
@@ -172,79 +148,6 @@ storage.mojom.StorageService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for EnableAggressiveDomStorageFlushing
-storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.StorageService.EnableAggressiveDomStorageFlushing_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetDataDirectory
-storage.mojom.StorageService_SetDataDirectory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.StorageService.SetDataDirectory_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'directory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(storage.mojom.DirectoryRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for BindSessionStorageControl
-storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.StorageService.BindSessionStorageControl_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: true, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(storage.mojom.SessionStorageControlRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for BindLocalStorageControl
-storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.StorageService.BindLocalStorageControl_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: true, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(storage.mojom.LocalStorageControlRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for BindTestApi
-storage.mojom.StorageService_BindTestApi_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.StorageService.BindTestApi_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'test_api_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 storage.mojom.StorageServicePtr = storage.mojom.StorageServiceRemote;
 storage.mojom.StorageServiceRequest = storage.mojom.StorageServicePendingReceiver;
 

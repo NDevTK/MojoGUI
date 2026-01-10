@@ -8,6 +8,8 @@
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
+arc.mojom.ActionTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.ActivityNameSpec = { $: {} };
 
 // Enum: ActionType
 arc.mojom.ActionType = {
@@ -17,19 +19,11 @@ arc.mojom.ActionType = {
   CREATE_NOTE: 3,
   EDIT: 4,
 };
-arc.mojom.ActionTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: ActivityName
-arc.mojom.ActivityNameSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.ActivityName',
-      packedSize: 24,
-      fields: [
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'activity_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.ActivityNameSpec, 'arc.mojom.ActivityName', [
+      mojo.internal.StructField('package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('activity_name', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);

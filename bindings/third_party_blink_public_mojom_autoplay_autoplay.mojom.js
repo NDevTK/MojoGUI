@@ -9,6 +9,9 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var url = url || {};
 
+blink.mojom.AutoplayConfigurationClient = {};
+blink.mojom.AutoplayConfigurationClient.$interfaceName = 'blink.mojom.AutoplayConfigurationClient';
+blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_ParamsSpec = { $: {} };
 
 blink.mojom.kAutoplayFlagNone = 0x00000;
 
@@ -19,21 +22,12 @@ blink.mojom.kAutoplayFlagForceAllow = 0x00002;
 blink.mojom.kAutoplayFlagUserException = 0x00004;
 
 // Interface: AutoplayConfigurationClient
-blink.mojom.AutoplayConfigurationClient = {};
-
-blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'flags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_ParamsSpec, 'blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_Params', [
+      mojo.internal.StructField('origin', 0, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('flags', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.AutoplayConfigurationClientPendingReceiver = class {
   constructor(handle) {
@@ -88,22 +82,6 @@ blink.mojom.AutoplayConfigurationClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddAutoplayFlags
-blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.AutoplayConfigurationClient.AddAutoplayFlags_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'flags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.AutoplayConfigurationClientPtr = blink.mojom.AutoplayConfigurationClientRemote;
 blink.mojom.AutoplayConfigurationClientRequest = blink.mojom.AutoplayConfigurationClientPendingReceiver;
 

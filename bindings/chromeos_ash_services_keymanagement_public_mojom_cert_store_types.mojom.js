@@ -9,9 +9,10 @@ var arc = arc || {};
 arc.keymanagement = arc.keymanagement || {};
 arc.keymanagement.mojom = arc.keymanagement.mojom || {};
 
+arc.keymanagement.mojom.ChapsSlotSpec = { $: mojo.internal.Enum() };
 
 // Enum: ChapsSlot
 arc.keymanagement.mojom.ChapsSlot = {
-  kSystem: 0,
+  kUser: 0,
+  kSystem: 1,
 };
-arc.keymanagement.mojom.ChapsSlotSpec = { $: mojo.internal.Enum() };

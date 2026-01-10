@@ -7,7 +7,64 @@
 // Module namespace
 var cros = cros || {};
 cros.mojom = cros.mojom || {};
+var chromeos = chromeos || {};
+var chromeos = chromeos || {};
 
+cros.mojom.HalPixelFormatSpec = { $: mojo.internal.Enum() };
+cros.mojom.Camera3StreamTypeSpec = { $: mojo.internal.Enum() };
+cros.mojom.Camera3StreamRotationSpec = { $: mojo.internal.Enum() };
+cros.mojom.Camera3StreamConfigurationModeSpec = { $: mojo.internal.Enum() };
+cros.mojom.Camera3BufferStatusSpec = { $: mojo.internal.Enum() };
+cros.mojom.Camera3MsgTypeSpec = { $: mojo.internal.Enum() };
+cros.mojom.Camera3ErrorMsgCodeSpec = { $: mojo.internal.Enum() };
+cros.mojom.Camera3BufferRequestStatusSpec = { $: mojo.internal.Enum() };
+cros.mojom.Camera3StreamBufferReqStatusSpec = { $: mojo.internal.Enum() };
+cros.mojom.Camera3RequestTemplateSpec = { $: mojo.internal.Enum() };
+cros.mojom.BufferTypeSpec = { $: mojo.internal.Enum() };
+cros.mojom.Camera3NotifyMsgMessageSpec = { $: {} };
+cros.mojom.CropRotateScaleInfoSpec = { $: {} };
+cros.mojom.Camera3StreamSpec = { $: {} };
+cros.mojom.Camera3StreamConfigurationSpec = { $: {} };
+cros.mojom.CameraBufferHandleSpec = { $: {} };
+cros.mojom.Camera3StreamBufferSpec = { $: {} };
+cros.mojom.Camera3ErrorMsgSpec = { $: {} };
+cros.mojom.Camera3ShutterMsgSpec = { $: {} };
+cros.mojom.Camera3NotifyMsgSpec = { $: {} };
+cros.mojom.Camera3BufferRequestSpec = { $: {} };
+cros.mojom.Camera3StreamBufferRetSpec = { $: {} };
+cros.mojom.Camera3PhyscamMetadataSpec = { $: {} };
+cros.mojom.Camera3CaptureRequestSpec = { $: {} };
+cros.mojom.Camera3CaptureResultSpec = { $: {} };
+cros.mojom.Camera3CallbackOps = {};
+cros.mojom.Camera3CallbackOps.$interfaceName = 'cros.mojom.Camera3CallbackOps';
+cros.mojom.Camera3CallbackOps_ProcessCaptureResult_ParamsSpec = { $: {} };
+cros.mojom.Camera3CallbackOps_Notify_ParamsSpec = { $: {} };
+cros.mojom.Camera3CallbackOps_RequestStreamBuffers_ParamsSpec = { $: {} };
+cros.mojom.Camera3CallbackOps_RequestStreamBuffers_ResponseParamsSpec = { $: {} };
+cros.mojom.Camera3CallbackOps_ReturnStreamBuffers_ParamsSpec = { $: {} };
+cros.mojom.Camera3DeviceOps = {};
+cros.mojom.Camera3DeviceOps.$interfaceName = 'cros.mojom.Camera3DeviceOps';
+cros.mojom.Camera3DeviceOps_Initialize_ParamsSpec = { $: {} };
+cros.mojom.Camera3DeviceOps_Initialize_ResponseParamsSpec = { $: {} };
+cros.mojom.Camera3DeviceOps_ConfigureStreams_ParamsSpec = { $: {} };
+cros.mojom.Camera3DeviceOps_ConfigureStreams_ResponseParamsSpec = { $: {} };
+cros.mojom.Camera3DeviceOps_ConstructDefaultRequestSettings_ParamsSpec = { $: {} };
+cros.mojom.Camera3DeviceOps_ConstructDefaultRequestSettings_ResponseParamsSpec = { $: {} };
+cros.mojom.Camera3DeviceOps_ProcessCaptureRequest_ParamsSpec = { $: {} };
+cros.mojom.Camera3DeviceOps_ProcessCaptureRequest_ResponseParamsSpec = { $: {} };
+cros.mojom.Camera3DeviceOps_Dump_ParamsSpec = { $: {} };
+cros.mojom.Camera3DeviceOps_Flush_ParamsSpec = { $: {} };
+cros.mojom.Camera3DeviceOps_Flush_ResponseParamsSpec = { $: {} };
+cros.mojom.Camera3DeviceOps_RegisterBuffer_ParamsSpec = { $: {} };
+cros.mojom.Camera3DeviceOps_RegisterBuffer_ResponseParamsSpec = { $: {} };
+cros.mojom.Camera3DeviceOps_Close_ParamsSpec = { $: {} };
+cros.mojom.Camera3DeviceOps_Close_ResponseParamsSpec = { $: {} };
+cros.mojom.Camera3DeviceOps_ConfigureStreamsAndGetAllocatedBuffers_ParamsSpec = { $: {} };
+cros.mojom.Camera3DeviceOps_ConfigureStreamsAndGetAllocatedBuffers_ResponseParamsSpec = { $: {} };
+cros.mojom.Camera3DeviceOps_SignalStreamFlush_ParamsSpec = { $: {} };
+cros.mojom.Camera3DeviceOps_OnNewBuffer_ParamsSpec = { $: {} };
+cros.mojom.Camera3DeviceOps_OnNewBuffer_ResponseParamsSpec = { $: {} };
+cros.mojom.Camera3DeviceOps_OnBufferRetired_ParamsSpec = { $: {} };
 
 cros.mojom.GRALLOC_USAGE_SW_READ_NEVER = 0x00000000;
 
@@ -33,17 +90,16 @@ cros.mojom.NO_BUFFER_BUFFER_ID = 0xFFFFFFFFFFFFFFFF;
 
 // Enum: HalPixelFormat
 cros.mojom.HalPixelFormat = {
-  HAL_PIXEL_FORMAT_RGBA_8888: 0,
-  HAL_PIXEL_FORMAT_RGBX_8888: 1,
-  HAL_PIXEL_FORMAT_BGRA_8888: 2,
-  HAL_PIXEL_FORMAT_YCrCb_420_SP: 3,
-  HAL_PIXEL_FORMAT_YCbCr_422_I: 4,
-  HAL_PIXEL_FORMAT_BLOB: 5,
-  HAL_PIXEL_FORMAT_IMPLEMENTATION_DEFINED: 6,
-  HAL_PIXEL_FORMAT_YCbCr_420_888: 7,
-  HAL_PIXEL_FORMAT_YV12: 8,
+  HAL_PIXEL_FORMAT_RGBA_8888: 1,
+  HAL_PIXEL_FORMAT_RGBX_8888: 2,
+  HAL_PIXEL_FORMAT_BGRA_8888: 5,
+  HAL_PIXEL_FORMAT_YCrCb_420_SP: 17,
+  HAL_PIXEL_FORMAT_YCbCr_422_I: 20,
+  HAL_PIXEL_FORMAT_BLOB: 33,
+  HAL_PIXEL_FORMAT_IMPLEMENTATION_DEFINED: 34,
+  HAL_PIXEL_FORMAT_YCbCr_420_888: 35,
+  HAL_PIXEL_FORMAT_YV12: 842094169,
 };
-cros.mojom.HalPixelFormatSpec = { $: mojo.internal.Enum() };
 
 // Enum: Camera3StreamType
 cros.mojom.Camera3StreamType = {
@@ -51,7 +107,6 @@ cros.mojom.Camera3StreamType = {
   CAMERA3_STREAM_INPUT: 1,
   CAMERA3_STREAM_BIDIRECTIONAL: 2,
 };
-cros.mojom.Camera3StreamTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Camera3StreamRotation
 cros.mojom.Camera3StreamRotation = {
@@ -60,37 +115,32 @@ cros.mojom.Camera3StreamRotation = {
   CAMERA3_STREAM_ROTATION_180: 2,
   CAMERA3_STREAM_ROTATION_270: 3,
 };
-cros.mojom.Camera3StreamRotationSpec = { $: mojo.internal.Enum() };
 
 // Enum: Camera3StreamConfigurationMode
 cros.mojom.Camera3StreamConfigurationMode = {
   CAMERA3_STREAM_CONFIGURATION_NORMAL_MODE: 0,
   CAMERA3_STREAM_CONFIGURATION_CONSTRAINED_HIGH_SPEED_MODE: 1,
 };
-cros.mojom.Camera3StreamConfigurationModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Camera3BufferStatus
 cros.mojom.Camera3BufferStatus = {
   CAMERA3_BUFFER_STATUS_OK: 0,
   CAMERA3_BUFFER_STATUS_ERROR: 1,
 };
-cros.mojom.Camera3BufferStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: Camera3MsgType
 cros.mojom.Camera3MsgType = {
-  CAMERA3_MSG_ERROR: 0,
-  CAMERA3_MSG_SHUTTER: 1,
+  CAMERA3_MSG_ERROR: 1,
+  CAMERA3_MSG_SHUTTER: 2,
 };
-cros.mojom.Camera3MsgTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Camera3ErrorMsgCode
 cros.mojom.Camera3ErrorMsgCode = {
-  CAMERA3_MSG_ERROR_DEVICE: 0,
-  CAMERA3_MSG_ERROR_REQUEST: 1,
-  CAMERA3_MSG_ERROR_RESULT: 2,
-  CAMERA3_MSG_ERROR_BUFFER: 3,
+  CAMERA3_MSG_ERROR_DEVICE: 1,
+  CAMERA3_MSG_ERROR_REQUEST: 2,
+  CAMERA3_MSG_ERROR_RESULT: 3,
+  CAMERA3_MSG_ERROR_BUFFER: 4,
 };
-cros.mojom.Camera3ErrorMsgCodeSpec = { $: mojo.internal.Enum() };
 
 // Enum: Camera3BufferRequestStatus
 cros.mojom.Camera3BufferRequestStatus = {
@@ -100,7 +150,6 @@ cros.mojom.Camera3BufferRequestStatus = {
   CAMERA3_BUF_REQ_FAILED_ILLEGAL_ARGUMENTS: 3,
   CAMERA3_BUF_REQ_FAILED_UNKNOWN: 4,
 };
-cros.mojom.Camera3BufferRequestStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: Camera3StreamBufferReqStatus
 cros.mojom.Camera3StreamBufferReqStatus = {
@@ -110,326 +159,211 @@ cros.mojom.Camera3StreamBufferReqStatus = {
   CAMERA3_PS_BUF_REQ_STREAM_DISCONNECTED: 3,
   CAMERA3_PS_BUF_REQ_UNKNOWN_ERROR: 4,
 };
-cros.mojom.Camera3StreamBufferReqStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: Camera3RequestTemplate
 cros.mojom.Camera3RequestTemplate = {
-  CAMERA3_TEMPLATE_PREVIEW: 0,
-  CAMERA3_TEMPLATE_STILL_CAPTURE: 1,
-  CAMERA3_TEMPLATE_VIDEO_RECORD: 2,
-  CAMERA3_TEMPLATE_VIDEO_SNAPSHOT: 3,
-  CAMERA3_TEMPLATE_ZERO_SHUTTER_LAG: 4,
-  CAMERA3_TEMPLATE_MANUAL: 5,
-  CAMERA3_TEMPLATE_COUNT: 6,
+  CAMERA3_TEMPLATE_PREVIEW: 1,
+  CAMERA3_TEMPLATE_STILL_CAPTURE: 2,
+  CAMERA3_TEMPLATE_VIDEO_RECORD: 3,
+  CAMERA3_TEMPLATE_VIDEO_SNAPSHOT: 4,
+  CAMERA3_TEMPLATE_ZERO_SHUTTER_LAG: 5,
+  CAMERA3_TEMPLATE_MANUAL: 6,
+  CAMERA3_TEMPLATE_COUNT: 7,
 };
-cros.mojom.Camera3RequestTemplateSpec = { $: mojo.internal.Enum() };
 
 // Enum: BufferType
 cros.mojom.BufferType = {
   DMABUF: 0,
   SHM: 1,
 };
-cros.mojom.BufferTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: Camera3NotifyMsgMessage
-cros.mojom.Camera3NotifyMsgMessageSpec = { $: mojo.internal.Union(
-    'cros.mojom.Camera3NotifyMsgMessage', {
+mojo.internal.Union(
+    cros.mojom.Camera3NotifyMsgMessageSpec, 'cros.mojom.Camera3NotifyMsgMessage', {
       'error': {
         'ordinal': 0,
         'type': cros.mojom.Camera3ErrorMsgSpec,
-      }},
+        'nullable': false,
+      },
       'shutter': {
         'ordinal': 1,
         'type': cros.mojom.Camera3ShutterMsgSpec,
-      }},
+        'nullable': false,
+      },
       'generic': {
         'ordinal': 2,
         'type': mojo.internal.Array(mojo.internal.Uint8, false),
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: CropRotateScaleInfo
-cros.mojom.CropRotateScaleInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CropRotateScaleInfo',
-      packedSize: 16,
-      fields: [
-        { name: 'crop_rotate_scale_degrees', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.Camera3StreamRotationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.CropRotateScaleInfoSpec, 'cros.mojom.CropRotateScaleInfo', [
+      mojo.internal.StructField('crop_rotate_scale_degrees', 0, 0, cros.mojom.Camera3StreamRotationSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: Camera3Stream
-cros.mojom.Camera3StreamSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3Stream',
-      packedSize: 72,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'stream_type', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.Camera3StreamTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'width', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'height', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'format', packedOffset: 20, packedBitOffset: 0, type: cros.mojom.HalPixelFormatSpec, nullable: false, minVersion: 0 },
-        { name: 'usage', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'max_buffers', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'data_space', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'rotation', packedOffset: 36, packedBitOffset: 0, type: cros.mojom.Camera3StreamRotationSpec, nullable: false, minVersion: 0 },
-        { name: 'crop_rotate_scale_info', packedOffset: 40, packedBitOffset: 0, type: cros.mojom.CropRotateScaleInfoSpec, nullable: true, minVersion: 1 },
-        { name: 'physical_camera_id', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 4 },
-        { name: 'effects', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(cros.mojom.Camera3StreamEffectSpec, false), nullable: true, minVersion: 6 },
-      ],
-      versions: [{version: 0, packedSize: 48}, {version: 1, packedSize: 56}, {version: 4, packedSize: 64}, {version: 6, packedSize: 72}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.Camera3StreamSpec, 'cros.mojom.Camera3Stream', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('stream_type', 8, 0, cros.mojom.Camera3StreamTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('width', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('height', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('format', 20, 0, cros.mojom.HalPixelFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('usage', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('max_buffers', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('data_space', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('rotation', 36, 0, cros.mojom.Camera3StreamRotationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('crop_rotate_scale_info', 40, 0, cros.mojom.CropRotateScaleInfoSpec, null, true, 1, undefined),
+      mojo.internal.StructField('physical_camera_id', 48, 0, mojo.internal.String, null, true, 4, undefined),
+      mojo.internal.StructField('effects', 56, 0, mojo.internal.Array(cros.mojom.Camera3StreamEffectSpec, false), null, true, 6, undefined),
+    ],
+    [[0, 48], [1, 56], [4, 64], [6, 72]]);
 
 // Struct: Camera3StreamConfiguration
-cros.mojom.Camera3StreamConfigurationSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3StreamConfiguration',
-      packedSize: 32,
-      fields: [
-        { name: 'streams', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(cros.mojom.Camera3StreamSpec, false), nullable: false, minVersion: 0 },
-        { name: 'operation_mode', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.Camera3StreamConfigurationModeSpec, nullable: false, minVersion: 0 },
-        { name: 'session_parameters', packedOffset: 16, packedBitOffset: 0, type: cros.mojom.CameraMetadataSpec, nullable: true, minVersion: 4 },
-      ],
-      versions: [{version: 0, packedSize: 24}, {version: 4, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.Camera3StreamConfigurationSpec, 'cros.mojom.Camera3StreamConfiguration', [
+      mojo.internal.StructField('streams', 0, 0, mojo.internal.Array(cros.mojom.Camera3StreamSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('operation_mode', 8, 0, cros.mojom.Camera3StreamConfigurationModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('session_parameters', 16, 0, cros.mojom.CameraMetadataSpec, null, true, 4, undefined),
+    ],
+    [[0, 24], [4, 32]]);
 
 // Struct: CameraBufferHandle
-cros.mojom.CameraBufferHandleSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.CameraBufferHandle',
-      packedSize: 80,
-      fields: [
-        { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'fds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Handle, false), nullable: false, minVersion: 0 },
-        { name: 'drm_format', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'hal_pixel_format', packedOffset: 36, packedBitOffset: 0, type: cros.mojom.HalPixelFormatSpec, nullable: false, minVersion: 0 },
-        { name: 'width', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'height', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'strides', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
-        { name: 'offsets', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
-        { name: 'sizes', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: true, minVersion: 3 },
-        { name: 'has_modifier', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 7 },
-        { name: 'modifier', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 7 },
-      ],
-      versions: [{version: 0, packedSize: 56}, {version: 3, packedSize: 64}, {version: 7, packedSize: 80}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.CameraBufferHandleSpec, 'cros.mojom.CameraBufferHandle', [
+      mojo.internal.StructField('buffer_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('fds', 8, 0, mojo.internal.Array(mojo.internal.Handle, false), null, false, 0, undefined),
+      mojo.internal.StructField('drm_format', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('hal_pixel_format', 36, 0, cros.mojom.HalPixelFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('width', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('height', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('strides', 16, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('offsets', 24, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('sizes', 48, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, true, 3, undefined),
+      mojo.internal.StructField('has_modifier', 64, 0, mojo.internal.Bool, false, false, 7, undefined),
+      mojo.internal.StructField('modifier', 56, 0, mojo.internal.Uint64, 0, false, 7, undefined),
+    ],
+    [[0, 56], [3, 64], [7, 80]]);
 
 // Struct: Camera3StreamBuffer
-cros.mojom.Camera3StreamBufferSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3StreamBuffer',
-      packedSize: 48,
-      fields: [
-        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: cros.mojom.Camera3BufferStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'acquire_fence', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Handle, nullable: true, minVersion: 0 },
-        { name: 'release_fence', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Handle, nullable: true, minVersion: 0 },
-        { name: 'buffer_handle', packedOffset: 32, packedBitOffset: 0, type: cros.mojom.CameraBufferHandleSpec, nullable: true, minVersion: 2 },
-      ],
-      versions: [{version: 0, packedSize: 40}, {version: 2, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.Camera3StreamBufferSpec, 'cros.mojom.Camera3StreamBuffer', [
+      mojo.internal.StructField('stream_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('buffer_id', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('status', 16, 0, cros.mojom.Camera3BufferStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('acquire_fence', 20, 0, mojo.internal.Handle, null, true, 0, undefined),
+      mojo.internal.StructField('release_fence', 24, 0, mojo.internal.Handle, null, true, 0, undefined),
+      mojo.internal.StructField('buffer_handle', 32, 0, cros.mojom.CameraBufferHandleSpec, null, true, 2, undefined),
+    ],
+    [[0, 40], [2, 48]]);
 
 // Struct: Camera3ErrorMsg
-cros.mojom.Camera3ErrorMsgSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3ErrorMsg',
-      packedSize: 24,
-      fields: [
-        { name: 'frame_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'error_stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'error_code', packedOffset: 12, packedBitOffset: 0, type: cros.mojom.Camera3ErrorMsgCodeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.Camera3ErrorMsgSpec, 'cros.mojom.Camera3ErrorMsg', [
+      mojo.internal.StructField('frame_number', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('error_stream_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('error_code', 12, 0, cros.mojom.Camera3ErrorMsgCodeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: Camera3ShutterMsg
-cros.mojom.Camera3ShutterMsgSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3ShutterMsg',
-      packedSize: 24,
-      fields: [
-        { name: 'frame_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'timestamp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.Camera3ShutterMsgSpec, 'cros.mojom.Camera3ShutterMsg', [
+      mojo.internal.StructField('frame_number', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: Camera3NotifyMsg
-cros.mojom.Camera3NotifyMsgSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3NotifyMsg',
-      packedSize: 32,
-      fields: [
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: cros.mojom.Camera3MsgTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.Camera3NotifyMsgMessageSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.Camera3NotifyMsgSpec, 'cros.mojom.Camera3NotifyMsg', [
+      mojo.internal.StructField('type', 16, 0, cros.mojom.Camera3MsgTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 0, 0, cros.mojom.Camera3NotifyMsgMessageSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: Camera3BufferRequest
-cros.mojom.Camera3BufferRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3BufferRequest',
-      packedSize: 24,
-      fields: [
-        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'num_buffers_requested', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.Camera3BufferRequestSpec, 'cros.mojom.Camera3BufferRequest', [
+      mojo.internal.StructField('stream_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('num_buffers_requested', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: Camera3StreamBufferRet
-cros.mojom.Camera3StreamBufferRetSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3StreamBufferRet',
-      packedSize: 32,
-      fields: [
-        { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: cros.mojom.Camera3StreamBufferReqStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'output_buffers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(cros.mojom.Camera3StreamBufferSpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.Camera3StreamBufferRetSpec, 'cros.mojom.Camera3StreamBufferRet', [
+      mojo.internal.StructField('stream_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('status', 16, 0, cros.mojom.Camera3StreamBufferReqStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('output_buffers', 8, 0, mojo.internal.Array(cros.mojom.Camera3StreamBufferSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: Camera3PhyscamMetadata
-cros.mojom.Camera3PhyscamMetadataSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3PhyscamMetadata',
-      packedSize: 24,
-      fields: [
-        { name: 'id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CameraMetadataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.Camera3PhyscamMetadataSpec, 'cros.mojom.Camera3PhyscamMetadata', [
+      mojo.internal.StructField('id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('metadata', 0, 0, cros.mojom.CameraMetadataSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: Camera3CaptureRequest
-cros.mojom.Camera3CaptureRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3CaptureRequest',
-      packedSize: 48,
-      fields: [
-        { name: 'frame_number', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CameraMetadataSpec, nullable: false, minVersion: 0 },
-        { name: 'input_buffer', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.Camera3StreamBufferSpec, nullable: true, minVersion: 0 },
-        { name: 'output_buffers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(cros.mojom.Camera3StreamBufferSpec, false), nullable: false, minVersion: 0 },
-        { name: 'physcam_settings', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(cros.mojom.Camera3PhyscamMetadataSpec, false), nullable: true, minVersion: 4 },
-      ],
-      versions: [{version: 0, packedSize: 40}, {version: 4, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.Camera3CaptureRequestSpec, 'cros.mojom.Camera3CaptureRequest', [
+      mojo.internal.StructField('frame_number', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('settings', 0, 0, cros.mojom.CameraMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('input_buffer', 8, 0, cros.mojom.Camera3StreamBufferSpec, null, true, 0, undefined),
+      mojo.internal.StructField('output_buffers', 16, 0, mojo.internal.Array(cros.mojom.Camera3StreamBufferSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('physcam_settings', 32, 0, mojo.internal.Array(cros.mojom.Camera3PhyscamMetadataSpec, false), null, true, 4, undefined),
+    ],
+    [[0, 40], [4, 48]]);
 
 // Struct: Camera3CaptureResult
-cros.mojom.Camera3CaptureResultSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3CaptureResult',
-      packedSize: 48,
-      fields: [
-        { name: 'frame_number', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CameraMetadataSpec, nullable: false, minVersion: 0 },
-        { name: 'output_buffers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(cros.mojom.Camera3StreamBufferSpec, false), nullable: true, minVersion: 0 },
-        { name: 'input_buffer', packedOffset: 16, packedBitOffset: 0, type: cros.mojom.Camera3StreamBufferSpec, nullable: true, minVersion: 0 },
-        { name: 'partial_result', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'physcam_metadata', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(cros.mojom.Camera3PhyscamMetadataSpec, false), nullable: true, minVersion: 4 },
-      ],
-      versions: [{version: 0, packedSize: 40}, {version: 4, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.Camera3CaptureResultSpec, 'cros.mojom.Camera3CaptureResult', [
+      mojo.internal.StructField('frame_number', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('result', 0, 0, cros.mojom.CameraMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('output_buffers', 8, 0, mojo.internal.Array(cros.mojom.Camera3StreamBufferSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('input_buffer', 16, 0, cros.mojom.Camera3StreamBufferSpec, null, true, 0, undefined),
+      mojo.internal.StructField('partial_result', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('physcam_metadata', 32, 0, mojo.internal.Array(cros.mojom.Camera3PhyscamMetadataSpec, false), null, true, 4, undefined),
+    ],
+    [[0, 40], [4, 48]]);
 
 // Interface: Camera3CallbackOps
-cros.mojom.Camera3CallbackOps = {};
+mojo.internal.Struct(
+    cros.mojom.Camera3CallbackOps_ProcessCaptureResult_ParamsSpec, 'cros.mojom.Camera3CallbackOps_ProcessCaptureResult_Params', [
+      mojo.internal.StructField('result', 0, 0, cros.mojom.Camera3CaptureResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-cros.mojom.Camera3CallbackOps_ProcessCaptureResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3CallbackOps_ProcessCaptureResult_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.Camera3CaptureResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.Camera3CallbackOps_Notify_ParamsSpec, 'cros.mojom.Camera3CallbackOps_Notify_Params', [
+      mojo.internal.StructField('msg', 0, 0, cros.mojom.Camera3NotifyMsgSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-cros.mojom.Camera3CallbackOps_Notify_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3CallbackOps_Notify_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'msg', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.Camera3NotifyMsgSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.Camera3CallbackOps_RequestStreamBuffers_ParamsSpec, 'cros.mojom.Camera3CallbackOps_RequestStreamBuffers_Params', [
+      mojo.internal.StructField('buffer_reqs', 0, 0, mojo.internal.Array(cros.mojom.Camera3BufferRequestSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-cros.mojom.Camera3CallbackOps_RequestStreamBuffers_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3CallbackOps_RequestStreamBuffers_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'buffer_reqs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(cros.mojom.Camera3BufferRequestSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.Camera3CallbackOps_RequestStreamBuffers_ResponseParamsSpec, 'cros.mojom.Camera3CallbackOps_RequestStreamBuffers_ResponseParams', [
+      mojo.internal.StructField('result', 8, 0, cros.mojom.Camera3BufferRequestStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('returned_buf_reqs', 0, 0, mojo.internal.Array(cros.mojom.Camera3StreamBufferRetSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-cros.mojom.Camera3CallbackOps_ReturnStreamBuffers_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3CallbackOps_ReturnStreamBuffers_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'buffers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(cros.mojom.Camera3StreamBufferSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.Camera3CallbackOps_ReturnStreamBuffers_ParamsSpec, 'cros.mojom.Camera3CallbackOps_ReturnStreamBuffers_Params', [
+      mojo.internal.StructField('buffers', 0, 0, mojo.internal.Array(cros.mojom.Camera3StreamBufferSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 cros.mojom.Camera3CallbackOpsPendingReceiver = class {
   constructor(handle) {
@@ -511,245 +445,145 @@ cros.mojom.Camera3CallbackOps.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ProcessCaptureResult
-cros.mojom.Camera3CallbackOps_ProcessCaptureResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3CallbackOps.ProcessCaptureResult_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.Camera3CaptureResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Notify
-cros.mojom.Camera3CallbackOps_Notify_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3CallbackOps.Notify_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'msg', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.Camera3NotifyMsgSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestStreamBuffers
-cros.mojom.Camera3CallbackOps_RequestStreamBuffers_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3CallbackOps.RequestStreamBuffers_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'buffer_reqs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(cros.mojom.Camera3BufferRequestSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-cros.mojom.Camera3CallbackOps_RequestStreamBuffers_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3CallbackOps.RequestStreamBuffers_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.Camera3BufferRequestStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'returned_buf_reqs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(cros.mojom.Camera3StreamBufferRetSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ReturnStreamBuffers
-cros.mojom.Camera3CallbackOps_ReturnStreamBuffers_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3CallbackOps.ReturnStreamBuffers_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'buffers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(cros.mojom.Camera3StreamBufferSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 cros.mojom.Camera3CallbackOpsPtr = cros.mojom.Camera3CallbackOpsRemote;
 cros.mojom.Camera3CallbackOpsRequest = cros.mojom.Camera3CallbackOpsPendingReceiver;
 
 
 // Interface: Camera3DeviceOps
-cros.mojom.Camera3DeviceOps = {};
+mojo.internal.Struct(
+    cros.mojom.Camera3DeviceOps_Initialize_ParamsSpec, 'cros.mojom.Camera3DeviceOps_Initialize_Params', [
+      mojo.internal.StructField('callback_ops', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.Camera3CallbackOpsRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-cros.mojom.Camera3DeviceOps_Initialize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps_Initialize_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'callback_ops', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cros.mojom.Camera3CallbackOpsRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.Camera3DeviceOps_Initialize_ResponseParamsSpec, 'cros.mojom.Camera3DeviceOps_Initialize_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-cros.mojom.Camera3DeviceOps_ConfigureStreams_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps_ConfigureStreams_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.Camera3StreamConfigurationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.Camera3DeviceOps_ConfigureStreams_ParamsSpec, 'cros.mojom.Camera3DeviceOps_ConfigureStreams_Params', [
+      mojo.internal.StructField('config', 0, 0, cros.mojom.Camera3StreamConfigurationSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-cros.mojom.Camera3DeviceOps_ConstructDefaultRequestSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps_ConstructDefaultRequestSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.Camera3RequestTemplateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.Camera3DeviceOps_ConfigureStreams_ResponseParamsSpec, 'cros.mojom.Camera3DeviceOps_ConfigureStreams_ResponseParams', [
+      mojo.internal.StructField('result', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('updated_config', 0, 0, cros.mojom.Camera3StreamConfigurationSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-cros.mojom.Camera3DeviceOps_ProcessCaptureRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps_ProcessCaptureRequest_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.Camera3CaptureRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.Camera3DeviceOps_ConstructDefaultRequestSettings_ParamsSpec, 'cros.mojom.Camera3DeviceOps_ConstructDefaultRequestSettings_Params', [
+      mojo.internal.StructField('type', 0, 0, cros.mojom.Camera3RequestTemplateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-cros.mojom.Camera3DeviceOps_Dump_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps_Dump_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.Camera3DeviceOps_ConstructDefaultRequestSettings_ResponseParamsSpec, 'cros.mojom.Camera3DeviceOps_ConstructDefaultRequestSettings_ResponseParams', [
+      mojo.internal.StructField('settings', 0, 0, cros.mojom.CameraMetadataSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-cros.mojom.Camera3DeviceOps_Flush_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps_Flush_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.Camera3DeviceOps_ProcessCaptureRequest_ParamsSpec, 'cros.mojom.Camera3DeviceOps_ProcessCaptureRequest_Params', [
+      mojo.internal.StructField('request', 0, 0, cros.mojom.Camera3CaptureRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-cros.mojom.Camera3DeviceOps_RegisterBuffer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps_RegisterBuffer_Params',
-      packedSize: 64,
-      fields: [
-        { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: cros.mojom.BufferTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'fds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Handle, false), nullable: false, minVersion: 0 },
-        { name: 'drm_format', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'hal_pixel_format', packedOffset: 40, packedBitOffset: 0, type: cros.mojom.HalPixelFormatSpec, nullable: false, minVersion: 0 },
-        { name: 'width', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'height', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'strides', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
-        { name: 'offsets', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.Camera3DeviceOps_ProcessCaptureRequest_ResponseParamsSpec, 'cros.mojom.Camera3DeviceOps_ProcessCaptureRequest_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-cros.mojom.Camera3DeviceOps_Close_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps_Close_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.Camera3DeviceOps_Dump_ParamsSpec, 'cros.mojom.Camera3DeviceOps_Dump_Params', [
+      mojo.internal.StructField('fd', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-cros.mojom.Camera3DeviceOps_ConfigureStreamsAndGetAllocatedBuffers_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps_ConfigureStreamsAndGetAllocatedBuffers_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.Camera3StreamConfigurationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.Camera3DeviceOps_Flush_ParamsSpec, 'cros.mojom.Camera3DeviceOps_Flush_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-cros.mojom.Camera3DeviceOps_SignalStreamFlush_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps_SignalStreamFlush_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'stream_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint64, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.Camera3DeviceOps_Flush_ResponseParamsSpec, 'cros.mojom.Camera3DeviceOps_Flush_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-cros.mojom.Camera3DeviceOps_OnNewBuffer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps_OnNewBuffer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CameraBufferHandleSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.Camera3DeviceOps_RegisterBuffer_ParamsSpec, 'cros.mojom.Camera3DeviceOps_RegisterBuffer_Params', [
+      mojo.internal.StructField('buffer_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('type', 32, 0, cros.mojom.BufferTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('fds', 8, 0, mojo.internal.Array(mojo.internal.Handle, false), null, false, 0, undefined),
+      mojo.internal.StructField('drm_format', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('hal_pixel_format', 40, 0, cros.mojom.HalPixelFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('width', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('height', 48, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('strides', 16, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('offsets', 24, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+    ],
+    [[0, 64]]);
 
-cros.mojom.Camera3DeviceOps_OnBufferRetired_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps_OnBufferRetired_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    cros.mojom.Camera3DeviceOps_RegisterBuffer_ResponseParamsSpec, 'cros.mojom.Camera3DeviceOps_RegisterBuffer_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    cros.mojom.Camera3DeviceOps_Close_ParamsSpec, 'cros.mojom.Camera3DeviceOps_Close_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    cros.mojom.Camera3DeviceOps_Close_ResponseParamsSpec, 'cros.mojom.Camera3DeviceOps_Close_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    cros.mojom.Camera3DeviceOps_ConfigureStreamsAndGetAllocatedBuffers_ParamsSpec, 'cros.mojom.Camera3DeviceOps_ConfigureStreamsAndGetAllocatedBuffers_Params', [
+      mojo.internal.StructField('config', 0, 0, cros.mojom.Camera3StreamConfigurationSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    cros.mojom.Camera3DeviceOps_ConfigureStreamsAndGetAllocatedBuffers_ResponseParamsSpec, 'cros.mojom.Camera3DeviceOps_ConfigureStreamsAndGetAllocatedBuffers_ResponseParams', [
+      mojo.internal.StructField('result', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('updated_config', 0, 0, cros.mojom.Camera3StreamConfigurationSpec, null, true, 0, undefined),
+      mojo.internal.StructField('allocated_buffers', 8, 0, mojo.internal.Map(mojo.internal.Uint64, mojo.internal.Array(cros.mojom.Camera3StreamBufferSpec, false), false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    cros.mojom.Camera3DeviceOps_SignalStreamFlush_ParamsSpec, 'cros.mojom.Camera3DeviceOps_SignalStreamFlush_Params', [
+      mojo.internal.StructField('stream_ids', 0, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    cros.mojom.Camera3DeviceOps_OnNewBuffer_ParamsSpec, 'cros.mojom.Camera3DeviceOps_OnNewBuffer_Params', [
+      mojo.internal.StructField('buffer', 0, 0, cros.mojom.CameraBufferHandleSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    cros.mojom.Camera3DeviceOps_OnNewBuffer_ResponseParamsSpec, 'cros.mojom.Camera3DeviceOps_OnNewBuffer_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    cros.mojom.Camera3DeviceOps_OnBufferRetired_ParamsSpec, 'cros.mojom.Camera3DeviceOps_OnBufferRetired_Params', [
+      mojo.internal.StructField('buffer_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 cros.mojom.Camera3DeviceOpsPendingReceiver = class {
   constructor(handle) {
@@ -903,301 +737,6 @@ cros.mojom.Camera3DeviceOps.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Initialize
-cros.mojom.Camera3DeviceOps_Initialize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps.Initialize_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'callback_ops', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cros.mojom.Camera3CallbackOpsRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-cros.mojom.Camera3DeviceOps_Initialize_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps.Initialize_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ConfigureStreams
-cros.mojom.Camera3DeviceOps_ConfigureStreams_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps.ConfigureStreams_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.Camera3StreamConfigurationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-cros.mojom.Camera3DeviceOps_ConfigureStreams_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps.ConfigureStreams_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'updated_config', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.Camera3StreamConfigurationSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ConstructDefaultRequestSettings
-cros.mojom.Camera3DeviceOps_ConstructDefaultRequestSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps.ConstructDefaultRequestSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.Camera3RequestTemplateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-cros.mojom.Camera3DeviceOps_ConstructDefaultRequestSettings_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps.ConstructDefaultRequestSettings_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CameraMetadataSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ProcessCaptureRequest
-cros.mojom.Camera3DeviceOps_ProcessCaptureRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps.ProcessCaptureRequest_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.Camera3CaptureRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-cros.mojom.Camera3DeviceOps_ProcessCaptureRequest_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps.ProcessCaptureRequest_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Dump
-cros.mojom.Camera3DeviceOps_Dump_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps.Dump_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Flush
-cros.mojom.Camera3DeviceOps_Flush_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps.Flush_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-cros.mojom.Camera3DeviceOps_Flush_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps.Flush_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RegisterBuffer
-cros.mojom.Camera3DeviceOps_RegisterBuffer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps.RegisterBuffer_Params',
-      packedSize: 64,
-      fields: [
-        { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: cros.mojom.BufferTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'fds', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Handle, false), nullable: false, minVersion: 0 },
-        { name: 'drm_format', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'hal_pixel_format', packedOffset: 40, packedBitOffset: 0, type: cros.mojom.HalPixelFormatSpec, nullable: false, minVersion: 0 },
-        { name: 'width', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'height', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'strides', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
-        { name: 'offsets', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
-
-cros.mojom.Camera3DeviceOps_RegisterBuffer_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps.RegisterBuffer_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Close
-cros.mojom.Camera3DeviceOps_Close_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps.Close_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-cros.mojom.Camera3DeviceOps_Close_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps.Close_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ConfigureStreamsAndGetAllocatedBuffers
-cros.mojom.Camera3DeviceOps_ConfigureStreamsAndGetAllocatedBuffers_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps.ConfigureStreamsAndGetAllocatedBuffers_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.Camera3StreamConfigurationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-cros.mojom.Camera3DeviceOps_ConfigureStreamsAndGetAllocatedBuffers_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps.ConfigureStreamsAndGetAllocatedBuffers_ResponseParams',
-      packedSize: 32,
-      fields: [
-        { name: 'result', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'updated_config', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.Camera3StreamConfigurationSpec, nullable: true, minVersion: 0 },
-        { name: 'allocated_buffers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint64, mojo.internal.Array(cros.mojom.Camera3StreamBufferSpec, false), false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for SignalStreamFlush
-cros.mojom.Camera3DeviceOps_SignalStreamFlush_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps.SignalStreamFlush_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'stream_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint64, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnNewBuffer
-cros.mojom.Camera3DeviceOps_OnNewBuffer_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps.OnNewBuffer_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CameraBufferHandleSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-cros.mojom.Camera3DeviceOps_OnNewBuffer_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps.OnNewBuffer_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnBufferRetired
-cros.mojom.Camera3DeviceOps_OnBufferRetired_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'cros.mojom.Camera3DeviceOps.OnBufferRetired_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 cros.mojom.Camera3DeviceOpsPtr = cros.mojom.Camera3DeviceOpsRemote;
 cros.mojom.Camera3DeviceOpsRequest = cros.mojom.Camera3DeviceOpsPendingReceiver;
 

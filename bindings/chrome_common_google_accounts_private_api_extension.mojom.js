@@ -8,22 +8,16 @@
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
 
+chrome.mojom.GoogleAccountsPrivateApiExtension = {};
+chrome.mojom.GoogleAccountsPrivateApiExtension.$interfaceName = 'chrome.mojom.GoogleAccountsPrivateApiExtension';
+chrome.mojom.GoogleAccountsPrivateApiExtension_SetConsentResult_ParamsSpec = { $: {} };
 
 // Interface: GoogleAccountsPrivateApiExtension
-chrome.mojom.GoogleAccountsPrivateApiExtension = {};
-
-chrome.mojom.GoogleAccountsPrivateApiExtension_SetConsentResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.GoogleAccountsPrivateApiExtension_SetConsentResult_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'consent_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chrome.mojom.GoogleAccountsPrivateApiExtension_SetConsentResult_ParamsSpec, 'chrome.mojom.GoogleAccountsPrivateApiExtension_SetConsentResult_Params', [
+      mojo.internal.StructField('consent_result', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chrome.mojom.GoogleAccountsPrivateApiExtensionPendingReceiver = class {
   constructor(handle) {
@@ -78,21 +72,6 @@ chrome.mojom.GoogleAccountsPrivateApiExtension.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetConsentResult
-chrome.mojom.GoogleAccountsPrivateApiExtension_SetConsentResult_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chrome.mojom.GoogleAccountsPrivateApiExtension.SetConsentResult_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'consent_result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chrome.mojom.GoogleAccountsPrivateApiExtensionPtr = chrome.mojom.GoogleAccountsPrivateApiExtensionRemote;
 chrome.mojom.GoogleAccountsPrivateApiExtensionRequest = chrome.mojom.GoogleAccountsPrivateApiExtensionPendingReceiver;
 

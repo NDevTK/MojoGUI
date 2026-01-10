@@ -10,23 +10,54 @@ media.mojom = media.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+media.mojom.RemoterFactory = {};
+media.mojom.RemoterFactory.$interfaceName = 'media.mojom.RemoterFactory';
+media.mojom.RemoterFactory_Create_ParamsSpec = { $: {} };
+media.mojom.RemotingDataStreamSender = {};
+media.mojom.RemotingDataStreamSender.$interfaceName = 'media.mojom.RemotingDataStreamSender';
+media.mojom.RemotingDataStreamSender_SendFrame_ParamsSpec = { $: {} };
+media.mojom.RemotingDataStreamSender_SendFrame_ResponseParamsSpec = { $: {} };
+media.mojom.RemotingDataStreamSender_CancelInFlightData_ParamsSpec = { $: {} };
+media.mojom.Remoter = {};
+media.mojom.Remoter.$interfaceName = 'media.mojom.Remoter';
+media.mojom.Remoter_Start_ParamsSpec = { $: {} };
+media.mojom.Remoter_StartWithPermissionAlreadyGranted_ParamsSpec = { $: {} };
+media.mojom.Remoter_StartDataStreams_ParamsSpec = { $: {} };
+media.mojom.Remoter_Stop_ParamsSpec = { $: {} };
+media.mojom.Remoter_SendMessageToSink_ParamsSpec = { $: {} };
+media.mojom.Remoter_EstimateTransmissionCapacity_ParamsSpec = { $: {} };
+media.mojom.Remoter_EstimateTransmissionCapacity_ResponseParamsSpec = { $: {} };
+media.mojom.RemotingSource = {};
+media.mojom.RemotingSource.$interfaceName = 'media.mojom.RemotingSource';
+media.mojom.RemotingSource_OnSinkAvailable_ParamsSpec = { $: {} };
+media.mojom.RemotingSource_OnSinkGone_ParamsSpec = { $: {} };
+media.mojom.RemotingSource_OnStarted_ParamsSpec = { $: {} };
+media.mojom.RemotingSource_OnStartFailed_ParamsSpec = { $: {} };
+media.mojom.RemotingSource_OnMessageFromSink_ParamsSpec = { $: {} };
+media.mojom.RemotingSource_OnStopped_ParamsSpec = { $: {} };
+media.mojom.Remotee = {};
+media.mojom.Remotee.$interfaceName = 'media.mojom.Remotee';
+media.mojom.Remotee_OnRemotingSinkReady_ParamsSpec = { $: {} };
+media.mojom.Remotee_SendMessageToSource_ParamsSpec = { $: {} };
+media.mojom.Remotee_StartDataStreams_ParamsSpec = { $: {} };
+media.mojom.Remotee_OnFlushUntil_ParamsSpec = { $: {} };
+media.mojom.Remotee_OnVideoNaturalSizeChange_ParamsSpec = { $: {} };
+media.mojom.RemotingSink = {};
+media.mojom.RemotingSink.$interfaceName = 'media.mojom.RemotingSink';
+media.mojom.RemotingSink_OnMessageFromSource_ParamsSpec = { $: {} };
+media.mojom.RemotingDataStreamReceiver = {};
+media.mojom.RemotingDataStreamReceiver.$interfaceName = 'media.mojom.RemotingDataStreamReceiver';
+media.mojom.RemotingDataStreamReceiver_InitializeDataPipe_ParamsSpec = { $: {} };
+media.mojom.RemotingDataStreamReceiver_ReceiveFrame_ParamsSpec = { $: {} };
+media.mojom.RemotingDataStreamReceiver_FlushUntil_ParamsSpec = { $: {} };
 
 // Interface: RemoterFactory
-media.mojom.RemoterFactory = {};
-
-media.mojom.RemoterFactory_Create_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.RemoterFactory_Create_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.RemotingSourceRemote), nullable: false, minVersion: 0 },
-        { name: 'remoter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.RemoterRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.RemoterFactory_Create_ParamsSpec, 'media.mojom.RemoterFactory_Create_Params', [
+      mojo.internal.StructField('source', 0, 0, mojo.internal.InterfaceProxy(media.mojom.RemotingSourceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('remoter', 8, 0, mojo.internal.InterfaceRequest(media.mojom.RemoterRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 media.mojom.RemoterFactoryPendingReceiver = class {
   constructor(handle) {
@@ -81,53 +112,26 @@ media.mojom.RemoterFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Create
-media.mojom.RemoterFactory_Create_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.RemoterFactory.Create_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.RemotingSourceRemote), nullable: false, minVersion: 0 },
-        { name: 'remoter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.RemoterRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.RemoterFactoryPtr = media.mojom.RemoterFactoryRemote;
 media.mojom.RemoterFactoryRequest = media.mojom.RemoterFactoryPendingReceiver;
 
 
 // Interface: RemotingDataStreamSender
-media.mojom.RemotingDataStreamSender = {};
+mojo.internal.Struct(
+    media.mojom.RemotingDataStreamSender_SendFrame_ParamsSpec, 'media.mojom.RemotingDataStreamSender_SendFrame_Params', [
+      mojo.internal.StructField('frame', 0, 0, media.mojom.DecoderBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media.mojom.RemotingDataStreamSender_SendFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.RemotingDataStreamSender_SendFrame_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: media.mojom.DecoderBufferSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.RemotingDataStreamSender_SendFrame_ResponseParamsSpec, 'media.mojom.RemotingDataStreamSender_SendFrame_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.RemotingDataStreamSender_CancelInFlightData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.RemotingDataStreamSender_CancelInFlightData_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.RemotingDataStreamSender_CancelInFlightData_ParamsSpec, 'media.mojom.RemotingDataStreamSender_CancelInFlightData_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 media.mojom.RemotingDataStreamSenderPendingReceiver = class {
   constructor(handle) {
@@ -166,7 +170,7 @@ media.mojom.RemotingDataStreamSenderRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       media.mojom.RemotingDataStreamSender_SendFrame_ParamsSpec,
-      null,
+      media.mojom.RemotingDataStreamSender_SendFrame_ResponseParamsSpec,
       [frame]);
   }
 
@@ -191,118 +195,52 @@ media.mojom.RemotingDataStreamSender.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SendFrame
-media.mojom.RemotingDataStreamSender_SendFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.RemotingDataStreamSender.SendFrame_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: media.mojom.DecoderBufferSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for CancelInFlightData
-media.mojom.RemotingDataStreamSender_CancelInFlightData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.RemotingDataStreamSender.CancelInFlightData_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.RemotingDataStreamSenderPtr = media.mojom.RemotingDataStreamSenderRemote;
 media.mojom.RemotingDataStreamSenderRequest = media.mojom.RemotingDataStreamSenderPendingReceiver;
 
 
 // Interface: Remoter
-media.mojom.Remoter = {};
+mojo.internal.Struct(
+    media.mojom.Remoter_Start_ParamsSpec, 'media.mojom.Remoter_Start_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.Remoter_Start_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.Remoter_Start_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.Remoter_StartWithPermissionAlreadyGranted_ParamsSpec, 'media.mojom.Remoter_StartWithPermissionAlreadyGranted_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.Remoter_StartWithPermissionAlreadyGranted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.Remoter_StartWithPermissionAlreadyGranted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.Remoter_StartDataStreams_ParamsSpec, 'media.mojom.Remoter_StartDataStreams_Params', [
+      mojo.internal.StructField('audio_pipe', 0, 0, mojo.internal.Pointer, null, true, 0, undefined),
+      mojo.internal.StructField('video_pipe', 8, 0, mojo.internal.Pointer, null, true, 0, undefined),
+      mojo.internal.StructField('audio_sender', 16, 0, mojo.internal.InterfaceRequest(media.mojom.RemotingDataStreamSenderRemote), null, true, 0, undefined),
+      mojo.internal.StructField('video_sender', 24, 0, mojo.internal.InterfaceRequest(media.mojom.RemotingDataStreamSenderRemote), null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
-media.mojom.Remoter_StartDataStreams_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.Remoter_StartDataStreams_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'audio_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
-        { name: 'video_pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
-        { name: 'audio_sender', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.RemotingDataStreamSenderRemote), nullable: true, minVersion: 0 },
-        { name: 'video_sender', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.RemotingDataStreamSenderRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.Remoter_Stop_ParamsSpec, 'media.mojom.Remoter_Stop_Params', [
+      mojo.internal.StructField('reason', 0, 0, media.mojom.RemotingStopReasonSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.Remoter_Stop_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.Remoter_Stop_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: media.mojom.RemotingStopReasonSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.Remoter_SendMessageToSink_ParamsSpec, 'media.mojom.Remoter_SendMessageToSink_Params', [
+      mojo.internal.StructField('message', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.Remoter_SendMessageToSink_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.Remoter_SendMessageToSink_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.Remoter_EstimateTransmissionCapacity_ParamsSpec, 'media.mojom.Remoter_EstimateTransmissionCapacity_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.Remoter_EstimateTransmissionCapacity_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.Remoter_EstimateTransmissionCapacity_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.Remoter_EstimateTransmissionCapacity_ResponseParamsSpec, 'media.mojom.Remoter_EstimateTransmissionCapacity_ResponseParams', [
+      mojo.internal.StructField('rate', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.RemoterPendingReceiver = class {
   constructor(handle) {
@@ -402,186 +340,44 @@ media.mojom.Remoter.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Start
-media.mojom.Remoter_Start_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.Remoter.Start_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for StartWithPermissionAlreadyGranted
-media.mojom.Remoter_StartWithPermissionAlreadyGranted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.Remoter.StartWithPermissionAlreadyGranted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for StartDataStreams
-media.mojom.Remoter_StartDataStreams_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.Remoter.StartDataStreams_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'audio_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
-        { name: 'video_pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
-        { name: 'audio_sender', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.RemotingDataStreamSenderRemote), nullable: true, minVersion: 0 },
-        { name: 'video_sender', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.RemotingDataStreamSenderRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for Stop
-media.mojom.Remoter_Stop_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.Remoter.Stop_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: media.mojom.RemotingStopReasonSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SendMessageToSink
-media.mojom.Remoter_SendMessageToSink_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.Remoter.SendMessageToSink_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EstimateTransmissionCapacity
-media.mojom.Remoter_EstimateTransmissionCapacity_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.Remoter.EstimateTransmissionCapacity_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-media.mojom.Remoter_EstimateTransmissionCapacity_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.Remoter.EstimateTransmissionCapacity_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'rate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.RemoterPtr = media.mojom.RemoterRemote;
 media.mojom.RemoterRequest = media.mojom.RemoterPendingReceiver;
 
 
 // Interface: RemotingSource
-media.mojom.RemotingSource = {};
+mojo.internal.Struct(
+    media.mojom.RemotingSource_OnSinkAvailable_ParamsSpec, 'media.mojom.RemotingSource_OnSinkAvailable_Params', [
+      mojo.internal.StructField('metadata', 0, 0, media.mojom.RemotingSinkMetadataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.RemotingSource_OnSinkAvailable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.RemotingSource_OnSinkAvailable_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: media.mojom.RemotingSinkMetadataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.RemotingSource_OnSinkGone_ParamsSpec, 'media.mojom.RemotingSource_OnSinkGone_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.RemotingSource_OnSinkGone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.RemotingSource_OnSinkGone_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.RemotingSource_OnStarted_ParamsSpec, 'media.mojom.RemotingSource_OnStarted_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-media.mojom.RemotingSource_OnStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.RemotingSource_OnStarted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.RemotingSource_OnStartFailed_ParamsSpec, 'media.mojom.RemotingSource_OnStartFailed_Params', [
+      mojo.internal.StructField('reason', 0, 0, media.mojom.RemotingStartFailReasonSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.RemotingSource_OnStartFailed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.RemotingSource_OnStartFailed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: media.mojom.RemotingStartFailReasonSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.RemotingSource_OnMessageFromSink_ParamsSpec, 'media.mojom.RemotingSource_OnMessageFromSink_Params', [
+      mojo.internal.StructField('message', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.RemotingSource_OnMessageFromSink_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.RemotingSource_OnMessageFromSink_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-media.mojom.RemotingSource_OnStopped_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.RemotingSource_OnStopped_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: media.mojom.RemotingStopReasonSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.RemotingSource_OnStopped_ParamsSpec, 'media.mojom.RemotingSource_OnStopped_Params', [
+      mojo.internal.StructField('reason', 0, 0, media.mojom.RemotingStopReasonSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.RemotingSourcePendingReceiver = class {
   constructor(handle) {
@@ -681,162 +477,42 @@ media.mojom.RemotingSource.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnSinkAvailable
-media.mojom.RemotingSource_OnSinkAvailable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.RemotingSource.OnSinkAvailable_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: media.mojom.RemotingSinkMetadataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnSinkGone
-media.mojom.RemotingSource_OnSinkGone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.RemotingSource.OnSinkGone_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnStarted
-media.mojom.RemotingSource_OnStarted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.RemotingSource.OnStarted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnStartFailed
-media.mojom.RemotingSource_OnStartFailed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.RemotingSource.OnStartFailed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: media.mojom.RemotingStartFailReasonSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnMessageFromSink
-media.mojom.RemotingSource_OnMessageFromSink_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.RemotingSource.OnMessageFromSink_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnStopped
-media.mojom.RemotingSource_OnStopped_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.RemotingSource.OnStopped_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: media.mojom.RemotingStopReasonSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.RemotingSourcePtr = media.mojom.RemotingSourceRemote;
 media.mojom.RemotingSourceRequest = media.mojom.RemotingSourcePendingReceiver;
 
 
 // Interface: Remotee
-media.mojom.Remotee = {};
+mojo.internal.Struct(
+    media.mojom.Remotee_OnRemotingSinkReady_ParamsSpec, 'media.mojom.Remotee_OnRemotingSinkReady_Params', [
+      mojo.internal.StructField('sink', 0, 0, mojo.internal.InterfaceProxy(media.mojom.RemotingSinkRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.Remotee_OnRemotingSinkReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.Remotee_OnRemotingSinkReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'sink', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.RemotingSinkRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.Remotee_SendMessageToSource_ParamsSpec, 'media.mojom.Remotee_SendMessageToSource_Params', [
+      mojo.internal.StructField('message', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.Remotee_SendMessageToSource_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.Remotee_SendMessageToSource_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.Remotee_StartDataStreams_ParamsSpec, 'media.mojom.Remotee_StartDataStreams_Params', [
+      mojo.internal.StructField('audio_stream', 0, 0, mojo.internal.InterfaceProxy(media.mojom.RemotingDataStreamReceiverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('video_stream', 8, 0, mojo.internal.InterfaceProxy(media.mojom.RemotingDataStreamReceiverRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-media.mojom.Remotee_StartDataStreams_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.Remotee_StartDataStreams_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'audio_stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.RemotingDataStreamReceiverRemote), nullable: true, minVersion: 0 },
-        { name: 'video_stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.RemotingDataStreamReceiverRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.Remotee_OnFlushUntil_ParamsSpec, 'media.mojom.Remotee_OnFlushUntil_Params', [
+      mojo.internal.StructField('audio_frame_count', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('video_frame_count', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.Remotee_OnFlushUntil_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.Remotee_OnFlushUntil_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'audio_frame_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'video_frame_count', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-media.mojom.Remotee_OnVideoNaturalSizeChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.Remotee_OnVideoNaturalSizeChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.Remotee_OnVideoNaturalSizeChange_ParamsSpec, 'media.mojom.Remotee_OnVideoNaturalSizeChange_Params', [
+      mojo.internal.StructField('size', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.RemoteePendingReceiver = class {
   constructor(handle) {
@@ -927,98 +603,16 @@ media.mojom.Remotee.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnRemotingSinkReady
-media.mojom.Remotee_OnRemotingSinkReady_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.Remotee.OnRemotingSinkReady_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'sink', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.RemotingSinkRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SendMessageToSource
-media.mojom.Remotee_SendMessageToSource_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.Remotee.SendMessageToSource_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StartDataStreams
-media.mojom.Remotee_StartDataStreams_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.Remotee.StartDataStreams_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'audio_stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.RemotingDataStreamReceiverRemote), nullable: true, minVersion: 0 },
-        { name: 'video_stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.RemotingDataStreamReceiverRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnFlushUntil
-media.mojom.Remotee_OnFlushUntil_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.Remotee.OnFlushUntil_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'audio_frame_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'video_frame_count', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnVideoNaturalSizeChange
-media.mojom.Remotee_OnVideoNaturalSizeChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.Remotee.OnVideoNaturalSizeChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.RemoteePtr = media.mojom.RemoteeRemote;
 media.mojom.RemoteeRequest = media.mojom.RemoteePendingReceiver;
 
 
 // Interface: RemotingSink
-media.mojom.RemotingSink = {};
-
-media.mojom.RemotingSink_OnMessageFromSource_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.RemotingSink_OnMessageFromSource_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.RemotingSink_OnMessageFromSource_ParamsSpec, 'media.mojom.RemotingSink_OnMessageFromSource_Params', [
+      mojo.internal.StructField('message', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.RemotingSinkPendingReceiver = class {
   constructor(handle) {
@@ -1073,67 +667,29 @@ media.mojom.RemotingSink.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnMessageFromSource
-media.mojom.RemotingSink_OnMessageFromSource_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.RemotingSink.OnMessageFromSource_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.RemotingSinkPtr = media.mojom.RemotingSinkRemote;
 media.mojom.RemotingSinkRequest = media.mojom.RemotingSinkPendingReceiver;
 
 
 // Interface: RemotingDataStreamReceiver
-media.mojom.RemotingDataStreamReceiver = {};
+mojo.internal.Struct(
+    media.mojom.RemotingDataStreamReceiver_InitializeDataPipe_ParamsSpec, 'media.mojom.RemotingDataStreamReceiver_InitializeDataPipe_Params', [
+      mojo.internal.StructField('data_pipe', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media.mojom.RemotingDataStreamReceiver_InitializeDataPipe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.RemotingDataStreamReceiver_InitializeDataPipe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'data_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.RemotingDataStreamReceiver_ReceiveFrame_ParamsSpec, 'media.mojom.RemotingDataStreamReceiver_ReceiveFrame_Params', [
+      mojo.internal.StructField('frame_count', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('buffer', 0, 0, media.mojom.DecoderBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-media.mojom.RemotingDataStreamReceiver_ReceiveFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.RemotingDataStreamReceiver_ReceiveFrame_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'frame_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: media.mojom.DecoderBufferSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-media.mojom.RemotingDataStreamReceiver_FlushUntil_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.RemotingDataStreamReceiver_FlushUntil_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'frame_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.RemotingDataStreamReceiver_FlushUntil_ParamsSpec, 'media.mojom.RemotingDataStreamReceiver_FlushUntil_Params', [
+      mojo.internal.StructField('frame_count', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media.mojom.RemotingDataStreamReceiverPendingReceiver = class {
   constructor(handle) {
@@ -1206,50 +762,6 @@ media.mojom.RemotingDataStreamReceiver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for InitializeDataPipe
-media.mojom.RemotingDataStreamReceiver_InitializeDataPipe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.RemotingDataStreamReceiver.InitializeDataPipe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'data_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReceiveFrame
-media.mojom.RemotingDataStreamReceiver_ReceiveFrame_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.RemotingDataStreamReceiver.ReceiveFrame_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'frame_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: media.mojom.DecoderBufferSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for FlushUntil
-media.mojom.RemotingDataStreamReceiver_FlushUntil_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.RemotingDataStreamReceiver.FlushUntil_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'frame_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.RemotingDataStreamReceiverPtr = media.mojom.RemotingDataStreamReceiverRemote;
 media.mojom.RemotingDataStreamReceiverRequest = media.mojom.RemotingDataStreamReceiverPendingReceiver;
 

@@ -7,7 +7,28 @@
 // Module namespace
 var service_manager = service_manager || {};
 service_manager.mojom = service_manager.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 
+service_manager.mojom.ConnectResultSpec = { $: mojo.internal.Enum() };
+service_manager.mojom.BindInterfacePrioritySpec = { $: mojo.internal.Enum() };
+service_manager.mojom.IdentitySpec = { $: {} };
+service_manager.mojom.ServiceInfoSpec = { $: {} };
+service_manager.mojom.ProcessMetadata = {};
+service_manager.mojom.ProcessMetadata.$interfaceName = 'service_manager.mojom.ProcessMetadata';
+service_manager.mojom.ProcessMetadata_SetPID_ParamsSpec = { $: {} };
+service_manager.mojom.Connector = {};
+service_manager.mojom.Connector.$interfaceName = 'service_manager.mojom.Connector';
+service_manager.mojom.Connector_BindInterface_ParamsSpec = { $: {} };
+service_manager.mojom.Connector_BindInterface_ResponseParamsSpec = { $: {} };
+service_manager.mojom.Connector_QueryService_ParamsSpec = { $: {} };
+service_manager.mojom.Connector_QueryService_ResponseParamsSpec = { $: {} };
+service_manager.mojom.Connector_WarmService_ParamsSpec = { $: {} };
+service_manager.mojom.Connector_WarmService_ResponseParamsSpec = { $: {} };
+service_manager.mojom.Connector_RegisterServiceInstance_ParamsSpec = { $: {} };
+service_manager.mojom.Connector_RegisterServiceInstance_ResponseParamsSpec = { $: {} };
+service_manager.mojom.Connector_Clone_ParamsSpec = { $: {} };
 
 // Enum: ConnectResult
 service_manager.mojom.ConnectResult = {
@@ -15,61 +36,36 @@ service_manager.mojom.ConnectResult = {
   INVALID_ARGUMENT: 1,
   ACCESS_DENIED: 2,
 };
-service_manager.mojom.ConnectResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: BindInterfacePriority
 service_manager.mojom.BindInterfacePriority = {
   kImportant: 0,
   kBestEffort: 1,
 };
-service_manager.mojom.BindInterfacePrioritySpec = { $: mojo.internal.Enum() };
 
 // Struct: Identity
-service_manager.mojom.IdentitySpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.Identity',
-      packedSize: 40,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'instance_group', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false, minVersion: 0 },
-        { name: 'instance_id', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false, minVersion: 0 },
-        { name: 'globally_unique_id', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    service_manager.mojom.IdentitySpec, 'service_manager.mojom.Identity', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('instance_group', 8, 0, mojo_base.mojom.TokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('instance_id', 16, 0, mojo_base.mojom.TokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('globally_unique_id', 24, 0, mojo_base.mojom.TokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: ServiceInfo
-service_manager.mojom.ServiceInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.ServiceInfo',
-      packedSize: 16,
-      fields: [
-        { name: 'sandbox_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    service_manager.mojom.ServiceInfoSpec, 'service_manager.mojom.ServiceInfo', [
+      mojo.internal.StructField('sandbox_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: ProcessMetadata
-service_manager.mojom.ProcessMetadata = {};
-
-service_manager.mojom.ProcessMetadata_SetPID_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.ProcessMetadata_SetPID_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProcessIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    service_manager.mojom.ProcessMetadata_SetPID_ParamsSpec, 'service_manager.mojom.ProcessMetadata_SetPID_Params', [
+      mojo.internal.StructField('pid', 0, 0, mojo_base.mojom.ProcessIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 service_manager.mojom.ProcessMetadataPendingReceiver = class {
   constructor(handle) {
@@ -124,97 +120,71 @@ service_manager.mojom.ProcessMetadata.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetPID
-service_manager.mojom.ProcessMetadata_SetPID_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.ProcessMetadata.SetPID_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProcessIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 service_manager.mojom.ProcessMetadataPtr = service_manager.mojom.ProcessMetadataRemote;
 service_manager.mojom.ProcessMetadataRequest = service_manager.mojom.ProcessMetadataPendingReceiver;
 
 
 // Interface: Connector
-service_manager.mojom.Connector = {};
+mojo.internal.Struct(
+    service_manager.mojom.Connector_BindInterface_ParamsSpec, 'service_manager.mojom.Connector_BindInterface_Params', [
+      mojo.internal.StructField('filter', 0, 0, service_manager.mojom.ServiceFilterSpec, null, false, 0, undefined),
+      mojo.internal.StructField('interface_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('interface_pipe', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('priority', 24, 0, service_manager.mojom.BindInterfacePrioritySpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-service_manager.mojom.Connector_BindInterface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.Connector_BindInterface_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.ServiceFilterSpec, nullable: false, minVersion: 0 },
-        { name: 'interface_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'interface_pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'priority', packedOffset: 24, packedBitOffset: 0, type: service_manager.mojom.BindInterfacePrioritySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    service_manager.mojom.Connector_BindInterface_ResponseParamsSpec, 'service_manager.mojom.Connector_BindInterface_ResponseParams', [
+      mojo.internal.StructField('result', 8, 0, service_manager.mojom.ConnectResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-service_manager.mojom.Connector_QueryService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.Connector_QueryService_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'service_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    service_manager.mojom.Connector_QueryService_ParamsSpec, 'service_manager.mojom.Connector_QueryService_Params', [
+      mojo.internal.StructField('service_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-service_manager.mojom.Connector_WarmService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.Connector_WarmService_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.ServiceFilterSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    service_manager.mojom.Connector_QueryService_ResponseParamsSpec, 'service_manager.mojom.Connector_QueryService_ResponseParams', [
+      mojo.internal.StructField('info', 0, 0, service_manager.mojom.ServiceInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-service_manager.mojom.Connector_RegisterServiceInstance_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.Connector_RegisterServiceInstance_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false, minVersion: 0 },
-        { name: 'service', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'metadata_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(service_manager.mojom.ProcessMetadataRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    service_manager.mojom.Connector_WarmService_ParamsSpec, 'service_manager.mojom.Connector_WarmService_Params', [
+      mojo.internal.StructField('filter', 0, 0, service_manager.mojom.ServiceFilterSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-service_manager.mojom.Connector_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.Connector_Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(service_manager.mojom.ConnectorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    service_manager.mojom.Connector_WarmService_ResponseParamsSpec, 'service_manager.mojom.Connector_WarmService_ResponseParams', [
+      mojo.internal.StructField('result', 8, 0, service_manager.mojom.ConnectResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    service_manager.mojom.Connector_RegisterServiceInstance_ParamsSpec, 'service_manager.mojom.Connector_RegisterServiceInstance_Params', [
+      mojo.internal.StructField('identity', 0, 0, service_manager.mojom.IdentitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('service', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('metadata_receiver', 16, 0, mojo.internal.InterfaceRequest(service_manager.mojom.ProcessMetadataRemote), null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    service_manager.mojom.Connector_RegisterServiceInstance_ResponseParamsSpec, 'service_manager.mojom.Connector_RegisterServiceInstance_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, service_manager.mojom.ConnectResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    service_manager.mojom.Connector_Clone_ParamsSpec, 'service_manager.mojom.Connector_Clone_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(service_manager.mojom.ConnectorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 service_manager.mojom.ConnectorPendingReceiver = class {
   constructor(handle) {
@@ -305,136 +275,6 @@ service_manager.mojom.Connector.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BindInterface
-service_manager.mojom.Connector_BindInterface_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.Connector.BindInterface_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.ServiceFilterSpec, nullable: false, minVersion: 0 },
-        { name: 'interface_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'interface_pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'priority', packedOffset: 24, packedBitOffset: 0, type: service_manager.mojom.BindInterfacePrioritySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-service_manager.mojom.Connector_BindInterface_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.Connector.BindInterface_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: service_manager.mojom.ConnectResultSpec, nullable: false, minVersion: 0 },
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for QueryService
-service_manager.mojom.Connector_QueryService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.Connector.QueryService_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'service_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-service_manager.mojom.Connector_QueryService_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.Connector.QueryService_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.ServiceInfoSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for WarmService
-service_manager.mojom.Connector_WarmService_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.Connector.WarmService_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.ServiceFilterSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-service_manager.mojom.Connector_WarmService_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.Connector.WarmService_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: service_manager.mojom.ConnectResultSpec, nullable: false, minVersion: 0 },
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for RegisterServiceInstance
-service_manager.mojom.Connector_RegisterServiceInstance_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.Connector.RegisterServiceInstance_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false, minVersion: 0 },
-        { name: 'service', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'metadata_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(service_manager.mojom.ProcessMetadataRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-service_manager.mojom.Connector_RegisterServiceInstance_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.Connector.RegisterServiceInstance_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.ConnectResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Clone
-service_manager.mojom.Connector_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'service_manager.mojom.Connector.Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(service_manager.mojom.ConnectorRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 service_manager.mojom.ConnectorPtr = service_manager.mojom.ConnectorRemote;
 service_manager.mojom.ConnectorRequest = service_manager.mojom.ConnectorPendingReceiver;
 

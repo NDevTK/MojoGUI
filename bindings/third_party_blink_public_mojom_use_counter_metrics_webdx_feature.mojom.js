@@ -8,6 +8,7 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.WebDXFeatureSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebDXFeature
 blink.mojom.WebDXFeature = {
@@ -431,4 +432,3 @@ blink.mojom.WebDXFeature = {
   kDRAFT_MetaTextScale: 417,
   kJpegxl: 418,
 };
-blink.mojom.WebDXFeatureSpec = { $: mojo.internal.Enum() };

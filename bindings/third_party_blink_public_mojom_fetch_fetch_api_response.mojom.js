@@ -7,40 +7,38 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 var blink = blink || {};
 var blink = blink || {};
 var url = url || {};
 
+blink.mojom.FetchAPIResponseSpec = { $: {} };
 
 // Struct: FetchAPIResponse
-blink.mojom.FetchAPIResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.FetchAPIResponse',
-      packedSize: 144,
-      fields: [
-        { name: 'url_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
-        { name: 'status_code', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'status_text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'padding', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'headers', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'mime_type', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'request_method', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'blob', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.SerializedBlobSpec, nullable: true, minVersion: 0 },
-        { name: 'response_time', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'cache_storage_cache_name', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'cors_exposed_header_names', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'side_data_blob', packedOffset: 80, packedBitOffset: 0, type: blink.mojom.SerializedBlobSpec, nullable: true, minVersion: 0 },
-        { name: 'side_data_blob_for_cache_put', packedOffset: 88, packedBitOffset: 0, type: blink.mojom.SerializedBlobSpec, nullable: true, minVersion: 0 },
-        { name: 'parsed_headers', packedOffset: 96, packedBitOffset: 0, type: network.mojom.ParsedHeadersSpec, nullable: true, minVersion: 0 },
-        { name: 'connection_info', packedOffset: 104, packedBitOffset: 0, type: network.mojom.ConnectionInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'alpn_negotiated_protocol', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'was_fetched_via_spdy', packedOffset: 130, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_range_requested', packedOffset: 130, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'auth_challenge_info', packedOffset: 120, packedBitOffset: 0, type: network.mojom.AuthChallengeInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'request_include_credentials', packedOffset: 130, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 144}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.FetchAPIResponseSpec, 'blink.mojom.FetchAPIResponse', [
+      mojo.internal.StructField('url_list', 0, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('status_code', 128, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('status_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('padding', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('headers', 24, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('mime_type', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('request_method', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('blob', 48, 0, blink.mojom.SerializedBlobSpec, null, true, 0, undefined),
+      mojo.internal.StructField('response_time', 56, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cache_storage_cache_name', 64, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('cors_exposed_header_names', 72, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('side_data_blob', 80, 0, blink.mojom.SerializedBlobSpec, null, true, 0, undefined),
+      mojo.internal.StructField('side_data_blob_for_cache_put', 88, 0, blink.mojom.SerializedBlobSpec, null, true, 0, undefined),
+      mojo.internal.StructField('parsed_headers', 96, 0, network.mojom.ParsedHeadersSpec, null, true, 0, undefined),
+      mojo.internal.StructField('connection_info', 104, 0, network.mojom.ConnectionInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('alpn_negotiated_protocol', 112, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('was_fetched_via_spdy', 130, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_range_requested', 130, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('auth_challenge_info', 120, 0, network.mojom.AuthChallengeInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('request_include_credentials', 130, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 144]]);

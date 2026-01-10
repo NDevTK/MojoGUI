@@ -8,33 +8,21 @@
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
 
+chromecast.mojom.ActivityWindow = {};
+chromecast.mojom.ActivityWindow.$interfaceName = 'chromecast.mojom.ActivityWindow';
+chromecast.mojom.ActivityWindow_Show_ParamsSpec = { $: {} };
+chromecast.mojom.ActivityWindow_Hide_ParamsSpec = { $: {} };
 
 // Interface: ActivityWindow
-chromecast.mojom.ActivityWindow = {};
+mojo.internal.Struct(
+    chromecast.mojom.ActivityWindow_Show_ParamsSpec, 'chromecast.mojom.ActivityWindow_Show_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromecast.mojom.ActivityWindow_Show_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.ActivityWindow_Show_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromecast.mojom.ActivityWindow_Hide_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.ActivityWindow_Hide_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.mojom.ActivityWindow_Hide_ParamsSpec, 'chromecast.mojom.ActivityWindow_Hide_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 chromecast.mojom.ActivityWindowPendingReceiver = class {
   constructor(handle) {
@@ -98,33 +86,6 @@ chromecast.mojom.ActivityWindow.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Show
-chromecast.mojom.ActivityWindow_Show_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.ActivityWindow.Show_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Hide
-chromecast.mojom.ActivityWindow_Hide_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.mojom.ActivityWindow.Hide_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.mojom.ActivityWindowPtr = chromecast.mojom.ActivityWindowRemote;
 chromecast.mojom.ActivityWindowRequest = chromecast.mojom.ActivityWindowPendingReceiver;
 

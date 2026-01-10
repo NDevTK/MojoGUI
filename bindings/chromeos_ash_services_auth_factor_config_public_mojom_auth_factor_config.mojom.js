@@ -9,6 +9,57 @@ var ash = ash || {};
 ash.auth = ash.auth || {};
 ash.auth.mojom = ash.auth.mojom || {};
 
+ash.auth.mojom.AuthFactorSpec = { $: mojo.internal.Enum() };
+ash.auth.mojom.ManagementTypeSpec = { $: mojo.internal.Enum() };
+ash.auth.mojom.LocalAuthFactorsComplexitySpec = { $: mojo.internal.Enum() };
+ash.auth.mojom.ConfigureResultSpec = { $: mojo.internal.Enum() };
+ash.auth.mojom.PinComplexitySpec = { $: mojo.internal.Enum() };
+ash.auth.mojom.PasswordComplexitySpec = { $: mojo.internal.Enum() };
+ash.auth.mojom.FactorObserver = {};
+ash.auth.mojom.FactorObserver.$interfaceName = 'ash.auth.mojom.FactorObserver';
+ash.auth.mojom.FactorObserver_OnFactorChanged_ParamsSpec = { $: {} };
+ash.auth.mojom.AuthFactorConfig = {};
+ash.auth.mojom.AuthFactorConfig.$interfaceName = 'ash.auth.mojom.AuthFactorConfig';
+ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_ParamsSpec = { $: {} };
+ash.auth.mojom.AuthFactorConfig_IsSupported_ParamsSpec = { $: {} };
+ash.auth.mojom.AuthFactorConfig_IsSupported_ResponseParamsSpec = { $: {} };
+ash.auth.mojom.AuthFactorConfig_IsConfigured_ParamsSpec = { $: {} };
+ash.auth.mojom.AuthFactorConfig_IsConfigured_ResponseParamsSpec = { $: {} };
+ash.auth.mojom.AuthFactorConfig_GetManagementType_ParamsSpec = { $: {} };
+ash.auth.mojom.AuthFactorConfig_GetManagementType_ResponseParamsSpec = { $: {} };
+ash.auth.mojom.AuthFactorConfig_IsEditable_ParamsSpec = { $: {} };
+ash.auth.mojom.AuthFactorConfig_IsEditable_ResponseParamsSpec = { $: {} };
+ash.auth.mojom.AuthFactorConfig_GetLocalAuthFactorsComplexity_ParamsSpec = { $: {} };
+ash.auth.mojom.RecoveryFactorEditor = {};
+ash.auth.mojom.RecoveryFactorEditor.$interfaceName = 'ash.auth.mojom.RecoveryFactorEditor';
+ash.auth.mojom.RecoveryFactorEditor_Configure_ParamsSpec = { $: {} };
+ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParamsSpec = { $: {} };
+ash.auth.mojom.PinFactorEditor = {};
+ash.auth.mojom.PinFactorEditor.$interfaceName = 'ash.auth.mojom.PinFactorEditor';
+ash.auth.mojom.PinFactorEditor_SetPin_ParamsSpec = { $: {} };
+ash.auth.mojom.PinFactorEditor_SetPin_ResponseParamsSpec = { $: {} };
+ash.auth.mojom.PinFactorEditor_UpdatePin_ParamsSpec = { $: {} };
+ash.auth.mojom.PinFactorEditor_UpdatePin_ResponseParamsSpec = { $: {} };
+ash.auth.mojom.PinFactorEditor_RemovePin_ParamsSpec = { $: {} };
+ash.auth.mojom.PinFactorEditor_RemovePin_ResponseParamsSpec = { $: {} };
+ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ParamsSpec = { $: {} };
+ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ResponseParamsSpec = { $: {} };
+ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ParamsSpec = { $: {} };
+ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParamsSpec = { $: {} };
+ash.auth.mojom.PasswordFactorEditor = {};
+ash.auth.mojom.PasswordFactorEditor.$interfaceName = 'ash.auth.mojom.PasswordFactorEditor';
+ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ParamsSpec = { $: {} };
+ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParamsSpec = { $: {} };
+ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ParamsSpec = { $: {} };
+ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ResponseParamsSpec = { $: {} };
+ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ParamsSpec = { $: {} };
+ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ResponseParamsSpec = { $: {} };
+ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ParamsSpec = { $: {} };
+ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ResponseParamsSpec = { $: {} };
+ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ParamsSpec = { $: {} };
+ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ResponseParamsSpec = { $: {} };
+ash.auth.mojom.PasswordFactorEditor_RemovePassword_ParamsSpec = { $: {} };
+ash.auth.mojom.PasswordFactorEditor_RemovePassword_ResponseParamsSpec = { $: {} };
 
 // Enum: AuthFactor
 ash.auth.mojom.AuthFactor = {
@@ -19,7 +70,6 @@ ash.auth.mojom.AuthFactor = {
   kGaiaPassword: 4,
   kLocalPassword: 5,
 };
-ash.auth.mojom.AuthFactorSpec = { $: mojo.internal.Enum() };
 
 // Enum: ManagementType
 ash.auth.mojom.ManagementType = {
@@ -28,7 +78,6 @@ ash.auth.mojom.ManagementType = {
   kUser: 2,
   kChildRestriction: 3,
 };
-ash.auth.mojom.ManagementTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: LocalAuthFactorsComplexity
 ash.auth.mojom.LocalAuthFactorsComplexity = {
@@ -38,7 +87,6 @@ ash.auth.mojom.LocalAuthFactorsComplexity = {
   kMedium: 3,
   kHigh: 4,
 };
-ash.auth.mojom.LocalAuthFactorsComplexitySpec = { $: mojo.internal.Enum() };
 
 // Enum: ConfigureResult
 ash.auth.mojom.ConfigureResult = {
@@ -46,7 +94,6 @@ ash.auth.mojom.ConfigureResult = {
   kInvalidTokenError: 1,
   kFatalError: 2,
 };
-ash.auth.mojom.ConfigureResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: PinComplexity
 ash.auth.mojom.PinComplexity = {
@@ -57,7 +104,6 @@ ash.auth.mojom.PinComplexity = {
   kErrMedium: 4,
   kErrHigh: 5,
 };
-ash.auth.mojom.PinComplexitySpec = { $: mojo.internal.Enum() };
 
 // Enum: PasswordComplexity
 ash.auth.mojom.PasswordComplexity = {
@@ -68,23 +114,13 @@ ash.auth.mojom.PasswordComplexity = {
   kErrMedium: 4,
   kErrHigh: 5,
 };
-ash.auth.mojom.PasswordComplexitySpec = { $: mojo.internal.Enum() };
 
 // Interface: FactorObserver
-ash.auth.mojom.FactorObserver = {};
-
-ash.auth.mojom.FactorObserver_OnFactorChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.FactorObserver_OnFactorChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'factor', packedOffset: 0, packedBitOffset: 0, type: ash.auth.mojom.AuthFactorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.auth.mojom.FactorObserver_OnFactorChanged_ParamsSpec, 'ash.auth.mojom.FactorObserver_OnFactorChanged_Params', [
+      mojo.internal.StructField('factor', 0, 0, ash.auth.mojom.AuthFactorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.auth.mojom.FactorObserverPendingReceiver = class {
   constructor(handle) {
@@ -139,109 +175,74 @@ ash.auth.mojom.FactorObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnFactorChanged
-ash.auth.mojom.FactorObserver_OnFactorChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.FactorObserver.OnFactorChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'factor', packedOffset: 0, packedBitOffset: 0, type: ash.auth.mojom.AuthFactorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.auth.mojom.FactorObserverPtr = ash.auth.mojom.FactorObserverRemote;
 ash.auth.mojom.FactorObserverRequest = ash.auth.mojom.FactorObserverPendingReceiver;
 
 
 // Interface: AuthFactorConfig
-ash.auth.mojom.AuthFactorConfig = {};
+mojo.internal.Struct(
+    ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_ParamsSpec, 'ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.auth.mojom.FactorObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.auth.mojom.FactorObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.auth.mojom.AuthFactorConfig_IsSupported_ParamsSpec, 'ash.auth.mojom.AuthFactorConfig_IsSupported_Params', [
+      mojo.internal.StructField('auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('factor', 8, 0, ash.auth.mojom.AuthFactorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.auth.mojom.AuthFactorConfig_IsSupported_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.AuthFactorConfig_IsSupported_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'factor', packedOffset: 8, packedBitOffset: 0, type: ash.auth.mojom.AuthFactorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.auth.mojom.AuthFactorConfig_IsSupported_ResponseParamsSpec, 'ash.auth.mojom.AuthFactorConfig_IsSupported_ResponseParams', [
+      mojo.internal.StructField('supported', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.auth.mojom.AuthFactorConfig_IsConfigured_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.AuthFactorConfig_IsConfigured_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'factor', packedOffset: 8, packedBitOffset: 0, type: ash.auth.mojom.AuthFactorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.auth.mojom.AuthFactorConfig_IsConfigured_ParamsSpec, 'ash.auth.mojom.AuthFactorConfig_IsConfigured_Params', [
+      mojo.internal.StructField('auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('factor', 8, 0, ash.auth.mojom.AuthFactorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.auth.mojom.AuthFactorConfig_GetManagementType_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.AuthFactorConfig_GetManagementType_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'factor', packedOffset: 8, packedBitOffset: 0, type: ash.auth.mojom.AuthFactorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.auth.mojom.AuthFactorConfig_IsConfigured_ResponseParamsSpec, 'ash.auth.mojom.AuthFactorConfig_IsConfigured_ResponseParams', [
+      mojo.internal.StructField('configured', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.auth.mojom.AuthFactorConfig_IsEditable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.AuthFactorConfig_IsEditable_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'factor', packedOffset: 8, packedBitOffset: 0, type: ash.auth.mojom.AuthFactorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.auth.mojom.AuthFactorConfig_GetManagementType_ParamsSpec, 'ash.auth.mojom.AuthFactorConfig_GetManagementType_Params', [
+      mojo.internal.StructField('auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('factor', 8, 0, ash.auth.mojom.AuthFactorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.auth.mojom.AuthFactorConfig_GetLocalAuthFactorsComplexity_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.AuthFactorConfig_GetLocalAuthFactorsComplexity_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.auth.mojom.AuthFactorConfig_GetManagementType_ResponseParamsSpec, 'ash.auth.mojom.AuthFactorConfig_GetManagementType_ResponseParams', [
+      mojo.internal.StructField('management', 0, 0, ash.auth.mojom.ManagementTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.auth.mojom.AuthFactorConfig_IsEditable_ParamsSpec, 'ash.auth.mojom.AuthFactorConfig_IsEditable_Params', [
+      mojo.internal.StructField('auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('factor', 8, 0, ash.auth.mojom.AuthFactorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    ash.auth.mojom.AuthFactorConfig_IsEditable_ResponseParamsSpec, 'ash.auth.mojom.AuthFactorConfig_IsEditable_ResponseParams', [
+      mojo.internal.StructField('editable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.auth.mojom.AuthFactorConfig_GetLocalAuthFactorsComplexity_ParamsSpec, 'ash.auth.mojom.AuthFactorConfig_GetLocalAuthFactorsComplexity_Params', [
+      mojo.internal.StructField('auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.auth.mojom.AuthFactorConfigPendingReceiver = class {
   constructor(handle) {
@@ -341,167 +342,23 @@ ash.auth.mojom.AuthFactorConfig.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ObserveFactorChanges
-ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.AuthFactorConfig.ObserveFactorChanges_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.auth.mojom.FactorObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for IsSupported
-ash.auth.mojom.AuthFactorConfig_IsSupported_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.AuthFactorConfig.IsSupported_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'factor', packedOffset: 8, packedBitOffset: 0, type: ash.auth.mojom.AuthFactorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ash.auth.mojom.AuthFactorConfig_IsSupported_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.AuthFactorConfig.IsSupported_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for IsConfigured
-ash.auth.mojom.AuthFactorConfig_IsConfigured_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.AuthFactorConfig.IsConfigured_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'factor', packedOffset: 8, packedBitOffset: 0, type: ash.auth.mojom.AuthFactorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ash.auth.mojom.AuthFactorConfig_IsConfigured_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.AuthFactorConfig.IsConfigured_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'configured', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetManagementType
-ash.auth.mojom.AuthFactorConfig_GetManagementType_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.AuthFactorConfig.GetManagementType_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'factor', packedOffset: 8, packedBitOffset: 0, type: ash.auth.mojom.AuthFactorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ash.auth.mojom.AuthFactorConfig_GetManagementType_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.AuthFactorConfig.GetManagementType_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'management', packedOffset: 0, packedBitOffset: 0, type: ash.auth.mojom.ManagementTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for IsEditable
-ash.auth.mojom.AuthFactorConfig_IsEditable_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.AuthFactorConfig.IsEditable_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'factor', packedOffset: 8, packedBitOffset: 0, type: ash.auth.mojom.AuthFactorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ash.auth.mojom.AuthFactorConfig_IsEditable_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.AuthFactorConfig.IsEditable_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'editable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetLocalAuthFactorsComplexity
-ash.auth.mojom.AuthFactorConfig_GetLocalAuthFactorsComplexity_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.AuthFactorConfig.GetLocalAuthFactorsComplexity_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.auth.mojom.AuthFactorConfigPtr = ash.auth.mojom.AuthFactorConfigRemote;
 ash.auth.mojom.AuthFactorConfigRequest = ash.auth.mojom.AuthFactorConfigPendingReceiver;
 
 
 // Interface: RecoveryFactorEditor
-ash.auth.mojom.RecoveryFactorEditor = {};
+mojo.internal.Struct(
+    ash.auth.mojom.RecoveryFactorEditor_Configure_ParamsSpec, 'ash.auth.mojom.RecoveryFactorEditor_Configure_Params', [
+      mojo.internal.StructField('auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.auth.mojom.RecoveryFactorEditor_Configure_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.RecoveryFactorEditor_Configure_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParamsSpec, 'ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.auth.mojom.RecoveryFactorEditorPendingReceiver = class {
   constructor(handle) {
@@ -556,109 +413,73 @@ ash.auth.mojom.RecoveryFactorEditor.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Configure
-ash.auth.mojom.RecoveryFactorEditor_Configure_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.RecoveryFactorEditor.Configure_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.RecoveryFactorEditor.Configure_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.auth.mojom.ConfigureResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.auth.mojom.RecoveryFactorEditorPtr = ash.auth.mojom.RecoveryFactorEditorRemote;
 ash.auth.mojom.RecoveryFactorEditorRequest = ash.auth.mojom.RecoveryFactorEditorPendingReceiver;
 
 
 // Interface: PinFactorEditor
-ash.auth.mojom.PinFactorEditor = {};
+mojo.internal.Struct(
+    ash.auth.mojom.PinFactorEditor_SetPin_ParamsSpec, 'ash.auth.mojom.PinFactorEditor_SetPin_Params', [
+      mojo.internal.StructField('auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('pin', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.auth.mojom.PinFactorEditor_SetPin_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PinFactorEditor_SetPin_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.auth.mojom.PinFactorEditor_SetPin_ResponseParamsSpec, 'ash.auth.mojom.PinFactorEditor_SetPin_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.auth.mojom.PinFactorEditor_UpdatePin_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PinFactorEditor_UpdatePin_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.auth.mojom.PinFactorEditor_UpdatePin_ParamsSpec, 'ash.auth.mojom.PinFactorEditor_UpdatePin_Params', [
+      mojo.internal.StructField('auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('pin', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.auth.mojom.PinFactorEditor_RemovePin_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PinFactorEditor_RemovePin_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.auth.mojom.PinFactorEditor_UpdatePin_ResponseParamsSpec, 'ash.auth.mojom.PinFactorEditor_UpdatePin_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.auth.mojom.PinFactorEditor_RemovePin_ParamsSpec, 'ash.auth.mojom.PinFactorEditor_RemovePin_Params', [
+      mojo.internal.StructField('auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PinFactorEditor_CheckPinComplexity_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.auth.mojom.PinFactorEditor_RemovePin_ResponseParamsSpec, 'ash.auth.mojom.PinFactorEditor_RemovePin_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ParamsSpec, 'ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_Params', [
+      mojo.internal.StructField('auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ResponseParamsSpec, 'ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ResponseParams', [
+      mojo.internal.StructField('pin_factor', 0, 0, ash.auth.mojom.AuthFactorSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ParamsSpec, 'ash.auth.mojom.PinFactorEditor_CheckPinComplexity_Params', [
+      mojo.internal.StructField('auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('pin', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParamsSpec, 'ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParams', [
+      mojo.internal.StructField('complexity', 0, 0, ash.auth.mojom.PinComplexitySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.auth.mojom.PinFactorEditorPendingReceiver = class {
   constructor(handle) {
@@ -749,233 +570,86 @@ ash.auth.mojom.PinFactorEditor.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetPin
-ash.auth.mojom.PinFactorEditor_SetPin_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PinFactorEditor.SetPin_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ash.auth.mojom.PinFactorEditor_SetPin_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PinFactorEditor.SetPin_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.auth.mojom.ConfigureResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UpdatePin
-ash.auth.mojom.PinFactorEditor_UpdatePin_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PinFactorEditor.UpdatePin_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ash.auth.mojom.PinFactorEditor_UpdatePin_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PinFactorEditor.UpdatePin_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.auth.mojom.ConfigureResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RemovePin
-ash.auth.mojom.PinFactorEditor_RemovePin_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PinFactorEditor.RemovePin_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.auth.mojom.PinFactorEditor_RemovePin_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PinFactorEditor.RemovePin_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.auth.mojom.ConfigureResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetConfiguredPinFactor
-ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PinFactorEditor.GetConfiguredPinFactor_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PinFactorEditor.GetConfiguredPinFactor_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'pin_factor', packedOffset: 0, packedBitOffset: 0, type: ash.auth.mojom.AuthFactorSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CheckPinComplexity
-ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PinFactorEditor.CheckPinComplexity_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pin', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PinFactorEditor.CheckPinComplexity_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'complexity', packedOffset: 0, packedBitOffset: 0, type: ash.auth.mojom.PinComplexitySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.auth.mojom.PinFactorEditorPtr = ash.auth.mojom.PinFactorEditorRemote;
 ash.auth.mojom.PinFactorEditorRequest = ash.auth.mojom.PinFactorEditorPendingReceiver;
 
 
 // Interface: PasswordFactorEditor
-ash.auth.mojom.PasswordFactorEditor = {};
+mojo.internal.Struct(
+    ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_Params', [
+      mojo.internal.StructField('auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('new_password', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'new_password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'new_password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_Params', [
+      mojo.internal.StructField('auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('new_password', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'new_password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ResponseParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'new_password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_Params', [
+      mojo.internal.StructField('auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('new_password', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ResponseParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.auth.mojom.PasswordFactorEditor_RemovePassword_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PasswordFactorEditor_RemovePassword_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_Params', [
+      mojo.internal.StructField('auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('new_password', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ResponseParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_Params', [
+      mojo.internal.StructField('password', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ResponseParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ResponseParams', [
+      mojo.internal.StructField('complexity', 0, 0, ash.auth.mojom.PasswordComplexitySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.auth.mojom.PasswordFactorEditor_RemovePassword_ParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_RemovePassword_Params', [
+      mojo.internal.StructField('auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.auth.mojom.PasswordFactorEditor_RemovePassword_ResponseParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_RemovePassword_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.auth.mojom.PasswordFactorEditorPendingReceiver = class {
   constructor(handle) {
@@ -1075,173 +749,6 @@ ash.auth.mojom.PasswordFactorEditor.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for UpdateOrSetLocalPassword
-ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PasswordFactorEditor.UpdateOrSetLocalPassword_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'new_password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PasswordFactorEditor.UpdateOrSetLocalPassword_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.auth.mojom.ConfigureResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateOrSetOnlinePassword
-ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PasswordFactorEditor.UpdateOrSetOnlinePassword_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'new_password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PasswordFactorEditor.UpdateOrSetOnlinePassword_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.auth.mojom.ConfigureResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetLocalPassword
-ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PasswordFactorEditor.SetLocalPassword_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'new_password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PasswordFactorEditor.SetLocalPassword_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.auth.mojom.ConfigureResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetOnlinePassword
-ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PasswordFactorEditor.SetOnlinePassword_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'new_password', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PasswordFactorEditor.SetOnlinePassword_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.auth.mojom.ConfigureResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CheckLocalPasswordComplexity
-ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PasswordFactorEditor.CheckLocalPasswordComplexity_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PasswordFactorEditor.CheckLocalPasswordComplexity_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'complexity', packedOffset: 0, packedBitOffset: 0, type: ash.auth.mojom.PasswordComplexitySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RemovePassword
-ash.auth.mojom.PasswordFactorEditor_RemovePassword_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PasswordFactorEditor.RemovePassword_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.auth.mojom.PasswordFactorEditor_RemovePassword_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.auth.mojom.PasswordFactorEditor.RemovePassword_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.auth.mojom.ConfigureResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.auth.mojom.PasswordFactorEditorPtr = ash.auth.mojom.PasswordFactorEditorRemote;
 ash.auth.mojom.PasswordFactorEditorRequest = ash.auth.mojom.PasswordFactorEditorPendingReceiver;
 

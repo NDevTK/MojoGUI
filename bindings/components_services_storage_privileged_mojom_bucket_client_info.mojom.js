@@ -9,19 +9,13 @@ var storage = storage || {};
 storage.mojom = storage.mojom || {};
 var blink = blink || {};
 
+storage.mojom.BucketClientInfoSpec = { $: {} };
 
 // Struct: BucketClientInfo
-storage.mojom.BucketClientInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'storage.mojom.BucketClientInfo',
-      packedSize: 40,
-      fields: [
-        { name: 'process_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'context_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ExecutionContextTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'document_token', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.DocumentTokenSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    storage.mojom.BucketClientInfoSpec, 'storage.mojom.BucketClientInfo', [
+      mojo.internal.StructField('process_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('context_token', 0, 0, blink.mojom.ExecutionContextTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('document_token', 16, 0, blink.mojom.DocumentTokenSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);

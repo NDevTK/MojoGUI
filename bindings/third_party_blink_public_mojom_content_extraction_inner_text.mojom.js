@@ -9,83 +9,75 @@ var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var blink = blink || {};
 
+blink.mojom.NodeLocationTypeSpec = { $: mojo.internal.Enum() };
+blink.mojom.InnerTextSegmentSpec = { $: {} };
+blink.mojom.InnerTextFrameSpec = { $: {} };
+blink.mojom.InnerTextParamsSpec = { $: {} };
+blink.mojom.InnerTextAgent = {};
+blink.mojom.InnerTextAgent.$interfaceName = 'blink.mojom.InnerTextAgent';
+blink.mojom.InnerTextAgent_GetInnerText_ParamsSpec = { $: {} };
+blink.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec = { $: {} };
 
 // Enum: NodeLocationType
 blink.mojom.NodeLocationType = {
   kStart: 0,
 };
-blink.mojom.NodeLocationTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: InnerTextSegment
-blink.mojom.InnerTextSegmentSpec = { $: mojo.internal.Union(
-    'blink.mojom.InnerTextSegment', {
+mojo.internal.Union(
+    blink.mojom.InnerTextSegmentSpec, 'blink.mojom.InnerTextSegment', {
       'node_location': {
         'ordinal': 0,
         'type': blink.mojom.NodeLocationTypeSpec,
-      }},
+        'nullable': false,
+      },
       'text': {
         'ordinal': 1,
         'type': mojo.internal.String,
-      }},
+        'nullable': false,
+      },
       'frame': {
         'ordinal': 2,
         'type': blink.mojom.InnerTextFrameSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: InnerTextFrame
-blink.mojom.InnerTextFrameSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.InnerTextFrame',
-      packedSize: 24,
-      fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'segments', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.InnerTextSegmentSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.InnerTextFrameSpec, 'blink.mojom.InnerTextFrame', [
+      mojo.internal.StructField('token', 0, 0, blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('segments', 8, 0, mojo.internal.Array(blink.mojom.InnerTextSegmentSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: InnerTextParams
-blink.mojom.InnerTextParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.InnerTextParams',
-      packedSize: 32,
-      fields: [
-        { name: 'node_id_$flag', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'node_id_$value', originalFieldName: 'node_id' } },
-        { name: 'node_id_$value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'node_id_$flag', originalFieldName: 'node_id' } },
-        { name: 'max_words_per_aggregate_passage_$flag', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'max_words_per_aggregate_passage_$value', originalFieldName: 'max_words_per_aggregate_passage' } },
-        { name: 'max_words_per_aggregate_passage_$value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'max_words_per_aggregate_passage_$flag', originalFieldName: 'max_words_per_aggregate_passage' } },
-        { name: 'greedily_aggregate_sibling_nodes_$flag', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'greedily_aggregate_sibling_nodes_$value', originalFieldName: 'greedily_aggregate_sibling_nodes' } },
-        { name: 'greedily_aggregate_sibling_nodes_$value', packedOffset: 16, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'greedily_aggregate_sibling_nodes_$flag', originalFieldName: 'greedily_aggregate_sibling_nodes' } },
-        { name: 'max_passages', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'min_words_per_passage_$flag', packedOffset: 16, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'min_words_per_passage_$value', originalFieldName: 'min_words_per_passage' } },
-        { name: 'min_words_per_passage_$value', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'min_words_per_passage_$flag', originalFieldName: 'min_words_per_passage' } },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.InnerTextParamsSpec, 'blink.mojom.InnerTextParams', [
+      mojo.internal.StructField('node_id_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'node_id_$value', originalFieldName: 'node_id' }),
+      mojo.internal.StructField('node_id_$value', 0, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'node_id_$flag', originalFieldName: 'node_id' }),
+      mojo.internal.StructField('max_words_per_aggregate_passage_$flag', 16, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'max_words_per_aggregate_passage_$value', originalFieldName: 'max_words_per_aggregate_passage' }),
+      mojo.internal.StructField('max_words_per_aggregate_passage_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'max_words_per_aggregate_passage_$flag', originalFieldName: 'max_words_per_aggregate_passage' }),
+      mojo.internal.StructField('greedily_aggregate_sibling_nodes_$flag', 16, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'greedily_aggregate_sibling_nodes_$value', originalFieldName: 'greedily_aggregate_sibling_nodes' }),
+      mojo.internal.StructField('greedily_aggregate_sibling_nodes_$value', 16, 3, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'greedily_aggregate_sibling_nodes_$flag', originalFieldName: 'greedily_aggregate_sibling_nodes' }),
+      mojo.internal.StructField('max_passages', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('min_words_per_passage_$flag', 16, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'min_words_per_passage_$value', originalFieldName: 'min_words_per_passage' }),
+      mojo.internal.StructField('min_words_per_passage_$value', 12, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'min_words_per_passage_$flag', originalFieldName: 'min_words_per_passage' }),
+    ],
+    [[0, 32]]);
 
 // Interface: InnerTextAgent
-blink.mojom.InnerTextAgent = {};
+mojo.internal.Struct(
+    blink.mojom.InnerTextAgent_GetInnerText_ParamsSpec, 'blink.mojom.InnerTextAgent_GetInnerText_Params', [
+      mojo.internal.StructField('params', 0, 0, blink.mojom.InnerTextParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.InnerTextAgent_GetInnerText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.InnerTextAgent_GetInnerText_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.InnerTextParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec, 'blink.mojom.InnerTextAgent_GetInnerText_ResponseParams', [
+      mojo.internal.StructField('frame', 0, 0, blink.mojom.InnerTextFrameSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.InnerTextAgentPendingReceiver = class {
   constructor(handle) {
@@ -140,34 +132,6 @@ blink.mojom.InnerTextAgent.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetInnerText
-blink.mojom.InnerTextAgent_GetInnerText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.InnerTextAgent.GetInnerText_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.InnerTextParamsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.InnerTextAgent.GetInnerText_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.InnerTextFrameSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.InnerTextAgentPtr = blink.mojom.InnerTextAgentRemote;
 blink.mojom.InnerTextAgentRequest = blink.mojom.InnerTextAgentPendingReceiver;
 

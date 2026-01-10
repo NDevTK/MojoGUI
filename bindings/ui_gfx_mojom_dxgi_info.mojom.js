@@ -9,36 +9,24 @@ var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
 var skia = skia || {};
 
+gfx.mojom.DXGIOutputDescSpec = { $: {} };
+gfx.mojom.DXGIInfoSpec = { $: {} };
 
 // Struct: DXGIOutputDesc
-gfx.mojom.DXGIOutputDescSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.DXGIOutputDesc',
-      packedSize: 40,
-      fields: [
-        { name: 'device_name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.WStringSpec, nullable: false, minVersion: 0 },
-        { name: 'hdr_enabled', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'primaries', packedOffset: 8, packedBitOffset: 0, type: skia.mojom.SkColorSpacePrimariesSpec, nullable: false, minVersion: 0 },
-        { name: 'min_luminance', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'max_luminance', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'max_full_frame_luminance', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.DXGIOutputDescSpec, 'gfx.mojom.DXGIOutputDesc', [
+      mojo.internal.StructField('device_name', 0, 0, mojo_base.mojom.WStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('hdr_enabled', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('primaries', 8, 0, skia.mojom.SkColorSpacePrimariesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('min_luminance', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('max_luminance', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('max_full_frame_luminance', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: DXGIInfo
-gfx.mojom.DXGIInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.DXGIInfo',
-      packedSize: 16,
-      fields: [
-        { name: 'output_descs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.DXGIOutputDescSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.DXGIInfoSpec, 'gfx.mojom.DXGIInfo', [
+      mojo.internal.StructField('output_descs', 0, 0, mojo.internal.Array(gfx.mojom.DXGIOutputDescSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);

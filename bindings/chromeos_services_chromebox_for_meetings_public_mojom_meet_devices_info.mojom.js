@@ -9,113 +9,95 @@ var chromeos = chromeos || {};
 chromeos.cfm = chromeos.cfm || {};
 chromeos.cfm.mojom = chromeos.cfm.mojom || {};
 
+chromeos.cfm.mojom.PolicyInfoSpec = { $: {} };
+chromeos.cfm.mojom.SysInfoSpec = { $: {} };
+chromeos.cfm.mojom.MachineStatisticsInfoSpec = { $: {} };
+chromeos.cfm.mojom.MeetDevicesInfo = {};
+chromeos.cfm.mojom.MeetDevicesInfo.$interfaceName = 'chromeos.cfm.mojom.MeetDevicesInfo';
+chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec = { $: {} };
+chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec = { $: {} };
+chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParamsSpec = { $: {} };
+chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec = { $: {} };
+chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParamsSpec = { $: {} };
+chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec = { $: {} };
+chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec = { $: {} };
+chromeos.cfm.mojom.PolicyInfoObserver = {};
+chromeos.cfm.mojom.PolicyInfoObserver.$interfaceName = 'chromeos.cfm.mojom.PolicyInfoObserver';
+chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec = { $: {} };
 
 // Struct: PolicyInfo
-chromeos.cfm.mojom.PolicyInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.PolicyInfo',
-      packedSize: 64,
-      fields: [
-        { name: 'timestamp_ms', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'service_account_email_address', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'service_account_gaia_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'cros_device_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'cohort_hint', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'release_channel_delegated', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cfm.mojom.PolicyInfoSpec, 'chromeos.cfm.mojom.PolicyInfo', [
+      mojo.internal.StructField('timestamp_ms', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('device_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('service_account_email_address', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('service_account_gaia_id', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('cros_device_id', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('cohort_hint', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('release_channel_delegated', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 64]]);
 
 // Struct: SysInfo
-chromeos.cfm.mojom.SysInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.SysInfo',
-      packedSize: 72,
-      fields: [
-        { name: 'kernel_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'release_version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'release_build_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'release_track', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'release_milestone', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'browser_version', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'channel_name', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'release_board', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 72}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cfm.mojom.SysInfoSpec, 'chromeos.cfm.mojom.SysInfo', [
+      mojo.internal.StructField('kernel_version', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('release_version', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('release_build_type', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('release_track', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('release_milestone', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('browser_version', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('channel_name', 48, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('release_board', 56, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 72]]);
 
 // Struct: MachineStatisticsInfo
-chromeos.cfm.mojom.MachineStatisticsInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.MachineStatisticsInfo',
-      packedSize: 16,
-      fields: [
-        { name: 'hwid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cfm.mojom.MachineStatisticsInfoSpec, 'chromeos.cfm.mojom.MachineStatisticsInfo', [
+      mojo.internal.StructField('hwid', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: MeetDevicesInfo
-chromeos.cfm.mojom.MeetDevicesInfo = {};
+mojo.internal.Struct(
+    chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromeos.cfm.mojom.PolicyInfoObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.cfm.mojom.PolicyInfoObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParams', [
+      mojo.internal.StructField('info', 0, 0, chromeos.cfm.mojom.PolicyInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParams', [
+      mojo.internal.StructField('info', 0, 0, chromeos.cfm.mojom.SysInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParams', [
+      mojo.internal.StructField('info', 0, 0, chromeos.cfm.mojom.MachineStatisticsInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromeos.cfm.mojom.MeetDevicesInfoPendingReceiver = class {
   constructor(handle) {
@@ -197,118 +179,16 @@ chromeos.cfm.mojom.MeetDevicesInfo.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddDeviceSettingsObserver
-chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.MeetDevicesInfo.AddDeviceSettingsObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.cfm.mojom.PolicyInfoObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetPolicyInfo
-chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.MeetDevicesInfo.GetPolicyInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.MeetDevicesInfo.GetPolicyInfo_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: chromeos.cfm.mojom.PolicyInfoSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetSysInfo
-chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.MeetDevicesInfo.GetSysInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.MeetDevicesInfo.GetSysInfo_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: chromeos.cfm.mojom.SysInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetMachineStatisticsInfo
-chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.MeetDevicesInfo.GetMachineStatisticsInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.MeetDevicesInfo.GetMachineStatisticsInfo_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: chromeos.cfm.mojom.MachineStatisticsInfoSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.cfm.mojom.MeetDevicesInfoPtr = chromeos.cfm.mojom.MeetDevicesInfoRemote;
 chromeos.cfm.mojom.MeetDevicesInfoRequest = chromeos.cfm.mojom.MeetDevicesInfoPendingReceiver;
 
 
 // Interface: PolicyInfoObserver
-chromeos.cfm.mojom.PolicyInfoObserver = {};
-
-chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: chromeos.cfm.mojom.PolicyInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec, 'chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_Params', [
+      mojo.internal.StructField('info', 0, 0, chromeos.cfm.mojom.PolicyInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromeos.cfm.mojom.PolicyInfoObserverPendingReceiver = class {
   constructor(handle) {
@@ -363,21 +243,6 @@ chromeos.cfm.mojom.PolicyInfoObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnPolicyInfoChange
-chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromeos.cfm.mojom.PolicyInfoObserver.OnPolicyInfoChange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: chromeos.cfm.mojom.PolicyInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromeos.cfm.mojom.PolicyInfoObserverPtr = chromeos.cfm.mojom.PolicyInfoObserverRemote;
 chromeos.cfm.mojom.PolicyInfoObserverRequest = chromeos.cfm.mojom.PolicyInfoObserverPendingReceiver;
 

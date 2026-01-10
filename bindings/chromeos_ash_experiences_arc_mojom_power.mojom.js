@@ -7,157 +7,135 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
 
+arc.mojom.CpuRestrictionStateSpec = { $: mojo.internal.Enum() };
+arc.mojom.DisplayWakeLockTypeSpec = { $: mojo.internal.Enum() };
+arc.mojom.WakefulnessModeSpec = { $: mojo.internal.Enum() };
+arc.mojom.IdleStateSpec = { $: mojo.internal.Enum() };
+arc.mojom.BatterySaverModeStateSpec = { $: {} };
+arc.mojom.PowerHost = {};
+arc.mojom.PowerHost.$interfaceName = 'arc.mojom.PowerHost';
+arc.mojom.PowerHost_OnAcquireDisplayWakeLock_ParamsSpec = { $: {} };
+arc.mojom.PowerHost_OnReleaseDisplayWakeLock_ParamsSpec = { $: {} };
+arc.mojom.PowerHost_OnWakefulnessChanged_ParamsSpec = { $: {} };
+arc.mojom.PowerHost_IsDisplayOn_ParamsSpec = { $: {} };
+arc.mojom.PowerHost_IsDisplayOn_ResponseParamsSpec = { $: {} };
+arc.mojom.PowerHost_OnScreenBrightnessUpdateRequest_ParamsSpec = { $: {} };
+arc.mojom.PowerHost_OnPreAnr_ParamsSpec = { $: {} };
+arc.mojom.PowerHost_OnAnrRecoveryFailed_ParamsSpec = { $: {} };
+arc.mojom.PowerHost_GetBatterySaverModeState_ParamsSpec = { $: {} };
+arc.mojom.PowerHost_GetBatterySaverModeState_ResponseParamsSpec = { $: {} };
+arc.mojom.PowerInstance = {};
+arc.mojom.PowerInstance.$interfaceName = 'arc.mojom.PowerInstance';
+arc.mojom.PowerInstance_Init_ParamsSpec = { $: {} };
+arc.mojom.PowerInstance_Init_ResponseParamsSpec = { $: {} };
+arc.mojom.PowerInstance_SetInteractiveDeprecated_ParamsSpec = { $: {} };
+arc.mojom.PowerInstance_Suspend_ParamsSpec = { $: {} };
+arc.mojom.PowerInstance_Suspend_ResponseParamsSpec = { $: {} };
+arc.mojom.PowerInstance_Resume_ParamsSpec = { $: {} };
+arc.mojom.PowerInstance_UpdateScreenBrightnessSettings_ParamsSpec = { $: {} };
+arc.mojom.PowerInstance_PowerSupplyInfoChanged_ParamsSpec = { $: {} };
+arc.mojom.PowerInstance_GetWakefulnessMode_ParamsSpec = { $: {} };
+arc.mojom.PowerInstance_GetWakefulnessMode_ResponseParamsSpec = { $: {} };
+arc.mojom.PowerInstance_OnCpuRestrictionChanged_ParamsSpec = { $: {} };
+arc.mojom.PowerInstance_OnBatterySaverModeStateChanged_ParamsSpec = { $: {} };
+arc.mojom.PowerInstance_SetIdleState_ParamsSpec = { $: {} };
 
 // Enum: CpuRestrictionState
 arc.mojom.CpuRestrictionState = {
   CPU_RESTRICTION_FOREGROUND: 0,
   CPU_RESTRICTION_BACKGROUND: 1,
 };
-arc.mojom.CpuRestrictionStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: DisplayWakeLockType
 arc.mojom.DisplayWakeLockType = {
   BRIGHT: 0,
   DIM: 1,
 };
-arc.mojom.DisplayWakeLockTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: WakefulnessMode
 arc.mojom.WakefulnessMode = {
-  UNKNOWN: 0,
-  ASLEEP: 1,
-  AWAKE: 2,
-  DREAMING: 3,
-  DOZING: 4,
+  UNKNOWN: -1,
+  ASLEEP: 0,
+  AWAKE: 1,
+  DREAMING: 2,
+  DOZING: 3,
 };
-arc.mojom.WakefulnessModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: IdleState
 arc.mojom.IdleState = {
-  INACTIVE: 0,
-  FORCE_INACTIVE: 1,
+  ACTIVE: 0,
+  INACTIVE: 1,
+  FORCE_INACTIVE: 2,
 };
-arc.mojom.IdleStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: BatterySaverModeState
-arc.mojom.BatterySaverModeStateSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.BatterySaverModeState',
-      packedSize: 16,
-      fields: [
-        { name: 'active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.BatterySaverModeStateSpec, 'arc.mojom.BatterySaverModeState', [
+      mojo.internal.StructField('active', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: PowerHost
-arc.mojom.PowerHost = {};
+mojo.internal.Struct(
+    arc.mojom.PowerHost_OnAcquireDisplayWakeLock_ParamsSpec, 'arc.mojom.PowerHost_OnAcquireDisplayWakeLock_Params', [
+      mojo.internal.StructField('type', 0, 0, arc.mojom.DisplayWakeLockTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.PowerHost_OnAcquireDisplayWakeLock_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerHost_OnAcquireDisplayWakeLock_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.DisplayWakeLockTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PowerHost_OnReleaseDisplayWakeLock_ParamsSpec, 'arc.mojom.PowerHost_OnReleaseDisplayWakeLock_Params', [
+      mojo.internal.StructField('type', 0, 0, arc.mojom.DisplayWakeLockTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.PowerHost_OnReleaseDisplayWakeLock_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerHost_OnReleaseDisplayWakeLock_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.DisplayWakeLockTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PowerHost_OnWakefulnessChanged_ParamsSpec, 'arc.mojom.PowerHost_OnWakefulnessChanged_Params', [
+      mojo.internal.StructField('mode', 0, 0, arc.mojom.WakefulnessModeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.PowerHost_OnWakefulnessChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerHost_OnWakefulnessChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.WakefulnessModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PowerHost_IsDisplayOn_ParamsSpec, 'arc.mojom.PowerHost_IsDisplayOn_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.PowerHost_IsDisplayOn_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerHost_IsDisplayOn_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PowerHost_IsDisplayOn_ResponseParamsSpec, 'arc.mojom.PowerHost_IsDisplayOn_ResponseParams', [
+      mojo.internal.StructField('is_on', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.PowerHost_OnScreenBrightnessUpdateRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerHost_OnScreenBrightnessUpdateRequest_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PowerHost_OnScreenBrightnessUpdateRequest_ParamsSpec, 'arc.mojom.PowerHost_OnScreenBrightnessUpdateRequest_Params', [
+      mojo.internal.StructField('percent', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.PowerHost_OnPreAnr_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerHost_OnPreAnr_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AnrTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PowerHost_OnPreAnr_ParamsSpec, 'arc.mojom.PowerHost_OnPreAnr_Params', [
+      mojo.internal.StructField('type', 0, 0, arc.mojom.AnrTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.PowerHost_OnAnrRecoveryFailed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerHost_OnAnrRecoveryFailed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AnrTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PowerHost_OnAnrRecoveryFailed_ParamsSpec, 'arc.mojom.PowerHost_OnAnrRecoveryFailed_Params', [
+      mojo.internal.StructField('type', 0, 0, arc.mojom.AnrTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.PowerHost_GetBatterySaverModeState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerHost_GetBatterySaverModeState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PowerHost_GetBatterySaverModeState_ParamsSpec, 'arc.mojom.PowerHost_GetBatterySaverModeState_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    arc.mojom.PowerHost_GetBatterySaverModeState_ResponseParamsSpec, 'arc.mojom.PowerHost_GetBatterySaverModeState_ResponseParams', [
+      mojo.internal.StructField('state', 0, 0, arc.mojom.BatterySaverModeStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.PowerHostPendingReceiver = class {
   constructor(handle) {
@@ -275,275 +253,82 @@ arc.mojom.PowerHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnAcquireDisplayWakeLock
-arc.mojom.PowerHost_OnAcquireDisplayWakeLock_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerHost.OnAcquireDisplayWakeLock_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.DisplayWakeLockTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnReleaseDisplayWakeLock
-arc.mojom.PowerHost_OnReleaseDisplayWakeLock_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerHost.OnReleaseDisplayWakeLock_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.DisplayWakeLockTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnWakefulnessChanged
-arc.mojom.PowerHost_OnWakefulnessChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerHost.OnWakefulnessChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.WakefulnessModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for IsDisplayOn
-arc.mojom.PowerHost_IsDisplayOn_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerHost.IsDisplayOn_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-arc.mojom.PowerHost_IsDisplayOn_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerHost.IsDisplayOn_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'is_on', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnScreenBrightnessUpdateRequest
-arc.mojom.PowerHost_OnScreenBrightnessUpdateRequest_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerHost.OnScreenBrightnessUpdateRequest_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnPreAnr
-arc.mojom.PowerHost_OnPreAnr_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerHost.OnPreAnr_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AnrTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnAnrRecoveryFailed
-arc.mojom.PowerHost_OnAnrRecoveryFailed_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerHost.OnAnrRecoveryFailed_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AnrTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetBatterySaverModeState
-arc.mojom.PowerHost_GetBatterySaverModeState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerHost.GetBatterySaverModeState_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-arc.mojom.PowerHost_GetBatterySaverModeState_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerHost.GetBatterySaverModeState_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BatterySaverModeStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.PowerHostPtr = arc.mojom.PowerHostRemote;
 arc.mojom.PowerHostRequest = arc.mojom.PowerHostPendingReceiver;
 
 
 // Interface: PowerInstance
-arc.mojom.PowerInstance = {};
+mojo.internal.Struct(
+    arc.mojom.PowerInstance_Init_ParamsSpec, 'arc.mojom.PowerInstance_Init_Params', [
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.PowerHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.PowerInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerInstance_Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.PowerHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PowerInstance_Init_ResponseParamsSpec, 'arc.mojom.PowerInstance_Init_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.PowerInstance_SetInteractiveDeprecated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerInstance_SetInteractiveDeprecated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PowerInstance_SetInteractiveDeprecated_ParamsSpec, 'arc.mojom.PowerInstance_SetInteractiveDeprecated_Params', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.PowerInstance_Suspend_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerInstance_Suspend_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PowerInstance_Suspend_ParamsSpec, 'arc.mojom.PowerInstance_Suspend_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.PowerInstance_Resume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerInstance_Resume_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PowerInstance_Suspend_ResponseParamsSpec, 'arc.mojom.PowerInstance_Suspend_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.PowerInstance_UpdateScreenBrightnessSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerInstance_UpdateScreenBrightnessSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PowerInstance_Resume_ParamsSpec, 'arc.mojom.PowerInstance_Resume_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.PowerInstance_PowerSupplyInfoChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerInstance_PowerSupplyInfoChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PowerInstance_UpdateScreenBrightnessSettings_ParamsSpec, 'arc.mojom.PowerInstance_UpdateScreenBrightnessSettings_Params', [
+      mojo.internal.StructField('percent', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.PowerInstance_GetWakefulnessMode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerInstance_GetWakefulnessMode_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PowerInstance_PowerSupplyInfoChanged_ParamsSpec, 'arc.mojom.PowerInstance_PowerSupplyInfoChanged_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.PowerInstance_OnCpuRestrictionChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerInstance_OnCpuRestrictionChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.CpuRestrictionStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PowerInstance_GetWakefulnessMode_ParamsSpec, 'arc.mojom.PowerInstance_GetWakefulnessMode_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.PowerInstance_OnBatterySaverModeStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerInstance_OnBatterySaverModeStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BatterySaverModeStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PowerInstance_GetWakefulnessMode_ResponseParamsSpec, 'arc.mojom.PowerInstance_GetWakefulnessMode_ResponseParams', [
+      mojo.internal.StructField('mode', 0, 0, arc.mojom.WakefulnessModeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.PowerInstance_SetIdleState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerInstance_SetIdleState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.IdleStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.PowerInstance_OnCpuRestrictionChanged_ParamsSpec, 'arc.mojom.PowerInstance_OnCpuRestrictionChanged_Params', [
+      mojo.internal.StructField('state', 0, 0, arc.mojom.CpuRestrictionStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.PowerInstance_OnBatterySaverModeStateChanged_ParamsSpec, 'arc.mojom.PowerInstance_OnBatterySaverModeStateChanged_Params', [
+      mojo.internal.StructField('state', 0, 0, arc.mojom.BatterySaverModeStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.PowerInstance_SetIdleState_ParamsSpec, 'arc.mojom.PowerInstance_SetIdleState_Params', [
+      mojo.internal.StructField('state', 0, 0, arc.mojom.IdleStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.PowerInstancePendingReceiver = class {
   constructor(handle) {
@@ -582,7 +367,7 @@ arc.mojom.PowerInstanceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       5,  // ordinal
       arc.mojom.PowerInstance_Init_ParamsSpec,
-      null,
+      arc.mojom.PowerInstance_Init_ResponseParamsSpec,
       [host_remote]);
   }
 
@@ -600,7 +385,7 @@ arc.mojom.PowerInstanceRemoteCallHandler = class {
     return this.proxy.sendMessage(
       2,  // ordinal
       arc.mojom.PowerInstance_Suspend_ParamsSpec,
-      null,
+      arc.mojom.PowerInstance_Suspend_ResponseParamsSpec,
       []);
   }
 
@@ -679,156 +464,6 @@ arc.mojom.PowerInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Init
-arc.mojom.PowerInstance_Init_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerInstance.Init_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.PowerHostRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetInteractiveDeprecated
-arc.mojom.PowerInstance_SetInteractiveDeprecated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerInstance.SetInteractiveDeprecated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Suspend
-arc.mojom.PowerInstance_Suspend_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerInstance.Suspend_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for Resume
-arc.mojom.PowerInstance_Resume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerInstance.Resume_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateScreenBrightnessSettings
-arc.mojom.PowerInstance_UpdateScreenBrightnessSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerInstance.UpdateScreenBrightnessSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'percent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for PowerSupplyInfoChanged
-arc.mojom.PowerInstance_PowerSupplyInfoChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerInstance.PowerSupplyInfoChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for GetWakefulnessMode
-arc.mojom.PowerInstance_GetWakefulnessMode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerInstance.GetWakefulnessMode_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-arc.mojom.PowerInstance_GetWakefulnessMode_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerInstance.GetWakefulnessMode_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.WakefulnessModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnCpuRestrictionChanged
-arc.mojom.PowerInstance_OnCpuRestrictionChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerInstance.OnCpuRestrictionChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.CpuRestrictionStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnBatterySaverModeStateChanged
-arc.mojom.PowerInstance_OnBatterySaverModeStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerInstance.OnBatterySaverModeStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BatterySaverModeStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetIdleState
-arc.mojom.PowerInstance_SetIdleState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.PowerInstance.SetIdleState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.IdleStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.PowerInstancePtr = arc.mojom.PowerInstanceRemote;
 arc.mojom.PowerInstanceRequest = arc.mojom.PowerInstancePendingReceiver;
 

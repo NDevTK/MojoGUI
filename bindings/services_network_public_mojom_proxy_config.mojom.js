@@ -7,8 +7,18 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
 var url = url || {};
 
+network.mojom.ProxyRulesTypeSpec = { $: mojo.internal.Enum() };
+network.mojom.ProxyOverrideRuleResultSpec = { $: mojo.internal.Enum() };
+network.mojom.IpProtectionProxyBypassPolicySpec = { $: mojo.internal.Enum() };
+network.mojom.ProxyHostMatchingRulesSpec = { $: {} };
+network.mojom.ProxyListSpec = { $: {} };
+network.mojom.ProxyRulesSpec = { $: {} };
+network.mojom.DnsProbeConditionSpec = { $: {} };
+network.mojom.ProxyOverrideRuleSpec = { $: {} };
+network.mojom.ProxyConfigSpec = { $: {} };
 
 // Enum: ProxyRulesType
 network.mojom.ProxyRulesType = {
@@ -16,14 +26,12 @@ network.mojom.ProxyRulesType = {
   PROXY_LIST: 1,
   PROXY_LIST_PER_SCHEME: 2,
 };
-network.mojom.ProxyRulesTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ProxyOverrideRuleResult
 network.mojom.ProxyOverrideRuleResult = {
   kNotFound: 0,
   kResolved: 1,
 };
-network.mojom.ProxyOverrideRuleResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: IpProtectionProxyBypassPolicy
 network.mojom.IpProtectionProxyBypassPolicy = {
@@ -31,104 +39,61 @@ network.mojom.IpProtectionProxyBypassPolicy = {
   kFirstPartyToTopLevelFrame: 1,
   kExclusionList: 2,
 };
-network.mojom.IpProtectionProxyBypassPolicySpec = { $: mojo.internal.Enum() };
 
 // Struct: ProxyHostMatchingRules
-network.mojom.ProxyHostMatchingRulesSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ProxyHostMatchingRules',
-      packedSize: 16,
-      fields: [
-        { name: 'rules', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.ProxyHostMatchingRulesSpec, 'network.mojom.ProxyHostMatchingRules', [
+      mojo.internal.StructField('rules', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: ProxyList
-network.mojom.ProxyListSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ProxyList',
-      packedSize: 16,
-      fields: [
-        { name: 'proxies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.ProxyChainSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.ProxyListSpec, 'network.mojom.ProxyList', [
+      mojo.internal.StructField('proxies', 0, 0, mojo.internal.Array(network.mojom.ProxyChainSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: ProxyRules
-network.mojom.ProxyRulesSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ProxyRules',
-      packedSize: 64,
-      fields: [
-        { name: 'bypass_rules', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ProxyHostMatchingRulesSpec, nullable: false, minVersion: 0 },
-        { name: 'reverse_bypass', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 48, packedBitOffset: 0, type: network.mojom.ProxyRulesTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'single_proxies', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ProxyListSpec, nullable: false, minVersion: 0 },
-        { name: 'proxies_for_http', packedOffset: 16, packedBitOffset: 0, type: network.mojom.ProxyListSpec, nullable: false, minVersion: 0 },
-        { name: 'proxies_for_https', packedOffset: 24, packedBitOffset: 0, type: network.mojom.ProxyListSpec, nullable: false, minVersion: 0 },
-        { name: 'proxies_for_ftp', packedOffset: 32, packedBitOffset: 0, type: network.mojom.ProxyListSpec, nullable: false, minVersion: 0 },
-        { name: 'fallback_proxies', packedOffset: 40, packedBitOffset: 0, type: network.mojom.ProxyListSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.ProxyRulesSpec, 'network.mojom.ProxyRules', [
+      mojo.internal.StructField('bypass_rules', 0, 0, network.mojom.ProxyHostMatchingRulesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reverse_bypass', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('type', 48, 0, network.mojom.ProxyRulesTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('single_proxies', 8, 0, network.mojom.ProxyListSpec, null, false, 0, undefined),
+      mojo.internal.StructField('proxies_for_http', 16, 0, network.mojom.ProxyListSpec, null, false, 0, undefined),
+      mojo.internal.StructField('proxies_for_https', 24, 0, network.mojom.ProxyListSpec, null, false, 0, undefined),
+      mojo.internal.StructField('proxies_for_ftp', 32, 0, network.mojom.ProxyListSpec, null, false, 0, undefined),
+      mojo.internal.StructField('fallback_proxies', 40, 0, network.mojom.ProxyListSpec, null, false, 0, undefined),
+    ],
+    [[0, 64]]);
 
 // Struct: DnsProbeCondition
-network.mojom.DnsProbeConditionSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DnsProbeCondition',
-      packedSize: 24,
-      fields: [
-        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: url.mojom.SchemeHostPortSpec, nullable: false, minVersion: 0 },
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ProxyOverrideRuleResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.DnsProbeConditionSpec, 'network.mojom.DnsProbeCondition', [
+      mojo.internal.StructField('host', 0, 0, url.mojom.SchemeHostPortSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 8, 0, network.mojom.ProxyOverrideRuleResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: ProxyOverrideRule
-network.mojom.ProxyOverrideRuleSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ProxyOverrideRule',
-      packedSize: 40,
-      fields: [
-        { name: 'destination_matchers', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ProxyHostMatchingRulesSpec, nullable: false, minVersion: 0 },
-        { name: 'exclude_destination_matchers', packedOffset: 8, packedBitOffset: 0, type: network.mojom.ProxyHostMatchingRulesSpec, nullable: false, minVersion: 0 },
-        { name: 'dns_conditions', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.DnsProbeConditionSpec, false), nullable: false, minVersion: 0 },
-        { name: 'proxy_list', packedOffset: 24, packedBitOffset: 0, type: network.mojom.ProxyListSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.ProxyOverrideRuleSpec, 'network.mojom.ProxyOverrideRule', [
+      mojo.internal.StructField('destination_matchers', 0, 0, network.mojom.ProxyHostMatchingRulesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('exclude_destination_matchers', 8, 0, network.mojom.ProxyHostMatchingRulesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('dns_conditions', 16, 0, mojo.internal.Array(network.mojom.DnsProbeConditionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('proxy_list', 24, 0, network.mojom.ProxyListSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: ProxyConfig
-network.mojom.ProxyConfigSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ProxyConfig',
-      packedSize: 40,
-      fields: [
-        { name: 'proxy_override_rules', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.ProxyOverrideRuleSpec, false), nullable: false, minVersion: 0 },
-        { name: 'auto_detect', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'from_system', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'pac_url', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.BigStringSpec, nullable: false, minVersion: 0 },
-        { name: 'pac_mandatory', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'proxy_rules', packedOffset: 16, packedBitOffset: 0, type: network.mojom.ProxyRulesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.ProxyConfigSpec, 'network.mojom.ProxyConfig', [
+      mojo.internal.StructField('proxy_override_rules', 0, 0, mojo.internal.Array(network.mojom.ProxyOverrideRuleSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('auto_detect', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('from_system', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('pac_url', 8, 0, mojo_base.mojom.BigStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('pac_mandatory', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('proxy_rules', 16, 0, network.mojom.ProxyRulesSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);

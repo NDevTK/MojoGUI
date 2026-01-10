@@ -9,34 +9,36 @@ var ash = ash || {};
 ash.rollback_network_config = ash.rollback_network_config || {};
 ash.rollback_network_config.mojom = ash.rollback_network_config.mojom || {};
 
+ash.rollback_network_config.mojom.RollbackNetworkConfig = {};
+ash.rollback_network_config.mojom.RollbackNetworkConfig.$interfaceName = 'ash.rollback_network_config.mojom.RollbackNetworkConfig';
+ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ParamsSpec = { $: {} };
+ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ResponseParamsSpec = { $: {} };
+ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ParamsSpec = { $: {} };
+ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ResponseParamsSpec = { $: {} };
 
 // Interface: RollbackNetworkConfig
-ash.rollback_network_config.mojom.RollbackNetworkConfig = {};
+mojo.internal.Struct(
+    ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ParamsSpec, 'ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_Params', [
+      mojo.internal.StructField('config', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ResponseParamsSpec, 'ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ParamsSpec, 'ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ResponseParamsSpec, 'ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ResponseParams', [
+      mojo.internal.StructField('config', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.rollback_network_config.mojom.RollbackNetworkConfigPendingReceiver = class {
   constructor(handle) {
@@ -100,60 +102,6 @@ ash.rollback_network_config.mojom.RollbackNetworkConfig.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RollbackConfigImport
-ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.rollback_network_config.mojom.RollbackNetworkConfig.RollbackConfigImport_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.rollback_network_config.mojom.RollbackNetworkConfig.RollbackConfigImport_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RollbackConfigExport
-ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.rollback_network_config.mojom.RollbackNetworkConfig.RollbackConfigExport_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.rollback_network_config.mojom.RollbackNetworkConfig.RollbackConfigExport_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.rollback_network_config.mojom.RollbackNetworkConfigPtr = ash.rollback_network_config.mojom.RollbackNetworkConfigRemote;
 ash.rollback_network_config.mojom.RollbackNetworkConfigRequest = ash.rollback_network_config.mojom.RollbackNetworkConfigPendingReceiver;
 

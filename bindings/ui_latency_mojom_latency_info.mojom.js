@@ -8,6 +8,8 @@
 var ui = ui || {};
 ui.mojom = ui.mojom || {};
 
+ui.mojom.LatencyComponentTypeSpec = { $: mojo.internal.Enum() };
+ui.mojom.LatencyInfoSpec = { $: {} };
 
 // Enum: LatencyComponentType
 ui.mojom.LatencyComponentType = {
@@ -24,24 +26,16 @@ ui.mojom.LatencyComponentType = {
   INPUT_EVENT_GPU_SWAP_BUFFER_COMPONENT: 10,
   INPUT_EVENT_LATENCY_FRAME_SWAP_COMPONENT: 11,
 };
-ui.mojom.LatencyComponentTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: LatencyInfo
-ui.mojom.LatencyInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.mojom.LatencyInfo',
-      packedSize: 48,
-      fields: [
-        { name: 'latency_components', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(ui.mojom.LatencyComponentTypeSpec, mojo_base.mojom.TimeTicksSpec, false), nullable: false, minVersion: 0 },
-        { name: 'trace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'coalesced', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'began', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'terminated', packedOffset: 32, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'gesture_scroll_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'touch_trace_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ui.mojom.LatencyInfoSpec, 'ui.mojom.LatencyInfo', [
+      mojo.internal.StructField('latency_components', 0, 0, mojo.internal.Map(ui.mojom.LatencyComponentTypeSpec, mojo_base.mojom.TimeTicksSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('trace_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('coalesced', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('began', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('terminated', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('gesture_scroll_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('touch_trace_id', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 48]]);

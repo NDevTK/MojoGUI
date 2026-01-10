@@ -7,44 +7,36 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 
+network.mojom.BlockedByResponseReasonWrapperSpec = { $: {} };
+network.mojom.URLLoaderCompletionStatusSpec = { $: {} };
 
 // Struct: BlockedByResponseReasonWrapper
-network.mojom.BlockedByResponseReasonWrapperSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.BlockedByResponseReasonWrapper',
-      packedSize: 16,
-      fields: [
-        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: network.mojom.BlockedByResponseReasonSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.BlockedByResponseReasonWrapperSpec, 'network.mojom.BlockedByResponseReasonWrapper', [
+      mojo.internal.StructField('reason', 0, 0, network.mojom.BlockedByResponseReasonSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: URLLoaderCompletionStatus
-network.mojom.URLLoaderCompletionStatusSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.URLLoaderCompletionStatus',
-      packedSize: 88,
-      fields: [
-        { name: 'error_code', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'extended_error_code', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'exists_in_cache', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'completion_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'encoded_data_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'encoded_body_length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'decoded_body_length', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'cors_error_status', packedOffset: 32, packedBitOffset: 0, type: network.mojom.CorsErrorStatusSpec, nullable: true, minVersion: 0 },
-        { name: 'ssl_info', packedOffset: 40, packedBitOffset: 0, type: network.mojom.SSLInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'blocked_by_response_reason', packedOffset: 48, packedBitOffset: 0, type: network.mojom.BlockedByResponseReasonWrapperSpec, nullable: true, minVersion: 0 },
-        { name: 'should_report_orb_blocking', packedOffset: 72, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'resolve_error_info', packedOffset: 56, packedBitOffset: 0, type: network.mojom.ResolveErrorInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'should_collapse_initiator', packedOffset: 72, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 88}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.URLLoaderCompletionStatusSpec, 'network.mojom.URLLoaderCompletionStatus', [
+      mojo.internal.StructField('error_code', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('extended_error_code', 68, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('exists_in_cache', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('completion_time', 0, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('encoded_data_length', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('encoded_body_length', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('decoded_body_length', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('cors_error_status', 32, 0, network.mojom.CorsErrorStatusSpec, null, true, 0, undefined),
+      mojo.internal.StructField('ssl_info', 40, 0, network.mojom.SSLInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('blocked_by_response_reason', 48, 0, network.mojom.BlockedByResponseReasonWrapperSpec, null, true, 0, undefined),
+      mojo.internal.StructField('should_report_orb_blocking', 72, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('resolve_error_info', 56, 0, network.mojom.ResolveErrorInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('should_collapse_initiator', 72, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 88]]);

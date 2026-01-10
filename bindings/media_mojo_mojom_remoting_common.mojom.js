@@ -8,6 +8,12 @@
 var media = media || {};
 media.mojom = media.mojom || {};
 
+media.mojom.RemotingStopReasonSpec = { $: mojo.internal.Enum() };
+media.mojom.RemotingStartFailReasonSpec = { $: mojo.internal.Enum() };
+media.mojom.RemotingSinkFeatureSpec = { $: mojo.internal.Enum() };
+media.mojom.RemotingSinkAudioCapabilitySpec = { $: mojo.internal.Enum() };
+media.mojom.RemotingSinkVideoCapabilitySpec = { $: mojo.internal.Enum() };
+media.mojom.RemotingSinkMetadataSpec = { $: {} };
 
 // Enum: RemotingStopReason
 media.mojom.RemotingStopReason = {
@@ -20,7 +26,6 @@ media.mojom.RemotingStopReason = {
   SERVICE_GONE: 6,
   USER_DISABLED: 7,
 };
-media.mojom.RemotingStopReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: RemotingStartFailReason
 media.mojom.RemotingStartFailReason = {
@@ -29,14 +34,12 @@ media.mojom.RemotingStartFailReason = {
   INVALID_ANSWER_MESSAGE: 2,
   REMOTING_NOT_PERMITTED: 3,
 };
-media.mojom.RemotingStartFailReasonSpec = { $: mojo.internal.Enum() };
 
 // Enum: RemotingSinkFeature
 media.mojom.RemotingSinkFeature = {
   RENDERING: 0,
   CONTENT_DECRYPTION: 1,
 };
-media.mojom.RemotingSinkFeatureSpec = { $: mojo.internal.Enum() };
 
 // Enum: RemotingSinkAudioCapability
 media.mojom.RemotingSinkAudioCapability = {
@@ -44,7 +47,6 @@ media.mojom.RemotingSinkAudioCapability = {
   CODEC_AAC: 1,
   CODEC_OPUS: 2,
 };
-media.mojom.RemotingSinkAudioCapabilitySpec = { $: mojo.internal.Enum() };
 
 // Enum: RemotingSinkVideoCapability
 media.mojom.RemotingSinkVideoCapability = {
@@ -56,21 +58,13 @@ media.mojom.RemotingSinkVideoCapability = {
   CODEC_HEVC: 5,
   CODEC_AV1: 6,
 };
-media.mojom.RemotingSinkVideoCapabilitySpec = { $: mojo.internal.Enum() };
 
 // Struct: RemotingSinkMetadata
-media.mojom.RemotingSinkMetadataSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.RemotingSinkMetadata',
-      packedSize: 40,
-      fields: [
-        { name: 'features', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.RemotingSinkFeatureSpec, false), nullable: false, minVersion: 0 },
-        { name: 'audio_capabilities', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.RemotingSinkAudioCapabilitySpec, false), nullable: false, minVersion: 0 },
-        { name: 'video_capabilities', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.RemotingSinkVideoCapabilitySpec, false), nullable: false, minVersion: 0 },
-        { name: 'friendly_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.RemotingSinkMetadataSpec, 'media.mojom.RemotingSinkMetadata', [
+      mojo.internal.StructField('features', 0, 0, mojo.internal.Array(media.mojom.RemotingSinkFeatureSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('audio_capabilities', 8, 0, mojo.internal.Array(media.mojom.RemotingSinkAudioCapabilitySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('video_capabilities', 16, 0, mojo.internal.Array(media.mojom.RemotingSinkVideoCapabilitySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('friendly_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);

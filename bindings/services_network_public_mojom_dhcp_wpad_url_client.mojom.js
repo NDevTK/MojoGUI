@@ -8,21 +8,22 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.DhcpWpadUrlClient = {};
+network.mojom.DhcpWpadUrlClient.$interfaceName = 'network.mojom.DhcpWpadUrlClient';
+network.mojom.DhcpWpadUrlClient_GetPacUrl_ParamsSpec = { $: {} };
+network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec = { $: {} };
 
 // Interface: DhcpWpadUrlClient
-network.mojom.DhcpWpadUrlClient = {};
+mojo.internal.Struct(
+    network.mojom.DhcpWpadUrlClient_GetPacUrl_ParamsSpec, 'network.mojom.DhcpWpadUrlClient_GetPacUrl_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-network.mojom.DhcpWpadUrlClient_GetPacUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DhcpWpadUrlClient_GetPacUrl_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec, 'network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParams', [
+      mojo.internal.StructField('url', 0, 0, mojo_base.mojom.BigStringSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.DhcpWpadUrlClientPendingReceiver = class {
   constructor(handle) {
@@ -77,33 +78,6 @@ network.mojom.DhcpWpadUrlClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetPacUrl
-network.mojom.DhcpWpadUrlClient_GetPacUrl_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DhcpWpadUrlClient.GetPacUrl_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.DhcpWpadUrlClient.GetPacUrl_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigStringSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.DhcpWpadUrlClientPtr = network.mojom.DhcpWpadUrlClientRemote;
 network.mojom.DhcpWpadUrlClientRequest = network.mojom.DhcpWpadUrlClientPendingReceiver;
 

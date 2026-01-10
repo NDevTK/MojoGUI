@@ -7,23 +7,27 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
+var services = services || {};
 
+blink.mojom.WebSensorProvider = {};
+blink.mojom.WebSensorProvider.$interfaceName = 'blink.mojom.WebSensorProvider';
+blink.mojom.WebSensorProvider_GetSensor_ParamsSpec = { $: {} };
+blink.mojom.WebSensorProvider_GetSensor_ResponseParamsSpec = { $: {} };
 
 // Interface: WebSensorProvider
-blink.mojom.WebSensorProvider = {};
+mojo.internal.Struct(
+    blink.mojom.WebSensorProvider_GetSensor_ParamsSpec, 'blink.mojom.WebSensorProvider_GetSensor_Params', [
+      mojo.internal.StructField('type', 0, 0, device.mojom.SensorTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-blink.mojom.WebSensorProvider_GetSensor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebSensorProvider_GetSensor_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SensorTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebSensorProvider_GetSensor_ResponseParamsSpec, 'blink.mojom.WebSensorProvider_GetSensor_ResponseParams', [
+      mojo.internal.StructField('result', 8, 0, device.mojom.SensorCreationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('init_params', 0, 0, device.mojom.SensorInitParamsSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.WebSensorProviderPendingReceiver = class {
   constructor(handle) {
@@ -78,35 +82,6 @@ blink.mojom.WebSensorProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetSensor
-blink.mojom.WebSensorProvider_GetSensor_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebSensorProvider.GetSensor_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SensorTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-blink.mojom.WebSensorProvider_GetSensor_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebSensorProvider.GetSensor_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: device.mojom.SensorCreationResultSpec, nullable: false, minVersion: 0 },
-        { name: 'init_params', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SensorInitParamsSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.WebSensorProviderPtr = blink.mojom.WebSensorProviderRemote;
 blink.mojom.WebSensorProviderRequest = blink.mojom.WebSensorProviderPendingReceiver;
 

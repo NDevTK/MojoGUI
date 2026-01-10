@@ -7,25 +7,21 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
+var services = services || {};
 
+network.mojom.NetworkInterfaceSpec = { $: {} };
 
 // Struct: NetworkInterface
-network.mojom.NetworkInterfaceSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.NetworkInterface',
-      packedSize: 56,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'friendly_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'interface_index', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 36, packedBitOffset: 0, type: network.mojom.ConnectionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'address', packedOffset: 16, packedBitOffset: 0, type: network.mojom.IPAddressSpec, nullable: false, minVersion: 0 },
-        { name: 'prefix_length', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'ip_address_attributes', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'mac_address', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.NetworkInterfaceSpec, 'network.mojom.NetworkInterface', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('friendly_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('interface_index', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('type', 36, 0, network.mojom.ConnectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('address', 16, 0, network.mojom.IPAddressSpec, null, false, 0, undefined),
+      mojo.internal.StructField('prefix_length', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('ip_address_attributes', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('mac_address', 24, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, true, 0, undefined),
+    ],
+    [[0, 56]]);

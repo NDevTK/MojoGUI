@@ -9,6 +9,73 @@ var ash = ash || {};
 ash.eche_app = ash.eche_app || {};
 ash.eche_app.mojom = ash.eche_app.mojom || {};
 
+ash.eche_app.mojom.ScreenBacklightStateSpec = { $: mojo.internal.Enum() };
+ash.eche_app.mojom.WebNotificationTypeSpec = { $: mojo.internal.Enum() };
+ash.eche_app.mojom.StreamStatusSpec = { $: mojo.internal.Enum() };
+ash.eche_app.mojom.StreamActionSpec = { $: mojo.internal.Enum() };
+ash.eche_app.mojom.ConnectionStatusSpec = { $: mojo.internal.Enum() };
+ash.eche_app.mojom.AppStreamLaunchEntryPointSpec = { $: mojo.internal.Enum() };
+ash.eche_app.mojom.SignalingMessageExchanger = {};
+ash.eche_app.mojom.SignalingMessageExchanger.$interfaceName = 'ash.eche_app.mojom.SignalingMessageExchanger';
+ash.eche_app.mojom.SignalingMessageExchanger_SendSignalingMessage_ParamsSpec = { $: {} };
+ash.eche_app.mojom.SignalingMessageExchanger_SetSignalingMessageObserver_ParamsSpec = { $: {} };
+ash.eche_app.mojom.SignalingMessageExchanger_TearDownSignaling_ParamsSpec = { $: {} };
+ash.eche_app.mojom.SignalingMessageObserver = {};
+ash.eche_app.mojom.SignalingMessageObserver.$interfaceName = 'ash.eche_app.mojom.SignalingMessageObserver';
+ash.eche_app.mojom.SignalingMessageObserver_OnReceivedSignalingMessage_ParamsSpec = { $: {} };
+ash.eche_app.mojom.SystemInfoProvider = {};
+ash.eche_app.mojom.SystemInfoProvider.$interfaceName = 'ash.eche_app.mojom.SystemInfoProvider';
+ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ParamsSpec = { $: {} };
+ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ResponseParamsSpec = { $: {} };
+ash.eche_app.mojom.SystemInfoProvider_SetSystemInfoObserver_ParamsSpec = { $: {} };
+ash.eche_app.mojom.SystemInfoObserver = {};
+ash.eche_app.mojom.SystemInfoObserver.$interfaceName = 'ash.eche_app.mojom.SystemInfoObserver';
+ash.eche_app.mojom.SystemInfoObserver_OnScreenBacklightStateChanged_ParamsSpec = { $: {} };
+ash.eche_app.mojom.SystemInfoObserver_OnReceivedTabletModeChanged_ParamsSpec = { $: {} };
+ash.eche_app.mojom.SystemInfoObserver_OnAndroidDeviceNetworkInfoChanged_ParamsSpec = { $: {} };
+ash.eche_app.mojom.AccessibilityProvider = {};
+ash.eche_app.mojom.AccessibilityProvider.$interfaceName = 'ash.eche_app.mojom.AccessibilityProvider';
+ash.eche_app.mojom.AccessibilityProvider_HandleAccessibilityEventReceived_ParamsSpec = { $: {} };
+ash.eche_app.mojom.AccessibilityProvider_SetAccessibilityObserver_ParamsSpec = { $: {} };
+ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ParamsSpec = { $: {} };
+ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ResponseParamsSpec = { $: {} };
+ash.eche_app.mojom.AccessibilityObserver = {};
+ash.eche_app.mojom.AccessibilityObserver.$interfaceName = 'ash.eche_app.mojom.AccessibilityObserver';
+ash.eche_app.mojom.AccessibilityObserver_EnableAccessibilityTreeStreaming_ParamsSpec = { $: {} };
+ash.eche_app.mojom.AccessibilityObserver_EnableExploreByTouch_ParamsSpec = { $: {} };
+ash.eche_app.mojom.AccessibilityObserver_PerformAction_ParamsSpec = { $: {} };
+ash.eche_app.mojom.AccessibilityObserver_PerformAction_ResponseParamsSpec = { $: {} };
+ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ParamsSpec = { $: {} };
+ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ResponseParamsSpec = { $: {} };
+ash.eche_app.mojom.UidGenerator = {};
+ash.eche_app.mojom.UidGenerator.$interfaceName = 'ash.eche_app.mojom.UidGenerator';
+ash.eche_app.mojom.UidGenerator_GetUid_ParamsSpec = { $: {} };
+ash.eche_app.mojom.UidGenerator_GetUid_ResponseParamsSpec = { $: {} };
+ash.eche_app.mojom.NotificationGenerator = {};
+ash.eche_app.mojom.NotificationGenerator.$interfaceName = 'ash.eche_app.mojom.NotificationGenerator';
+ash.eche_app.mojom.NotificationGenerator_ShowNotification_ParamsSpec = { $: {} };
+ash.eche_app.mojom.NotificationGenerator_ShowToast_ParamsSpec = { $: {} };
+ash.eche_app.mojom.DisplayStreamHandler = {};
+ash.eche_app.mojom.DisplayStreamHandler.$interfaceName = 'ash.eche_app.mojom.DisplayStreamHandler';
+ash.eche_app.mojom.DisplayStreamHandler_StartStreaming_ParamsSpec = { $: {} };
+ash.eche_app.mojom.DisplayStreamHandler_OnStreamStatusChanged_ParamsSpec = { $: {} };
+ash.eche_app.mojom.DisplayStreamHandler_SetStreamActionObserver_ParamsSpec = { $: {} };
+ash.eche_app.mojom.StreamActionObserver = {};
+ash.eche_app.mojom.StreamActionObserver.$interfaceName = 'ash.eche_app.mojom.StreamActionObserver';
+ash.eche_app.mojom.StreamActionObserver_OnStreamAction_ParamsSpec = { $: {} };
+ash.eche_app.mojom.StreamOrientationObserver = {};
+ash.eche_app.mojom.StreamOrientationObserver.$interfaceName = 'ash.eche_app.mojom.StreamOrientationObserver';
+ash.eche_app.mojom.StreamOrientationObserver_OnStreamOrientationChanged_ParamsSpec = { $: {} };
+ash.eche_app.mojom.ConnectionStatusObserver = {};
+ash.eche_app.mojom.ConnectionStatusObserver.$interfaceName = 'ash.eche_app.mojom.ConnectionStatusObserver';
+ash.eche_app.mojom.ConnectionStatusObserver_OnConnectionStatusChanged_ParamsSpec = { $: {} };
+ash.eche_app.mojom.KeyboardLayoutHandler = {};
+ash.eche_app.mojom.KeyboardLayoutHandler.$interfaceName = 'ash.eche_app.mojom.KeyboardLayoutHandler';
+ash.eche_app.mojom.KeyboardLayoutHandler_RequestCurrentKeyboardLayout_ParamsSpec = { $: {} };
+ash.eche_app.mojom.KeyboardLayoutHandler_SetKeyboardLayoutObserver_ParamsSpec = { $: {} };
+ash.eche_app.mojom.KeyboardLayoutObserver = {};
+ash.eche_app.mojom.KeyboardLayoutObserver.$interfaceName = 'ash.eche_app.mojom.KeyboardLayoutObserver';
+ash.eche_app.mojom.KeyboardLayoutObserver_OnKeyboardLayoutChanged_ParamsSpec = { $: {} };
 
 // Enum: ScreenBacklightState
 ash.eche_app.mojom.ScreenBacklightState = {
@@ -16,7 +83,6 @@ ash.eche_app.mojom.ScreenBacklightState = {
   OFF: 1,
   OFF_AUTO: 2,
 };
-ash.eche_app.mojom.ScreenBacklightStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: WebNotificationType
 ash.eche_app.mojom.WebNotificationType = {
@@ -34,7 +100,6 @@ ash.eche_app.mojom.WebNotificationType = {
   DIFFERENT_WIFI_NETWORKS: 11,
   REMOTE_DEVICE_ON_CELLULAR: 12,
 };
-ash.eche_app.mojom.WebNotificationTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: StreamStatus
 ash.eche_app.mojom.StreamStatus = {
@@ -43,14 +108,12 @@ ash.eche_app.mojom.StreamStatus = {
   kStreamStatusStarted: 2,
   kStreamStatusStopped: 3,
 };
-ash.eche_app.mojom.StreamStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: StreamAction
 ash.eche_app.mojom.StreamAction = {
   kStreamActionClose: 0,
   kStreamActionGoBack: 1,
 };
-ash.eche_app.mojom.StreamActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: ConnectionStatus
 ash.eche_app.mojom.ConnectionStatus = {
@@ -59,7 +122,6 @@ ash.eche_app.mojom.ConnectionStatus = {
   kConnectionStatusConnected: 2,
   kConnectionStatusFailed: 3,
 };
-ash.eche_app.mojom.ConnectionStatusSpec = { $: mojo.internal.Enum() };
 
 // Enum: AppStreamLaunchEntryPoint
 ash.eche_app.mojom.AppStreamLaunchEntryPoint = {
@@ -68,48 +130,24 @@ ash.eche_app.mojom.AppStreamLaunchEntryPoint = {
   RECENT_APPS: 2,
   UNKNOWN: 3,
 };
-ash.eche_app.mojom.AppStreamLaunchEntryPointSpec = { $: mojo.internal.Enum() };
 
 // Interface: SignalingMessageExchanger
-ash.eche_app.mojom.SignalingMessageExchanger = {};
+mojo.internal.Struct(
+    ash.eche_app.mojom.SignalingMessageExchanger_SendSignalingMessage_ParamsSpec, 'ash.eche_app.mojom.SignalingMessageExchanger_SendSignalingMessage_Params', [
+      mojo.internal.StructField('signal', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.eche_app.mojom.SignalingMessageExchanger_SendSignalingMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.SignalingMessageExchanger_SendSignalingMessage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'signal', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.eche_app.mojom.SignalingMessageExchanger_SetSignalingMessageObserver_ParamsSpec, 'ash.eche_app.mojom.SignalingMessageExchanger_SetSignalingMessageObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.eche_app.mojom.SignalingMessageObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.eche_app.mojom.SignalingMessageExchanger_SetSignalingMessageObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.SignalingMessageExchanger_SetSignalingMessageObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.eche_app.mojom.SignalingMessageObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.eche_app.mojom.SignalingMessageExchanger_TearDownSignaling_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.SignalingMessageExchanger_TearDownSignaling_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.eche_app.mojom.SignalingMessageExchanger_TearDownSignaling_ParamsSpec, 'ash.eche_app.mojom.SignalingMessageExchanger_TearDownSignaling_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.eche_app.mojom.SignalingMessageExchangerPendingReceiver = class {
   constructor(handle) {
@@ -182,67 +220,16 @@ ash.eche_app.mojom.SignalingMessageExchanger.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SendSignalingMessage
-ash.eche_app.mojom.SignalingMessageExchanger_SendSignalingMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.SignalingMessageExchanger.SendSignalingMessage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'signal', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetSignalingMessageObserver
-ash.eche_app.mojom.SignalingMessageExchanger_SetSignalingMessageObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.SignalingMessageExchanger.SetSignalingMessageObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.eche_app.mojom.SignalingMessageObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for TearDownSignaling
-ash.eche_app.mojom.SignalingMessageExchanger_TearDownSignaling_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.SignalingMessageExchanger.TearDownSignaling_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.eche_app.mojom.SignalingMessageExchangerPtr = ash.eche_app.mojom.SignalingMessageExchangerRemote;
 ash.eche_app.mojom.SignalingMessageExchangerRequest = ash.eche_app.mojom.SignalingMessageExchangerPendingReceiver;
 
 
 // Interface: SignalingMessageObserver
-ash.eche_app.mojom.SignalingMessageObserver = {};
-
-ash.eche_app.mojom.SignalingMessageObserver_OnReceivedSignalingMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.SignalingMessageObserver_OnReceivedSignalingMessage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'signal', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.eche_app.mojom.SignalingMessageObserver_OnReceivedSignalingMessage_ParamsSpec, 'ash.eche_app.mojom.SignalingMessageObserver_OnReceivedSignalingMessage_Params', [
+      mojo.internal.StructField('signal', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.eche_app.mojom.SignalingMessageObserverPendingReceiver = class {
   constructor(handle) {
@@ -297,52 +284,27 @@ ash.eche_app.mojom.SignalingMessageObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnReceivedSignalingMessage
-ash.eche_app.mojom.SignalingMessageObserver_OnReceivedSignalingMessage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.SignalingMessageObserver.OnReceivedSignalingMessage_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'signal', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.eche_app.mojom.SignalingMessageObserverPtr = ash.eche_app.mojom.SignalingMessageObserverRemote;
 ash.eche_app.mojom.SignalingMessageObserverRequest = ash.eche_app.mojom.SignalingMessageObserverPendingReceiver;
 
 
 // Interface: SystemInfoProvider
-ash.eche_app.mojom.SystemInfoProvider = {};
+mojo.internal.Struct(
+    ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ParamsSpec, 'ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ResponseParamsSpec, 'ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ResponseParams', [
+      mojo.internal.StructField('system_info', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.eche_app.mojom.SystemInfoProvider_SetSystemInfoObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.SystemInfoProvider_SetSystemInfoObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.eche_app.mojom.SystemInfoObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.eche_app.mojom.SystemInfoProvider_SetSystemInfoObserver_ParamsSpec, 'ash.eche_app.mojom.SystemInfoProvider_SetSystemInfoObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.eche_app.mojom.SystemInfoObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.eche_app.mojom.SystemInfoProviderPendingReceiver = class {
   constructor(handle) {
@@ -406,93 +368,29 @@ ash.eche_app.mojom.SystemInfoProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetSystemInfo
-ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.SystemInfoProvider.GetSystemInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.SystemInfoProvider.GetSystemInfo_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'system_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetSystemInfoObserver
-ash.eche_app.mojom.SystemInfoProvider_SetSystemInfoObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.SystemInfoProvider.SetSystemInfoObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.eche_app.mojom.SystemInfoObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.eche_app.mojom.SystemInfoProviderPtr = ash.eche_app.mojom.SystemInfoProviderRemote;
 ash.eche_app.mojom.SystemInfoProviderRequest = ash.eche_app.mojom.SystemInfoProviderPendingReceiver;
 
 
 // Interface: SystemInfoObserver
-ash.eche_app.mojom.SystemInfoObserver = {};
+mojo.internal.Struct(
+    ash.eche_app.mojom.SystemInfoObserver_OnScreenBacklightStateChanged_ParamsSpec, 'ash.eche_app.mojom.SystemInfoObserver_OnScreenBacklightStateChanged_Params', [
+      mojo.internal.StructField('state', 0, 0, ash.eche_app.mojom.ScreenBacklightStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.eche_app.mojom.SystemInfoObserver_OnScreenBacklightStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.SystemInfoObserver_OnScreenBacklightStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.eche_app.mojom.ScreenBacklightStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.eche_app.mojom.SystemInfoObserver_OnReceivedTabletModeChanged_ParamsSpec, 'ash.eche_app.mojom.SystemInfoObserver_OnReceivedTabletModeChanged_Params', [
+      mojo.internal.StructField('is_tablet_mode', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.eche_app.mojom.SystemInfoObserver_OnReceivedTabletModeChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.SystemInfoObserver_OnReceivedTabletModeChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_tablet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.eche_app.mojom.SystemInfoObserver_OnAndroidDeviceNetworkInfoChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.SystemInfoObserver_OnAndroidDeviceNetworkInfoChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_different_network', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'android_device_on_cellular', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.eche_app.mojom.SystemInfoObserver_OnAndroidDeviceNetworkInfoChanged_ParamsSpec, 'ash.eche_app.mojom.SystemInfoObserver_OnAndroidDeviceNetworkInfoChanged_Params', [
+      mojo.internal.StructField('is_different_network', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('android_device_on_cellular', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.eche_app.mojom.SystemInfoObserverPendingReceiver = class {
   constructor(handle) {
@@ -565,94 +463,33 @@ ash.eche_app.mojom.SystemInfoObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnScreenBacklightStateChanged
-ash.eche_app.mojom.SystemInfoObserver_OnScreenBacklightStateChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.SystemInfoObserver.OnScreenBacklightStateChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.eche_app.mojom.ScreenBacklightStateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnReceivedTabletModeChanged
-ash.eche_app.mojom.SystemInfoObserver_OnReceivedTabletModeChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.SystemInfoObserver.OnReceivedTabletModeChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_tablet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnAndroidDeviceNetworkInfoChanged
-ash.eche_app.mojom.SystemInfoObserver_OnAndroidDeviceNetworkInfoChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.SystemInfoObserver.OnAndroidDeviceNetworkInfoChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'is_different_network', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'android_device_on_cellular', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.eche_app.mojom.SystemInfoObserverPtr = ash.eche_app.mojom.SystemInfoObserverRemote;
 ash.eche_app.mojom.SystemInfoObserverRequest = ash.eche_app.mojom.SystemInfoObserverPendingReceiver;
 
 
 // Interface: AccessibilityProvider
-ash.eche_app.mojom.AccessibilityProvider = {};
+mojo.internal.Struct(
+    ash.eche_app.mojom.AccessibilityProvider_HandleAccessibilityEventReceived_ParamsSpec, 'ash.eche_app.mojom.AccessibilityProvider_HandleAccessibilityEventReceived_Params', [
+      mojo.internal.StructField('serialized_proto', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.eche_app.mojom.AccessibilityProvider_HandleAccessibilityEventReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.AccessibilityProvider_HandleAccessibilityEventReceived_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'serialized_proto', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.eche_app.mojom.AccessibilityProvider_SetAccessibilityObserver_ParamsSpec, 'ash.eche_app.mojom.AccessibilityProvider_SetAccessibilityObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.eche_app.mojom.AccessibilityObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.eche_app.mojom.AccessibilityProvider_SetAccessibilityObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.AccessibilityProvider_SetAccessibilityObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.eche_app.mojom.AccessibilityObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ParamsSpec, 'ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ResponseParamsSpec, 'ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ResponseParams', [
+      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.eche_app.mojom.AccessibilityProviderPendingReceiver = class {
   constructor(handle) {
@@ -725,119 +562,46 @@ ash.eche_app.mojom.AccessibilityProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for HandleAccessibilityEventReceived
-ash.eche_app.mojom.AccessibilityProvider_HandleAccessibilityEventReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.AccessibilityProvider.HandleAccessibilityEventReceived_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'serialized_proto', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetAccessibilityObserver
-ash.eche_app.mojom.AccessibilityProvider_SetAccessibilityObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.AccessibilityProvider.SetAccessibilityObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.eche_app.mojom.AccessibilityObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for IsAccessibilityEnabled
-ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.AccessibilityProvider.IsAccessibilityEnabled_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.AccessibilityProvider.IsAccessibilityEnabled_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.eche_app.mojom.AccessibilityProviderPtr = ash.eche_app.mojom.AccessibilityProviderRemote;
 ash.eche_app.mojom.AccessibilityProviderRequest = ash.eche_app.mojom.AccessibilityProviderPendingReceiver;
 
 
 // Interface: AccessibilityObserver
-ash.eche_app.mojom.AccessibilityObserver = {};
+mojo.internal.Struct(
+    ash.eche_app.mojom.AccessibilityObserver_EnableAccessibilityTreeStreaming_ParamsSpec, 'ash.eche_app.mojom.AccessibilityObserver_EnableAccessibilityTreeStreaming_Params', [
+      mojo.internal.StructField('enable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.eche_app.mojom.AccessibilityObserver_EnableAccessibilityTreeStreaming_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.AccessibilityObserver_EnableAccessibilityTreeStreaming_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.eche_app.mojom.AccessibilityObserver_EnableExploreByTouch_ParamsSpec, 'ash.eche_app.mojom.AccessibilityObserver_EnableExploreByTouch_Params', [
+      mojo.internal.StructField('enable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.eche_app.mojom.AccessibilityObserver_EnableExploreByTouch_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.AccessibilityObserver_EnableExploreByTouch_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.eche_app.mojom.AccessibilityObserver_PerformAction_ParamsSpec, 'ash.eche_app.mojom.AccessibilityObserver_PerformAction_Params', [
+      mojo.internal.StructField('serialized_proto', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.eche_app.mojom.AccessibilityObserver_PerformAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.AccessibilityObserver_PerformAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'serialized_proto', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.eche_app.mojom.AccessibilityObserver_PerformAction_ResponseParamsSpec, 'ash.eche_app.mojom.AccessibilityObserver_PerformAction_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'refresh_data_proto', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ParamsSpec, 'ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_Params', [
+      mojo.internal.StructField('refresh_data_proto', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ResponseParamsSpec, 'ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ResponseParams', [
+      mojo.internal.StructField('text_location_proto', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.eche_app.mojom.AccessibilityObserverPendingReceiver = class {
   constructor(handle) {
@@ -919,107 +683,21 @@ ash.eche_app.mojom.AccessibilityObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for EnableAccessibilityTreeStreaming
-ash.eche_app.mojom.AccessibilityObserver_EnableAccessibilityTreeStreaming_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.AccessibilityObserver.EnableAccessibilityTreeStreaming_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for EnableExploreByTouch
-ash.eche_app.mojom.AccessibilityObserver_EnableExploreByTouch_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.AccessibilityObserver.EnableExploreByTouch_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'enable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for PerformAction
-ash.eche_app.mojom.AccessibilityObserver_PerformAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.AccessibilityObserver.PerformAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'serialized_proto', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.eche_app.mojom.AccessibilityObserver_PerformAction_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.AccessibilityObserver.PerformAction_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RefreshWithExtraData
-ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.AccessibilityObserver.RefreshWithExtraData_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'refresh_data_proto', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.AccessibilityObserver.RefreshWithExtraData_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'text_location_proto', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.eche_app.mojom.AccessibilityObserverPtr = ash.eche_app.mojom.AccessibilityObserverRemote;
 ash.eche_app.mojom.AccessibilityObserverRequest = ash.eche_app.mojom.AccessibilityObserverPendingReceiver;
 
 
 // Interface: UidGenerator
-ash.eche_app.mojom.UidGenerator = {};
+mojo.internal.Struct(
+    ash.eche_app.mojom.UidGenerator_GetUid_ParamsSpec, 'ash.eche_app.mojom.UidGenerator_GetUid_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.eche_app.mojom.UidGenerator_GetUid_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.UidGenerator_GetUid_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.eche_app.mojom.UidGenerator_GetUid_ResponseParamsSpec, 'ash.eche_app.mojom.UidGenerator_GetUid_ResponseParams', [
+      mojo.internal.StructField('local_uid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.eche_app.mojom.UidGeneratorPendingReceiver = class {
   constructor(handle) {
@@ -1074,67 +752,24 @@ ash.eche_app.mojom.UidGenerator.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetUid
-ash.eche_app.mojom.UidGenerator_GetUid_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.UidGenerator.GetUid_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.eche_app.mojom.UidGenerator_GetUid_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.UidGenerator.GetUid_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'local_uid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.eche_app.mojom.UidGeneratorPtr = ash.eche_app.mojom.UidGeneratorRemote;
 ash.eche_app.mojom.UidGeneratorRequest = ash.eche_app.mojom.UidGeneratorPendingReceiver;
 
 
 // Interface: NotificationGenerator
-ash.eche_app.mojom.NotificationGenerator = {};
+mojo.internal.Struct(
+    ash.eche_app.mojom.NotificationGenerator_ShowNotification_ParamsSpec, 'ash.eche_app.mojom.NotificationGenerator_ShowNotification_Params', [
+      mojo.internal.StructField('title', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('message', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 16, 0, ash.eche_app.mojom.WebNotificationTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-ash.eche_app.mojom.NotificationGenerator_ShowNotification_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.NotificationGenerator_ShowNotification_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: ash.eche_app.mojom.WebNotificationTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-ash.eche_app.mojom.NotificationGenerator_ShowToast_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.NotificationGenerator_ShowToast_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.eche_app.mojom.NotificationGenerator_ShowToast_ParamsSpec, 'ash.eche_app.mojom.NotificationGenerator_ShowToast_Params', [
+      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.eche_app.mojom.NotificationGeneratorPendingReceiver = class {
   constructor(handle) {
@@ -1198,81 +833,27 @@ ash.eche_app.mojom.NotificationGenerator.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ShowNotification
-ash.eche_app.mojom.NotificationGenerator_ShowNotification_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.NotificationGenerator.ShowNotification_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: ash.eche_app.mojom.WebNotificationTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for ShowToast
-ash.eche_app.mojom.NotificationGenerator_ShowToast_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.NotificationGenerator.ShowToast_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.eche_app.mojom.NotificationGeneratorPtr = ash.eche_app.mojom.NotificationGeneratorRemote;
 ash.eche_app.mojom.NotificationGeneratorRequest = ash.eche_app.mojom.NotificationGeneratorPendingReceiver;
 
 
 // Interface: DisplayStreamHandler
-ash.eche_app.mojom.DisplayStreamHandler = {};
+mojo.internal.Struct(
+    ash.eche_app.mojom.DisplayStreamHandler_StartStreaming_ParamsSpec, 'ash.eche_app.mojom.DisplayStreamHandler_StartStreaming_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.eche_app.mojom.DisplayStreamHandler_StartStreaming_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.DisplayStreamHandler_StartStreaming_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.eche_app.mojom.DisplayStreamHandler_OnStreamStatusChanged_ParamsSpec, 'ash.eche_app.mojom.DisplayStreamHandler_OnStreamStatusChanged_Params', [
+      mojo.internal.StructField('status', 0, 0, ash.eche_app.mojom.StreamStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.eche_app.mojom.DisplayStreamHandler_OnStreamStatusChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.DisplayStreamHandler_OnStreamStatusChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.eche_app.mojom.StreamStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.eche_app.mojom.DisplayStreamHandler_SetStreamActionObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.DisplayStreamHandler_SetStreamActionObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.eche_app.mojom.StreamActionObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.eche_app.mojom.DisplayStreamHandler_SetStreamActionObserver_ParamsSpec, 'ash.eche_app.mojom.DisplayStreamHandler_SetStreamActionObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.eche_app.mojom.StreamActionObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.eche_app.mojom.DisplayStreamHandlerPendingReceiver = class {
   constructor(handle) {
@@ -1345,67 +926,16 @@ ash.eche_app.mojom.DisplayStreamHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for StartStreaming
-ash.eche_app.mojom.DisplayStreamHandler_StartStreaming_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.DisplayStreamHandler.StartStreaming_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for OnStreamStatusChanged
-ash.eche_app.mojom.DisplayStreamHandler_OnStreamStatusChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.DisplayStreamHandler.OnStreamStatusChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.eche_app.mojom.StreamStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetStreamActionObserver
-ash.eche_app.mojom.DisplayStreamHandler_SetStreamActionObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.DisplayStreamHandler.SetStreamActionObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.eche_app.mojom.StreamActionObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.eche_app.mojom.DisplayStreamHandlerPtr = ash.eche_app.mojom.DisplayStreamHandlerRemote;
 ash.eche_app.mojom.DisplayStreamHandlerRequest = ash.eche_app.mojom.DisplayStreamHandlerPendingReceiver;
 
 
 // Interface: StreamActionObserver
-ash.eche_app.mojom.StreamActionObserver = {};
-
-ash.eche_app.mojom.StreamActionObserver_OnStreamAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.StreamActionObserver_OnStreamAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: ash.eche_app.mojom.StreamActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.eche_app.mojom.StreamActionObserver_OnStreamAction_ParamsSpec, 'ash.eche_app.mojom.StreamActionObserver_OnStreamAction_Params', [
+      mojo.internal.StructField('action', 0, 0, ash.eche_app.mojom.StreamActionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.eche_app.mojom.StreamActionObserverPendingReceiver = class {
   constructor(handle) {
@@ -1460,40 +990,16 @@ ash.eche_app.mojom.StreamActionObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnStreamAction
-ash.eche_app.mojom.StreamActionObserver_OnStreamAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.StreamActionObserver.OnStreamAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: ash.eche_app.mojom.StreamActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.eche_app.mojom.StreamActionObserverPtr = ash.eche_app.mojom.StreamActionObserverRemote;
 ash.eche_app.mojom.StreamActionObserverRequest = ash.eche_app.mojom.StreamActionObserverPendingReceiver;
 
 
 // Interface: StreamOrientationObserver
-ash.eche_app.mojom.StreamOrientationObserver = {};
-
-ash.eche_app.mojom.StreamOrientationObserver_OnStreamOrientationChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.StreamOrientationObserver_OnStreamOrientationChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'isLandscape', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.eche_app.mojom.StreamOrientationObserver_OnStreamOrientationChanged_ParamsSpec, 'ash.eche_app.mojom.StreamOrientationObserver_OnStreamOrientationChanged_Params', [
+      mojo.internal.StructField('isLandscape', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.eche_app.mojom.StreamOrientationObserverPendingReceiver = class {
   constructor(handle) {
@@ -1548,40 +1054,16 @@ ash.eche_app.mojom.StreamOrientationObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnStreamOrientationChanged
-ash.eche_app.mojom.StreamOrientationObserver_OnStreamOrientationChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.StreamOrientationObserver.OnStreamOrientationChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'isLandscape', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.eche_app.mojom.StreamOrientationObserverPtr = ash.eche_app.mojom.StreamOrientationObserverRemote;
 ash.eche_app.mojom.StreamOrientationObserverRequest = ash.eche_app.mojom.StreamOrientationObserverPendingReceiver;
 
 
 // Interface: ConnectionStatusObserver
-ash.eche_app.mojom.ConnectionStatusObserver = {};
-
-ash.eche_app.mojom.ConnectionStatusObserver_OnConnectionStatusChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.ConnectionStatusObserver_OnConnectionStatusChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.eche_app.mojom.ConnectionStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.eche_app.mojom.ConnectionStatusObserver_OnConnectionStatusChanged_ParamsSpec, 'ash.eche_app.mojom.ConnectionStatusObserver_OnConnectionStatusChanged_Params', [
+      mojo.internal.StructField('status', 0, 0, ash.eche_app.mojom.ConnectionStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.eche_app.mojom.ConnectionStatusObserverPendingReceiver = class {
   constructor(handle) {
@@ -1636,52 +1118,21 @@ ash.eche_app.mojom.ConnectionStatusObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnConnectionStatusChanged
-ash.eche_app.mojom.ConnectionStatusObserver_OnConnectionStatusChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.ConnectionStatusObserver.OnConnectionStatusChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.eche_app.mojom.ConnectionStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.eche_app.mojom.ConnectionStatusObserverPtr = ash.eche_app.mojom.ConnectionStatusObserverRemote;
 ash.eche_app.mojom.ConnectionStatusObserverRequest = ash.eche_app.mojom.ConnectionStatusObserverPendingReceiver;
 
 
 // Interface: KeyboardLayoutHandler
-ash.eche_app.mojom.KeyboardLayoutHandler = {};
+mojo.internal.Struct(
+    ash.eche_app.mojom.KeyboardLayoutHandler_RequestCurrentKeyboardLayout_ParamsSpec, 'ash.eche_app.mojom.KeyboardLayoutHandler_RequestCurrentKeyboardLayout_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.eche_app.mojom.KeyboardLayoutHandler_RequestCurrentKeyboardLayout_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.KeyboardLayoutHandler_RequestCurrentKeyboardLayout_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.eche_app.mojom.KeyboardLayoutHandler_SetKeyboardLayoutObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.KeyboardLayoutHandler_SetKeyboardLayoutObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.eche_app.mojom.KeyboardLayoutObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.eche_app.mojom.KeyboardLayoutHandler_SetKeyboardLayoutObserver_ParamsSpec, 'ash.eche_app.mojom.KeyboardLayoutHandler_SetKeyboardLayoutObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.eche_app.mojom.KeyboardLayoutObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.eche_app.mojom.KeyboardLayoutHandlerPendingReceiver = class {
   constructor(handle) {
@@ -1745,56 +1196,19 @@ ash.eche_app.mojom.KeyboardLayoutHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RequestCurrentKeyboardLayout
-ash.eche_app.mojom.KeyboardLayoutHandler_RequestCurrentKeyboardLayout_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.KeyboardLayoutHandler.RequestCurrentKeyboardLayout_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetKeyboardLayoutObserver
-ash.eche_app.mojom.KeyboardLayoutHandler_SetKeyboardLayoutObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.KeyboardLayoutHandler.SetKeyboardLayoutObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.eche_app.mojom.KeyboardLayoutObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.eche_app.mojom.KeyboardLayoutHandlerPtr = ash.eche_app.mojom.KeyboardLayoutHandlerRemote;
 ash.eche_app.mojom.KeyboardLayoutHandlerRequest = ash.eche_app.mojom.KeyboardLayoutHandlerPendingReceiver;
 
 
 // Interface: KeyboardLayoutObserver
-ash.eche_app.mojom.KeyboardLayoutObserver = {};
-
-ash.eche_app.mojom.KeyboardLayoutObserver_OnKeyboardLayoutChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.KeyboardLayoutObserver_OnKeyboardLayoutChanged_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'longName', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'shortName', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'layoutTag', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.eche_app.mojom.KeyboardLayoutObserver_OnKeyboardLayoutChanged_ParamsSpec, 'ash.eche_app.mojom.KeyboardLayoutObserver_OnKeyboardLayoutChanged_Params', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('longName', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('shortName', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('layoutTag', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 ash.eche_app.mojom.KeyboardLayoutObserverPendingReceiver = class {
   constructor(handle) {
@@ -1849,24 +1263,6 @@ ash.eche_app.mojom.KeyboardLayoutObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnKeyboardLayoutChanged
-ash.eche_app.mojom.KeyboardLayoutObserver_OnKeyboardLayoutChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.eche_app.mojom.KeyboardLayoutObserver.OnKeyboardLayoutChanged_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'longName', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'shortName', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'layoutTag', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.eche_app.mojom.KeyboardLayoutObserverPtr = ash.eche_app.mojom.KeyboardLayoutObserverRemote;
 ash.eche_app.mojom.KeyboardLayoutObserverRequest = ash.eche_app.mojom.KeyboardLayoutObserverPendingReceiver;
 

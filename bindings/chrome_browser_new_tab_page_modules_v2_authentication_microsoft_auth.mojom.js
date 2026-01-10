@@ -9,45 +9,34 @@ var ntp = ntp || {};
 ntp.authentication = ntp.authentication || {};
 ntp.authentication.mojom = ntp.authentication.mojom || {};
 
+ntp.authentication.mojom.MicrosoftAuthPageHandler = {};
+ntp.authentication.mojom.MicrosoftAuthPageHandler.$interfaceName = 'ntp.authentication.mojom.MicrosoftAuthPageHandler';
+ntp.authentication.mojom.MicrosoftAuthPageHandler_DismissModule_ParamsSpec = { $: {} };
+ntp.authentication.mojom.MicrosoftAuthPageHandler_RestoreModule_ParamsSpec = { $: {} };
+ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ParamsSpec = { $: {} };
+ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ResponseParamsSpec = { $: {} };
 
 // Interface: MicrosoftAuthPageHandler
-ntp.authentication.mojom.MicrosoftAuthPageHandler = {};
+mojo.internal.Struct(
+    ntp.authentication.mojom.MicrosoftAuthPageHandler_DismissModule_ParamsSpec, 'ntp.authentication.mojom.MicrosoftAuthPageHandler_DismissModule_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ntp.authentication.mojom.MicrosoftAuthPageHandler_DismissModule_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.authentication.mojom.MicrosoftAuthPageHandler_DismissModule_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ntp.authentication.mojom.MicrosoftAuthPageHandler_RestoreModule_ParamsSpec, 'ntp.authentication.mojom.MicrosoftAuthPageHandler_RestoreModule_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ntp.authentication.mojom.MicrosoftAuthPageHandler_RestoreModule_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.authentication.mojom.MicrosoftAuthPageHandler_RestoreModule_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ParamsSpec, 'ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ResponseParamsSpec, 'ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ResponseParams', [
+      mojo.internal.StructField('show', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ntp.authentication.mojom.MicrosoftAuthPageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -120,59 +109,6 @@ ntp.authentication.mojom.MicrosoftAuthPageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for DismissModule
-ntp.authentication.mojom.MicrosoftAuthPageHandler_DismissModule_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.authentication.mojom.MicrosoftAuthPageHandler.DismissModule_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RestoreModule
-ntp.authentication.mojom.MicrosoftAuthPageHandler_RestoreModule_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.authentication.mojom.MicrosoftAuthPageHandler.RestoreModule_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ShouldShowModule
-ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.authentication.mojom.MicrosoftAuthPageHandler.ShouldShowModule_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ntp.authentication.mojom.MicrosoftAuthPageHandler.ShouldShowModule_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ntp.authentication.mojom.MicrosoftAuthPageHandlerPtr = ntp.authentication.mojom.MicrosoftAuthPageHandlerRemote;
 ntp.authentication.mojom.MicrosoftAuthPageHandlerRequest = ntp.authentication.mojom.MicrosoftAuthPageHandlerPendingReceiver;
 

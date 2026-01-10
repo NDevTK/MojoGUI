@@ -7,78 +7,64 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var services = services || {};
 var skia = skia || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+viz.mojom.TileContentsSpec = { $: {} };
+viz.mojom.TileResourceSpec = { $: {} };
+viz.mojom.TileSpec = { $: {} };
+viz.mojom.TilingSpec = { $: {} };
 
 // Union: TileContents
-viz.mojom.TileContentsSpec = { $: mojo.internal.Union(
-    'viz.mojom.TileContents', {
+mojo.internal.Union(
+    viz.mojom.TileContentsSpec, 'viz.mojom.TileContents', {
       'missing_reason': {
         'ordinal': 0,
         'type': cc.mojom.MissingTileReasonSpec,
-      }},
+        'nullable': false,
+      },
       'resource': {
         'ordinal': 1,
         'type': viz.mojom.TileResourceSpec,
-      }},
+        'nullable': false,
+      },
       'solid_color': {
         'ordinal': 2,
         'type': skia.mojom.SkColor4fSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: TileResource
-viz.mojom.TileResourceSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.TileResource',
-      packedSize: 24,
-      fields: [
-        { name: 'resource', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.TransferableResourceSpec, nullable: false, minVersion: 0 },
-        { name: 'is_checkered', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.TileResourceSpec, 'viz.mojom.TileResource', [
+      mojo.internal.StructField('resource', 0, 0, viz.mojom.TransferableResourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_checkered', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: Tile
-viz.mojom.TileSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.Tile',
-      packedSize: 40,
-      fields: [
-        { name: 'column_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'row_index', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'update_damage', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'contents', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.TileContentsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.TileSpec, 'viz.mojom.Tile', [
+      mojo.internal.StructField('column_index', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('row_index', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('update_damage', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('contents', 0, 0, viz.mojom.TileContentsSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: Tiling
-viz.mojom.TilingSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.Tiling',
-      packedSize: 64,
-      fields: [
-        { name: 'layer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'raster_translation', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false, minVersion: 0 },
-        { name: 'raster_scale', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false, minVersion: 0 },
-        { name: 'tile_size', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'tiling_rect', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'tiles', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(viz.mojom.TileSpec, false), nullable: false, minVersion: 0 },
-        { name: 'scale_key', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'is_deleted', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.TilingSpec, 'viz.mojom.Tiling', [
+      mojo.internal.StructField('layer_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('raster_translation', 8, 0, gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('raster_scale', 16, 0, gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tile_size', 24, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tiling_rect', 32, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tiles', 40, 0, mojo.internal.Array(viz.mojom.TileSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('scale_key', 48, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('is_deleted', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 64]]);

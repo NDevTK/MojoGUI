@@ -8,41 +8,29 @@
 var gpu = gpu || {};
 gpu.mojom = gpu.mojom || {};
 
+gpu.mojom.VulkanPhysicalDeviceInfoSpec = { $: {} };
+gpu.mojom.VulkanInfoSpec = { $: {} };
 
 // Struct: VulkanPhysicalDeviceInfo
-gpu.mojom.VulkanPhysicalDeviceInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'gpu.mojom.VulkanPhysicalDeviceInfo',
-      packedSize: 48,
-      fields: [
-        { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.VkPhysicalDevicePropertiesSpec, nullable: false, minVersion: 0 },
-        { name: 'extensions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(gpu.mojom.VkExtensionPropertiesSpec, false), nullable: false, minVersion: 0 },
-        { name: 'features', packedOffset: 16, packedBitOffset: 0, type: gpu.mojom.VkPhysicalDeviceFeaturesSpec, nullable: false, minVersion: 0 },
-        { name: 'feature_sampler_ycbcr_conversion', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'feature_protected_memory', packedOffset: 32, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'queue_families', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(gpu.mojom.VkQueueFamilyPropertiesSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gpu.mojom.VulkanPhysicalDeviceInfoSpec, 'gpu.mojom.VulkanPhysicalDeviceInfo', [
+      mojo.internal.StructField('properties', 0, 0, gpu.mojom.VkPhysicalDevicePropertiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('extensions', 8, 0, mojo.internal.Array(gpu.mojom.VkExtensionPropertiesSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('features', 16, 0, gpu.mojom.VkPhysicalDeviceFeaturesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('feature_sampler_ycbcr_conversion', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('feature_protected_memory', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('queue_families', 24, 0, mojo.internal.Array(gpu.mojom.VkQueueFamilyPropertiesSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
 // Struct: VulkanInfo
-gpu.mojom.VulkanInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'gpu.mojom.VulkanInfo',
-      packedSize: 48,
-      fields: [
-        { name: 'api_version', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'used_api_version', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'instance_extensions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(gpu.mojom.VkExtensionPropertiesSpec, false), nullable: false, minVersion: 0 },
-        { name: 'enabled_instance_extensions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'instance_layers', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(gpu.mojom.VkLayerPropertiesSpec, false), nullable: false, minVersion: 0 },
-        { name: 'physical_devices', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(gpu.mojom.VulkanPhysicalDeviceInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gpu.mojom.VulkanInfoSpec, 'gpu.mojom.VulkanInfo', [
+      mojo.internal.StructField('api_version', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('used_api_version', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('instance_extensions', 0, 0, mojo.internal.Array(gpu.mojom.VkExtensionPropertiesSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('enabled_instance_extensions', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('instance_layers', 16, 0, mojo.internal.Array(gpu.mojom.VkLayerPropertiesSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('physical_devices', 24, 0, mojo.internal.Array(gpu.mojom.VulkanPhysicalDeviceInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 48]]);

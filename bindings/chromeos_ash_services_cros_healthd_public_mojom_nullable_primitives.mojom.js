@@ -9,87 +9,51 @@ var ash = ash || {};
 ash.cros_healthd = ash.cros_healthd || {};
 ash.cros_healthd.mojom = ash.cros_healthd.mojom || {};
 
+ash.cros_healthd.mojom.NullableUint8Spec = { $: {} };
+ash.cros_healthd.mojom.NullableInt16Spec = { $: {} };
+ash.cros_healthd.mojom.NullableUint16Spec = { $: {} };
+ash.cros_healthd.mojom.NullableUint32Spec = { $: {} };
+ash.cros_healthd.mojom.NullableUint64Spec = { $: {} };
+ash.cros_healthd.mojom.NullableDoubleSpec = { $: {} };
 
 // Struct: NullableUint8
-ash.cros_healthd.mojom.NullableUint8Spec = {
-  $: {
-    structSpec: {
-      name: 'ash.cros_healthd.mojom.NullableUint8',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cros_healthd.mojom.NullableUint8Spec, 'ash.cros_healthd.mojom.NullableUint8', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: NullableInt16
-ash.cros_healthd.mojom.NullableInt16Spec = {
-  $: {
-    structSpec: {
-      name: 'ash.cros_healthd.mojom.NullableInt16',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cros_healthd.mojom.NullableInt16Spec, 'ash.cros_healthd.mojom.NullableInt16', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Int16, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: NullableUint16
-ash.cros_healthd.mojom.NullableUint16Spec = {
-  $: {
-    structSpec: {
-      name: 'ash.cros_healthd.mojom.NullableUint16',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cros_healthd.mojom.NullableUint16Spec, 'ash.cros_healthd.mojom.NullableUint16', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: NullableUint32
-ash.cros_healthd.mojom.NullableUint32Spec = {
-  $: {
-    structSpec: {
-      name: 'ash.cros_healthd.mojom.NullableUint32',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cros_healthd.mojom.NullableUint32Spec, 'ash.cros_healthd.mojom.NullableUint32', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: NullableUint64
-ash.cros_healthd.mojom.NullableUint64Spec = {
-  $: {
-    structSpec: {
-      name: 'ash.cros_healthd.mojom.NullableUint64',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cros_healthd.mojom.NullableUint64Spec, 'ash.cros_healthd.mojom.NullableUint64', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: NullableDouble
-ash.cros_healthd.mojom.NullableDoubleSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cros_healthd.mojom.NullableDouble',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cros_healthd.mojom.NullableDoubleSpec, 'ash.cros_healthd.mojom.NullableDouble', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);

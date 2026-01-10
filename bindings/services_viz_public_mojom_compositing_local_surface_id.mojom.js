@@ -8,19 +8,13 @@
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
 
+viz.mojom.LocalSurfaceIdSpec = { $: {} };
 
 // Struct: LocalSurfaceId
-viz.mojom.LocalSurfaceIdSpec = {
-  $: {
-    structSpec: {
-      name: 'viz.mojom.LocalSurfaceId',
-      packedSize: 24,
-      fields: [
-        { name: 'parent_sequence_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'child_sequence_number', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'embed_token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    viz.mojom.LocalSurfaceIdSpec, 'viz.mojom.LocalSurfaceId', [
+      mojo.internal.StructField('parent_sequence_number', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('child_sequence_number', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('embed_token', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

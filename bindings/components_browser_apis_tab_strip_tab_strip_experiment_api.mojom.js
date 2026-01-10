@@ -7,40 +7,30 @@
 // Module namespace
 var tabs_api = tabs_api || {};
 tabs_api.mojom = tabs_api.mojom || {};
+var components = components || {};
+var components = components || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+tabs_api.mojom.TabStripExperimentService = {};
+tabs_api.mojom.TabStripExperimentService.$interfaceName = 'tabs_api.mojom.TabStripExperimentService';
+tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_ParamsSpec = { $: {} };
+tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_ParamsSpec = { $: {} };
 
 // Interface: TabStripExperimentService
-tabs_api.mojom.TabStripExperimentService = {};
+mojo.internal.Struct(
+    tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_ParamsSpec, 'tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_Params', [
+      mojo.internal.StructField('id', 0, 0, tabs_api.mojom.NodeIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('visual_data', 8, 0, tabs_api.mojom.TabGroupVisualDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false, minVersion: 0 },
-        { name: 'visual_data', packedOffset: 8, packedBitOffset: 0, type: tabs_api.mojom.TabGroupVisualDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false, minVersion: 0 },
-        { name: 'location', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_ParamsSpec, 'tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_Params', [
+      mojo.internal.StructField('tab_id', 0, 0, tabs_api.mojom.NodeIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('location', 8, 0, gfx.mojom.PointSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 tabs_api.mojom.TabStripExperimentServicePendingReceiver = class {
   constructor(handle) {
@@ -104,37 +94,6 @@ tabs_api.mojom.TabStripExperimentService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for UpdateTabGroupVisual
-tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tabs_api.mojom.TabStripExperimentService.UpdateTabGroupVisual_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false, minVersion: 0 },
-        { name: 'visual_data', packedOffset: 8, packedBitOffset: 0, type: tabs_api.mojom.TabGroupVisualDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for ShowTabContextMenu
-tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'tabs_api.mojom.TabStripExperimentService.ShowTabContextMenu_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'tab_id', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.NodeIdSpec, nullable: false, minVersion: 0 },
-        { name: 'location', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 tabs_api.mojom.TabStripExperimentServicePtr = tabs_api.mojom.TabStripExperimentServiceRemote;
 tabs_api.mojom.TabStripExperimentServiceRequest = tabs_api.mojom.TabStripExperimentServicePendingReceiver;
 

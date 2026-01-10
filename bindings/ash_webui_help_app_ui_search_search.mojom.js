@@ -9,60 +9,49 @@ var ash = ash || {};
 ash.help_app = ash.help_app || {};
 ash.help_app.mojom = ash.help_app.mojom || {};
 
+ash.help_app.mojom.SearchResultSpec = { $: {} };
+ash.help_app.mojom.SearchConceptSpec = { $: {} };
+ash.help_app.mojom.SearchResultsObserver = {};
+ash.help_app.mojom.SearchResultsObserver.$interfaceName = 'ash.help_app.mojom.SearchResultsObserver';
+ash.help_app.mojom.SearchResultsObserver_OnSearchResultAvailabilityChanged_ParamsSpec = { $: {} };
+ash.help_app.mojom.SearchHandler = {};
+ash.help_app.mojom.SearchHandler.$interfaceName = 'ash.help_app.mojom.SearchHandler';
+ash.help_app.mojom.SearchHandler_Search_ParamsSpec = { $: {} };
+ash.help_app.mojom.SearchHandler_Search_ResponseParamsSpec = { $: {} };
+ash.help_app.mojom.SearchHandler_Update_ParamsSpec = { $: {} };
+ash.help_app.mojom.SearchHandler_Update_ResponseParamsSpec = { $: {} };
+ash.help_app.mojom.SearchHandler_Observe_ParamsSpec = { $: {} };
 
 // Struct: SearchResult
-ash.help_app.mojom.SearchResultSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.SearchResult',
-      packedSize: 56,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'main_category', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'url_path_with_parameters', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'locale', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'relevance_score', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.help_app.mojom.SearchResultSpec, 'ash.help_app.mojom.SearchResult', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('title', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('main_category', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('url_path_with_parameters', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('locale', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('relevance_score', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: SearchConcept
-ash.help_app.mojom.SearchConceptSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.SearchConcept',
-      packedSize: 64,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'main_category', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'tags', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.String16Spec, false), nullable: false, minVersion: 0 },
-        { name: 'tag_locale', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'url_path_with_parameters', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'locale', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.help_app.mojom.SearchConceptSpec, 'ash.help_app.mojom.SearchConcept', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('title', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('main_category', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('tags', 24, 0, mojo.internal.Array(mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('tag_locale', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('url_path_with_parameters', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('locale', 48, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 64]]);
 
 // Interface: SearchResultsObserver
-ash.help_app.mojom.SearchResultsObserver = {};
-
-ash.help_app.mojom.SearchResultsObserver_OnSearchResultAvailabilityChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.SearchResultsObserver_OnSearchResultAvailabilityChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.help_app.mojom.SearchResultsObserver_OnSearchResultAvailabilityChanged_ParamsSpec, 'ash.help_app.mojom.SearchResultsObserver_OnSearchResultAvailabilityChanged_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 ash.help_app.mojom.SearchResultsObserverPendingReceiver = class {
   constructor(handle) {
@@ -117,66 +106,40 @@ ash.help_app.mojom.SearchResultsObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnSearchResultAvailabilityChanged
-ash.help_app.mojom.SearchResultsObserver_OnSearchResultAvailabilityChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.SearchResultsObserver.OnSearchResultAvailabilityChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.help_app.mojom.SearchResultsObserverPtr = ash.help_app.mojom.SearchResultsObserverRemote;
 ash.help_app.mojom.SearchResultsObserverRequest = ash.help_app.mojom.SearchResultsObserverPendingReceiver;
 
 
 // Interface: SearchHandler
-ash.help_app.mojom.SearchHandler = {};
+mojo.internal.Struct(
+    ash.help_app.mojom.SearchHandler_Search_ParamsSpec, 'ash.help_app.mojom.SearchHandler_Search_Params', [
+      mojo.internal.StructField('query', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('max_num_results', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.help_app.mojom.SearchHandler_Search_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.SearchHandler_Search_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'max_num_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.help_app.mojom.SearchHandler_Search_ResponseParamsSpec, 'ash.help_app.mojom.SearchHandler_Search_ResponseParams', [
+      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(ash.help_app.mojom.SearchResultSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.help_app.mojom.SearchHandler_Update_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.SearchHandler_Update_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'concepts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.help_app.mojom.SearchConceptSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.help_app.mojom.SearchHandler_Update_ParamsSpec, 'ash.help_app.mojom.SearchHandler_Update_Params', [
+      mojo.internal.StructField('concepts', 0, 0, mojo.internal.Array(ash.help_app.mojom.SearchConceptSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.help_app.mojom.SearchHandler_Observe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.SearchHandler_Observe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.help_app.mojom.SearchResultsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.help_app.mojom.SearchHandler_Update_ResponseParamsSpec, 'ash.help_app.mojom.SearchHandler_Update_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.help_app.mojom.SearchHandler_Observe_ParamsSpec, 'ash.help_app.mojom.SearchHandler_Observe_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.help_app.mojom.SearchResultsObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.help_app.mojom.SearchHandlerPendingReceiver = class {
   constructor(handle) {
@@ -224,7 +187,7 @@ ash.help_app.mojom.SearchHandlerRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       ash.help_app.mojom.SearchHandler_Update_ParamsSpec,
-      null,
+      ash.help_app.mojom.SearchHandler_Update_ResponseParamsSpec,
       [concepts]);
   }
 
@@ -249,63 +212,6 @@ ash.help_app.mojom.SearchHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Search
-ash.help_app.mojom.SearchHandler_Search_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.SearchHandler.Search_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'max_num_results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ash.help_app.mojom.SearchHandler_Search_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.SearchHandler.Search_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.help_app.mojom.SearchResultSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Update
-ash.help_app.mojom.SearchHandler_Update_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.SearchHandler.Update_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'concepts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.help_app.mojom.SearchConceptSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Observe
-ash.help_app.mojom.SearchHandler_Observe_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.help_app.mojom.SearchHandler.Observe_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.help_app.mojom.SearchResultsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.help_app.mojom.SearchHandlerPtr = ash.help_app.mojom.SearchHandlerRemote;
 ash.help_app.mojom.SearchHandlerRequest = ash.help_app.mojom.SearchHandlerPendingReceiver;
 

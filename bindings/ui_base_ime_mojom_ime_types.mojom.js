@@ -8,6 +8,13 @@
 var ui = ui || {};
 ui.mojom = ui.mojom || {};
 
+ui.mojom.TextInputModeSpec = { $: mojo.internal.Enum() };
+ui.mojom.TextInputActionSpec = { $: mojo.internal.Enum() };
+ui.mojom.TextInputTypeSpec = { $: mojo.internal.Enum() };
+ui.mojom.ImeTextSpanTypeSpec = { $: mojo.internal.Enum() };
+ui.mojom.ImeTextSpanThicknessSpec = { $: mojo.internal.Enum() };
+ui.mojom.ImeTextSpanUnderlineStyleSpec = { $: mojo.internal.Enum() };
+ui.mojom.ImeTextSpanSpec = { $: {} };
 
 // Enum: TextInputMode
 ui.mojom.TextInputMode = {
@@ -21,7 +28,6 @@ ui.mojom.TextInputMode = {
   kDecimal: 7,
   kSearch: 8,
 };
-ui.mojom.TextInputModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: TextInputAction
 ui.mojom.TextInputAction = {
@@ -34,7 +40,6 @@ ui.mojom.TextInputAction = {
   kSearch: 6,
   kSend: 7,
 };
-ui.mojom.TextInputActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: TextInputType
 ui.mojom.TextInputType = {
@@ -56,9 +61,8 @@ ui.mojom.TextInputType = {
   CONTENT_EDITABLE: 15,
   DATE_TIME_FIELD: 16,
   TYPE_NULL: 17,
-  MAX: 18,
+  MAX: 17,
 };
-ui.mojom.TextInputTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ImeTextSpanType
 ui.mojom.ImeTextSpanType = {
@@ -68,7 +72,6 @@ ui.mojom.ImeTextSpanType = {
   kAutocorrect: 3,
   kGrammarSuggestion: 4,
 };
-ui.mojom.ImeTextSpanTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ImeTextSpanThickness
 ui.mojom.ImeTextSpanThickness = {
@@ -76,7 +79,6 @@ ui.mojom.ImeTextSpanThickness = {
   kThin: 1,
   kThick: 2,
 };
-ui.mojom.ImeTextSpanThicknessSpec = { $: mojo.internal.Enum() };
 
 // Enum: ImeTextSpanUnderlineStyle
 ui.mojom.ImeTextSpanUnderlineStyle = {
@@ -86,30 +88,22 @@ ui.mojom.ImeTextSpanUnderlineStyle = {
   kDash: 3,
   kSquiggle: 4,
 };
-ui.mojom.ImeTextSpanUnderlineStyleSpec = { $: mojo.internal.Enum() };
 
 // Struct: ImeTextSpan
-ui.mojom.ImeTextSpanSpec = {
-  $: {
-    structSpec: {
-      name: 'ui.mojom.ImeTextSpan',
-      packedSize: 56,
-      fields: [
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ui.mojom.ImeTextSpanTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'start_offset', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'end_offset', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'underline_color', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'thickness', packedOffset: 24, packedBitOffset: 0, type: ui.mojom.ImeTextSpanThicknessSpec, nullable: false, minVersion: 0 },
-        { name: 'underline_style', packedOffset: 28, packedBitOffset: 0, type: ui.mojom.ImeTextSpanUnderlineStyleSpec, nullable: false, minVersion: 0 },
-        { name: 'text_color', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'background_color', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'suggestion_highlight_color', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'remove_on_finish_composing', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'interim_char_selection', packedOffset: 44, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'suggestions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'should_hide_suggestion_menu', packedOffset: 44, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ui.mojom.ImeTextSpanSpec, 'ui.mojom.ImeTextSpan', [
+      mojo.internal.StructField('type', 8, 0, ui.mojom.ImeTextSpanTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('start_offset', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('end_offset', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('underline_color', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('thickness', 24, 0, ui.mojom.ImeTextSpanThicknessSpec, null, false, 0, undefined),
+      mojo.internal.StructField('underline_style', 28, 0, ui.mojom.ImeTextSpanUnderlineStyleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('text_color', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('background_color', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('suggestion_highlight_color', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('remove_on_finish_composing', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('interim_char_selection', 44, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('suggestions', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('should_hide_suggestion_menu', 44, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 56]]);

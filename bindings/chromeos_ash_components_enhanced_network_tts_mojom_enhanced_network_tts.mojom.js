@@ -9,6 +9,18 @@ var ash = ash || {};
 ash.enhanced_network_tts = ash.enhanced_network_tts || {};
 ash.enhanced_network_tts.mojom = ash.enhanced_network_tts.mojom || {};
 
+ash.enhanced_network_tts.mojom.TtsRequestErrorSpec = { $: mojo.internal.Enum() };
+ash.enhanced_network_tts.mojom.TtsResponseSpec = { $: {} };
+ash.enhanced_network_tts.mojom.TtsRequestSpec = { $: {} };
+ash.enhanced_network_tts.mojom.TimingInfoSpec = { $: {} };
+ash.enhanced_network_tts.mojom.TtsDataSpec = { $: {} };
+ash.enhanced_network_tts.mojom.EnhancedNetworkTts = {};
+ash.enhanced_network_tts.mojom.EnhancedNetworkTts.$interfaceName = 'ash.enhanced_network_tts.mojom.EnhancedNetworkTts';
+ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec = { $: {} };
+ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec = { $: {} };
+ash.enhanced_network_tts.mojom.AudioDataObserver = {};
+ash.enhanced_network_tts.mojom.AudioDataObserver.$interfaceName = 'ash.enhanced_network_tts.mojom.AudioDataObserver';
+ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec = { $: {} };
 
 ash.enhanced_network_tts.mojom.kEnhancedNetworkTtsMaxCharacterSize = 1000;
 
@@ -20,87 +32,63 @@ ash.enhanced_network_tts.mojom.TtsRequestError = {
   kReceivedUnexpectedData: 3,
   kRequestOverride: 4,
 };
-ash.enhanced_network_tts.mojom.TtsRequestErrorSpec = { $: mojo.internal.Enum() };
 
 // Union: TtsResponse
-ash.enhanced_network_tts.mojom.TtsResponseSpec = { $: mojo.internal.Union(
-    'ash.enhanced_network_tts.mojom.TtsResponse', {
+mojo.internal.Union(
+    ash.enhanced_network_tts.mojom.TtsResponseSpec, 'ash.enhanced_network_tts.mojom.TtsResponse', {
       'error_code': {
         'ordinal': 0,
         'type': ash.enhanced_network_tts.mojom.TtsRequestErrorSpec,
-      }},
+        'nullable': false,
+      },
       'data': {
         'ordinal': 1,
         'type': ash.enhanced_network_tts.mojom.TtsDataSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: TtsRequest
-ash.enhanced_network_tts.mojom.TtsRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.enhanced_network_tts.mojom.TtsRequest',
-      packedSize: 40,
-      fields: [
-        { name: 'utterance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'rate', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'voice', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'lang', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.enhanced_network_tts.mojom.TtsRequestSpec, 'ash.enhanced_network_tts.mojom.TtsRequest', [
+      mojo.internal.StructField('utterance', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('rate', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('voice', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('lang', 16, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: TimingInfo
-ash.enhanced_network_tts.mojom.TimingInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.enhanced_network_tts.mojom.TimingInfo',
-      packedSize: 40,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'text_offset', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'time_offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'duration', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.enhanced_network_tts.mojom.TimingInfoSpec, 'ash.enhanced_network_tts.mojom.TimingInfo', [
+      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('text_offset', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('time_offset', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('duration', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: TtsData
-ash.enhanced_network_tts.mojom.TtsDataSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.enhanced_network_tts.mojom.TtsData',
-      packedSize: 32,
-      fields: [
-        { name: 'audio', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'time_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.enhanced_network_tts.mojom.TimingInfoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'last_data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.enhanced_network_tts.mojom.TtsDataSpec, 'ash.enhanced_network_tts.mojom.TtsData', [
+      mojo.internal.StructField('audio', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('time_info', 8, 0, mojo.internal.Array(ash.enhanced_network_tts.mojom.TimingInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('last_data', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: EnhancedNetworkTts
-ash.enhanced_network_tts.mojom.EnhancedNetworkTts = {};
+mojo.internal.Struct(
+    ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec, 'ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_Params', [
+      mojo.internal.StructField('request', 0, 0, ash.enhanced_network_tts.mojom.TtsRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: ash.enhanced_network_tts.mojom.TtsRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec, 'ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParams', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceRequest(ash.enhanced_network_tts.mojom.AudioDataObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.enhanced_network_tts.mojom.EnhancedNetworkTtsPendingReceiver = class {
   constructor(handle) {
@@ -155,53 +143,16 @@ ash.enhanced_network_tts.mojom.EnhancedNetworkTts.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetAudioData
-ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.enhanced_network_tts.mojom.EnhancedNetworkTts.GetAudioData_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: ash.enhanced_network_tts.mojom.TtsRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.enhanced_network_tts.mojom.EnhancedNetworkTts.GetAudioData_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.enhanced_network_tts.mojom.AudioDataObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.enhanced_network_tts.mojom.EnhancedNetworkTtsPtr = ash.enhanced_network_tts.mojom.EnhancedNetworkTtsRemote;
 ash.enhanced_network_tts.mojom.EnhancedNetworkTtsRequest = ash.enhanced_network_tts.mojom.EnhancedNetworkTtsPendingReceiver;
 
 
 // Interface: AudioDataObserver
-ash.enhanced_network_tts.mojom.AudioDataObserver = {};
-
-ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.enhanced_network_tts.mojom.TtsResponseSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec, 'ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_Params', [
+      mojo.internal.StructField('response', 0, 0, ash.enhanced_network_tts.mojom.TtsResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ash.enhanced_network_tts.mojom.AudioDataObserverPendingReceiver = class {
   constructor(handle) {
@@ -256,21 +207,6 @@ ash.enhanced_network_tts.mojom.AudioDataObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnAudioDataReceived
-ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.enhanced_network_tts.mojom.AudioDataObserver.OnAudioDataReceived_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.enhanced_network_tts.mojom.TtsResponseSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.enhanced_network_tts.mojom.AudioDataObserverPtr = ash.enhanced_network_tts.mojom.AudioDataObserverRemote;
 ash.enhanced_network_tts.mojom.AudioDataObserverRequest = ash.enhanced_network_tts.mojom.AudioDataObserverPendingReceiver;
 

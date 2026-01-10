@@ -8,6 +8,9 @@
 var gl = gl || {};
 gl.mojom = gl.mojom || {};
 
+gl.mojom.GLImplementationSpec = { $: mojo.internal.Enum() };
+gl.mojom.ANGLEImplementationSpec = { $: mojo.internal.Enum() };
+gl.mojom.GLImplementationPartsSpec = { $: {} };
 
 // Enum: GLImplementation
 gl.mojom.GLImplementation = {
@@ -18,7 +21,6 @@ gl.mojom.GLImplementation = {
   kGLImplementationDisabled: 4,
   kGLImplementationEGLANGLE: 5,
 };
-gl.mojom.GLImplementationSpec = { $: mojo.internal.Enum() };
 
 // Enum: ANGLEImplementation
 gl.mojom.ANGLEImplementation = {
@@ -34,19 +36,11 @@ gl.mojom.ANGLEImplementation = {
   kD3D11Warp: 9,
   kDefault: 10,
 };
-gl.mojom.ANGLEImplementationSpec = { $: mojo.internal.Enum() };
 
 // Struct: GLImplementationParts
-gl.mojom.GLImplementationPartsSpec = {
-  $: {
-    structSpec: {
-      name: 'gl.mojom.GLImplementationParts',
-      packedSize: 16,
-      fields: [
-        { name: 'gl', packedOffset: 0, packedBitOffset: 0, type: gl.mojom.GLImplementationSpec, nullable: false, minVersion: 0 },
-        { name: 'angle', packedOffset: 4, packedBitOffset: 0, type: gl.mojom.ANGLEImplementationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gl.mojom.GLImplementationPartsSpec, 'gl.mojom.GLImplementationParts', [
+      mojo.internal.StructField('gl', 0, 0, gl.mojom.GLImplementationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('angle', 4, 0, gl.mojom.ANGLEImplementationSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);

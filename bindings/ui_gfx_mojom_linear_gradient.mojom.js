@@ -8,34 +8,22 @@
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
 
+gfx.mojom.StepSpec = { $: {} };
+gfx.mojom.LinearGradientSpec = { $: {} };
 
 // Struct: Step
-gfx.mojom.StepSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.Step',
-      packedSize: 16,
-      fields: [
-        { name: 'fraction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'alpha', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.StepSpec, 'gfx.mojom.Step', [
+      mojo.internal.StructField('fraction', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('alpha', 4, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: LinearGradient
-gfx.mojom.LinearGradientSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.LinearGradient',
-      packedSize: 24,
-      fields: [
-        { name: 'angle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0 },
-        { name: 'step_count', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'steps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.Step, 8Spec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.LinearGradientSpec, 'gfx.mojom.LinearGradient', [
+      mojo.internal.StructField('angle', 8, 0, mojo.internal.Int16, 0, false, 0, undefined),
+      mojo.internal.StructField('step_count', 10, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('steps', 0, 0, mojo.internal.Array(gfx.mojom.Step, 8Spec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);

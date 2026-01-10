@@ -9,22 +9,23 @@ var ash = ash || {};
 ash.cfm = ash.cfm || {};
 ash.cfm.mojom = ash.cfm.mojom || {};
 
+ash.cfm.mojom.MeetBrowser = {};
+ash.cfm.mojom.MeetBrowser.$interfaceName = 'ash.cfm.mojom.MeetBrowser';
+ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ParamsSpec = { $: {} };
+ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParamsSpec = { $: {} };
 
 // Interface: MeetBrowser
-ash.cfm.mojom.MeetBrowser = {};
+mojo.internal.Struct(
+    ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ParamsSpec, 'ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_Params', [
+      mojo.internal.StructField('hashed_device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'hashed_device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParamsSpec, 'ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParams', [
+      mojo.internal.StructField('device_path', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.cfm.mojom.MeetBrowserPendingReceiver = class {
   constructor(handle) {
@@ -79,34 +80,6 @@ ash.cfm.mojom.MeetBrowser.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for TranslateVideoDeviceId
-ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cfm.mojom.MeetBrowser.TranslateVideoDeviceId_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'hashed_device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cfm.mojom.MeetBrowser.TranslateVideoDeviceId_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'device_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.cfm.mojom.MeetBrowserPtr = ash.cfm.mojom.MeetBrowserRemote;
 ash.cfm.mojom.MeetBrowserRequest = ash.cfm.mojom.MeetBrowserPendingReceiver;
 

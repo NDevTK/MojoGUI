@@ -12,14 +12,49 @@ var gfx = gfx || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+device_test.mojom.EyeSpec = { $: mojo.internal.Enum() };
+device_test.mojom.ControllerRoleSpec = { $: mojo.internal.Enum() };
+device_test.mojom.EventTypeSpec = { $: mojo.internal.Enum() };
+device_test.mojom.ColorSpec = { $: {} };
+device_test.mojom.ViewDataSpec = { $: {} };
+device_test.mojom.DeviceConfigSpec = { $: {} };
+device_test.mojom.ControllerAxisDataSpec = { $: {} };
+device_test.mojom.ControllerFrameDataSpec = { $: {} };
+device_test.mojom.EventDataSpec = { $: {} };
+device_test.mojom.XRVisibilityMaskSpec = { $: {} };
+device_test.mojom.XRTestHook = {};
+device_test.mojom.XRTestHook.$interfaceName = 'device_test.mojom.XRTestHook';
+device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec = { $: {} };
+device_test.mojom.XRTestHook_OnFrameSubmitted_ResponseParamsSpec = { $: {} };
+device_test.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec = { $: {} };
+device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec = { $: {} };
+device_test.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec = { $: {} };
+device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec = { $: {} };
+device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec = { $: {} };
+device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec = { $: {} };
+device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSpec = { $: {} };
+device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec = { $: {} };
+device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec = { $: {} };
+device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec = { $: {} };
+device_test.mojom.XRTestHook_WaitGetEventData_ParamsSpec = { $: {} };
+device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec = { $: {} };
+device_test.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec = { $: {} };
+device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec = { $: {} };
+device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec = { $: {} };
+device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec = { $: {} };
+device_test.mojom.XRServiceTestHook = {};
+device_test.mojom.XRServiceTestHook.$interfaceName = 'device_test.mojom.XRServiceTestHook';
+device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec = { $: {} };
+device_test.mojom.XRServiceTestHook_SetTestHook_ResponseParamsSpec = { $: {} };
+device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ParamsSpec = { $: {} };
+device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ResponseParamsSpec = { $: {} };
 
 // Enum: Eye
 device_test.mojom.Eye = {
-  LEFT: 0,
-  RIGHT: 1,
-  NONE: 2,
+  LEFT: 1,
+  RIGHT: 2,
+  NONE: 3,
 };
-device_test.mojom.EyeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ControllerRole
 device_test.mojom.ControllerRole = {
@@ -28,7 +63,6 @@ device_test.mojom.ControllerRole = {
   kControllerRoleRight: 2,
   kControllerRoleVoice: 3,
 };
-device_test.mojom.ControllerRoleSpec = { $: mojo.internal.Enum() };
 
 // Enum: EventType
 device_test.mojom.EventType = {
@@ -38,237 +72,175 @@ device_test.mojom.EventType = {
   kInteractionProfileChanged: 3,
   kNoEvent: 4,
 };
-device_test.mojom.EventTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: Color
-device_test.mojom.ColorSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.Color',
-      packedSize: 16,
-      fields: [
-        { name: 'r', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'g', packedOffset: 1, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'b', packedOffset: 2, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'a', packedOffset: 3, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device_test.mojom.ColorSpec, 'device_test.mojom.Color', [
+      mojo.internal.StructField('r', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('g', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('b', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('a', 3, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: ViewData
-device_test.mojom.ViewDataSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.ViewData',
-      packedSize: 32,
-      fields: [
-        { name: 'color', packedOffset: 0, packedBitOffset: 0, type: device_test.mojom.ColorSpec, nullable: false, minVersion: 0 },
-        { name: 'eye', packedOffset: 16, packedBitOffset: 0, type: device_test.mojom.EyeSpec, nullable: false, minVersion: 0 },
-        { name: 'viewport', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device_test.mojom.ViewDataSpec, 'device_test.mojom.ViewData', [
+      mojo.internal.StructField('color', 0, 0, device_test.mojom.ColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('eye', 16, 0, device_test.mojom.EyeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('viewport', 8, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: DeviceConfig
-device_test.mojom.DeviceConfigSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.DeviceConfig',
-      packedSize: 16,
-      fields: [
-        { name: 'interpupillary_distance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device_test.mojom.DeviceConfigSpec, 'device_test.mojom.DeviceConfig', [
+      mojo.internal.StructField('interpupillary_distance', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: ControllerAxisData
-device_test.mojom.ControllerAxisDataSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.ControllerAxisData',
-      packedSize: 24,
-      fields: [
-        { name: 'x', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'y', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'axis_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device_test.mojom.ControllerAxisDataSpec, 'device_test.mojom.ControllerAxisData', [
+      mojo.internal.StructField('x', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('y', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('axis_type', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: ControllerFrameData
-device_test.mojom.ControllerFrameDataSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.ControllerFrameData',
-      packedSize: 72,
-      fields: [
-        { name: 'packet_number', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'buttons_pressed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'buttons_touched', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'supported_buttons', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'axis_data', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(device_test.mojom.ControllerAxisData, 5Spec, false), nullable: false, minVersion: 0 },
-        { name: 'pose_data', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: true, minVersion: 0 },
-        { name: 'role', packedOffset: 52, packedBitOffset: 0, type: device_test.mojom.ControllerRoleSpec, nullable: false, minVersion: 0 },
-        { name: 'hand_data', packedOffset: 40, packedBitOffset: 0, type: device.mojom.XRHandTrackingDataSpec, nullable: true, minVersion: 0 },
-        { name: 'is_valid', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 72}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device_test.mojom.ControllerFrameDataSpec, 'device_test.mojom.ControllerFrameData', [
+      mojo.internal.StructField('packet_number', 48, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('buttons_pressed', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('buttons_touched', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('supported_buttons', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('axis_data', 24, 0, mojo.internal.Array(device_test.mojom.ControllerAxisData, 5Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('pose_data', 32, 0, gfx.mojom.TransformSpec, null, true, 0, undefined),
+      mojo.internal.StructField('role', 52, 0, device_test.mojom.ControllerRoleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('hand_data', 40, 0, device.mojom.XRHandTrackingDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('is_valid', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 72]]);
 
 // Struct: EventData
-device_test.mojom.EventDataSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.EventData',
-      packedSize: 16,
-      fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: device_test.mojom.EventTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'interaction_profile', packedOffset: 4, packedBitOffset: 0, type: device.mojom.OpenXrInteractionProfileTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device_test.mojom.EventDataSpec, 'device_test.mojom.EventData', [
+      mojo.internal.StructField('type', 0, 0, device_test.mojom.EventTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('interaction_profile', 4, 0, device.mojom.OpenXrInteractionProfileTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: XRVisibilityMask
-device_test.mojom.XRVisibilityMaskSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.XRVisibilityMask',
-      packedSize: 24,
-      fields: [
-        { name: 'vertices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
-        { name: 'indices', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device_test.mojom.XRVisibilityMaskSpec, 'device_test.mojom.XRVisibilityMask', [
+      mojo.internal.StructField('vertices', 0, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+      mojo.internal.StructField('indices', 8, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: XRTestHook
-device_test.mojom.XRTestHook = {};
+mojo.internal.Struct(
+    device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec, 'device_test.mojom.XRTestHook_OnFrameSubmitted_Params', [
+      mojo.internal.StructField('frame_data', 0, 0, mojo.internal.Array(device_test.mojom.ViewDataSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.XRTestHook_OnFrameSubmitted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'frame_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device_test.mojom.ViewDataSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device_test.mojom.XRTestHook_OnFrameSubmitted_ResponseParamsSpec, 'device_test.mojom.XRTestHook_OnFrameSubmitted_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-device_test.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.XRTestHook_WaitGetDeviceConfig_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device_test.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec, 'device_test.mojom.XRTestHook_WaitGetDeviceConfig_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-device_test.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.XRTestHook_WaitGetPresentingPose_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec, 'device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParams', [
+      mojo.internal.StructField('config', 0, 0, device_test.mojom.DeviceConfigSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.XRTestHook_WaitGetMagicWindowPose_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device_test.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec, 'device_test.mojom.XRTestHook_WaitGetPresentingPose_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec, 'device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParams', [
+      mojo.internal.StructField('data', 0, 0, gfx.mojom.TransformSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.XRTestHook_WaitGetControllerData_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec, 'device_test.mojom.XRTestHook_WaitGetMagicWindowPose_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-device_test.mojom.XRTestHook_WaitGetEventData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.XRTestHook_WaitGetEventData_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec, 'device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParams', [
+      mojo.internal.StructField('data', 0, 0, gfx.mojom.TransformSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device_test.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.XRTestHook_WaitGetCanCreateSession_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSpec, 'device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_Params', [
+      mojo.internal.StructField('index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.XRTestHook_WaitGetVisibilityMask_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'view_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec, 'device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParams', [
+      mojo.internal.StructField('role', 0, 0, device_test.mojom.ControllerRoleSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec, 'device_test.mojom.XRTestHook_WaitGetControllerData_Params', [
+      mojo.internal.StructField('index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec, 'device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParams', [
+      mojo.internal.StructField('data', 0, 0, device_test.mojom.ControllerFrameDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    device_test.mojom.XRTestHook_WaitGetEventData_ParamsSpec, 'device_test.mojom.XRTestHook_WaitGetEventData_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec, 'device_test.mojom.XRTestHook_WaitGetEventData_ResponseParams', [
+      mojo.internal.StructField('data', 0, 0, device_test.mojom.EventDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    device_test.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec, 'device_test.mojom.XRTestHook_WaitGetCanCreateSession_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec, 'device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParams', [
+      mojo.internal.StructField('can_create_session', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec, 'device_test.mojom.XRTestHook_WaitGetVisibilityMask_Params', [
+      mojo.internal.StructField('view_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec, 'device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParams', [
+      mojo.internal.StructField('mask', 0, 0, device_test.mojom.XRVisibilityMaskSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 device_test.mojom.XRTestHookPendingReceiver = class {
   constructor(handle) {
@@ -307,7 +279,7 @@ device_test.mojom.XRTestHookRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec,
-      null,
+      device_test.mojom.XRTestHook_OnFrameSubmitted_ResponseParamsSpec,
       [frame_data]);
   }
 
@@ -395,263 +367,31 @@ device_test.mojom.XRTestHook.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnFrameSubmitted
-device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.XRTestHook.OnFrameSubmitted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'frame_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device_test.mojom.ViewDataSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for WaitGetDeviceConfig
-device_test.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.XRTestHook.WaitGetDeviceConfig_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.XRTestHook.WaitGetDeviceConfig_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: device_test.mojom.DeviceConfigSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for WaitGetPresentingPose
-device_test.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.XRTestHook.WaitGetPresentingPose_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.XRTestHook.WaitGetPresentingPose_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for WaitGetMagicWindowPose
-device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.XRTestHook.WaitGetMagicWindowPose_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.XRTestHook.WaitGetMagicWindowPose_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for WaitGetControllerRoleForTrackedDeviceIndex
-device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.XRTestHook.WaitGetControllerRoleForTrackedDeviceIndex_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.XRTestHook.WaitGetControllerRoleForTrackedDeviceIndex_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'role', packedOffset: 0, packedBitOffset: 0, type: device_test.mojom.ControllerRoleSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for WaitGetControllerData
-device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.XRTestHook.WaitGetControllerData_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.XRTestHook.WaitGetControllerData_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: device_test.mojom.ControllerFrameDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for WaitGetEventData
-device_test.mojom.XRTestHook_WaitGetEventData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.XRTestHook.WaitGetEventData_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.XRTestHook.WaitGetEventData_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: device_test.mojom.EventDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for WaitGetCanCreateSession
-device_test.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.XRTestHook.WaitGetCanCreateSession_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.XRTestHook.WaitGetCanCreateSession_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'can_create_session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for WaitGetVisibilityMask
-device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.XRTestHook.WaitGetVisibilityMask_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'view_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.XRTestHook.WaitGetVisibilityMask_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'mask', packedOffset: 0, packedBitOffset: 0, type: device_test.mojom.XRVisibilityMaskSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 device_test.mojom.XRTestHookPtr = device_test.mojom.XRTestHookRemote;
 device_test.mojom.XRTestHookRequest = device_test.mojom.XRTestHookPendingReceiver;
 
 
 // Interface: XRServiceTestHook
-device_test.mojom.XRServiceTestHook = {};
+mojo.internal.Struct(
+    device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec, 'device_test.mojom.XRServiceTestHook_SetTestHook_Params', [
+      mojo.internal.StructField('hook', 0, 0, mojo.internal.InterfaceProxy(device_test.mojom.XRTestHookRemote), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.XRServiceTestHook_SetTestHook_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'hook', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device_test.mojom.XRTestHookRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device_test.mojom.XRServiceTestHook_SetTestHook_ResponseParamsSpec, 'device_test.mojom.XRServiceTestHook_SetTestHook_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ParamsSpec, 'device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ResponseParamsSpec, 'device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 device_test.mojom.XRServiceTestHookPendingReceiver = class {
   constructor(handle) {
@@ -690,7 +430,7 @@ device_test.mojom.XRServiceTestHookRemoteCallHandler = class {
     return this.proxy.sendMessage(
       0,  // ordinal
       device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec,
-      null,
+      device_test.mojom.XRServiceTestHook_SetTestHook_ResponseParamsSpec,
       [hook]);
   }
 
@@ -699,7 +439,7 @@ device_test.mojom.XRServiceTestHookRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ParamsSpec,
-      null,
+      device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ResponseParamsSpec,
       []);
   }
 
@@ -715,34 +455,6 @@ device_test.mojom.XRServiceTestHook.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetTestHook
-device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.XRServiceTestHook.SetTestHook_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'hook', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device_test.mojom.XRTestHookRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for TerminateDeviceServiceProcessForTesting
-device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device_test.mojom.XRServiceTestHook.TerminateDeviceServiceProcessForTesting_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 device_test.mojom.XRServiceTestHookPtr = device_test.mojom.XRServiceTestHookRemote;
 device_test.mojom.XRServiceTestHookRequest = device_test.mojom.XRServiceTestHookPendingReceiver;
 

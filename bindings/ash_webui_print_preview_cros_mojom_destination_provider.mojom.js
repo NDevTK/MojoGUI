@@ -9,24 +9,26 @@ var ash = ash || {};
 ash.printing = ash.printing || {};
 ash.printing.print_preview = ash.printing.print_preview || {};
 ash.printing.print_preview.mojom = ash.printing.print_preview.mojom || {};
+var ash = ash || {};
 
+ash.printing.print_preview.mojom.DestinationProvider = {};
+ash.printing.print_preview.mojom.DestinationProvider.$interfaceName = 'ash.printing.print_preview.mojom.DestinationProvider';
+ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ParamsSpec = { $: {} };
+ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParamsSpec = { $: {} };
 
 // Interface: DestinationProvider
-ash.printing.print_preview.mojom.DestinationProvider = {};
+mojo.internal.Struct(
+    ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ParamsSpec, 'ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_Params', [
+      mojo.internal.StructField('destination_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('printer_type', 8, 0, printing.mojom.PrinterTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'destination_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'printer_type', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.PrinterTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParamsSpec, 'ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParams', [
+      mojo.internal.StructField('capabilities', 0, 0, ash.printing.print_preview.mojom.CapabilitiesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.printing.print_preview.mojom.DestinationProviderPendingReceiver = class {
   constructor(handle) {
@@ -81,35 +83,6 @@ ash.printing.print_preview.mojom.DestinationProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for FetchCapabilities
-ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.printing.print_preview.mojom.DestinationProvider.FetchCapabilities_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'destination_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'printer_type', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.PrinterTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.printing.print_preview.mojom.DestinationProvider.FetchCapabilities_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: ash.printing.print_preview.mojom.CapabilitiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.printing.print_preview.mojom.DestinationProviderPtr = ash.printing.print_preview.mojom.DestinationProviderRemote;
 ash.printing.print_preview.mojom.DestinationProviderRequest = ash.printing.print_preview.mojom.DestinationProviderPendingReceiver;
 

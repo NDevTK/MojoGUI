@@ -8,6 +8,7 @@
 var web_app = web_app || {};
 web_app.mojom = web_app.mojom || {};
 
+web_app.mojom.UserDisplayModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: UserDisplayMode
 web_app.mojom.UserDisplayMode = {
@@ -15,4 +16,3 @@ web_app.mojom.UserDisplayMode = {
   kStandalone: 1,
   kTabbed: 2,
 };
-web_app.mojom.UserDisplayModeSpec = { $: mojo.internal.Enum() };

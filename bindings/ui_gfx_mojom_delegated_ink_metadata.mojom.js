@@ -11,23 +11,17 @@ var skia = skia || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+gfx.mojom.DelegatedInkMetadataSpec = { $: {} };
 
 // Struct: DelegatedInkMetadata
-gfx.mojom.DelegatedInkMetadataSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.DelegatedInkMetadata',
-      packedSize: 64,
-      fields: [
-        { name: 'point', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointFSpec, nullable: false, minVersion: 0 },
-        { name: 'diameter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'color', packedOffset: 16, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: false, minVersion: 0 },
-        { name: 'timestamp', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'presentation_area', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_time', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'is_hovering', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 64}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.DelegatedInkMetadataSpec, 'gfx.mojom.DelegatedInkMetadata', [
+      mojo.internal.StructField('point', 0, 0, gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('diameter', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('color', 16, 0, skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('timestamp', 24, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('presentation_area', 32, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_time', 40, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_hovering', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 64]]);

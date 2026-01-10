@@ -10,6 +10,8 @@ gfx.mojom = gfx.mojom || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+gfx.mojom.RRectFTypeSpec = { $: mojo.internal.Enum() };
+gfx.mojom.RRectFSpec = { $: {} };
 
 // Enum: RRectFType
 gfx.mojom.RRectFType = {
@@ -20,23 +22,15 @@ gfx.mojom.RRectFType = {
   kOval: 4,
   kComplex: 5,
 };
-gfx.mojom.RRectFTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: RRectF
-gfx.mojom.RRectFSpec = {
-  $: {
-    structSpec: {
-      name: 'gfx.mojom.RRectF',
-      packedSize: 56,
-      fields: [
-        { name: 'type', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.RRectFTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectFSpec, nullable: false, minVersion: 0 },
-        { name: 'upper_left', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false, minVersion: 0 },
-        { name: 'upper_right', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false, minVersion: 0 },
-        { name: 'lower_right', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false, minVersion: 0 },
-        { name: 'lower_left', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.Vector2dFSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    gfx.mojom.RRectFSpec, 'gfx.mojom.RRectF', [
+      mojo.internal.StructField('type', 40, 0, gfx.mojom.RRectFTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('rect', 0, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('upper_left', 8, 0, gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('upper_right', 16, 0, gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('lower_right', 24, 0, gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('lower_left', 32, 0, gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);

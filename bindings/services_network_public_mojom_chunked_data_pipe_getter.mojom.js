@@ -8,34 +8,30 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 
+network.mojom.ChunkedDataPipeGetter = {};
+network.mojom.ChunkedDataPipeGetter.$interfaceName = 'network.mojom.ChunkedDataPipeGetter';
+network.mojom.ChunkedDataPipeGetter_GetSize_ParamsSpec = { $: {} };
+network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec = { $: {} };
+network.mojom.ChunkedDataPipeGetter_StartReading_ParamsSpec = { $: {} };
 
 // Interface: ChunkedDataPipeGetter
-network.mojom.ChunkedDataPipeGetter = {};
+mojo.internal.Struct(
+    network.mojom.ChunkedDataPipeGetter_GetSize_ParamsSpec, 'network.mojom.ChunkedDataPipeGetter_GetSize_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-network.mojom.ChunkedDataPipeGetter_GetSize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ChunkedDataPipeGetter_GetSize_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec, 'network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParams', [
+      mojo.internal.StructField('status', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('size', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-network.mojom.ChunkedDataPipeGetter_StartReading_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ChunkedDataPipeGetter_StartReading_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.ChunkedDataPipeGetter_StartReading_ParamsSpec, 'network.mojom.ChunkedDataPipeGetter_StartReading_Params', [
+      mojo.internal.StructField('pipe', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 network.mojom.ChunkedDataPipeGetterPendingReceiver = class {
   constructor(handle) {
@@ -99,48 +95,6 @@ network.mojom.ChunkedDataPipeGetter.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetSize
-network.mojom.ChunkedDataPipeGetter_GetSize_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ChunkedDataPipeGetter.GetSize_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ChunkedDataPipeGetter.GetSize_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for StartReading
-network.mojom.ChunkedDataPipeGetter_StartReading_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ChunkedDataPipeGetter.StartReading_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 network.mojom.ChunkedDataPipeGetterPtr = network.mojom.ChunkedDataPipeGetterRemote;
 network.mojom.ChunkedDataPipeGetterRequest = network.mojom.ChunkedDataPipeGetterPendingReceiver;
 

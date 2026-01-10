@@ -8,470 +8,314 @@
 var ash = ash || {};
 ash.ime = ash.ime || {};
 ash.ime.mojom = ash.ime.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var services = services || {};
 
+ash.ime.mojom.CommitTextCursorBehaviorSpec = { $: mojo.internal.Enum() };
+ash.ime.mojom.CompositionSpanStyleSpec = { $: mojo.internal.Enum() };
+ash.ime.mojom.InputMethodApiOperationSpec = { $: mojo.internal.Enum() };
+ash.ime.mojom.KoreanActionSpec = { $: mojo.internal.Enum() };
+ash.ime.mojom.HistogramBucketTypeSpec = { $: mojo.internal.Enum() };
+ash.ime.mojom.UkmEntrySpec = { $: {} };
+ash.ime.mojom.CompositionSpanSpec = { $: {} };
+ash.ime.mojom.TextRangeSpec = { $: {} };
+ash.ime.mojom.AutocorrectSpanSpec = { $: {} };
+ash.ime.mojom.CompletionCandidateSpec = { $: {} };
+ash.ime.mojom.SuggestionsRequestSpec = { $: {} };
+ash.ime.mojom.SuggestionsResponseSpec = { $: {} };
+ash.ime.mojom.SuggestionsTextContextSpec = { $: {} };
+ash.ime.mojom.NonCompliantApiMetricSpec = { $: {} };
+ash.ime.mojom.CandidateSpec = { $: {} };
+ash.ime.mojom.HighlightedCandidateSpec = { $: {} };
+ash.ime.mojom.CandidatesWindowSpec = { $: {} };
+ash.ime.mojom.BucketedHistogramSpec = { $: {} };
+ash.ime.mojom.InputMethodHost = {};
+ash.ime.mojom.InputMethodHost.$interfaceName = 'ash.ime.mojom.InputMethodHost';
+ash.ime.mojom.InputMethodHost_CommitText_ParamsSpec = { $: {} };
+ash.ime.mojom.InputMethodHost_DEPRECATED_SetComposition_ParamsSpec = { $: {} };
+ash.ime.mojom.InputMethodHost_SetComposition_ParamsSpec = { $: {} };
+ash.ime.mojom.InputMethodHost_SetCompositionRange_ParamsSpec = { $: {} };
+ash.ime.mojom.InputMethodHost_FinishComposition_ParamsSpec = { $: {} };
+ash.ime.mojom.InputMethodHost_DeleteSurroundingText_ParamsSpec = { $: {} };
+ash.ime.mojom.InputMethodHost_ReplaceSurroundingText_ParamsSpec = { $: {} };
+ash.ime.mojom.InputMethodHost_HandleAutocorrect_ParamsSpec = { $: {} };
+ash.ime.mojom.InputMethodHost_DisplaySuggestions_ParamsSpec = { $: {} };
+ash.ime.mojom.InputMethodHost_UpdateCandidatesWindow_ParamsSpec = { $: {} };
+ash.ime.mojom.InputMethodHost_RequestSuggestions_ParamsSpec = { $: {} };
+ash.ime.mojom.InputMethodHost_RequestSuggestions_ResponseParamsSpec = { $: {} };
+ash.ime.mojom.InputMethodHost_UpdateQuickSettings_ParamsSpec = { $: {} };
+ash.ime.mojom.InputMethodHost_RecordUkm_ParamsSpec = { $: {} };
+ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanAction_ParamsSpec = { $: {} };
+ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanSettings_ParamsSpec = { $: {} };
+ash.ime.mojom.InputMethodHost_DEPRECATED_ReportSuggestionOpportunity_ParamsSpec = { $: {} };
+ash.ime.mojom.InputMethodHost_DEPRECATED_ReportHistogramSample_ParamsSpec = { $: {} };
 
 // Enum: CommitTextCursorBehavior
 ash.ime.mojom.CommitTextCursorBehavior = {
-  kMoveCursorBeforeText: 0,
+  kMoveCursorAfterText: 0,
+  kMoveCursorBeforeText: 1,
 };
-ash.ime.mojom.CommitTextCursorBehaviorSpec = { $: mojo.internal.Enum() };
 
 // Enum: CompositionSpanStyle
 ash.ime.mojom.CompositionSpanStyle = {
-  kNone: 0,
+  kDefault: 0,
+  kNone: 1,
+  MinVersion: 1,
 };
-ash.ime.mojom.CompositionSpanStyleSpec = { $: mojo.internal.Enum() };
 
 // Enum: InputMethodApiOperation
 ash.ime.mojom.InputMethodApiOperation = {
-  kCommitText: 0,
-  kSetCompositionText: 1,
-  kDeleteSurroundingText: 2,
+  kUnknown: 0,
+  kCommitText: 1,
+  kSetCompositionText: 2,
+  kDeleteSurroundingText: 3,
+  MinVersion: 3,
 };
-ash.ime.mojom.InputMethodApiOperationSpec = { $: mojo.internal.Enum() };
 
 // Enum: KoreanAction
 ash.ime.mojom.KoreanAction = {
-  kHanjaKey: 0,
-  kHangeulKey: 1,
-  kComposeOutOfOrder: 2,
+  kUnknown: 0,
+  kHanjaKey: 1,
+  kHangeulKey: 2,
+  kComposeOutOfOrder: 3,
 };
-ash.ime.mojom.KoreanActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: HistogramBucketType
 ash.ime.mojom.HistogramBucketType = {
-  kLinear: 0,
+  kExponential: 0,
+  kLinear: 1,
 };
-ash.ime.mojom.HistogramBucketTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: UkmEntry
-ash.ime.mojom.UkmEntrySpec = { $: mojo.internal.Union(
-    'ash.ime.mojom.UkmEntry', {
+mojo.internal.Union(
+    ash.ime.mojom.UkmEntrySpec, 'ash.ime.mojom.UkmEntry', {
       'non_compliant_api': {
         'ordinal': 0,
         'type': ash.ime.mojom.NonCompliantApiMetricSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: CompositionSpan
-ash.ime.mojom.CompositionSpanSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.CompositionSpan',
-      packedSize: 24,
-      fields: [
-        { name: 'start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'end', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'style', packedOffset: 8, packedBitOffset: 0, type: ash.ime.mojom.CompositionSpanStyleSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.CompositionSpanSpec, 'ash.ime.mojom.CompositionSpan', [
+      mojo.internal.StructField('start', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('end', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('style', 8, 0, ash.ime.mojom.CompositionSpanStyleSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: TextRange
-ash.ime.mojom.TextRangeSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.TextRange',
-      packedSize: 16,
-      fields: [
-        { name: 'start', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'end', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.TextRangeSpec, 'ash.ime.mojom.TextRange', [
+      mojo.internal.StructField('start', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('end', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: AutocorrectSpan
-ash.ime.mojom.AutocorrectSpanSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.AutocorrectSpan',
-      packedSize: 32,
-      fields: [
-        { name: 'autocorrect_range', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.TextRangeSpec, nullable: false, minVersion: 0 },
-        { name: 'original_text', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'current_text', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.AutocorrectSpanSpec, 'ash.ime.mojom.AutocorrectSpan', [
+      mojo.internal.StructField('autocorrect_range', 0, 0, ash.ime.mojom.TextRangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('original_text', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('current_text', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: CompletionCandidate
-ash.ime.mojom.CompletionCandidateSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.CompletionCandidate',
-      packedSize: 24,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'normalized_score', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.CompletionCandidateSpec, 'ash.ime.mojom.CompletionCandidate', [
+      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('normalized_score', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: SuggestionsRequest
-ash.ime.mojom.SuggestionsRequestSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.SuggestionsRequest',
-      packedSize: 32,
-      fields: [
-        { name: 'mode', packedOffset: 16, packedBitOffset: 0, type: ash.ime.mojom.SuggestionModeSpec, nullable: false, minVersion: 0 },
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'completion_candidates', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.ime.mojom.CompletionCandidateSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.SuggestionsRequestSpec, 'ash.ime.mojom.SuggestionsRequest', [
+      mojo.internal.StructField('mode', 16, 0, ash.ime.mojom.SuggestionModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('completion_candidates', 8, 0, mojo.internal.Array(ash.ime.mojom.CompletionCandidateSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: SuggestionsResponse
-ash.ime.mojom.SuggestionsResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.SuggestionsResponse',
-      packedSize: 16,
-      fields: [
-        { name: 'candidates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.ime.mojom.SuggestionCandidateSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.SuggestionsResponseSpec, 'ash.ime.mojom.SuggestionsResponse', [
+      mojo.internal.StructField('candidates', 0, 0, mojo.internal.Array(ash.ime.mojom.SuggestionCandidateSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: SuggestionsTextContext
-ash.ime.mojom.SuggestionsTextContextSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.SuggestionsTextContext',
-      packedSize: 24,
-      fields: [
-        { name: 'last_n_chars', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'surrounding_text_length', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.SuggestionsTextContextSpec, 'ash.ime.mojom.SuggestionsTextContext', [
+      mojo.internal.StructField('last_n_chars', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('surrounding_text_length', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: NonCompliantApiMetric
-ash.ime.mojom.NonCompliantApiMetricSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.NonCompliantApiMetric',
-      packedSize: 16,
-      fields: [
-        { name: 'non_compliant_operation', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.InputMethodApiOperationSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.NonCompliantApiMetricSpec, 'ash.ime.mojom.NonCompliantApiMetric', [
+      mojo.internal.StructField('non_compliant_operation', 0, 0, ash.ime.mojom.InputMethodApiOperationSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: Candidate
-ash.ime.mojom.CandidateSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.Candidate',
-      packedSize: 32,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'annotation', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.CandidateSpec, 'ash.ime.mojom.Candidate', [
+      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('label', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('annotation', 16, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: HighlightedCandidate
-ash.ime.mojom.HighlightedCandidateSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.HighlightedCandidate',
-      packedSize: 16,
-      fields: [
-        { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.HighlightedCandidateSpec, 'ash.ime.mojom.HighlightedCandidate', [
+      mojo.internal.StructField('index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: CandidatesWindow
-ash.ime.mojom.CandidatesWindowSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.CandidatesWindow',
-      packedSize: 40,
-      fields: [
-        { name: 'candidates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.ime.mojom.CandidateSpec, false), nullable: false, minVersion: 0 },
-        { name: 'DEPRECATED_highlighted_candidate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'auxiliary_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 4 },
-        { name: 'highlighted_candidate', packedOffset: 24, packedBitOffset: 0, type: ash.ime.mojom.HighlightedCandidateSpec, nullable: true, minVersion: 6 },
-      ],
-      versions: [{version: 0, packedSize: 24}, {version: 4, packedSize: 32}, {version: 6, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.CandidatesWindowSpec, 'ash.ime.mojom.CandidatesWindow', [
+      mojo.internal.StructField('candidates', 0, 0, mojo.internal.Array(ash.ime.mojom.CandidateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('DEPRECATED_highlighted_candidate', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('auxiliary_text', 16, 0, mojo.internal.String, null, true, 4, undefined),
+      mojo.internal.StructField('highlighted_candidate', 24, 0, ash.ime.mojom.HighlightedCandidateSpec, null, true, 6, undefined),
+    ],
+    [[0, 24], [4, 32], [6, 40]]);
 
 // Struct: BucketedHistogram
-ash.ime.mojom.BucketedHistogramSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.BucketedHistogram',
-      packedSize: 32,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'bucket_type', packedOffset: 8, packedBitOffset: 0, type: ash.ime.mojom.HistogramBucketTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'minimum', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'maximum', packedOffset: 14, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'bucket_count', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.BucketedHistogramSpec, 'ash.ime.mojom.BucketedHistogram', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('bucket_type', 8, 0, ash.ime.mojom.HistogramBucketTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('minimum', 12, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('maximum', 14, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('bucket_count', 16, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: InputMethodHost
-ash.ime.mojom.InputMethodHost = {};
+mojo.internal.Struct(
+    ash.ime.mojom.InputMethodHost_CommitText_ParamsSpec, 'ash.ime.mojom.InputMethodHost_CommitText_Params', [
+      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('cursor_behavior', 8, 0, ash.ime.mojom.CommitTextCursorBehaviorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.ime.mojom.InputMethodHost_CommitText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost_CommitText_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'cursor_behavior', packedOffset: 8, packedBitOffset: 0, type: ash.ime.mojom.CommitTextCursorBehaviorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.InputMethodHost_DEPRECATED_SetComposition_ParamsSpec, 'ash.ime.mojom.InputMethodHost_DEPRECATED_SetComposition_Params', [
+      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('spans', 8, 0, mojo.internal.Array(ash.ime.mojom.CompositionSpanSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.ime.mojom.InputMethodHost_DEPRECATED_SetComposition_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost_DEPRECATED_SetComposition_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'spans', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.ime.mojom.CompositionSpanSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.InputMethodHost_SetComposition_ParamsSpec, 'ash.ime.mojom.InputMethodHost_SetComposition_Params', [
+      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('spans', 8, 0, mojo.internal.Array(ash.ime.mojom.CompositionSpanSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('new_cursor_position', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-ash.ime.mojom.InputMethodHost_SetComposition_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost_SetComposition_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'spans', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.ime.mojom.CompositionSpanSpec, false), nullable: false, minVersion: 0 },
-        { name: 'new_cursor_position', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.InputMethodHost_SetCompositionRange_ParamsSpec, 'ash.ime.mojom.InputMethodHost_SetCompositionRange_Params', [
+      mojo.internal.StructField('start_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('end_index', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.ime.mojom.InputMethodHost_SetCompositionRange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost_SetCompositionRange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'start_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'end_index', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.InputMethodHost_FinishComposition_ParamsSpec, 'ash.ime.mojom.InputMethodHost_FinishComposition_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.ime.mojom.InputMethodHost_FinishComposition_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost_FinishComposition_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.InputMethodHost_DeleteSurroundingText_ParamsSpec, 'ash.ime.mojom.InputMethodHost_DeleteSurroundingText_Params', [
+      mojo.internal.StructField('num_before_cursor', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('num_after_cursor', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.ime.mojom.InputMethodHost_DeleteSurroundingText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost_DeleteSurroundingText_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'num_before_cursor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'num_after_cursor', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.InputMethodHost_ReplaceSurroundingText_ParamsSpec, 'ash.ime.mojom.InputMethodHost_ReplaceSurroundingText_Params', [
+      mojo.internal.StructField('num_before_cursor', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('num_after_cursor', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('text', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.ime.mojom.InputMethodHost_ReplaceSurroundingText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost_ReplaceSurroundingText_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'num_before_cursor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'num_after_cursor', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.InputMethodHost_HandleAutocorrect_ParamsSpec, 'ash.ime.mojom.InputMethodHost_HandleAutocorrect_Params', [
+      mojo.internal.StructField('autocorrect_span', 0, 0, ash.ime.mojom.AutocorrectSpanSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.ime.mojom.InputMethodHost_HandleAutocorrect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost_HandleAutocorrect_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'autocorrect_span', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.AutocorrectSpanSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.InputMethodHost_DisplaySuggestions_ParamsSpec, 'ash.ime.mojom.InputMethodHost_DisplaySuggestions_Params', [
+      mojo.internal.StructField('suggestions', 0, 0, mojo.internal.Array(ash.ime.mojom.SuggestionCandidateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('context', 8, 0, ash.ime.mojom.SuggestionsTextContextSpec, null, true, 10, undefined),
+    ],
+    [[0, 16], [10, 24]]);
 
-ash.ime.mojom.InputMethodHost_DisplaySuggestions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost_DisplaySuggestions_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'suggestions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.ime.mojom.SuggestionCandidateSpec, false), nullable: false, minVersion: 0 },
-        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: ash.ime.mojom.SuggestionsTextContextSpec, nullable: true, minVersion: 10 },
-      ],
-      versions: [{version: 0, packedSize: 16}, {version: 10, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.InputMethodHost_UpdateCandidatesWindow_ParamsSpec, 'ash.ime.mojom.InputMethodHost_UpdateCandidatesWindow_Params', [
+      mojo.internal.StructField('window', 0, 0, ash.ime.mojom.CandidatesWindowSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.ime.mojom.InputMethodHost_UpdateCandidatesWindow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost_UpdateCandidatesWindow_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'window', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.CandidatesWindowSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.InputMethodHost_RequestSuggestions_ParamsSpec, 'ash.ime.mojom.InputMethodHost_RequestSuggestions_Params', [
+      mojo.internal.StructField('request', 0, 0, ash.ime.mojom.SuggestionsRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.ime.mojom.InputMethodHost_RequestSuggestions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost_RequestSuggestions_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.SuggestionsRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.InputMethodHost_RequestSuggestions_ResponseParamsSpec, 'ash.ime.mojom.InputMethodHost_RequestSuggestions_ResponseParams', [
+      mojo.internal.StructField('response', 0, 0, ash.ime.mojom.SuggestionsResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.ime.mojom.InputMethodHost_UpdateQuickSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost_UpdateQuickSettings_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.InputMethodQuickSettingsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.InputMethodHost_UpdateQuickSettings_ParamsSpec, 'ash.ime.mojom.InputMethodHost_UpdateQuickSettings_Params', [
+      mojo.internal.StructField('settings', 0, 0, ash.ime.mojom.InputMethodQuickSettingsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.ime.mojom.InputMethodHost_RecordUkm_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost_RecordUkm_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.UkmEntrySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.InputMethodHost_RecordUkm_ParamsSpec, 'ash.ime.mojom.InputMethodHost_RecordUkm_Params', [
+      mojo.internal.StructField('entry', 0, 0, ash.ime.mojom.UkmEntrySpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.KoreanActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanAction_ParamsSpec, 'ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanAction_Params', [
+      mojo.internal.StructField('action', 0, 0, ash.ime.mojom.KoreanActionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.KoreanSettingsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanSettings_ParamsSpec, 'ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanSettings_Params', [
+      mojo.internal.StructField('settings', 0, 0, ash.ime.mojom.KoreanSettingsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.ime.mojom.InputMethodHost_DEPRECATED_ReportSuggestionOpportunity_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost_DEPRECATED_ReportSuggestionOpportunity_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.SuggestionModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.InputMethodHost_DEPRECATED_ReportSuggestionOpportunity_ParamsSpec, 'ash.ime.mojom.InputMethodHost_DEPRECATED_ReportSuggestionOpportunity_Params', [
+      mojo.internal.StructField('mode', 0, 0, ash.ime.mojom.SuggestionModeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.ime.mojom.InputMethodHost_DEPRECATED_ReportHistogramSample_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost_DEPRECATED_ReportHistogramSample_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'histogram', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.BucketedHistogramSpec, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.ime.mojom.InputMethodHost_DEPRECATED_ReportHistogramSample_ParamsSpec, 'ash.ime.mojom.InputMethodHost_DEPRECATED_ReportHistogramSample_Params', [
+      mojo.internal.StructField('histogram', 0, 0, ash.ime.mojom.BucketedHistogramSpec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 8, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 ash.ime.mojom.InputMethodHostPendingReceiver = class {
   constructor(handle) {
@@ -670,267 +514,6 @@ ash.ime.mojom.InputMethodHost.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CommitText
-ash.ime.mojom.InputMethodHost_CommitText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost.CommitText_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'cursor_behavior', packedOffset: 8, packedBitOffset: 0, type: ash.ime.mojom.CommitTextCursorBehaviorSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for DEPRECATED_SetComposition
-ash.ime.mojom.InputMethodHost_DEPRECATED_SetComposition_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost.DEPRECATED_SetComposition_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'spans', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.ime.mojom.CompositionSpanSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SetComposition
-ash.ime.mojom.InputMethodHost_SetComposition_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost.SetComposition_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'spans', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.ime.mojom.CompositionSpanSpec, false), nullable: false, minVersion: 0 },
-        { name: 'new_cursor_position', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for SetCompositionRange
-ash.ime.mojom.InputMethodHost_SetCompositionRange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost.SetCompositionRange_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'start_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'end_index', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for FinishComposition
-ash.ime.mojom.InputMethodHost_FinishComposition_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost.FinishComposition_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for DeleteSurroundingText
-ash.ime.mojom.InputMethodHost_DeleteSurroundingText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost.DeleteSurroundingText_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'num_before_cursor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'num_after_cursor', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReplaceSurroundingText
-ash.ime.mojom.InputMethodHost_ReplaceSurroundingText_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost.ReplaceSurroundingText_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'num_before_cursor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'num_after_cursor', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for HandleAutocorrect
-ash.ime.mojom.InputMethodHost_HandleAutocorrect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost.HandleAutocorrect_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'autocorrect_span', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.AutocorrectSpanSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DisplaySuggestions
-ash.ime.mojom.InputMethodHost_DisplaySuggestions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost.DisplaySuggestions_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'suggestions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.ime.mojom.SuggestionCandidateSpec, false), nullable: false, minVersion: 0 },
-        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: ash.ime.mojom.SuggestionsTextContextSpec, nullable: true, minVersion: 10 },
-      ],
-      versions: [{version: 0, packedSize: 16}, {version: 10, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateCandidatesWindow
-ash.ime.mojom.InputMethodHost_UpdateCandidatesWindow_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost.UpdateCandidatesWindow_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'window', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.CandidatesWindowSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestSuggestions
-ash.ime.mojom.InputMethodHost_RequestSuggestions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost.RequestSuggestions_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.SuggestionsRequestSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-ash.ime.mojom.InputMethodHost_RequestSuggestions_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost.RequestSuggestions_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.SuggestionsResponseSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UpdateQuickSettings
-ash.ime.mojom.InputMethodHost_UpdateQuickSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost.UpdateQuickSettings_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.InputMethodQuickSettingsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for RecordUkm
-ash.ime.mojom.InputMethodHost_RecordUkm_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost.RecordUkm_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.UkmEntrySpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for DEPRECATED_ReportKoreanAction
-ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanAction_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost.DEPRECATED_ReportKoreanAction_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'action', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.KoreanActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DEPRECATED_ReportKoreanSettings
-ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanSettings_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost.DEPRECATED_ReportKoreanSettings_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.KoreanSettingsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DEPRECATED_ReportSuggestionOpportunity
-ash.ime.mojom.InputMethodHost_DEPRECATED_ReportSuggestionOpportunity_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost.DEPRECATED_ReportSuggestionOpportunity_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.SuggestionModeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DEPRECATED_ReportHistogramSample
-ash.ime.mojom.InputMethodHost_DEPRECATED_ReportHistogramSample_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.ime.mojom.InputMethodHost.DEPRECATED_ReportHistogramSample_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'histogram', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.BucketedHistogramSpec, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.ime.mojom.InputMethodHostPtr = ash.ime.mojom.InputMethodHostRemote;
 ash.ime.mojom.InputMethodHostRequest = ash.ime.mojom.InputMethodHostPendingReceiver;
 

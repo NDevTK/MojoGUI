@@ -7,62 +7,40 @@
 // Module namespace
 var media_session = media_session || {};
 media_session.mojom = media_session.mojom || {};
+var services = services || {};
+var services = services || {};
 
+media_session.mojom.MediaSessionService = {};
+media_session.mojom.MediaSessionService.$interfaceName = 'media_session.mojom.MediaSessionService';
+media_session.mojom.MediaSessionService_BindAudioFocusManager_ParamsSpec = { $: {} };
+media_session.mojom.MediaSessionService_BindAudioFocusManagerDebug_ParamsSpec = { $: {} };
+media_session.mojom.MediaSessionService_BindMediaControllerManager_ParamsSpec = { $: {} };
+media_session.mojom.MediaSessionService_Bind_ParamsSpec = { $: {} };
 
 // Interface: MediaSessionService
-media_session.mojom.MediaSessionService = {};
+mojo.internal.Struct(
+    media_session.mojom.MediaSessionService_BindAudioFocusManager_ParamsSpec, 'media_session.mojom.MediaSessionService_BindAudioFocusManager_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(media_session.mojom.AudioFocusManagerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media_session.mojom.MediaSessionService_BindAudioFocusManager_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaSessionService_BindAudioFocusManager_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_session.mojom.AudioFocusManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_session.mojom.MediaSessionService_BindAudioFocusManagerDebug_ParamsSpec, 'media_session.mojom.MediaSessionService_BindAudioFocusManagerDebug_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(media_session.mojom.AudioFocusManagerDebugRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media_session.mojom.MediaSessionService_BindAudioFocusManagerDebug_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaSessionService_BindAudioFocusManagerDebug_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_session.mojom.AudioFocusManagerDebugRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_session.mojom.MediaSessionService_BindMediaControllerManager_ParamsSpec, 'media_session.mojom.MediaSessionService_BindMediaControllerManager_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(media_session.mojom.MediaControllerManagerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-media_session.mojom.MediaSessionService_BindMediaControllerManager_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaSessionService_BindMediaControllerManager_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_session.mojom.MediaControllerManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-media_session.mojom.MediaSessionService_Bind_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaSessionService_Bind_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_session.mojom.MediaSessionServiceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media_session.mojom.MediaSessionService_Bind_ParamsSpec, 'media_session.mojom.MediaSessionService_Bind_Params', [
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(media_session.mojom.MediaSessionServiceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 media_session.mojom.MediaSessionServicePendingReceiver = class {
   constructor(handle) {
@@ -144,63 +122,6 @@ media_session.mojom.MediaSessionService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for BindAudioFocusManager
-media_session.mojom.MediaSessionService_BindAudioFocusManager_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaSessionService.BindAudioFocusManager_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_session.mojom.AudioFocusManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindAudioFocusManagerDebug
-media_session.mojom.MediaSessionService_BindAudioFocusManagerDebug_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaSessionService.BindAudioFocusManagerDebug_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_session.mojom.AudioFocusManagerDebugRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for BindMediaControllerManager
-media_session.mojom.MediaSessionService_BindMediaControllerManager_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaSessionService.BindMediaControllerManager_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_session.mojom.MediaControllerManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for Bind
-media_session.mojom.MediaSessionService_Bind_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media_session.mojom.MediaSessionService.Bind_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_session.mojom.MediaSessionServiceRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 media_session.mojom.MediaSessionServicePtr = media_session.mojom.MediaSessionServiceRemote;
 media_session.mojom.MediaSessionServiceRequest = media_session.mojom.MediaSessionServicePendingReceiver;
 

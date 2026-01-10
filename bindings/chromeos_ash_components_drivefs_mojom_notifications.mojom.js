@@ -8,31 +8,27 @@
 var drivefs = drivefs || {};
 drivefs.mojom = drivefs.mojom || {};
 
+drivefs.mojom.DriveFsNotificationSpec = { $: {} };
+drivefs.mojom.MirrorDownloadDeletedNotificationSpec = { $: {} };
 
 // Union: DriveFsNotification
-drivefs.mojom.DriveFsNotificationSpec = { $: mojo.internal.Union(
-    'drivefs.mojom.DriveFsNotification', {
+mojo.internal.Union(
+    drivefs.mojom.DriveFsNotificationSpec, 'drivefs.mojom.DriveFsNotification', {
       'unknown': {
         'ordinal': 0,
         'type': mojo.internal.Bool,
-      }},
+        'nullable': false,
+      },
       'mirror_download_deleted': {
         'ordinal': 1,
         'type': drivefs.mojom.MirrorDownloadDeletedNotificationSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: MirrorDownloadDeletedNotification
-drivefs.mojom.MirrorDownloadDeletedNotificationSpec = {
-  $: {
-    structSpec: {
-      name: 'drivefs.mojom.MirrorDownloadDeletedNotification',
-      packedSize: 16,
-      fields: [
-        { name: 'parent_title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    drivefs.mojom.MirrorDownloadDeletedNotificationSpec, 'drivefs.mojom.MirrorDownloadDeletedNotification', [
+      mojo.internal.StructField('parent_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);

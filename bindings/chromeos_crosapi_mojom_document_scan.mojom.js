@@ -8,538 +8,455 @@
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
 
+crosapi.mojom.ScanFailureModeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.ScannerOperationResultSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.ConnectionTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.OptionTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.OptionUnitSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.OptionConstraintTypeSpec = { $: mojo.internal.Enum() };
+crosapi.mojom.OptionConfigurabilitySpec = { $: mojo.internal.Enum() };
+crosapi.mojom.OptionValueSpec = { $: {} };
+crosapi.mojom.OptionConstraintRestrictionSpec = { $: {} };
+crosapi.mojom.ScannerInfoSpec = { $: {} };
+crosapi.mojom.ScannerEnumFilterSpec = { $: {} };
+crosapi.mojom.IntRangeSpec = { $: {} };
+crosapi.mojom.FixedRangeSpec = { $: {} };
+crosapi.mojom.OptionConstraintSpec = { $: {} };
+crosapi.mojom.ScannerOptionSpec = { $: {} };
+crosapi.mojom.GetScannerListResponseSpec = { $: {} };
+crosapi.mojom.OpenScannerResponseSpec = { $: {} };
+crosapi.mojom.CloseScannerResponseSpec = { $: {} };
+crosapi.mojom.StartScanOptionsSpec = { $: {} };
+crosapi.mojom.StartPreparedScanResponseSpec = { $: {} };
+crosapi.mojom.ReadScanDataResponseSpec = { $: {} };
+crosapi.mojom.OptionSettingSpec = { $: {} };
+crosapi.mojom.OptionGroupSpec = { $: {} };
+crosapi.mojom.SetOptionResultSpec = { $: {} };
+crosapi.mojom.SetOptionsResponseSpec = { $: {} };
+crosapi.mojom.GetOptionGroupsResponseSpec = { $: {} };
+crosapi.mojom.CancelScanResponseSpec = { $: {} };
+crosapi.mojom.DocumentScan = {};
+crosapi.mojom.DocumentScan.$interfaceName = 'crosapi.mojom.DocumentScan';
+crosapi.mojom.DocumentScan_OpenScanner_ParamsSpec = { $: {} };
+crosapi.mojom.DocumentScan_OpenScanner_ResponseParamsSpec = { $: {} };
+crosapi.mojom.DocumentScan_CloseScanner_ParamsSpec = { $: {} };
+crosapi.mojom.DocumentScan_CloseScanner_ResponseParamsSpec = { $: {} };
+crosapi.mojom.DocumentScan_StartPreparedScan_ParamsSpec = { $: {} };
+crosapi.mojom.DocumentScan_StartPreparedScan_ResponseParamsSpec = { $: {} };
+crosapi.mojom.DocumentScan_ReadScanData_ParamsSpec = { $: {} };
+crosapi.mojom.DocumentScan_ReadScanData_ResponseParamsSpec = { $: {} };
+crosapi.mojom.DocumentScan_SetOptions_ParamsSpec = { $: {} };
+crosapi.mojom.DocumentScan_SetOptions_ResponseParamsSpec = { $: {} };
+crosapi.mojom.DocumentScan_GetOptionGroups_ParamsSpec = { $: {} };
+crosapi.mojom.DocumentScan_GetOptionGroups_ResponseParamsSpec = { $: {} };
+crosapi.mojom.DocumentScan_CancelScan_ParamsSpec = { $: {} };
+crosapi.mojom.DocumentScan_CancelScan_ResponseParamsSpec = { $: {} };
 
 // Enum: ScanFailureMode
 crosapi.mojom.ScanFailureMode = {
-  kUnknown: 0,
-  kDeviceBusy: 1,
-  kAdfJammed: 2,
-  kAdfEmpty: 3,
-  kFlatbedOpen: 4,
-  kIoError: 5,
+  kNoFailure: 0,
+  kUnknown: 1,
+  kDeviceBusy: 2,
+  kAdfJammed: 3,
+  kAdfEmpty: 4,
+  kFlatbedOpen: 5,
+  kIoError: 6,
 };
-crosapi.mojom.ScanFailureModeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ScannerOperationResult
 crosapi.mojom.ScannerOperationResult = {
-  kSuccess: 0,
-  kUnsupported: 1,
-  kCancelled: 2,
-  kDeviceBusy: 3,
-  kInvalid: 4,
-  kWrongType: 5,
-  kEndOfData: 6,
-  kAdfJammed: 7,
-  kAdfEmpty: 8,
-  kCoverOpen: 9,
-  kIoError: 10,
-  kAccessDenied: 11,
-  kNoMemory: 12,
-  kDeviceUnreachable: 13,
-  kDeviceMissing: 14,
-  kInternalError: 15,
+  kUnknown: 0,
+  kSuccess: 1,
+  kUnsupported: 2,
+  kCancelled: 3,
+  kDeviceBusy: 4,
+  kInvalid: 5,
+  kWrongType: 6,
+  kEndOfData: 7,
+  kAdfJammed: 8,
+  kAdfEmpty: 9,
+  kCoverOpen: 10,
+  kIoError: 11,
+  kAccessDenied: 12,
+  kNoMemory: 13,
+  kDeviceUnreachable: 14,
+  kDeviceMissing: 15,
+  kInternalError: 16,
 };
-crosapi.mojom.ScannerOperationResultSpec = { $: mojo.internal.Enum() };
 
 // Enum: ConnectionType
 crosapi.mojom.ConnectionType = {
-  kUsb: 0,
-  kNetwork: 1,
+  kUnspecified: 0,
+  kUsb: 1,
+  kNetwork: 2,
 };
-crosapi.mojom.ConnectionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: OptionType
 crosapi.mojom.OptionType = {
-  kBool: 0,
-  kInt: 1,
-  kFixed: 2,
-  kString: 3,
-  kButton: 4,
-  kGroup: 5,
+  kUnknown: 0,
+  kBool: 1,
+  kInt: 2,
+  kFixed: 3,
+  kString: 4,
+  kButton: 5,
+  kGroup: 6,
 };
-crosapi.mojom.OptionTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: OptionUnit
 crosapi.mojom.OptionUnit = {
-  kPixel: 0,
-  kBit: 1,
-  kMm: 2,
-  kDpi: 3,
-  kPercent: 4,
-  kMicrosecond: 5,
+  kUnitless: 0,
+  kPixel: 1,
+  kBit: 2,
+  kMm: 3,
+  kDpi: 4,
+  kPercent: 5,
+  kMicrosecond: 6,
 };
-crosapi.mojom.OptionUnitSpec = { $: mojo.internal.Enum() };
 
 // Enum: OptionConstraintType
 crosapi.mojom.OptionConstraintType = {
-  kIntRange: 0,
-  kFixedRange: 1,
-  kIntList: 2,
-  kFixedList: 3,
-  kStringList: 4,
+  kNone: 0,
+  kIntRange: 1,
+  kFixedRange: 2,
+  kIntList: 3,
+  kFixedList: 4,
+  kStringList: 5,
 };
-crosapi.mojom.OptionConstraintTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: OptionConfigurability
 crosapi.mojom.OptionConfigurability = {
   kNotConfigurable: 0,
-  kHardwareConfigurable: 1,
+  kSoftwareConfigurable: 1,
+  kHardwareConfigurable: 2,
 };
-crosapi.mojom.OptionConfigurabilitySpec = { $: mojo.internal.Enum() };
 
 // Union: OptionValue
-crosapi.mojom.OptionValueSpec = { $: mojo.internal.Union(
-    'crosapi.mojom.OptionValue', {
+mojo.internal.Union(
+    crosapi.mojom.OptionValueSpec, 'crosapi.mojom.OptionValue', {
       'bool_value': {
         'ordinal': 0,
         'type': mojo.internal.Bool,
-      }},
+        'nullable': false,
+      },
       'int_value': {
         'ordinal': 1,
         'type': mojo.internal.Int32,
-      }},
+        'nullable': false,
+      },
       'int_list': {
         'ordinal': 2,
         'type': mojo.internal.Array(mojo.internal.Int32, false),
-      }},
+        'nullable': false,
+      },
       'fixed_value': {
         'ordinal': 3,
         'type': mojo.internal.Double,
-      }},
+        'nullable': false,
+      },
       'fixed_list': {
         'ordinal': 4,
         'type': mojo.internal.Array(mojo.internal.Double, false),
-      }},
+        'nullable': false,
+      },
       'string_value': {
         'ordinal': 5,
         'type': mojo.internal.String,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Union: OptionConstraintRestriction
-crosapi.mojom.OptionConstraintRestrictionSpec = { $: mojo.internal.Union(
-    'crosapi.mojom.OptionConstraintRestriction', {
+mojo.internal.Union(
+    crosapi.mojom.OptionConstraintRestrictionSpec, 'crosapi.mojom.OptionConstraintRestriction', {
       'int_range': {
         'ordinal': 0,
         'type': crosapi.mojom.IntRangeSpec,
-      }},
+        'nullable': false,
+      },
       'fixed_range': {
         'ordinal': 1,
         'type': crosapi.mojom.FixedRangeSpec,
-      }},
+        'nullable': false,
+      },
       'valid_int': {
         'ordinal': 2,
         'type': mojo.internal.Array(mojo.internal.Int32, false),
-      }},
+        'nullable': false,
+      },
       'valid_fixed': {
         'ordinal': 3,
         'type': mojo.internal.Array(mojo.internal.Double, false),
-      }},
+        'nullable': false,
+      },
       'valid_string': {
         'ordinal': 4,
         'type': mojo.internal.Array(mojo.internal.String, false),
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: ScannerInfo
-crosapi.mojom.ScannerInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.ScannerInfo',
-      packedSize: 72,
-      fields: [
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'display_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'manufacturer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'model', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'device_uuid', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'connection_type', packedOffset: 56, packedBitOffset: 0, type: crosapi.mojom.ConnectionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'secure', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'image_formats', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'kUnspecified', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 72}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.ScannerInfoSpec, 'crosapi.mojom.ScannerInfo', [
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('display_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('manufacturer', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('model', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('device_uuid', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('connection_type', 56, 0, crosapi.mojom.ConnectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('secure', 60, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('image_formats', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('kUnspecified', 48, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 72]]);
 
 // Struct: ScannerEnumFilter
-crosapi.mojom.ScannerEnumFilterSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.ScannerEnumFilter',
-      packedSize: 16,
-      fields: [
-        { name: 'local', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'secure', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.ScannerEnumFilterSpec, 'crosapi.mojom.ScannerEnumFilter', [
+      mojo.internal.StructField('local', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('secure', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: IntRange
-crosapi.mojom.IntRangeSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.IntRange',
-      packedSize: 24,
-      fields: [
-        { name: 'min', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'max', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'quant', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.IntRangeSpec, 'crosapi.mojom.IntRange', [
+      mojo.internal.StructField('min', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('max', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('quant', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: FixedRange
-crosapi.mojom.FixedRangeSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.FixedRange',
-      packedSize: 32,
-      fields: [
-        { name: 'min', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'max', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'quant', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.FixedRangeSpec, 'crosapi.mojom.FixedRange', [
+      mojo.internal.StructField('min', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('max', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('quant', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: OptionConstraint
-crosapi.mojom.OptionConstraintSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.OptionConstraint',
-      packedSize: 32,
-      fields: [
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: crosapi.mojom.OptionConstraintTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'restriction', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.OptionConstraintRestrictionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.OptionConstraintSpec, 'crosapi.mojom.OptionConstraint', [
+      mojo.internal.StructField('type', 16, 0, crosapi.mojom.OptionConstraintTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('restriction', 0, 0, crosapi.mojom.OptionConstraintRestrictionSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: ScannerOption
-crosapi.mojom.ScannerOptionSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.ScannerOption',
-      packedSize: 72,
-      fields: [
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'description', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 48, packedBitOffset: 0, type: crosapi.mojom.OptionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'unit', packedOffset: 52, packedBitOffset: 0, type: crosapi.mojom.OptionUnitSpec, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.OptionValueSpec, nullable: true, minVersion: 0 },
-        { name: 'constraint', packedOffset: 40, packedBitOffset: 0, type: crosapi.mojom.OptionConstraintSpec, nullable: true, minVersion: 0 },
-        { name: 'isDetectable', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'configurability', packedOffset: 56, packedBitOffset: 0, type: crosapi.mojom.OptionConfigurabilitySpec, nullable: false, minVersion: 0 },
-        { name: 'isAutoSettable', packedOffset: 60, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'isEmulated', packedOffset: 60, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'isActive', packedOffset: 60, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'isAdvanced', packedOffset: 60, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'isInternal', packedOffset: 60, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 72}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.ScannerOptionSpec, 'crosapi.mojom.ScannerOption', [
+      mojo.internal.StructField('name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('title', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('description', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('type', 48, 0, crosapi.mojom.OptionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('unit', 52, 0, crosapi.mojom.OptionUnitSpec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, crosapi.mojom.OptionValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('constraint', 40, 0, crosapi.mojom.OptionConstraintSpec, null, true, 0, undefined),
+      mojo.internal.StructField('isDetectable', 60, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('configurability', 56, 0, crosapi.mojom.OptionConfigurabilitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('isAutoSettable', 60, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('isEmulated', 60, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('isActive', 60, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('isAdvanced', 60, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('isInternal', 60, 5, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 72]]);
 
 // Struct: GetScannerListResponse
-crosapi.mojom.GetScannerListResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.GetScannerListResponse',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.ScannerOperationResultSpec, nullable: false, minVersion: 0 },
-        { name: 'scanners', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(crosapi.mojom.ScannerInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.GetScannerListResponseSpec, 'crosapi.mojom.GetScannerListResponse', [
+      mojo.internal.StructField('result', 8, 0, crosapi.mojom.ScannerOperationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scanners', 0, 0, mojo.internal.Array(crosapi.mojom.ScannerInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: OpenScannerResponse
-crosapi.mojom.OpenScannerResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.OpenScannerResponse',
-      packedSize: 40,
-      fields: [
-        { name: 'scanner_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'result', packedOffset: 24, packedBitOffset: 0, type: crosapi.mojom.ScannerOperationResultSpec, nullable: false, minVersion: 0 },
-        { name: 'scanner_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, crosapi.mojom.ScannerOptionSpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.OpenScannerResponseSpec, 'crosapi.mojom.OpenScannerResponse', [
+      mojo.internal.StructField('scanner_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('result', 24, 0, crosapi.mojom.ScannerOperationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scanner_handle', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('options', 16, 0, mojo.internal.Map(mojo.internal.String, crosapi.mojom.ScannerOptionSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: CloseScannerResponse
-crosapi.mojom.CloseScannerResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.CloseScannerResponse',
-      packedSize: 24,
-      fields: [
-        { name: 'scanner_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.ScannerOperationResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.CloseScannerResponseSpec, 'crosapi.mojom.CloseScannerResponse', [
+      mojo.internal.StructField('scanner_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('result', 8, 0, crosapi.mojom.ScannerOperationResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: StartScanOptions
-crosapi.mojom.StartScanOptionsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.StartScanOptions',
-      packedSize: 24,
-      fields: [
-        { name: 'format', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'max_read_size_$flag', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 1, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'max_read_size_$value', originalFieldName: 'max_read_size' } },
-        { name: 'max_read_size_$value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 1, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'max_read_size_$flag', originalFieldName: 'max_read_size' } },
-      ],
-      versions: [{version: 0, packedSize: 16}, {version: 1, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.StartScanOptionsSpec, 'crosapi.mojom.StartScanOptions', [
+      mojo.internal.StructField('format', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('max_read_size_$flag', 12, 0, mojo.internal.Bool, false, false, 1, { isPrimary: true, linkedValueFieldName: 'max_read_size_$value', originalFieldName: 'max_read_size' }),
+      mojo.internal.StructField('max_read_size_$value', 8, 0, mojo.internal.Uint32, 0, false, 1, { isPrimary: false, linkedValueFieldName: 'max_read_size_$flag', originalFieldName: 'max_read_size' }),
+    ],
+    [[0, 16], [1, 24]]);
 
 // Struct: StartPreparedScanResponse
-crosapi.mojom.StartPreparedScanResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.StartPreparedScanResponse',
-      packedSize: 32,
-      fields: [
-        { name: 'scanner_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'result', packedOffset: 16, packedBitOffset: 0, type: crosapi.mojom.ScannerOperationResultSpec, nullable: false, minVersion: 0 },
-        { name: 'job_handle', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.StartPreparedScanResponseSpec, 'crosapi.mojom.StartPreparedScanResponse', [
+      mojo.internal.StructField('scanner_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('result', 16, 0, crosapi.mojom.ScannerOperationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('job_handle', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: ReadScanDataResponse
-crosapi.mojom.ReadScanDataResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.ReadScanDataResponse',
-      packedSize: 40,
-      fields: [
-        { name: 'job_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'result', packedOffset: 16, packedBitOffset: 0, type: crosapi.mojom.ScannerOperationResultSpec, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int8, false), nullable: true, minVersion: 0 },
-        { name: 'estimated_completion_$flag', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'estimated_completion_$value', originalFieldName: 'estimated_completion' } },
-        { name: 'estimated_completion_$value', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'estimated_completion_$flag', originalFieldName: 'estimated_completion' } },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.ReadScanDataResponseSpec, 'crosapi.mojom.ReadScanDataResponse', [
+      mojo.internal.StructField('job_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('result', 16, 0, crosapi.mojom.ScannerOperationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Int8, false), null, true, 0, undefined),
+      mojo.internal.StructField('estimated_completion_$flag', 24, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'estimated_completion_$value', originalFieldName: 'estimated_completion' }),
+      mojo.internal.StructField('estimated_completion_$value', 20, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'estimated_completion_$flag', originalFieldName: 'estimated_completion' }),
+    ],
+    [[0, 40]]);
 
 // Struct: OptionSetting
-crosapi.mojom.OptionSettingSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.OptionSetting',
-      packedSize: 40,
-      fields: [
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: crosapi.mojom.OptionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.OptionValueSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.OptionSettingSpec, 'crosapi.mojom.OptionSetting', [
+      mojo.internal.StructField('name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('type', 24, 0, crosapi.mojom.OptionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, crosapi.mojom.OptionValueSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: OptionGroup
-crosapi.mojom.OptionGroupSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.OptionGroup',
-      packedSize: 24,
-      fields: [
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'members', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.OptionGroupSpec, 'crosapi.mojom.OptionGroup', [
+      mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('members', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: SetOptionResult
-crosapi.mojom.SetOptionResultSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.SetOptionResult',
-      packedSize: 24,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.ScannerOperationResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.SetOptionResultSpec, 'crosapi.mojom.SetOptionResult', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('result', 8, 0, crosapi.mojom.ScannerOperationResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: SetOptionsResponse
-crosapi.mojom.SetOptionsResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.SetOptionsResponse',
-      packedSize: 32,
-      fields: [
-        { name: 'scanner_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'results', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(crosapi.mojom.SetOptionResultSpec, false), nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, crosapi.mojom.ScannerOptionSpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.SetOptionsResponseSpec, 'crosapi.mojom.SetOptionsResponse', [
+      mojo.internal.StructField('scanner_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('results', 8, 0, mojo.internal.Array(crosapi.mojom.SetOptionResultSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('options', 16, 0, mojo.internal.Map(mojo.internal.String, crosapi.mojom.ScannerOptionSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: GetOptionGroupsResponse
-crosapi.mojom.GetOptionGroupsResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.GetOptionGroupsResponse',
-      packedSize: 32,
-      fields: [
-        { name: 'scanner_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'result', packedOffset: 16, packedBitOffset: 0, type: crosapi.mojom.ScannerOperationResultSpec, nullable: false, minVersion: 0 },
-        { name: 'groups', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(crosapi.mojom.OptionGroupSpec, false), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.GetOptionGroupsResponseSpec, 'crosapi.mojom.GetOptionGroupsResponse', [
+      mojo.internal.StructField('scanner_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('result', 16, 0, crosapi.mojom.ScannerOperationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('groups', 8, 0, mojo.internal.Array(crosapi.mojom.OptionGroupSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: CancelScanResponse
-crosapi.mojom.CancelScanResponseSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.CancelScanResponse',
-      packedSize: 24,
-      fields: [
-        { name: 'job_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.ScannerOperationResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.CancelScanResponseSpec, 'crosapi.mojom.CancelScanResponse', [
+      mojo.internal.StructField('job_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('result', 8, 0, crosapi.mojom.ScannerOperationResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: DocumentScan
-crosapi.mojom.DocumentScan = {};
+mojo.internal.Struct(
+    crosapi.mojom.DocumentScan_OpenScanner_ParamsSpec, 'crosapi.mojom.DocumentScan_OpenScanner_Params', [
+      mojo.internal.StructField('client_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('scanner_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-crosapi.mojom.DocumentScan_OpenScanner_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.DocumentScan_OpenScanner_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'scanner_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.DocumentScan_OpenScanner_ResponseParamsSpec, 'crosapi.mojom.DocumentScan_OpenScanner_ResponseParams', [
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.OpenScannerResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.DocumentScan_CloseScanner_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.DocumentScan_CloseScanner_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'scanner_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.DocumentScan_CloseScanner_ParamsSpec, 'crosapi.mojom.DocumentScan_CloseScanner_Params', [
+      mojo.internal.StructField('scanner_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.DocumentScan_StartPreparedScan_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.DocumentScan_StartPreparedScan_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'scanner_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.StartScanOptionsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.DocumentScan_CloseScanner_ResponseParamsSpec, 'crosapi.mojom.DocumentScan_CloseScanner_ResponseParams', [
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.CloseScannerResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.DocumentScan_ReadScanData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.DocumentScan_ReadScanData_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'job_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.DocumentScan_StartPreparedScan_ParamsSpec, 'crosapi.mojom.DocumentScan_StartPreparedScan_Params', [
+      mojo.internal.StructField('scanner_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('options', 8, 0, crosapi.mojom.StartScanOptionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-crosapi.mojom.DocumentScan_SetOptions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.DocumentScan_SetOptions_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'scanner_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(crosapi.mojom.OptionSettingSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.DocumentScan_StartPreparedScan_ResponseParamsSpec, 'crosapi.mojom.DocumentScan_StartPreparedScan_ResponseParams', [
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.StartPreparedScanResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.DocumentScan_GetOptionGroups_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.DocumentScan_GetOptionGroups_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'scanner_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.DocumentScan_ReadScanData_ParamsSpec, 'crosapi.mojom.DocumentScan_ReadScanData_Params', [
+      mojo.internal.StructField('job_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-crosapi.mojom.DocumentScan_CancelScan_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.DocumentScan_CancelScan_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'job_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    crosapi.mojom.DocumentScan_ReadScanData_ResponseParamsSpec, 'crosapi.mojom.DocumentScan_ReadScanData_ResponseParams', [
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.ReadScanDataResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    crosapi.mojom.DocumentScan_SetOptions_ParamsSpec, 'crosapi.mojom.DocumentScan_SetOptions_Params', [
+      mojo.internal.StructField('scanner_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('options', 8, 0, mojo.internal.Array(crosapi.mojom.OptionSettingSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    crosapi.mojom.DocumentScan_SetOptions_ResponseParamsSpec, 'crosapi.mojom.DocumentScan_SetOptions_ResponseParams', [
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.SetOptionsResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    crosapi.mojom.DocumentScan_GetOptionGroups_ParamsSpec, 'crosapi.mojom.DocumentScan_GetOptionGroups_Params', [
+      mojo.internal.StructField('scanner_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    crosapi.mojom.DocumentScan_GetOptionGroups_ResponseParamsSpec, 'crosapi.mojom.DocumentScan_GetOptionGroups_ResponseParams', [
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.GetOptionGroupsResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    crosapi.mojom.DocumentScan_CancelScan_ParamsSpec, 'crosapi.mojom.DocumentScan_CancelScan_Params', [
+      mojo.internal.StructField('job_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    crosapi.mojom.DocumentScan_CancelScan_ResponseParamsSpec, 'crosapi.mojom.DocumentScan_CancelScan_ResponseParams', [
+      mojo.internal.StructField('response', 0, 0, crosapi.mojom.CancelScanResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 crosapi.mojom.DocumentScanPendingReceiver = class {
   constructor(handle) {
@@ -648,199 +565,6 @@ crosapi.mojom.DocumentScan.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OpenScanner
-crosapi.mojom.DocumentScan_OpenScanner_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.DocumentScan.OpenScanner_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'scanner_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-crosapi.mojom.DocumentScan_OpenScanner_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.DocumentScan.OpenScanner_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.OpenScannerResponseSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CloseScanner
-crosapi.mojom.DocumentScan_CloseScanner_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.DocumentScan.CloseScanner_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'scanner_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-crosapi.mojom.DocumentScan_CloseScanner_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.DocumentScan.CloseScanner_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.CloseScannerResponseSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StartPreparedScan
-crosapi.mojom.DocumentScan_StartPreparedScan_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.DocumentScan.StartPreparedScan_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'scanner_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.StartScanOptionsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-crosapi.mojom.DocumentScan_StartPreparedScan_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.DocumentScan.StartPreparedScan_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.StartPreparedScanResponseSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ReadScanData
-crosapi.mojom.DocumentScan_ReadScanData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.DocumentScan.ReadScanData_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'job_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-crosapi.mojom.DocumentScan_ReadScanData_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.DocumentScan.ReadScanData_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.ReadScanDataResponseSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetOptions
-crosapi.mojom.DocumentScan_SetOptions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.DocumentScan.SetOptions_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'scanner_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(crosapi.mojom.OptionSettingSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-crosapi.mojom.DocumentScan_SetOptions_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.DocumentScan.SetOptions_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.SetOptionsResponseSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetOptionGroups
-crosapi.mojom.DocumentScan_GetOptionGroups_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.DocumentScan.GetOptionGroups_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'scanner_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-crosapi.mojom.DocumentScan_GetOptionGroups_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.DocumentScan.GetOptionGroups_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.GetOptionGroupsResponseSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CancelScan
-crosapi.mojom.DocumentScan_CancelScan_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.DocumentScan.CancelScan_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'job_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-crosapi.mojom.DocumentScan_CancelScan_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'crosapi.mojom.DocumentScan.CancelScan_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.CancelScanResponseSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 crosapi.mojom.DocumentScanPtr = crosapi.mojom.DocumentScanRemote;
 crosapi.mojom.DocumentScanRequest = crosapi.mojom.DocumentScanPendingReceiver;
 

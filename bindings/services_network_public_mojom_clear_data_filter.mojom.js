@@ -9,23 +9,17 @@ var network = network || {};
 network.mojom = network.mojom || {};
 var url = url || {};
 
+network.mojom.TypeSpec = { $: mojo.internal.Enum() };
+network.mojom.ClearDataFilterSpec = { $: {} };
 
 // Enum: Type
 network.mojom.Type = {
   DELETE_MATCHES: 0,
   KEEP_MATCHES: 1,
 };
-network.mojom.TypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: ClearDataFilter
-network.mojom.ClearDataFilterSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.ClearDataFilter',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.ClearDataFilterSpec, 'network.mojom.ClearDataFilter', [
+    ],
+    [{version: 0, packedSize: 8}]);

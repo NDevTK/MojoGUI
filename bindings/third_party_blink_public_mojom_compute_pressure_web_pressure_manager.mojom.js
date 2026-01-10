@@ -7,25 +7,31 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var services = services || {};
+var services = services || {};
 var blink = blink || {};
 
+blink.mojom.WebPressureManager = {};
+blink.mojom.WebPressureManager.$interfaceName = 'blink.mojom.WebPressureManager';
+blink.mojom.WebPressureManager_AddClient_ParamsSpec = { $: {} };
+blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec = { $: {} };
+blink.mojom.WebPressureClient = {};
+blink.mojom.WebPressureClient.$interfaceName = 'blink.mojom.WebPressureClient';
+blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec = { $: {} };
 
 // Interface: WebPressureManager
-blink.mojom.WebPressureManager = {};
+mojo.internal.Struct(
+    blink.mojom.WebPressureManager_AddClient_ParamsSpec, 'blink.mojom.WebPressureManager_AddClient_Params', [
+      mojo.internal.StructField('source', 8, 0, device.mojom.PressureSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.WebPressureClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.WebPressureManager_AddClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebPressureManager_AddClient_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: device.mojom.PressureSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.WebPressureClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec, 'blink.mojom.WebPressureManager_AddClient_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, device.mojom.PressureManagerAddClientResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.WebPressureManagerPendingReceiver = class {
   constructor(handle) {
@@ -80,54 +86,16 @@ blink.mojom.WebPressureManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddClient
-blink.mojom.WebPressureManager_AddClient_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebPressureManager.AddClient_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: device.mojom.PressureSourceSpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.WebPressureClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebPressureManager.AddClient_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.PressureManagerAddClientResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.WebPressureManagerPtr = blink.mojom.WebPressureManagerRemote;
 blink.mojom.WebPressureManagerRequest = blink.mojom.WebPressureManagerPendingReceiver;
 
 
 // Interface: WebPressureClient
-blink.mojom.WebPressureClient = {};
-
-blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebPressureClient_OnPressureUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebPressureUpdateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec, 'blink.mojom.WebPressureClient_OnPressureUpdated_Params', [
+      mojo.internal.StructField('update', 0, 0, blink.mojom.WebPressureUpdateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 blink.mojom.WebPressureClientPendingReceiver = class {
   constructor(handle) {
@@ -182,21 +150,6 @@ blink.mojom.WebPressureClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnPressureUpdated
-blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.WebPressureClient.OnPressureUpdated_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'update', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebPressureUpdateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.WebPressureClientPtr = blink.mojom.WebPressureClientRemote;
 blink.mojom.WebPressureClientRequest = blink.mojom.WebPressureClientPendingReceiver;
 

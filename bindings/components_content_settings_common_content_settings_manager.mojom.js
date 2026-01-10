@@ -7,9 +7,19 @@
 // Module namespace
 var content_settings = content_settings || {};
 content_settings.mojom = content_settings.mojom || {};
+var components = components || {};
+var components = components || {};
+var services = services || {};
 var blink = blink || {};
 var url = url || {};
 
+content_settings.mojom.StorageTypeSpec = { $: mojo.internal.Enum() };
+content_settings.mojom.ContentSettingsManager = {};
+content_settings.mojom.ContentSettingsManager.$interfaceName = 'content_settings.mojom.ContentSettingsManager';
+content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec = { $: {} };
+content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec = { $: {} };
+content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParamsSpec = { $: {} };
+content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec = { $: {} };
 
 // Enum: StorageType
 content_settings.mojom.StorageType = {
@@ -20,54 +30,36 @@ content_settings.mojom.StorageType = {
   CACHE: 4,
   WEB_LOCKS: 5,
 };
-content_settings.mojom.StorageTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: ContentSettingsManager
-content_settings.mojom.ContentSettingsManager = {};
+mojo.internal.Struct(
+    content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec, 'content_settings.mojom.ContentSettingsManager_Clone_Params', [
+      mojo.internal.StructField('clone', 0, 0, mojo.internal.InterfaceRequest(content_settings.mojom.ContentSettingsManagerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content_settings.mojom.ContentSettingsManager_Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'clone', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(content_settings.mojom.ContentSettingsManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec, 'content_settings.mojom.ContentSettingsManager_AllowStorageAccess_Params', [
+      mojo.internal.StructField('frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('storage_type', 32, 0, content_settings.mojom.StorageTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('origin', 8, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('site_for_cookies', 16, 0, network.mojom.SiteForCookiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('top_frame_origin', 24, 0, url.mojom.OriginSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
-content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content_settings.mojom.ContentSettingsManager_AllowStorageAccess_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'storage_type', packedOffset: 32, packedBitOffset: 0, type: content_settings.mojom.StorageTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'site_for_cookies', packedOffset: 16, packedBitOffset: 0, type: network.mojom.SiteForCookiesSpec, nullable: false, minVersion: 0 },
-        { name: 'top_frame_origin', packedOffset: 24, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParamsSpec, 'content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParams', [
+      mojo.internal.StructField('allowed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content_settings.mojom.ContentSettingsManager_OnContentBlocked_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: content_settings.mojom.ContentSettingsTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec, 'content_settings.mojom.ContentSettingsManager_OnContentBlocked_Params', [
+      mojo.internal.StructField('frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, content_settings.mojom.ContentSettingsTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 content_settings.mojom.ContentSettingsManagerPendingReceiver = class {
   constructor(handle) {
@@ -140,67 +132,6 @@ content_settings.mojom.ContentSettingsManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Clone
-content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content_settings.mojom.ContentSettingsManager.Clone_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'clone', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(content_settings.mojom.ContentSettingsManagerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AllowStorageAccess
-content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content_settings.mojom.ContentSettingsManager.AllowStorageAccess_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'storage_type', packedOffset: 32, packedBitOffset: 0, type: content_settings.mojom.StorageTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'site_for_cookies', packedOffset: 16, packedBitOffset: 0, type: network.mojom.SiteForCookiesSpec, nullable: false, minVersion: 0 },
-        { name: 'top_frame_origin', packedOffset: 24, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content_settings.mojom.ContentSettingsManager.AllowStorageAccess_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnContentBlocked
-content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'content_settings.mojom.ContentSettingsManager.OnContentBlocked_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'frame_token', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LocalFrameTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: content_settings.mojom.ContentSettingsTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 content_settings.mojom.ContentSettingsManagerPtr = content_settings.mojom.ContentSettingsManagerRemote;
 content_settings.mojom.ContentSettingsManagerRequest = content_settings.mojom.ContentSettingsManagerPendingReceiver;
 

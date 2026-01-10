@@ -9,66 +9,63 @@ var device = device || {};
 device.mojom = device.mojom || {};
 var url = url || {};
 
+device.mojom.TestDeviceInfoSpec = { $: {} };
+device.mojom.UsbDeviceManagerTest = {};
+device.mojom.UsbDeviceManagerTest.$interfaceName = 'device.mojom.UsbDeviceManagerTest';
+device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec = { $: {} };
+device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec = { $: {} };
+device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec = { $: {} };
+device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ResponseParamsSpec = { $: {} };
+device.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec = { $: {} };
+device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec = { $: {} };
 
 // Struct: TestDeviceInfo
-device.mojom.TestDeviceInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.TestDeviceInfo',
-      packedSize: 40,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'serial_number', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'landing_page', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.TestDeviceInfoSpec, 'device.mojom.TestDeviceInfo', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('serial_number', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('landing_page', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Interface: UsbDeviceManagerTest
-device.mojom.UsbDeviceManagerTest = {};
+mojo.internal.Struct(
+    device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec, 'device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_Params', [
+      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('serial_number', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('landing_page', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'serial_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'landing_page', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec, 'device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParams', [
+      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec, 'device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_Params', [
+      mojo.internal.StructField('guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-device.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManagerTest_GetTestDevices_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ResponseParamsSpec, 'device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ResponseParams', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    device.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec, 'device.mojom.UsbDeviceManagerTest_GetTestDevices_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec, 'device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParams', [
+      mojo.internal.StructField('devices', 0, 0, mojo.internal.Array(device.mojom.TestDeviceInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 device.mojom.UsbDeviceManagerTestPendingReceiver = class {
   constructor(handle) {
@@ -116,7 +113,7 @@ device.mojom.UsbDeviceManagerTestRemoteCallHandler = class {
     return this.proxy.sendMessage(
       1,  // ordinal
       device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec,
-      null,
+      device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ResponseParamsSpec,
       [guid]);
   }
 
@@ -141,77 +138,6 @@ device.mojom.UsbDeviceManagerTest.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddDeviceForTesting
-device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManagerTest.AddDeviceForTesting_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'serial_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'landing_page', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManagerTest.AddDeviceForTesting_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for RemoveDeviceForTesting
-device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManagerTest.RemoveDeviceForTesting_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetTestDevices
-device.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManagerTest.GetTestDevices_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.UsbDeviceManagerTest.GetTestDevices_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.TestDeviceInfoSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 device.mojom.UsbDeviceManagerTestPtr = device.mojom.UsbDeviceManagerTestRemote;
 device.mojom.UsbDeviceManagerTestRequest = device.mojom.UsbDeviceManagerTestPendingReceiver;
 

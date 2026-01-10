@@ -8,47 +8,50 @@
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
 
+arc.mojom.TracingInstance = {};
+arc.mojom.TracingInstance.$interfaceName = 'arc.mojom.TracingInstance';
+arc.mojom.TracingInstance_QueryAvailableCategories_ParamsSpec = { $: {} };
+arc.mojom.TracingInstance_QueryAvailableCategories_ResponseParamsSpec = { $: {} };
+arc.mojom.TracingInstance_StartTracing_ParamsSpec = { $: {} };
+arc.mojom.TracingInstance_StartTracing_ResponseParamsSpec = { $: {} };
+arc.mojom.TracingInstance_StopTracing_ParamsSpec = { $: {} };
+arc.mojom.TracingInstance_StopTracing_ResponseParamsSpec = { $: {} };
 
 // Interface: TracingInstance
-arc.mojom.TracingInstance = {};
+mojo.internal.Struct(
+    arc.mojom.TracingInstance_QueryAvailableCategories_ParamsSpec, 'arc.mojom.TracingInstance_QueryAvailableCategories_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-arc.mojom.TracingInstance_QueryAvailableCategories_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.TracingInstance_QueryAvailableCategories_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.TracingInstance_QueryAvailableCategories_ResponseParamsSpec, 'arc.mojom.TracingInstance_QueryAvailableCategories_ResponseParams', [
+      mojo.internal.StructField('categories', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-arc.mojom.TracingInstance_StartTracing_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.TracingInstance_StartTracing_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'categories', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'socket', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: true, minVersion: 1 },
-      ],
-      versions: [{version: 0, packedSize: 16}, {version: 1, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.TracingInstance_StartTracing_ParamsSpec, 'arc.mojom.TracingInstance_StartTracing_Params', [
+      mojo.internal.StructField('categories', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('socket', 8, 0, mojo.internal.Handle, null, true, 1, undefined),
+    ],
+    [[0, 16], [1, 24]]);
 
-arc.mojom.TracingInstance_StopTracing_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.TracingInstance_StopTracing_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    arc.mojom.TracingInstance_StartTracing_ResponseParamsSpec, 'arc.mojom.TracingInstance_StartTracing_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    arc.mojom.TracingInstance_StopTracing_ParamsSpec, 'arc.mojom.TracingInstance_StopTracing_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    arc.mojom.TracingInstance_StopTracing_ResponseParamsSpec, 'arc.mojom.TracingInstance_StopTracing_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 arc.mojom.TracingInstancePendingReceiver = class {
   constructor(handle) {
@@ -121,87 +124,6 @@ arc.mojom.TracingInstance.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for QueryAvailableCategories
-arc.mojom.TracingInstance_QueryAvailableCategories_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.TracingInstance.QueryAvailableCategories_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-arc.mojom.TracingInstance_QueryAvailableCategories_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.TracingInstance.QueryAvailableCategories_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'categories', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StartTracing
-arc.mojom.TracingInstance_StartTracing_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.TracingInstance.StartTracing_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'categories', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'socket', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: true, minVersion: 1 },
-      ],
-      versions: [{version: 0, packedSize: 16}, {version: 1, packedSize: 24}]
-    }
-  }
-};
-
-arc.mojom.TracingInstance_StartTracing_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.TracingInstance.StartTracing_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StopTracing
-arc.mojom.TracingInstance_StopTracing_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.TracingInstance.StopTracing_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-arc.mojom.TracingInstance_StopTracing_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'arc.mojom.TracingInstance.StopTracing_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 arc.mojom.TracingInstancePtr = arc.mojom.TracingInstanceRemote;
 arc.mojom.TracingInstanceRequest = arc.mojom.TracingInstancePendingReceiver;
 

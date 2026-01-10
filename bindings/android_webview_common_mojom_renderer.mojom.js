@@ -8,34 +8,22 @@
 var android_webview = android_webview || {};
 android_webview.mojom = android_webview.mojom || {};
 
+android_webview.mojom.Renderer = {};
+android_webview.mojom.Renderer.$interfaceName = 'android_webview.mojom.Renderer';
+android_webview.mojom.Renderer_ClearCache_ParamsSpec = { $: {} };
+android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec = { $: {} };
 
 // Interface: Renderer
-android_webview.mojom.Renderer = {};
+mojo.internal.Struct(
+    android_webview.mojom.Renderer_ClearCache_ParamsSpec, 'android_webview.mojom.Renderer_ClearCache_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-android_webview.mojom.Renderer_ClearCache_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'android_webview.mojom.Renderer_ClearCache_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'android_webview.mojom.Renderer_SetJsOnlineProperty_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'network_up', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec, 'android_webview.mojom.Renderer_SetJsOnlineProperty_Params', [
+      mojo.internal.StructField('network_up', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 android_webview.mojom.RendererPendingReceiver = class {
   constructor(handle) {
@@ -99,34 +87,6 @@ android_webview.mojom.Renderer.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ClearCache
-android_webview.mojom.Renderer_ClearCache_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'android_webview.mojom.Renderer.ClearCache_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetJsOnlineProperty
-android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'android_webview.mojom.Renderer.SetJsOnlineProperty_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'network_up', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 android_webview.mojom.RendererPtr = android_webview.mojom.RendererRemote;
 android_webview.mojom.RendererRequest = android_webview.mojom.RendererPendingReceiver;
 

@@ -8,52 +8,34 @@
 var new_tab_page = new_tab_page || {};
 new_tab_page.mojom = new_tab_page.mojom || {};
 
+new_tab_page.mojom.AuthTypeSpec = { $: mojo.internal.Enum() };
+new_tab_page.mojom.MicrosoftAuthUntrustedDocument = {};
+new_tab_page.mojom.MicrosoftAuthUntrustedDocument.$interfaceName = 'new_tab_page.mojom.MicrosoftAuthUntrustedDocument';
+new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenPopup_ParamsSpec = { $: {} };
+new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenSilent_ParamsSpec = { $: {} };
+new_tab_page.mojom.MicrosoftAuthUntrustedDocument_SignOut_ParamsSpec = { $: {} };
 
 // Enum: AuthType
 new_tab_page.mojom.AuthType = {
   kSilent: 0,
   kPopup: 1,
 };
-new_tab_page.mojom.AuthTypeSpec = { $: mojo.internal.Enum() };
 
 // Interface: MicrosoftAuthUntrustedDocument
-new_tab_page.mojom.MicrosoftAuthUntrustedDocument = {};
+mojo.internal.Struct(
+    new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenPopup_ParamsSpec, 'new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenPopup_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenPopup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenPopup_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenSilent_ParamsSpec, 'new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenSilent_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenSilent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenSilent_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-new_tab_page.mojom.MicrosoftAuthUntrustedDocument_SignOut_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_page.mojom.MicrosoftAuthUntrustedDocument_SignOut_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    new_tab_page.mojom.MicrosoftAuthUntrustedDocument_SignOut_ParamsSpec, 'new_tab_page.mojom.MicrosoftAuthUntrustedDocument_SignOut_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 new_tab_page.mojom.MicrosoftAuthUntrustedDocumentPendingReceiver = class {
   constructor(handle) {
@@ -126,46 +108,6 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocument.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AcquireTokenPopup
-new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenPopup_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_page.mojom.MicrosoftAuthUntrustedDocument.AcquireTokenPopup_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for AcquireTokenSilent
-new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenSilent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_page.mojom.MicrosoftAuthUntrustedDocument.AcquireTokenSilent_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SignOut
-new_tab_page.mojom.MicrosoftAuthUntrustedDocument_SignOut_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'new_tab_page.mojom.MicrosoftAuthUntrustedDocument.SignOut_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 new_tab_page.mojom.MicrosoftAuthUntrustedDocumentPtr = new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemote;
 new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRequest = new_tab_page.mojom.MicrosoftAuthUntrustedDocumentPendingReceiver;
 

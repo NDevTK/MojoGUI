@@ -10,61 +10,44 @@ ash.mojom = ash.mojom || {};
 ash.mojom.scanner_feedback_ui = ash.mojom.scanner_feedback_ui || {};
 var url = url || {};
 
+ash.mojom.scanner_feedback_ui.FeedbackInfoSpec = { $: {} };
+ash.mojom.scanner_feedback_ui.PageHandler = {};
+ash.mojom.scanner_feedback_ui.PageHandler.$interfaceName = 'ash.mojom.scanner_feedback_ui.PageHandler';
+ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ParamsSpec = { $: {} };
+ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec = { $: {} };
+ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_ParamsSpec = { $: {} };
+ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec = { $: {} };
 
 // Struct: FeedbackInfo
-ash.mojom.scanner_feedback_ui.FeedbackInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.scanner_feedback_ui.FeedbackInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'action_details', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'screenshot_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.mojom.scanner_feedback_ui.FeedbackInfoSpec, 'ash.mojom.scanner_feedback_ui.FeedbackInfo', [
+      mojo.internal.StructField('action_details', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('screenshot_url', 8, 0, url.mojom.UrlSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: PageHandler
-ash.mojom.scanner_feedback_ui.PageHandler = {};
+mojo.internal.Struct(
+    ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ParamsSpec, 'ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec, 'ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParams', [
+      mojo.internal.StructField('feedback_info', 0, 0, ash.mojom.scanner_feedback_ui.FeedbackInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_ParamsSpec, 'ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'user_description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec, 'ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_Params', [
+      mojo.internal.StructField('user_description', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.mojom.scanner_feedback_ui.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -137,60 +120,6 @@ ash.mojom.scanner_feedback_ui.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetFeedbackInfo
-ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.scanner_feedback_ui.PageHandler.GetFeedbackInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.scanner_feedback_ui.PageHandler.GetFeedbackInfo_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'feedback_info', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.scanner_feedback_ui.FeedbackInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CloseDialog
-ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.scanner_feedback_ui.PageHandler.CloseDialog_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SendFeedback
-ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.mojom.scanner_feedback_ui.PageHandler.SendFeedback_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'user_description', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.mojom.scanner_feedback_ui.PageHandlerPtr = ash.mojom.scanner_feedback_ui.PageHandlerRemote;
 ash.mojom.scanner_feedback_ui.PageHandlerRequest = ash.mojom.scanner_feedback_ui.PageHandlerPendingReceiver;
 

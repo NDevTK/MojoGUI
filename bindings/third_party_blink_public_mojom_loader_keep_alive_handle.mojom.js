@@ -8,10 +8,10 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.KeepAliveHandle = {};
+blink.mojom.KeepAliveHandle.$interfaceName = 'blink.mojom.KeepAliveHandle';
 
 // Interface: KeepAliveHandle
-blink.mojom.KeepAliveHandle = {};
-
 blink.mojom.KeepAliveHandlePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -56,7 +56,6 @@ blink.mojom.KeepAliveHandle.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 blink.mojom.KeepAliveHandlePtr = blink.mojom.KeepAliveHandleRemote;
 blink.mojom.KeepAliveHandleRequest = blink.mojom.KeepAliveHandlePendingReceiver;
 

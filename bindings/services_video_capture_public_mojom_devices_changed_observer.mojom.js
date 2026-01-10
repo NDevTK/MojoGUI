@@ -8,21 +8,15 @@
 var video_capture = video_capture || {};
 video_capture.mojom = video_capture.mojom || {};
 
+video_capture.mojom.DevicesChangedObserver = {};
+video_capture.mojom.DevicesChangedObserver.$interfaceName = 'video_capture.mojom.DevicesChangedObserver';
+video_capture.mojom.DevicesChangedObserver_OnDevicesChanged_ParamsSpec = { $: {} };
 
 // Interface: DevicesChangedObserver
-video_capture.mojom.DevicesChangedObserver = {};
-
-video_capture.mojom.DevicesChangedObserver_OnDevicesChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.DevicesChangedObserver_OnDevicesChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    video_capture.mojom.DevicesChangedObserver_OnDevicesChanged_ParamsSpec, 'video_capture.mojom.DevicesChangedObserver_OnDevicesChanged_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 video_capture.mojom.DevicesChangedObserverPendingReceiver = class {
   constructor(handle) {
@@ -77,20 +71,6 @@ video_capture.mojom.DevicesChangedObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnDevicesChanged
-video_capture.mojom.DevicesChangedObserver_OnDevicesChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'video_capture.mojom.DevicesChangedObserver.OnDevicesChanged_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 video_capture.mojom.DevicesChangedObserverPtr = video_capture.mojom.DevicesChangedObserverRemote;
 video_capture.mojom.DevicesChangedObserverRequest = video_capture.mojom.DevicesChangedObserverPendingReceiver;
 

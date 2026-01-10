@@ -8,59 +8,35 @@
 var remoting = remoting || {};
 remoting.mojom = remoting.mojom || {};
 
+remoting.mojom.BoolSpec = { $: {} };
+remoting.mojom.FloatSpec = { $: {} };
+remoting.mojom.Int32Spec = { $: {} };
+remoting.mojom.UInt32Spec = { $: {} };
 
 // Struct: Bool
-remoting.mojom.BoolSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.Bool',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.BoolSpec, 'remoting.mojom.Bool', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: Float
-remoting.mojom.FloatSpec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.Float',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.FloatSpec, 'remoting.mojom.Float', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: Int32
-remoting.mojom.Int32Spec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.Int32',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.Int32Spec, 'remoting.mojom.Int32', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: UInt32
-remoting.mojom.UInt32Spec = {
-  $: {
-    structSpec: {
-      name: 'remoting.mojom.UInt32',
-      packedSize: 16,
-      fields: [
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    remoting.mojom.UInt32Spec, 'remoting.mojom.UInt32', [
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);

@@ -8,10 +8,10 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.DedicatedWorkerHost = {};
+blink.mojom.DedicatedWorkerHost.$interfaceName = 'blink.mojom.DedicatedWorkerHost';
 
 // Interface: DedicatedWorkerHost
-blink.mojom.DedicatedWorkerHost = {};
-
 blink.mojom.DedicatedWorkerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -56,7 +56,6 @@ blink.mojom.DedicatedWorkerHost.getRemote = function() {
   return remote.$;
 };
 
-// Legacy compatibility
 blink.mojom.DedicatedWorkerHostPtr = blink.mojom.DedicatedWorkerHostRemote;
 blink.mojom.DedicatedWorkerHostRequest = blink.mojom.DedicatedWorkerHostPendingReceiver;
 

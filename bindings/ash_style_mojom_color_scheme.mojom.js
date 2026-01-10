@@ -9,6 +9,7 @@ var ash = ash || {};
 ash.style = ash.style || {};
 ash.style.mojom = ash.style.mojom || {};
 
+ash.style.mojom.ColorSchemeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ColorScheme
 ash.style.mojom.ColorScheme = {
@@ -18,4 +19,3 @@ ash.style.mojom.ColorScheme = {
   kExpressive: 3,
   kVibrant: 4,
 };
-ash.style.mojom.ColorSchemeSpec = { $: mojo.internal.Enum() };

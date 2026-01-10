@@ -8,6 +8,7 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.ServiceWorkerContainerTypeSpec = { $: mojo.internal.Enum() };
 
 // Enum: ServiceWorkerContainerType
 blink.mojom.ServiceWorkerContainerType = {
@@ -17,4 +18,3 @@ blink.mojom.ServiceWorkerContainerType = {
   kForSharedWorker: 3,
   kForServiceWorker: 4,
 };
-blink.mojom.ServiceWorkerContainerTypeSpec = { $: mojo.internal.Enum() };

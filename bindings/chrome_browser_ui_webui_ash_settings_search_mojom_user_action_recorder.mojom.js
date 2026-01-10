@@ -8,114 +8,76 @@
 var ash = ash || {};
 ash.settings = ash.settings || {};
 ash.settings.mojom = ash.settings.mojom || {};
+var ash = ash || {};
 
+ash.settings.mojom.SettingChangeValueSpec = { $: {} };
+ash.settings.mojom.UserActionRecorder = {};
+ash.settings.mojom.UserActionRecorder.$interfaceName = 'ash.settings.mojom.UserActionRecorder';
+ash.settings.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec = { $: {} };
+ash.settings.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec = { $: {} };
+ash.settings.mojom.UserActionRecorder_RecordClick_ParamsSpec = { $: {} };
+ash.settings.mojom.UserActionRecorder_RecordNavigation_ParamsSpec = { $: {} };
+ash.settings.mojom.UserActionRecorder_RecordSearch_ParamsSpec = { $: {} };
+ash.settings.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec = { $: {} };
+ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec = { $: {} };
 
 // Union: SettingChangeValue
-ash.settings.mojom.SettingChangeValueSpec = { $: mojo.internal.Union(
-    'ash.settings.mojom.SettingChangeValue', {
+mojo.internal.Union(
+    ash.settings.mojom.SettingChangeValueSpec, 'ash.settings.mojom.SettingChangeValue', {
       'bool_value': {
         'ordinal': 0,
         'type': mojo.internal.Bool,
-      }},
+        'nullable': false,
+      },
       'int_value': {
         'ordinal': 1,
         'type': mojo.internal.Int32,
-      }},
+        'nullable': false,
+      },
       'string_value': {
         'ordinal': 2,
         'type': mojo.internal.String,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Interface: UserActionRecorder
-ash.settings.mojom.UserActionRecorder = {};
+mojo.internal.Struct(
+    ash.settings.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordPageFocus_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.settings.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.UserActionRecorder_RecordPageFocus_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordPageBlur_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.settings.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.UserActionRecorder_RecordPageBlur_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.UserActionRecorder_RecordClick_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordClick_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.settings.mojom.UserActionRecorder_RecordClick_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.UserActionRecorder_RecordClick_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.UserActionRecorder_RecordNavigation_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordNavigation_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.settings.mojom.UserActionRecorder_RecordNavigation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.UserActionRecorder_RecordNavigation_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.UserActionRecorder_RecordSearch_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordSearch_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.settings.mojom.UserActionRecorder_RecordSearch_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.UserActionRecorder_RecordSearch_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordSettingChange_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.settings.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.UserActionRecorder_RecordSettingChange_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'setting', packedOffset: 16, packedBitOffset: 0, type: chromeos.settings.mojom.SettingSpec, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: ash.settings.mojom.SettingChangeValueSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_Params', [
+      mojo.internal.StructField('setting', 16, 0, chromeos.settings.mojom.SettingSpec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, ash.settings.mojom.SettingChangeValueSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 ash.settings.mojom.UserActionRecorderPendingReceiver = class {
   constructor(handle) {
@@ -224,100 +186,6 @@ ash.settings.mojom.UserActionRecorder.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RecordPageFocus
-ash.settings.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.UserActionRecorder.RecordPageFocus_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RecordPageBlur
-ash.settings.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.UserActionRecorder.RecordPageBlur_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RecordClick
-ash.settings.mojom.UserActionRecorder_RecordClick_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.UserActionRecorder.RecordClick_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RecordNavigation
-ash.settings.mojom.UserActionRecorder_RecordNavigation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.UserActionRecorder.RecordNavigation_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RecordSearch
-ash.settings.mojom.UserActionRecorder_RecordSearch_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.UserActionRecorder.RecordSearch_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RecordSettingChange
-ash.settings.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.UserActionRecorder.RecordSettingChange_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for RecordSettingChangeWithDetails
-ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.settings.mojom.UserActionRecorder.RecordSettingChangeWithDetails_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'setting', packedOffset: 16, packedBitOffset: 0, type: chromeos.settings.mojom.SettingSpec, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: ash.settings.mojom.SettingChangeValueSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.settings.mojom.UserActionRecorderPtr = ash.settings.mojom.UserActionRecorderRemote;
 ash.settings.mojom.UserActionRecorderRequest = ash.settings.mojom.UserActionRecorderPendingReceiver;
 

@@ -8,50 +8,41 @@
 var emoji_search = emoji_search || {};
 emoji_search.mojom = emoji_search.mojom || {};
 
+emoji_search.mojom.SearchResultsSpec = { $: {} };
+emoji_search.mojom.EmojiSearch = {};
+emoji_search.mojom.EmojiSearch.$interfaceName = 'emoji_search.mojom.EmojiSearch';
+emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec = { $: {} };
+emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec = { $: {} };
+emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec = { $: {} };
 
 // Struct: SearchResults
-emoji_search.mojom.SearchResultsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_search.mojom.SearchResults',
-      packedSize: 16,
-      fields: [
-        { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    emoji_search.mojom.SearchResultsSpec, 'emoji_search.mojom.SearchResults', [
+      mojo.internal.StructField('results', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Interface: EmojiSearch
-emoji_search.mojom.EmojiSearch = {};
+mojo.internal.Struct(
+    emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec, 'emoji_search.mojom.EmojiSearch_SearchEmoji_Params', [
+      mojo.internal.StructField('query', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('language_codes', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_search.mojom.EmojiSearch_SearchEmoji_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'language_codes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec, 'emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParams', [
+      mojo.internal.StructField('emoji_results', 0, 0, emoji_search.mojom.SearchResultsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('symbol_results', 8, 0, emoji_search.mojom.SearchResultsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('emoticon_results', 16, 0, emoji_search.mojom.SearchResultsSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'language_codes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec, 'emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_Params', [
+      mojo.internal.StructField('language_codes', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 emoji_search.mojom.EmojiSearchPendingReceiver = class {
   constructor(handle) {
@@ -115,51 +106,6 @@ emoji_search.mojom.EmojiSearch.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SearchEmoji
-emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_search.mojom.EmojiSearch.SearchEmoji_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'language_codes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_search.mojom.EmojiSearch.SearchEmoji_ResponseParams',
-      packedSize: 32,
-      fields: [
-        { name: 'emoji_results', packedOffset: 0, packedBitOffset: 0, type: emoji_search.mojom.SearchResultsSpec, nullable: false, minVersion: 0 },
-        { name: 'symbol_results', packedOffset: 8, packedBitOffset: 0, type: emoji_search.mojom.SearchResultsSpec, nullable: false, minVersion: 0 },
-        { name: 'emoticon_results', packedOffset: 16, packedBitOffset: 0, type: emoji_search.mojom.SearchResultsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for LoadEmojiLanguages
-emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'emoji_search.mojom.EmojiSearch.LoadEmojiLanguages_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'language_codes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 emoji_search.mojom.EmojiSearchPtr = emoji_search.mojom.EmojiSearchRemote;
 emoji_search.mojom.EmojiSearchRequest = emoji_search.mojom.EmojiSearchPendingReceiver;
 

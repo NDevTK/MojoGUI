@@ -8,18 +8,12 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.NavigationPreloadStateSpec = { $: {} };
 
 // Struct: NavigationPreloadState
-blink.mojom.NavigationPreloadStateSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.NavigationPreloadState',
-      packedSize: 24,
-      fields: [
-        { name: 'enabled', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'header', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.NavigationPreloadStateSpec, 'blink.mojom.NavigationPreloadState', [
+      mojo.internal.StructField('enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('header', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);

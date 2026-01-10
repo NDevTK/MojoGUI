@@ -11,19 +11,13 @@ var ui = ui || {};
 var ui = ui || {};
 var ui = ui || {};
 
+ax.mojom.AXUpdatesAndEventsSpec = { $: {} };
 
 // Struct: AXUpdatesAndEvents
-ax.mojom.AXUpdatesAndEventsSpec = {
-  $: {
-    structSpec: {
-      name: 'ax.mojom.AXUpdatesAndEvents',
-      packedSize: 40,
-      fields: [
-        { name: 'tree_id', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false, minVersion: 0 },
-        { name: 'updates', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.AXTreeUpdateSpec, false), nullable: false, minVersion: 0 },
-        { name: 'events', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.AXEventSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ax.mojom.AXUpdatesAndEventsSpec, 'ax.mojom.AXUpdatesAndEvents', [
+      mojo.internal.StructField('tree_id', 0, 0, ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('updates', 16, 0, mojo.internal.Array(ax.mojom.AXTreeUpdateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('events', 24, 0, mojo.internal.Array(ax.mojom.AXEventSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);

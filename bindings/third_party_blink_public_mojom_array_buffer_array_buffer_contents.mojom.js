@@ -8,19 +8,13 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.SerializedArrayBufferContentsSpec = { $: {} };
 
 // Struct: SerializedArrayBufferContents
-blink.mojom.SerializedArrayBufferContentsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.SerializedArrayBufferContents',
-      packedSize: 40,
-      fields: [
-        { name: 'contents', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-        { name: 'is_resizable_by_user_javascript', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'max_byte_length', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.SerializedArrayBufferContentsSpec, 'blink.mojom.SerializedArrayBufferContents', [
+      mojo.internal.StructField('contents', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_resizable_by_user_javascript', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('max_byte_length', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);

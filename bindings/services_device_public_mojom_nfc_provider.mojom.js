@@ -7,48 +7,31 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
+var services = services || {};
 
+device.mojom.NFCProvider = {};
+device.mojom.NFCProvider.$interfaceName = 'device.mojom.NFCProvider';
+device.mojom.NFCProvider_GetNFCForHost_ParamsSpec = { $: {} };
+device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec = { $: {} };
+device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec = { $: {} };
 
 // Interface: NFCProvider
-device.mojom.NFCProvider = {};
+mojo.internal.Struct(
+    device.mojom.NFCProvider_GetNFCForHost_ParamsSpec, 'device.mojom.NFCProvider_GetNFCForHost_Params', [
+      mojo.internal.StructField('host_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(device.mojom.NFCRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-device.mojom.NFCProvider_GetNFCForHost_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.NFCProvider_GetNFCForHost_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'host_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.NFCRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec, 'device.mojom.NFCProvider_SuspendNFCOperations_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.NFCProvider_SuspendNFCOperations_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.NFCProvider_ResumeNFCOperations_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec, 'device.mojom.NFCProvider_ResumeNFCOperations_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 device.mojom.NFCProviderPendingReceiver = class {
   constructor(handle) {
@@ -121,48 +104,6 @@ device.mojom.NFCProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetNFCForHost
-device.mojom.NFCProvider_GetNFCForHost_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.NFCProvider.GetNFCForHost_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'host_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.NFCRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for SuspendNFCOperations
-device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.NFCProvider.SuspendNFCOperations_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for ResumeNFCOperations
-device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.NFCProvider.ResumeNFCOperations_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 device.mojom.NFCProviderPtr = device.mojom.NFCProviderRemote;
 device.mojom.NFCProviderRequest = device.mojom.NFCProviderPendingReceiver;
 

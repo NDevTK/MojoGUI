@@ -8,6 +8,8 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.InputEventResultSourceSpec = { $: mojo.internal.Enum() };
+blink.mojom.InputEventResultStateSpec = { $: mojo.internal.Enum() };
 
 // Enum: InputEventResultSource
 blink.mojom.InputEventResultSource = {
@@ -16,7 +18,6 @@ blink.mojom.InputEventResultSource = {
   kMainThread: 2,
   kBrowser: 3,
 };
-blink.mojom.InputEventResultSourceSpec = { $: mojo.internal.Enum() };
 
 // Enum: InputEventResultState
 blink.mojom.InputEventResultState = {
@@ -28,4 +29,3 @@ blink.mojom.InputEventResultState = {
   kSetNonBlocking: 5,
   kSetNonBlockingDueToFling: 6,
 };
-blink.mojom.InputEventResultStateSpec = { $: mojo.internal.Enum() };

@@ -7,112 +7,99 @@
 // Module namespace
 var on_device_internals = on_device_internals || {};
 on_device_internals.mojom = on_device_internals.mojom || {};
+var services = services || {};
+var services = services || {};
 var skia = skia || {};
 
+on_device_internals.mojom.PageDataSpec = { $: {} };
+on_device_internals.mojom.BaseModelStateSpec = { $: {} };
+on_device_internals.mojom.BaseModelInfoSpec = { $: {} };
+on_device_internals.mojom.SupplementaryModelInfoSpec = { $: {} };
+on_device_internals.mojom.FeatureAdaptationInfoSpec = { $: {} };
+on_device_internals.mojom.PageHandlerFactory = {};
+on_device_internals.mojom.PageHandlerFactory.$interfaceName = 'on_device_internals.mojom.PageHandlerFactory';
+on_device_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+on_device_internals.mojom.PageHandler = {};
+on_device_internals.mojom.PageHandler.$interfaceName = 'on_device_internals.mojom.PageHandler';
+on_device_internals.mojom.PageHandler_LoadModel_ParamsSpec = { $: {} };
+on_device_internals.mojom.PageHandler_LoadModel_ResponseParamsSpec = { $: {} };
+on_device_internals.mojom.PageHandler_LoadPlatformModel_ParamsSpec = { $: {} };
+on_device_internals.mojom.PageHandler_LoadPlatformModel_ResponseParamsSpec = { $: {} };
+on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ParamsSpec = { $: {} };
+on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ResponseParamsSpec = { $: {} };
+on_device_internals.mojom.PageHandler_GetDefaultModelPath_ParamsSpec = { $: {} };
+on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec = { $: {} };
+on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec = { $: {} };
+on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec = { $: {} };
+on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec = { $: {} };
+on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec = { $: {} };
+on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec = { $: {} };
+on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec = { $: {} };
+on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec = { $: {} };
+on_device_internals.mojom.Page = {};
+on_device_internals.mojom.Page.$interfaceName = 'on_device_internals.mojom.Page';
+on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = { $: {} };
+on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec = { $: {} };
 
 // Struct: PageData
-on_device_internals.mojom.PageDataSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.PageData',
-      packedSize: 56,
-      fields: [
-        { name: 'base_model', packedOffset: 0, packedBitOffset: 0, type: on_device_internals.mojom.BaseModelStateSpec, nullable: false, minVersion: 0 },
-        { name: 'supp_models', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(on_device_internals.mojom.SupplementaryModelInfoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'model_crash_count', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'max_model_crash_count', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'feature_adaptations', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(on_device_internals.mojom.FeatureAdaptationInfoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'performance_info', packedOffset: 24, packedBitOffset: 0, type: on_device_model.mojom.DevicePerformanceInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'min_vram_mb', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_internals.mojom.PageDataSpec, 'on_device_internals.mojom.PageData', [
+      mojo.internal.StructField('base_model', 0, 0, on_device_internals.mojom.BaseModelStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('supp_models', 8, 0, mojo.internal.Array(on_device_internals.mojom.SupplementaryModelInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('model_crash_count', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('max_model_crash_count', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('feature_adaptations', 16, 0, mojo.internal.Array(on_device_internals.mojom.FeatureAdaptationInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('performance_info', 24, 0, on_device_model.mojom.DevicePerformanceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('min_vram_mb', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: BaseModelState
-on_device_internals.mojom.BaseModelStateSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.BaseModelState',
-      packedSize: 32,
-      fields: [
-        { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'registration_criteria', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'info', packedOffset: 16, packedBitOffset: 0, type: on_device_internals.mojom.BaseModelInfoSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_internals.mojom.BaseModelStateSpec, 'on_device_internals.mojom.BaseModelState', [
+      mojo.internal.StructField('state', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('registration_criteria', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('info', 16, 0, on_device_internals.mojom.BaseModelInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: BaseModelInfo
-on_device_internals.mojom.BaseModelInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.BaseModelInfo',
-      packedSize: 56,
-      fields: [
-        { name: 'component_version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'file_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'file_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'version', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'backend_type', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_internals.mojom.BaseModelInfoSpec, 'on_device_internals.mojom.BaseModelInfo', [
+      mojo.internal.StructField('component_version', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('file_path', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('file_size', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('name', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('version', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('backend_type', 40, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: SupplementaryModelInfo
-on_device_internals.mojom.SupplementaryModelInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.SupplementaryModelInfo',
-      packedSize: 24,
-      fields: [
-        { name: 'supp_model_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'is_ready', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_internals.mojom.SupplementaryModelInfoSpec, 'on_device_internals.mojom.SupplementaryModelInfo', [
+      mojo.internal.StructField('supp_model_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('is_ready', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: FeatureAdaptationInfo
-on_device_internals.mojom.FeatureAdaptationInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.FeatureAdaptationInfo',
-      packedSize: 32,
-      fields: [
-        { name: 'feature_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'feature_key', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'version', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'is_recently_used', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_internals.mojom.FeatureAdaptationInfoSpec, 'on_device_internals.mojom.FeatureAdaptationInfo', [
+      mojo.internal.StructField('feature_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('feature_key', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('version', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('is_recently_used', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Interface: PageHandlerFactory
-on_device_internals.mojom.PageHandlerFactory = {};
-
-on_device_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(on_device_internals.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(on_device_internals.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'on_device_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(on_device_internals.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(on_device_internals.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 on_device_internals.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -167,144 +154,101 @@ on_device_internals.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-on_device_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(on_device_internals.mojom.PageRemote), nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(on_device_internals.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 on_device_internals.mojom.PageHandlerFactoryPtr = on_device_internals.mojom.PageHandlerFactoryRemote;
 on_device_internals.mojom.PageHandlerFactoryRequest = on_device_internals.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-on_device_internals.mojom.PageHandler = {};
+mojo.internal.Struct(
+    on_device_internals.mojom.PageHandler_LoadModel_ParamsSpec, 'on_device_internals.mojom.PageHandler_LoadModel_Params', [
+      mojo.internal.StructField('model_path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('performance_hint', 16, 0, on_device_model.mojom.ModelPerformanceHintSpec, null, false, 0, undefined),
+      mojo.internal.StructField('model', 8, 0, mojo.internal.InterfaceRequest(on_device_model.mojom.OnDeviceModelRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-on_device_internals.mojom.PageHandler_LoadModel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.PageHandler_LoadModel_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'model_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'performance_hint', packedOffset: 16, packedBitOffset: 0, type: on_device_model.mojom.ModelPerformanceHintSpec, nullable: false, minVersion: 0 },
-        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(on_device_model.mojom.OnDeviceModelRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_internals.mojom.PageHandler_LoadModel_ResponseParamsSpec, 'on_device_internals.mojom.PageHandler_LoadModel_ResponseParams', [
+      mojo.internal.StructField('result', 8, 0, on_device_model.mojom.LoadModelResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('capabilities', 0, 0, on_device_model.mojom.CapabilitiesSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-on_device_internals.mojom.PageHandler_LoadPlatformModel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.PageHandler_LoadPlatformModel_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'model_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(on_device_model.mojom.OnDeviceModelRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_internals.mojom.PageHandler_LoadPlatformModel_ParamsSpec, 'on_device_internals.mojom.PageHandler_LoadPlatformModel_Params', [
+      mojo.internal.StructField('model_path', 0, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('model', 8, 0, mojo.internal.InterfaceRequest(on_device_model.mojom.OnDeviceModelRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_internals.mojom.PageHandler_LoadPlatformModel_ResponseParamsSpec, 'on_device_internals.mojom.PageHandler_LoadPlatformModel_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, on_device_model.mojom.LoadModelResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-on_device_internals.mojom.PageHandler_GetDefaultModelPath_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.PageHandler_GetDefaultModelPath_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ParamsSpec, 'on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.PageHandler_UninstallDefaultModel_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ResponseParamsSpec, 'on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ResponseParams', [
+      mojo.internal.StructField('performance_info', 0, 0, on_device_model.mojom.DevicePerformanceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('device_info', 8, 0, on_device_model.mojom.DeviceInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.PageHandler_GetPageData_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_internals.mojom.PageHandler_GetDefaultModelPath_ParamsSpec, 'on_device_internals.mojom.PageHandler_GetDefaultModelPath_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'feature_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'is_recently_used', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec, 'on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParams', [
+      mojo.internal.StructField('model_path', 0, 0, mojo_base.mojom.FilePathSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.PageHandler_DecodeBitmap_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'image_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec, 'on_device_internals.mojom.PageHandler_UninstallDefaultModel_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.PageHandler_ResetModelCrashCount_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec, 'on_device_internals.mojom.PageHandler_GetPageData_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec, 'on_device_internals.mojom.PageHandler_GetPageData_ResponseParams', [
+      mojo.internal.StructField('page_data', 0, 0, on_device_internals.mojom.PageDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec, 'on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_Params', [
+      mojo.internal.StructField('feature_key', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('is_recently_used', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec, 'on_device_internals.mojom.PageHandler_DecodeBitmap_Params', [
+      mojo.internal.StructField('image_buffer', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec, 'on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParams', [
+      mojo.internal.StructField('bitmap', 0, 0, skia.mojom.BitmapMappedFromTrustedProcessSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec, 'on_device_internals.mojom.PageHandler_ResetModelCrashCount_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 on_device_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -431,248 +375,26 @@ on_device_internals.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for LoadModel
-on_device_internals.mojom.PageHandler_LoadModel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.PageHandler.LoadModel_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'model_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'performance_hint', packedOffset: 16, packedBitOffset: 0, type: on_device_model.mojom.ModelPerformanceHintSpec, nullable: false, minVersion: 0 },
-        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(on_device_model.mojom.OnDeviceModelRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-on_device_internals.mojom.PageHandler_LoadModel_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.PageHandler.LoadModel_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.LoadModelResultSpec, nullable: false, minVersion: 0 },
-        { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.CapabilitiesSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for LoadPlatformModel
-on_device_internals.mojom.PageHandler_LoadPlatformModel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.PageHandler.LoadPlatformModel_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'model_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(on_device_model.mojom.OnDeviceModelRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-on_device_internals.mojom.PageHandler_LoadPlatformModel_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.PageHandler.LoadPlatformModel_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.LoadModelResultSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetDeviceAndPerformanceInfo
-on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.PageHandler.GetDeviceAndPerformanceInfo_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.PageHandler.GetDeviceAndPerformanceInfo_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'performance_info', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.DevicePerformanceInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'device_info', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.DeviceInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GetDefaultModelPath
-on_device_internals.mojom.PageHandler_GetDefaultModelPath_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.PageHandler.GetDefaultModelPath_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.PageHandler.GetDefaultModelPath_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'model_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UninstallDefaultModel
-on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.PageHandler.UninstallDefaultModel_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for GetPageData
-on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.PageHandler.GetPageData_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.PageHandler.GetPageData_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'page_data', packedOffset: 0, packedBitOffset: 0, type: on_device_internals.mojom.PageDataSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetFeatureRecentlyUsedState
-on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.PageHandler.SetFeatureRecentlyUsedState_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'feature_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'is_recently_used', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DecodeBitmap
-on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.PageHandler.DecodeBitmap_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'image_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.PageHandler.DecodeBitmap_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapMappedFromTrustedProcessSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ResetModelCrashCount
-on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.PageHandler.ResetModelCrashCount_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 on_device_internals.mojom.PageHandlerPtr = on_device_internals.mojom.PageHandlerRemote;
 on_device_internals.mojom.PageHandlerRequest = on_device_internals.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
-on_device_internals.mojom.Page = {};
+mojo.internal.Struct(
+    on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec, 'on_device_internals.mojom.Page_OnLogMessageAdded_Params', [
+      mojo.internal.StructField('event_time', 0, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source_file', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('source_line', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('message', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.Page_OnLogMessageAdded_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'event_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'source_file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'source_line', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.Page_OnDownloadProgressUpdate_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'downloaded_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'total_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec, 'on_device_internals.mojom.Page_OnDownloadProgressUpdate_Params', [
+      mojo.internal.StructField('downloaded_bytes', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('total_bytes', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 on_device_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -736,39 +458,6 @@ on_device_internals.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnLogMessageAdded
-on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.Page.OnLogMessageAdded_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'event_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'source_file', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'source_line', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'message', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-// ParamsSpec for OnDownloadProgressUpdate
-on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'on_device_internals.mojom.Page.OnDownloadProgressUpdate_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'downloaded_bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'total_bytes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 on_device_internals.mojom.PagePtr = on_device_internals.mojom.PageRemote;
 on_device_internals.mojom.PageRequest = on_device_internals.mojom.PagePendingReceiver;
 

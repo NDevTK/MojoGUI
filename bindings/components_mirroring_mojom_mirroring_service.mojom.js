@@ -7,9 +7,19 @@
 // Module namespace
 var mirroring = mirroring || {};
 mirroring.mojom = mirroring.mojom || {};
+var components = components || {};
+var components = components || {};
+var components = components || {};
+var components = components || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
+mirroring.mojom.MirroringService = {};
+mirroring.mojom.MirroringService.$interfaceName = 'mirroring.mojom.MirroringService';
+mirroring.mojom.MirroringService_Start_ParamsSpec = { $: {} };
+mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec = { $: {} };
+mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec = { $: {} };
+mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec = { $: {} };
 
 mirroring.mojom.kMirroringSandbox = sandbox.mojom.Sandbox.kMirroring;
 
@@ -18,49 +28,32 @@ mirroring.mojom.kMirroringSandbox = sandbox.mojom.Sandbox.kHardwareVideoEncoding
 mirroring.mojom.kMirroringSandbox = sandbox.mojom.Sandbox.kService;
 
 // Interface: MirroringService
-mirroring.mojom.MirroringService = {};
+mojo.internal.Struct(
+    mirroring.mojom.MirroringService_Start_ParamsSpec, 'mirroring.mojom.MirroringService_Start_Params', [
+      mojo.internal.StructField('params', 0, 0, mirroring.mojom.SessionParametersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('max_resolution', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('observer', 16, 0, mojo.internal.InterfaceProxy(mirroring.mojom.SessionObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('resource_provider', 24, 0, mojo.internal.InterfaceProxy(mirroring.mojom.ResourceProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('outbound_channel', 32, 0, mojo.internal.InterfaceProxy(mirroring.mojom.CastMessageChannelRemote), null, false, 0, undefined),
+      mojo.internal.StructField('inbound_channel', 40, 0, mojo.internal.InterfaceRequest(mirroring.mojom.CastMessageChannelRemote), null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
-mirroring.mojom.MirroringService_Start_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.MirroringService_Start_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mirroring.mojom.SessionParametersSpec, nullable: false, minVersion: 0 },
-        { name: 'max_resolution', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(mirroring.mojom.SessionObserverRemote), nullable: false, minVersion: 0 },
-        { name: 'resource_provider', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(mirroring.mojom.ResourceProviderRemote), nullable: false, minVersion: 0 },
-        { name: 'outbound_channel', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(mirroring.mojom.CastMessageChannelRemote), nullable: false, minVersion: 0 },
-        { name: 'inbound_channel', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(mirroring.mojom.CastMessageChannelRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec, 'mirroring.mojom.MirroringService_SwitchMirroringSourceTab_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.MirroringService_SwitchMirroringSourceTab_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec, 'mirroring.mojom.MirroringService_GetMirroringStats_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.MirroringService_GetMirroringStats_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec, 'mirroring.mojom.MirroringService_GetMirroringStats_ResponseParams', [
+      mojo.internal.StructField('json_stats', 0, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 mirroring.mojom.MirroringServicePendingReceiver = class {
   constructor(handle) {
@@ -133,65 +126,6 @@ mirroring.mojom.MirroringService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Start
-mirroring.mojom.MirroringService_Start_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.MirroringService.Start_Params',
-      packedSize: 56,
-      fields: [
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mirroring.mojom.SessionParametersSpec, nullable: false, minVersion: 0 },
-        { name: 'max_resolution', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(mirroring.mojom.SessionObserverRemote), nullable: false, minVersion: 0 },
-        { name: 'resource_provider', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(mirroring.mojom.ResourceProviderRemote), nullable: false, minVersion: 0 },
-        { name: 'outbound_channel', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(mirroring.mojom.CastMessageChannelRemote), nullable: false, minVersion: 0 },
-        { name: 'inbound_channel', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(mirroring.mojom.CastMessageChannelRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 56}]
-    }
-  }
-};
-
-// ParamsSpec for SwitchMirroringSourceTab
-mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.MirroringService.SwitchMirroringSourceTab_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for GetMirroringStats
-mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.MirroringService.GetMirroringStats_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'mirroring.mojom.MirroringService.GetMirroringStats_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'json_stats', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 mirroring.mojom.MirroringServicePtr = mirroring.mojom.MirroringServiceRemote;
 mirroring.mojom.MirroringServiceRequest = mirroring.mojom.MirroringServicePendingReceiver;
 

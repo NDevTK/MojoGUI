@@ -9,22 +9,21 @@ var webui_examples = webui_examples || {};
 webui_examples.mojom = webui_examples.mojom || {};
 var url = url || {};
 
+webui_examples.mojom.PageHandlerFactory = {};
+webui_examples.mojom.PageHandlerFactory.$interfaceName = 'webui_examples.mojom.PageHandlerFactory';
+webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+webui_examples.mojom.PageHandler = {};
+webui_examples.mojom.PageHandler.$interfaceName = 'webui_examples.mojom.PageHandler';
+webui_examples.mojom.PageHandler_Navigate_ParamsSpec = { $: {} };
+webui_examples.mojom.PageHandler_GoBack_ParamsSpec = { $: {} };
+webui_examples.mojom.PageHandler_GoForward_ParamsSpec = { $: {} };
 
 // Interface: PageHandlerFactory
-webui_examples.mojom.PageHandlerFactory = {};
-
-webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'webui_examples.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(webui_examples.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'webui_examples.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(webui_examples.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 webui_examples.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -79,67 +78,29 @@ webui_examples.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'webui_examples.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(webui_examples.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 webui_examples.mojom.PageHandlerFactoryPtr = webui_examples.mojom.PageHandlerFactoryRemote;
 webui_examples.mojom.PageHandlerFactoryRequest = webui_examples.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-webui_examples.mojom.PageHandler = {};
+mojo.internal.Struct(
+    webui_examples.mojom.PageHandler_Navigate_ParamsSpec, 'webui_examples.mojom.PageHandler_Navigate_Params', [
+      mojo.internal.StructField('guest_contents_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('src', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-webui_examples.mojom.PageHandler_Navigate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'webui_examples.mojom.PageHandler_Navigate_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'guest_contents_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'src', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    webui_examples.mojom.PageHandler_GoBack_ParamsSpec, 'webui_examples.mojom.PageHandler_GoBack_Params', [
+      mojo.internal.StructField('guest_contents_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-webui_examples.mojom.PageHandler_GoBack_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'webui_examples.mojom.PageHandler_GoBack_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guest_contents_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-webui_examples.mojom.PageHandler_GoForward_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'webui_examples.mojom.PageHandler_GoForward_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guest_contents_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    webui_examples.mojom.PageHandler_GoForward_ParamsSpec, 'webui_examples.mojom.PageHandler_GoForward_Params', [
+      mojo.internal.StructField('guest_contents_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 webui_examples.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -212,50 +173,6 @@ webui_examples.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Navigate
-webui_examples.mojom.PageHandler_Navigate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'webui_examples.mojom.PageHandler.Navigate_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'guest_contents_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'src', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GoBack
-webui_examples.mojom.PageHandler_GoBack_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'webui_examples.mojom.PageHandler.GoBack_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guest_contents_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GoForward
-webui_examples.mojom.PageHandler_GoForward_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'webui_examples.mojom.PageHandler.GoForward_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'guest_contents_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 webui_examples.mojom.PageHandlerPtr = webui_examples.mojom.PageHandlerRemote;
 webui_examples.mojom.PageHandlerRequest = webui_examples.mojom.PageHandlerPendingReceiver;
 

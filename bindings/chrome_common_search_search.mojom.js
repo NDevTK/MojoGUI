@@ -9,23 +9,30 @@ var search = search || {};
 search.mojom = search.mojom || {};
 var url = url || {};
 
+search.mojom.EmbeddedSearchConnector = {};
+search.mojom.EmbeddedSearchConnector.$interfaceName = 'search.mojom.EmbeddedSearchConnector';
+search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec = { $: {} };
+search.mojom.EmbeddedSearch = {};
+search.mojom.EmbeddedSearch.$interfaceName = 'search.mojom.EmbeddedSearch';
+search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec = { $: {} };
+search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec = { $: {} };
+search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec = { $: {} };
+search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec = { $: {} };
+search.mojom.EmbeddedSearchClient = {};
+search.mojom.EmbeddedSearchClient.$interfaceName = 'search.mojom.EmbeddedSearchClient';
+search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec = { $: {} };
+search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec = { $: {} };
+search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec = { $: {} };
+search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec = { $: {} };
+search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec = { $: {} };
 
 // Interface: EmbeddedSearchConnector
-search.mojom.EmbeddedSearchConnector = {};
-
-search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search.mojom.EmbeddedSearchConnector_Connect_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'embedded_search', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(search.mojom.EmbeddedSearchRemote), nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(search.mojom.EmbeddedSearchClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec, 'search.mojom.EmbeddedSearchConnector_Connect_Params', [
+      mojo.internal.StructField('embedded_search', 0, 0, mojo.internal.AssociatedInterfaceRequest(search.mojom.EmbeddedSearchRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.AssociatedInterfaceProxy(search.mojom.EmbeddedSearchClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 search.mojom.EmbeddedSearchConnectorPendingReceiver = class {
   constructor(handle) {
@@ -80,83 +87,37 @@ search.mojom.EmbeddedSearchConnector.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Connect
-search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search.mojom.EmbeddedSearchConnector.Connect_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'embedded_search', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(search.mojom.EmbeddedSearchRemote), nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(search.mojom.EmbeddedSearchClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 search.mojom.EmbeddedSearchConnectorPtr = search.mojom.EmbeddedSearchConnectorRemote;
 search.mojom.EmbeddedSearchConnectorRequest = search.mojom.EmbeddedSearchConnectorPendingReceiver;
 
 
 // Interface: EmbeddedSearch
-search.mojom.EmbeddedSearch = {};
+mojo.internal.Struct(
+    search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec, 'search.mojom.EmbeddedSearch_FocusOmnibox_Params', [
+      mojo.internal.StructField('page_seq_no', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('focus', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search.mojom.EmbeddedSearch_FocusOmnibox_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page_seq_no', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'focus', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec, 'search.mojom.EmbeddedSearch_DeleteMostVisitedItem_Params', [
+      mojo.internal.StructField('page_seq_no', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search.mojom.EmbeddedSearch_DeleteMostVisitedItem_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page_seq_no', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec, 'search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_Params', [
+      mojo.internal.StructField('page_seq_no', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page_seq_no', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page_seq_no', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec, 'search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_Params', [
+      mojo.internal.StructField('page_seq_no', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 search.mojom.EmbeddedSearchPendingReceiver = class {
   constructor(handle) {
@@ -238,138 +199,41 @@ search.mojom.EmbeddedSearch.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for FocusOmnibox
-search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search.mojom.EmbeddedSearch.FocusOmnibox_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page_seq_no', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'focus', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DeleteMostVisitedItem
-search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search.mojom.EmbeddedSearch.DeleteMostVisitedItem_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page_seq_no', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for UndoAllMostVisitedDeletions
-search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search.mojom.EmbeddedSearch.UndoAllMostVisitedDeletions_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page_seq_no', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for UndoMostVisitedDeletion
-search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search.mojom.EmbeddedSearch.UndoMostVisitedDeletion_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'page_seq_no', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 search.mojom.EmbeddedSearchPtr = search.mojom.EmbeddedSearchRemote;
 search.mojom.EmbeddedSearchRequest = search.mojom.EmbeddedSearchPendingReceiver;
 
 
 // Interface: EmbeddedSearchClient
-search.mojom.EmbeddedSearchClient = {};
+mojo.internal.Struct(
+    search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec, 'search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_Params', [
+      mojo.internal.StructField('page_seq_no', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page_seq_no', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec, 'search.mojom.EmbeddedSearchClient_FocusChanged_Params', [
+      mojo.internal.StructField('new_focus_state', 0, 0, search.mojom.OmniboxFocusStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('reason', 8, 0, search.mojom.OmniboxFocusChangeReasonSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search.mojom.EmbeddedSearchClient_FocusChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'new_focus_state', packedOffset: 0, packedBitOffset: 0, type: search.mojom.OmniboxFocusStateSpec, nullable: false, minVersion: 0 },
-        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: search.mojom.OmniboxFocusChangeReasonSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec, 'search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_Params', [
+      mojo.internal.StructField('most_visited_info', 0, 0, search.mojom.InstantMostVisitedInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'most_visited_info', packedOffset: 0, packedBitOffset: 0, type: search.mojom.InstantMostVisitedInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec, 'search.mojom.EmbeddedSearchClient_SetInputInProgress_Params', [
+      mojo.internal.StructField('input_in_progress', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search.mojom.EmbeddedSearchClient_SetInputInProgress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'input_in_progress', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search.mojom.EmbeddedSearchClient_ThemeChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: search.mojom.NtpThemeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec, 'search.mojom.EmbeddedSearchClient_ThemeChanged_Params', [
+      mojo.internal.StructField('theme', 0, 0, search.mojom.NtpThemeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 search.mojom.EmbeddedSearchClientPendingReceiver = class {
   constructor(handle) {
@@ -460,78 +324,6 @@ search.mojom.EmbeddedSearchClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for SetPageSequenceNumber
-search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search.mojom.EmbeddedSearchClient.SetPageSequenceNumber_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page_seq_no', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for FocusChanged
-search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search.mojom.EmbeddedSearchClient.FocusChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'new_focus_state', packedOffset: 0, packedBitOffset: 0, type: search.mojom.OmniboxFocusStateSpec, nullable: false, minVersion: 0 },
-        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: search.mojom.OmniboxFocusChangeReasonSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for MostVisitedInfoChanged
-search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search.mojom.EmbeddedSearchClient.MostVisitedInfoChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'most_visited_info', packedOffset: 0, packedBitOffset: 0, type: search.mojom.InstantMostVisitedInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetInputInProgress
-search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search.mojom.EmbeddedSearchClient.SetInputInProgress_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'input_in_progress', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ThemeChanged
-search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'search.mojom.EmbeddedSearchClient.ThemeChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'theme', packedOffset: 0, packedBitOffset: 0, type: search.mojom.NtpThemeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 search.mojom.EmbeddedSearchClientPtr = search.mojom.EmbeddedSearchClientRemote;
 search.mojom.EmbeddedSearchClientRequest = search.mojom.EmbeddedSearchClientPendingReceiver;
 

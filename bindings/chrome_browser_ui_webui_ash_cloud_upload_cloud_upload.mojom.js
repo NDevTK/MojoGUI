@@ -9,6 +9,46 @@ var ash = ash || {};
 ash.cloud_upload = ash.cloud_upload || {};
 ash.cloud_upload.mojom = ash.cloud_upload.mojom || {};
 
+ash.cloud_upload.mojom.UserActionSpec = { $: mojo.internal.Enum() };
+ash.cloud_upload.mojom.MetricsRecordedSetupPageSpec = { $: mojo.internal.Enum() };
+ash.cloud_upload.mojom.OperationTypeSpec = { $: mojo.internal.Enum() };
+ash.cloud_upload.mojom.DialogSpecificArgsSpec = { $: {} };
+ash.cloud_upload.mojom.DialogTaskSpec = { $: {} };
+ash.cloud_upload.mojom.OneDriveSetupDialogArgsSpec = { $: {} };
+ash.cloud_upload.mojom.MoveConfirmationOneDriveDialogArgsSpec = { $: {} };
+ash.cloud_upload.mojom.MoveConfirmationGoogleDriveDialogArgsSpec = { $: {} };
+ash.cloud_upload.mojom.ConnectToOneDriveDialogArgsSpec = { $: {} };
+ash.cloud_upload.mojom.FileHandlerDialogArgsSpec = { $: {} };
+ash.cloud_upload.mojom.DialogArgsSpec = { $: {} };
+ash.cloud_upload.mojom.PageHandlerFactory = {};
+ash.cloud_upload.mojom.PageHandlerFactory.$interfaceName = 'ash.cloud_upload.mojom.PageHandlerFactory';
+ash.cloud_upload.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+ash.cloud_upload.mojom.PageHandler = {};
+ash.cloud_upload.mojom.PageHandler.$interfaceName = 'ash.cloud_upload.mojom.PageHandler';
+ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ParamsSpec = { $: {} };
+ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec = { $: {} };
+ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ParamsSpec = { $: {} };
+ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ResponseParamsSpec = { $: {} };
+ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ParamsSpec = { $: {} };
+ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ResponseParamsSpec = { $: {} };
+ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ParamsSpec = { $: {} };
+ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ResponseParamsSpec = { $: {} };
+ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ParamsSpec = { $: {} };
+ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ResponseParamsSpec = { $: {} };
+ash.cloud_upload.mojom.PageHandler_RespondWithUserActionAndClose_ParamsSpec = { $: {} };
+ash.cloud_upload.mojom.PageHandler_RespondWithLocalTaskAndClose_ParamsSpec = { $: {} };
+ash.cloud_upload.mojom.PageHandler_SetOfficeAsDefaultHandler_ParamsSpec = { $: {} };
+ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec = { $: {} };
+ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParamsSpec = { $: {} };
+ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec = { $: {} };
+ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec = { $: {} };
+ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponseParamsSpec = { $: {} };
+ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec = { $: {} };
+ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ParamsSpec = { $: {} };
+ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ResponseParamsSpec = { $: {} };
+ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ParamsSpec = { $: {} };
+ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ResponseParamsSpec = { $: {} };
+ash.cloud_upload.mojom.PageHandler_RecordCancel_ParamsSpec = { $: {} };
 
 // Enum: UserAction
 ash.cloud_upload.mojom.UserAction = {
@@ -21,7 +61,6 @@ ash.cloud_upload.mojom.UserAction = {
   kConfirmOrUploadToGoogleDrive: 6,
   kConfirmOrUploadToOneDrive: 7,
 };
-ash.cloud_upload.mojom.UserActionSpec = { $: mojo.internal.Enum() };
 
 // Enum: MetricsRecordedSetupPage
 ash.cloud_upload.mojom.MetricsRecordedSetupPage = {
@@ -33,159 +72,103 @@ ash.cloud_upload.mojom.MetricsRecordedSetupPage = {
   kOneDriveSetupODFSMount: 5,
   kOneDriveSetupComplete: 6,
 };
-ash.cloud_upload.mojom.MetricsRecordedSetupPageSpec = { $: mojo.internal.Enum() };
 
 // Enum: OperationType
 ash.cloud_upload.mojom.OperationType = {
   kMove: 0,
   kCopy: 1,
 };
-ash.cloud_upload.mojom.OperationTypeSpec = { $: mojo.internal.Enum() };
 
 // Union: DialogSpecificArgs
-ash.cloud_upload.mojom.DialogSpecificArgsSpec = { $: mojo.internal.Union(
-    'ash.cloud_upload.mojom.DialogSpecificArgs', {
+mojo.internal.Union(
+    ash.cloud_upload.mojom.DialogSpecificArgsSpec, 'ash.cloud_upload.mojom.DialogSpecificArgs', {
       'file_handler_dialog_args': {
         'ordinal': 0,
         'type': ash.cloud_upload.mojom.FileHandlerDialogArgsSpec,
-      }},
+        'nullable': false,
+      },
       'one_drive_setup_dialog_args': {
         'ordinal': 1,
         'type': ash.cloud_upload.mojom.OneDriveSetupDialogArgsSpec,
-      }},
+        'nullable': false,
+      },
       'move_confirmation_one_drive_dialog_args': {
         'ordinal': 2,
         'type': ash.cloud_upload.mojom.MoveConfirmationOneDriveDialogArgsSpec,
-      }},
+        'nullable': false,
+      },
       'move_confirmation_google_drive_dialog_args': {
         'ordinal': 3,
         'type': ash.cloud_upload.mojom.MoveConfirmationGoogleDriveDialogArgsSpec,
-      }},
+        'nullable': false,
+      },
       'connect_to_one_drive_dialog_args': {
         'ordinal': 4,
         'type': ash.cloud_upload.mojom.ConnectToOneDriveDialogArgsSpec,
-      }},
-    })
-};
+        'nullable': false,
+      },
+    });
 
 // Struct: DialogTask
-ash.cloud_upload.mojom.DialogTaskSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.DialogTask',
-      packedSize: 40,
-      fields: [
-        { name: 'position', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'app_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'icon_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.DialogTaskSpec, 'ash.cloud_upload.mojom.DialogTask', [
+      mojo.internal.StructField('position', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('app_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('icon_url', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
 // Struct: OneDriveSetupDialogArgs
-ash.cloud_upload.mojom.OneDriveSetupDialogArgsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.OneDriveSetupDialogArgs',
-      packedSize: 16,
-      fields: [
-        { name: 'set_office_as_default_handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.OneDriveSetupDialogArgsSpec, 'ash.cloud_upload.mojom.OneDriveSetupDialogArgs', [
+      mojo.internal.StructField('set_office_as_default_handler', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: MoveConfirmationOneDriveDialogArgs
-ash.cloud_upload.mojom.MoveConfirmationOneDriveDialogArgsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.MoveConfirmationOneDriveDialogArgs',
-      packedSize: 16,
-      fields: [
-        { name: 'operation_type', packedOffset: 0, packedBitOffset: 0, type: ash.cloud_upload.mojom.OperationTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.MoveConfirmationOneDriveDialogArgsSpec, 'ash.cloud_upload.mojom.MoveConfirmationOneDriveDialogArgs', [
+      mojo.internal.StructField('operation_type', 0, 0, ash.cloud_upload.mojom.OperationTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: MoveConfirmationGoogleDriveDialogArgs
-ash.cloud_upload.mojom.MoveConfirmationGoogleDriveDialogArgsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.MoveConfirmationGoogleDriveDialogArgs',
-      packedSize: 16,
-      fields: [
-        { name: 'operation_type', packedOffset: 0, packedBitOffset: 0, type: ash.cloud_upload.mojom.OperationTypeSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.MoveConfirmationGoogleDriveDialogArgsSpec, 'ash.cloud_upload.mojom.MoveConfirmationGoogleDriveDialogArgs', [
+      mojo.internal.StructField('operation_type', 0, 0, ash.cloud_upload.mojom.OperationTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: ConnectToOneDriveDialogArgs
-ash.cloud_upload.mojom.ConnectToOneDriveDialogArgsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.ConnectToOneDriveDialogArgs',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.ConnectToOneDriveDialogArgsSpec, 'ash.cloud_upload.mojom.ConnectToOneDriveDialogArgs', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 // Struct: FileHandlerDialogArgs
-ash.cloud_upload.mojom.FileHandlerDialogArgsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.FileHandlerDialogArgs',
-      packedSize: 24,
-      fields: [
-        { name: 'local_tasks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.cloud_upload.mojom.DialogTaskSpec, false), nullable: false, minVersion: 0 },
-        { name: 'show_google_workspace_task', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'show_microsoft_office_task', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.FileHandlerDialogArgsSpec, 'ash.cloud_upload.mojom.FileHandlerDialogArgs', [
+      mojo.internal.StructField('local_tasks', 0, 0, mojo.internal.Array(ash.cloud_upload.mojom.DialogTaskSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('show_google_workspace_task', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('show_microsoft_office_task', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Struct: DialogArgs
-ash.cloud_upload.mojom.DialogArgsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.DialogArgs',
-      packedSize: 24,
-      fields: [
-        { name: 'file_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'dialog_specific_args', packedOffset: 8, packedBitOffset: 0, type: ash.cloud_upload.mojom.DialogSpecificArgsSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.DialogArgsSpec, 'ash.cloud_upload.mojom.DialogArgs', [
+      mojo.internal.StructField('file_names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('dialog_specific_args', 8, 0, ash.cloud_upload.mojom.DialogSpecificArgsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: PageHandlerFactory
-ash.cloud_upload.mojom.PageHandlerFactory = {};
-
-ash.cloud_upload.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandlerFactory_CreatePageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.cloud_upload.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.cloud_upload.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.cloud_upload.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.cloud_upload.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
@@ -240,212 +223,144 @@ ash.cloud_upload.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreatePageHandler
-ash.cloud_upload.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.cloud_upload.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.cloud_upload.mojom.PageHandlerFactoryPtr = ash.cloud_upload.mojom.PageHandlerFactoryRemote;
 ash.cloud_upload.mojom.PageHandlerFactoryRequest = ash.cloud_upload.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
-ash.cloud_upload.mojom.PageHandler = {};
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetDialogArgs_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler_GetDialogArgs_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ResponseParams', [
+      mojo.internal.StructField('args', 0, 0, ash.cloud_upload.mojom.DialogArgsSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ResponseParams', [
+      mojo.internal.StructField('installed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler_IsODFSMounted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ResponseParams', [
+      mojo.internal.StructField('installed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.cloud_upload.mojom.PageHandler_RespondWithUserActionAndClose_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler_RespondWithUserActionAndClose_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cloud_upload.mojom.UserActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_IsODFSMounted_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.cloud_upload.mojom.PageHandler_RespondWithLocalTaskAndClose_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler_RespondWithLocalTaskAndClose_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'task_position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ResponseParams', [
+      mojo.internal.StructField('mounted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.cloud_upload.mojom.PageHandler_SetOfficeAsDefaultHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler_SetOfficeAsDefaultHandler_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ResponseParams', [
+      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToDrive_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'always_move', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.PageHandler_RespondWithUserActionAndClose_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_RespondWithUserActionAndClose_Params', [
+      mojo.internal.StructField('response', 0, 0, ash.cloud_upload.mojom.UserActionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.PageHandler_RespondWithLocalTaskAndClose_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_RespondWithLocalTaskAndClose_Params', [
+      mojo.internal.StructField('task_position', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'always_move', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.PageHandler_SetOfficeAsDefaultHandler_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_SetOfficeAsDefaultHandler_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParams', [
+      mojo.internal.StructField('always_move', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-ash.cloud_upload.mojom.PageHandler_RecordCancel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler_RecordCancel_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: ash.cloud_upload.mojom.MetricsRecordedSetupPageSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToDrive_Params', [
+      mojo.internal.StructField('always_move', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponseParams', [
+      mojo.internal.StructField('always_move', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_Params', [
+      mojo.internal.StructField('always_move', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ResponseParams', [
+      mojo.internal.StructField('move_confirmation_shown', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ResponseParams', [
+      mojo.internal.StructField('move_confirmation_shown', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    ash.cloud_upload.mojom.PageHandler_RecordCancel_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_RecordCancel_Params', [
+      mojo.internal.StructField('page', 0, 0, ash.cloud_upload.mojom.MetricsRecordedSetupPageSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 ash.cloud_upload.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
@@ -626,324 +541,6 @@ ash.cloud_upload.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for GetDialogArgs
-ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler.GetDialogArgs_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler.GetDialogArgs_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'args', packedOffset: 0, packedBitOffset: 0, type: ash.cloud_upload.mojom.DialogArgsSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for IsOfficeWebAppInstalled
-ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler.IsOfficeWebAppInstalled_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler.IsOfficeWebAppInstalled_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'installed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for InstallOfficeWebApp
-ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler.InstallOfficeWebApp_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler.InstallOfficeWebApp_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'installed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for IsODFSMounted
-ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler.IsODFSMounted_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler.IsODFSMounted_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'mounted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SignInToOneDrive
-ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler.SignInToOneDrive_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler.SignInToOneDrive_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RespondWithUserActionAndClose
-ash.cloud_upload.mojom.PageHandler_RespondWithUserActionAndClose_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler.RespondWithUserActionAndClose_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cloud_upload.mojom.UserActionSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RespondWithLocalTaskAndClose
-ash.cloud_upload.mojom.PageHandler_RespondWithLocalTaskAndClose_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler.RespondWithLocalTaskAndClose_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'task_position', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetOfficeAsDefaultHandler
-ash.cloud_upload.mojom.PageHandler_SetOfficeAsDefaultHandler_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler.SetOfficeAsDefaultHandler_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for GetAlwaysMoveOfficeFilesToDrive
-ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler.GetAlwaysMoveOfficeFilesToDrive_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler.GetAlwaysMoveOfficeFilesToDrive_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'always_move', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetAlwaysMoveOfficeFilesToDrive
-ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler.SetAlwaysMoveOfficeFilesToDrive_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'always_move', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetAlwaysMoveOfficeFilesToOneDrive
-ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler.GetAlwaysMoveOfficeFilesToOneDrive_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler.GetAlwaysMoveOfficeFilesToOneDrive_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'always_move', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetAlwaysMoveOfficeFilesToOneDrive
-ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler.SetAlwaysMoveOfficeFilesToOneDrive_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'always_move', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetOfficeMoveConfirmationShownForDrive
-ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler.GetOfficeMoveConfirmationShownForDrive_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler.GetOfficeMoveConfirmationShownForDrive_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'move_confirmation_shown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetOfficeMoveConfirmationShownForOneDrive
-ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler.GetOfficeMoveConfirmationShownForOneDrive_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler.GetOfficeMoveConfirmationShownForOneDrive_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'move_confirmation_shown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RecordCancel
-ash.cloud_upload.mojom.PageHandler_RecordCancel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'ash.cloud_upload.mojom.PageHandler.RecordCancel_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: ash.cloud_upload.mojom.MetricsRecordedSetupPageSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 ash.cloud_upload.mojom.PageHandlerPtr = ash.cloud_upload.mojom.PageHandlerRemote;
 ash.cloud_upload.mojom.PageHandlerRequest = ash.cloud_upload.mojom.PageHandlerPendingReceiver;
 

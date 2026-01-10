@@ -7,7 +7,10 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
 
+network.mojom.UnencodedDigestIssueSpec = { $: mojo.internal.Enum() };
+network.mojom.UnencodedDigestsSpec = { $: {} };
 
 // Enum: UnencodedDigestIssue
 network.mojom.UnencodedDigestIssue = {
@@ -16,19 +19,11 @@ network.mojom.UnencodedDigestIssue = {
   kIncorrectDigestType: 2,
   kIncorrectDigestLength: 3,
 };
-network.mojom.UnencodedDigestIssueSpec = { $: mojo.internal.Enum() };
 
 // Struct: UnencodedDigests
-network.mojom.UnencodedDigestsSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.UnencodedDigests',
-      packedSize: 24,
-      fields: [
-        { name: 'digests', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.IntegrityMetadataSpec, false), nullable: false, minVersion: 0 },
-        { name: 'issues', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.UnencodedDigestIssueSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.UnencodedDigestsSpec, 'network.mojom.UnencodedDigests', [
+      mojo.internal.StructField('digests', 0, 0, mojo.internal.Array(network.mojom.IntegrityMetadataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('issues', 8, 0, mojo.internal.Array(network.mojom.UnencodedDigestIssueSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);

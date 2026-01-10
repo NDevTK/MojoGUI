@@ -8,23 +8,24 @@
 var math = math || {};
 math.mojom = math.mojom || {};
 
+math.mojom.MathService = {};
+math.mojom.MathService.$interfaceName = 'math.mojom.MathService';
+math.mojom.MathService_Divide_ParamsSpec = { $: {} };
+math.mojom.MathService_Divide_ResponseParamsSpec = { $: {} };
 
 // Interface: MathService
-math.mojom.MathService = {};
+mojo.internal.Struct(
+    math.mojom.MathService_Divide_ParamsSpec, 'math.mojom.MathService_Divide_Params', [
+      mojo.internal.StructField('dividend', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('divisor', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-math.mojom.MathService_Divide_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'math.mojom.MathService_Divide_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'dividend', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'divisor', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    math.mojom.MathService_Divide_ResponseParamsSpec, 'math.mojom.MathService_Divide_ResponseParams', [
+      mojo.internal.StructField('quotient', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 math.mojom.MathServicePendingReceiver = class {
   constructor(handle) {
@@ -79,35 +80,6 @@ math.mojom.MathService.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Divide
-math.mojom.MathService_Divide_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'math.mojom.MathService.Divide_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'dividend', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'divisor', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-math.mojom.MathService_Divide_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'math.mojom.MathService.Divide_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'quotient', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 math.mojom.MathServicePtr = math.mojom.MathServiceRemote;
 math.mojom.MathServiceRequest = math.mojom.MathServicePendingReceiver;
 

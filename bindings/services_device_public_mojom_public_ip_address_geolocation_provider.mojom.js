@@ -7,25 +7,22 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
+var services = services || {};
+var services = services || {};
+var services = services || {};
 
+device.mojom.PublicIpAddressGeolocationProvider = {};
+device.mojom.PublicIpAddressGeolocationProvider.$interfaceName = 'device.mojom.PublicIpAddressGeolocationProvider';
+device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_ParamsSpec = { $: {} };
 
 // Interface: PublicIpAddressGeolocationProvider
-device.mojom.PublicIpAddressGeolocationProvider = {};
-
-device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: network.mojom.MutablePartialNetworkTrafficAnnotationTagSpec, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.GeolocationRemote), nullable: false, minVersion: 0 },
-        { name: 'client_id', packedOffset: 16, packedBitOffset: 0, type: device.mojom.GeolocationClientIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_ParamsSpec, 'device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_Params', [
+      mojo.internal.StructField('tag', 0, 0, network.mojom.MutablePartialNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(device.mojom.GeolocationRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client_id', 16, 0, device.mojom.GeolocationClientIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 device.mojom.PublicIpAddressGeolocationProviderPendingReceiver = class {
   constructor(handle) {
@@ -80,23 +77,6 @@ device.mojom.PublicIpAddressGeolocationProvider.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for CreateGeolocation
-device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'device.mojom.PublicIpAddressGeolocationProvider.CreateGeolocation_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: network.mojom.MutablePartialNetworkTrafficAnnotationTagSpec, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.GeolocationRemote), nullable: false, minVersion: 0 },
-        { name: 'client_id', packedOffset: 16, packedBitOffset: 0, type: device.mojom.GeolocationClientIdSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 device.mojom.PublicIpAddressGeolocationProviderPtr = device.mojom.PublicIpAddressGeolocationProviderRemote;
 device.mojom.PublicIpAddressGeolocationProviderRequest = device.mojom.PublicIpAddressGeolocationProviderPendingReceiver;
 

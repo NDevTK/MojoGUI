@@ -8,62 +8,66 @@
 var data_decoder = data_decoder || {};
 data_decoder.mojom = data_decoder.mojom || {};
 
+data_decoder.mojom.Gzipper = {};
+data_decoder.mojom.Gzipper.$interfaceName = 'data_decoder.mojom.Gzipper';
+data_decoder.mojom.Gzipper_Deflate_ParamsSpec = { $: {} };
+data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec = { $: {} };
+data_decoder.mojom.Gzipper_Inflate_ParamsSpec = { $: {} };
+data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec = { $: {} };
+data_decoder.mojom.Gzipper_Compress_ParamsSpec = { $: {} };
+data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec = { $: {} };
+data_decoder.mojom.Gzipper_Uncompress_ParamsSpec = { $: {} };
+data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec = { $: {} };
 
 // Interface: Gzipper
-data_decoder.mojom.Gzipper = {};
+mojo.internal.Struct(
+    data_decoder.mojom.Gzipper_Deflate_ParamsSpec, 'data_decoder.mojom.Gzipper_Deflate_Params', [
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-data_decoder.mojom.Gzipper_Deflate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.Gzipper_Deflate_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec, 'data_decoder.mojom.Gzipper_Deflate_ResponseParams', [
+      mojo.internal.StructField('deflated_data', 0, 0, mojo_base.mojom.BigBufferSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-data_decoder.mojom.Gzipper_Inflate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.Gzipper_Inflate_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-        { name: 'max_uncompressed_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_decoder.mojom.Gzipper_Inflate_ParamsSpec, 'data_decoder.mojom.Gzipper_Inflate_Params', [
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('max_uncompressed_size', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-data_decoder.mojom.Gzipper_Compress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.Gzipper_Compress_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec, 'data_decoder.mojom.Gzipper_Inflate_ResponseParams', [
+      mojo.internal.StructField('inflated_data', 0, 0, mojo_base.mojom.BigBufferSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
-data_decoder.mojom.Gzipper_Uncompress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.Gzipper_Uncompress_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'compressed_data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    data_decoder.mojom.Gzipper_Compress_ParamsSpec, 'data_decoder.mojom.Gzipper_Compress_Params', [
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec, 'data_decoder.mojom.Gzipper_Compress_ResponseParams', [
+      mojo.internal.StructField('compressed_data', 0, 0, mojo_base.mojom.BigBufferSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    data_decoder.mojom.Gzipper_Uncompress_ParamsSpec, 'data_decoder.mojom.Gzipper_Uncompress_Params', [
+      mojo.internal.StructField('compressed_data', 0, 0, mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec, 'data_decoder.mojom.Gzipper_Uncompress_ResponseParams', [
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.BigBufferSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 
 data_decoder.mojom.GzipperPendingReceiver = class {
   constructor(handle) {
@@ -145,116 +149,6 @@ data_decoder.mojom.Gzipper.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for Deflate
-data_decoder.mojom.Gzipper_Deflate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.Gzipper.Deflate_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.Gzipper.Deflate_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'deflated_data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Inflate
-data_decoder.mojom.Gzipper_Inflate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.Gzipper.Inflate_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-        { name: 'max_uncompressed_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.Gzipper.Inflate_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'inflated_data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Compress
-data_decoder.mojom.Gzipper_Compress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.Gzipper.Compress_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.Gzipper.Compress_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'compressed_data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for Uncompress
-data_decoder.mojom.Gzipper_Uncompress_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.Gzipper.Uncompress_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'compressed_data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'data_decoder.mojom.Gzipper.Uncompress_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 data_decoder.mojom.GzipperPtr = data_decoder.mojom.GzipperRemote;
 data_decoder.mojom.GzipperRequest = data_decoder.mojom.GzipperPendingReceiver;
 

@@ -7,19 +7,14 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var services = services || {};
 
+network.mojom.IntegrityMetadataSpec = { $: {} };
 
 // Struct: IntegrityMetadata
-network.mojom.IntegrityMetadataSpec = {
-  $: {
-    structSpec: {
-      name: 'network.mojom.IntegrityMetadata',
-      packedSize: 24,
-      fields: [
-        { name: 'algorithm', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IntegrityAlgorithmSpec, nullable: false, minVersion: 0 },
-        { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    network.mojom.IntegrityMetadataSpec, 'network.mojom.IntegrityMetadata', [
+      mojo.internal.StructField('algorithm', 8, 0, network.mojom.IntegrityAlgorithmSpec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);

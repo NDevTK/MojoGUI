@@ -12,42 +12,48 @@ var ui = ui || {};
 var gfx = gfx || {};
 var url = url || {};
 
+blink.mojom.ImageDownloader = {};
+blink.mojom.ImageDownloader.$interfaceName = 'blink.mojom.ImageDownloader';
+blink.mojom.ImageDownloader_DownloadImage_ParamsSpec = { $: {} };
+blink.mojom.ImageDownloader_DownloadImage_ResponseParamsSpec = { $: {} };
+blink.mojom.ImageDownloader_DownloadImageFromAxNode_ParamsSpec = { $: {} };
+blink.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParamsSpec = { $: {} };
 
 // Interface: ImageDownloader
-blink.mojom.ImageDownloader = {};
+mojo.internal.Struct(
+    blink.mojom.ImageDownloader_DownloadImage_ParamsSpec, 'blink.mojom.ImageDownloader_DownloadImage_Params', [
+      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('is_favicon', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('preferred_size', 8, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('max_bitmap_size', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('bypass_cache', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.ImageDownloader_DownloadImage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ImageDownloader_DownloadImage_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'is_favicon', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'preferred_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'max_bitmap_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'bypass_cache', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ImageDownloader_DownloadImage_ResponseParamsSpec, 'blink.mojom.ImageDownloader_DownloadImage_ResponseParams', [
+      mojo.internal.StructField('http_status_code', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('images', 0, 0, mojo.internal.Array(skia.mojom.BitmapN32Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('original_image_sizes', 8, 0, mojo.internal.Array(gfx.mojom.SizeSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.ImageDownloader_DownloadImageFromAxNode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ImageDownloader_DownloadImageFromAxNode_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'ax_node_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'preferred_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'max_bitmap_size', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'bypass_cache', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ImageDownloader_DownloadImageFromAxNode_ParamsSpec, 'blink.mojom.ImageDownloader_DownloadImageFromAxNode_Params', [
+      mojo.internal.StructField('ax_node_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('preferred_size', 0, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('max_bitmap_size', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('bypass_cache', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    blink.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParamsSpec, 'blink.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParams', [
+      mojo.internal.StructField('http_status_code', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('images', 0, 0, mojo.internal.Array(skia.mojom.BitmapN32Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('original_image_sizes', 8, 0, mojo.internal.Array(gfx.mojom.SizeSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 blink.mojom.ImageDownloaderPendingReceiver = class {
   constructor(handle) {
@@ -111,72 +117,6 @@ blink.mojom.ImageDownloader.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for DownloadImage
-blink.mojom.ImageDownloader_DownloadImage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ImageDownloader.DownloadImage_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'is_favicon', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'preferred_size', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'max_bitmap_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'bypass_cache', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-blink.mojom.ImageDownloader_DownloadImage_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ImageDownloader.DownloadImage_ResponseParams',
-      packedSize: 32,
-      fields: [
-        { name: 'http_status_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(skia.mojom.BitmapN32Spec, false), nullable: false, minVersion: 0 },
-        { name: 'original_image_sizes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.SizeSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for DownloadImageFromAxNode
-blink.mojom.ImageDownloader_DownloadImageFromAxNode_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ImageDownloader.DownloadImageFromAxNode_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'ax_node_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'preferred_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'max_bitmap_size', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'bypass_cache', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-blink.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ImageDownloader.DownloadImageFromAxNode_ResponseParams',
-      packedSize: 32,
-      fields: [
-        { name: 'http_status_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(skia.mojom.BitmapN32Spec, false), nullable: false, minVersion: 0 },
-        { name: 'original_image_sizes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.SizeSpec, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.ImageDownloaderPtr = blink.mojom.ImageDownloaderRemote;
 blink.mojom.ImageDownloaderRequest = blink.mojom.ImageDownloaderPendingReceiver;
 

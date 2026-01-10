@@ -8,26 +8,20 @@
 var signin = signin || {};
 signin.mojom = signin.mojom || {};
 
+signin.mojom.AccountTypeSpec = { $: mojo.internal.Enum() };
+signin.mojom.AccountIdSpec = { $: {} };
 
 // Enum: AccountType
 signin.mojom.AccountType = {
   UNKNOWN: 0,
   GOOGLE: 1,
 };
-signin.mojom.AccountTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: AccountId
-signin.mojom.AccountIdSpec = {
-  $: {
-    structSpec: {
-      name: 'signin.mojom.AccountId',
-      packedSize: 32,
-      fields: [
-        { name: 'account_type', packedOffset: 16, packedBitOffset: 0, type: signin.mojom.AccountTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'user_email', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    signin.mojom.AccountIdSpec, 'signin.mojom.AccountId', [
+      mojo.internal.StructField('account_type', 16, 0, signin.mojom.AccountTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('user_email', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);

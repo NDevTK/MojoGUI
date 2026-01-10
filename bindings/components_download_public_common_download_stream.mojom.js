@@ -8,6 +8,11 @@
 var download = download || {};
 download.mojom = download.mojom || {};
 
+download.mojom.NetworkRequestStatusSpec = { $: mojo.internal.Enum() };
+download.mojom.DownloadStreamHandleSpec = { $: {} };
+download.mojom.DownloadStreamClient = {};
+download.mojom.DownloadStreamClient.$interfaceName = 'download.mojom.DownloadStreamClient';
+download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec = { $: {} };
 
 // Enum: NetworkRequestStatus
 download.mojom.NetworkRequestStatus = {
@@ -22,38 +27,21 @@ download.mojom.NetworkRequestStatus = {
   USER_CANCELED: 8,
   NETWORK_FAILED: 9,
 };
-download.mojom.NetworkRequestStatusSpec = { $: mojo.internal.Enum() };
 
 // Struct: DownloadStreamHandle
-download.mojom.DownloadStreamHandleSpec = {
-  $: {
-    structSpec: {
-      name: 'download.mojom.DownloadStreamHandle',
-      packedSize: 24,
-      fields: [
-        { name: 'stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'client_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(download.mojom.DownloadStreamClientRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    download.mojom.DownloadStreamHandleSpec, 'download.mojom.DownloadStreamHandle', [
+      mojo.internal.StructField('stream', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('client_receiver', 8, 0, mojo.internal.InterfaceRequest(download.mojom.DownloadStreamClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: DownloadStreamClient
-download.mojom.DownloadStreamClient = {};
-
-download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'download.mojom.DownloadStreamClient_OnStreamCompleted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: download.mojom.NetworkRequestStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec, 'download.mojom.DownloadStreamClient_OnStreamCompleted_Params', [
+      mojo.internal.StructField('status', 0, 0, download.mojom.NetworkRequestStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 download.mojom.DownloadStreamClientPendingReceiver = class {
   constructor(handle) {
@@ -108,21 +96,6 @@ download.mojom.DownloadStreamClient.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnStreamCompleted
-download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'download.mojom.DownloadStreamClient.OnStreamCompleted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: download.mojom.NetworkRequestStatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 download.mojom.DownloadStreamClientPtr = download.mojom.DownloadStreamClientRemote;
 download.mojom.DownloadStreamClientRequest = download.mojom.DownloadStreamClientPendingReceiver;
 

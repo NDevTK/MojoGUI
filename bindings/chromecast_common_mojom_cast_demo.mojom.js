@@ -9,22 +9,36 @@ var chromecast = chromecast || {};
 chromecast.shell = chromecast.shell || {};
 chromecast.shell.mojom = chromecast.shell.mojom || {};
 
+chromecast.shell.mojom.CastDemoVolumeChangeObserver = {};
+chromecast.shell.mojom.CastDemoVolumeChangeObserver.$interfaceName = 'chromecast.shell.mojom.CastDemoVolumeChangeObserver';
+chromecast.shell.mojom.CastDemoVolumeChangeObserver_VolumeChanged_ParamsSpec = { $: {} };
+chromecast.shell.mojom.CastDemo = {};
+chromecast.shell.mojom.CastDemo.$interfaceName = 'chromecast.shell.mojom.CastDemo';
+chromecast.shell.mojom.CastDemo_RecordEvent_ParamsSpec = { $: {} };
+chromecast.shell.mojom.CastDemo_SetRetailerName_ParamsSpec = { $: {} };
+chromecast.shell.mojom.CastDemo_SetStoreId_ParamsSpec = { $: {} };
+chromecast.shell.mojom.CastDemo_GetRetailerName_ParamsSpec = { $: {} };
+chromecast.shell.mojom.CastDemo_GetRetailerName_ResponseParamsSpec = { $: {} };
+chromecast.shell.mojom.CastDemo_GetStoreId_ParamsSpec = { $: {} };
+chromecast.shell.mojom.CastDemo_GetStoreId_ResponseParamsSpec = { $: {} };
+chromecast.shell.mojom.CastDemo_SetDefaultVolumeLevel_ParamsSpec = { $: {} };
+chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ParamsSpec = { $: {} };
+chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ResponseParamsSpec = { $: {} };
+chromecast.shell.mojom.CastDemo_ApplyDefaultVolume_ParamsSpec = { $: {} };
+chromecast.shell.mojom.CastDemo_SetWifiCredentials_ParamsSpec = { $: {} };
+chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ParamsSpec = { $: {} };
+chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ResponseParamsSpec = { $: {} };
+chromecast.shell.mojom.CastDemo_GetConnectionStatus_ParamsSpec = { $: {} };
+chromecast.shell.mojom.CastDemo_GetConnectionStatus_ResponseParamsSpec = { $: {} };
+chromecast.shell.mojom.CastDemo_AddVolumeChangeObserver_ParamsSpec = { $: {} };
+chromecast.shell.mojom.CastDemo_PersistLocalStorage_ParamsSpec = { $: {} };
 
 // Interface: CastDemoVolumeChangeObserver
-chromecast.shell.mojom.CastDemoVolumeChangeObserver = {};
-
-chromecast.shell.mojom.CastDemoVolumeChangeObserver_VolumeChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemoVolumeChangeObserver_VolumeChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.shell.mojom.CastDemoVolumeChangeObserver_VolumeChanged_ParamsSpec, 'chromecast.shell.mojom.CastDemoVolumeChangeObserver_VolumeChanged_Params', [
+      mojo.internal.StructField('level', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 chromecast.shell.mojom.CastDemoVolumeChangeObserverPendingReceiver = class {
   constructor(handle) {
@@ -79,191 +93,113 @@ chromecast.shell.mojom.CastDemoVolumeChangeObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for VolumeChanged
-chromecast.shell.mojom.CastDemoVolumeChangeObserver_VolumeChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemoVolumeChangeObserver.VolumeChanged_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.shell.mojom.CastDemoVolumeChangeObserverPtr = chromecast.shell.mojom.CastDemoVolumeChangeObserverRemote;
 chromecast.shell.mojom.CastDemoVolumeChangeObserverRequest = chromecast.shell.mojom.CastDemoVolumeChangeObserverPendingReceiver;
 
 
 // Interface: CastDemo
-chromecast.shell.mojom.CastDemo = {};
+mojo.internal.Struct(
+    chromecast.shell.mojom.CastDemo_RecordEvent_ParamsSpec, 'chromecast.shell.mojom.CastDemo_RecordEvent_Params', [
+      mojo.internal.StructField('event_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-chromecast.shell.mojom.CastDemo_RecordEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemo_RecordEvent_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'event_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.shell.mojom.CastDemo_SetRetailerName_ParamsSpec, 'chromecast.shell.mojom.CastDemo_SetRetailerName_Params', [
+      mojo.internal.StructField('retailer_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.shell.mojom.CastDemo_SetRetailerName_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemo_SetRetailerName_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'retailer_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.shell.mojom.CastDemo_SetStoreId_ParamsSpec, 'chromecast.shell.mojom.CastDemo_SetStoreId_Params', [
+      mojo.internal.StructField('store_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.shell.mojom.CastDemo_SetStoreId_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemo_SetStoreId_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'store_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.shell.mojom.CastDemo_GetRetailerName_ParamsSpec, 'chromecast.shell.mojom.CastDemo_GetRetailerName_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromecast.shell.mojom.CastDemo_GetRetailerName_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemo_GetRetailerName_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.shell.mojom.CastDemo_GetRetailerName_ResponseParamsSpec, 'chromecast.shell.mojom.CastDemo_GetRetailerName_ResponseParams', [
+      mojo.internal.StructField('retailer_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.shell.mojom.CastDemo_GetStoreId_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemo_GetStoreId_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.shell.mojom.CastDemo_GetStoreId_ParamsSpec, 'chromecast.shell.mojom.CastDemo_GetStoreId_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromecast.shell.mojom.CastDemo_SetDefaultVolumeLevel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemo_SetDefaultVolumeLevel_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.shell.mojom.CastDemo_GetStoreId_ResponseParamsSpec, 'chromecast.shell.mojom.CastDemo_GetStoreId_ResponseParams', [
+      mojo.internal.StructField('store_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.shell.mojom.CastDemo_SetDefaultVolumeLevel_ParamsSpec, 'chromecast.shell.mojom.CastDemo_SetDefaultVolumeLevel_Params', [
+      mojo.internal.StructField('level', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.shell.mojom.CastDemo_ApplyDefaultVolume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemo_ApplyDefaultVolume_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ParamsSpec, 'chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromecast.shell.mojom.CastDemo_SetWifiCredentials_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemo_SetWifiCredentials_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'ssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'psk', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ResponseParamsSpec, 'chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ResponseParams', [
+      mojo.internal.StructField('level', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.shell.mojom.CastDemo_ApplyDefaultVolume_ParamsSpec, 'chromecast.shell.mojom.CastDemo_ApplyDefaultVolume_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromecast.shell.mojom.CastDemo_GetConnectionStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemo_GetConnectionStatus_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.shell.mojom.CastDemo_SetWifiCredentials_ParamsSpec, 'chromecast.shell.mojom.CastDemo_SetWifiCredentials_Params', [
+      mojo.internal.StructField('ssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('psk', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-chromecast.shell.mojom.CastDemo_AddVolumeChangeObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemo_AddVolumeChangeObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.shell.mojom.CastDemoVolumeChangeObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ParamsSpec, 'chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
-chromecast.shell.mojom.CastDemo_PersistLocalStorage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemo_PersistLocalStorage_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
+mojo.internal.Struct(
+    chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ResponseParamsSpec, 'chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ResponseParams', [
+      mojo.internal.StructField('network_list', 0, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    chromecast.shell.mojom.CastDemo_GetConnectionStatus_ParamsSpec, 'chromecast.shell.mojom.CastDemo_GetConnectionStatus_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
+
+mojo.internal.Struct(
+    chromecast.shell.mojom.CastDemo_GetConnectionStatus_ResponseParamsSpec, 'chromecast.shell.mojom.CastDemo_GetConnectionStatus_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    chromecast.shell.mojom.CastDemo_AddVolumeChangeObserver_ParamsSpec, 'chromecast.shell.mojom.CastDemo_AddVolumeChangeObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromecast.shell.mojom.CastDemoVolumeChangeObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    chromecast.shell.mojom.CastDemo_PersistLocalStorage_ParamsSpec, 'chromecast.shell.mojom.CastDemo_PersistLocalStorage_Params', [
+    ],
+    [{version: 0, packedSize: 8}]);
 
 chromecast.shell.mojom.CastDemoPendingReceiver = class {
   constructor(handle) {
@@ -426,249 +362,6 @@ chromecast.shell.mojom.CastDemo.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for RecordEvent
-chromecast.shell.mojom.CastDemo_RecordEvent_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemo.RecordEvent_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'event_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for SetRetailerName
-chromecast.shell.mojom.CastDemo_SetRetailerName_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemo.SetRetailerName_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'retailer_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetStoreId
-chromecast.shell.mojom.CastDemo_SetStoreId_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemo.SetStoreId_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'store_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetRetailerName
-chromecast.shell.mojom.CastDemo_GetRetailerName_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemo.GetRetailerName_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromecast.shell.mojom.CastDemo_GetRetailerName_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemo.GetRetailerName_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'retailer_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetStoreId
-chromecast.shell.mojom.CastDemo_GetStoreId_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemo.GetStoreId_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromecast.shell.mojom.CastDemo_GetStoreId_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemo.GetStoreId_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'store_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SetDefaultVolumeLevel
-chromecast.shell.mojom.CastDemo_SetDefaultVolumeLevel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemo.SetDefaultVolumeLevel_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for GetDefaultVolumeLevel
-chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemo.GetDefaultVolumeLevel_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemo.GetDefaultVolumeLevel_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ApplyDefaultVolume
-chromecast.shell.mojom.CastDemo_ApplyDefaultVolume_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemo.ApplyDefaultVolume_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// ParamsSpec for SetWifiCredentials
-chromecast.shell.mojom.CastDemo_SetWifiCredentials_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemo.SetWifiCredentials_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'ssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'psk', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GetAvailableWifiNetworks
-chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemo.GetAvailableWifiNetworks_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemo.GetAvailableWifiNetworks_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'network_list', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for GetConnectionStatus
-chromecast.shell.mojom.CastDemo_GetConnectionStatus_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemo.GetConnectionStatus_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-chromecast.shell.mojom.CastDemo_GetConnectionStatus_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemo.GetConnectionStatus_ResponseParams',
-      packedSize: 24,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for AddVolumeChangeObserver
-chromecast.shell.mojom.CastDemo_AddVolumeChangeObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemo.AddVolumeChangeObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.shell.mojom.CastDemoVolumeChangeObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for PersistLocalStorage
-chromecast.shell.mojom.CastDemo_PersistLocalStorage_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'chromecast.shell.mojom.CastDemo.PersistLocalStorage_Params',
-      packedSize: 8,
-      fields: [
-      ],
-      versions: [{version: 0, packedSize: 8}]
-    }
-  }
-};
-
-// Legacy compatibility
 chromecast.shell.mojom.CastDemoPtr = chromecast.shell.mojom.CastDemoRemote;
 chromecast.shell.mojom.CastDemoRequest = chromecast.shell.mojom.CastDemoPendingReceiver;
 

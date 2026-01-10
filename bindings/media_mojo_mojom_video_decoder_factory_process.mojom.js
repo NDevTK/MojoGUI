@@ -7,25 +7,20 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
+var services = services || {};
 
+media.mojom.VideoDecoderFactoryProcess = {};
+media.mojom.VideoDecoderFactoryProcess.$interfaceName = 'media.mojom.VideoDecoderFactoryProcess';
+media.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_ParamsSpec = { $: {} };
 
 // Interface: VideoDecoderFactoryProcess
-media.mojom.VideoDecoderFactoryProcess = {};
-
-media.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'gpu_feature_info', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.GpuFeatureInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.InterfaceFactoryRemote), nullable: false, minVersion: 0 },
-        { name: 'gpu_remote', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(viz.mojom.GpuRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    media.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_ParamsSpec, 'media.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_Params', [
+      mojo.internal.StructField('gpu_feature_info', 0, 0, gpu.mojom.GpuFeatureInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(media.mojom.InterfaceFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('gpu_remote', 16, 0, mojo.internal.InterfaceProxy(viz.mojom.GpuRemote), null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 
 media.mojom.VideoDecoderFactoryProcessPendingReceiver = class {
   constructor(handle) {
@@ -80,23 +75,6 @@ media.mojom.VideoDecoderFactoryProcess.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for InitializeVideoDecoderFactory
-media.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'media.mojom.VideoDecoderFactoryProcess.InitializeVideoDecoderFactory_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'gpu_feature_info', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.GpuFeatureInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.InterfaceFactoryRemote), nullable: false, minVersion: 0 },
-        { name: 'gpu_remote', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(viz.mojom.GpuRemote), nullable: true, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// Legacy compatibility
 media.mojom.VideoDecoderFactoryProcessPtr = media.mojom.VideoDecoderFactoryProcessRemote;
 media.mojom.VideoDecoderFactoryProcessRequest = media.mojom.VideoDecoderFactoryProcessPendingReceiver;
 

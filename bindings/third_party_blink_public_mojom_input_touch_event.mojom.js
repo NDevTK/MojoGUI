@@ -8,6 +8,8 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 
+blink.mojom.TouchStateSpec = { $: mojo.internal.Enum() };
+blink.mojom.TouchEventConsumersSpec = { $: {} };
 
 // Enum: TouchState
 blink.mojom.TouchState = {
@@ -18,19 +20,11 @@ blink.mojom.TouchState = {
   kStateStationary: 4,
   kStateCancelled: 5,
 };
-blink.mojom.TouchStateSpec = { $: mojo.internal.Enum() };
 
 // Struct: TouchEventConsumers
-blink.mojom.TouchEventConsumersSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.TouchEventConsumers',
-      packedSize: 16,
-      fields: [
-        { name: 'has_touch_event_handlers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'has_hit_testable_scrollbar', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.TouchEventConsumersSpec, 'blink.mojom.TouchEventConsumers', [
+      mojo.internal.StructField('has_touch_event_handlers', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('has_hit_testable_scrollbar', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);

@@ -10,68 +10,45 @@ blink.mojom = blink.mojom || {};
 var blink = blink || {};
 var blink = blink || {};
 var blink = blink || {};
+var services = services || {};
 
+blink.mojom.ServiceWorkerFetchEventTimingSpec = { $: {} };
+blink.mojom.ServiceWorkerFetchResponseCallback = {};
+blink.mojom.ServiceWorkerFetchResponseCallback.$interfaceName = 'blink.mojom.ServiceWorkerFetchResponseCallback';
+blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec = { $: {} };
+blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec = { $: {} };
 
 // Struct: ServiceWorkerFetchEventTiming
-blink.mojom.ServiceWorkerFetchEventTimingSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerFetchEventTiming',
-      packedSize: 24,
-      fields: [
-        { name: 'dispatch_event_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-        { name: 'respond_with_settled_time', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeTicksSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerFetchEventTimingSpec, 'blink.mojom.ServiceWorkerFetchEventTiming', [
+      mojo.internal.StructField('dispatch_event_time', 0, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('respond_with_settled_time', 8, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 // Interface: ServiceWorkerFetchResponseCallback
-blink.mojom.ServiceWorkerFetchResponseCallback = {};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec, 'blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_Params', [
+      mojo.internal.StructField('response', 0, 0, blink.mojom.FetchAPIResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('timing', 8, 0, blink.mojom.ServiceWorkerFetchEventTimingSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FetchAPIResponseSpec, nullable: false, minVersion: 0 },
-        { name: 'timing', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerFetchEventTimingSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec, 'blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_Params', [
+      mojo.internal.StructField('response', 0, 0, blink.mojom.FetchAPIResponseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('body_as_stream', 8, 0, blink.mojom.ServiceWorkerStreamHandleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('timing', 16, 0, blink.mojom.ServiceWorkerFetchEventTimingSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FetchAPIResponseSpec, nullable: false, minVersion: 0 },
-        { name: 'body_as_stream', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerStreamHandleSpec, nullable: false, minVersion: 0 },
-        { name: 'timing', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ServiceWorkerFetchEventTimingSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'request_body', packedOffset: 0, packedBitOffset: 0, type: network.mojom.DataElementChunkedDataPipeSpec, nullable: true, minVersion: 0 },
-        { name: 'timing', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerFetchEventTimingSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec, 'blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_Params', [
+      mojo.internal.StructField('request_body', 0, 0, network.mojom.DataElementChunkedDataPipeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('timing', 8, 0, blink.mojom.ServiceWorkerFetchEventTimingSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 blink.mojom.ServiceWorkerFetchResponseCallbackPendingReceiver = class {
   constructor(handle) {
@@ -144,53 +121,6 @@ blink.mojom.ServiceWorkerFetchResponseCallback.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnResponse
-blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerFetchResponseCallback.OnResponse_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FetchAPIResponseSpec, nullable: false, minVersion: 0 },
-        { name: 'timing', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerFetchEventTimingSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnResponseStream
-blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerFetchResponseCallback.OnResponseStream_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'response', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FetchAPIResponseSpec, nullable: false, minVersion: 0 },
-        { name: 'body_as_stream', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerStreamHandleSpec, nullable: false, minVersion: 0 },
-        { name: 'timing', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.ServiceWorkerFetchEventTimingSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-// ParamsSpec for OnFallback
-blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'blink.mojom.ServiceWorkerFetchResponseCallback.OnFallback_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'request_body', packedOffset: 0, packedBitOffset: 0, type: network.mojom.DataElementChunkedDataPipeSpec, nullable: true, minVersion: 0 },
-        { name: 'timing', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerFetchEventTimingSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 blink.mojom.ServiceWorkerFetchResponseCallbackPtr = blink.mojom.ServiceWorkerFetchResponseCallbackRemote;
 blink.mojom.ServiceWorkerFetchResponseCallbackRequest = blink.mojom.ServiceWorkerFetchResponseCallbackPendingReceiver;
 

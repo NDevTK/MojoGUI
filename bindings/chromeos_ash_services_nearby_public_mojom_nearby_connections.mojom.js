@@ -8,37 +8,91 @@
 var nearby = nearby || {};
 nearby.connections = nearby.connections || {};
 nearby.connections.mojom = nearby.connections.mojom || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var services = services || {};
+var ash = ash || {};
+var chromeos = chromeos || {};
+var services = services || {};
 
+nearby.connections.mojom.EndpointDiscoveryListener = {};
+nearby.connections.mojom.EndpointDiscoveryListener.$interfaceName = 'nearby.connections.mojom.EndpointDiscoveryListener';
+nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointFound_ParamsSpec = { $: {} };
+nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointLost_ParamsSpec = { $: {} };
+nearby.connections.mojom.ConnectionLifecycleListener = {};
+nearby.connections.mojom.ConnectionLifecycleListener.$interfaceName = 'nearby.connections.mojom.ConnectionLifecycleListener';
+nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionInitiated_ParamsSpec = { $: {} };
+nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionAccepted_ParamsSpec = { $: {} };
+nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionRejected_ParamsSpec = { $: {} };
+nearby.connections.mojom.ConnectionLifecycleListener_OnDisconnected_ParamsSpec = { $: {} };
+nearby.connections.mojom.ConnectionLifecycleListener_OnBandwidthChanged_ParamsSpec = { $: {} };
+nearby.connections.mojom.PayloadListener = {};
+nearby.connections.mojom.PayloadListener.$interfaceName = 'nearby.connections.mojom.PayloadListener';
+nearby.connections.mojom.PayloadListener_OnPayloadReceived_ParamsSpec = { $: {} };
+nearby.connections.mojom.PayloadListener_OnPayloadTransferUpdate_ParamsSpec = { $: {} };
+nearby.connections.mojom.ConnectionListenerV3 = {};
+nearby.connections.mojom.ConnectionListenerV3.$interfaceName = 'nearby.connections.mojom.ConnectionListenerV3';
+nearby.connections.mojom.ConnectionListenerV3_OnConnectionInitiatedV3_ParamsSpec = { $: {} };
+nearby.connections.mojom.ConnectionListenerV3_OnConnectionResultV3_ParamsSpec = { $: {} };
+nearby.connections.mojom.ConnectionListenerV3_OnDisconnectedV3_ParamsSpec = { $: {} };
+nearby.connections.mojom.ConnectionListenerV3_OnBandwidthChangedV3_ParamsSpec = { $: {} };
+nearby.connections.mojom.PayloadListenerV3 = {};
+nearby.connections.mojom.PayloadListenerV3.$interfaceName = 'nearby.connections.mojom.PayloadListenerV3';
+nearby.connections.mojom.PayloadListenerV3_OnPayloadReceivedV3_ParamsSpec = { $: {} };
+nearby.connections.mojom.PayloadListenerV3_OnPayloadTransferUpdateV3_ParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections = {};
+nearby.connections.mojom.NearbyConnections.$interfaceName = 'nearby.connections.mojom.NearbyConnections';
+nearby.connections.mojom.NearbyConnections_StartAdvertising_ParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_StartAdvertising_ResponseParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_StopAdvertising_ParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_StopAdvertising_ResponseParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_StartDiscovery_ParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_StartDiscovery_ResponseParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_StopDiscovery_ParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_StopDiscovery_ResponseParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ResponseParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_RequestConnection_ParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_RequestConnection_ResponseParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_AcceptConnection_ParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_AcceptConnection_ResponseParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_RejectConnection_ParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_RejectConnection_ResponseParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ResponseParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_SendPayload_ParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_SendPayload_ResponseParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_CancelPayload_ParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_CancelPayload_ResponseParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ResponseParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ResponseParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ResponseParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ResponseParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ResponseParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ResponseParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ResponseParamsSpec = { $: {} };
+nearby.connections.mojom.NearbyConnections_RegisterServiceWithPresenceDeviceProvider_ParamsSpec = { $: {} };
 
 // Interface: EndpointDiscoveryListener
-nearby.connections.mojom.EndpointDiscoveryListener = {};
+mojo.internal.Struct(
+    nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointFound_ParamsSpec, 'nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointFound_Params', [
+      mojo.internal.StructField('endpoint_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('info', 8, 0, nearby.connections.mojom.DiscoveredEndpointInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointFound_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointFound_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.DiscoveredEndpointInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointLost_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointLost_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointLost_ParamsSpec, 'nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointLost_Params', [
+      mojo.internal.StructField('endpoint_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 nearby.connections.mojom.EndpointDiscoveryListenerPendingReceiver = class {
   constructor(handle) {
@@ -102,110 +156,43 @@ nearby.connections.mojom.EndpointDiscoveryListener.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnEndpointFound
-nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointFound_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.EndpointDiscoveryListener.OnEndpointFound_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.DiscoveredEndpointInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnEndpointLost
-nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointLost_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.EndpointDiscoveryListener.OnEndpointLost_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 nearby.connections.mojom.EndpointDiscoveryListenerPtr = nearby.connections.mojom.EndpointDiscoveryListenerRemote;
 nearby.connections.mojom.EndpointDiscoveryListenerRequest = nearby.connections.mojom.EndpointDiscoveryListenerPendingReceiver;
 
 
 // Interface: ConnectionLifecycleListener
-nearby.connections.mojom.ConnectionLifecycleListener = {};
+mojo.internal.Struct(
+    nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionInitiated_ParamsSpec, 'nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionInitiated_Params', [
+      mojo.internal.StructField('endpoint_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('info', 8, 0, nearby.connections.mojom.ConnectionInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionInitiated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionInitiated_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.ConnectionInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionAccepted_ParamsSpec, 'nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionAccepted_Params', [
+      mojo.internal.StructField('endpoint_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionAccepted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionAccepted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionRejected_ParamsSpec, 'nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionRejected_Params', [
+      mojo.internal.StructField('endpoint_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('status', 8, 0, nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionRejected_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionRejected_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby.connections.mojom.ConnectionLifecycleListener_OnDisconnected_ParamsSpec, 'nearby.connections.mojom.ConnectionLifecycleListener_OnDisconnected_Params', [
+      mojo.internal.StructField('endpoint_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-nearby.connections.mojom.ConnectionLifecycleListener_OnDisconnected_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.ConnectionLifecycleListener_OnDisconnected_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-nearby.connections.mojom.ConnectionLifecycleListener_OnBandwidthChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.ConnectionLifecycleListener_OnBandwidthChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'medium', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.MediumSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby.connections.mojom.ConnectionLifecycleListener_OnBandwidthChanged_ParamsSpec, 'nearby.connections.mojom.ConnectionLifecycleListener_OnBandwidthChanged_Params', [
+      mojo.internal.StructField('endpoint_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('medium', 8, 0, nearby.connections.mojom.MediumSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 nearby.connections.mojom.ConnectionLifecycleListenerPendingReceiver = class {
   constructor(handle) {
@@ -296,114 +283,24 @@ nearby.connections.mojom.ConnectionLifecycleListener.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnConnectionInitiated
-nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionInitiated_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.ConnectionLifecycleListener.OnConnectionInitiated_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.ConnectionInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnConnectionAccepted
-nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionAccepted_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.ConnectionLifecycleListener.OnConnectionAccepted_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnConnectionRejected
-nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionRejected_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.ConnectionLifecycleListener.OnConnectionRejected_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnDisconnected
-nearby.connections.mojom.ConnectionLifecycleListener_OnDisconnected_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.ConnectionLifecycleListener.OnDisconnected_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnBandwidthChanged
-nearby.connections.mojom.ConnectionLifecycleListener_OnBandwidthChanged_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.ConnectionLifecycleListener.OnBandwidthChanged_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'medium', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.MediumSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 nearby.connections.mojom.ConnectionLifecycleListenerPtr = nearby.connections.mojom.ConnectionLifecycleListenerRemote;
 nearby.connections.mojom.ConnectionLifecycleListenerRequest = nearby.connections.mojom.ConnectionLifecycleListenerPendingReceiver;
 
 
 // Interface: PayloadListener
-nearby.connections.mojom.PayloadListener = {};
+mojo.internal.Struct(
+    nearby.connections.mojom.PayloadListener_OnPayloadReceived_ParamsSpec, 'nearby.connections.mojom.PayloadListener_OnPayloadReceived_Params', [
+      mojo.internal.StructField('endpoint_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('payload', 8, 0, nearby.connections.mojom.PayloadSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-nearby.connections.mojom.PayloadListener_OnPayloadReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.PayloadListener_OnPayloadReceived_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'payload', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.PayloadSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-nearby.connections.mojom.PayloadListener_OnPayloadTransferUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.PayloadListener_OnPayloadTransferUpdate_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'update', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.PayloadTransferUpdateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby.connections.mojom.PayloadListener_OnPayloadTransferUpdate_ParamsSpec, 'nearby.connections.mojom.PayloadListener_OnPayloadTransferUpdate_Params', [
+      mojo.internal.StructField('endpoint_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('update', 8, 0, nearby.connections.mojom.PayloadTransferUpdateSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 nearby.connections.mojom.PayloadListenerPendingReceiver = class {
   constructor(handle) {
@@ -467,98 +364,37 @@ nearby.connections.mojom.PayloadListener.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnPayloadReceived
-nearby.connections.mojom.PayloadListener_OnPayloadReceived_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.PayloadListener.OnPayloadReceived_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'payload', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.PayloadSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnPayloadTransferUpdate
-nearby.connections.mojom.PayloadListener_OnPayloadTransferUpdate_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.PayloadListener.OnPayloadTransferUpdate_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'update', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.PayloadTransferUpdateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 nearby.connections.mojom.PayloadListenerPtr = nearby.connections.mojom.PayloadListenerRemote;
 nearby.connections.mojom.PayloadListenerRequest = nearby.connections.mojom.PayloadListenerPendingReceiver;
 
 
 // Interface: ConnectionListenerV3
-nearby.connections.mojom.ConnectionListenerV3 = {};
+mojo.internal.Struct(
+    nearby.connections.mojom.ConnectionListenerV3_OnConnectionInitiatedV3_ParamsSpec, 'nearby.connections.mojom.ConnectionListenerV3_OnConnectionInitiatedV3_Params', [
+      mojo.internal.StructField('endpoint_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('info', 8, 0, nearby.connections.mojom.InitialConnectionInfoV3Spec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-nearby.connections.mojom.ConnectionListenerV3_OnConnectionInitiatedV3_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.ConnectionListenerV3_OnConnectionInitiatedV3_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.InitialConnectionInfoV3Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby.connections.mojom.ConnectionListenerV3_OnConnectionResultV3_ParamsSpec, 'nearby.connections.mojom.ConnectionListenerV3_OnConnectionResultV3_Params', [
+      mojo.internal.StructField('endpoint_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('resolution', 8, 0, nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-nearby.connections.mojom.ConnectionListenerV3_OnConnectionResultV3_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.ConnectionListenerV3_OnConnectionResultV3_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'resolution', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby.connections.mojom.ConnectionListenerV3_OnDisconnectedV3_ParamsSpec, 'nearby.connections.mojom.ConnectionListenerV3_OnDisconnectedV3_Params', [
+      mojo.internal.StructField('endpoint_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-nearby.connections.mojom.ConnectionListenerV3_OnDisconnectedV3_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.ConnectionListenerV3_OnDisconnectedV3_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-nearby.connections.mojom.ConnectionListenerV3_OnBandwidthChangedV3_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.ConnectionListenerV3_OnBandwidthChangedV3_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'bandwidth_info', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.BandwidthInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby.connections.mojom.ConnectionListenerV3_OnBandwidthChangedV3_ParamsSpec, 'nearby.connections.mojom.ConnectionListenerV3_OnBandwidthChangedV3_Params', [
+      mojo.internal.StructField('endpoint_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('bandwidth_info', 8, 0, nearby.connections.mojom.BandwidthInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 nearby.connections.mojom.ConnectionListenerV3PendingReceiver = class {
   constructor(handle) {
@@ -640,100 +476,24 @@ nearby.connections.mojom.ConnectionListenerV3.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnConnectionInitiatedV3
-nearby.connections.mojom.ConnectionListenerV3_OnConnectionInitiatedV3_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.ConnectionListenerV3.OnConnectionInitiatedV3_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.InitialConnectionInfoV3Spec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnConnectionResultV3
-nearby.connections.mojom.ConnectionListenerV3_OnConnectionResultV3_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.ConnectionListenerV3.OnConnectionResultV3_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'resolution', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnDisconnectedV3
-nearby.connections.mojom.ConnectionListenerV3_OnDisconnectedV3_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.ConnectionListenerV3.OnDisconnectedV3_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for OnBandwidthChangedV3
-nearby.connections.mojom.ConnectionListenerV3_OnBandwidthChangedV3_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.ConnectionListenerV3.OnBandwidthChangedV3_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'bandwidth_info', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.BandwidthInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 nearby.connections.mojom.ConnectionListenerV3Ptr = nearby.connections.mojom.ConnectionListenerV3Remote;
 nearby.connections.mojom.ConnectionListenerV3Request = nearby.connections.mojom.ConnectionListenerV3PendingReceiver;
 
 
 // Interface: PayloadListenerV3
-nearby.connections.mojom.PayloadListenerV3 = {};
+mojo.internal.Struct(
+    nearby.connections.mojom.PayloadListenerV3_OnPayloadReceivedV3_ParamsSpec, 'nearby.connections.mojom.PayloadListenerV3_OnPayloadReceivedV3_Params', [
+      mojo.internal.StructField('endpoint_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('payload', 8, 0, nearby.connections.mojom.PayloadSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-nearby.connections.mojom.PayloadListenerV3_OnPayloadReceivedV3_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.PayloadListenerV3_OnPayloadReceivedV3_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'payload', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.PayloadSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-nearby.connections.mojom.PayloadListenerV3_OnPayloadTransferUpdateV3_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.PayloadListenerV3_OnPayloadTransferUpdateV3_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'update', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.PayloadTransferUpdateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby.connections.mojom.PayloadListenerV3_OnPayloadTransferUpdateV3_ParamsSpec, 'nearby.connections.mojom.PayloadListenerV3_OnPayloadTransferUpdateV3_Params', [
+      mojo.internal.StructField('endpoint_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('update', 8, 0, nearby.connections.mojom.PayloadTransferUpdateSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 nearby.connections.mojom.PayloadListenerV3PendingReceiver = class {
   constructor(handle) {
@@ -797,320 +557,262 @@ nearby.connections.mojom.PayloadListenerV3.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for OnPayloadReceivedV3
-nearby.connections.mojom.PayloadListenerV3_OnPayloadReceivedV3_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.PayloadListenerV3.OnPayloadReceivedV3_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'payload', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.PayloadSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// ParamsSpec for OnPayloadTransferUpdateV3
-nearby.connections.mojom.PayloadListenerV3_OnPayloadTransferUpdateV3_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.PayloadListenerV3.OnPayloadTransferUpdateV3_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'endpoint_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'update', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.PayloadTransferUpdateSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-// Legacy compatibility
 nearby.connections.mojom.PayloadListenerV3Ptr = nearby.connections.mojom.PayloadListenerV3Remote;
 nearby.connections.mojom.PayloadListenerV3Request = nearby.connections.mojom.PayloadListenerV3PendingReceiver;
 
 
 // Interface: NearbyConnections
-nearby.connections.mojom.NearbyConnections = {};
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_StartAdvertising_ParamsSpec, 'nearby.connections.mojom.NearbyConnections_StartAdvertising_Params', [
+      mojo.internal.StructField('service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('endpoint_info', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('options', 16, 0, nearby.connections.mojom.AdvertisingOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('listener', 24, 0, mojo.internal.InterfaceProxy(nearby.connections.mojom.ConnectionLifecycleListenerRemote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-nearby.connections.mojom.NearbyConnections_StartAdvertising_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections_StartAdvertising_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'endpoint_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: nearby.connections.mojom.AdvertisingOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(nearby.connections.mojom.ConnectionLifecycleListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_StartAdvertising_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_StartAdvertising_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-nearby.connections.mojom.NearbyConnections_StopAdvertising_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections_StopAdvertising_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_StopAdvertising_ParamsSpec, 'nearby.connections.mojom.NearbyConnections_StopAdvertising_Params', [
+      mojo.internal.StructField('service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-nearby.connections.mojom.NearbyConnections_StartDiscovery_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections_StartDiscovery_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.DiscoveryOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(nearby.connections.mojom.EndpointDiscoveryListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_StopAdvertising_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_StopAdvertising_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-nearby.connections.mojom.NearbyConnections_StopDiscovery_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections_StopDiscovery_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_StartDiscovery_ParamsSpec, 'nearby.connections.mojom.NearbyConnections_StartDiscovery_Params', [
+      mojo.internal.StructField('service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('options', 8, 0, nearby.connections.mojom.DiscoveryOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('listener', 16, 0, mojo.internal.InterfaceProxy(nearby.connections.mojom.EndpointDiscoveryListenerRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'endpoint_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'endpoint_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'remote_bluetooth_mac_address', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_StartDiscovery_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_StartDiscovery_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-nearby.connections.mojom.NearbyConnections_RequestConnection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections_RequestConnection_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'endpoint_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'endpoint_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 24, packedBitOffset: 0, type: nearby.connections.mojom.ConnectionOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'listener', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(nearby.connections.mojom.ConnectionLifecycleListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_StopDiscovery_ParamsSpec, 'nearby.connections.mojom.NearbyConnections_StopDiscovery_Params', [
+      mojo.internal.StructField('service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-nearby.connections.mojom.NearbyConnections_AcceptConnection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections_AcceptConnection_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'endpoint_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(nearby.connections.mojom.PayloadListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_StopDiscovery_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_StopDiscovery_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-nearby.connections.mojom.NearbyConnections_RejectConnection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections_RejectConnection_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'endpoint_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ParamsSpec, 'nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_Params', [
+      mojo.internal.StructField('service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('endpoint_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('endpoint_info', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('remote_bluetooth_mac_address', 24, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 
-nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'endpoint_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-nearby.connections.mojom.NearbyConnections_SendPayload_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections_SendPayload_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'endpoint_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'payload', packedOffset: 16, packedBitOffset: 0, type: nearby.connections.mojom.PayloadSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_RequestConnection_ParamsSpec, 'nearby.connections.mojom.NearbyConnections_RequestConnection_Params', [
+      mojo.internal.StructField('service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('endpoint_info', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('endpoint_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('options', 24, 0, nearby.connections.mojom.ConnectionOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('listener', 32, 0, mojo.internal.InterfaceProxy(nearby.connections.mojom.ConnectionLifecycleListenerRemote), null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 
-nearby.connections.mojom.NearbyConnections_CancelPayload_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections_CancelPayload_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'payload_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_RequestConnection_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_RequestConnection_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections_StopAllEndpoints_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_AcceptConnection_ParamsSpec, 'nearby.connections.mojom.NearbyConnections_AcceptConnection_Params', [
+      mojo.internal.StructField('service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('endpoint_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('listener', 16, 0, mojo.internal.InterfaceProxy(nearby.connections.mojom.PayloadListenerRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'endpoint_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_AcceptConnection_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_AcceptConnection_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'payload_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'input_file', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'output_file', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_RejectConnection_ParamsSpec, 'nearby.connections.mojom.NearbyConnections_RejectConnection_Params', [
+      mojo.internal.StructField('service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('endpoint_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections_RequestConnectionV3_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'remote_device', packedOffset: 8, packedBitOffset: 0, type: ash.nearby.presence.mojom.PresenceDeviceSpec, nullable: false, minVersion: 0 },
-        { name: 'connection_options', packedOffset: 16, packedBitOffset: 0, type: nearby.connections.mojom.ConnectionOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(nearby.connections.mojom.ConnectionListenerV3Remote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_RejectConnection_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_RejectConnection_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'remote_device', packedOffset: 8, packedBitOffset: 0, type: ash.nearby.presence.mojom.PresenceDeviceSpec, nullable: false, minVersion: 0 },
-        { name: 'listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(nearby.connections.mojom.PayloadListenerV3Remote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ParamsSpec, 'nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_Params', [
+      mojo.internal.StructField('service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('endpoint_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
-nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections_RejectConnectionV3_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'remote_device', packedOffset: 8, packedBitOffset: 0, type: ash.nearby.presence.mojom.PresenceDeviceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'remote_device', packedOffset: 8, packedBitOffset: 0, type: ash.nearby.presence.mojom.PresenceDeviceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_SendPayload_ParamsSpec, 'nearby.connections.mojom.NearbyConnections_SendPayload_Params', [
+      mojo.internal.StructField('service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('endpoint_ids', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('payload', 16, 0, nearby.connections.mojom.PayloadSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
-nearby.connections.mojom.NearbyConnections_RegisterServiceWithPresenceDeviceProvider_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections_RegisterServiceWithPresenceDeviceProvider_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_SendPayload_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_SendPayload_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_CancelPayload_ParamsSpec, 'nearby.connections.mojom.NearbyConnections_CancelPayload_Params', [
+      mojo.internal.StructField('service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('payload_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_CancelPayload_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_CancelPayload_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ParamsSpec, 'nearby.connections.mojom.NearbyConnections_StopAllEndpoints_Params', [
+      mojo.internal.StructField('service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ParamsSpec, 'nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_Params', [
+      mojo.internal.StructField('service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('endpoint_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ParamsSpec, 'nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_Params', [
+      mojo.internal.StructField('service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('payload_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('input_file', 16, 0, mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('output_file', 24, 0, mojo_base.mojom.FileSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ParamsSpec, 'nearby.connections.mojom.NearbyConnections_RequestConnectionV3_Params', [
+      mojo.internal.StructField('service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('remote_device', 8, 0, ash.nearby.presence.mojom.PresenceDeviceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('connection_options', 16, 0, nearby.connections.mojom.ConnectionOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('listener', 24, 0, mojo.internal.InterfaceProxy(nearby.connections.mojom.ConnectionListenerV3Remote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ParamsSpec, 'nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_Params', [
+      mojo.internal.StructField('service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('remote_device', 8, 0, ash.nearby.presence.mojom.PresenceDeviceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('listener', 16, 0, mojo.internal.InterfaceProxy(nearby.connections.mojom.PayloadListenerV3Remote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ParamsSpec, 'nearby.connections.mojom.NearbyConnections_RejectConnectionV3_Params', [
+      mojo.internal.StructField('service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('remote_device', 8, 0, ash.nearby.presence.mojom.PresenceDeviceSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ParamsSpec, 'nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_Params', [
+      mojo.internal.StructField('service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('remote_device', 8, 0, ash.nearby.presence.mojom.PresenceDeviceSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ResponseParamsSpec, 'nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ResponseParams', [
+      mojo.internal.StructField('status', 0, 0, nearby.connections.mojom.StatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    nearby.connections.mojom.NearbyConnections_RegisterServiceWithPresenceDeviceProvider_ParamsSpec, 'nearby.connections.mojom.NearbyConnections_RegisterServiceWithPresenceDeviceProvider_Params', [
+      mojo.internal.StructField('service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 nearby.connections.mojom.NearbyConnectionsPendingReceiver = class {
   constructor(handle) {
@@ -1327,537 +1029,6 @@ nearby.connections.mojom.NearbyConnections.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for StartAdvertising
-nearby.connections.mojom.NearbyConnections_StartAdvertising_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.StartAdvertising_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'endpoint_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: nearby.connections.mojom.AdvertisingOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(nearby.connections.mojom.ConnectionLifecycleListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-nearby.connections.mojom.NearbyConnections_StartAdvertising_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.StartAdvertising_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StopAdvertising
-nearby.connections.mojom.NearbyConnections_StopAdvertising_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.StopAdvertising_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-nearby.connections.mojom.NearbyConnections_StopAdvertising_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.StopAdvertising_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StartDiscovery
-nearby.connections.mojom.NearbyConnections_StartDiscovery_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.StartDiscovery_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: nearby.connections.mojom.DiscoveryOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(nearby.connections.mojom.EndpointDiscoveryListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-nearby.connections.mojom.NearbyConnections_StartDiscovery_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.StartDiscovery_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StopDiscovery
-nearby.connections.mojom.NearbyConnections_StopDiscovery_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.StopDiscovery_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-nearby.connections.mojom.NearbyConnections_StopDiscovery_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.StopDiscovery_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for InjectBluetoothEndpoint
-nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.InjectBluetoothEndpoint_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'endpoint_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'endpoint_info', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'remote_bluetooth_mac_address', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Pointer, false), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.InjectBluetoothEndpoint_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestConnection
-nearby.connections.mojom.NearbyConnections_RequestConnection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.RequestConnection_Params',
-      packedSize: 48,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'endpoint_info', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'endpoint_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 24, packedBitOffset: 0, type: nearby.connections.mojom.ConnectionOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'listener', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(nearby.connections.mojom.ConnectionLifecycleListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
-
-nearby.connections.mojom.NearbyConnections_RequestConnection_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.RequestConnection_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AcceptConnection
-nearby.connections.mojom.NearbyConnections_AcceptConnection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.AcceptConnection_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'endpoint_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(nearby.connections.mojom.PayloadListenerRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-nearby.connections.mojom.NearbyConnections_AcceptConnection_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.AcceptConnection_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RejectConnection
-nearby.connections.mojom.NearbyConnections_RejectConnection_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.RejectConnection_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'endpoint_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-nearby.connections.mojom.NearbyConnections_RejectConnection_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.RejectConnection_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DisconnectFromEndpoint
-nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.DisconnectFromEndpoint_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'endpoint_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.DisconnectFromEndpoint_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for SendPayload
-nearby.connections.mojom.NearbyConnections_SendPayload_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.SendPayload_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'endpoint_ids', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'payload', packedOffset: 16, packedBitOffset: 0, type: nearby.connections.mojom.PayloadSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-nearby.connections.mojom.NearbyConnections_SendPayload_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.SendPayload_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for CancelPayload
-nearby.connections.mojom.NearbyConnections_CancelPayload_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.CancelPayload_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'payload_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-nearby.connections.mojom.NearbyConnections_CancelPayload_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.CancelPayload_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StopAllEndpoints
-nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.StopAllEndpoints_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.StopAllEndpoints_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for InitiateBandwidthUpgrade
-nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.InitiateBandwidthUpgrade_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'endpoint_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.InitiateBandwidthUpgrade_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RegisterPayloadFile
-nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.RegisterPayloadFile_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'payload_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'input_file', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'output_file', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.RegisterPayloadFile_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RequestConnectionV3
-nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.RequestConnectionV3_Params',
-      packedSize: 40,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'remote_device', packedOffset: 8, packedBitOffset: 0, type: ash.nearby.presence.mojom.PresenceDeviceSpec, nullable: false, minVersion: 0 },
-        { name: 'connection_options', packedOffset: 16, packedBitOffset: 0, type: nearby.connections.mojom.ConnectionOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(nearby.connections.mojom.ConnectionListenerV3Remote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 40}]
-    }
-  }
-};
-
-nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.RequestConnectionV3_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for AcceptConnectionV3
-nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.AcceptConnectionV3_Params',
-      packedSize: 32,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'remote_device', packedOffset: 8, packedBitOffset: 0, type: ash.nearby.presence.mojom.PresenceDeviceSpec, nullable: false, minVersion: 0 },
-        { name: 'listener', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(nearby.connections.mojom.PayloadListenerV3Remote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 32}]
-    }
-  }
-};
-
-nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.AcceptConnectionV3_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RejectConnectionV3
-nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.RejectConnectionV3_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'remote_device', packedOffset: 8, packedBitOffset: 0, type: ash.nearby.presence.mojom.PresenceDeviceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.RejectConnectionV3_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for DisconnectFromDeviceV3
-nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.DisconnectFromDeviceV3_Params',
-      packedSize: 24,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'remote_device', packedOffset: 8, packedBitOffset: 0, type: ash.nearby.presence.mojom.PresenceDeviceSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 24}]
-    }
-  }
-};
-
-nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.DisconnectFromDeviceV3_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for RegisterServiceWithPresenceDeviceProvider
-nearby.connections.mojom.NearbyConnections_RegisterServiceWithPresenceDeviceProvider_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'nearby.connections.mojom.NearbyConnections.RegisterServiceWithPresenceDeviceProvider_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'service_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 nearby.connections.mojom.NearbyConnectionsPtr = nearby.connections.mojom.NearbyConnectionsRemote;
 nearby.connections.mojom.NearbyConnectionsRequest = nearby.connections.mojom.NearbyConnectionsPendingReceiver;
 

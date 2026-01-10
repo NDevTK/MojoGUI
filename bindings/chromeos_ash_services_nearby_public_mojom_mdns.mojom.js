@@ -8,54 +8,43 @@
 var sharing = sharing || {};
 sharing.mojom = sharing.mojom || {};
 
+sharing.mojom.NsdServiceInfoSpec = { $: {} };
+sharing.mojom.MdnsObserver = {};
+sharing.mojom.MdnsObserver.$interfaceName = 'sharing.mojom.MdnsObserver';
+sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec = { $: {} };
+sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec = { $: {} };
+sharing.mojom.MdnsManager = {};
+sharing.mojom.MdnsManager.$interfaceName = 'sharing.mojom.MdnsManager';
+sharing.mojom.MdnsManager_AddObserver_ParamsSpec = { $: {} };
+sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec = { $: {} };
+sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec = { $: {} };
+sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec = { $: {} };
+sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec = { $: {} };
 
 // Struct: NsdServiceInfo
-sharing.mojom.NsdServiceInfoSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.NsdServiceInfo',
-      packedSize: 48,
-      fields: [
-        { name: 'service_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'service_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'txt_records', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: true, minVersion: 0 },
-        { name: 'ip_address', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'port_$flag', packedOffset: 34, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'port_$value', originalFieldName: 'port' } },
-        { name: 'port_$value', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'port_$flag', originalFieldName: 'port' } },
-      ],
-      versions: [{version: 0, packedSize: 48}]
-    }
-  }
-};
+mojo.internal.Struct(
+    sharing.mojom.NsdServiceInfoSpec, 'sharing.mojom.NsdServiceInfo', [
+      mojo.internal.StructField('service_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('service_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('txt_records', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('ip_address', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('port_$flag', 34, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'port_$value', originalFieldName: 'port' }),
+      mojo.internal.StructField('port_$value', 32, 0, mojo.internal.Int16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'port_$flag', originalFieldName: 'port' }),
+    ],
+    [[0, 48]]);
 
 // Interface: MdnsObserver
-sharing.mojom.MdnsObserver = {};
+mojo.internal.Struct(
+    sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec, 'sharing.mojom.MdnsObserver_ServiceFound_Params', [
+      mojo.internal.StructField('service_info', 0, 0, sharing.mojom.NsdServiceInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.MdnsObserver_ServiceFound_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'service_info', packedOffset: 0, packedBitOffset: 0, type: sharing.mojom.NsdServiceInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.MdnsObserver_ServiceLost_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'service_info', packedOffset: 0, packedBitOffset: 0, type: sharing.mojom.NsdServiceInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec, 'sharing.mojom.MdnsObserver_ServiceLost_Params', [
+      mojo.internal.StructField('service_info', 0, 0, sharing.mojom.NsdServiceInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 sharing.mojom.MdnsObserverPendingReceiver = class {
   constructor(handle) {
@@ -119,80 +108,40 @@ sharing.mojom.MdnsObserver.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for ServiceFound
-sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.MdnsObserver.ServiceFound_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'service_info', packedOffset: 0, packedBitOffset: 0, type: sharing.mojom.NsdServiceInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for ServiceLost
-sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.MdnsObserver.ServiceLost_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'service_info', packedOffset: 0, packedBitOffset: 0, type: sharing.mojom.NsdServiceInfoSpec, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 sharing.mojom.MdnsObserverPtr = sharing.mojom.MdnsObserverRemote;
 sharing.mojom.MdnsObserverRequest = sharing.mojom.MdnsObserverPendingReceiver;
 
 
 // Interface: MdnsManager
-sharing.mojom.MdnsManager = {};
+mojo.internal.Struct(
+    sharing.mojom.MdnsManager_AddObserver_ParamsSpec, 'sharing.mojom.MdnsManager_AddObserver_Params', [
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(sharing.mojom.MdnsObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-sharing.mojom.MdnsManager_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.MdnsManager_AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(sharing.mojom.MdnsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec, 'sharing.mojom.MdnsManager_StartDiscoverySession_Params', [
+      mojo.internal.StructField('service_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.MdnsManager_StartDiscoverySession_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'service_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec, 'sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
-sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.MdnsManager_StopDiscoverySession_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'service_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec, 'sharing.mojom.MdnsManager_StopDiscoverySession_Params', [
+      mojo.internal.StructField('service_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec, 'sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParams', [
+      mojo.internal.StructField('result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 sharing.mojom.MdnsManagerPendingReceiver = class {
   constructor(handle) {
@@ -265,75 +214,6 @@ sharing.mojom.MdnsManager.getRemote = function() {
   return remote.$;
 };
 
-// ParamsSpec for AddObserver
-sharing.mojom.MdnsManager_AddObserver_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.MdnsManager.AddObserver_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(sharing.mojom.MdnsObserverRemote), nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StartDiscoverySession
-sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.MdnsManager.StartDiscoverySession_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'service_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.MdnsManager.StartDiscoverySession_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// ParamsSpec for StopDiscoverySession
-sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.MdnsManager.StopDiscoverySession_Params',
-      packedSize: 16,
-      fields: [
-        { name: 'service_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec = {
-  $: {
-    structSpec: {
-      name: 'sharing.mojom.MdnsManager.StopDiscoverySession_ResponseParams',
-      packedSize: 16,
-      fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
-
-// Legacy compatibility
 sharing.mojom.MdnsManagerPtr = sharing.mojom.MdnsManagerRemote;
 sharing.mojom.MdnsManagerRequest = sharing.mojom.MdnsManagerPendingReceiver;
 

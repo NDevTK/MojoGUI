@@ -8,6 +8,8 @@
 var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
 
+extensions.mojom.HostTypeSpec = { $: mojo.internal.Enum() };
+extensions.mojom.HostIDSpec = { $: {} };
 
 // Enum: HostType
 extensions.mojom.HostType = {
@@ -15,18 +17,10 @@ extensions.mojom.HostType = {
   kWebUi: 1,
   kControlledFrameEmbedder: 2,
 };
-extensions.mojom.HostTypeSpec = { $: mojo.internal.Enum() };
 
 // Struct: HostID
-extensions.mojom.HostIDSpec = {
-  $: {
-    structSpec: {
-      name: 'extensions.mojom.HostID',
-      packedSize: 16,
-      fields: [
-        { name: 'kExtensions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-      ],
-      versions: [{version: 0, packedSize: 16}]
-    }
-  }
-};
+mojo.internal.Struct(
+    extensions.mojom.HostIDSpec, 'extensions.mojom.HostID', [
+      mojo.internal.StructField('kExtensions', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
