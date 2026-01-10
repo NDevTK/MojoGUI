@@ -683,23 +683,7 @@ jobs:
                       ]
                       fields_code.append(", ".join(arg_list))
                   
-                  # Compute Struct header and versions
-                  # (Simplified Versioning: Just total size for each min_version)
-                  version_map = {}
                   # 5. Calculate Versions
-                  unique_versions = sorted(list(set(f['min_version'] for f in packed_fields)))
-                  if not unique_versions: unique_versions = [0]
-                  
-                  versions_info = []
-                  for v in unique_versions:
-                      # Find all fields relevant to this version (min_version <= v)
-                      fields_in_v = [f for f in packed_fields if f['min_version'] <= v]
-                      
-                      if not fields_in_v:
-                          sz = 8 # Header only
-                      else:
-                          max_end = 0
-                          for f in fields_in_v:
                   # The logic for versions needs to be based on the *packed* fields,
                   # and their final offsets.
                   
@@ -756,11 +740,9 @@ jobs:
                   # Format versions as JS array of arrays (e.g. [[0, 40]])
                   versions_code = "[" + ", ".join([f"[{v[0]}, {v[1]}]" for v in versions]) + "]"
 
-                  # Align struct size to 8 bytes (Global)
-                  if offset % 8 != 0:
-                      offset += (8 - (offset % 8))
+                  # Final struct size is the size of the latest version
+                  packed_size = versions[-1][1] if versions else 8
                   
-                  packed_size = 8 + offset
                   return fields_code, packed_size, versions_code
 
               
@@ -901,18 +883,18 @@ jobs:
                       js_code += f"    ],\n"
                       js_code += f"    {p_versions});\n\n"
 
-                       # Response Params
-                       if not method.get('is_one_way'):
-                           resp_params = method.get('returns', [])
-                           resp_struct_name = f"{iface_name}_{method_name}_ResponseParams"
-                           r_fields, r_size, r_versions = get_struct_layout(resp_params)
-                           
-                           js_code += f"mojo.internal.Struct(\n"
-                           js_code += f"    {current_ns}.{resp_struct_name}Spec, '{module}.{resp_struct_name}', [\n"
-                           for field in r_fields:
-                               js_code += f"      mojo.internal.StructField({field}),\n"
-                           js_code += f"    ],\n"
-                           js_code += f"    {r_versions});\n\n"
+                      # Response Params
+                      if not method.get('is_one_way'):
+                          resp_params = method.get('returns', [])
+                          resp_struct_name = f"{iface_name}_{method_name}_ResponseParams"
+                          r_fields, r_size, r_versions = get_struct_layout(resp_params)
+                          
+                          js_code += f"mojo.internal.Struct(\n"
+                          js_code += f"    {current_ns}.{resp_struct_name}Spec, '{module}.{resp_struct_name}', [\n"
+                          for field in r_fields:
+                              js_code += f"      mojo.internal.StructField({field}),\n"
+                          js_code += f"    ],\n"
+                          js_code += f"    {r_versions});\n\n"
 
                   # Generate PendingReceiver class first (needed by Remote)
                   
@@ -964,7 +946,7 @@ jobs:
                       js_code += "    return this.proxy.sendMessage(\n"
                       js_code += f"      {ordinal},  // ordinal\n"
                       js_code += f"      {full_name}_{method['name']}_ParamsSpec,\n"
-                      if method.get('returns'):
+                      if not method.get('is_one_way'):
                           js_code += f"      {full_name}_{method['name']}_ResponseParamsSpec,\n"
                       else:
                           js_code += "      null,\n"
