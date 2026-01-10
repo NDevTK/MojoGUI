@@ -210,10 +210,8 @@
 
                     console.log(`[MojoProxy] realRemote.${methodName} resolved in ${Date.now() - startTime}ms`, result);
 
-                    // Defensive: If result is undefined but expected to be an empty struct, default to {}
-                    if (result === undefined) {
-                        result = {};
-                    }
+                    // Reverted: specific generated bindings logic (GeneratedReceiver) might explicitly expect undefined for void
+                    // if (result === undefined) result = {};
 
                     // Notify UI of response
                     window.dispatchEvent(new CustomEvent('mojo-response', {
@@ -225,6 +223,7 @@
                     }));
 
                     resolve(result);
+                    console.log(`[MojoProxy] ${callId} Promise resolved.`);
                 } catch (e) {
                     console.error(`[MojoProxy] realRemote.${methodName} FAILED`, e);
                     window.dispatchEvent(new CustomEvent('mojo-error', {
