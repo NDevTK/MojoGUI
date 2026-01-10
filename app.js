@@ -956,12 +956,13 @@
         elements.interceptorTableBody.querySelector(`tr[data-id="${id}"]`)?.classList.add('active');
 
         // Show details
-        elements.interceptorDetails.innerHTML = `
+        // Show details
+        elements.interceptorDetails.innerHTML = safeHTML(`
             <h4>${escapeHtml(iface)}.${escapeHtml(method)}</h4>
             <div class="code-block" style="margin-top: 10px;">
                 ${escapeHtml(JSON.stringify(params, null, 2))}
             </div>
-        `;
+        `);
     }
 
     // ========================================
@@ -977,10 +978,10 @@
         if (type === 'error') icon = '❌';
         if (type === 'warning') icon = '⚠️';
 
-        toast.innerHTML = `
+        toast.innerHTML = safeHTML(`
             <span class="toast-icon">${icon}</span>
             <span class="toast-message">${escapeHtml(message)}</span>
-        `;
+        `);
 
         // Styles for toast (should be in CSS but inline for quick fix if needed)
         // Assuming .toast class exists or standard styling
