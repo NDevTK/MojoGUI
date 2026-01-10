@@ -854,7 +854,7 @@ jobs:
                           js_code += f"{full_name}_{method['name']}_ResponseParamsSpec = {{\n"
                           js_code += "  $: {\n"
                           js_code += "    structSpec: {\n"
-                          js_code += "      name: '{interface_string}.{method['name']}_ResponseParams',\n"
+                          js_code += f"      name: '{interface_string}.{method['name']}_ResponseParams',\n"
                           js_code += f"      packedSize: {ret_size},\n"
                           js_code += "      fields: [\n"
                           for field in ret_code:
