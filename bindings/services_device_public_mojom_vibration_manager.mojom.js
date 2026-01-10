@@ -257,7 +257,8 @@ device.mojom.VibrationManagerReceiver = class {
               if (vibratesExpectsResponse) {
                 Promise.resolve(result).then(response => {
                   console.log('[GeneratedReceiver] Sending vibrate response:', response);
-                  const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.VibrationManager_Vibrate_ResponseParamsSpec, header);
+                  const rawHeader = args[2].slice(0, header.headerSize);
+                  const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.VibrationManager_Vibrate_ResponseParamsSpec, header, rawHeader);
                   responder(response);
                 }).catch(e => console.error('[GeneratedReceiver] Vibrate FAILED:', e));
               }
@@ -273,7 +274,8 @@ device.mojom.VibrationManagerReceiver = class {
               if (cancelExpectsResponse) {
                 Promise.resolve(result).then(response => {
                   console.log('[GeneratedReceiver] Sending cancel response:', response);
-                  const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.VibrationManager_Cancel_ResponseParamsSpec, header);
+                  const rawHeader = args[2].slice(0, header.headerSize);
+                  const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.VibrationManager_Cancel_ResponseParamsSpec, header, rawHeader);
                   responder(response);
                   console.log('[GeneratedReceiver] Cancel response sent.');
                 }).catch(e => console.error('[GeneratedReceiver] Cancel FAILED:', e));

@@ -86,7 +86,7 @@
             // Polyfill createResponder if missing
             if (typeof mojo.internal.interfaceSupport.createResponder !== 'function') {
                 console.log('[Interceptor] Polyfilling createResponder');
-                mojo.internal.interfaceSupport.createResponder = function (endpoint, requestId, responseParamsSpec, headerOrOrdinal) {
+                mojo.internal.interfaceSupport.createResponder = function (endpoint, requestId, responseParamsSpec, headerOrOrdinal, rawHeaderBuffer) {
                     return function (response) {
                         try {
                             const structSpec = responseParamsSpec.$.structSpec;
@@ -100,18 +100,25 @@
                             const buffer = new ArrayBuffer(totalSize);
                             const view = new DataView(buffer);
 
-                            // 1. Build Mojo Message Header (Symmetric)
-                            const ordinal = reqHeader.ordinal || 0;
-                            const interfaceId = (reqHeader.interfaceId !== undefined) ? reqHeader.interfaceId : (endpoint.interfaceId_ || 0);
-                            const version = (reqHeader.headerVersion !== undefined) ? reqHeader.headerVersion : 1;
+                            // 1. Build Mojo Message Header (PERFECT SYMMETRY / HEADER ECHO)
+                            if (rawHeaderBuffer && (rawHeaderBuffer.byteLength === headerSize)) {
+                                // console.log('[Interceptor] Using Header-Echo for perfect symmetry');
+                                new Uint8Array(buffer).set(new Uint8Array(rawHeaderBuffer));
+                            } else {
+                                // Fallback: Manual construction
+                                const ordinal = reqHeader.ordinal || 0;
+                                const interfaceId = (reqHeader.interfaceId !== undefined) ? reqHeader.interfaceId : (endpoint.interfaceId_ || 0);
+                                const version = (reqHeader.headerVersion !== undefined) ? reqHeader.headerVersion : 1;
 
-                            // CRITICAL FIX: In this MojoJS environment, offset 0 is HEADER SIZE, not total size.
-                            view.setUint32(0, headerSize, true);    // header_size (MATCH REQUEST)
-                            view.setUint32(4, version, true);       // version
-                            view.setUint32(8, interfaceId, true);   // interface_id
-                            view.setUint32(12, ordinal, true);      // ordinal
-                            view.setUint32(16, 2, true);            // flags (2 = kMessageIsResponse)
-                            view.setUint32(20, 0, true);            // padding
+                                view.setUint32(0, headerSize, true); // Header Size (confirmed via sniffer)
+                                view.setUint32(4, version, true);
+                                view.setUint32(8, interfaceId, true);
+                                view.setUint32(12, ordinal, true);
+                                view.setUint32(20, 0, true); // padding
+                            }
+
+                            // 2. Overwrite Response-Specific Fields
+                            view.setUint32(16, 2, true); // flags (2 = kMessageIsResponse)
 
                             // requestId (uint64) at offset 24
                             if (typeof requestId === 'bigint') {
@@ -121,10 +128,7 @@
                                 view.setUint32(28, Math.floor(Number(requestId) / 0x100000000), true);
                             }
 
-                            // If headerSize > 32 (V2/V3), the remaining fields should be zeroed (handled by ArrayBuffer init)
-                            // but we could explicitly set them if we had the context. Symmetry is enough.
-
-                            // 2. Encode Struct Payload
+                            // 3. Encode Struct Payload
                             const encoder = new mojo.internal.Encoder(payloadSize, 0);
                             encoder.buffer_ = buffer;
                             encoder.data_ = new DataView(buffer, headerSize);
@@ -134,7 +138,7 @@
                             const hex = Array.from(new Uint8Array(buffer)).map(b => b.toString(16).padStart(2, '0')).join(' ');
                             // console.log('[Interceptor] Responder Packet:', hex);
 
-                            // 3. Send using "Cascade of Doom"
+                            // 4. Send using "Cascade of Doom"
                             let sent = false;
                             const pipe = endpoint.router_.pipe_ || endpoint.router_.handle_;
                             const dataView = new Uint8Array(buffer);
