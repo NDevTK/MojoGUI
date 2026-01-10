@@ -1027,27 +1027,49 @@ jobs:
                   js_code += "      let message = args[0];\n"
                   js_code += "      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)\n"
                   js_code += "      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {\n"
-                  js_code += "        let payload = args[2];\n"
-                  js_code += "        if (payload instanceof ArrayBuffer) {\n"
-                  js_code += "           payload = new DataView(payload);\n"
-                  js_code += "        }\n"
                   js_code += "        message = {\n"
                   js_code += "          header: args[1],\n"
-                  js_code += "          payload: payload,\n"
+                  js_code += "          payload: args[2],\n"
                   js_code += "          handles: args[3] || []\n"
                   js_code += "        };\n"
                   js_code += "      }\n"
                   js_code += "      const header = message && message.header;\n"
                   js_code += "      if (!header) return;\n"
                   js_code += "      let dispatchId = this.ordinalMap.get(header.ordinal);\n"
-                  js_code += "      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal\n"
+                  
+                  # HEURISTIC DISCOVERY
+                  js_code += "      if (dispatchId === undefined) {\n"
+                  js_code += "        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.\n"
+                  js_code += "        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');\n"
+                  js_code += "        const decoder = new mojo.internal.Decoder(message.payload, message.handles);\n"
+                  js_code += "        \n"
+                  
+                  # Generate trial logic for each method
+                  for idx, method in enumerate(interface.get('methods', [])):
+                       method_name = method['name']
+                       param_struct_name = f"{iface_name}_{method_name}_Params"
+                       
+                       js_code += f"        // Try Method {idx}: {method_name}\n"
+                       js_code += "        try {\n"
+                       js_code += f"             decoder.decodeStruct({current_ns}.{param_struct_name}Spec.$, message.header.headerSize);\n"
+                       js_code += f"             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> {method_name} ({idx})');\n"
+                       js_code += f"             this.mapOrdinal(header.ordinal, {idx});\n"
+                       js_code += f"             dispatchId = {idx};\n"
+                       js_code += "        } catch (e) { /* Ignore mismatch */ }\n"
+                       js_code += "        if (dispatchId !== undefined) break;\n\n"
+
+                  js_code += "        if (dispatchId === undefined) {\n"
+                  js_code += "             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);\n"
+                  js_code += "             return;\n"
+                  js_code += "        }\n"
+                  js_code += "      }\n" # End discovery block
+                  
                   js_code += "      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);\n"
                   js_code += "      switch (dispatchId) {\n"
                   
                   for idx, method in enumerate(interface.get('methods', [])):
                       # Use Index as the dispatch ID for internal switch consistency
                       # ordinal = method.get('ordinal') ... we ignore this for the switch case logic now, using idx
-                      ordinal = idx # Switch matches the Map value we set earlier
                       
                       method_name = method['name']
                       method_name_camel = to_camel_case(method_name)
@@ -1057,9 +1079,9 @@ jobs:
                       # Decode params MANUALLY
                       param_struct_name = f"{iface_name}_{method_name}_Params"
                       # js_code += f"          const params = {current_ns}.{param_struct_name}Spec.$.decode(message.payload);\n"
-                      # MANUAL DECODE:
+                      # MANUAL DECODE with OFFSET
                       js_code += f"          const decoder = new mojo.internal.Decoder(message.payload, message.handles);\n"
-                      js_code += f"          const params = decoder.decodeStruct({current_ns}.{param_struct_name}Spec.$, 0);\n"
+                      js_code += f"          const params = decoder.decodeStruct({current_ns}.{param_struct_name}Spec.$, message.header.headerSize);\n"
                       
                       # Call implementation
                       param_names = [p['name'] for p in method.get('params', []) if p and p.get('name')]
