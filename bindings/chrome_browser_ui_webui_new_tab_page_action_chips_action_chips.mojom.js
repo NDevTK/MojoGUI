@@ -263,12 +263,12 @@ action_chips.mojom.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_Para
   $: {
     structSpec: {
       name: 'action_chips.mojom.ActionChipsHandlerFactory.CreateActionChipsHandler_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'page', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(action_chips.mojom.ActionChipsHandlerRemote), nullable: false, minVersion: 0 },
+        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(action_chips.mojom.PageRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

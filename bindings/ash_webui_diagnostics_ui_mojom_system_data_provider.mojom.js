@@ -620,7 +620,7 @@ ash.diagnostics.diagnostics.mojom.mojom.SystemDataProvider_ObserveBatteryChargeS
       name: 'ash.diagnostics.mojom.SystemDataProvider.ObserveBatteryChargeStatus_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.diagnostics.mojom.BatteryChargeStatusObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -634,7 +634,7 @@ ash.diagnostics.diagnostics.mojom.mojom.SystemDataProvider_ObserveBatteryHealth_
       name: 'ash.diagnostics.mojom.SystemDataProvider.ObserveBatteryHealth_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.diagnostics.mojom.BatteryHealthObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -648,7 +648,7 @@ ash.diagnostics.diagnostics.mojom.mojom.SystemDataProvider_ObserveMemoryUsage_Pa
       name: 'ash.diagnostics.mojom.SystemDataProvider.ObserveMemoryUsage_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.diagnostics.mojom.MemoryUsageObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -662,7 +662,7 @@ ash.diagnostics.diagnostics.mojom.mojom.SystemDataProvider_ObserveCpuUsage_Param
       name: 'ash.diagnostics.mojom.SystemDataProvider.ObserveCpuUsage_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.diagnostics.mojom.CpuUsageObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

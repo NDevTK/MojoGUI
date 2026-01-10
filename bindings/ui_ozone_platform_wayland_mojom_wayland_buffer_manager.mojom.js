@@ -135,7 +135,7 @@ ui.ozone.ozone.mojom.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_P
       name: 'ui.ozone.mojom.WaylandBufferManagerHost.SetWaylandBufferManagerGpu_Params',
       packedSize: 16,
       fields: [
-        { name: 'buffer_manager_gpu_associated', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'buffer_manager_gpu_associated', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(ui.ozone.mojom.WaylandBufferManagerGpuRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -312,17 +312,17 @@ ui.ozone.ozone.mojom.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ui.ozone.mojom.WaylandBufferManagerGpu.Initialize_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'remote_host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'shared_image_formats_with_modifiers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(viz.mojom.SharedImageFormatSpec, mojo.internal.Array(mojo.internal.Uint64, false), false), nullable: false, minVersion: 0 },
-        { name: 'supports_dma_buf', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'supports_viewporter', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'supports_acquire_fence', packedOffset: 12, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'supports_overlays', packedOffset: 12, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'supports_single_pixel_buffer', packedOffset: 12, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'remote_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ui.ozone.mojom.WaylandBufferManagerHostRemote), nullable: false, minVersion: 0 },
+        { name: 'shared_image_formats_with_modifiers', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(viz.mojom.SharedImageFormatSpec, mojo.internal.Array(mojo.internal.Uint64, false), false), nullable: false, minVersion: 0 },
+        { name: 'supports_dma_buf', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'supports_viewporter', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'supports_acquire_fence', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'supports_overlays', packedOffset: 16, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'supports_single_pixel_buffer', packedOffset: 16, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

@@ -103,7 +103,7 @@ content_settings.mojom.mojom.ContentSettingsManager_Clone_ParamsSpec = {
       name: 'content_settings.mojom.ContentSettingsManager.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'clone', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'clone', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(content_settings.mojom.ContentSettingsManagerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

@@ -510,14 +510,14 @@ chrome.mojom.mojom.ProfileImport_StartImport_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.ProfileImport.StartImport_Params',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
         { name: 'source_profile', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.SourceProfileSpec, nullable: false, minVersion: 0 },
-        { name: 'items', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'items', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
         { name: 'localized_strings', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Uint32, mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome.mojom.ProfileImportObserverRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

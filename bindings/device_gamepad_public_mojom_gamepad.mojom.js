@@ -439,7 +439,7 @@ device.mojom.mojom.GamepadMonitor_SetObserver_ParamsSpec = {
       name: 'device.mojom.GamepadMonitor.SetObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'gamepad_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'gamepad_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.GamepadObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

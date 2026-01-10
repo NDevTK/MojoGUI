@@ -828,18 +828,18 @@ blink.mojom.mojom.ServiceWorker_InitializeGlobalScope_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorker.InitializeGlobalScope_Params',
-      packedSize: 56,
+      packedSize: 64,
       fields: [
-        { name: 'service_worker_host', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'associated_interfaces_to_browser', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'associated_interfaces_from_browser', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'registration_info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRegistrationObjectInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'service_worker_info', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ServiceWorkerObjectInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'fetch_handler_existence', packedOffset: 36, packedBitOffset: 0, type: blink.mojom.FetchHandlerExistenceSpec, nullable: false, minVersion: 0 },
-        { name: 'ancestor_frame_type', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.AncestorFrameTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'storage_key', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
+        { name: 'service_worker_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.ServiceWorkerHostRemote), nullable: false, minVersion: 0 },
+        { name: 'associated_interfaces_to_browser', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.AssociatedInterfaceProviderRemote), nullable: false, minVersion: 0 },
+        { name: 'associated_interfaces_from_browser', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(blink.mojom.AssociatedInterfaceProviderRemote), nullable: false, minVersion: 0 },
+        { name: 'registration_info', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRegistrationObjectInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'service_worker_info', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.ServiceWorkerObjectInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'fetch_handler_existence', packedOffset: 48, packedBitOffset: 0, type: blink.mojom.FetchHandlerExistenceSpec, nullable: false, minVersion: 0 },
+        { name: 'ancestor_frame_type', packedOffset: 52, packedBitOffset: 0, type: blink.mojom.AncestorFrameTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'storage_key', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.StorageKeySpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 56}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };
@@ -1040,7 +1040,7 @@ blink.mojom.mojom.ServiceWorker_DispatchFetchEventForMainResource_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DispatchFetchEventParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'response_callback', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'response_callback', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.ServiceWorkerFetchResponseCallbackRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -1265,7 +1265,7 @@ blink.mojom.mojom.ServiceWorker_DispatchAbortPaymentEvent_ParamsSpec = {
       name: 'blink.mojom.ServiceWorker.DispatchAbortPaymentEvent_Params',
       packedSize: 16,
       fields: [
-        { name: 'result_of_abort_payment', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'result_of_abort_payment', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(payments.mojom.PaymentHandlerResponseCallbackRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1293,7 +1293,7 @@ blink.mojom.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'event_data', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.CanMakePaymentEventDataSpec, nullable: false, minVersion: 0 },
-        { name: 'result_of_can_make_payment', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'result_of_can_make_payment', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(payments.mojom.PaymentHandlerResponseCallbackRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -1321,7 +1321,7 @@ blink.mojom.mojom.ServiceWorker_DispatchPaymentRequestEvent_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'request_data', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentRequestEventDataSpec, nullable: false, minVersion: 0 },
-        { name: 'response_callback', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'response_callback', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(payments.mojom.PaymentHandlerResponseCallbackRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

@@ -72,12 +72,12 @@ media.mojom.mojom.RemoterFactory_Create_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.RemoterFactory.Create_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'remoter', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.RemotingSourceRemote), nullable: false, minVersion: 0 },
+        { name: 'remoter', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.RemoterRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -316,14 +316,14 @@ media.mojom.mojom.Remoter_StartDataStreams_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.Remoter.StartDataStreams_Params',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
         { name: 'audio_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
         { name: 'video_pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
-        { name: 'audio_sender', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true, minVersion: 0 },
-        { name: 'video_sender', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true, minVersion: 0 },
+        { name: 'audio_sender', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.RemotingDataStreamSenderRemote), nullable: true, minVersion: 0 },
+        { name: 'video_sender', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.RemotingDataStreamSenderRemote), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -674,7 +674,7 @@ media.mojom.mojom.Remotee_OnRemotingSinkReady_ParamsSpec = {
       name: 'media.mojom.Remotee.OnRemotingSinkReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'sink', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'sink', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.RemotingSinkRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -700,12 +700,12 @@ media.mojom.mojom.Remotee_StartDataStreams_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.Remotee.StartDataStreams_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'audio_stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'video_stream', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'audio_stream', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.RemotingDataStreamReceiverRemote), nullable: true, minVersion: 0 },
+        { name: 'video_stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.RemotingDataStreamReceiverRemote), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

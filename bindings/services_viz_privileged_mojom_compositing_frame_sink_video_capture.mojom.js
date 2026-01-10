@@ -248,7 +248,7 @@ viz.mojom.mojom.FrameSinkVideoConsumer_OnFrameCaptured_ParamsSpec = {
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoBufferHandleSpec, nullable: false, minVersion: 0 },
         { name: 'info', packedOffset: 16, packedBitOffset: 0, type: media.mojom.VideoFrameInfoSpec, nullable: false, minVersion: 0 },
         { name: 'content_rect', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
-        { name: 'callbacks', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'callbacks', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(viz.mojom.FrameSinkVideoConsumerFrameCallbacksRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 48}]
     }
@@ -567,12 +567,12 @@ viz.mojom.mojom.FrameSinkVideoCapturer_Start_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkVideoCapturer.Start_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'consumer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'buffer_format_preference', packedOffset: 4, packedBitOffset: 0, type: viz.mojom.BufferFormatPreferenceSpec, nullable: false, minVersion: 0 },
+        { name: 'consumer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(viz.mojom.FrameSinkVideoConsumerRemote), nullable: false, minVersion: 0 },
+        { name: 'buffer_format_preference', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.BufferFormatPreferenceSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -608,12 +608,12 @@ viz.mojom.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.FrameSinkVideoCapturer.CreateOverlay_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'stacking_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'stacking_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(viz.mojom.FrameSinkVideoCaptureOverlayRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

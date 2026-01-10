@@ -72,7 +72,7 @@ remoting.mojom.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec = {
       name: 'remoting.mojom.ChromotingHostServices.BindSessionServices_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(remoting.mojom.ChromotingSessionServicesRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -165,7 +165,7 @@ remoting.mojom.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec = {
       name: 'remoting.mojom.ChromotingSessionServices.BindWebAuthnProxy_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(remoting.mojom.WebAuthnProxyRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -179,7 +179,7 @@ remoting.mojom.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec = 
       name: 'remoting.mojom.ChromotingSessionServices.BindRemoteUrlOpener_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(remoting.mojom.RemoteUrlOpenerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -193,7 +193,7 @@ remoting.mojom.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSp
       name: 'remoting.mojom.ChromotingSessionServices.BindSecurityKeyForwarder_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(remoting.mojom.SecurityKeyForwarderRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

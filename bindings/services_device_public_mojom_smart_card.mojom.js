@@ -136,7 +136,7 @@ device.mojom.mojom.SmartCardCreateContextResultSpec = { $: mojo.internal.Union(
     'device.mojom.SmartCardCreateContextResult', {
       'context': {
         'ordinal': 0,
-        'type': mojo.internal.InterfaceProxy,
+        'type': mojo.internal.InterfaceProxy(device.mojom.SmartCardContextRemote),
       }},
       'error': {
         'ordinal': 1,
@@ -192,7 +192,7 @@ device.mojom.mojom.SmartCardTransactionResultSpec = { $: mojo.internal.Union(
     'device.mojom.SmartCardTransactionResult', {
       'transaction': {
         'ordinal': 0,
-        'type': mojo.internal.AssociatedInterfaceProxy,
+        'type': mojo.internal.AssociatedInterfaceProxy(device.mojom.SmartCardTransactionRemote),
       }},
       'error': {
         'ordinal': 1,
@@ -296,12 +296,12 @@ device.mojom.mojom.SmartCardConnectSuccessSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardConnectSuccess',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'connection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'active_protocol', packedOffset: 4, packedBitOffset: 0, type: device.mojom.SmartCardProtocolSpec, nullable: false, minVersion: 0 },
+        { name: 'connection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.SmartCardConnectionRemote), nullable: false, minVersion: 0 },
+        { name: 'active_protocol', packedOffset: 8, packedBitOffset: 0, type: device.mojom.SmartCardProtocolSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -941,14 +941,14 @@ device.mojom.mojom.SmartCardContext_Connect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SmartCardContext.Connect_Params',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
         { name: 'reader', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'share_mode', packedOffset: 16, packedBitOffset: 0, type: device.mojom.SmartCardShareModeSpec, nullable: false, minVersion: 0 },
+        { name: 'share_mode', packedOffset: 24, packedBitOffset: 0, type: device.mojom.SmartCardShareModeSpec, nullable: false, minVersion: 0 },
         { name: 'preferred_protocols', packedOffset: 8, packedBitOffset: 0, type: device.mojom.SmartCardProtocolsSpec, nullable: false, minVersion: 0 },
-        { name: 'connection_watcher', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'connection_watcher', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.SmartCardConnectionWatcherRemote), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

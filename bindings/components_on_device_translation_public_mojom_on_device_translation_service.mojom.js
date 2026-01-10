@@ -49,7 +49,7 @@ on_device_translation.mojom.mojom.OnDeviceTranslationServiceConfigSpec = {
       packedSize: 24,
       fields: [
         { name: 'packages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(on_device_translation.mojom.OnDeviceTranslationLanguagePackageSpec, false), nullable: false, minVersion: 0 },
-        { name: 'file_operation_proxy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'file_operation_proxy', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(on_device_translation.mojom.FileOperationProxyRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -280,7 +280,7 @@ on_device_translation.mojom.mojom.OnDeviceTranslationService_CreateTranslator_Pa
       fields: [
         { name: 'source_lang', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'target_lang', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(on_device_translation.mojom.TranslatorRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }

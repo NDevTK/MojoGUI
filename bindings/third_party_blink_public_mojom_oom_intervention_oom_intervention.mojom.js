@@ -158,15 +158,15 @@ blink.mojom.mojom.OomIntervention_StartDetection_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.OomIntervention.StartDetection_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'detection_args', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DetectionArgsSpec, nullable: false, minVersion: 0 },
-        { name: 'renderer_pause_enabled', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'navigate_ads_enabled', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'purge_v8_memory_enabled', packedOffset: 12, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.OomInterventionHostRemote), nullable: false, minVersion: 0 },
+        { name: 'detection_args', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.DetectionArgsSpec, nullable: false, minVersion: 0 },
+        { name: 'renderer_pause_enabled', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'navigate_ads_enabled', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'purge_v8_memory_enabled', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

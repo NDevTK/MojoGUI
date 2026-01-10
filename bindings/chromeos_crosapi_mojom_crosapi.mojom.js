@@ -243,7 +243,7 @@ crosapi.mojom.mojom.Crosapi_BindAccountManager_ParamsSpec = {
       name: 'crosapi.mojom.Crosapi.BindAccountManager_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.AccountManagerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -271,7 +271,7 @@ crosapi.mojom.mojom.Crosapi_BindCfmServiceContext_ParamsSpec = {
       name: 'crosapi.mojom.Crosapi.BindCfmServiceContext_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.cfm.mojom.CfmServiceContextRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -285,7 +285,7 @@ crosapi.mojom.mojom.Crosapi_BindCrosDisplayConfigController_ParamsSpec = {
       name: 'crosapi.mojom.Crosapi.BindCrosDisplayConfigController_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.CrosDisplayConfigControllerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -299,7 +299,7 @@ crosapi.mojom.mojom.Crosapi_BindDiagnosticsService_ParamsSpec = {
       name: 'crosapi.mojom.Crosapi.BindDiagnosticsService_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.DiagnosticsServiceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -313,7 +313,7 @@ crosapi.mojom.mojom.Crosapi_BindDocumentScan_ParamsSpec = {
       name: 'crosapi.mojom.Crosapi.BindDocumentScan_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.DocumentScanRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -327,7 +327,7 @@ crosapi.mojom.mojom.Crosapi_BindInSessionAuth_ParamsSpec = {
       name: 'crosapi.mojom.Crosapi.BindInSessionAuth_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.auth.mojom.InSessionAuthRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -341,7 +341,7 @@ crosapi.mojom.mojom.Crosapi_BindKeystoreService_ParamsSpec = {
       name: 'crosapi.mojom.Crosapi.BindKeystoreService_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.KeystoreServiceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -355,7 +355,7 @@ crosapi.mojom.mojom.Crosapi_BindLocalPrinter_ParamsSpec = {
       name: 'crosapi.mojom.Crosapi.BindLocalPrinter_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.LocalPrinterRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -369,7 +369,7 @@ crosapi.mojom.mojom.Crosapi_BindMachineLearningService_ParamsSpec = {
       name: 'crosapi.mojom.Crosapi.BindMachineLearningService_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.machine_learning.mojom.MachineLearningServiceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -383,7 +383,7 @@ crosapi.mojom.mojom.Crosapi_BindSensorHalClient_ParamsSpec = {
       name: 'crosapi.mojom.Crosapi.BindSensorHalClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.sensors.mojom.SensorHalClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -397,7 +397,7 @@ crosapi.mojom.mojom.Crosapi_BindHidManager_ParamsSpec = {
       name: 'crosapi.mojom.Crosapi.BindHidManager_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.HidManagerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -411,7 +411,7 @@ crosapi.mojom.mojom.Crosapi_BindMediaSessionController_ParamsSpec = {
       name: 'crosapi.mojom.Crosapi.BindMediaSessionController_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_session.mojom.MediaControllerManagerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -425,7 +425,7 @@ crosapi.mojom.mojom.Crosapi_BindMediaSessionAudioFocus_ParamsSpec = {
       name: 'crosapi.mojom.Crosapi.BindMediaSessionAudioFocus_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_session.mojom.AudioFocusManagerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -439,7 +439,7 @@ crosapi.mojom.mojom.Crosapi_BindMediaSessionAudioFocusDebug_ParamsSpec = {
       name: 'crosapi.mojom.Crosapi.BindMediaSessionAudioFocusDebug_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_session.mojom.AudioFocusManagerDebugRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -453,7 +453,7 @@ crosapi.mojom.mojom.Crosapi_BindTelemetryDiagnosticRoutinesService_ParamsSpec = 
       name: 'crosapi.mojom.Crosapi.BindTelemetryDiagnosticRoutinesService_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.TelemetryDiagnosticRoutinesServiceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -467,7 +467,7 @@ crosapi.mojom.mojom.Crosapi_BindTelemetryManagementService_ParamsSpec = {
       name: 'crosapi.mojom.Crosapi.BindTelemetryManagementService_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.TelemetryManagementServiceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -481,7 +481,7 @@ crosapi.mojom.mojom.Crosapi_BindTelemetryProbeService_ParamsSpec = {
       name: 'crosapi.mojom.Crosapi.BindTelemetryProbeService_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.TelemetryProbeServiceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -495,7 +495,7 @@ crosapi.mojom.mojom.Crosapi_BindVideoCaptureDeviceFactory_ParamsSpec = {
       name: 'crosapi.mojom.Crosapi.BindVideoCaptureDeviceFactory_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.VideoCaptureDeviceFactoryRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -509,7 +509,7 @@ crosapi.mojom.mojom.Crosapi_BindGuestOsSkForwarderFactory_ParamsSpec = {
       name: 'crosapi.mojom.Crosapi.BindGuestOsSkForwarderFactory_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.GuestOsSkForwarderFactoryRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

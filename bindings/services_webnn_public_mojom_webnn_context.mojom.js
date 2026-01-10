@@ -31,8 +31,8 @@ webnn.mojom.mojom.CreateTensorSuccessSpec = {
       name: 'webnn.mojom.CreateTensorSuccess',
       packedSize: 24,
       fields: [
-        { name: 'tensor_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'tensor_handle', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebNNTensorTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'tensor_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(webnn.mojom.WebNNTensorRemote), nullable: false, minVersion: 0 },
+        { name: 'tensor_handle', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.WebNNTensorTokenSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -120,7 +120,7 @@ webnn.mojom.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec = {
       name: 'webnn.mojom.WebNNContext.CreateGraphBuilder_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(webnn.mojom.WebNNGraphBuilderRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

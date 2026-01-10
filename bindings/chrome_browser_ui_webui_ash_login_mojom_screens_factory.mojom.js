@@ -176,7 +176,7 @@ ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishAiIntroS
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishAiIntroScreenPipe_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_common.mojom.AiIntroPageHandlerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -189,7 +189,7 @@ ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishAiIntroS
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishAiIntroScreenPipe_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'pending', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'pending', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_common.mojom.AiIntroPageRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -203,7 +203,7 @@ ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishAppDownl
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishAppDownloadingScreenPipe_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_common.mojom.AppDownloadingPageHandlerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -217,7 +217,7 @@ ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishDrivePin
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishDrivePinningScreenPipe_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_common.mojom.DrivePinningPageHandlerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -230,7 +230,7 @@ ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishDrivePin
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishDrivePinningScreenPipe_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'pending', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'pending', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_common.mojom.DrivePinningPageRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -244,7 +244,7 @@ ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishFjordSta
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishFjordStationSetupScreenPipe_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_common.mojom.FjordStationSetupPageHandlerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -258,7 +258,7 @@ ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishGaiaInfo
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishGaiaInfoScreenPipe_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_common.mojom.GaiaInfoPageHandlerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -271,7 +271,7 @@ ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishGaiaInfo
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishGaiaInfoScreenPipe_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'pending', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'pending', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_common.mojom.GaiaInfoPageRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -285,7 +285,7 @@ ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishGestureN
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishGestureNavigationScreenPipe_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_common.mojom.GestureNavigationPageHandlerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -299,7 +299,7 @@ ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishGeminiIn
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishGeminiIntroScreenPipe_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_common.mojom.GeminiIntroPageHandlerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -313,7 +313,7 @@ ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishConsumer
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishConsumerUpdateScreenPipe_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -326,7 +326,7 @@ ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishConsumer
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishConsumerUpdateScreenPipe_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'pending', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'pending', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_oobe.mojom.ConsumerUpdatePageRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -340,7 +340,7 @@ ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishPackaged
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishPackagedLicenseScreenPipe_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_oobe.mojom.PackagedLicensePageHandlerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -354,7 +354,7 @@ ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishArcVmDat
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishArcVmDataMigrationScreenPipe_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -367,7 +367,7 @@ ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishArcVmDat
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishArcVmDataMigrationScreenPipe_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'pending', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'pending', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_login.mojom.ArcVmDataMigrationPageRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -381,7 +381,7 @@ ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishEncrypti
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishEncryptionMigrationScreenPipe_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_login.mojom.EncryptionMigrationPageHandlerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -394,7 +394,7 @@ ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishEncrypti
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishEncryptionMigrationScreenPipe_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'pending', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'pending', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_login.mojom.EncryptionMigrationPageRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -408,7 +408,7 @@ ash.screens_factory.screens_factory.mojom.mojom.ScreensFactory_EstablishLocalDat
       name: 'ash.screens_factory.mojom.ScreensFactory.EstablishLocalDataLossWarningScreenPipe_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

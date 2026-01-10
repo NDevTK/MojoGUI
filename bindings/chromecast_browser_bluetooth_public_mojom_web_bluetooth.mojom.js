@@ -72,7 +72,7 @@ chromecast.mojom.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_ParamsS
       name: 'chromecast.mojom.BluetoothDeviceAccessProvider.RequestDeviceAccess_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.mojom.BluetoothDeviceAccessProviderClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

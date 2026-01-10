@@ -301,13 +301,13 @@ filesystem.mojom.mojom.Directory_OpenDirectory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'filesystem.mojom.Directory.OpenDirectory_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
         { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'directory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true, minVersion: 0 },
-        { name: 'open_flags', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'directory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(filesystem.mojom.DirectoryRemote), nullable: true, minVersion: 0 },
+        { name: 'open_flags', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -526,7 +526,7 @@ filesystem.mojom.mojom.Directory_Clone_ParamsSpec = {
       name: 'filesystem.mojom.Directory.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'directory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'directory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(filesystem.mojom.DirectoryRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

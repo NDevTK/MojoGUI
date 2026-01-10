@@ -46,9 +46,9 @@ chromeos.machine_learning.machine_learning.mojom.mojom.GraphExecutorOptionsSpec 
       name: 'chromeos.machine_learning.mojom.GraphExecutorOptions',
       packedSize: 16,
       fields: [
-        { name: 'use_nnapi', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'use_gpu', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 1 },
-        { name: 'gpu_delegate_api', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.GpuDelegateApiSpec, nullable: false, minVersion: 2 },
+        { name: 'use_nnapi', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'use_gpu', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 1 },
+        { name: 'gpu_delegate_api', packedOffset: 4, packedBitOffset: 0, type: chromeos.machine_learning.mojom.GpuDelegateApiSpec, nullable: false, minVersion: 2 },
       ],
       versions: [{version: 0, packedSize: 16}, {version: 1, packedSize: 16}, {version: 2, packedSize: 16}]
     }
@@ -158,7 +158,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.Model_REMOVED_0_ParamsSpe
       name: 'chromeos.machine_learning.mojom.Model.REMOVED_0_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.machine_learning.mojom.GraphExecutorRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -186,7 +186,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.Model_CreateGraphExecutor
       packedSize: 24,
       fields: [
         { name: 'options', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.GraphExecutorOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.machine_learning.mojom.GraphExecutorRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

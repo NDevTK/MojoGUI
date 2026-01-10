@@ -100,10 +100,10 @@ arc.mojom.mojom.CrashCollectorHost_DumpCrash_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-        { name: 'uptime', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 6 },
+        { name: 'pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
+        { name: 'uptime', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 6 },
       ],
-      versions: [{version: 0, packedSize: 32}, {version: 6, packedSize: 32}]
+      versions: [{version: 0, packedSize: 24}, {version: 6, packedSize: 32}]
     }
   }
 };
@@ -224,7 +224,7 @@ arc.mojom.mojom.CrashCollectorInstance_Init_ParamsSpec = {
       name: 'arc.mojom.CrashCollectorInstance.Init_Params',
       packedSize: 16,
       fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.CrashCollectorHostRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

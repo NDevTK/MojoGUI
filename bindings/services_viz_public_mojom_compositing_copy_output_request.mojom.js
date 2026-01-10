@@ -18,8 +18,8 @@ viz.mojom.mojom.CopyOutputRequestSpec = {
       name: 'viz.mojom.CopyOutputRequest',
       packedSize: 80,
       fields: [
-        { name: 'result_format', packedOffset: 56, packedBitOffset: 0, type: viz.mojom.CopyOutputResultFormatSpec, nullable: false, minVersion: 0 },
-        { name: 'result_destination', packedOffset: 60, packedBitOffset: 0, type: viz.mojom.CopyOutputResultDestinationSpec, nullable: false, minVersion: 0 },
+        { name: 'result_format', packedOffset: 64, packedBitOffset: 0, type: viz.mojom.CopyOutputResultFormatSpec, nullable: false, minVersion: 0 },
+        { name: 'result_destination', packedOffset: 68, packedBitOffset: 0, type: viz.mojom.CopyOutputResultDestinationSpec, nullable: false, minVersion: 0 },
         { name: 'send_result_delay', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
         { name: 'scale_from', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.Vector2dSpec, nullable: false, minVersion: 0 },
         { name: 'scale_to', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.Vector2dSpec, nullable: false, minVersion: 0 },
@@ -27,7 +27,7 @@ viz.mojom.mojom.CopyOutputRequestSpec = {
         { name: 'area', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true, minVersion: 0 },
         { name: 'result_selection', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true, minVersion: 0 },
         { name: 'blit_request', packedOffset: 48, packedBitOffset: 0, type: viz.mojom.BlitRequestSpec, nullable: true, minVersion: 0 },
-        { name: 'result_sender', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'result_sender', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(viz.mojom.CopyOutputResultSenderRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 80}]
     }

@@ -122,7 +122,7 @@ blink.mojom.mojom.EagerResponseSpec = {
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FetchAPIResponseSpec, nullable: false, minVersion: 0 },
         { name: 'pipe', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'client_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'client_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.BlobReaderClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }

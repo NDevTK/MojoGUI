@@ -58,19 +58,19 @@ device.mojom.mojom.SensorInitParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SensorInitParams',
-      packedSize: 72,
+      packedSize: 80,
       fields: [
-        { name: 'sensor', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'client_receiver', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'memory', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-        { name: 'buffer_offset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'mode', packedOffset: 56, packedBitOffset: 0, type: device.mojom.ReportingModeSpec, nullable: false, minVersion: 0 },
-        { name: 'default_configuration', packedOffset: 16, packedBitOffset: 0, type: device.mojom.SensorConfigurationSpec, nullable: false, minVersion: 0 },
-        { name: 'maximum_frequency', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'minimum_frequency', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
-        { name: 'kReadBufferSizeForTests', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'sensor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.SensorRemote), nullable: false, minVersion: 0 },
+        { name: 'client_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.SensorClientRemote), nullable: false, minVersion: 0 },
+        { name: 'memory', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
+        { name: 'buffer_offset', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'mode', packedOffset: 64, packedBitOffset: 0, type: device.mojom.ReportingModeSpec, nullable: false, minVersion: 0 },
+        { name: 'default_configuration', packedOffset: 32, packedBitOffset: 0, type: device.mojom.SensorConfigurationSpec, nullable: false, minVersion: 0 },
+        { name: 'maximum_frequency', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'minimum_frequency', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
+        { name: 'kReadBufferSizeForTests', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 72}]
+      versions: [{version: 0, packedSize: 80}]
     }
   }
 };

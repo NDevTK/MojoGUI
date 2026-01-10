@@ -169,7 +169,7 @@ blink.mojom.mojom.AecDumpManager_Add_ParamsSpec = {
       name: 'blink.mojom.AecDumpManager.Add_Params',
       packedSize: 16,
       fields: [
-        { name: 'agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.AecDumpAgentRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

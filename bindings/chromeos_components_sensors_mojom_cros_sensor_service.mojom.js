@@ -73,7 +73,7 @@ chromeos.sensors.sensors.mojom.mojom.SensorHalServer_CreateChannel_ParamsSpec = 
       name: 'chromeos.sensors.mojom.SensorHalServer.CreateChannel_Params',
       packedSize: 16,
       fields: [
-        { name: 'sensor_service_request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'sensor_service_request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.sensors.mojom.SensorServiceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -148,7 +148,7 @@ chromeos.sensors.sensors.mojom.mojom.SensorHalClient_SetUpChannel_ParamsSpec = {
       name: 'chromeos.sensors.mojom.SensorHalClient.SetUpChannel_Params',
       packedSize: 16,
       fields: [
-        { name: 'sensor_service_ptr', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'sensor_service_ptr', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.sensors.mojom.SensorServiceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

@@ -474,7 +474,7 @@ viz.mojom.mojom.GpuService_CreateJpegDecodeAccelerator_ParamsSpec = {
       name: 'viz.mojom.GpuService.CreateJpegDecodeAccelerator_Params',
       packedSize: 16,
       fields: [
-        { name: 'jda', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'jda', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos_camera.mojom.MjpegDecodeAcceleratorRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -488,7 +488,7 @@ viz.mojom.mojom.GpuService_CreateJpegEncodeAccelerator_ParamsSpec = {
       name: 'viz.mojom.GpuService.CreateJpegEncodeAccelerator_Params',
       packedSize: 16,
       fields: [
-        { name: 'jea', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'jea', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos_camera.mojom.JpegEncodeAcceleratorRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -543,7 +543,7 @@ viz.mojom.mojom.GpuService_CreateVideoEncodeAcceleratorProvider_ParamsSpec = {
       name: 'viz.mojom.GpuService.CreateVideoEncodeAcceleratorProvider_Params',
       packedSize: 16,
       fields: [
-        { name: 'vea_provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'vea_provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.VideoEncodeAcceleratorProviderRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -555,12 +555,12 @@ viz.mojom.mojom.GpuService_BindWebNNContextProvider_ParamsSpec = {
   $: {
     structSpec: {
       name: 'viz.mojom.GpuService.BindWebNNContextProvider_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true, minVersion: 0 },
-        { name: 'client_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(webnn.mojom.WebNNContextProviderRemote), nullable: true, minVersion: 0 },
+        { name: 'client_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

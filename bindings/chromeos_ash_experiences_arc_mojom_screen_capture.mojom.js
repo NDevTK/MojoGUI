@@ -134,9 +134,9 @@ arc.mojom.mojom.ScreenCaptureHost_OpenSession_ParamsSpec = {
       name: 'arc.mojom.ScreenCaptureHost.OpenSession_Params',
       packedSize: 32,
       fields: [
-        { name: 'notifier', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'notifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ScreenCaptureSessionNotifierRemote), nullable: false, minVersion: 0 },
+        { name: 'package_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.SizeSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -149,7 +149,7 @@ arc.mojom.mojom.ScreenCaptureHost_OpenSession_ResponseParamsSpec = {
       name: 'arc.mojom.ScreenCaptureHost.OpenSession_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ScreenCaptureSessionRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -326,7 +326,7 @@ arc.mojom.mojom.ScreenCaptureInstance_Init_ParamsSpec = {
       name: 'arc.mojom.ScreenCaptureInstance.Init_Params',
       packedSize: 16,
       fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ScreenCaptureHostRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

@@ -755,10 +755,10 @@ payments.mojom.mojom.PaymentRequest_Init_ParamsSpec = {
       name: 'payments.mojom.PaymentRequest.Init_Params',
       packedSize: 40,
       fields: [
-        { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'method_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(payments.mojom.PaymentMethodDataSpec, false), nullable: false, minVersion: 0 },
-        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.PaymentDetailsSpec, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: payments.mojom.PaymentOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(payments.mojom.PaymentRequestClientRemote), nullable: false, minVersion: 0 },
+        { name: 'method_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(payments.mojom.PaymentMethodDataSpec, false), nullable: false, minVersion: 0 },
+        { name: 'details', packedOffset: 16, packedBitOffset: 0, type: payments.mojom.PaymentDetailsSpec, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 24, packedBitOffset: 0, type: payments.mojom.PaymentOptionsSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }

@@ -292,15 +292,15 @@ unzip.mojom.mojom.Unzipper_Unzip_ParamsSpec = {
   $: {
     structSpec: {
       name: 'unzip.mojom.Unzipper.Unzip_Params',
-      packedSize: 40,
+      packedSize: 48,
       fields: [
         { name: 'zip_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
-        { name: 'output_dir', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: unzip.mojom.UnzipOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'filter', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'output_dir', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(storage.mojom.DirectoryRemote), nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: unzip.mojom.UnzipOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'filter', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(unzip.mojom.UnzipFilterRemote), nullable: true, minVersion: 0 },
+        { name: 'listener', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(unzip.mojom.UnzipListenerRemote), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };

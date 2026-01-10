@@ -126,7 +126,7 @@ data_decoder.mojom.mojom.DataDecoderService_BindImageDecoder_ParamsSpec = {
       name: 'data_decoder.mojom.DataDecoderService.BindImageDecoder_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(data_decoder.mojom.ImageDecoderRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -140,7 +140,7 @@ data_decoder.mojom.mojom.DataDecoderService_BindXmlParser_ParamsSpec = {
       name: 'data_decoder.mojom.DataDecoderService.BindXmlParser_Params',
       packedSize: 16,
       fields: [
-        { name: 'reciever', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'reciever', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(data_decoder.mojom.XmlParserRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -154,7 +154,7 @@ data_decoder.mojom.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpe
       name: 'data_decoder.mojom.DataDecoderService.BindWebBundleParserFactory_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(web_package.mojom.WebBundleParserFactoryRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -168,7 +168,7 @@ data_decoder.mojom.mojom.DataDecoderService_BindGzipper_ParamsSpec = {
       name: 'data_decoder.mojom.DataDecoderService.BindGzipper_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(data_decoder.mojom.GzipperRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -182,7 +182,7 @@ data_decoder.mojom.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSp
       name: 'data_decoder.mojom.DataDecoderService.BindStructuredHeadersParser_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(data_decoder.mojom.StructuredHeadersParserRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -196,7 +196,7 @@ data_decoder.mojom.mojom.DataDecoderService_BindCborParser_ParamsSpec = {
       name: 'data_decoder.mojom.DataDecoderService.BindCborParser_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(data_decoder.mojom.CborParserRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -210,7 +210,7 @@ data_decoder.mojom.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec = {
       name: 'data_decoder.mojom.DataDecoderService.BindPixCodeValidator_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(payments.facilitated.mojom.PixCodeValidatorRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

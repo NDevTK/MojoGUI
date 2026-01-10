@@ -72,7 +72,7 @@ extensions.mojom.mojom.RendererAutomationRegistry_BindAutomation_ParamsSpec = {
       name: 'extensions.mojom.RendererAutomationRegistry.BindAutomation_Params',
       packedSize: 16,
       fields: [
-        { name: 'automation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'automation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(ax.mojom.AutomationRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

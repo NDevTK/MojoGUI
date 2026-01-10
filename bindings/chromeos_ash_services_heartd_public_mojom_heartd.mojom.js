@@ -256,13 +256,13 @@ ash.heartd.heartd.mojom.mojom.HeartbeatService_Register_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.heartd.mojom.HeartbeatService.Register_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: ash.heartd.mojom.ServiceNameSpec, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: ash.heartd.mojom.ServiceNameSpec, nullable: false, minVersion: 0 },
         { name: 'argument', packedOffset: 0, packedBitOffset: 0, type: ash.heartd.mojom.HeartbeatServiceArgumentSpec, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.heartd.mojom.PacemakerRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

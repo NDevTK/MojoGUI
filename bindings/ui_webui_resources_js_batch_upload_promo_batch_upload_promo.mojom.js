@@ -70,12 +70,12 @@ batch_upload_promo.mojom.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_
   $: {
     structSpec: {
       name: 'batch_upload_promo.mojom.PageHandlerFactory.CreateBatchUploadPromoHandler_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(batch_upload_promo.mojom.PageRemote), nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(batch_upload_promo.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

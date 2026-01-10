@@ -109,21 +109,21 @@ chromeos.machine_learning.machine_learning.mojom.mojom.SodaConfigSpec = {
       name: 'chromeos.machine_learning.mojom.SodaConfig',
       packedSize: 72,
       fields: [
-        { name: 'channel_count', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'sample_rate', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'channel_count', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'sample_rate', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
         { name: 'api_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'library_dlc_path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'language_dlc_path', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'enable_formatting', packedOffset: 48, packedBitOffset: 0, type: chromeos.machine_learning.mojom.OptionalBoolSpec, nullable: false, minVersion: 2 },
-        { name: 'recognition_mode', packedOffset: 52, packedBitOffset: 0, type: chromeos.machine_learning.mojom.SodaRecognitionModeSpec, nullable: false, minVersion: 3 },
-        { name: 'mask_offensive_words', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 4 },
-        { name: 'speaker_change_detection', packedOffset: 60, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 5 },
-        { name: 'include_logging_output', packedOffset: 60, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 6 },
-        { name: 'multi_lang_config', packedOffset: 24, packedBitOffset: 0, type: chromeos.machine_learning.mojom.SodaMultilangConfigSpec, nullable: true, minVersion: 7 },
-        { name: 'kSpeakerDiarizationModeOffDefault', packedOffset: 32, packedBitOffset: 0, type: chromeos.machine_learning.mojom.SpeakerDiarizationMode speaker_diarization_mode =Spec, nullable: false, minVersion: 9 },
-        { name: 'max_speaker_count', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 9 },
+        { name: 'enable_formatting', packedOffset: 32, packedBitOffset: 0, type: chromeos.machine_learning.mojom.OptionalBoolSpec, nullable: false, minVersion: 2 },
+        { name: 'recognition_mode', packedOffset: 36, packedBitOffset: 0, type: chromeos.machine_learning.mojom.SodaRecognitionModeSpec, nullable: false, minVersion: 3 },
+        { name: 'mask_offensive_words', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 4 },
+        { name: 'speaker_change_detection', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 5 },
+        { name: 'include_logging_output', packedOffset: 40, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 6 },
+        { name: 'multi_lang_config', packedOffset: 48, packedBitOffset: 0, type: chromeos.machine_learning.mojom.SodaMultilangConfigSpec, nullable: true, minVersion: 7 },
+        { name: 'kSpeakerDiarizationModeOffDefault', packedOffset: 56, packedBitOffset: 0, type: chromeos.machine_learning.mojom.SpeakerDiarizationMode speaker_diarization_mode =Spec, nullable: false, minVersion: 9 },
+        { name: 'max_speaker_count', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 9 },
       ],
-      versions: [{version: 0, packedSize: 56}, {version: 2, packedSize: 64}, {version: 3, packedSize: 64}, {version: 4, packedSize: 72}, {version: 5, packedSize: 72}, {version: 6, packedSize: 72}, {version: 7, packedSize: 72}, {version: 9, packedSize: 72}]
+      versions: [{version: 0, packedSize: 40}, {version: 2, packedSize: 48}, {version: 3, packedSize: 48}, {version: 4, packedSize: 56}, {version: 5, packedSize: 56}, {version: 6, packedSize: 56}, {version: 7, packedSize: 64}, {version: 9, packedSize: 72}]
     }
   }
 };
@@ -172,12 +172,12 @@ chromeos.machine_learning.machine_learning.mojom.mojom.HypothesisPartInResultSpe
       fields: [
         { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
         { name: 'alignment', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'leading_space_$flag', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 8, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'leading_space_$value', originalFieldName: 'leading_space' } },
-        { name: 'leading_space_$value', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 8, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'leading_space_$flag', originalFieldName: 'leading_space' } },
-        { name: 'speaker_change', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 9 },
-        { name: 'speaker_label', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 9 },
+        { name: 'leading_space_$flag', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 8, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'leading_space_$value', originalFieldName: 'leading_space' } },
+        { name: 'leading_space_$value', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 8, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'leading_space_$flag', originalFieldName: 'leading_space' } },
+        { name: 'speaker_change', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 9 },
+        { name: 'speaker_label', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 9 },
       ],
-      versions: [{version: 0, packedSize: 24}, {version: 8, packedSize: 40}, {version: 9, packedSize: 40}]
+      versions: [{version: 0, packedSize: 24}, {version: 8, packedSize: 32}, {version: 9, packedSize: 40}]
     }
   }
 };
@@ -206,11 +206,11 @@ chromeos.machine_learning.machine_learning.mojom.mojom.FinalResultSpec = {
       packedSize: 40,
       fields: [
         { name: 'final_hypotheses', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'endpoint_reason', packedOffset: 24, packedBitOffset: 0, type: chromeos.machine_learning.mojom.EndpointReasonSpec, nullable: false, minVersion: 0 },
+        { name: 'endpoint_reason', packedOffset: 16, packedBitOffset: 0, type: chromeos.machine_learning.mojom.EndpointReasonSpec, nullable: false, minVersion: 0 },
         { name: 'timing_event', packedOffset: 8, packedBitOffset: 0, type: chromeos.machine_learning.mojom.TimingInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'hypothesis_part', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(chromeos.machine_learning.mojom.HypothesisPartInResultSpec, false), nullable: true, minVersion: 1 },
+        { name: 'hypothesis_part', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(chromeos.machine_learning.mojom.HypothesisPartInResultSpec, false), nullable: true, minVersion: 1 },
       ],
-      versions: [{version: 0, packedSize: 40}, {version: 1, packedSize: 40}]
+      versions: [{version: 0, packedSize: 32}, {version: 1, packedSize: 40}]
     }
   }
 };

@@ -96,7 +96,7 @@ arc.mojom.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'details', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ErrorDetailsSpec, nullable: false, minVersion: 0 },
-        { name: 'action_handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'action_handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ErrorNotificationActionHandlerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -109,7 +109,7 @@ arc.mojom.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParamsSpec = {
       name: 'arc.mojom.ErrorNotificationHost.SendErrorDetails_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'item', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'item', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ErrorNotificationItemRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -184,7 +184,7 @@ arc.mojom.mojom.ErrorNotificationInstance_Init_ParamsSpec = {
       name: 'arc.mojom.ErrorNotificationInstance.Init_Params',
       packedSize: 16,
       fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ErrorNotificationHostRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

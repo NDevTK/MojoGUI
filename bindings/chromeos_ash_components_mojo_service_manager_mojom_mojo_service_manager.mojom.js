@@ -227,7 +227,7 @@ chromeos.mojo_service_manager.mojo_service_manager.mojom.mojom.ServiceManager_Re
       packedSize: 24,
       fields: [
         { name: 'service_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'service_provider', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'service_provider', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.mojo_service_manager.mojom.ServiceProviderRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -284,7 +284,7 @@ chromeos.mojo_service_manager.mojo_service_manager.mojom.mojom.ServiceManager_Ad
       name: 'chromeos.mojo_service_manager.mojom.ServiceManager.AddServiceObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.mojo_service_manager.mojom.ServiceObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

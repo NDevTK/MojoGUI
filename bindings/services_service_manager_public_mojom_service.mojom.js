@@ -116,12 +116,12 @@ service_manager.mojom.mojom.Service_OnStart_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.Service.OnStart_ResponseParams',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'connector_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'control_receiver', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'connector_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(service_manager.mojom.ConnectorRemote), nullable: false, minVersion: 0 },
+        { name: 'control_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(service_manager.mojom.ServiceControlRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -147,13 +147,13 @@ service_manager.mojom.mojom.Service_CreatePackagedServiceInstance_ParamsSpec = {
   $: {
     structSpec: {
       name: 'service_manager.mojom.Service.CreatePackagedServiceInstance_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
         { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.IdentitySpec, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'metadata', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(service_manager.mojom.ServiceRemote), nullable: false, minVersion: 0 },
+        { name: 'metadata', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(service_manager.mojom.ProcessMetadataRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

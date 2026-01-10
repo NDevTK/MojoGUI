@@ -285,13 +285,13 @@ tracing.mojom.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.BackgroundTracingAgentProvider.Create_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
         { name: 'tracing_process_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'agent', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(tracing.mojom.BackgroundTracingAgentClientRemote), nullable: false, minVersion: 0 },
+        { name: 'agent', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(tracing.mojom.BackgroundTracingAgentRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

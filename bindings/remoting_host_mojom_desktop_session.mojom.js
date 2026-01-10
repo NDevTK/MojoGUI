@@ -387,9 +387,9 @@ remoting.mojom.mojom.BeginFileReadSuccessSpec = {
       name: 'remoting.mojom.BeginFileReadSuccess',
       packedSize: 32,
       fields: [
-        { name: 'file_reader', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'filename', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'file_reader', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(remoting.mojom.FileReaderRemote), nullable: false, minVersion: 0 },
+        { name: 'filename', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -403,7 +403,7 @@ remoting.mojom.mojom.BeginFileWriteSuccessSpec = {
       name: 'remoting.mojom.BeginFileWriteSuccess',
       packedSize: 16,
       fields: [
-        { name: 'file_writer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'file_writer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(remoting.mojom.FileWriterRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -415,12 +415,12 @@ remoting.mojom.mojom.CreateVideoCapturerResultSpec = {
   $: {
     structSpec: {
       name: 'remoting.mojom.CreateVideoCapturerResult',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'video_capturer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'video_capturer_event_handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'video_capturer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(remoting.mojom.VideoCapturerRemote), nullable: false, minVersion: 0 },
+        { name: 'video_capturer_event_handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(remoting.mojom.VideoCapturerEventHandlerRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -797,7 +797,7 @@ remoting.mojom.mojom.DesktopSessionAgent_Start_ResponseParamsSpec = {
       name: 'remoting.mojom.DesktopSessionAgent.Start_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'desktop_session_control', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'desktop_session_control', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(remoting.mojom.DesktopSessionControlRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

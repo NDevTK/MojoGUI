@@ -166,7 +166,7 @@ blink.mojom.mojom.HidService_RegisterClient_ParamsSpec = {
       name: 'blink.mojom.HidService.RegisterClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(device.mojom.HidManagerClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -235,7 +235,7 @@ blink.mojom.mojom.HidService_Connect_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'device_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.HidConnectionClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -248,7 +248,7 @@ blink.mojom.mojom.HidService_Connect_ResponseParamsSpec = {
       name: 'blink.mojom.HidService.Connect_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'connection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'connection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.HidConnectionRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

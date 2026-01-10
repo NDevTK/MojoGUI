@@ -164,7 +164,7 @@ blink.mojom.mojom.LockRequest_Granted_ParamsSpec = {
       name: 'blink.mojom.LockRequest.Granted_Params',
       packedSize: 16,
       fields: [
-        { name: 'lock_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'lock_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.LockHandleRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -262,9 +262,9 @@ blink.mojom.mojom.LockManager_RequestLock_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'mode', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.LockModeSpec, nullable: false, minVersion: 0 },
-        { name: 'wait', packedOffset: 12, packedBitOffset: 0, type: blink.mojom.WaitModeSpec, nullable: false, minVersion: 0 },
-        { name: 'request', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'mode', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.LockModeSpec, nullable: false, minVersion: 0 },
+        { name: 'wait', packedOffset: 20, packedBitOffset: 0, type: blink.mojom.WaitModeSpec, nullable: false, minVersion: 0 },
+        { name: 'request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.LockRequestRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }

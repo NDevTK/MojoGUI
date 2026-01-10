@@ -513,7 +513,7 @@ ash.settings.settings.mojom.mojom.DisplaySettingsProvider_ObserveTabletMode_Para
       name: 'ash.settings.mojom.DisplaySettingsProvider.ObserveTabletMode_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.mojom.TabletModeObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -540,7 +540,7 @@ ash.settings.settings.mojom.mojom.DisplaySettingsProvider_ObserveDisplayConfigur
       name: 'ash.settings.mojom.DisplaySettingsProvider.ObserveDisplayConfiguration_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.mojom.DisplayConfigurationObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -554,7 +554,7 @@ ash.settings.settings.mojom.mojom.DisplaySettingsProvider_ObserveDisplayBrightne
       name: 'ash.settings.mojom.DisplaySettingsProvider.ObserveDisplayBrightnessSettings_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.mojom.DisplayBrightnessSettingsObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -581,7 +581,7 @@ ash.settings.settings.mojom.mojom.DisplaySettingsProvider_ObserveAmbientLightSen
       name: 'ash.settings.mojom.DisplaySettingsProvider.ObserveAmbientLightSensor_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.mojom.AmbientLightSensorObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

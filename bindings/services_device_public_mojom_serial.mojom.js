@@ -252,7 +252,7 @@ device.mojom.mojom.SerialPortManager_SetClient_ParamsSpec = {
       name: 'device.mojom.SerialPortManager.SetClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.SerialPortManagerClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -290,15 +290,15 @@ device.mojom.mojom.SerialPortManager_OpenPort_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.SerialPortManager.OpenPort_Params',
-      packedSize: 40,
+      packedSize: 48,
       fields: [
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'use_alternate_path', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'use_alternate_path', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
         { name: 'options', packedOffset: 8, packedBitOffset: 0, type: device.mojom.SerialConnectionOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'watcher', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.SerialPortClientRemote), nullable: false, minVersion: 0 },
+        { name: 'watcher', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.SerialPortConnectionWatcherRemote), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -309,7 +309,7 @@ device.mojom.mojom.SerialPortManager_OpenPort_ResponseParamsSpec = {
       name: 'device.mojom.SerialPortManager.OpenPort_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.SerialPortRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

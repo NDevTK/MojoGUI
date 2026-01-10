@@ -193,7 +193,7 @@ chrome.mojom.mojom.WebRtcLoggingAgent_Start_ParamsSpec = {
       name: 'chrome.mojom.WebRtcLoggingAgent.Start_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome.mojom.WebRtcLoggingClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

@@ -18,13 +18,13 @@ input.mojom.mojom.RenderInputRouterConfigSpec = {
   $: {
     structSpec: {
       name: 'input.mojom.RenderInputRouterConfig',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'rir_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'grouping_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'force_enable_zoom', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'rir_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.RenderInputRouterClientRemote), nullable: false, minVersion: 0 },
+        { name: 'grouping_id', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'force_enable_zoom', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

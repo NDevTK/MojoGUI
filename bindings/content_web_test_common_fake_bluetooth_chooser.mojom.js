@@ -221,12 +221,12 @@ content.mojom.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_Param
   $: {
     structSpec: {
       name: 'content.mojom.FakeBluetoothChooserFactory.CreateFakeBluetoothChooser_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'fake_chooser', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'fake_chooser', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(content.mojom.FakeBluetoothChooserRemote), nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(content.mojom.FakeBluetoothChooserClientRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

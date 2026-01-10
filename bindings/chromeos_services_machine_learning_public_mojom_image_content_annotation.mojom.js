@@ -39,14 +39,14 @@ chromeos.machine_learning.machine_learning.mojom.mojom.ImageAnnotationScoreSpec 
       name: 'chromeos.machine_learning.mojom.ImageAnnotationScore',
       packedSize: 48,
       fields: [
-        { name: 'id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'DEPRECATED_confidence', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'DEPRECATED_confidence', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
         { name: 'mid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'score', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 1 },
-        { name: 'bounding_box', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true, minVersion: 1 },
+        { name: 'score', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 1 },
+        { name: 'bounding_box', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true, minVersion: 1 },
       ],
-      versions: [{version: 0, packedSize: 48}, {version: 1, packedSize: 48}]
+      versions: [{version: 0, packedSize: 32}, {version: 1, packedSize: 48}]
     }
   }
 };

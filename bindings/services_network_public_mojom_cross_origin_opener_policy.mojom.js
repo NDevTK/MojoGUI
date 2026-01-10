@@ -37,10 +37,10 @@ network.mojom.mojom.CrossOriginOpenerPolicyReporterParamsSpec = {
       name: 'network.mojom.CrossOriginOpenerPolicyReporterParams',
       packedSize: 32,
       fields: [
-        { name: 'report_type', packedOffset: 8, packedBitOffset: 0, type: network.mojom.CoopAccessReportTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'reporter', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'endpoint_defined', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'reported_window_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'report_type', packedOffset: 16, packedBitOffset: 0, type: network.mojom.CoopAccessReportTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'reporter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.CrossOriginOpenerPolicyReporterRemote), nullable: false, minVersion: 0 },
+        { name: 'endpoint_defined', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'reported_window_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }

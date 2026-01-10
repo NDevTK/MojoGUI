@@ -86,12 +86,12 @@ ash.mojom.mojom.sample_swa.sample_swa.PageHandlerFactory_CreatePageHandler_Param
   $: {
     structSpec: {
       name: 'ash.mojom.sample_swa.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'page', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.mojom.sample_swa.PageHandlerRemote), nullable: false, minVersion: 0 },
+        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.mojom.sample_swa.PageRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -317,12 +317,12 @@ ash.mojom.mojom.sample_swa.sample_swa.Page_CreateParentPage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.mojom.sample_swa.Page.CreateParentPage_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'child_untrusted_page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'parent_trusted_page', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'child_untrusted_page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.mojom.sample_swa.ChildUntrustedPageRemote), nullable: false, minVersion: 0 },
+        { name: 'parent_trusted_page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.mojom.sample_swa.ParentTrustedPageRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

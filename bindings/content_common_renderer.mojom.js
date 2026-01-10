@@ -284,7 +284,7 @@ content.mojom.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec = {
       name: 'content.mojom.Renderer.CreateAgentSchedulingGroup_Params',
       packedSize: 16,
       fields: [
-        { name: 'bootstrap', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'bootstrap', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(IPC.mojom.ChannelBootstrapRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -298,7 +298,7 @@ content.mojom.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec = {
       name: 'content.mojom.Renderer.CreateAssociatedAgentSchedulingGroup_Params',
       packedSize: 16,
       fields: [
-        { name: 'agent_scheduling_group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'agent_scheduling_group', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(content.mojom.AgentSchedulingGroupRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

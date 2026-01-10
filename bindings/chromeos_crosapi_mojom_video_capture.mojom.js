@@ -120,10 +120,10 @@ crosapi.mojom.mojom.ReadyFrameInBufferSpec = {
       name: 'crosapi.mojom.ReadyFrameInBuffer',
       packedSize: 32,
       fields: [
-        { name: 'buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'frame_feedback_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'access_permission', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'frame_info', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.VideoFrameInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'buffer_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'frame_feedback_id', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'access_permission', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(crosapi.mojom.ScopedAccessPermissionRemote), nullable: false, minVersion: 0 },
+        { name: 'frame_info', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.VideoFrameInfoSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -703,7 +703,7 @@ crosapi.mojom.mojom.VideoCaptureDevice_Start_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'requested_settings', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCaptureParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(crosapi.mojom.VideoFrameHandlerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -946,7 +946,7 @@ crosapi.mojom.mojom.VideoCaptureDeviceFactory_CreateDevice_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'device_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'device_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.VideoCaptureDeviceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

@@ -177,7 +177,7 @@ remote_cocoa.mojom.mojom.Application_CreateAlert_ParamsSpec = {
       name: 'remote_cocoa.mojom.Application.CreateAlert_Params',
       packedSize: 16,
       fields: [
-        { name: 'alert_bridge_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'alert_bridge_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(remote_cocoa.mojom.AlertBridgeRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -189,14 +189,14 @@ remote_cocoa.mojom.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.Application.CreateNativeWidgetNSWindow_Params',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
         { name: 'bridge_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'window_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'host', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'text_input_host', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'window_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(remote_cocoa.mojom.NativeWidgetNSWindowRemote), nullable: false, minVersion: 0 },
+        { name: 'host', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(remote_cocoa.mojom.NativeWidgetNSWindowHostRemote), nullable: false, minVersion: 0 },
+        { name: 'text_input_host', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(remote_cocoa.mojom.TextInputHostRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -206,13 +206,13 @@ remote_cocoa.mojom.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.Application.CreateRenderWidgetHostNSView_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
         { name: 'view_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'view_receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(remote_cocoa.mojom.StubInterfaceRemote), nullable: false, minVersion: 0 },
+        { name: 'view_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(remote_cocoa.mojom.StubInterfaceRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -222,12 +222,12 @@ remote_cocoa.mojom.mojom.Application_CreateSystemMediaControlsBridge_ParamsSpec 
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.Application.CreateSystemMediaControlsBridge_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'host', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(system_media_controls.mojom.SystemMediaControlsRemote), nullable: false, minVersion: 0 },
+        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(system_media_controls.mojom.SystemMediaControlsObserverRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -237,13 +237,13 @@ remote_cocoa.mojom.mojom.Application_CreateWebContentsNSView_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.Application.CreateWebContentsNSView_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
         { name: 'view_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'view_receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(remote_cocoa.mojom.StubInterfaceRemote), nullable: false, minVersion: 0 },
+        { name: 'view_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(remote_cocoa.mojom.StubInterfaceRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

@@ -71,14 +71,14 @@ cros.mojom.mojom.CameraInfoSpec = {
       name: 'cros.mojom.CameraInfo',
       packedSize: 48,
       fields: [
-        { name: 'facing', packedOffset: 24, packedBitOffset: 0, type: cros.mojom.CameraFacingSpec, nullable: false, minVersion: 0 },
-        { name: 'orientation', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'device_version', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'facing', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.CameraFacingSpec, nullable: false, minVersion: 0 },
+        { name: 'orientation', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'device_version', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
         { name: 'static_camera_characteristics', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CameraMetadataSpec, nullable: false, minVersion: 0 },
-        { name: 'resource_cost', packedOffset: 8, packedBitOffset: 0, type: cros.mojom.CameraResourceCostSpec, nullable: true, minVersion: 1 },
-        { name: 'conflicting_devices', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 1 },
+        { name: 'resource_cost', packedOffset: 24, packedBitOffset: 0, type: cros.mojom.CameraResourceCostSpec, nullable: true, minVersion: 1 },
+        { name: 'conflicting_devices', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 1 },
       ],
-      versions: [{version: 0, packedSize: 48}, {version: 1, packedSize: 48}]
+      versions: [{version: 0, packedSize: 32}, {version: 1, packedSize: 48}]
     }
   }
 };
@@ -537,12 +537,12 @@ cros.mojom.mojom.CameraModule_OpenDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CameraModule.OpenDevice_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'camera_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'device_ops_receiver', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'camera_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'device_ops_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(cros.mojom.Camera3DeviceOpsRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -621,7 +621,7 @@ cros.mojom.mojom.CameraModule_SetCallbacks_ParamsSpec = {
       name: 'cros.mojom.CameraModule.SetCallbacks_Params',
       packedSize: 16,
       fields: [
-        { name: 'callbacks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'callbacks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cros.mojom.CameraModuleCallbacksRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -702,7 +702,7 @@ cros.mojom.mojom.CameraModule_GetVendorTagOps_ParamsSpec = {
       name: 'cros.mojom.CameraModule.GetVendorTagOps_Params',
       packedSize: 16,
       fields: [
-        { name: 'vendor_tag_ops_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'vendor_tag_ops_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(cros.mojom.VendorTagOpsRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -716,7 +716,7 @@ cros.mojom.mojom.CameraModule_SetCallbacksAssociated_ParamsSpec = {
       name: 'cros.mojom.CameraModule.SetCallbacksAssociated_Params',
       packedSize: 16,
       fields: [
-        { name: 'callbacks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'callbacks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(cros.mojom.CameraModuleCallbacksRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

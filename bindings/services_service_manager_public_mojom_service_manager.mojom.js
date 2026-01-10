@@ -288,7 +288,7 @@ service_manager.mojom.mojom.ServiceManager_AddListener_ParamsSpec = {
       name: 'service_manager.mojom.ServiceManager.AddListener_Params',
       packedSize: 16,
       fields: [
-        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(service_manager.mojom.ServiceManagerListenerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

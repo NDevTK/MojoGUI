@@ -567,10 +567,10 @@ chromeos.cdm.cdm.mojom.mojom.ContentDecryptionModule_Decrypt_ParamsSpec = {
       fields: [
         { name: 'encrypted_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
         { name: 'decrypt_config_in', packedOffset: 8, packedBitOffset: 0, type: chromeos.cdm.mojom.DecryptConfigSpec, nullable: true, minVersion: 0 },
-        { name: 'is_video', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'secure_handle', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 3 },
+        { name: 'is_video', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'secure_handle', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 3 },
       ],
-      versions: [{version: 0, packedSize: 40}, {version: 3, packedSize: 40}]
+      versions: [{version: 0, packedSize: 32}, {version: 3, packedSize: 40}]
     }
   }
 };

@@ -142,12 +142,12 @@ remoting.mojom.mojom.RemotingHostControl_BindChromotingHostServices_ParamsSpec =
   $: {
     structSpec: {
       name: 'remoting.mojom.RemotingHostControl.BindChromotingHostServices_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'peer_pid', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(remoting.mojom.ChromotingHostServicesRemote), nullable: false, minVersion: 0 },
+        { name: 'peer_pid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

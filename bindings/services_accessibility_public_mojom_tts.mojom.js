@@ -100,12 +100,12 @@ ax.mojom.mojom.TtsSpeakResultSpec = {
   $: {
     structSpec: {
       name: 'ax.mojom.TtsSpeakResult',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.TtsErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'utterance_client', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true, minVersion: 0 },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: ax.mojom.TtsErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'utterance_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ax.mojom.TtsUtteranceClientRemote), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

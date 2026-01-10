@@ -456,7 +456,7 @@ gpu.mojom.mojom.CreateSharedImagePoolParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'pool_id', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.SharedImagePoolIdSpec, nullable: false, minVersion: 0 },
-        { name: 'client_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(gpu.mojom.SharedImagePoolClientInterfaceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -764,15 +764,15 @@ gpu.mojom.mojom.GpuChannel_CreateCommandBuffer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuChannel.CreateCommandBuffer_Params',
-      packedSize: 40,
+      packedSize: 48,
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.CreateCommandBufferParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'routing_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'routing_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
         { name: 'shared_state', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(gpu.mojom.CommandBufferRemote), nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(gpu.mojom.CommandBufferClientRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -855,12 +855,12 @@ gpu.mojom.mojom.GpuChannel_CreateDCOMPTexture_ParamsSpec = {
   $: {
     structSpec: {
       name: 'gpu.mojom.GpuChannel.CreateDCOMPTexture_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'route_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'route_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(gpu.mojom.DCOMPTextureRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -885,8 +885,8 @@ gpu.mojom.mojom.GpuChannel_RegisterOverlayStateObserver_ParamsSpec = {
       name: 'gpu.mojom.GpuChannel.RegisterOverlayStateObserver_Params',
       packedSize: 24,
       fields: [
-        { name: 'promotion_hint_observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'mailbox', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.MailboxSpec, nullable: false, minVersion: 0 },
+        { name: 'promotion_hint_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(gpu.mojom.OverlayStateObserverRemote), nullable: false, minVersion: 0 },
+        { name: 'mailbox', packedOffset: 8, packedBitOffset: 0, type: gpu.mojom.MailboxSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -1501,7 +1501,7 @@ gpu.mojom.mojom.DCOMPTexture_StartListening_ParamsSpec = {
       name: 'gpu.mojom.DCOMPTexture.StartListening_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(gpu.mojom.DCOMPTextureClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

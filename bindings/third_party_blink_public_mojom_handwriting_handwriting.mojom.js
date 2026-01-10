@@ -346,12 +346,12 @@ handwriting.mojom.mojom.HandwritingRecognitionService_CreateHandwritingRecognize
   $: {
     structSpec: {
       name: 'handwriting.mojom.HandwritingRecognitionService.CreateHandwritingRecognizer_ResponseParams',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: handwriting.mojom.CreateHandwritingRecognizerResultSpec, nullable: false, minVersion: 0 },
-        { name: 'handwriting_recognizer', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: handwriting.mojom.CreateHandwritingRecognizerResultSpec, nullable: false, minVersion: 0 },
+        { name: 'handwriting_recognizer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(handwriting.mojom.HandwritingRecognizerRemote), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

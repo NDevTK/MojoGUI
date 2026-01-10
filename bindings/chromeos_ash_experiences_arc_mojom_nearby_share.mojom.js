@@ -231,13 +231,13 @@ arc.mojom.mojom.NearbyShareHost_StartNearbyShare_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.NearbyShareHost.StartNearbyShare_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'task_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ShareIntentInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'instance', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.NearbyShareSessionInstanceRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -248,7 +248,7 @@ arc.mojom.mojom.NearbyShareHost_StartNearbyShare_ResponseParamsSpec = {
       name: 'arc.mojom.NearbyShareHost.StartNearbyShare_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.NearbyShareSessionHostRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -323,7 +323,7 @@ arc.mojom.mojom.NearbyShareInstance_Init_ParamsSpec = {
       name: 'arc.mojom.NearbyShareInstance.Init_Params',
       packedSize: 16,
       fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.NearbyShareHostRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

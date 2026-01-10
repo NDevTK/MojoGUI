@@ -169,7 +169,7 @@ commerce.price_insights.price_insights.mojom.mojom.PriceInsightsHandlerFactory_C
       name: 'commerce.price_insights.mojom.PriceInsightsHandlerFactory.CreatePriceInsightsHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(commerce.price_insights.mojom.PriceInsightsHandlerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

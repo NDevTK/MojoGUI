@@ -137,21 +137,21 @@ blink.mojom.mojom.FrameStateSpec = {
         { name: 'target', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
         { name: 'state_object', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
         { name: 'document_state', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.String16Spec, false), nullable: true, minVersion: 0 },
-        { name: 'scroll_restoration_type', packedOffset: 120, packedBitOffset: 0, type: blink.mojom.ScrollRestorationTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'scroll_restoration_type', packedOffset: 80, packedBitOffset: 0, type: blink.mojom.ScrollRestorationTypeSpec, nullable: false, minVersion: 0 },
         { name: 'view_state', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.ViewStateSpec, nullable: true, minVersion: 0 },
         { name: 'item_sequence_number', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
         { name: 'document_sequence_number', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'referrer_policy', packedOffset: 124, packedBitOffset: 0, type: network.mojom.ReferrerPolicySpec, nullable: false, minVersion: 0 },
+        { name: 'referrer_policy', packedOffset: 84, packedBitOffset: 0, type: network.mojom.ReferrerPolicySpec, nullable: false, minVersion: 0 },
         { name: 'http_body', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.HttpBodySpec, nullable: false, minVersion: 0 },
         { name: 'children', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.FrameStateSpec, false), nullable: false, minVersion: 0 },
-        { name: 'initiator_origin', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 2 },
-        { name: 'navigation_api_key', packedOffset: 88, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 3 },
-        { name: 'navigation_api_id', packedOffset: 96, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 3 },
-        { name: 'navigation_api_state', packedOffset: 104, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 4 },
-        { name: 'protect_url_in_navigation_api', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 5 },
-        { name: 'initiator_base_url_string', packedOffset: 112, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 6 },
+        { name: 'initiator_origin', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 2 },
+        { name: 'navigation_api_key', packedOffset: 96, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 3 },
+        { name: 'navigation_api_id', packedOffset: 104, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 3 },
+        { name: 'navigation_api_state', packedOffset: 112, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 4 },
+        { name: 'protect_url_in_navigation_api', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 5 },
+        { name: 'initiator_base_url_string', packedOffset: 128, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 6 },
       ],
-      versions: [{version: 0, packedSize: 136}, {version: 2, packedSize: 136}, {version: 3, packedSize: 136}, {version: 4, packedSize: 136}, {version: 5, packedSize: 144}, {version: 6, packedSize: 144}]
+      versions: [{version: 0, packedSize: 96}, {version: 2, packedSize: 104}, {version: 3, packedSize: 120}, {version: 4, packedSize: 128}, {version: 5, packedSize: 136}, {version: 6, packedSize: 144}]
     }
   }
 };

@@ -299,7 +299,7 @@ video_capture.mojom.mojom.VideoFrameHandler_OnFrameAccessHandlerReady_ParamsSpec
       name: 'video_capture.mojom.VideoFrameHandler.OnFrameAccessHandlerReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'frame_access_handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'frame_access_handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(video_capture.mojom.VideoFrameAccessHandlerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

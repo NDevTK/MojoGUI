@@ -311,14 +311,14 @@ chrome.mojom.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.RendererConfiguration.SetInitialConfiguration_Params',
-      packedSize: 24,
+      packedSize: 40,
       fields: [
-        { name: 'is_incognito_process', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'chromeos_listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true, minVersion: 0 },
-        { name: 'content_settings_manager', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'bound_session_request_throttled_handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'is_incognito_process', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'chromeos_listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chrome.mojom.ChromeOSListenerRemote), nullable: true, minVersion: 0 },
+        { name: 'content_settings_manager', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(content_settings.mojom.ContentSettingsManagerRemote), nullable: true, minVersion: 0 },
+        { name: 'bound_session_request_throttled_handler', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome.mojom.BoundSessionRequestThrottledHandlerRemote), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

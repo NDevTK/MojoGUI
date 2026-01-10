@@ -137,7 +137,7 @@ sharing.mojom.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec = {
       name: 'sharing.mojom.FirewallHoleFactory.OpenFirewallHole_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'firewall_hole', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'firewall_hole', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(sharing.mojom.FirewallHoleRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

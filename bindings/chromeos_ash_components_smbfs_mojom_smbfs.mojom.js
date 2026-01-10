@@ -105,11 +105,11 @@ smbfs.mojom.mojom.MountOptionsSpec = {
         { name: 'workgroup', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'password', packedOffset: 32, packedBitOffset: 0, type: smbfs.mojom.PasswordSpec, nullable: true, minVersion: 0 },
         { name: 'kerberos_config', packedOffset: 40, packedBitOffset: 0, type: smbfs.mojom.KerberosConfigSpec, nullable: true, minVersion: 0 },
-        { name: 'allow_ntlm', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'skip_connect', packedOffset: 56, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'credential_storage_options', packedOffset: 48, packedBitOffset: 0, type: smbfs.mojom.CredentialStorageOptionsSpec, nullable: true, minVersion: 1 },
+        { name: 'allow_ntlm', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'skip_connect', packedOffset: 48, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'credential_storage_options', packedOffset: 56, packedBitOffset: 0, type: smbfs.mojom.CredentialStorageOptionsSpec, nullable: true, minVersion: 1 },
       ],
-      versions: [{version: 0, packedSize: 72}, {version: 1, packedSize: 72}]
+      versions: [{version: 0, packedSize: 64}, {version: 1, packedSize: 72}]
     }
   }
 };
@@ -194,7 +194,7 @@ smbfs.mojom.mojom.SmbFsBootstrap_MountShare_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'options', packedOffset: 0, packedBitOffset: 0, type: smbfs.mojom.MountOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'delegate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'delegate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(smbfs.mojom.SmbFsDelegateRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -205,12 +205,12 @@ smbfs.mojom.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'smbfs.mojom.SmbFsBootstrap.MountShare_ResponseParams',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'error', packedOffset: 0, packedBitOffset: 0, type: smbfs.mojom.MountErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'smbfs', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'error', packedOffset: 8, packedBitOffset: 0, type: smbfs.mojom.MountErrorSpec, nullable: false, minVersion: 0 },
+        { name: 'smbfs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(smbfs.mojom.SmbFsRemote), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

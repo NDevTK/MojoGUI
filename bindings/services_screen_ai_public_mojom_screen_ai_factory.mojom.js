@@ -167,7 +167,7 @@ screen_ai.mojom.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec = {
       fields: [
         { name: 'library_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
         { name: 'model_files', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo_base.mojom.RelativeFilePathSpec, mojo_base.mojom.ReadOnlyFileSpec, false), nullable: false, minVersion: 0 },
-        { name: 'ocr_service_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true, minVersion: 0 },
+        { name: 'ocr_service_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(screen_ai.mojom.OCRServiceRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -196,7 +196,7 @@ screen_ai.mojom.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_Par
       fields: [
         { name: 'library_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
         { name: 'model_files', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo_base.mojom.RelativeFilePathSpec, mojo_base.mojom.ReadOnlyFileSpec, false), nullable: false, minVersion: 0 },
-        { name: 'main_content_extractor_service', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true, minVersion: 0 },
+        { name: 'main_content_extractor_service', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(screen_ai.mojom.MainContentExtractionServiceRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -223,7 +223,7 @@ screen_ai.mojom.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec = {
       name: 'screen_ai.mojom.ScreenAIServiceFactory.BindShutdownHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'shutdown_handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'shutdown_handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(screen_ai.mojom.ScreenAIServiceShutdownHandlerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

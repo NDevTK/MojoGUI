@@ -217,8 +217,8 @@ blink.mojom.mojom.AIManagerCreateLanguageModelClient_OnResult_ParamsSpec = {
       name: 'blink.mojom.AIManagerCreateLanguageModelClient.OnResult_Params',
       packedSize: 24,
       fields: [
-        { name: 'language_model_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'info', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AILanguageModelInstanceInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'language_model_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.AILanguageModelRemote), nullable: false, minVersion: 0 },
+        { name: 'info', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.AILanguageModelInstanceInfoSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -346,7 +346,7 @@ blink.mojom.mojom.AILanguageModel_Prompt_ParamsSpec = {
       fields: [
         { name: 'prompts', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.AILanguageModelPromptSpec, false), nullable: false, minVersion: 0 },
         { name: 'constraint', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.ResponseConstraintSpec, nullable: true, minVersion: 0 },
-        { name: 'pending_responder', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'pending_responder', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.ModelStreamingResponderRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -361,7 +361,7 @@ blink.mojom.mojom.AILanguageModel_Append_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'prompts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.AILanguageModelPromptSpec, false), nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.ModelStreamingResponderRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -375,7 +375,7 @@ blink.mojom.mojom.AILanguageModel_Fork_ParamsSpec = {
       name: 'blink.mojom.AILanguageModel.Fork_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.AIManagerCreateLanguageModelClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

@@ -310,7 +310,7 @@ blink.mojom.mojom.StorageArea_AddObserver_ParamsSpec = {
       name: 'blink.mojom.StorageArea.AddObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.StorageAreaObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -384,7 +384,7 @@ blink.mojom.mojom.StorageArea_DeleteAll_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'new_observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'new_observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.StorageAreaObserverRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -439,7 +439,7 @@ blink.mojom.mojom.StorageArea_GetAll_ParamsSpec = {
       name: 'blink.mojom.StorageArea.GetAll_Params',
       packedSize: 16,
       fields: [
-        { name: 'new_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'new_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.StorageAreaObserverRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

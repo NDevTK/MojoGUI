@@ -306,13 +306,13 @@ blink.mojom.mojom.WidgetHost_CreateFrameSink_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WidgetHost.CreateFrameSink_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'compositor_frame_sink_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'compositor_frame_sink_client', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'render_input_router_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'compositor_frame_sink_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(viz.mojom.CompositorFrameSinkRemote), nullable: false, minVersion: 0 },
+        { name: 'compositor_frame_sink_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(viz.mojom.CompositorFrameSinkClientRemote), nullable: false, minVersion: 0 },
+        { name: 'render_input_router_client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.RenderInputRouterClientRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -322,12 +322,12 @@ blink.mojom.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WidgetHost.RegisterRenderFrameMetadataObserver_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'render_frame_metadata_observer_client_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'render_frame_metadata_observer', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'render_frame_metadata_observer_client_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(cc.mojom.RenderFrameMetadataObserverClientRemote), nullable: false, minVersion: 0 },
+        { name: 'render_frame_metadata_observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cc.mojom.RenderFrameMetadataObserverRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -560,7 +560,7 @@ blink.mojom.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec = {
       name: 'blink.mojom.Widget.SetupBrowserRenderInputRouterConnections_Params',
       packedSize: 16,
       fields: [
-        { name: 'browser_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'browser_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.RenderInputRouterClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -651,13 +651,13 @@ blink.mojom.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.RenderInputRouterClient.GetWidgetInputHandler_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'host', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'from_viz', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.WidgetInputHandlerRemote), nullable: false, minVersion: 0 },
+        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.WidgetInputHandlerHostRemote), nullable: false, minVersion: 0 },
+        { name: 'from_viz', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -684,7 +684,7 @@ blink.mojom.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec = {
       name: 'blink.mojom.RenderInputRouterClient.BindInputTargetClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(viz.mojom.InputTargetClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

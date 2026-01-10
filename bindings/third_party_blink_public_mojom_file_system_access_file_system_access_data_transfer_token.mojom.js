@@ -107,7 +107,7 @@ blink.mojom.mojom.FileSystemAccessDataTransferToken_Clone_ParamsSpec = {
       name: 'blink.mojom.FileSystemAccessDataTransferToken.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'token_clone', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'token_clone', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.FileSystemAccessDataTransferTokenRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

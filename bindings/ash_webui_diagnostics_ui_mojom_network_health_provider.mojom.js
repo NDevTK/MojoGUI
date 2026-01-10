@@ -395,7 +395,7 @@ ash.diagnostics.diagnostics.mojom.mojom.NetworkHealthProvider_ObserveNetworkList
       name: 'ash.diagnostics.mojom.NetworkHealthProvider.ObserveNetworkList_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.diagnostics.mojom.NetworkListObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -409,8 +409,8 @@ ash.diagnostics.diagnostics.mojom.mojom.NetworkHealthProvider_ObserveNetwork_Par
       name: 'ash.diagnostics.mojom.NetworkHealthProvider.ObserveNetwork_Params',
       packedSize: 24,
       fields: [
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.diagnostics.mojom.NetworkStateObserverRemote), nullable: false, minVersion: 0 },
+        { name: 'guid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

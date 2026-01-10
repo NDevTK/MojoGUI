@@ -133,18 +133,18 @@ media.mojom.mojom.SpeechRecognitionOptionsSpec = {
       name: 'media.mojom.SpeechRecognitionOptions',
       packedSize: 56,
       fields: [
-        { name: 'recognition_mode', packedOffset: 24, packedBitOffset: 0, type: media.mojom.SpeechRecognitionModeSpec, nullable: false, minVersion: 0 },
-        { name: 'enable_formatting', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'recognition_mode', packedOffset: 8, packedBitOffset: 0, type: media.mojom.SpeechRecognitionModeSpec, nullable: false, minVersion: 0 },
+        { name: 'enable_formatting', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
         { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'is_server_based', packedOffset: 40, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 1 },
-        { name: 'recognizer_client_type', packedOffset: 28, packedBitOffset: 0, type: media.mojom.RecognizerClientTypeSpec, nullable: false, minVersion: 1 },
-        { name: 'skip_continuously_empty_audio', packedOffset: 40, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 4 },
-        { name: 'experiment_recognizer_routing_key', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 5 },
-        { name: 'channel_count', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 6 },
-        { name: 'sample_rate', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 6 },
-        { name: 'recognition_context', packedOffset: 16, packedBitOffset: 0, type: media.mojom.SpeechRecognitionRecognitionContextSpec, nullable: true, minVersion: 8 },
+        { name: 'is_server_based', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 1 },
+        { name: 'recognizer_client_type', packedOffset: 16, packedBitOffset: 0, type: media.mojom.RecognizerClientTypeSpec, nullable: false, minVersion: 1 },
+        { name: 'skip_continuously_empty_audio', packedOffset: 12, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 4 },
+        { name: 'experiment_recognizer_routing_key', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 5 },
+        { name: 'channel_count', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 6 },
+        { name: 'sample_rate', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 6 },
+        { name: 'recognition_context', packedOffset: 40, packedBitOffset: 0, type: media.mojom.SpeechRecognitionRecognitionContextSpec, nullable: true, minVersion: 8 },
       ],
-      versions: [{version: 0, packedSize: 56}, {version: 1, packedSize: 56}, {version: 4, packedSize: 56}, {version: 5, packedSize: 56}, {version: 6, packedSize: 56}, {version: 8, packedSize: 56}]
+      versions: [{version: 0, packedSize: 24}, {version: 1, packedSize: 32}, {version: 4, packedSize: 32}, {version: 5, packedSize: 40}, {version: 6, packedSize: 48}, {version: 8, packedSize: 56}]
     }
   }
 };
@@ -219,13 +219,13 @@ media.mojom.mojom.SpeechRecognitionContext_BindRecognizer_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionContext.BindRecognizer_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: media.mojom.SpeechRecognitionOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.SpeechRecognitionRecognizerRemote), nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.SpeechRecognitionRecognizerClientRemote), nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 16, packedBitOffset: 0, type: media.mojom.SpeechRecognitionOptionsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -248,17 +248,17 @@ media.mojom.mojom.SpeechRecognitionContext_BindWebSpeechRecognizer_ParamsSpec = 
   $: {
     structSpec: {
       name: 'media.mojom.SpeechRecognitionContext.BindWebSpeechRecognizer_Params',
-      packedSize: 40,
+      packedSize: 56,
       fields: [
-        { name: 'session_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'session_client', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'audio_forwarder', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'channel_count', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'sample_rate', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: media.mojom.SpeechRecognitionOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'continuous', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'session_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.SpeechRecognitionSessionRemote), nullable: false, minVersion: 0 },
+        { name: 'session_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.SpeechRecognitionSessionClientRemote), nullable: false, minVersion: 0 },
+        { name: 'audio_forwarder', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.SpeechRecognitionAudioForwarderRemote), nullable: false, minVersion: 0 },
+        { name: 'channel_count', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'sample_rate', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 24, packedBitOffset: 0, type: media.mojom.SpeechRecognitionOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'continuous', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -997,7 +997,7 @@ media.mojom.mojom.SpeechRecognitionClientBrowserInterface_BindSpeechRecognitionB
       name: 'media.mojom.SpeechRecognitionClientBrowserInterface.BindSpeechRecognitionBrowserObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.SpeechRecognitionBrowserObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1024,7 +1024,7 @@ media.mojom.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_2_ParamsSpec =
       name: 'media.mojom.SpeechRecognitionClientBrowserInterface.REMOVED_2_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.SpeechRecognitionBrowserObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

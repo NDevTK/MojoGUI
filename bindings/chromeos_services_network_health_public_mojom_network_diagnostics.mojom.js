@@ -380,13 +380,13 @@ chromeos.network_diagnostics.network_diagnostics.mojom.mojom.RoutineResultSpec =
       name: 'chromeos.network_diagnostics.mojom.RoutineResult',
       packedSize: 56,
       fields: [
-        { name: 'verdict', packedOffset: 40, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineVerdictSpec, nullable: false, minVersion: 0 },
+        { name: 'verdict', packedOffset: 24, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineVerdictSpec, nullable: false, minVersion: 0 },
         { name: 'problems', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineProblemsSpec, nullable: false, minVersion: 0 },
-        { name: 'timestamp', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
-        { name: 'result_value', packedOffset: 16, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineResultValueSpec, nullable: true, minVersion: 1 },
-        { name: 'source', packedOffset: 44, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, nullable: false, minVersion: 2 },
+        { name: 'timestamp', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
+        { name: 'result_value', packedOffset: 32, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineResultValueSpec, nullable: true, minVersion: 1 },
+        { name: 'source', packedOffset: 28, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, nullable: false, minVersion: 2 },
       ],
-      versions: [{version: 0, packedSize: 56}, {version: 1, packedSize: 56}, {version: 2, packedSize: 56}]
+      versions: [{version: 0, packedSize: 40}, {version: 1, packedSize: 56}, {version: 2, packedSize: 56}]
     }
   }
 };

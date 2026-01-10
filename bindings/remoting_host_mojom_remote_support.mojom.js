@@ -20,7 +20,7 @@ remoting.mojom.mojom.StartSupportSessionResponseSpec = { $: mojo.internal.Union(
     'remoting.mojom.StartSupportSessionResponse', {
       'observer': {
         'ordinal': 0,
-        'type': mojo.internal.InterfaceRequest,
+        'type': mojo.internal.InterfaceRequest(remoting.mojom.SupportHostObserverRemote),
       }},
       'support_session_error': {
         'ordinal': 1,
@@ -53,13 +53,13 @@ remoting.mojom.mojom.SupportSessionParamsSpec = {
       fields: [
         { name: 'user_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'oauth_access_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'suppress_user_dialogs', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'suppress_notifications', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'terminate_upon_input', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'curtain_local_user_session', packedOffset: 24, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'authorized_helper', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 2 },
+        { name: 'suppress_user_dialogs', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'suppress_notifications', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'terminate_upon_input', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'curtain_local_user_session', packedOffset: 16, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'authorized_helper', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 2 },
       ],
-      versions: [{version: 0, packedSize: 40}, {version: 2, packedSize: 40}]
+      versions: [{version: 0, packedSize: 32}, {version: 2, packedSize: 40}]
     }
   }
 };

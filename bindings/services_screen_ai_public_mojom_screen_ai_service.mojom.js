@@ -587,7 +587,7 @@ screen_ai.mojom.mojom.OCRService_BindAnnotator_ParamsSpec = {
       name: 'screen_ai.mojom.OCRService.BindAnnotator_Params',
       packedSize: 16,
       fields: [
-        { name: 'annotator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true, minVersion: 0 },
+        { name: 'annotator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(screen_ai.mojom.ScreenAIAnnotatorRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -662,7 +662,7 @@ screen_ai.mojom.mojom.MainContentExtractionService_BindMainContentExtractor_Para
       name: 'screen_ai.mojom.MainContentExtractionService.BindMainContentExtractor_Params',
       packedSize: 16,
       fields: [
-        { name: 'main_content_extractor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true, minVersion: 0 },
+        { name: 'main_content_extractor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(screen_ai.mojom.Screen2xMainContentExtractorRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

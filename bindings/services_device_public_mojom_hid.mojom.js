@@ -333,24 +333,24 @@ device.mojom.mojom.HidDeviceInfoSpec = {
       fields: [
         { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'physical_device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'vendor_id', packedOffset: 108, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'product_id', packedOffset: 110, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'vendor_id', packedOffset: 84, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'product_id', packedOffset: 86, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
         { name: 'product_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'serial_number', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'bus_type', packedOffset: 104, packedBitOffset: 0, type: device.mojom.HidBusTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'bus_type', packedOffset: 80, packedBitOffset: 0, type: device.mojom.HidBusTypeSpec, nullable: false, minVersion: 0 },
         { name: 'report_descriptor', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
         { name: 'collections', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.HidCollectionInfoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'has_report_id', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'has_report_id', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
         { name: 'max_input_report_size', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
         { name: 'max_output_report_size', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
         { name: 'max_feature_report_size', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
         { name: 'device_node', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'protected_input_report_ids', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 1 },
-        { name: 'protected_output_report_ids', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 1 },
-        { name: 'protected_feature_report_ids', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 1 },
-        { name: 'is_excluded_by_blocklist', packedOffset: 112, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 3 },
+        { name: 'protected_input_report_ids', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 1 },
+        { name: 'protected_output_report_ids', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 1 },
+        { name: 'protected_feature_report_ids', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 1 },
+        { name: 'is_excluded_by_blocklist', packedOffset: 88, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 3 },
       ],
-      versions: [{version: 0, packedSize: 128}, {version: 1, packedSize: 128}, {version: 3, packedSize: 128}]
+      versions: [{version: 0, packedSize: 104}, {version: 1, packedSize: 128}, {version: 3, packedSize: 128}]
     }
   }
 };
@@ -566,7 +566,7 @@ device.mojom.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec = {
       name: 'device.mojom.HidManager.GetDevicesAndSetClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(device.mojom.HidManagerClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -617,15 +617,15 @@ device.mojom.mojom.HidManager_Connect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.HidManager.Connect_Params',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
         { name: 'device_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'connection_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'watcher', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'allow_protected_reports', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 1 },
-        { name: 'allow_fido_reports', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 2 },
+        { name: 'connection_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.HidConnectionClientRemote), nullable: true, minVersion: 0 },
+        { name: 'watcher', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.HidConnectionWatcherRemote), nullable: true, minVersion: 0 },
+        { name: 'allow_protected_reports', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 1 },
+        { name: 'allow_fido_reports', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 2 },
       ],
-      versions: [{version: 0, packedSize: 24}, {version: 1, packedSize: 32}, {version: 2, packedSize: 32}]
+      versions: [{version: 0, packedSize: 32}, {version: 1, packedSize: 40}, {version: 2, packedSize: 40}]
     }
   }
 };
@@ -636,7 +636,7 @@ device.mojom.mojom.HidManager_Connect_ResponseParamsSpec = {
       name: 'device.mojom.HidManager.Connect_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'connection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'connection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.HidConnectionRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -650,7 +650,7 @@ device.mojom.mojom.HidManager_AddReceiver_ParamsSpec = {
       name: 'device.mojom.HidManager.AddReceiver_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.HidManagerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

@@ -35,7 +35,7 @@ prefs.mojom.mojom.TrackedPersistentPrefStoreConfigurationSpec = {
   $: {
     structSpec: {
       name: 'prefs.mojom.TrackedPersistentPrefStoreConfiguration',
-      packedSize: 72,
+      packedSize: 80,
       fields: [
         { name: 'unprotected_pref_filename', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
         { name: 'protected_pref_filename', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
@@ -44,10 +44,10 @@ prefs.mojom.mojom.TrackedPersistentPrefStoreConfigurationSpec = {
         { name: 'seed', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'registry_seed', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'registry_path', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'validation_delegate', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'reset_on_load_observer', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'validation_delegate', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(prefs.mojom.TrackedPreferenceValidationDelegateRemote), nullable: true, minVersion: 0 },
+        { name: 'reset_on_load_observer', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(prefs.mojom.ResetOnLoadObserverRemote), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 72}]
+      versions: [{version: 0, packedSize: 80}]
     }
   }
 };

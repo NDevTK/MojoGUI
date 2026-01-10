@@ -185,14 +185,14 @@ chrome.mojom.mojom.MediaParser_ParseMediaMetadata_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.MediaParser.ParseMediaMetadata_Params',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
         { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'total_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'get_attached_images', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'media_data_source', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'get_attached_images', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'media_data_source', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome.mojom.MediaDataSourceRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -217,13 +217,13 @@ chrome.mojom.mojom.MediaParser_ExtractVideoFrame_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.MediaParser.ExtractVideoFrame_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
         { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'total_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'media_data_source', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'total_size', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'media_data_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome.mojom.MediaDataSourceRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -378,7 +378,7 @@ chrome.mojom.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec = {
       name: 'chrome.mojom.MediaParserFactory.CreateMediaParser_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'media_parser', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'media_parser', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chrome.mojom.MediaParserRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

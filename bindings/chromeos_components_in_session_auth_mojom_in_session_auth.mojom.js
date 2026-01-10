@@ -122,10 +122,10 @@ chromeos.auth.auth.mojom.mojom.InSessionAuth_RequestToken_ParamsSpec = {
       name: 'chromeos.auth.mojom.InSessionAuth.RequestToken_Params',
       packedSize: 24,
       fields: [
-        { name: 'reason', packedOffset: 8, packedBitOffset: 0, type: chromeos.auth.mojom.ReasonSpec, nullable: false, minVersion: 0 },
-        { name: 'prompt', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 1 },
+        { name: 'reason', packedOffset: 0, packedBitOffset: 0, type: chromeos.auth.mojom.ReasonSpec, nullable: false, minVersion: 0 },
+        { name: 'prompt', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 1 },
       ],
-      versions: [{version: 0, packedSize: 24}, {version: 1, packedSize: 24}]
+      versions: [{version: 0, packedSize: 16}, {version: 1, packedSize: 24}]
     }
   }
 };

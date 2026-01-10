@@ -195,10 +195,10 @@ arc.mojom.mojom.ConfiguredNetworkDetailsSpec = {
       packedSize: 32,
       fields: [
         { name: 'passphrase', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'autoconnect', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'bssid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 33 },
+        { name: 'autoconnect', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'bssid', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 33 },
       ],
-      versions: [{version: 0, packedSize: 32}, {version: 33, packedSize: 32}]
+      versions: [{version: 0, packedSize: 24}, {version: 33, packedSize: 32}]
     }
   }
 };
@@ -216,12 +216,12 @@ arc.mojom.mojom.PasspointCredentialsSpec = {
         { name: 'required_home_ois', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint64, false), nullable: false, minVersion: 0 },
         { name: 'roaming_consortium_ois', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint64, false), nullable: false, minVersion: 0 },
         { name: 'eap', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.EapCredentialsSpec, nullable: false, minVersion: 0 },
-        { name: 'metered', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'metered', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
         { name: 'package_name', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'friendly_name', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 22 },
-        { name: 'subscription_expiration_time_ms', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 22 },
+        { name: 'friendly_name', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 22 },
+        { name: 'subscription_expiration_time_ms', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 22 },
       ],
-      versions: [{version: 0, packedSize: 88}, {version: 22, packedSize: 88}]
+      versions: [{version: 0, packedSize: 72}, {version: 22, packedSize: 88}]
     }
   }
 };
@@ -296,16 +296,16 @@ arc.mojom.mojom.WiFiSpec = {
       packedSize: 48,
       fields: [
         { name: 'bssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'frequency', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'frequency', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
         { name: 'hex_ssid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'hidden_ssid', packedOffset: 38, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'security', packedOffset: 28, packedBitOffset: 0, type: arc.mojom.SecurityTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'signal_strength', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'is_passpoint', packedOffset: 38, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 16 },
-        { name: 'fqdn', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 16 },
-        { name: 'rssi', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 23 },
+        { name: 'hidden_ssid', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'security', packedOffset: 20, packedBitOffset: 0, type: arc.mojom.SecurityTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'signal_strength', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'is_passpoint', packedOffset: 28, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 16 },
+        { name: 'fqdn', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 16 },
+        { name: 'rssi', packedOffset: 30, packedBitOffset: 0, type: mojo.internal.Int16, nullable: false, minVersion: 23 },
       ],
-      versions: [{version: 0, packedSize: 48}, {version: 16, packedSize: 48}, {version: 23, packedSize: 48}]
+      versions: [{version: 0, packedSize: 40}, {version: 16, packedSize: 48}, {version: 23, packedSize: 48}]
     }
   }
 };
@@ -317,36 +317,36 @@ arc.mojom.mojom.NetworkConfigurationSpec = {
       name: 'arc.mojom.NetworkConfiguration',
       packedSize: 192,
       fields: [
-        { name: 'connection_state', packedOffset: 152, packedBitOffset: 0, type: arc.mojom.ConnectionStateTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'connection_state', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.ConnectionStateTypeSpec, nullable: false, minVersion: 0 },
         { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'deprecated_ip_configs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.IPConfigurationSpec, false), nullable: true, minVersion: 0 },
         { name: 'deprecated_mac_address', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'type', packedOffset: 156, packedBitOffset: 0, type: arc.mojom.NetworkTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 36, packedBitOffset: 0, type: arc.mojom.NetworkTypeSpec, nullable: false, minVersion: 0 },
         { name: 'wifi', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.WiFiSpec, nullable: true, minVersion: 0 },
-        { name: 'deprecated_tethering_client_state', packedOffset: 160, packedBitOffset: 0, type: arc.mojom.TetheringClientStateSpec, nullable: false, minVersion: 8 },
-        { name: 'network_interface', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 10 },
-        { name: 'is_default_network', packedOffset: 180, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 11 },
-        { name: 'service_name', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 12 },
-        { name: 'host_mtu', packedOffset: 164, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 13 },
-        { name: 'host_ipv4_prefix_length', packedOffset: 168, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 13 },
-        { name: 'host_ipv4_address', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 13 },
-        { name: 'host_ipv4_gateway', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 13 },
-        { name: 'host_ipv6_prefix_length', packedOffset: 172, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 13 },
-        { name: 'host_ipv6_global_addresses', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 13 },
-        { name: 'host_ipv6_gateway', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 13 },
-        { name: 'host_dns_addresses', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 13 },
-        { name: 'host_search_domains', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 13 },
-        { name: 'arc_ipv4_prefix_length', packedOffset: 176, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 13 },
-        { name: 'arc_ipv4_address', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 13 },
-        { name: 'arc_ipv4_gateway', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 13 },
-        { name: 'arc_network_interface', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 13 },
-        { name: 'is_metered', packedOffset: 180, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 14 },
-        { name: 'include_routes', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 15 },
-        { name: 'exclude_routes', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 15 },
-        { name: 'dns_proxy_addresses', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 19 },
-        { name: 'link_speed', packedOffset: 144, packedBitOffset: 0, type: arc.mojom.LinkSpeedSpec, nullable: true, minVersion: 28 },
+        { name: 'deprecated_tethering_client_state', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.TetheringClientStateSpec, nullable: false, minVersion: 8 },
+        { name: 'network_interface', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 10 },
+        { name: 'is_default_network', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 11 },
+        { name: 'service_name', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 12 },
+        { name: 'host_mtu', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 13 },
+        { name: 'host_ipv4_prefix_length', packedOffset: 140, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 13 },
+        { name: 'host_ipv4_address', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 13 },
+        { name: 'host_ipv4_gateway', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 13 },
+        { name: 'host_ipv6_prefix_length', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 13 },
+        { name: 'host_ipv6_global_addresses', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 13 },
+        { name: 'host_ipv6_gateway', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 13 },
+        { name: 'host_dns_addresses', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 13 },
+        { name: 'host_search_domains', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 13 },
+        { name: 'arc_ipv4_prefix_length', packedOffset: 148, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 13 },
+        { name: 'arc_ipv4_address', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 13 },
+        { name: 'arc_ipv4_gateway', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 13 },
+        { name: 'arc_network_interface', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 13 },
+        { name: 'is_metered', packedOffset: 44, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 14 },
+        { name: 'include_routes', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 15 },
+        { name: 'exclude_routes', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 15 },
+        { name: 'dns_proxy_addresses', packedOffset: 168, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 19 },
+        { name: 'link_speed', packedOffset: 176, packedBitOffset: 0, type: arc.mojom.LinkSpeedSpec, nullable: true, minVersion: 28 },
       ],
-      versions: [{version: 0, packedSize: 168}, {version: 8, packedSize: 176}, {version: 10, packedSize: 176}, {version: 11, packedSize: 192}, {version: 12, packedSize: 192}, {version: 13, packedSize: 192}, {version: 14, packedSize: 192}, {version: 15, packedSize: 192}, {version: 19, packedSize: 192}, {version: 28, packedSize: 192}]
+      versions: [{version: 0, packedSize: 48}, {version: 8, packedSize: 56}, {version: 10, packedSize: 64}, {version: 11, packedSize: 64}, {version: 12, packedSize: 72}, {version: 13, packedSize: 160}, {version: 14, packedSize: 160}, {version: 15, packedSize: 176}, {version: 19, packedSize: 184}, {version: 28, packedSize: 192}]
     }
   }
 };
@@ -373,23 +373,23 @@ arc.mojom.mojom.WifiConfigurationSpec = {
       name: 'arc.mojom.WifiConfiguration',
       packedSize: 136,
       fields: [
-        { name: 'ssid', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'frequency', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'signal_strength', packedOffset: 116, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'bssid', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'security', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'guid', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 1 },
-        { name: 'hexssid', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 2 },
-        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.NetworkDetailsSpec, nullable: true, minVersion: 2 },
-        { name: 'eap', packedOffset: 72, packedBitOffset: 0, type: arc.mojom.EapCredentialsSpec, nullable: true, minVersion: 16 },
-        { name: 'metered_override', packedOffset: 120, packedBitOffset: 0, type: arc.mojom.MeteredOverrideSpec, nullable: false, minVersion: 20 },
-        { name: 'http_proxy', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.ArcProxyInfoSpec, nullable: true, minVersion: 20 },
-        { name: 'static_ipv4_config', packedOffset: 80, packedBitOffset: 0, type: arc.mojom.StaticIpv4ConfigurationSpec, nullable: true, minVersion: 20 },
-        { name: 'domains', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 20 },
-        { name: 'dns_servers', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 20 },
-        { name: 'bssid_allowlist', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 26 },
+        { name: 'ssid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'frequency', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'signal_strength', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'bssid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'security', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'guid', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 1 },
+        { name: 'hexssid', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 2 },
+        { name: 'details', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.NetworkDetailsSpec, nullable: true, minVersion: 2 },
+        { name: 'eap', packedOffset: 64, packedBitOffset: 0, type: arc.mojom.EapCredentialsSpec, nullable: true, minVersion: 16 },
+        { name: 'metered_override', packedOffset: 112, packedBitOffset: 0, type: arc.mojom.MeteredOverrideSpec, nullable: false, minVersion: 20 },
+        { name: 'http_proxy', packedOffset: 72, packedBitOffset: 0, type: arc.mojom.ArcProxyInfoSpec, nullable: true, minVersion: 20 },
+        { name: 'static_ipv4_config', packedOffset: 88, packedBitOffset: 0, type: arc.mojom.StaticIpv4ConfigurationSpec, nullable: true, minVersion: 20 },
+        { name: 'domains', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 20 },
+        { name: 'dns_servers', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 20 },
+        { name: 'bssid_allowlist', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 26 },
       ],
-      versions: [{version: 0, packedSize: 128}, {version: 1, packedSize: 128}, {version: 2, packedSize: 128}, {version: 16, packedSize: 128}, {version: 20, packedSize: 136}, {version: 26, packedSize: 136}]
+      versions: [{version: 0, packedSize: 40}, {version: 1, packedSize: 48}, {version: 2, packedSize: 72}, {version: 16, packedSize: 80}, {version: 20, packedSize: 128}, {version: 26, packedSize: 136}]
     }
   }
 };
@@ -462,19 +462,19 @@ arc.mojom.mojom.AndroidVpnConfigurationSpec = {
       name: 'arc.mojom.AndroidVpnConfiguration',
       packedSize: 96,
       fields: [
-        { name: 'app_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'app_label', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'session_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'tunnel_chrome_traffic', packedOffset: 84, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'ipv4_gateway', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'split_include', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'split_exclude', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'nameservers', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'domains', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
-        { name: 'http_proxy', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcProxyInfoSpec, nullable: true, minVersion: 21 },
-        { name: 'mtu', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 38 },
+        { name: 'app_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'app_label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'session_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'tunnel_chrome_traffic', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'ipv4_gateway', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'split_include', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'split_exclude', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'nameservers', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'domains', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'http_proxy', packedOffset: 72, packedBitOffset: 0, type: arc.mojom.ArcProxyInfoSpec, nullable: true, minVersion: 21 },
+        { name: 'mtu', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 38 },
       ],
-      versions: [{version: 0, packedSize: 96}, {version: 21, packedSize: 96}, {version: 38, packedSize: 96}]
+      versions: [{version: 0, packedSize: 80}, {version: 21, packedSize: 96}, {version: 38, packedSize: 96}]
     }
   }
 };
@@ -1448,7 +1448,7 @@ arc.mojom.mojom.NetInstance_Init_ParamsSpec = {
       name: 'arc.mojom.NetInstance.Init_Params',
       packedSize: 16,
       fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.NetHostRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

@@ -73,7 +73,7 @@ ash.quick_pair.quick_pair.mojom.mojom.QuickPairService_Connect_ParamsSpec = {
       name: 'ash.quick_pair.mojom.QuickPairService.Connect_Params',
       packedSize: 16,
       fields: [
-        { name: 'fast_pair_data_parser', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'fast_pair_data_parser', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.quick_pair.mojom.FastPairDataParserRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

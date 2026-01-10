@@ -103,7 +103,7 @@ printing.mojom.mojom.PrintingService_BindPdfNupConverter_ParamsSpec = {
       name: 'printing.mojom.PrintingService.BindPdfNupConverter_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(printing.mojom.PdfNupConverterRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -117,7 +117,7 @@ printing.mojom.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec = {
       name: 'printing.mojom.PrintingService.BindPdfToPwgRasterConverter_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(printing.mojom.PdfToPwgRasterConverterRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -131,7 +131,7 @@ printing.mojom.mojom.PrintingService_BindPdfFlattener_ParamsSpec = {
       name: 'printing.mojom.PrintingService.BindPdfFlattener_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(printing.mojom.PdfFlattenerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -145,7 +145,7 @@ printing.mojom.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec = {
       name: 'printing.mojom.PrintingService.BindPdfToEmfConverterFactory_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(printing.mojom.PdfToEmfConverterFactoryRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

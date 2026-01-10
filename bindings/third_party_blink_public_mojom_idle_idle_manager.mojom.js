@@ -172,7 +172,7 @@ blink.mojom.mojom.IdleManager_AddMonitor_ParamsSpec = {
       name: 'blink.mojom.IdleManager.AddMonitor_Params',
       packedSize: 16,
       fields: [
-        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.IdleMonitorRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

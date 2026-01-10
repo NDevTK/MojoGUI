@@ -177,12 +177,12 @@ pdf.mojom.mojom.PdfService_BindPdfProgressiveSearchifier_ParamsSpec = {
   $: {
     structSpec: {
       name: 'pdf.mojom.PdfService.BindPdfProgressiveSearchifier_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'ocr', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(pdf.mojom.PdfProgressiveSearchifierRemote), nullable: false, minVersion: 0 },
+        { name: 'ocr', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(pdf.mojom.OcrRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -192,12 +192,12 @@ pdf.mojom.mojom.PdfService_BindPdfSearchifier_ParamsSpec = {
   $: {
     structSpec: {
       name: 'pdf.mojom.PdfService.BindPdfSearchifier_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'ocr', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(pdf.mojom.PdfSearchifierRemote), nullable: false, minVersion: 0 },
+        { name: 'ocr', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(pdf.mojom.OcrRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -209,7 +209,7 @@ pdf.mojom.mojom.PdfService_BindPdfThumbnailer_ParamsSpec = {
       name: 'pdf.mojom.PdfService.BindPdfThumbnailer_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(pdf.mojom.PdfThumbnailerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

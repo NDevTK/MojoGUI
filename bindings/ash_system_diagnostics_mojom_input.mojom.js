@@ -120,12 +120,12 @@ ash.diagnostics.diagnostics.mojom.mojom.KeyboardInfoSpec = {
         { name: 'number_pad_present', packedOffset: 40, packedBitOffset: 0, type: ash.diagnostics.mojom.NumberPadPresenceSpec, nullable: false, minVersion: 0 },
         { name: 'top_row_keys', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(ash.diagnostics.mojom.TopRowKeySpec, false), nullable: false, minVersion: 0 },
         { name: 'top_right_key', packedOffset: 44, packedBitOffset: 0, type: ash.diagnostics.mojom.TopRightKeySpec, nullable: false, minVersion: 0 },
-        { name: 'has_assistant_key', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'bottom_left_layout', packedOffset: 48, packedBitOffset: 0, type: ash.diagnostics.mojom.BottomLeftLayoutSpec, nullable: false, minVersion: 1 },
-        { name: 'bottom_right_layout', packedOffset: 52, packedBitOffset: 0, type: ash.diagnostics.mojom.BottomRightLayoutSpec, nullable: false, minVersion: 1 },
-        { name: 'numpad_layout', packedOffset: 56, packedBitOffset: 0, type: ash.diagnostics.mojom.NumpadLayoutSpec, nullable: false, minVersion: 1 },
+        { name: 'has_assistant_key', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'bottom_left_layout', packedOffset: 52, packedBitOffset: 0, type: ash.diagnostics.mojom.BottomLeftLayoutSpec, nullable: false, minVersion: 1 },
+        { name: 'bottom_right_layout', packedOffset: 56, packedBitOffset: 0, type: ash.diagnostics.mojom.BottomRightLayoutSpec, nullable: false, minVersion: 1 },
+        { name: 'numpad_layout', packedOffset: 60, packedBitOffset: 0, type: ash.diagnostics.mojom.NumpadLayoutSpec, nullable: false, minVersion: 1 },
       ],
-      versions: [{version: 0, packedSize: 72}, {version: 1, packedSize: 72}]
+      versions: [{version: 0, packedSize: 64}, {version: 1, packedSize: 72}]
     }
   }
 };

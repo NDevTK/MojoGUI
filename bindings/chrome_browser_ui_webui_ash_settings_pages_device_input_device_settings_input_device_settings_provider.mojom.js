@@ -1076,7 +1076,7 @@ ash.settings.settings.mojom.mojom.InputDeviceSettingsProvider_ObserveKeyboardSet
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.ObserveKeyboardSettings_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.mojom.KeyboardSettingsObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1090,7 +1090,7 @@ ash.settings.settings.mojom.mojom.InputDeviceSettingsProvider_ObserveTouchpadSet
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.ObserveTouchpadSettings_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.mojom.TouchpadSettingsObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1104,7 +1104,7 @@ ash.settings.settings.mojom.mojom.InputDeviceSettingsProvider_ObservePointingSti
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.ObservePointingStickSettings_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.mojom.PointingStickSettingsObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1118,7 +1118,7 @@ ash.settings.settings.mojom.mojom.InputDeviceSettingsProvider_ObserveMouseSettin
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.ObserveMouseSettings_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.mojom.MouseSettingsObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1132,7 +1132,7 @@ ash.settings.settings.mojom.mojom.InputDeviceSettingsProvider_ObserveGraphicsTab
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.ObserveGraphicsTabletSettings_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.mojom.GraphicsTabletSettingsObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1146,7 +1146,7 @@ ash.settings.settings.mojom.mojom.InputDeviceSettingsProvider_ObserveButtonPress
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.ObserveButtonPresses_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.mojom.ButtonPressObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1160,7 +1160,7 @@ ash.settings.settings.mojom.mojom.InputDeviceSettingsProvider_ObserveKeyboardBri
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.ObserveKeyboardBrightness_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.mojom.KeyboardBrightnessObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1174,7 +1174,7 @@ ash.settings.settings.mojom.mojom.InputDeviceSettingsProvider_ObserveKeyboardAmb
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.ObserveKeyboardAmbientLightSensor_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.mojom.KeyboardAmbientLightSensorObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1188,7 +1188,7 @@ ash.settings.settings.mojom.mojom.InputDeviceSettingsProvider_ObserveLidState_Pa
       name: 'ash.settings.mojom.InputDeviceSettingsProvider.ObserveLidState_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.mojom.LidStateObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

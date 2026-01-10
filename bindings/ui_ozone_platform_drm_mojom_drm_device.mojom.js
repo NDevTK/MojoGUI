@@ -641,7 +641,7 @@ ui.ozone.ozone.mojom.mojom.DrmDevice_GetDeviceCursor_ParamsSpec = {
       name: 'ui.ozone.mojom.DrmDevice.GetDeviceCursor_Params',
       packedSize: 16,
       fields: [
-        { name: 'cursor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'cursor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(ui.ozone.mojom.DeviceCursorRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

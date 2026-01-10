@@ -147,7 +147,7 @@ auction_worklet.mojom.mojom.AuctionNetworkEventsHandler_Clone_ParamsSpec = {
       name: 'auction_worklet.mojom.AuctionNetworkEventsHandler.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(auction_worklet.mojom.AuctionNetworkEventsHandlerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

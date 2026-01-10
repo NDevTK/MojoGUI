@@ -313,7 +313,7 @@ chromecast.mojom.mojom.CastWebContentsObserver_InnerContentsCreated_ParamsSpec =
       name: 'chromecast.mojom.CastWebContentsObserver.InnerContentsCreated_Params',
       packedSize: 16,
       fields: [
-        { name: 'web_contents', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'web_contents', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.mojom.CastWebContentsRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -554,7 +554,7 @@ chromecast.mojom.mojom.CastWebContents_SetInterfacesForRenderer_ParamsSpec = {
       name: 'chromecast.mojom.CastWebContents.SetInterfacesForRenderer_Params',
       packedSize: 16,
       fields: [
-        { name: 'remote_interfaces', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'remote_interfaces', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.mojom.RemoteInterfacesRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -651,7 +651,7 @@ chromecast.mojom.mojom.CastWebContents_ConnectToBindingsService_ParamsSpec = {
       name: 'chromecast.mojom.CastWebContents.ConnectToBindingsService_Params',
       packedSize: 16,
       fields: [
-        { name: 'api_bindings_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'api_bindings_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.mojom.ApiBindingsRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -665,7 +665,7 @@ chromecast.mojom.mojom.CastWebContents_AddObserver_ParamsSpec = {
       name: 'chromecast.mojom.CastWebContents.AddObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.mojom.CastWebContentsObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

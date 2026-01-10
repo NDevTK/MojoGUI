@@ -200,7 +200,7 @@ chromecast.mojom.mojom.SettingsPlatform_Connect_ParamsSpec = {
       name: 'chromecast.mojom.SettingsPlatform.Connect_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.mojom.SettingsClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

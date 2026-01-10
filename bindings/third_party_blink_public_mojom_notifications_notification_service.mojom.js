@@ -274,7 +274,7 @@ blink.mojom.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpe
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'notification_data', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.NotificationDataSpec, nullable: false, minVersion: 0 },
         { name: 'notification_resources', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.NotificationResourcesSpec, nullable: false, minVersion: 0 },
-        { name: 'event_listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'event_listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.NonPersistentNotificationListenerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }

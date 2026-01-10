@@ -78,13 +78,13 @@ media.mojom.mojom.CdmContextSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CdmContext',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
         { name: 'cdm_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'decryptor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'requires_media_foundation_renderer', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'decryptor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.DecryptorRemote), nullable: true, minVersion: 0 },
+        { name: 'requires_media_foundation_renderer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -215,7 +215,7 @@ media.mojom.mojom.ContentDecryptionModule_SetClient_ParamsSpec = {
       name: 'media.mojom.ContentDecryptionModule.SetClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(media.mojom.ContentDecryptionModuleClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -647,13 +647,13 @@ media.mojom.mojom.CdmFactory_CreateCdm_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.CdmFactory.CreateCdm_ResponseParams',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'cdm', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'cdm_context', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmContextSpec, nullable: true, minVersion: 0 },
-        { name: 'status', packedOffset: 12, packedBitOffset: 0, type: media.mojom.CreateCdmStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'cdm', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.ContentDecryptionModuleRemote), nullable: true, minVersion: 0 },
+        { name: 'cdm_context', packedOffset: 8, packedBitOffset: 0, type: media.mojom.CdmContextSpec, nullable: true, minVersion: 0 },
+        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: media.mojom.CreateCdmStatusSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

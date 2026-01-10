@@ -126,7 +126,7 @@ audio.mojom.mojom.AudioService_BindSystemInfo_ParamsSpec = {
       name: 'audio.mojom.AudioService.BindSystemInfo_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(audio.mojom.SystemInfoRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -140,7 +140,7 @@ audio.mojom.mojom.AudioService_BindDebugRecording_ParamsSpec = {
       name: 'audio.mojom.AudioService.BindDebugRecording_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(audio.mojom.DebugRecordingRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -154,7 +154,7 @@ audio.mojom.mojom.AudioService_BindStreamFactory_ParamsSpec = {
       name: 'audio.mojom.AudioService.BindStreamFactory_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.AudioStreamFactoryRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -168,7 +168,7 @@ audio.mojom.mojom.AudioService_BindDeviceNotifier_ParamsSpec = {
       name: 'audio.mojom.AudioService.BindDeviceNotifier_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(audio.mojom.DeviceNotifierRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -182,7 +182,7 @@ audio.mojom.mojom.AudioService_BindLogFactoryManager_ParamsSpec = {
       name: 'audio.mojom.AudioService.BindLogFactoryManager_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(audio.mojom.LogFactoryManagerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -196,7 +196,7 @@ audio.mojom.mojom.AudioService_BindTestingApi_ParamsSpec = {
       name: 'audio.mojom.AudioService.BindTestingApi_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(audio.mojom.TestingApiRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -210,7 +210,7 @@ audio.mojom.mojom.AudioService_BindMlModelManager_ParamsSpec = {
       name: 'audio.mojom.AudioService.BindMlModelManager_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(audio.mojom.MlModelManagerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

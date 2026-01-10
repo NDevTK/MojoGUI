@@ -491,7 +491,7 @@ nearby_share.mojom.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec = {
       name: 'nearby_share.mojom.DiscoveryManager.AddDiscoveryObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(nearby_share.mojom.DiscoveryObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -505,7 +505,7 @@ nearby_share.mojom.mojom.DiscoveryManager_StartDiscovery_ParamsSpec = {
       name: 'nearby_share.mojom.DiscoveryManager.StartDiscovery_Params',
       packedSize: 16,
       fields: [
-        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(nearby_share.mojom.ShareTargetListenerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -556,13 +556,13 @@ nearby_share.mojom.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec =
   $: {
     structSpec: {
       name: 'nearby_share.mojom.DiscoveryManager.SelectShareTarget_ResponseParams',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.SelectShareTargetResultSpec, nullable: false, minVersion: 0 },
-        { name: 'transfer_update_listener', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true, minVersion: 0 },
-        { name: 'confirmation_manager', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 16, packedBitOffset: 0, type: nearby_share.mojom.SelectShareTargetResultSpec, nullable: false, minVersion: 0 },
+        { name: 'transfer_update_listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(nearby_share.mojom.TransferUpdateListenerRemote), nullable: true, minVersion: 0 },
+        { name: 'confirmation_manager', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(nearby_share.mojom.ConfirmationManagerRemote), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -1015,7 +1015,7 @@ nearby_share.mojom.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec = {
       name: 'nearby_share.mojom.ReceiveManager.AddReceiveObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(nearby_share.mojom.ReceiveObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

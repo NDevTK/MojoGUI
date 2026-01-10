@@ -536,10 +536,10 @@ crosapi.mojom.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ParamsSpec 
       fields: [
         { name: 'type', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.KeystoreTypeSpec, nullable: false, minVersion: 0 },
         { name: 'challenge', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'migrate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'algorithm', packedOffset: 12, packedBitOffset: 0, type: crosapi.mojom.KeystoreAlgorithmNameSpec, nullable: false, minVersion: 17 },
+        { name: 'migrate', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'algorithm', packedOffset: 16, packedBitOffset: 0, type: crosapi.mojom.KeystoreAlgorithmNameSpec, nullable: false, minVersion: 17 },
       ],
-      versions: [{version: 0, packedSize: 32}, {version: 17, packedSize: 32}]
+      versions: [{version: 0, packedSize: 24}, {version: 17, packedSize: 32}]
     }
   }
 };
@@ -932,11 +932,11 @@ crosapi.mojom.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ParamsSpec =
       name: 'crosapi.mojom.KeystoreService.DEPRECATED_ExtensionGenerateKey_Params',
       packedSize: 40,
       fields: [
-        { name: 'keystore', packedOffset: 24, packedBitOffset: 0, type: crosapi.mojom.KeystoreTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'keystore', packedOffset: 16, packedBitOffset: 0, type: crosapi.mojom.KeystoreTypeSpec, nullable: false, minVersion: 0 },
         { name: 'algorithm', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.KeystoreAlgorithmSpec, nullable: false, minVersion: 0 },
-        { name: 'extension_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 5 },
+        { name: 'extension_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 5 },
       ],
-      versions: [{version: 0, packedSize: 40}, {version: 5, packedSize: 40}]
+      versions: [{version: 0, packedSize: 32}, {version: 5, packedSize: 40}]
     }
   }
 };

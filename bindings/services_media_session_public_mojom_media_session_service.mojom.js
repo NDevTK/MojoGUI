@@ -99,7 +99,7 @@ media_session.mojom.mojom.MediaSessionService_BindAudioFocusManager_ParamsSpec =
       name: 'media_session.mojom.MediaSessionService.BindAudioFocusManager_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_session.mojom.AudioFocusManagerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -113,7 +113,7 @@ media_session.mojom.mojom.MediaSessionService_BindAudioFocusManagerDebug_ParamsS
       name: 'media_session.mojom.MediaSessionService.BindAudioFocusManagerDebug_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_session.mojom.AudioFocusManagerDebugRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -127,7 +127,7 @@ media_session.mojom.mojom.MediaSessionService_BindMediaControllerManager_ParamsS
       name: 'media_session.mojom.MediaSessionService.BindMediaControllerManager_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_session.mojom.MediaControllerManagerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -141,7 +141,7 @@ media_session.mojom.mojom.MediaSessionService_Bind_ParamsSpec = {
       name: 'media_session.mojom.MediaSessionService.Bind_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_session.mojom.MediaSessionServiceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

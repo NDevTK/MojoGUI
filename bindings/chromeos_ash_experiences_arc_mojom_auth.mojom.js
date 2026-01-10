@@ -193,12 +193,12 @@ arc.mojom.mojom.AccountInfoSpec = {
       packedSize: 40,
       fields: [
         { name: 'auth_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'account_type', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.ChromeAccountTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'is_managed', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'DEPRECATED_enrollment_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 6 },
-        { name: 'account_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 9 },
+        { name: 'account_type', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.ChromeAccountTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'is_managed', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'DEPRECATED_enrollment_token', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 6 },
+        { name: 'account_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 9 },
       ],
-      versions: [{version: 0, packedSize: 40}, {version: 6, packedSize: 40}, {version: 9, packedSize: 40}]
+      versions: [{version: 0, packedSize: 24}, {version: 6, packedSize: 32}, {version: 9, packedSize: 40}]
     }
   }
 };
@@ -699,7 +699,7 @@ arc.mojom.mojom.AuthInstance_Init_ParamsSpec = {
       name: 'arc.mojom.AuthInstance.Init_Params',
       packedSize: 16,
       fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AuthHostRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

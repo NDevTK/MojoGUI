@@ -157,7 +157,7 @@ chromecast.mojom.mojom.WebUi_RegisterMessageCallback_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'cb', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'cb', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.mojom.MessageCallbackRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -342,13 +342,13 @@ chromecast.mojom.mojom.WebUiClient_CreateController_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.WebUiClient.CreateController_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
         { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'web_ui', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'resources', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'web_ui', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.mojom.WebUiRemote), nullable: false, minVersion: 0 },
+        { name: 'resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromecast.mojom.ResourcesRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -361,7 +361,7 @@ chromecast.mojom.mojom.WebUiClient_CreateResources_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'resources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'resources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromecast.mojom.ResourcesRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

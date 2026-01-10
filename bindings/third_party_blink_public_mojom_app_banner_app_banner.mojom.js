@@ -77,13 +77,13 @@ blink.mojom.mojom.AppBannerController_BannerPromptRequest_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.AppBannerController.BannerPromptRequest_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'service', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'event_receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'platform', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.AppBannerServiceRemote), nullable: false, minVersion: 0 },
+        { name: 'event_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.AppBannerEventRemote), nullable: false, minVersion: 0 },
+        { name: 'platform', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

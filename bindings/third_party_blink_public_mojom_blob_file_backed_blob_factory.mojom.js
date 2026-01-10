@@ -83,10 +83,10 @@ blink.mojom.mojom.FileBackedBlobFactory_RegisterBlob_ParamsSpec = {
       name: 'blink.mojom.FileBackedBlobFactory.RegisterBlob_Params',
       packedSize: 40,
       fields: [
-        { name: 'blob', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'content_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'file', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.DataElementFileSpec, nullable: false, minVersion: 0 },
+        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.BlobRemote), nullable: false, minVersion: 0 },
+        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'content_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'file', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.DataElementFileSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -100,10 +100,10 @@ blink.mojom.mojom.FileBackedBlobFactory_RegisterBlobSync_ParamsSpec = {
       name: 'blink.mojom.FileBackedBlobFactory.RegisterBlobSync_Params',
       packedSize: 40,
       fields: [
-        { name: 'blob', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'content_type', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'file', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.DataElementFileSpec, nullable: false, minVersion: 0 },
+        { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.BlobRemote), nullable: false, minVersion: 0 },
+        { name: 'uuid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'content_type', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'file', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.DataElementFileSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }

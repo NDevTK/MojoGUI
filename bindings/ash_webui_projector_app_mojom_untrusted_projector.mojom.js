@@ -661,12 +661,12 @@ ash.projector.projector.mojom.mojom.UntrustedProjectorPageHandlerFactory_Create_
   $: {
     structSpec: {
       name: 'ash.projector.mojom.UntrustedProjectorPageHandlerFactory.Create_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'page', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.projector.mojom.UntrustedProjectorPageHandlerRemote), nullable: false, minVersion: 0 },
+        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.projector.mojom.UntrustedProjectorPageRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

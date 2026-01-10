@@ -265,7 +265,7 @@ bluetooth.mojom.mojom.FakeBluetooth_SimulateCentral_ResponseParamsSpec = {
       name: 'bluetooth.mojom.FakeBluetooth.SimulateCentral_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'fake_central', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'fake_central', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(bluetooth.mojom.FakeCentralRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1291,7 +1291,7 @@ bluetooth.mojom.mojom.FakeCentral_SetClient_ParamsSpec = {
       name: 'bluetooth.mojom.FakeCentral.SetClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(bluetooth.mojom.FakeCentralClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

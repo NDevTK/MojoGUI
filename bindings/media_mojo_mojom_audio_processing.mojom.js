@@ -51,8 +51,8 @@ media.mojom.mojom.AudioProcessingConfigSpec = {
       name: 'media.mojom.AudioProcessingConfig',
       packedSize: 24,
       fields: [
-        { name: 'controls_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioProcessingSettingsSpec, nullable: false, minVersion: 0 },
+        { name: 'controls_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.AudioProcessorControlsRemote), nullable: false, minVersion: 0 },
+        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioProcessingSettingsSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

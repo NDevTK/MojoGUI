@@ -90,9 +90,9 @@ storage.mojom.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ParamsSpe
       name: 'storage.mojom.IndexedDBClientStateChecker.DisallowInactiveClient_Params',
       packedSize: 24,
       fields: [
-        { name: 'connection_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'reason', packedOffset: 4, packedBitOffset: 0, type: storage.mojom.DisallowInactiveClientReasonSpec, nullable: false, minVersion: 0 },
-        { name: 'keep_active', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true, minVersion: 0 },
+        { name: 'connection_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'reason', packedOffset: 12, packedBitOffset: 0, type: storage.mojom.DisallowInactiveClientReasonSpec, nullable: false, minVersion: 0 },
+        { name: 'keep_active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(storage.mojom.IndexedDBClientKeepActiveRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -119,7 +119,7 @@ storage.mojom.mojom.IndexedDBClientStateChecker_MakeClone_ParamsSpec = {
       name: 'storage.mojom.IndexedDBClientStateChecker.MakeClone_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(storage.mojom.IndexedDBClientStateCheckerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

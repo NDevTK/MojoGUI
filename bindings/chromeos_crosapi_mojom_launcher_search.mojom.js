@@ -94,33 +94,33 @@ crosapi.mojom.mojom.SearchResultSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.SearchResult',
-      packedSize: 144,
+      packedSize: 152,
       fields: [
-        { name: 'type', packedOffset: 88, packedBitOffset: 0, type: crosapi.mojom.SearchResultTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 72, packedBitOffset: 0, type: crosapi.mojom.SearchResultTypeSpec, nullable: false, minVersion: 0 },
         { name: 'relevance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
         { name: 'destination_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-        { name: 'is_omnibox_search', packedOffset: 92, packedBitOffset: 0, type: crosapi.mojom.OptionalBoolSpec, nullable: false, minVersion: 0 },
-        { name: 'is_answer', packedOffset: 96, packedBitOffset: 0, type: crosapi.mojom.OptionalBoolSpec, nullable: false, minVersion: 0 },
-        { name: 'omnibox_type', packedOffset: 100, packedBitOffset: 0, type: crosapi.mojom.OmniboxTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'answer_type', packedOffset: 104, packedBitOffset: 0, type: crosapi.mojom.AnswerTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'is_omnibox_search', packedOffset: 76, packedBitOffset: 0, type: crosapi.mojom.OptionalBoolSpec, nullable: false, minVersion: 0 },
+        { name: 'is_answer', packedOffset: 80, packedBitOffset: 0, type: crosapi.mojom.OptionalBoolSpec, nullable: false, minVersion: 0 },
+        { name: 'omnibox_type', packedOffset: 84, packedBitOffset: 0, type: crosapi.mojom.OmniboxTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'answer_type', packedOffset: 88, packedBitOffset: 0, type: crosapi.mojom.AnswerTypeSpec, nullable: false, minVersion: 0 },
         { name: 'image_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
         { name: 'favicon', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true, minVersion: 0 },
         { name: 'contents', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
         { name: 'additional_contents', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
         { name: 'description', packedOffset: 48, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
         { name: 'additional_description', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-        { name: 'additional_description_type', packedOffset: 108, packedBitOffset: 0, type: crosapi.mojom.TextTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'stripped_destination_url', packedOffset: 64, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 2 },
-        { name: 'kUnset', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'page_transition', packedOffset: 112, packedBitOffset: 0, type: crosapi.mojom.PageTransitionSpec, nullable: false, minVersion: 2 },
-        { name: 'contents_type', packedOffset: 116, packedBitOffset: 0, type: crosapi.mojom.TextTypeSpec, nullable: false, minVersion: 2 },
-        { name: 'additional_contents_type', packedOffset: 120, packedBitOffset: 0, type: crosapi.mojom.TextTypeSpec, nullable: false, minVersion: 2 },
-        { name: 'description_type', packedOffset: 124, packedBitOffset: 0, type: crosapi.mojom.TextTypeSpec, nullable: false, minVersion: 2 },
-        { name: 'description_a11y_label', packedOffset: 80, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 3 },
-        { name: 'metrics_type', packedOffset: 128, packedBitOffset: 0, type: crosapi.mojom.MetricsTypeSpec, nullable: false, minVersion: 5 },
-        { name: 'receiver', packedOffset: 132, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true, minVersion: 5 },
+        { name: 'additional_description_type', packedOffset: 92, packedBitOffset: 0, type: crosapi.mojom.TextTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'kUnset', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'stripped_destination_url', packedOffset: 96, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 2 },
+        { name: 'page_transition', packedOffset: 104, packedBitOffset: 0, type: crosapi.mojom.PageTransitionSpec, nullable: false, minVersion: 2 },
+        { name: 'contents_type', packedOffset: 108, packedBitOffset: 0, type: crosapi.mojom.TextTypeSpec, nullable: false, minVersion: 2 },
+        { name: 'additional_contents_type', packedOffset: 112, packedBitOffset: 0, type: crosapi.mojom.TextTypeSpec, nullable: false, minVersion: 2 },
+        { name: 'description_type', packedOffset: 116, packedBitOffset: 0, type: crosapi.mojom.TextTypeSpec, nullable: false, minVersion: 2 },
+        { name: 'description_a11y_label', packedOffset: 120, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 3 },
+        { name: 'metrics_type', packedOffset: 136, packedBitOffset: 0, type: crosapi.mojom.MetricsTypeSpec, nullable: false, minVersion: 5 },
+        { name: 'receiver', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.SearchResultConsumerRemote), nullable: true, minVersion: 5 },
       ],
-      versions: [{version: 0, packedSize: 120}, {version: 2, packedSize: 136}, {version: 3, packedSize: 136}, {version: 5, packedSize: 144}]
+      versions: [{version: 0, packedSize: 104}, {version: 2, packedSize: 128}, {version: 3, packedSize: 136}, {version: 5, packedSize: 152}]
     }
   }
 };
@@ -277,7 +277,7 @@ crosapi.mojom.mojom.SearchController_Search_ResponseParamsSpec = {
       name: 'crosapi.mojom.SearchController.Search_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'publisher', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'publisher', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(crosapi.mojom.SearchResultsPublisherRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

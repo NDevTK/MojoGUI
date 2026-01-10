@@ -88,12 +88,12 @@ device.mojom.mojom.NFCProvider_GetNFCForHost_ParamsSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.NFCProvider.GetNFCForHost_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'host_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'host_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.NFCRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

@@ -169,12 +169,12 @@ ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManager_CreateWifiDirectGroup_
   $: {
     structSpec: {
       name: 'ash.wifi_direct.mojom.WifiDirectManager.CreateWifiDirectGroup_ResponseParams',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.wifi_direct.mojom.WifiDirectOperationResultSpec, nullable: false, minVersion: 0 },
-        { name: 'wifi_direct_connection', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.wifi_direct.mojom.WifiDirectOperationResultSpec, nullable: false, minVersion: 0 },
+        { name: 'wifi_direct_connection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.wifi_direct.mojom.WifiDirectConnectionRemote), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -199,12 +199,12 @@ ash.wifi_direct.wifi_direct.mojom.mojom.WifiDirectManager_ConnectToWifiDirectGro
   $: {
     structSpec: {
       name: 'ash.wifi_direct.mojom.WifiDirectManager.ConnectToWifiDirectGroup_ResponseParams',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.wifi_direct.mojom.WifiDirectOperationResultSpec, nullable: false, minVersion: 0 },
-        { name: 'wifi_direct_connection', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.wifi_direct.mojom.WifiDirectOperationResultSpec, nullable: false, minVersion: 0 },
+        { name: 'wifi_direct_connection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.wifi_direct.mojom.WifiDirectConnectionRemote), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

@@ -252,14 +252,14 @@ cert_verifier.mojom.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSp
   $: {
     structSpec: {
       name: 'cert_verifier.mojom.CertVerifierServiceFactory.GetNewCertVerifier_Params',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'updater', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true, minVersion: 0 },
-        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'creation_params', packedOffset: 0, packedBitOffset: 0, type: cert_verifier.mojom.CertVerifierCreationParamsSpec, nullable: true, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(cert_verifier.mojom.CertVerifierServiceRemote), nullable: false, minVersion: 0 },
+        { name: 'updater', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(cert_verifier.mojom.CertVerifierServiceUpdaterRemote), nullable: true, minVersion: 0 },
+        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cert_verifier.mojom.CertVerifierServiceClientRemote), nullable: false, minVersion: 0 },
+        { name: 'creation_params', packedOffset: 24, packedBitOffset: 0, type: cert_verifier.mojom.CertVerifierCreationParamsSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

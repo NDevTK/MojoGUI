@@ -950,7 +950,7 @@ ash.camera_app.camera_app.mojom.mojom.WindowStateController_AddMonitor_ParamsSpe
       name: 'ash.camera_app.mojom.WindowStateController.AddMonitor_Params',
       packedSize: 16,
       fields: [
-        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.camera_app.mojom.WindowStateMonitorRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1491,7 +1491,7 @@ ash.camera_app.camera_app.mojom.mojom.CameraAppHelper_SetTabletMonitor_ParamsSpe
       name: 'ash.camera_app.mojom.CameraAppHelper.SetTabletMonitor_Params',
       packedSize: 16,
       fields: [
-        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.camera_app.mojom.TabletModeMonitorRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1518,7 +1518,7 @@ ash.camera_app.camera_app.mojom.mojom.CameraAppHelper_SetScreenStateMonitor_Para
       name: 'ash.camera_app.mojom.CameraAppHelper.SetScreenStateMonitor_Params',
       packedSize: 16,
       fields: [
-        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.camera_app.mojom.ScreenStateMonitorRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1571,7 +1571,7 @@ ash.camera_app.camera_app.mojom.mojom.CameraAppHelper_SetExternalScreenMonitor_P
       name: 'ash.camera_app.mojom.CameraAppHelper.SetExternalScreenMonitor_Params',
       packedSize: 16,
       fields: [
-        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.camera_app.mojom.ExternalScreenMonitorRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1652,7 +1652,7 @@ ash.camera_app.camera_app.mojom.mojom.CameraAppHelper_GetWindowStateController_R
       name: 'ash.camera_app.mojom.CameraAppHelper.GetWindowStateController_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.camera_app.mojom.WindowStateControllerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1842,7 +1842,7 @@ ash.camera_app.camera_app.mojom.mojom.CameraAppHelper_StartStorageMonitor_Params
       name: 'ash.camera_app.mojom.CameraAppHelper.StartStorageMonitor_Params',
       packedSize: 16,
       fields: [
-        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.camera_app.mojom.StorageMonitorRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1909,7 +1909,7 @@ ash.camera_app.camera_app.mojom.mojom.CameraAppHelper_SetLidStateMonitor_ParamsS
       name: 'ash.camera_app.mojom.CameraAppHelper.SetLidStateMonitor_Params',
       packedSize: 16,
       fields: [
-        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.camera_app.mojom.LidStateMonitorRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1936,7 +1936,7 @@ ash.camera_app.camera_app.mojom.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_
       name: 'ash.camera_app.mojom.CameraAppHelper.SetSWPrivacySwitchMonitor_Params',
       packedSize: 16,
       fields: [
-        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.camera_app.mojom.SWPrivacySwitchMonitorRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1975,7 +1975,7 @@ ash.camera_app.camera_app.mojom.mojom.CameraAppHelper_GetEventsSender_ResponsePa
       name: 'ash.camera_app.mojom.CameraAppHelper.GetEventsSender_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'events_sender', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'events_sender', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.camera_app.mojom.EventsSenderRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1989,7 +1989,7 @@ ash.camera_app.camera_app.mojom.mojom.CameraAppHelper_SetScreenLockedMonitor_Par
       name: 'ash.camera_app.mojom.CameraAppHelper.SetScreenLockedMonitor_Params',
       packedSize: 16,
       fields: [
-        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.camera_app.mojom.ScreenLockedMonitorRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -2097,7 +2097,7 @@ ash.camera_app.camera_app.mojom.mojom.CameraAppHelper_CreatePdfBuilder_ParamsSpe
       name: 'ash.camera_app.mojom.CameraAppHelper.CreatePdfBuilder_Params',
       packedSize: 16,
       fields: [
-        { name: 'builder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'builder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.camera_app.mojom.PdfBuilderRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

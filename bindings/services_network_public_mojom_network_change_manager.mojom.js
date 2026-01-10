@@ -251,7 +251,7 @@ network.mojom.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec = {
       name: 'network.mojom.NetworkChangeManager.RequestNotifications_Params',
       packedSize: 16,
       fields: [
-        { name: 'client_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.NetworkChangeManagerClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -284,7 +284,7 @@ network.mojom.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_Para
       name: 'network.mojom.NetworkChangeManager.BindNetworkInterfaceChangeListener_Params',
       packedSize: 16,
       fields: [
-        { name: 'notifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'notifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(network.mojom.NetworkInterfaceChangeListenerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

@@ -747,7 +747,7 @@ discards.mojom.mojom.GraphDump_SubscribeToChanges_ParamsSpec = {
       name: 'discards.mojom.GraphDump.SubscribeToChanges_Params',
       packedSize: 16,
       fields: [
-        { name: 'change_subscriber', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'change_subscriber', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(discards.mojom.GraphChangeStreamRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

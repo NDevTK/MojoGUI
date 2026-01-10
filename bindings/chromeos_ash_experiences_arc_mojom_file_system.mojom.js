@@ -118,12 +118,12 @@ arc.mojom.mojom.OpenUrlsRequestSpec = {
       name: 'arc.mojom.OpenUrlsRequest',
       packedSize: 40,
       fields: [
-        { name: 'action_type', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.ActionTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'action_type', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.ActionTypeSpec, nullable: false, minVersion: 0 },
         { name: 'activity_name', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ActivityNameSpec, nullable: false, minVersion: 0 },
         { name: 'urls', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.ContentUrlWithMimeTypeSpec, false), nullable: false, minVersion: 0 },
-        { name: 'extras', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: true, minVersion: 17 },
+        { name: 'extras', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: true, minVersion: 17 },
       ],
-      versions: [{version: 0, packedSize: 40}, {version: 17, packedSize: 40}]
+      versions: [{version: 0, packedSize: 32}, {version: 17, packedSize: 40}]
     }
   }
 };
@@ -1456,7 +1456,7 @@ arc.mojom.mojom.FileSystemInstance_Init_ParamsSpec = {
       name: 'arc.mojom.FileSystemInstance.Init_Params',
       packedSize: 16,
       fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.FileSystemHostRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

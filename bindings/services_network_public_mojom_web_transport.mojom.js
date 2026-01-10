@@ -714,15 +714,15 @@ network.mojom.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSp
   $: {
     structSpec: {
       name: 'network.mojom.WebTransportHandshakeClient.OnConnectionEstablished_Params',
-      packedSize: 40,
+      packedSize: 48,
       fields: [
-        { name: 'transport', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'response_headers', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HttpResponseHeadersSpec, nullable: false, minVersion: 0 },
-        { name: 'selected_application_protocol', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'initial_stats', packedOffset: 16, packedBitOffset: 0, type: network.mojom.WebTransportStatsSpec, nullable: false, minVersion: 0 },
+        { name: 'transport', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.WebTransportRemote), nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.WebTransportClientRemote), nullable: false, minVersion: 0 },
+        { name: 'response_headers', packedOffset: 16, packedBitOffset: 0, type: network.mojom.HttpResponseHeadersSpec, nullable: false, minVersion: 0 },
+        { name: 'selected_application_protocol', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
+        { name: 'initial_stats', packedOffset: 32, packedBitOffset: 0, type: network.mojom.WebTransportStatsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };

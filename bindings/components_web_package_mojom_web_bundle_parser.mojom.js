@@ -351,13 +351,13 @@ web_package.mojom.mojom.WebBundleParserFactory_GetParserForDataSource_ParamsSpec
   $: {
     structSpec: {
       name: 'web_package.mojom.WebBundleParserFactory.GetParserForDataSource_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'base_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
-        { name: 'data_source', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(web_package.mojom.WebBundleParserRemote), nullable: false, minVersion: 0 },
+        { name: 'base_url', packedOffset: 8, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
+        { name: 'data_source', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(web_package.mojom.BundleDataSourceRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -369,8 +369,8 @@ web_package.mojom.mojom.WebBundleParserFactory_BindFileDataSource_ParamsSpec = {
       name: 'web_package.mojom.WebBundleParserFactory.BindFileDataSource_Params',
       packedSize: 24,
       fields: [
-        { name: 'data_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
+        { name: 'data_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(web_package.mojom.BundleDataSourceRemote), nullable: false, minVersion: 0 },
+        { name: 'file', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

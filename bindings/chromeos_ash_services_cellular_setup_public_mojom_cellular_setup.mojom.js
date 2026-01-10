@@ -283,7 +283,7 @@ ash.cellular_setup.cellular_setup.mojom.mojom.CellularSetup_StartActivation_Para
       name: 'ash.cellular_setup.mojom.CellularSetup.StartActivation_Params',
       packedSize: 16,
       fields: [
-        { name: 'delegate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'delegate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.ActivationDelegateRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -296,7 +296,7 @@ ash.cellular_setup.cellular_setup.mojom.mojom.CellularSetup_StartActivation_Resp
       name: 'ash.cellular_setup.mojom.CellularSetup.StartActivation_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.CarrierPortalHandlerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

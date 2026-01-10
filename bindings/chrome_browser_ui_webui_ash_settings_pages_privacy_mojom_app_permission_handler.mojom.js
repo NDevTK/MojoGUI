@@ -146,7 +146,7 @@ ash.settings.settings.app_permission.app_permission.mojom.mojom.AppPermissionsHa
       name: 'ash.settings.app_permission.mojom.AppPermissionsHandler.AddObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.settings.app_permission.mojom.AppPermissionsObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

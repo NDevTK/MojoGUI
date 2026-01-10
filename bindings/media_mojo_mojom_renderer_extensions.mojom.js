@@ -380,7 +380,7 @@ media.mojom.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated
       name: 'media.mojom.MediaFoundationRendererNotifier.MediaFoundationRendererCreated_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.MediaFoundationRendererObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

@@ -524,7 +524,7 @@ nearby_share.mojom.mojom.NearbyShareSettings_AddSettingsObserver_ParamsSpec = {
       name: 'nearby_share.mojom.NearbyShareSettings.AddSettingsObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(nearby_share.mojom.NearbyShareSettingsObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1062,7 +1062,7 @@ nearby_share.mojom.mojom.ContactManager_AddDownloadContactsObserver_ParamsSpec =
       name: 'nearby_share.mojom.ContactManager.AddDownloadContactsObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(nearby_share.mojom.DownloadContactsObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

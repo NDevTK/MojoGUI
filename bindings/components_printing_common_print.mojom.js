@@ -808,12 +808,12 @@ printing.mojom.mojom.PrintRenderFrame_InitiatePrintPreview_ParamsSpec = {
   $: {
     structSpec: {
       name: 'printing.mojom.PrintRenderFrame.InitiatePrintPreview_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'print_renderer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'has_selection', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'print_renderer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(printing.mojom.PrintRendererRemote), nullable: true, minVersion: 0 },
+        { name: 'has_selection', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -825,7 +825,7 @@ printing.mojom.mojom.PrintRenderFrame_SetPrintPreviewUI_ParamsSpec = {
       name: 'printing.mojom.PrintRenderFrame.SetPrintPreviewUI_Params',
       packedSize: 16,
       fields: [
-        { name: 'preview', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'preview', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(printing.mojom.PrintPreviewUIRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

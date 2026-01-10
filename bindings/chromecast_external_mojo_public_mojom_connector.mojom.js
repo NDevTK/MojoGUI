@@ -34,7 +34,7 @@ chromecast.external_mojo.external_mojo.mojom.mojom.ServiceInstanceInfoSpec = {
       packedSize: 24,
       fields: [
         { name: 'service_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'service_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'service_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.external_mojo.mojom.ExternalServiceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -246,7 +246,7 @@ chromecast.external_mojo.external_mojo.mojom.mojom.ExternalConnector_Clone_Param
       name: 'chromecast.external_mojo.mojom.ExternalConnector.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromecast.external_mojo.mojom.ExternalConnectorRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

@@ -130,17 +130,17 @@ arc.mojom.mojom.AppInfoSpec = {
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'package_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'activity', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'sticky', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 2 },
-        { name: 'notifications_enabled', packedOffset: 56, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 7 },
-        { name: 'suspended', packedOffset: 56, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 35 },
-        { name: 'resize_lock_state', packedOffset: 48, packedBitOffset: 0, type: arc.mojom.ArcResizeLockStateSpec, nullable: false, minVersion: 47 },
-        { name: 'initial_layout', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.WindowLayoutSpec, nullable: true, minVersion: 50 },
-        { name: 'version_name', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 51 },
-        { name: 'app_storage', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.AppStorageSpec, nullable: true, minVersion: 52 },
-        { name: 'need_fixup', packedOffset: 56, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 54 },
-        { name: 'app_category', packedOffset: 52, packedBitOffset: 0, type: arc.mojom.AppCategorySpec, nullable: false, minVersion: 57 },
+        { name: 'sticky', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 2 },
+        { name: 'notifications_enabled', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 7 },
+        { name: 'suspended', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 35 },
+        { name: 'resize_lock_state', packedOffset: 28, packedBitOffset: 0, type: arc.mojom.ArcResizeLockStateSpec, nullable: false, minVersion: 47 },
+        { name: 'initial_layout', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.WindowLayoutSpec, nullable: true, minVersion: 50 },
+        { name: 'version_name', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 51 },
+        { name: 'app_storage', packedOffset: 48, packedBitOffset: 0, type: arc.mojom.AppStorageSpec, nullable: true, minVersion: 52 },
+        { name: 'need_fixup', packedOffset: 24, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 54 },
+        { name: 'app_category', packedOffset: 56, packedBitOffset: 0, type: arc.mojom.AppCategorySpec, nullable: false, minVersion: 57 },
       ],
-      versions: [{version: 0, packedSize: 32}, {version: 2, packedSize: 72}, {version: 7, packedSize: 72}, {version: 35, packedSize: 72}, {version: 47, packedSize: 72}, {version: 50, packedSize: 72}, {version: 51, packedSize: 72}, {version: 52, packedSize: 72}, {version: 54, packedSize: 72}, {version: 57, packedSize: 72}]
+      versions: [{version: 0, packedSize: 32}, {version: 2, packedSize: 40}, {version: 7, packedSize: 40}, {version: 35, packedSize: 40}, {version: 47, packedSize: 40}, {version: 50, packedSize: 48}, {version: 51, packedSize: 56}, {version: 52, packedSize: 64}, {version: 54, packedSize: 64}, {version: 57, packedSize: 72}]
     }
   }
 };
@@ -156,10 +156,10 @@ arc.mojom.mojom.WebAppInfoSpec = {
         { name: 'start_url', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'scope_url', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'theme_color', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'is_web_only_twa', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 44 },
-        { name: 'certificate_sha256_fingerprint', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 45 },
+        { name: 'is_web_only_twa', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 44 },
+        { name: 'certificate_sha256_fingerprint', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 45 },
       ],
-      versions: [{version: 0, packedSize: 40}, {version: 44, packedSize: 56}, {version: 45, packedSize: 56}]
+      versions: [{version: 0, packedSize: 40}, {version: 44, packedSize: 48}, {version: 45, packedSize: 56}]
     }
   }
 };
@@ -203,22 +203,22 @@ arc.mojom.mojom.ArcPackageInfoSpec = {
       packedSize: 88,
       fields: [
         { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'package_version', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'package_version', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
         { name: 'last_backup_android_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
         { name: 'last_backup_time', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'sync', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'deprecated_system', packedOffset: 72, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 11 },
-        { name: 'vpn_provider', packedOffset: 72, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 25 },
-        { name: 'web_app_info', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.WebAppInfoSpec, nullable: true, minVersion: 38 },
-        { name: 'deprecated_permissions', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map(arc.mojom.AppPermissionSpec, mojo.internal.Bool, false), nullable: true, minVersion: 41 },
-        { name: 'permission_states', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Map(arc.mojom.AppPermissionSpec, arc.mojom.PermissionStateSpec, false), nullable: true, minVersion: 43 },
-        { name: 'version_name', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 51 },
-        { name: 'preinstalled', packedOffset: 72, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 55 },
-        { name: 'priority', packedOffset: 68, packedBitOffset: 0, type: arc.mojom.InstallPrioritySpec, nullable: false, minVersion: 56 },
-        { name: 'locale_info', packedOffset: 56, packedBitOffset: 0, type: arc.mojom.PackageLocaleInfoSpec, nullable: true, minVersion: 60 },
-        { name: 'game_controls_opt_out', packedOffset: 72, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 61 },
+        { name: 'sync', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'deprecated_system', packedOffset: 28, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 11 },
+        { name: 'vpn_provider', packedOffset: 28, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 25 },
+        { name: 'web_app_info', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.WebAppInfoSpec, nullable: true, minVersion: 38 },
+        { name: 'deprecated_permissions', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Map(arc.mojom.AppPermissionSpec, mojo.internal.Bool, false), nullable: true, minVersion: 41 },
+        { name: 'permission_states', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Map(arc.mojom.AppPermissionSpec, arc.mojom.PermissionStateSpec, false), nullable: true, minVersion: 43 },
+        { name: 'version_name', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 51 },
+        { name: 'preinstalled', packedOffset: 28, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 55 },
+        { name: 'priority', packedOffset: 64, packedBitOffset: 0, type: arc.mojom.InstallPrioritySpec, nullable: false, minVersion: 56 },
+        { name: 'locale_info', packedOffset: 72, packedBitOffset: 0, type: arc.mojom.PackageLocaleInfoSpec, nullable: true, minVersion: 60 },
+        { name: 'game_controls_opt_out', packedOffset: 28, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 61 },
       ],
-      versions: [{version: 0, packedSize: 88}, {version: 11, packedSize: 88}, {version: 25, packedSize: 88}, {version: 38, packedSize: 88}, {version: 41, packedSize: 88}, {version: 43, packedSize: 88}, {version: 51, packedSize: 88}, {version: 55, packedSize: 88}, {version: 56, packedSize: 88}, {version: 60, packedSize: 88}, {version: 61, packedSize: 88}]
+      versions: [{version: 0, packedSize: 40}, {version: 11, packedSize: 40}, {version: 25, packedSize: 40}, {version: 38, packedSize: 48}, {version: 41, packedSize: 56}, {version: 43, packedSize: 64}, {version: 51, packedSize: 72}, {version: 55, packedSize: 72}, {version: 56, packedSize: 80}, {version: 60, packedSize: 88}, {version: 61, packedSize: 88}]
     }
   }
 };
@@ -284,16 +284,16 @@ arc.mojom.mojom.AppDiscoveryResultSpec = {
         { name: 'launch_intent_uri', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
         { name: 'install_intent_uri', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
         { name: 'label', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'is_instant_app', packedOffset: 68, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_recent', packedOffset: 68, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_instant_app', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_recent', packedOffset: 52, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
         { name: 'publisher_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
         { name: 'formatted_price', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'review_score', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'review_score', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
         { name: 'icon_png_data', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'package_name', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 22 },
-        { name: 'icon', packedOffset: 56, packedBitOffset: 0, type: arc.mojom.RawIconPngDataSpec, nullable: true, minVersion: 46 },
+        { name: 'package_name', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 22 },
+        { name: 'icon', packedOffset: 64, packedBitOffset: 0, type: arc.mojom.RawIconPngDataSpec, nullable: true, minVersion: 46 },
       ],
-      versions: [{version: 0, packedSize: 80}, {version: 22, packedSize: 80}, {version: 46, packedSize: 80}]
+      versions: [{version: 0, packedSize: 64}, {version: 22, packedSize: 72}, {version: 46, packedSize: 80}]
     }
   }
 };
@@ -309,11 +309,11 @@ arc.mojom.mojom.AppShortcutItemSpec = {
         { name: 'short_label', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'icon_png', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
         { name: 'package_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 31 },
-        { name: 'type', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.AppShortcutItemTypeSpec, nullable: false, minVersion: 32 },
-        { name: 'rank', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 32 },
-        { name: 'icon', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.RawIconPngDataSpec, nullable: true, minVersion: 46 },
+        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: arc.mojom.AppShortcutItemTypeSpec, nullable: false, minVersion: 32 },
+        { name: 'rank', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 32 },
+        { name: 'icon', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.RawIconPngDataSpec, nullable: true, minVersion: 46 },
       ],
-      versions: [{version: 0, packedSize: 32}, {version: 31, packedSize: 40}, {version: 32, packedSize: 56}, {version: 46, packedSize: 56}]
+      versions: [{version: 0, packedSize: 32}, {version: 31, packedSize: 40}, {version: 32, packedSize: 48}, {version: 46, packedSize: 56}]
     }
   }
 };
@@ -642,14 +642,14 @@ arc.mojom.mojom.AppHost_OnTaskCreated_ParamsSpec = {
       name: 'arc.mojom.AppHost.OnTaskCreated_Params',
       packedSize: 48,
       fields: [
-        { name: 'task_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'task_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
         { name: 'package_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'activity', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 13 },
-        { name: 'intent', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 15 },
-        { name: 'session_id', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 48 },
+        { name: 'name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 13 },
+        { name: 'intent', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 15 },
+        { name: 'session_id', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 48 },
       ],
-      versions: [{version: 0, packedSize: 48}, {version: 13, packedSize: 48}, {version: 15, packedSize: 48}, {version: 48, packedSize: 48}]
+      versions: [{version: 0, packedSize: 32}, {version: 13, packedSize: 40}, {version: 15, packedSize: 48}, {version: 48, packedSize: 48}]
     }
   }
 };
@@ -1147,7 +1147,7 @@ arc.mojom.mojom.AppInstance_Init_ParamsSpec = {
       name: 'arc.mojom.AppInstance.Init_Params',
       packedSize: 16,
       fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AppHostRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

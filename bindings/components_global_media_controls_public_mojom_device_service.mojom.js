@@ -291,13 +291,13 @@ global_media_controls.mojom.mojom.DeviceService_GetDeviceListHostForSession_Para
   $: {
     structSpec: {
       name: 'global_media_controls.mojom.DeviceService.GetDeviceListHostForSession_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
         { name: 'session_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'host_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'client_remote', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'host_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(global_media_controls.mojom.DeviceListHostRemote), nullable: false, minVersion: 0 },
+        { name: 'client_remote', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(global_media_controls.mojom.DeviceListClientRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -307,12 +307,12 @@ global_media_controls.mojom.mojom.DeviceService_GetDeviceListHostForPresentation
   $: {
     structSpec: {
       name: 'global_media_controls.mojom.DeviceService.GetDeviceListHostForPresentation_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'host_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'client_remote', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'host_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(global_media_controls.mojom.DeviceListHostRemote), nullable: false, minVersion: 0 },
+        { name: 'client_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(global_media_controls.mojom.DeviceListClientRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -324,7 +324,7 @@ global_media_controls.mojom.mojom.DeviceService_SetDevicePickerProvider_ParamsSp
       name: 'global_media_controls.mojom.DeviceService.SetDevicePickerProvider_Params',
       packedSize: 16,
       fields: [
-        { name: 'provider_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'provider_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(global_media_controls.mojom.DevicePickerProviderRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -566,7 +566,7 @@ global_media_controls.mojom.mojom.DevicePickerProvider_AddObserver_ParamsSpec = 
       name: 'global_media_controls.mojom.DevicePickerProvider.AddObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(global_media_controls.mojom.DevicePickerObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

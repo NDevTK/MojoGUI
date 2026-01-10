@@ -46,7 +46,7 @@ blink.mojom.mojom.CreateTranslatorResultSpec = { $: mojo.internal.Union(
     'blink.mojom.CreateTranslatorResult', {
       'translator': {
         'ordinal': 0,
-        'type': mojo.internal.InterfaceProxy,
+        'type': mojo.internal.InterfaceProxy(blink.mojom.TranslatorRemote),
       }},
       'error': {
         'ordinal': 1,
@@ -78,7 +78,7 @@ blink.mojom.mojom.TranslatorCreateOptionsSpec = {
       fields: [
         { name: 'source_lang', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: false, minVersion: 0 },
         { name: 'target_lang', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.TranslatorLanguageCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'observer_remote', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'observer_remote', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.ModelDownloadProgressObserverRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -234,8 +234,8 @@ blink.mojom.mojom.TranslationManager_CreateTranslator_ParamsSpec = {
       name: 'blink.mojom.TranslationManager.CreateTranslator_Params',
       packedSize: 24,
       fields: [
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.TranslatorCreateOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.TranslationManagerCreateTranslatorClientRemote), nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.TranslatorCreateOptionsSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

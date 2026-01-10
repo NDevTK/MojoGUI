@@ -96,16 +96,16 @@ mirroring.mojom.mojom.MirroringService_Start_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mirroring.mojom.MirroringService.Start_Params',
-      packedSize: 40,
+      packedSize: 56,
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mirroring.mojom.SessionParametersSpec, nullable: false, minVersion: 0 },
         { name: 'max_resolution', packedOffset: 8, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'resource_provider', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'outbound_channel', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'inbound_channel', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(mirroring.mojom.SessionObserverRemote), nullable: false, minVersion: 0 },
+        { name: 'resource_provider', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(mirroring.mojom.ResourceProviderRemote), nullable: false, minVersion: 0 },
+        { name: 'outbound_channel', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(mirroring.mojom.CastMessageChannelRemote), nullable: false, minVersion: 0 },
+        { name: 'inbound_channel', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(mirroring.mojom.CastMessageChannelRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };

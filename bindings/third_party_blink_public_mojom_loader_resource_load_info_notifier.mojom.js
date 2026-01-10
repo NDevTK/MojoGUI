@@ -218,7 +218,7 @@ blink.mojom.mojom.ResourceLoadInfoNotifier_Clone_ParamsSpec = {
       name: 'blink.mojom.ResourceLoadInfoNotifier.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'pending_resource_load_info_notifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'pending_resource_load_info_notifier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.ResourceLoadInfoNotifierRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

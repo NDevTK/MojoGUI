@@ -490,12 +490,12 @@ mac_notifications.mojom.mojom.MacNotificationProvider_BindNotificationService_Pa
   $: {
     structSpec: {
       name: 'mac_notifications.mojom.MacNotificationProvider.BindNotificationService_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(mac_notifications.mojom.MacNotificationServiceRemote), nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(mac_notifications.mojom.MacNotificationActionHandlerRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

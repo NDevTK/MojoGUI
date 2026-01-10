@@ -220,13 +220,13 @@ chromecast.mojom.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.AssistantMessageService.CreateMessagePipe_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
         { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'pipe', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.mojom.AssistantMessageClientRemote), nullable: false, minVersion: 0 },
+        { name: 'pipe', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromecast.mojom.AssistantMessagePipeRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

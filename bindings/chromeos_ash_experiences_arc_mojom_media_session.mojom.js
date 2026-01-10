@@ -81,7 +81,7 @@ arc.mojom.mojom.MediaSessionInstance_EnableAudioFocus_ParamsSpec = {
       name: 'arc.mojom.MediaSessionInstance.EnableAudioFocus_Params',
       packedSize: 16,
       fields: [
-        { name: 'service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media_session.mojom.AudioFocusManagerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

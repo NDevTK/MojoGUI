@@ -72,8 +72,8 @@ shape_detection.mojom.mojom.FaceDetectionProvider_CreateFaceDetection_ParamsSpec
       name: 'shape_detection.mojom.FaceDetectionProvider.CreateFaceDetection_Params',
       packedSize: 24,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'options', packedOffset: 0, packedBitOffset: 0, type: shape_detection.mojom.FaceDetectorOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(shape_detection.mojom.FaceDetectionRemote), nullable: false, minVersion: 0 },
+        { name: 'options', packedOffset: 8, packedBitOffset: 0, type: shape_detection.mojom.FaceDetectorOptionsSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

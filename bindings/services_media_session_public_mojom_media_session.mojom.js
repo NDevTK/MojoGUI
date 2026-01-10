@@ -191,12 +191,12 @@ media_session.mojom.mojom.RemotePlaybackMetadataSpec = {
       fields: [
         { name: 'video_codec', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'audio_codec', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'remote_playback_disabled', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'remote_playback_started', packedOffset: 24, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 17 },
-        { name: 'unused_field', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 17 },
-        { name: 'is_encrypted_media', packedOffset: 24, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 18 },
+        { name: 'remote_playback_disabled', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'remote_playback_started', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 17 },
+        { name: 'unused_field', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 17 },
+        { name: 'is_encrypted_media', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 18 },
       ],
-      versions: [{version: 0, packedSize: 40}, {version: 17, packedSize: 40}, {version: 18, packedSize: 40}]
+      versions: [{version: 0, packedSize: 32}, {version: 17, packedSize: 40}, {version: 18, packedSize: 40}]
     }
   }
 };
@@ -810,7 +810,7 @@ media_session.mojom.mojom.MediaSession_AddObserver_ParamsSpec = {
       name: 'media_session.mojom.MediaSession.AddObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media_session.mojom.MediaSessionObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

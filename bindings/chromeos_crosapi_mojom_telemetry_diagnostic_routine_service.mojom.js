@@ -872,13 +872,13 @@ crosapi.mojom.mojom.TelemetryDiagnosticRoutinesService_CreateRoutine_ParamsSpec 
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryDiagnosticRoutinesService.CreateRoutine_Params',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
         { name: 'routine_argument', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.TelemetryDiagnosticRoutineArgumentSpec, nullable: false, minVersion: 0 },
-        { name: 'routine_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'routine_observer', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'routine_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.TelemetryDiagnosticRoutineControlRemote), nullable: false, minVersion: 0 },
+        { name: 'routine_observer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(crosapi.mojom.TelemetryDiagnosticRoutineObserverRemote), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

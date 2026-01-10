@@ -220,12 +220,12 @@ chromeos.sensors.sensors.mojom.mojom.SensorService_GetDevice_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.sensors.mojom.SensorService.GetDevice_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'iio_device_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'device_request', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'iio_device_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'device_request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.sensors.mojom.SensorDeviceRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -429,7 +429,7 @@ chromeos.sensors.sensors.mojom.mojom.SensorDevice_StartReadingSamples_ParamsSpec
       name: 'chromeos.sensors.mojom.SensorDevice.StartReadingSamples_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.sensors.mojom.SensorDeviceSamplesObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

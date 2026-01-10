@@ -175,12 +175,12 @@ media_router.mojom.mojom.RoutePresentationConnectionSpec = {
   $: {
     structSpec: {
       name: 'media_router.mojom.RoutePresentationConnection',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'connection_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'connection_receiver', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'connection_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.PresentationConnectionRemote), nullable: false, minVersion: 0 },
+        { name: 'connection_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.PresentationConnectionRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -571,13 +571,13 @@ media_router.mojom.mojom.MediaRouteProvider_BindMediaController_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_router.mojom.MediaRouteProvider.BindMediaController_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
         { name: 'route_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'media_controller', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'media_controller', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_router.mojom.MediaControllerRemote), nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media_router.mojom.MediaStatusObserverRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -786,12 +786,12 @@ media_router.mojom.mojom.MediaRouter_RegisterMediaRouteProvider_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_router.mojom.MediaRouter.RegisterMediaRouteProvider_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'provider_id', packedOffset: 0, packedBitOffset: 0, type: media_router.mojom.MediaRouteProviderIdSpec, nullable: false, minVersion: 0 },
-        { name: 'media_router_provider', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'provider_id', packedOffset: 8, packedBitOffset: 0, type: media_router.mojom.MediaRouteProviderIdSpec, nullable: false, minVersion: 0 },
+        { name: 'media_router_provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media_router.mojom.MediaRouteProviderRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -935,7 +935,7 @@ media_router.mojom.mojom.MediaRouter_GetLogger_ParamsSpec = {
       name: 'media_router.mojom.MediaRouter.GetLogger_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_router.mojom.LoggerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -949,7 +949,7 @@ media_router.mojom.mojom.MediaRouter_GetDebugger_ParamsSpec = {
       name: 'media_router.mojom.MediaRouter.GetDebugger_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_router.mojom.DebuggerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

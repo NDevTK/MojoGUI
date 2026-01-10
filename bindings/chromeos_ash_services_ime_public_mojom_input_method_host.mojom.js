@@ -213,11 +213,11 @@ ash.ime.ime.mojom.mojom.CandidatesWindowSpec = {
       packedSize: 40,
       fields: [
         { name: 'candidates', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.ime.mojom.CandidateSpec, false), nullable: false, minVersion: 0 },
-        { name: 'DEPRECATED_highlighted_candidate', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'auxiliary_text', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 4 },
-        { name: 'highlighted_candidate', packedOffset: 16, packedBitOffset: 0, type: ash.ime.mojom.HighlightedCandidateSpec, nullable: true, minVersion: 6 },
+        { name: 'DEPRECATED_highlighted_candidate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'auxiliary_text', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 4 },
+        { name: 'highlighted_candidate', packedOffset: 24, packedBitOffset: 0, type: ash.ime.mojom.HighlightedCandidateSpec, nullable: true, minVersion: 6 },
       ],
-      versions: [{version: 0, packedSize: 40}, {version: 4, packedSize: 40}, {version: 6, packedSize: 40}]
+      versions: [{version: 0, packedSize: 24}, {version: 4, packedSize: 32}, {version: 6, packedSize: 40}]
     }
   }
 };

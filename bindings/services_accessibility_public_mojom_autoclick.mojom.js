@@ -184,7 +184,7 @@ ax.mojom.mojom.AutoclickClient_BindAutoclick_ResponseParamsSpec = {
       name: 'ax.mojom.AutoclickClient.BindAutoclick_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'autoclick_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'autoclick_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ax.mojom.AutoclickRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

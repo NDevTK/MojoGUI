@@ -96,7 +96,7 @@ chromecast.mojom.mojom.RemoteInterfaces_AddClient_ParamsSpec = {
       name: 'chromecast.mojom.RemoteInterfaces.AddClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromecast.mojom.RemoteInterfacesRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

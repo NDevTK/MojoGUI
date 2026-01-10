@@ -80,14 +80,14 @@ ash.ime.ime.mojom.mojom.ConnectionFactory_ConnectToInputMethod_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.ime.mojom.ConnectionFactory.ConnectToInputMethod_Params',
-      packedSize: 40,
+      packedSize: 48,
       fields: [
-        { name: 'ime_spec', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'input_method', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'input_method_host', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.InputMethodSettingsSpec, nullable: true, minVersion: 2 },
+        { name: 'ime_spec', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'input_method', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(ash.ime.mojom.InputMethodRemote), nullable: false, minVersion: 0 },
+        { name: 'input_method_host', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(ash.ime.mojom.InputMethodHostRemote), nullable: false, minVersion: 0 },
+        { name: 'settings', packedOffset: 24, packedBitOffset: 0, type: ash.ime.mojom.InputMethodSettingsSpec, nullable: true, minVersion: 2 },
       ],
-      versions: [{version: 0, packedSize: 40}, {version: 2, packedSize: 40}]
+      versions: [{version: 0, packedSize: 32}, {version: 2, packedSize: 48}]
     }
   }
 };
@@ -112,7 +112,7 @@ ash.ime.ime.mojom.mojom.ConnectionFactory_Unused_ParamsSpec = {
       name: 'ash.ime.mojom.ConnectionFactory.Unused_Params',
       packedSize: 16,
       fields: [
-        { name: 'unused', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'unused', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(ash.ime.mojom.JpUnusedRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

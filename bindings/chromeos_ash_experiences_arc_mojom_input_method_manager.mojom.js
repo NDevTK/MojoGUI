@@ -34,17 +34,17 @@ arc.mojom.mojom.TextInputStateSpec = {
       name: 'arc.mojom.TextInputState',
       packedSize: 56,
       fields: [
-        { name: 'cursor_pos', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'cursor_pos', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
         { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
         { name: 'text_range', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.RangeSpec, nullable: false, minVersion: 0 },
         { name: 'selection_range', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.RangeSpec, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 36, packedBitOffset: 0, type: arc.mojom.TextInputTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'should_do_learning', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'flags', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'first_update_after_operation', packedOffset: 44, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'composition_text_range', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.RangeSpec, nullable: true, minVersion: 6 },
+        { name: 'type', packedOffset: 28, packedBitOffset: 0, type: arc.mojom.TextInputTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'should_do_learning', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'flags', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'first_update_after_operation', packedOffset: 36, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'composition_text_range', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.RangeSpec, nullable: true, minVersion: 6 },
       ],
-      versions: [{version: 0, packedSize: 56}, {version: 6, packedSize: 56}]
+      versions: [{version: 0, packedSize: 48}, {version: 6, packedSize: 56}]
     }
   }
 };
@@ -245,10 +245,10 @@ arc.mojom.mojom.InputConnection_SetComposingText_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
-        { name: 'new_cursor_pos', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'new_selection_range', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.RangeSpec, nullable: true, minVersion: 3 },
+        { name: 'new_cursor_pos', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'new_selection_range', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.RangeSpec, nullable: true, minVersion: 3 },
       ],
-      versions: [{version: 0, packedSize: 32}, {version: 3, packedSize: 32}]
+      versions: [{version: 0, packedSize: 24}, {version: 3, packedSize: 32}]
     }
   }
 };
@@ -538,7 +538,7 @@ arc.mojom.mojom.InputMethodManagerInstance_Init_ParamsSpec = {
       name: 'arc.mojom.InputMethodManagerInstance.Init_Params',
       packedSize: 16,
       fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.InputMethodManagerHostRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -607,8 +607,8 @@ arc.mojom.mojom.InputMethodManagerInstance_Focus_ParamsSpec = {
       name: 'arc.mojom.InputMethodManagerInstance.Focus_Params',
       packedSize: 24,
       fields: [
-        { name: 'connection', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'initial_state', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.TextInputStateSpec, nullable: false, minVersion: 0 },
+        { name: 'connection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.InputConnectionRemote), nullable: false, minVersion: 0 },
+        { name: 'initial_state', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.TextInputStateSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

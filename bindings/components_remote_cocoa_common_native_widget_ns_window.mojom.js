@@ -657,7 +657,7 @@ remote_cocoa.mojom.mojom.NativeWidgetNSWindow_CreateSelectFileDialog_ParamsSpec 
       name: 'remote_cocoa.mojom.NativeWidgetNSWindow.CreateSelectFileDialog_Params',
       packedSize: 16,
       fields: [
-        { name: 'dialog', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'dialog', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(remote_cocoa.mojom.SelectFileDialogRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1352,13 +1352,13 @@ remote_cocoa.mojom.mojom.NativeWidgetNSWindow_DisplayContextMenu_ParamsSpec = {
   $: {
     structSpec: {
       name: 'remote_cocoa.mojom.NativeWidgetNSWindow.DisplayContextMenu_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
         { name: 'menu', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.ContextMenuSpec, nullable: false, minVersion: 0 },
-        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(remote_cocoa.mojom.MenuHostRemote), nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(remote_cocoa.mojom.MenuRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

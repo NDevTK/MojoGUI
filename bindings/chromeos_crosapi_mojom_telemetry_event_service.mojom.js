@@ -556,12 +556,12 @@ crosapi.mojom.mojom.TelemetryEventService_AddEventObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.TelemetryEventService.AddEventObserver_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.TelemetryEventCategoryEnumSpec, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'category', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.TelemetryEventCategoryEnumSpec, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(crosapi.mojom.TelemetryEventObserverRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

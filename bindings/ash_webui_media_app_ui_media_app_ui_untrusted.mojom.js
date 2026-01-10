@@ -18,7 +18,7 @@ ash.media_app_ui.media_app_ui.mojom.mojom.MantisUntrustedServiceResultSpec = { $
     'ash.media_app_ui.mojom.MantisUntrustedServiceResult', {
       'service': {
         'ordinal': 0,
-        'type': mojo.internal.InterfaceProxy,
+        'type': mojo.internal.InterfaceProxy(ash.media_app_ui.mojom.MantisUntrustedServiceRemote),
       }},
       'error': {
         'ordinal': 1,
@@ -130,12 +130,12 @@ ash.media_app_ui.media_app_ui.mojom.mojom.UntrustedServiceFactory_CreateOcrUntru
   $: {
     structSpec: {
       name: 'ash.media_app_ui.mojom.UntrustedServiceFactory.CreateOcrUntrustedService_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'page', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.media_app_ui.mojom.OcrUntrustedServiceRemote), nullable: false, minVersion: 0 },
+        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.media_app_ui.mojom.OcrUntrustedPageRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -145,13 +145,13 @@ ash.media_app_ui.media_app_ui.mojom.mojom.UntrustedServiceFactory_CreateMahiUntr
   $: {
     structSpec: {
       name: 'ash.media_app_ui.mojom.UntrustedServiceFactory.CreateMahiUntrustedService_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'page', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'file_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.media_app_ui.mojom.MahiUntrustedServiceRemote), nullable: false, minVersion: 0 },
+        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.media_app_ui.mojom.MahiUntrustedPageRemote), nullable: false, minVersion: 0 },
+        { name: 'file_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -189,8 +189,8 @@ ash.media_app_ui.media_app_ui.mojom.mojom.UntrustedServiceFactory_CreateMantisUn
       name: 'ash.media_app_ui.mojom.UntrustedServiceFactory.CreateMantisUntrustedService_Params',
       packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'dlc_uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: true, minVersion: 0 },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.media_app_ui.mojom.MantisUntrustedPageRemote), nullable: false, minVersion: 0 },
+        { name: 'dlc_uuid', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

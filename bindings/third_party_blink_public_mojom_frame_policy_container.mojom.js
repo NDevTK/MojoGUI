@@ -38,7 +38,7 @@ blink.mojom.mojom.PolicyContainerSpec = {
       packedSize: 24,
       fields: [
         { name: 'policies', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PolicyContainerPoliciesSpec, nullable: false, minVersion: 0 },
-        { name: 'remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.PolicyContainerHostRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -52,7 +52,7 @@ blink.mojom.mojom.PolicyContainerBindParamsSpec = {
       name: 'blink.mojom.PolicyContainerBindParams',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(blink.mojom.PolicyContainerHostRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

@@ -915,13 +915,13 @@ media.mojom.mojom.MediaPlayerHost_OnMediaPlayerAdded_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaPlayerHost.OnMediaPlayerAdded_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'player_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'player_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'player_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(media.mojom.MediaPlayerRemote), nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(media.mojom.MediaPlayerObserverRemote), nullable: false, minVersion: 0 },
+        { name: 'player_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

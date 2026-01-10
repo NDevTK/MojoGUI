@@ -367,7 +367,7 @@ updater.mojom.mojom.FetchService_PostRequest_ResponseParamsSpec = {
       name: 'updater.mojom.FetchService.PostRequest_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(updater.mojom.PostRequestObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -395,7 +395,7 @@ updater.mojom.mojom.FetchService_DownloadToFile_ResponseParamsSpec = {
       name: 'updater.mojom.FetchService.DownloadToFile_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(updater.mojom.FileDownloadObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

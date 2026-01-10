@@ -427,7 +427,7 @@ fuzz.mojom.mojom.FuzzInterface_FuzzAssociated_ParamsSpec = {
       name: 'fuzz.mojom.FuzzInterface.FuzzAssociated_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(fuzz.mojom.FuzzDummyInterfaceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

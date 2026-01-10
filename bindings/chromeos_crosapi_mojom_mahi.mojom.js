@@ -54,11 +54,11 @@ crosapi.mojom.mojom.MahiContextMenuRequestSpec = {
       packedSize: 40,
       fields: [
         { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'action_type', packedOffset: 24, packedBitOffset: 0, type: crosapi.mojom.MahiContextMenuActionTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'action_type', packedOffset: 16, packedBitOffset: 0, type: crosapi.mojom.MahiContextMenuActionTypeSpec, nullable: false, minVersion: 0 },
         { name: 'question', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: true, minVersion: 0 },
-        { name: 'mahi_menu_bounds', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true, minVersion: 1 },
+        { name: 'mahi_menu_bounds', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true, minVersion: 1 },
       ],
-      versions: [{version: 0, packedSize: 40}, {version: 1, packedSize: 40}]
+      versions: [{version: 0, packedSize: 32}, {version: 1, packedSize: 40}]
     }
   }
 };

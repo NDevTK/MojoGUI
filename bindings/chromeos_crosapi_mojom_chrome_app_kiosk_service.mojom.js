@@ -235,7 +235,7 @@ crosapi.mojom.mojom.ChromeAppKioskService_BindLaunchController_ParamsSpec = {
       name: 'crosapi.mojom.ChromeAppKioskService.BindLaunchController_Params',
       packedSize: 16,
       fields: [
-        { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(crosapi.mojom.ChromeKioskLaunchControllerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

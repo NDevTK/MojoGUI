@@ -182,12 +182,12 @@ media.mojom.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.MediaFoundationService.CreateInterfaceFactory_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'frame_interfaces', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.InterfaceFactoryRemote), nullable: false, minVersion: 0 },
+        { name: 'frame_interfaces', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.FrameInterfaceFactoryRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -282,7 +282,7 @@ media.mojom.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParamsSpec 
       name: 'media.mojom.MediaFoundationServiceBroker.UpdateGpuInfo_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'gpu_info_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'gpu_info_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.GpuInfoObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -297,7 +297,7 @@ media.mojom.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'cdm_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.MediaFoundationServiceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

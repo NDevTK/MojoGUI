@@ -17,8 +17,8 @@ webnn.mojom.mojom.CreateGraphSuccessSpec = {
       name: 'webnn.mojom.CreateGraphSuccess',
       packedSize: 24,
       fields: [
-        { name: 'graph_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(webnn.mojom.DeviceSpec, false), nullable: false, minVersion: 0 },
+        { name: 'graph_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(webnn.mojom.WebNNGraphRemote), nullable: false, minVersion: 0 },
+        { name: 'devices', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(webnn.mojom.DeviceSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

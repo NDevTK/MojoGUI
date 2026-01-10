@@ -432,7 +432,7 @@ ash.personalization_app.personalization_app.mojom.mojom.SeaPenProvider_SetSeaPen
       name: 'ash.personalization_app.mojom.SeaPenProvider.SetSeaPenObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.personalization_app.mojom.SeaPenObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

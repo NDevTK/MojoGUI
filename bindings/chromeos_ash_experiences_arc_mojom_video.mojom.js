@@ -120,7 +120,7 @@ arc.mojom.mojom.VideoHost_CreateVideoAcceleratorFactory_ResponseParamsSpec = {
       name: 'arc.mojom.VideoHost.CreateVideoAcceleratorFactory_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.VideoAcceleratorFactoryRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -195,7 +195,7 @@ arc.mojom.mojom.VideoInstance_Init_ParamsSpec = {
       name: 'arc.mojom.VideoInstance.Init_Params',
       packedSize: 16,
       fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.VideoHostRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -297,7 +297,7 @@ arc.mojom.mojom.VideoAcceleratorFactory_CreateEncodeAccelerator_ParamsSpec = {
       name: 'arc.mojom.VideoAcceleratorFactory.CreateEncodeAccelerator_Params',
       packedSize: 16,
       fields: [
-        { name: 'video_encoder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'video_encoder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(arc.mojom.VideoEncodeAcceleratorRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -309,13 +309,13 @@ arc.mojom.mojom.VideoAcceleratorFactory_CreateDecodeAccelerator_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoAcceleratorFactory.CreateDecodeAccelerator_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'video_decoder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'protected_buffer_manager', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 8 },
-        { name: 'browser_cdm_factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 10 },
+        { name: 'video_decoder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(arc.mojom.VideoDecodeAcceleratorRemote), nullable: false, minVersion: 0 },
+        { name: 'protected_buffer_manager', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ProtectedBufferManagerRemote), nullable: true, minVersion: 8 },
+        { name: 'browser_cdm_factory', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.cdm.mojom.BrowserCdmFactoryRemote), nullable: true, minVersion: 10 },
       ],
-      versions: [{version: 0, packedSize: 16}, {version: 8, packedSize: 16}, {version: 10, packedSize: 24}]
+      versions: [{version: 0, packedSize: 16}, {version: 8, packedSize: 24}, {version: 10, packedSize: 32}]
     }
   }
 };
@@ -327,7 +327,7 @@ arc.mojom.mojom.VideoAcceleratorFactory_CreateVideoDecoder_ParamsSpec = {
       name: 'arc.mojom.VideoAcceleratorFactory.CreateVideoDecoder_Params',
       packedSize: 16,
       fields: [
-        { name: 'video_decoder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'video_decoder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(arc.mojom.VideoDecoderRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -341,7 +341,7 @@ arc.mojom.mojom.VideoAcceleratorFactory_CreateProtectedBufferAllocator_ParamsSpe
       name: 'arc.mojom.VideoAcceleratorFactory.CreateProtectedBufferAllocator_Params',
       packedSize: 16,
       fields: [
-        { name: 'video_protected_buffer_allocator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'video_protected_buffer_allocator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(arc.mojom.VideoProtectedBufferAllocatorRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

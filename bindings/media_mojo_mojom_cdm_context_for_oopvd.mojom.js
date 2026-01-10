@@ -247,7 +247,7 @@ media.mojom.mojom.CdmContextForOOPVD_RegisterEventCallback_ParamsSpec = {
       name: 'media.mojom.CdmContextForOOPVD.RegisterEventCallback_Params',
       packedSize: 16,
       fields: [
-        { name: 'callback', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'callback', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.CdmContextEventCallbackRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

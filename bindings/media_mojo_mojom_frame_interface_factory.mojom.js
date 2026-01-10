@@ -193,7 +193,7 @@ media.mojom.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec = {
       name: 'media.mojom.FrameInterfaceFactory.CreateProvisionFetcher_Params',
       packedSize: 16,
       fields: [
-        { name: 'provision_fetcher', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'provision_fetcher', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.ProvisionFetcherRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -207,7 +207,7 @@ media.mojom.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec = {
       name: 'media.mojom.FrameInterfaceFactory.CreateCdmStorage_Params',
       packedSize: 16,
       fields: [
-        { name: 'cdm_storage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'cdm_storage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.CdmStorageRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -221,7 +221,7 @@ media.mojom.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec = {
       name: 'media.mojom.FrameInterfaceFactory.RegisterMuteStateObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'site_mute_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'site_mute_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.MuteStateObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -235,7 +235,7 @@ media.mojom.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec = 
       name: 'media.mojom.FrameInterfaceFactory.CreateDCOMPSurfaceRegistry_Params',
       packedSize: 16,
       fields: [
-        { name: 'registry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'registry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.DCOMPSurfaceRegistryRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

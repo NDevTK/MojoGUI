@@ -216,7 +216,7 @@ arc.mojom.mojom.VideoDecodeAccelerator_Initialize_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.VideoDecodeAcceleratorConfigSpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.VideoDecodeClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -271,13 +271,13 @@ arc.mojom.mojom.VideoDecodeAccelerator_ImportBufferForPicture_ParamsSpec = {
       name: 'arc.mojom.VideoDecodeAccelerator.ImportBufferForPicture_Params',
       packedSize: 40,
       fields: [
-        { name: 'picture_buffer_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'format', packedOffset: 20, packedBitOffset: 0, type: arc.mojom.HalPixelFormatSpec, nullable: false, minVersion: 0 },
-        { name: 'handle_fd', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
+        { name: 'picture_buffer_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'format', packedOffset: 12, packedBitOffset: 0, type: arc.mojom.HalPixelFormatSpec, nullable: false, minVersion: 0 },
+        { name: 'handle_fd', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
         { name: 'planes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.VideoFramePlaneSpec, false), nullable: false, minVersion: 0 },
-        { name: 'modifier', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.BufferModifierSpec, nullable: true, minVersion: 4 },
+        { name: 'modifier', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.BufferModifierSpec, nullable: true, minVersion: 4 },
       ],
-      versions: [{version: 0, packedSize: 40}, {version: 4, packedSize: 40}]
+      versions: [{version: 0, packedSize: 32}, {version: 4, packedSize: 40}]
     }
   }
 };

@@ -221,7 +221,7 @@ mojom.BluetoothInternalsHandler_GetAdapter_ResponseParamsSpec = {
       name: 'mojom.BluetoothInternalsHandler.GetAdapter_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'adapter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'adapter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(bluetooth.mojom.AdapterRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -245,12 +245,12 @@ mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'mojom.BluetoothInternalsHandler.GetDebugLogsChangeHandler_ResponseParams',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'initial_toggle_value', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(mojom.DebugLogsChangeHandlerRemote), nullable: true, minVersion: 0 },
+        { name: 'initial_toggle_value', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -342,7 +342,7 @@ mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec = {
       name: 'mojom.BluetoothInternalsHandler.StartBtsnoop_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'btsnoop', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'btsnoop', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(mojom.BluetoothBtsnoopRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

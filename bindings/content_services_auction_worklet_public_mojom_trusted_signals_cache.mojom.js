@@ -195,7 +195,7 @@ auction_worklet.mojom.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'compression_group_token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(auction_worklet.mojom.TrustedSignalsCacheClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

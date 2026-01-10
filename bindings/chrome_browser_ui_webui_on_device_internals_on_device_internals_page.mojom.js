@@ -158,12 +158,12 @@ on_device_internals.mojom.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec 
   $: {
     structSpec: {
       name: 'on_device_internals.mojom.PageHandlerFactory.CreatePageHandler_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'page', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(on_device_internals.mojom.PageRemote), nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(on_device_internals.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -306,13 +306,13 @@ on_device_internals.mojom.mojom.PageHandler_LoadModel_ParamsSpec = {
   $: {
     structSpec: {
       name: 'on_device_internals.mojom.PageHandler.LoadModel_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
         { name: 'model_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'performance_hint', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.ModelPerformanceHintSpec, nullable: false, minVersion: 0 },
-        { name: 'model', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'performance_hint', packedOffset: 16, packedBitOffset: 0, type: on_device_model.mojom.ModelPerformanceHintSpec, nullable: false, minVersion: 0 },
+        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(on_device_model.mojom.OnDeviceModelRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -339,7 +339,7 @@ on_device_internals.mojom.mojom.PageHandler_LoadPlatformModel_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'model_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(on_device_model.mojom.OnDeviceModelRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

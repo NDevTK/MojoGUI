@@ -381,7 +381,7 @@ crosapi.mojom.mojom.CrosDisplayConfigController_AddObserver_ParamsSpec = {
       name: 'crosapi.mojom.CrosDisplayConfigController.AddObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(crosapi.mojom.CrosDisplayConfigObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

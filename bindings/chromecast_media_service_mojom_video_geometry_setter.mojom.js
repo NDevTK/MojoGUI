@@ -154,7 +154,7 @@ chromecast.media.media.mojom.mojom.VideoGeometryChangeSubscriber_SubscribeToVide
       packedSize: 24,
       fields: [
         { name: 'overlay_plane_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'client_pending_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client_pending_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.media.mojom.VideoGeometryChangeClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

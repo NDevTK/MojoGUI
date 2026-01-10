@@ -477,7 +477,7 @@ chrome.mojom.mojom.ChromeRenderFrame_StartActorJournal_ParamsSpec = {
       name: 'chrome.mojom.ChromeRenderFrame.StartActorJournal_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(actor.mojom.JournalClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -489,13 +489,13 @@ chrome.mojom.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.ChromeRenderFrame.CreatePageStabilityMonitor_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'monitor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'task_id', packedOffset: 0, packedBitOffset: 0, type: actor.mojom.TaskIdSpec, nullable: false, minVersion: 0 },
-        { name: 'supports_paint_stability', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(actor.mojom.PageStabilityMonitorRemote), nullable: false, minVersion: 0 },
+        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: actor.mojom.TaskIdSpec, nullable: false, minVersion: 0 },
+        { name: 'supports_paint_stability', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

@@ -343,7 +343,7 @@ on_device_model.mojom.mojom.OnDeviceModelService_LoadModel_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.LoadModelParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(on_device_model.mojom.OnDeviceModelRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -398,7 +398,7 @@ on_device_model.mojom.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec 
       packedSize: 24,
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.TextSafetyModelParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(on_device_model.mojom.TextSafetyModelRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -534,13 +534,13 @@ on_device_model.mojom.mojom.OnDeviceModelPlatformService_LoadPlatformModel_Param
   $: {
     structSpec: {
       name: 'on_device_model.mojom.OnDeviceModelPlatformService.LoadPlatformModel_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
         { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false, minVersion: 0 },
-        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'progress_observer', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(on_device_model.mojom.OnDeviceModelRemote), nullable: false, minVersion: 0 },
+        { name: 'progress_observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(on_device_model.mojom.PlatformModelProgressObserverRemote), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

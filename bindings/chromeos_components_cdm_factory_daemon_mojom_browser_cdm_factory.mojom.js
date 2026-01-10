@@ -142,7 +142,7 @@ chromeos.cdm.cdm.mojom.mojom.BrowserCdmFactory_CreateFactory_ResponseParamsSpec 
       name: 'chromeos.cdm.mojom.BrowserCdmFactory.CreateFactory_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.cdm.mojom.CdmFactoryRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -156,7 +156,7 @@ chromeos.cdm.cdm.mojom.mojom.BrowserCdmFactory_GetOutputProtection_ParamsSpec = 
       name: 'chromeos.cdm.mojom.BrowserCdmFactory.GetOutputProtection_Params',
       packedSize: 16,
       fields: [
-        { name: 'output_protection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'output_protection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.cdm.mojom.OutputProtectionRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

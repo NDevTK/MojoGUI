@@ -486,7 +486,7 @@ updater.mojom.mojom.UpdateService_UpdateAll_ResponseParamsSpec = {
       name: 'updater.mojom.UpdateService.UpdateAll_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(updater.mojom.StateChangeObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -502,12 +502,12 @@ updater.mojom.mojom.UpdateService_Update_ParamsSpec = {
       fields: [
         { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'install_data_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'priority', packedOffset: 24, packedBitOffset: 0, type: updater.mojom.PrioritySpec, nullable: false, minVersion: 0 },
-        { name: 'policy_same_version_update', packedOffset: 28, packedBitOffset: 0, type: updater.mojom.PolicySameVersionUpdateSpec, nullable: false, minVersion: 0 },
-        { name: 'do_update_check_only', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 1 },
-        { name: 'language', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 3 },
+        { name: 'priority', packedOffset: 16, packedBitOffset: 0, type: updater.mojom.PrioritySpec, nullable: false, minVersion: 0 },
+        { name: 'policy_same_version_update', packedOffset: 20, packedBitOffset: 0, type: updater.mojom.PolicySameVersionUpdateSpec, nullable: false, minVersion: 0 },
+        { name: 'do_update_check_only', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 1 },
+        { name: 'language', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 3 },
       ],
-      versions: [{version: 0, packedSize: 40}, {version: 1, packedSize: 48}, {version: 3, packedSize: 48}]
+      versions: [{version: 0, packedSize: 32}, {version: 1, packedSize: 40}, {version: 3, packedSize: 48}]
     }
   }
 };
@@ -518,7 +518,7 @@ updater.mojom.mojom.UpdateService_Update_ResponseParamsSpec = {
       name: 'updater.mojom.UpdateService.Update_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(updater.mojom.StateChangeObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -535,10 +535,10 @@ updater.mojom.mojom.UpdateService_Install_ParamsSpec = {
         { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: updater.mojom.RegistrationRequestSpec, nullable: false, minVersion: 0 },
         { name: 'client_install_data', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'install_data_index', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'priority', packedOffset: 32, packedBitOffset: 0, type: updater.mojom.PrioritySpec, nullable: false, minVersion: 0 },
-        { name: 'language', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 3 },
+        { name: 'priority', packedOffset: 24, packedBitOffset: 0, type: updater.mojom.PrioritySpec, nullable: false, minVersion: 0 },
+        { name: 'language', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 3 },
       ],
-      versions: [{version: 0, packedSize: 48}, {version: 3, packedSize: 48}]
+      versions: [{version: 0, packedSize: 40}, {version: 3, packedSize: 48}]
     }
   }
 };
@@ -549,7 +549,7 @@ updater.mojom.mojom.UpdateService_Install_ResponseParamsSpec = {
       name: 'updater.mojom.UpdateService.Install_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(updater.mojom.StateChangeObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -595,7 +595,7 @@ updater.mojom.mojom.UpdateService_RunInstaller_ResponseParamsSpec = {
       name: 'updater.mojom.UpdateService.RunInstaller_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(updater.mojom.StateChangeObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -610,11 +610,11 @@ updater.mojom.mojom.UpdateService_CheckForUpdate_ParamsSpec = {
       packedSize: 32,
       fields: [
         { name: 'app_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'priority', packedOffset: 16, packedBitOffset: 0, type: updater.mojom.PrioritySpec, nullable: false, minVersion: 0 },
-        { name: 'policy_same_version_update', packedOffset: 20, packedBitOffset: 0, type: updater.mojom.PolicySameVersionUpdateSpec, nullable: false, minVersion: 0 },
-        { name: 'language', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 3 },
+        { name: 'priority', packedOffset: 8, packedBitOffset: 0, type: updater.mojom.PrioritySpec, nullable: false, minVersion: 0 },
+        { name: 'policy_same_version_update', packedOffset: 12, packedBitOffset: 0, type: updater.mojom.PolicySameVersionUpdateSpec, nullable: false, minVersion: 0 },
+        { name: 'language', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 3 },
       ],
-      versions: [{version: 0, packedSize: 32}, {version: 3, packedSize: 32}]
+      versions: [{version: 0, packedSize: 24}, {version: 3, packedSize: 32}]
     }
   }
 };
@@ -625,7 +625,7 @@ updater.mojom.mojom.UpdateService_CheckForUpdate_ResponseParamsSpec = {
       name: 'updater.mojom.UpdateService.CheckForUpdate_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(updater.mojom.StateChangeObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

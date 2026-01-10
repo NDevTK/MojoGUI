@@ -787,14 +787,14 @@ ash.cros_healthd.cros_healthd.mojom.mojom.ProcessInfoSpec = {
       packedSize: 128,
       fields: [
         { name: 'command', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'user_id', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'priority', packedOffset: 116, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false, minVersion: 0 },
-        { name: 'nice', packedOffset: 117, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false, minVersion: 0 },
+        { name: 'user_id', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'priority', packedOffset: 92, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false, minVersion: 0 },
+        { name: 'nice', packedOffset: 93, packedBitOffset: 0, type: mojo.internal.Int8, nullable: false, minVersion: 0 },
         { name: 'uptime_ticks', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'state', packedOffset: 84, packedBitOffset: 0, type: ash.cros_healthd.mojom.ProcessStateSpec, nullable: false, minVersion: 0 },
-        { name: 'total_memory_kib', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'resident_memory_kib', packedOffset: 92, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'free_memory_kib', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'state', packedOffset: 76, packedBitOffset: 0, type: ash.cros_healthd.mojom.ProcessStateSpec, nullable: false, minVersion: 0 },
+        { name: 'total_memory_kib', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'resident_memory_kib', packedOffset: 84, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'free_memory_kib', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
         { name: 'bytes_read', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
         { name: 'bytes_written', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
         { name: 'read_system_calls', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
@@ -802,13 +802,13 @@ ash.cros_healthd.cros_healthd.mojom.mojom.ProcessInfoSpec = {
         { name: 'physical_bytes_read', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
         { name: 'physical_bytes_written', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
         { name: 'cancelled_bytes_written', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 1 },
-        { name: 'parent_process_id', packedOffset: 100, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 1 },
-        { name: 'process_group_id', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 1 },
-        { name: 'threads', packedOffset: 108, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 1 },
-        { name: 'process_id', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 2 },
+        { name: 'name', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 1 },
+        { name: 'parent_process_id', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 1 },
+        { name: 'process_group_id', packedOffset: 108, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 1 },
+        { name: 'threads', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 1 },
+        { name: 'process_id', packedOffset: 116, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 2 },
       ],
-      versions: [{version: 0, packedSize: 128}, {version: 1, packedSize: 128}, {version: 2, packedSize: 128}]
+      versions: [{version: 0, packedSize: 104}, {version: 1, packedSize: 128}, {version: 2, packedSize: 128}]
     }
   }
 };
@@ -896,29 +896,29 @@ ash.cros_healthd.cros_healthd.mojom.mojom.NonRemovableBlockDeviceInfoSpec = {
       name: 'ash.cros_healthd.mojom.NonRemovableBlockDeviceInfo',
       packedSize: 192,
       fields: [
-        { name: 'bytes_read_since_last_boot', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'bytes_written_since_last_boot', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'read_time_seconds_since_last_boot', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'write_time_seconds_since_last_boot', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'io_time_seconds_since_last_boot', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'discard_time_seconds_since_last_boot', packedOffset: 120, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint64Spec, nullable: true, minVersion: 0 },
+        { name: 'bytes_read_since_last_boot', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'bytes_written_since_last_boot', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'read_time_seconds_since_last_boot', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'write_time_seconds_since_last_boot', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'io_time_seconds_since_last_boot', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'discard_time_seconds_since_last_boot', packedOffset: 104, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint64Spec, nullable: true, minVersion: 0 },
         { name: 'vendor_id', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.BlockDeviceVendorSpec, nullable: false, minVersion: 0 },
         { name: 'product_id', packedOffset: 16, packedBitOffset: 0, type: ash.cros_healthd.mojom.BlockDeviceProductSpec, nullable: false, minVersion: 0 },
         { name: 'revision', packedOffset: 32, packedBitOffset: 0, type: ash.cros_healthd.mojom.BlockDeviceRevisionSpec, nullable: false, minVersion: 0 },
-        { name: 'name', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'size', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'size', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
         { name: 'firmware_version', packedOffset: 48, packedBitOffset: 0, type: ash.cros_healthd.mojom.BlockDeviceFirmwareSpec, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'purpose', packedOffset: 168, packedBitOffset: 0, type: ash.cros_healthd.mojom.StorageDevicePurposeSpec, nullable: false, minVersion: 0 },
-        { name: 'path', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'manufacturer_id', packedOffset: 176, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'serial', packedOffset: 172, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'device_info', packedOffset: 64, packedBitOffset: 0, type: ash.cros_healthd.mojom.BlockDeviceInfoSpec, nullable: true, minVersion: 1 },
-        { name: 'firmware_string', packedOffset: 160, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 2 },
-        { name: 'is_rotational_$flag', packedOffset: 177, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 3, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'is_rotational_$value', originalFieldName: 'is_rotational' } },
-        { name: 'is_rotational_$value', packedOffset: 177, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 3, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'is_rotational_$flag', originalFieldName: 'is_rotational' } },
+        { name: 'type', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'purpose', packedOffset: 144, packedBitOffset: 0, type: ash.cros_healthd.mojom.StorageDevicePurposeSpec, nullable: false, minVersion: 0 },
+        { name: 'path', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'manufacturer_id', packedOffset: 152, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'serial', packedOffset: 148, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'device_info', packedOffset: 160, packedBitOffset: 0, type: ash.cros_healthd.mojom.BlockDeviceInfoSpec, nullable: true, minVersion: 1 },
+        { name: 'firmware_string', packedOffset: 176, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 2 },
+        { name: 'is_rotational_$flag', packedOffset: 153, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 3, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'is_rotational_$value', originalFieldName: 'is_rotational' } },
+        { name: 'is_rotational_$value', packedOffset: 153, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 3, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'is_rotational_$flag', originalFieldName: 'is_rotational' } },
       ],
-      versions: [{version: 0, packedSize: 192}, {version: 1, packedSize: 192}, {version: 2, packedSize: 192}, {version: 3, packedSize: 192}]
+      versions: [{version: 0, packedSize: 168}, {version: 1, packedSize: 184}, {version: 2, packedSize: 192}, {version: 3, packedSize: 192}]
     }
   }
 };
@@ -930,15 +930,15 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CpuInfoSpec = {
       name: 'ash.cros_healthd.mojom.CpuInfo',
       packedSize: 56,
       fields: [
-        { name: 'num_total_threads', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'architecture', packedOffset: 44, packedBitOffset: 0, type: ash.cros_healthd.mojom.CpuArchitectureEnumSpec, nullable: false, minVersion: 0 },
+        { name: 'num_total_threads', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'architecture', packedOffset: 28, packedBitOffset: 0, type: ash.cros_healthd.mojom.CpuArchitectureEnumSpec, nullable: false, minVersion: 0 },
         { name: 'physical_cpus', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.cros_healthd.mojom.PhysicalCpuInfoSpec, false), nullable: false, minVersion: 0 },
         { name: 'temperature_channels', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(ash.cros_healthd.mojom.CpuTemperatureChannelSpec, false), nullable: false, minVersion: 0 },
         { name: 'keylocker_info', packedOffset: 16, packedBitOffset: 0, type: ash.cros_healthd.mojom.KeylockerInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'virtualization', packedOffset: 24, packedBitOffset: 0, type: ash.cros_healthd.mojom.VirtualizationInfoSpec, nullable: true, minVersion: 1 },
-        { name: 'vulnerabilities', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, ash.cros_healthd.mojom.VulnerabilityInfoSpec, false), nullable: true, minVersion: 1 },
+        { name: 'virtualization', packedOffset: 32, packedBitOffset: 0, type: ash.cros_healthd.mojom.VirtualizationInfoSpec, nullable: true, minVersion: 1 },
+        { name: 'vulnerabilities', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, ash.cros_healthd.mojom.VulnerabilityInfoSpec, false), nullable: true, minVersion: 1 },
       ],
-      versions: [{version: 0, packedSize: 56}, {version: 1, packedSize: 56}]
+      versions: [{version: 0, packedSize: 40}, {version: 1, packedSize: 56}]
     }
   }
 };
@@ -1089,35 +1089,35 @@ ash.cros_healthd.cros_healthd.mojom.mojom.MemoryInfoSpec = {
       name: 'ash.cros_healthd.mojom.MemoryInfo',
       packedSize: 128,
       fields: [
-        { name: 'total_memory_kib', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'free_memory_kib', packedOffset: 108, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'available_memory_kib', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'total_memory_kib', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'free_memory_kib', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'available_memory_kib', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
         { name: 'page_faults_since_last_boot', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'memory_encryption_info', packedOffset: 8, packedBitOffset: 0, type: ash.cros_healthd.mojom.MemoryEncryptionInfoSpec, nullable: true, minVersion: 1 },
-        { name: 'buffers_kib_$flag', packedOffset: 116, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'buffers_kib_$value', originalFieldName: 'buffers_kib' } },
-        { name: 'buffers_kib_$value', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'buffers_kib_$flag', originalFieldName: 'buffers_kib' } },
-        { name: 'page_cache_kib_$flag', packedOffset: 116, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'page_cache_kib_$value', originalFieldName: 'page_cache_kib' } },
-        { name: 'page_cache_kib_$value', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'page_cache_kib_$flag', originalFieldName: 'page_cache_kib' } },
-        { name: 'shared_memory_kib_$flag', packedOffset: 116, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'shared_memory_kib_$value', originalFieldName: 'shared_memory_kib' } },
-        { name: 'shared_memory_kib_$value', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'shared_memory_kib_$flag', originalFieldName: 'shared_memory_kib' } },
-        { name: 'active_memory_kib_$flag', packedOffset: 116, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'active_memory_kib_$value', originalFieldName: 'active_memory_kib' } },
-        { name: 'active_memory_kib_$value', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'active_memory_kib_$flag', originalFieldName: 'active_memory_kib' } },
-        { name: 'inactive_memory_kib_$flag', packedOffset: 116, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'inactive_memory_kib_$value', originalFieldName: 'inactive_memory_kib' } },
-        { name: 'inactive_memory_kib_$value', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'inactive_memory_kib_$flag', originalFieldName: 'inactive_memory_kib' } },
-        { name: 'total_swap_memory_kib_$flag', packedOffset: 116, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'total_swap_memory_kib_$value', originalFieldName: 'total_swap_memory_kib' } },
-        { name: 'total_swap_memory_kib_$value', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'total_swap_memory_kib_$flag', originalFieldName: 'total_swap_memory_kib' } },
-        { name: 'free_swap_memory_kib_$flag', packedOffset: 116, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'free_swap_memory_kib_$value', originalFieldName: 'free_swap_memory_kib' } },
-        { name: 'free_swap_memory_kib_$value', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'free_swap_memory_kib_$flag', originalFieldName: 'free_swap_memory_kib' } },
-        { name: 'cached_swap_memory_kib_$flag', packedOffset: 116, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'cached_swap_memory_kib_$value', originalFieldName: 'cached_swap_memory_kib' } },
-        { name: 'cached_swap_memory_kib_$value', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'cached_swap_memory_kib_$flag', originalFieldName: 'cached_swap_memory_kib' } },
-        { name: 'total_slab_memory_kib_$flag', packedOffset: 117, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'total_slab_memory_kib_$value', originalFieldName: 'total_slab_memory_kib' } },
-        { name: 'total_slab_memory_kib_$value', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'total_slab_memory_kib_$flag', originalFieldName: 'total_slab_memory_kib' } },
-        { name: 'reclaimable_slab_memory_kib_$flag', packedOffset: 117, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'reclaimable_slab_memory_kib_$value', originalFieldName: 'reclaimable_slab_memory_kib' } },
-        { name: 'reclaimable_slab_memory_kib_$value', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'reclaimable_slab_memory_kib_$flag', originalFieldName: 'reclaimable_slab_memory_kib' } },
-        { name: 'unreclaimable_slab_memory_kib_$flag', packedOffset: 117, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'unreclaimable_slab_memory_kib_$value', originalFieldName: 'unreclaimable_slab_memory_kib' } },
-        { name: 'unreclaimable_slab_memory_kib_$value', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'unreclaimable_slab_memory_kib_$flag', originalFieldName: 'unreclaimable_slab_memory_kib' } },
+        { name: 'memory_encryption_info', packedOffset: 24, packedBitOffset: 0, type: ash.cros_healthd.mojom.MemoryEncryptionInfoSpec, nullable: true, minVersion: 1 },
+        { name: 'buffers_kib_$flag', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'buffers_kib_$value', originalFieldName: 'buffers_kib' } },
+        { name: 'buffers_kib_$value', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'buffers_kib_$flag', originalFieldName: 'buffers_kib' } },
+        { name: 'page_cache_kib_$flag', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'page_cache_kib_$value', originalFieldName: 'page_cache_kib' } },
+        { name: 'page_cache_kib_$value', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'page_cache_kib_$flag', originalFieldName: 'page_cache_kib' } },
+        { name: 'shared_memory_kib_$flag', packedOffset: 20, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'shared_memory_kib_$value', originalFieldName: 'shared_memory_kib' } },
+        { name: 'shared_memory_kib_$value', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'shared_memory_kib_$flag', originalFieldName: 'shared_memory_kib' } },
+        { name: 'active_memory_kib_$flag', packedOffset: 20, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'active_memory_kib_$value', originalFieldName: 'active_memory_kib' } },
+        { name: 'active_memory_kib_$value', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'active_memory_kib_$flag', originalFieldName: 'active_memory_kib' } },
+        { name: 'inactive_memory_kib_$flag', packedOffset: 20, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'inactive_memory_kib_$value', originalFieldName: 'inactive_memory_kib' } },
+        { name: 'inactive_memory_kib_$value', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'inactive_memory_kib_$flag', originalFieldName: 'inactive_memory_kib' } },
+        { name: 'total_swap_memory_kib_$flag', packedOffset: 20, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'total_swap_memory_kib_$value', originalFieldName: 'total_swap_memory_kib' } },
+        { name: 'total_swap_memory_kib_$value', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'total_swap_memory_kib_$flag', originalFieldName: 'total_swap_memory_kib' } },
+        { name: 'free_swap_memory_kib_$flag', packedOffset: 20, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'free_swap_memory_kib_$value', originalFieldName: 'free_swap_memory_kib' } },
+        { name: 'free_swap_memory_kib_$value', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'free_swap_memory_kib_$flag', originalFieldName: 'free_swap_memory_kib' } },
+        { name: 'cached_swap_memory_kib_$flag', packedOffset: 20, packedBitOffset: 7, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'cached_swap_memory_kib_$value', originalFieldName: 'cached_swap_memory_kib' } },
+        { name: 'cached_swap_memory_kib_$value', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'cached_swap_memory_kib_$flag', originalFieldName: 'cached_swap_memory_kib' } },
+        { name: 'total_slab_memory_kib_$flag', packedOffset: 21, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'total_slab_memory_kib_$value', originalFieldName: 'total_slab_memory_kib' } },
+        { name: 'total_slab_memory_kib_$value', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'total_slab_memory_kib_$flag', originalFieldName: 'total_slab_memory_kib' } },
+        { name: 'reclaimable_slab_memory_kib_$flag', packedOffset: 21, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'reclaimable_slab_memory_kib_$value', originalFieldName: 'reclaimable_slab_memory_kib' } },
+        { name: 'reclaimable_slab_memory_kib_$value', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'reclaimable_slab_memory_kib_$flag', originalFieldName: 'reclaimable_slab_memory_kib' } },
+        { name: 'unreclaimable_slab_memory_kib_$flag', packedOffset: 21, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'unreclaimable_slab_memory_kib_$value', originalFieldName: 'unreclaimable_slab_memory_kib' } },
+        { name: 'unreclaimable_slab_memory_kib_$value', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 2, nullableValueKindProperties: { isPrimary: false, linkedValueFieldName: 'unreclaimable_slab_memory_kib_$flag', originalFieldName: 'unreclaimable_slab_memory_kib' } },
       ],
-      versions: [{version: 0, packedSize: 128}, {version: 1, packedSize: 128}, {version: 2, packedSize: 128}]
+      versions: [{version: 0, packedSize: 32}, {version: 1, packedSize: 40}, {version: 2, packedSize: 128}]
     }
   }
 };
@@ -1195,17 +1195,17 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothAdapterInfoSpec = {
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'address', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'powered', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'num_connected_devices', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'connected_devices', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(ash.cros_healthd.mojom.BluetoothDeviceInfoSpec, false), nullable: true, minVersion: 1 },
-        { name: 'discoverable', packedOffset: 60, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 1 },
-        { name: 'discovering', packedOffset: 60, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 1 },
-        { name: 'uuids', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 1 },
-        { name: 'modalias', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 1 },
-        { name: 'service_allow_list', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 2 },
-        { name: 'deprecated_capabilities', packedOffset: 48, packedBitOffset: 0, type: ash.cros_healthd.mojom.DEPRECATED_SupportedCapabilitiesSpec, nullable: true, minVersion: 2 },
+        { name: 'powered', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'num_connected_devices', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'connected_devices', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(ash.cros_healthd.mojom.BluetoothDeviceInfoSpec, false), nullable: true, minVersion: 1 },
+        { name: 'discoverable', packedOffset: 20, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 1 },
+        { name: 'discovering', packedOffset: 20, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 1 },
+        { name: 'uuids', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 1 },
+        { name: 'modalias', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 1 },
+        { name: 'service_allow_list', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 2 },
+        { name: 'deprecated_capabilities', packedOffset: 56, packedBitOffset: 0, type: ash.cros_healthd.mojom.DEPRECATED_SupportedCapabilitiesSpec, nullable: true, minVersion: 2 },
       ],
-      versions: [{version: 0, packedSize: 72}, {version: 1, packedSize: 72}, {version: 2, packedSize: 72}]
+      versions: [{version: 0, packedSize: 32}, {version: 1, packedSize: 56}, {version: 2, packedSize: 72}]
     }
   }
 };
@@ -1219,16 +1219,16 @@ ash.cros_healthd.cros_healthd.mojom.mojom.BluetoothDeviceInfoSpec = {
       fields: [
         { name: 'address', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'type', packedOffset: 72, packedBitOffset: 0, type: ash.cros_healthd.mojom.BluetoothDeviceTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 56, packedBitOffset: 0, type: ash.cros_healthd.mojom.BluetoothDeviceTypeSpec, nullable: false, minVersion: 0 },
         { name: 'appearance', packedOffset: 16, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint16Spec, nullable: true, minVersion: 0 },
         { name: 'modalias', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
         { name: 'rssi', packedOffset: 32, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableInt16Spec, nullable: true, minVersion: 0 },
         { name: 'deprecated_mtu', packedOffset: 40, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint16Spec, nullable: true, minVersion: 0 },
         { name: 'uuids', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
-        { name: 'battery_percentage', packedOffset: 56, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint8Spec, nullable: true, minVersion: 1 },
-        { name: 'bluetooth_class', packedOffset: 64, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint32Spec, nullable: true, minVersion: 2 },
+        { name: 'battery_percentage', packedOffset: 64, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint8Spec, nullable: true, minVersion: 1 },
+        { name: 'bluetooth_class', packedOffset: 72, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint32Spec, nullable: true, minVersion: 2 },
       ],
-      versions: [{version: 0, packedSize: 88}, {version: 1, packedSize: 88}, {version: 2, packedSize: 88}]
+      versions: [{version: 0, packedSize: 72}, {version: 1, packedSize: 80}, {version: 2, packedSize: 88}]
     }
   }
 };
@@ -1273,11 +1273,11 @@ ash.cros_healthd.cros_healthd.mojom.mojom.OsInfoSpec = {
         { name: 'code_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'marketing_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
         { name: 'os_version', packedOffset: 16, packedBitOffset: 0, type: ash.cros_healthd.mojom.OsVersionSpec, nullable: false, minVersion: 0 },
-        { name: 'boot_mode', packedOffset: 40, packedBitOffset: 0, type: ash.cros_healthd.mojom.BootModeSpec, nullable: false, minVersion: 0 },
-        { name: 'oem_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 1 },
-        { name: 'kUnmappedEnumField', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'boot_mode', packedOffset: 32, packedBitOffset: 0, type: ash.cros_healthd.mojom.BootModeSpec, nullable: false, minVersion: 0 },
+        { name: 'oem_name', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 1 },
+        { name: 'kUnmappedEnumField', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 56}, {version: 1, packedSize: 56}]
+      versions: [{version: 0, packedSize: 48}, {version: 1, packedSize: 56}]
     }
   }
 };
@@ -1415,18 +1415,18 @@ ash.cros_healthd.cros_healthd.mojom.mojom.AudioInfoSpec = {
       name: 'ash.cros_healthd.mojom.AudioInfo',
       packedSize: 64,
       fields: [
-        { name: 'output_mute', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'input_mute', packedOffset: 52, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'output_mute', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'input_mute', packedOffset: 36, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
         { name: 'output_volume', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
         { name: 'output_device_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'input_gain', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'input_gain', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
         { name: 'input_device_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'underruns', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'severe_underruns', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'output_nodes', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(ash.cros_healthd.mojom.AudioNodeInfoSpec, false), nullable: true, minVersion: 1 },
-        { name: 'input_nodes', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(ash.cros_healthd.mojom.AudioNodeInfoSpec, false), nullable: true, minVersion: 1 },
+        { name: 'underruns', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'severe_underruns', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'output_nodes', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Array(ash.cros_healthd.mojom.AudioNodeInfoSpec, false), nullable: true, minVersion: 1 },
+        { name: 'input_nodes', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(ash.cros_healthd.mojom.AudioNodeInfoSpec, false), nullable: true, minVersion: 1 },
       ],
-      versions: [{version: 0, packedSize: 64}, {version: 1, packedSize: 64}]
+      versions: [{version: 0, packedSize: 48}, {version: 1, packedSize: 64}]
     }
   }
 };
@@ -1548,16 +1548,16 @@ ash.cros_healthd.cros_healthd.mojom.mojom.PciBusInfoSpec = {
       name: 'ash.cros_healthd.mojom.PciBusInfo',
       packedSize: 40,
       fields: [
-        { name: 'class_id', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'subclass_id', packedOffset: 29, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'prog_if_id', packedOffset: 30, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'vendor_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'device_id', packedOffset: 26, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'class_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'subclass_id', packedOffset: 13, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'prog_if_id', packedOffset: 14, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'vendor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'device_id', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
         { name: 'driver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
-        { name: 'sub_vendor_id', packedOffset: 8, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint16Spec, nullable: true, minVersion: 1 },
-        { name: 'sub_device_id', packedOffset: 16, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint16Spec, nullable: true, minVersion: 1 },
+        { name: 'sub_vendor_id', packedOffset: 16, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint16Spec, nullable: true, minVersion: 1 },
+        { name: 'sub_device_id', packedOffset: 24, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint16Spec, nullable: true, minVersion: 1 },
       ],
-      versions: [{version: 0, packedSize: 40}, {version: 1, packedSize: 40}]
+      versions: [{version: 0, packedSize: 24}, {version: 1, packedSize: 40}]
     }
   }
 };
@@ -1569,17 +1569,17 @@ ash.cros_healthd.cros_healthd.mojom.mojom.UsbBusInfoSpec = {
       name: 'ash.cros_healthd.mojom.UsbBusInfo',
       packedSize: 48,
       fields: [
-        { name: 'class_id', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'subclass_id', packedOffset: 33, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'protocol_id', packedOffset: 34, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'vendor_id', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
-        { name: 'product_id', packedOffset: 30, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'class_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'subclass_id', packedOffset: 13, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'protocol_id', packedOffset: 14, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'vendor_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'product_id', packedOffset: 10, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
         { name: 'interfaces', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.cros_healthd.mojom.UsbBusInterfaceInfoSpec, false), nullable: false, minVersion: 0 },
-        { name: 'fwupd_firmware_version_info', packedOffset: 8, packedBitOffset: 0, type: ash.cros_healthd.mojom.FwupdFirmwareVersionInfoSpec, nullable: true, minVersion: 1 },
-        { name: 'version', packedOffset: 24, packedBitOffset: 0, type: ash.cros_healthd.mojom.UsbVersionSpec, nullable: false, minVersion: 2 },
-        { name: 'spec_speed', packedOffset: 16, packedBitOffset: 0, type: ash.cros_healthd.mojom.UsbSpecSpeedSpec, nullable: false, minVersion: 2 },
+        { name: 'fwupd_firmware_version_info', packedOffset: 16, packedBitOffset: 0, type: ash.cros_healthd.mojom.FwupdFirmwareVersionInfoSpec, nullable: true, minVersion: 1 },
+        { name: 'version', packedOffset: 32, packedBitOffset: 0, type: ash.cros_healthd.mojom.UsbVersionSpec, nullable: false, minVersion: 2 },
+        { name: 'spec_speed', packedOffset: 24, packedBitOffset: 0, type: ash.cros_healthd.mojom.UsbSpecSpeedSpec, nullable: false, minVersion: 2 },
       ],
-      versions: [{version: 0, packedSize: 48}, {version: 1, packedSize: 48}, {version: 2, packedSize: 48}]
+      versions: [{version: 0, packedSize: 24}, {version: 1, packedSize: 32}, {version: 2, packedSize: 48}]
     }
   }
 };
@@ -1793,23 +1793,23 @@ ash.cros_healthd.cros_healthd.mojom.mojom.EmbeddedDisplayInfoSpec = {
       name: 'ash.cros_healthd.mojom.EmbeddedDisplayInfo',
       packedSize: 112,
       fields: [
-        { name: 'privacy_screen_supported', packedOffset: 100, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'privacy_screen_enabled', packedOffset: 100, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'display_width', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint32Spec, nullable: true, minVersion: 1 },
-        { name: 'display_height', packedOffset: 8, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint32Spec, nullable: true, minVersion: 1 },
-        { name: 'resolution_horizontal', packedOffset: 16, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint32Spec, nullable: true, minVersion: 1 },
-        { name: 'resolution_vertical', packedOffset: 24, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint32Spec, nullable: true, minVersion: 1 },
-        { name: 'refresh_rate', packedOffset: 32, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableDoubleSpec, nullable: true, minVersion: 1 },
-        { name: 'manufacturer', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 2 },
-        { name: 'model_id', packedOffset: 48, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint16Spec, nullable: true, minVersion: 2 },
-        { name: 'serial_number', packedOffset: 56, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint32Spec, nullable: true, minVersion: 2 },
-        { name: 'manufacture_week', packedOffset: 64, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint8Spec, nullable: true, minVersion: 2 },
-        { name: 'manufacture_year', packedOffset: 72, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint16Spec, nullable: true, minVersion: 2 },
-        { name: 'edid_version', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 2 },
-        { name: 'input_type', packedOffset: 96, packedBitOffset: 0, type: ash.cros_healthd.mojom.DisplayInputTypeSpec, nullable: false, minVersion: 2 },
-        { name: 'display_name', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 2 },
+        { name: 'privacy_screen_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'privacy_screen_enabled', packedOffset: 0, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'display_width', packedOffset: 8, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint32Spec, nullable: true, minVersion: 1 },
+        { name: 'display_height', packedOffset: 16, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint32Spec, nullable: true, minVersion: 1 },
+        { name: 'resolution_horizontal', packedOffset: 24, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint32Spec, nullable: true, minVersion: 1 },
+        { name: 'resolution_vertical', packedOffset: 32, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint32Spec, nullable: true, minVersion: 1 },
+        { name: 'refresh_rate', packedOffset: 40, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableDoubleSpec, nullable: true, minVersion: 1 },
+        { name: 'manufacturer', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 2 },
+        { name: 'model_id', packedOffset: 56, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint16Spec, nullable: true, minVersion: 2 },
+        { name: 'serial_number', packedOffset: 64, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint32Spec, nullable: true, minVersion: 2 },
+        { name: 'manufacture_week', packedOffset: 72, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint8Spec, nullable: true, minVersion: 2 },
+        { name: 'manufacture_year', packedOffset: 80, packedBitOffset: 0, type: ash.cros_healthd.mojom.NullableUint16Spec, nullable: true, minVersion: 2 },
+        { name: 'edid_version', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 2 },
+        { name: 'input_type', packedOffset: 4, packedBitOffset: 0, type: ash.cros_healthd.mojom.DisplayInputTypeSpec, nullable: false, minVersion: 2 },
+        { name: 'display_name', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 2 },
       ],
-      versions: [{version: 0, packedSize: 112}, {version: 1, packedSize: 112}, {version: 2, packedSize: 112}]
+      versions: [{version: 0, packedSize: 16}, {version: 1, packedSize: 56}, {version: 2, packedSize: 112}]
     }
   }
 };

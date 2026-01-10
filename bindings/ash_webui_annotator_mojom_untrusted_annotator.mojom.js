@@ -311,12 +311,12 @@ ash.annotator.annotator.mojom.mojom.UntrustedAnnotatorPageHandlerFactory_Create_
   $: {
     structSpec: {
       name: 'ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory.Create_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'annotator', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemote), nullable: false, minVersion: 0 },
+        { name: 'annotator', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.annotator.mojom.UntrustedAnnotatorPageRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

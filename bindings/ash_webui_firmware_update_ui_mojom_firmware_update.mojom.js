@@ -408,7 +408,7 @@ ash.firmware_update.firmware_update.mojom.mojom.UpdateProvider_ObservePeripheral
       name: 'ash.firmware_update.mojom.UpdateProvider.ObservePeripheralUpdates_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.firmware_update.mojom.UpdateObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -435,7 +435,7 @@ ash.firmware_update.firmware_update.mojom.mojom.UpdateProvider_PrepareForUpdate_
       name: 'ash.firmware_update.mojom.UpdateProvider.PrepareForUpdate_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.firmware_update.mojom.InstallControllerRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -569,7 +569,7 @@ ash.firmware_update.firmware_update.mojom.mojom.InstallController_AddDeviceReque
       name: 'ash.firmware_update.mojom.InstallController.AddDeviceRequestObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.firmware_update.mojom.DeviceRequestObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -583,7 +583,7 @@ ash.firmware_update.firmware_update.mojom.mojom.InstallController_AddUpdateProgr
       name: 'ash.firmware_update.mojom.InstallController.AddUpdateProgressObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.firmware_update.mojom.UpdateProgressObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

@@ -336,13 +336,13 @@ chromeos.remote_apps.remote_apps.mojom.mojom.RemoteAppsFactory_BindRemoteAppsAnd
   $: {
     structSpec: {
       name: 'chromeos.remote_apps.mojom.RemoteAppsFactory.BindRemoteAppsAndAppLaunchObserver_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
         { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'remote_apps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'remote_apps', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.remote_apps.mojom.RemoteAppsRemote), nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.remote_apps.mojom.RemoteAppLaunchObserverRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

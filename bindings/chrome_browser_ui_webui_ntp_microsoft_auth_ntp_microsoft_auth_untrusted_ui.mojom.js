@@ -97,7 +97,7 @@ new_tab_page.mojom.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_Connect
       name: 'new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory.ConnectToParentDocument_Params',
       packedSize: 16,
       fields: [
-        { name: 'child_document', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'child_document', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -109,12 +109,12 @@ new_tab_page.mojom.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreateP
   $: {
     structSpec: {
       name: 'new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory.CreatePageHandler_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'document', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemote), nullable: false, minVersion: 0 },
+        { name: 'document', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

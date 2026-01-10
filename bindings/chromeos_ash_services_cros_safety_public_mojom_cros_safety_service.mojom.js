@@ -94,7 +94,7 @@ ash.cros_safety.cros_safety.mojom.mojom.CrosSafetyService_CreateOnDeviceSafetySe
       name: 'ash.cros_safety.mojom.CrosSafetyService.CreateOnDeviceSafetySession_Params',
       packedSize: 16,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.cros_safety.mojom.OnDeviceSafetySessionRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -121,7 +121,7 @@ ash.cros_safety.cros_safety.mojom.mojom.CrosSafetyService_CreateCloudSafetySessi
       name: 'ash.cros_safety.mojom.CrosSafetyService.CreateCloudSafetySession_Params',
       packedSize: 16,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.cros_safety.mojom.CloudSafetySessionRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

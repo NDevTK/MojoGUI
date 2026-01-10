@@ -278,15 +278,15 @@ drivefs.mojom.mojom.DriveFsConfigurationSpec = {
       fields: [
         { name: 'user_email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'access_token', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 1 },
-        { name: 'enable_metrics', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 2 },
-        { name: 'lost_and_found_directory_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 3 },
-        { name: 'enable_experimental_mirroring', packedOffset: 28, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 4 },
-        { name: 'enable_verbose_logging', packedOffset: 28, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 5 },
-        { name: 'cse_support', packedOffset: 24, packedBitOffset: 0, type: drivefs.mojom.CSESupportSpec, nullable: false, minVersion: 7 },
-        { name: 'fetch_modifying_user_metadata', packedOffset: 28, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 8 },
-        { name: 'fetch_sharing_user_metadata', packedOffset: 28, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 8 },
+        { name: 'enable_metrics', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 2 },
+        { name: 'lost_and_found_directory_name', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 3 },
+        { name: 'enable_experimental_mirroring', packedOffset: 16, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 4 },
+        { name: 'enable_verbose_logging', packedOffset: 16, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 5 },
+        { name: 'cse_support', packedOffset: 20, packedBitOffset: 0, type: drivefs.mojom.CSESupportSpec, nullable: false, minVersion: 7 },
+        { name: 'fetch_modifying_user_metadata', packedOffset: 16, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 8 },
+        { name: 'fetch_sharing_user_metadata', packedOffset: 16, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 8 },
       ],
-      versions: [{version: 0, packedSize: 16}, {version: 1, packedSize: 24}, {version: 2, packedSize: 40}, {version: 3, packedSize: 40}, {version: 4, packedSize: 40}, {version: 5, packedSize: 40}, {version: 7, packedSize: 40}, {version: 8, packedSize: 40}]
+      versions: [{version: 0, packedSize: 16}, {version: 1, packedSize: 24}, {version: 2, packedSize: 32}, {version: 3, packedSize: 40}, {version: 4, packedSize: 40}, {version: 5, packedSize: 40}, {version: 7, packedSize: 40}, {version: 8, packedSize: 40}]
     }
   }
 };
@@ -479,10 +479,10 @@ drivefs.mojom.mojom.ProgressEventSpec = {
       fields: [
         { name: 'stable_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
         { name: 'path', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'progress', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
-        { name: 'file_path', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: true, minVersion: 1 },
+        { name: 'progress', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
+        { name: 'file_path', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: true, minVersion: 1 },
       ],
-      versions: [{version: 0, packedSize: 40}, {version: 1, packedSize: 40}]
+      versions: [{version: 0, packedSize: 32}, {version: 1, packedSize: 40}]
     }
   }
 };
@@ -759,13 +759,13 @@ drivefs.mojom.mojom.DriveFsBootstrap_Init_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsBootstrap.Init_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.DriveFsConfigurationSpec, nullable: false, minVersion: 0 },
-        { name: 'drive_fs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'delegate', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'drive_fs', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(drivefs.mojom.DriveFsRemote), nullable: false, minVersion: 0 },
+        { name: 'delegate', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(drivefs.mojom.DriveFsDelegateRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -1315,8 +1315,8 @@ drivefs.mojom.mojom.DriveFs_StartSearchQuery_ParamsSpec = {
       name: 'drivefs.mojom.DriveFs.StartSearchQuery_Params',
       packedSize: 24,
       fields: [
-        { name: 'query', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'query_params', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.QueryParametersSpec, nullable: false, minVersion: 0 },
+        { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(drivefs.mojom.SearchQueryRemote), nullable: false, minVersion: 0 },
+        { name: 'query_params', packedOffset: 8, packedBitOffset: 0, type: drivefs.mojom.QueryParametersSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -1504,13 +1504,13 @@ drivefs.mojom.mojom.DriveFs_CreateNativeHostSession_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFs.CreateNativeHostSession_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.ExtensionConnectionParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'port', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(drivefs.mojom.NativeMessagingHostRemote), nullable: false, minVersion: 0 },
+        { name: 'port', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(drivefs.mojom.NativeMessagingPortRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -2397,13 +2397,13 @@ drivefs.mojom.mojom.DriveFsDelegate_ConnectToExtension_ParamsSpec = {
   $: {
     structSpec: {
       name: 'drivefs.mojom.DriveFsDelegate.ConnectToExtension_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.ExtensionConnectionParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'port', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'host', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'port', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(drivefs.mojom.NativeMessagingPortRemote), nullable: false, minVersion: 0 },
+        { name: 'host', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(drivefs.mojom.NativeMessagingHostRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -2456,7 +2456,7 @@ drivefs.mojom.mojom.DriveFsDelegate_ExecuteHttpRequest_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'request', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.HttpRequestSpec, nullable: false, minVersion: 0 },
-        { name: 'delegate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'delegate', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(drivefs.mojom.HttpDelegateRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

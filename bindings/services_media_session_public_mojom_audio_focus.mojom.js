@@ -34,12 +34,12 @@ media_session.mojom.mojom.AudioFocusRequestStateSpec = {
       packedSize: 48,
       fields: [
         { name: 'session_info', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaSessionInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'audio_focus_type', packedOffset: 32, packedBitOffset: 0, type: media_session.mojom.AudioFocusTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'source_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 2 },
-        { name: 'request_id', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 3 },
-        { name: 'source_id', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 9 },
+        { name: 'audio_focus_type', packedOffset: 8, packedBitOffset: 0, type: media_session.mojom.AudioFocusTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'source_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 2 },
+        { name: 'request_id', packedOffset: 24, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 3 },
+        { name: 'source_id', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 9 },
       ],
-      versions: [{version: 0, packedSize: 48}, {version: 2, packedSize: 48}, {version: 3, packedSize: 48}, {version: 9, packedSize: 48}]
+      versions: [{version: 0, packedSize: 24}, {version: 2, packedSize: 32}, {version: 3, packedSize: 40}, {version: 9, packedSize: 48}]
     }
   }
 };
@@ -446,14 +446,14 @@ media_session.mojom.mojom.AudioFocusManager_RequestAudioFocus_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media_session.mojom.AudioFocusManager.RequestAudioFocus_Params',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'session', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'session_info', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaSessionInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: media_session.mojom.AudioFocusTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_session.mojom.AudioFocusRequestClientRemote), nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media_session.mojom.MediaSessionRemote), nullable: false, minVersion: 0 },
+        { name: 'session_info', packedOffset: 16, packedBitOffset: 0, type: media_session.mojom.MediaSessionInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 24, packedBitOffset: 0, type: media_session.mojom.AudioFocusTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -476,16 +476,16 @@ media_session.mojom.mojom.AudioFocusManager_RequestGroupedAudioFocus_ParamsSpec 
   $: {
     structSpec: {
       name: 'media_session.mojom.AudioFocusManager.RequestGroupedAudioFocus_Params',
-      packedSize: 48,
+      packedSize: 56,
       fields: [
         { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'session', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'session_info', packedOffset: 8, packedBitOffset: 0, type: media_session.mojom.MediaSessionInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 32, packedBitOffset: 0, type: media_session.mojom.AudioFocusTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'group_id', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media_session.mojom.AudioFocusRequestClientRemote), nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media_session.mojom.MediaSessionRemote), nullable: false, minVersion: 0 },
+        { name: 'session_info', packedOffset: 24, packedBitOffset: 0, type: media_session.mojom.MediaSessionInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 40, packedBitOffset: 0, type: media_session.mojom.AudioFocusTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'group_id', packedOffset: 32, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -536,7 +536,7 @@ media_session.mojom.mojom.AudioFocusManager_AddObserver_ParamsSpec = {
       name: 'media_session.mojom.AudioFocusManager.AddObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media_session.mojom.AudioFocusObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -580,7 +580,7 @@ media_session.mojom.mojom.AudioFocusManager_AddSourceObserver_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media_session.mojom.AudioFocusObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

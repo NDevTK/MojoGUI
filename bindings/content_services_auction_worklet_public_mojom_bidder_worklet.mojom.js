@@ -470,28 +470,28 @@ auction_worklet.mojom.mojom.BidderWorklet_BeginGenerateBid_ParamsSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.BidderWorklet.BeginGenerateBid_Params',
-      packedSize: 128,
+      packedSize: 136,
       fields: [
         { name: 'bidder_worklet_non_shared_params', packedOffset: 0, packedBitOffset: 0, type: auction_worklet.mojom.BidderWorkletNonSharedParamsSpec, nullable: false, minVersion: 0 },
         { name: 'key_value_signals_cache_key', packedOffset: 8, packedBitOffset: 0, type: auction_worklet.mojom.TrustedSignalsCacheKeySpec, nullable: true, minVersion: 0 },
-        { name: 'kanon_mode', packedOffset: 104, packedBitOffset: 0, type: auction_worklet.mojom.KAnonymityBidModeSpec, nullable: false, minVersion: 0 },
+        { name: 'kanon_mode', packedOffset: 120, packedBitOffset: 0, type: auction_worklet.mojom.KAnonymityBidModeSpec, nullable: false, minVersion: 0 },
         { name: 'interest_group_join_origin', packedOffset: 16, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
         { name: 'direct_from_seller_per_buyer_signals', packedOffset: 24, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
         { name: 'direct_from_seller_auction_signals', packedOffset: 32, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
         { name: 'browser_signal_seller_origin', packedOffset: 40, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
         { name: 'browser_signal_top_level_seller_origin', packedOffset: 48, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: true, minVersion: 0 },
         { name: 'browser_signal_recency', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
-        { name: 'browser_signal_for_debugging_only_sampling', packedOffset: 118, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'browser_signal_for_debugging_only_sampling', packedOffset: 126, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
         { name: 'bidding_browser_signals', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.BiddingBrowserSignalsSpec, nullable: false, minVersion: 0 },
         { name: 'auction_start_time', packedOffset: 72, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },
         { name: 'requested_ad_size', packedOffset: 80, packedBitOffset: 0, type: blink.mojom.AdSizeSpec, nullable: true, minVersion: 0 },
-        { name: 'multi_bid_limit', packedOffset: 116, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
+        { name: 'multi_bid_limit', packedOffset: 124, packedBitOffset: 0, type: mojo.internal.Uint16, nullable: false, minVersion: 0 },
         { name: 'group_by_origin_id', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
         { name: 'trace_id', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'generate_bid_client', packedOffset: 108, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'bid_finalizer', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'generate_bid_client', packedOffset: 104, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(auction_worklet.mojom.GenerateBidClientRemote), nullable: false, minVersion: 0 },
+        { name: 'bid_finalizer', packedOffset: 112, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(auction_worklet.mojom.GenerateBidFinalizerRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 128}]
+      versions: [{version: 0, packedSize: 136}]
     }
   }
 };
@@ -578,12 +578,12 @@ auction_worklet.mojom.mojom.BidderWorklet_ConnectDevToolsAgent_ParamsSpec = {
   $: {
     structSpec: {
       name: 'auction_worklet.mojom.BidderWorklet.ConnectDevToolsAgent_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'thread_index', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(blink.mojom.DevToolsAgentRemote), nullable: false, minVersion: 0 },
+        { name: 'thread_index', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

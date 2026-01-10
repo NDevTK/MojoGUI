@@ -228,13 +228,13 @@ translate.mojom.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec = {
   $: {
     structSpec: {
       name: 'translate.mojom.ContentTranslateDriver.RegisterPage_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'translate_agent', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'details', packedOffset: 0, packedBitOffset: 0, type: translate.mojom.LanguageDetectionDetailsSpec, nullable: false, minVersion: 0 },
-        { name: 'translation_critiera_met', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'translate_agent', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(translate.mojom.TranslateAgentRemote), nullable: false, minVersion: 0 },
+        { name: 'details', packedOffset: 8, packedBitOffset: 0, type: translate.mojom.LanguageDetectionDetailsSpec, nullable: false, minVersion: 0 },
+        { name: 'translation_critiera_met', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

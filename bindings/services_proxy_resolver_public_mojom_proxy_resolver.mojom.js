@@ -206,7 +206,7 @@ proxy_resolver.mojom.mojom.ProxyResolver_GetProxyForUrl_ParamsSpec = {
       fields: [
         { name: 'url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
         { name: 'network_anonymization_key', packedOffset: 0, packedBitOffset: 0, type: network.mojom.NetworkAnonymizationKeySpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(proxy_resolver.mojom.ProxyResolverRequestClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -350,14 +350,14 @@ proxy_resolver.mojom.mojom.ProxyResolverRequestClient_ResolveDns_ParamsSpec = {
   $: {
     structSpec: {
       name: 'proxy_resolver.mojom.ProxyResolverRequestClient.ResolveDns_Params',
-      packedSize: 40,
+      packedSize: 48,
       fields: [
         { name: 'host', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'operation', packedOffset: 24, packedBitOffset: 0, type: proxy_resolver.mojom.HostResolveOperationSpec, nullable: false, minVersion: 0 },
+        { name: 'operation', packedOffset: 32, packedBitOffset: 0, type: proxy_resolver.mojom.HostResolveOperationSpec, nullable: false, minVersion: 0 },
         { name: 'network_anonymization_key', packedOffset: 0, packedBitOffset: 0, type: network.mojom.NetworkAnonymizationKeySpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(proxy_resolver.mojom.HostResolverRequestClientRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -428,13 +428,13 @@ proxy_resolver.mojom.mojom.ProxyResolverFactory_CreateResolver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'proxy_resolver.mojom.ProxyResolverFactory.CreateResolver_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
         { name: 'pac_script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(proxy_resolver.mojom.ProxyResolverRemote), nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(proxy_resolver.mojom.ProxyResolverFactoryRequestClientRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -575,14 +575,14 @@ proxy_resolver.mojom.mojom.ProxyResolverFactoryRequestClient_ResolveDns_ParamsSp
   $: {
     structSpec: {
       name: 'proxy_resolver.mojom.ProxyResolverFactoryRequestClient.ResolveDns_Params',
-      packedSize: 40,
+      packedSize: 48,
       fields: [
         { name: 'host', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'operation', packedOffset: 24, packedBitOffset: 0, type: proxy_resolver.mojom.HostResolveOperationSpec, nullable: false, minVersion: 0 },
+        { name: 'operation', packedOffset: 32, packedBitOffset: 0, type: proxy_resolver.mojom.HostResolveOperationSpec, nullable: false, minVersion: 0 },
         { name: 'network_anonymization_key', packedOffset: 0, packedBitOffset: 0, type: network.mojom.NetworkAnonymizationKeySpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(proxy_resolver.mojom.HostResolverRequestClientRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };

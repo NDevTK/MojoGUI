@@ -72,7 +72,7 @@ cros.mojom.mojom.CameraHalClient_SetUpChannel_ParamsSpec = {
       name: 'cros.mojom.CameraHalClient.SetUpChannel_Params',
       packedSize: 16,
       fields: [
-        { name: 'camera_module', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'camera_module', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cros.mojom.CameraModuleRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

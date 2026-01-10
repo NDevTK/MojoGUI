@@ -533,7 +533,7 @@ media.mojom.mojom.MediaMetricsProvider_AcquireWatchTimeRecorder_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PlaybackPropertiesSpec, nullable: false, minVersion: 0 },
-        { name: 'recorder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'recorder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.WatchTimeRecorderRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -547,7 +547,7 @@ media.mojom.mojom.MediaMetricsProvider_AcquireVideoDecodeStatsRecorder_ParamsSpe
       name: 'media.mojom.MediaMetricsProvider.AcquireVideoDecodeStatsRecorder_Params',
       packedSize: 16,
       fields: [
-        { name: 'recorder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'recorder', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.VideoDecodeStatsRecorderRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -561,7 +561,7 @@ media.mojom.mojom.MediaMetricsProvider_AcquirePlaybackEventsRecorder_ParamsSpec 
       name: 'media.mojom.MediaMetricsProvider.AcquirePlaybackEventsRecorder_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.PlaybackEventsRecorderRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

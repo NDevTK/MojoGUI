@@ -568,7 +568,7 @@ blink.mojom.mojom.AdAuctionService_RunAdAuction_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AuctionAdConfigSpec, nullable: false, minVersion: 0 },
-        { name: 'abort_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true, minVersion: 0 },
+        { name: 'abort_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.AbortableAdAuctionRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

@@ -163,14 +163,14 @@ ash.local_search_service.local_search_service.mojom.mojom.LocalSearchService_Bin
   $: {
     structSpec: {
       name: 'ash.local_search_service.mojom.LocalSearchService.BindIndex_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'index_id', packedOffset: 0, packedBitOffset: 0, type: ash.local_search_service.mojom.IndexIdSpec, nullable: false, minVersion: 0 },
-        { name: 'backend', packedOffset: 4, packedBitOffset: 0, type: ash.local_search_service.mojom.BackendSpec, nullable: false, minVersion: 0 },
-        { name: 'index_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'reporter_remote', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'index_id', packedOffset: 16, packedBitOffset: 0, type: ash.local_search_service.mojom.IndexIdSpec, nullable: false, minVersion: 0 },
+        { name: 'backend', packedOffset: 20, packedBitOffset: 0, type: ash.local_search_service.mojom.BackendSpec, nullable: false, minVersion: 0 },
+        { name: 'index_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.local_search_service.mojom.IndexRemote), nullable: false, minVersion: 0 },
+        { name: 'reporter_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.local_search_service.mojom.SearchMetricsReporterRemote), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

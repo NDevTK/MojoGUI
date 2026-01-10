@@ -31,14 +31,14 @@ sharing.mojom.mojom.WebRtcDependenciesSpec = {
   $: {
     structSpec: {
       name: 'sharing.mojom.WebRtcDependencies',
-      packedSize: 24,
+      packedSize: 40,
       fields: [
-        { name: 'socket_manager', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'mdns_responder_factory', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'ice_config_fetcher', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'messenger', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'socket_manager', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.P2PSocketManagerRemote), nullable: false, minVersion: 0 },
+        { name: 'mdns_responder_factory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(sharing.mojom.MdnsResponderFactoryRemote), nullable: false, minVersion: 0 },
+        { name: 'ice_config_fetcher', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(sharing.mojom.IceConfigFetcherRemote), nullable: false, minVersion: 0 },
+        { name: 'messenger', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(sharing.mojom.WebRtcSignalingMessengerRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -193,7 +193,7 @@ sharing.mojom.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec = {
       name: 'sharing.mojom.MdnsResponderFactory.CreateMdnsResponder_Params',
       packedSize: 16,
       fields: [
-        { name: 'responder_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'responder_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.MdnsResponderRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

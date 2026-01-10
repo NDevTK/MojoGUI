@@ -129,12 +129,12 @@ blink.mojom.mojom.FeatureObserver_Register_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.FeatureObserver.Register_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 4, packedBitOffset: 0, type: blink.mojom.ObservedFeatureTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.ObservedFeatureRemote), nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ObservedFeatureTypeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

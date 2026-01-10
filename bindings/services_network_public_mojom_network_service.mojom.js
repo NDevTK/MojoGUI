@@ -69,17 +69,17 @@ network.mojom.mojom.NetworkServiceParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkServiceParams',
-      packedSize: 48,
+      packedSize: 56,
       fields: [
-        { name: 'initial_connection_type', packedOffset: 16, packedBitOffset: 0, type: network.mojom.ConnectionTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'initial_connection_subtype', packedOffset: 20, packedBitOffset: 0, type: network.mojom.ConnectionSubtypeSpec, nullable: false, minVersion: 0 },
+        { name: 'initial_connection_type', packedOffset: 32, packedBitOffset: 0, type: network.mojom.ConnectionTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'initial_connection_subtype', packedOffset: 36, packedBitOffset: 0, type: network.mojom.ConnectionSubtypeSpec, nullable: false, minVersion: 0 },
         { name: 'initial_address_map', packedOffset: 0, packedBitOffset: 0, type: network.mojom.InitialAddressMapSpec, nullable: true, minVersion: 0 },
         { name: 'environment', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.EnvironmentVariableSpec, false), nullable: false, minVersion: 0 },
-        { name: 'default_observer', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'first_party_sets_enabled', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'system_dns_resolver', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'default_observer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.URLLoaderNetworkServiceObserverRemote), nullable: false, minVersion: 0 },
+        { name: 'first_party_sets_enabled', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'system_dns_resolver', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.SystemDnsResolverRemote), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };
@@ -645,12 +645,12 @@ network.mojom.mojom.NetworkService_AttachNetLogProxy_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.AttachNetLogProxy_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'proxy_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'proxy_sink', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'proxy_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.NetLogProxySourceRemote), nullable: false, minVersion: 0 },
+        { name: 'proxy_sink', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.NetLogProxySinkRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -676,8 +676,8 @@ network.mojom.mojom.NetworkService_CreateNetworkContext_ParamsSpec = {
       name: 'network.mojom.NetworkService.CreateNetworkContext_Params',
       packedSize: 24,
       fields: [
-        { name: 'context', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: network.mojom.NetworkContextParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.NetworkContextRemote), nullable: false, minVersion: 0 },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: network.mojom.NetworkContextParamsSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -780,7 +780,7 @@ network.mojom.mojom.NetworkService_GetNetworkChangeManager_ParamsSpec = {
       name: 'network.mojom.NetworkService.GetNetworkChangeManager_Params',
       packedSize: 16,
       fields: [
-        { name: 'network_change_manager', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'network_change_manager', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.NetworkChangeManagerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -794,7 +794,7 @@ network.mojom.mojom.NetworkService_GetNetworkQualityEstimatorManager_ParamsSpec 
       name: 'network.mojom.NetworkService.GetNetworkQualityEstimatorManager_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.NetworkQualityEstimatorManagerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -808,7 +808,7 @@ network.mojom.mojom.NetworkService_GetDnsConfigChangeManager_ParamsSpec = {
       name: 'network.mojom.NetworkService.GetDnsConfigChangeManager_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.DnsConfigChangeManagerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1029,7 +1029,7 @@ network.mojom.mojom.NetworkService_BindTestInterfaceForTesting_ParamsSpec = {
       name: 'network.mojom.NetworkService.BindTestInterfaceForTesting_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.NetworkServiceTestRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1127,7 +1127,7 @@ network.mojom.mojom.NetworkService_SetGssapiLibraryLoadObserver_ParamsSpec = {
       name: 'network.mojom.NetworkService.SetGssapiLibraryLoadObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'gssapi_library_load_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'gssapi_library_load_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.GssapiLibraryLoadObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1141,7 +1141,7 @@ network.mojom.mojom.NetworkService_SetNetworkAnnotationMonitor_ParamsSpec = {
       name: 'network.mojom.NetworkService.SetNetworkAnnotationMonitor_Params',
       packedSize: 16,
       fields: [
-        { name: 'remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.NetworkAnnotationMonitorRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1167,17 +1167,17 @@ network.mojom.mojom.NetworkService_InterceptUrlLoaderForBodyDecoding_ParamsSpec 
   $: {
     structSpec: {
       name: 'network.mojom.NetworkService.InterceptUrlLoaderForBodyDecoding_Params',
-      packedSize: 48,
+      packedSize: 64,
       fields: [
         { name: 'content_encoding_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.SourceTypeSpec, false), nullable: false, minVersion: 0 },
         { name: 'source_body', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
         { name: 'dest_body', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'source_url_loader', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'source_url_loader_client', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'dest_url_loader', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'dest_url_loader_client', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'source_url_loader', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.URLLoaderRemote), nullable: false, minVersion: 0 },
+        { name: 'source_url_loader_client', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.URLLoaderClientRemote), nullable: false, minVersion: 0 },
+        { name: 'dest_url_loader', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.URLLoaderRemote), nullable: false, minVersion: 0 },
+        { name: 'dest_url_loader_client', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.URLLoaderClientRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0, packedSize: 64}]
     }
   }
 };
@@ -1232,7 +1232,7 @@ network.mojom.mojom.NetworkService_AddDurableMessageCollector_ParamsSpec = {
       name: 'network.mojom.NetworkService.AddDurableMessageCollector_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.DurableMessageCollectorRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

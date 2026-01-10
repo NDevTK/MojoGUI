@@ -297,7 +297,7 @@ chromeos.connectivity.connectivity.mojom.mojom.PasspointService_RegisterPasspoin
       name: 'chromeos.connectivity.mojom.PasspointService.RegisterPasspointListener_Params',
       packedSize: 16,
       fields: [
-        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.connectivity.mojom.PasspointEventsListenerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

@@ -16,15 +16,15 @@ blink.mojom.mojom.URLLoaderFactoryBundleSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.URLLoaderFactoryBundle',
-      packedSize: 40,
+      packedSize: 48,
       fields: [
-        { name: 'default_factory', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'scheme_specific_factories', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.InterfaceProxy, false), nullable: false, minVersion: 0 },
-        { name: 'isolated_world_factories', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(url.mojom.OriginSpec, mojo.internal.InterfaceProxy, false), nullable: false, minVersion: 0 },
-        { name: 'bypass_redirect_checks', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'local_resource_loader_config', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.LocalResourceLoaderConfigSpec, nullable: true, minVersion: 0 },
+        { name: 'default_factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.URLLoaderFactoryRemote), nullable: true, minVersion: 0 },
+        { name: 'scheme_specific_factories', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.InterfaceProxy(network.mojom.URLLoaderFactoryRemote), false), nullable: false, minVersion: 0 },
+        { name: 'isolated_world_factories', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Map(url.mojom.OriginSpec, mojo.internal.InterfaceProxy(network.mojom.URLLoaderFactoryRemote), false), nullable: false, minVersion: 0 },
+        { name: 'bypass_redirect_checks', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'local_resource_loader_config', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.LocalResourceLoaderConfigSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 40}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };

@@ -307,19 +307,19 @@ recording.mojom.mojom.RecordingService_RecordFullscreen_ParamsSpec = {
   $: {
     structSpec: {
       name: 'recording.mojom.RecordingService.RecordFullscreen_Params',
-      packedSize: 56,
+      packedSize: 80,
       fields: [
-        { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'video_capturer', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'microphone_stream_factory', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'system_audio_stream_factory', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'drive_fs_quota_delegate', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'output_file_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_sink_size_dip', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'device_scale_factor', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(recording.mojom.RecordingServiceClientRemote), nullable: false, minVersion: 0 },
+        { name: 'video_capturer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(viz.mojom.FrameSinkVideoCapturerRemote), nullable: false, minVersion: 0 },
+        { name: 'microphone_stream_factory', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.AudioStreamFactoryRemote), nullable: true, minVersion: 0 },
+        { name: 'system_audio_stream_factory', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.AudioStreamFactoryRemote), nullable: true, minVersion: 0 },
+        { name: 'drive_fs_quota_delegate', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(recording.mojom.DriveFsQuotaDelegateRemote), nullable: true, minVersion: 0 },
+        { name: 'output_file_path', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'frame_sink_id', packedOffset: 48, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
+        { name: 'frame_sink_size_dip', packedOffset: 56, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'device_scale_factor', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 56}]
+      versions: [{version: 0, packedSize: 80}]
     }
   }
 };
@@ -329,21 +329,21 @@ recording.mojom.mojom.RecordingService_RecordWindow_ParamsSpec = {
   $: {
     structSpec: {
       name: 'recording.mojom.RecordingService.RecordWindow_Params',
-      packedSize: 72,
+      packedSize: 96,
       fields: [
-        { name: 'client', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'video_capturer', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'microphone_stream_factory', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'system_audio_stream_factory', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'drive_fs_quota_delegate', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'output_file_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_sink_size_dip', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'device_scale_factor', packedOffset: 60, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'subtree_capture_id', packedOffset: 24, packedBitOffset: 0, type: viz.mojom.SubtreeCaptureIdSpec, nullable: false, minVersion: 0 },
-        { name: 'window_size_dip', packedOffset: 32, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(recording.mojom.RecordingServiceClientRemote), nullable: false, minVersion: 0 },
+        { name: 'video_capturer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(viz.mojom.FrameSinkVideoCapturerRemote), nullable: false, minVersion: 0 },
+        { name: 'microphone_stream_factory', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.AudioStreamFactoryRemote), nullable: true, minVersion: 0 },
+        { name: 'system_audio_stream_factory', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.AudioStreamFactoryRemote), nullable: true, minVersion: 0 },
+        { name: 'drive_fs_quota_delegate', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(recording.mojom.DriveFsQuotaDelegateRemote), nullable: true, minVersion: 0 },
+        { name: 'output_file_path', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'frame_sink_id', packedOffset: 48, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
+        { name: 'frame_sink_size_dip', packedOffset: 56, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'device_scale_factor', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'subtree_capture_id', packedOffset: 64, packedBitOffset: 0, type: viz.mojom.SubtreeCaptureIdSpec, nullable: false, minVersion: 0 },
+        { name: 'window_size_dip', packedOffset: 72, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 72}]
+      versions: [{version: 0, packedSize: 96}]
     }
   }
 };
@@ -353,20 +353,20 @@ recording.mojom.mojom.RecordingService_RecordRegion_ParamsSpec = {
   $: {
     structSpec: {
       name: 'recording.mojom.RecordingService.RecordRegion_Params',
-      packedSize: 64,
+      packedSize: 88,
       fields: [
-        { name: 'client', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'video_capturer', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'microphone_stream_factory', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'system_audio_stream_factory', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'drive_fs_quota_delegate', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'output_file_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_sink_id', packedOffset: 8, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
-        { name: 'frame_sink_size_dip', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
-        { name: 'device_scale_factor', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
-        { name: 'crop_region_dip', packedOffset: 24, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(recording.mojom.RecordingServiceClientRemote), nullable: false, minVersion: 0 },
+        { name: 'video_capturer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(viz.mojom.FrameSinkVideoCapturerRemote), nullable: false, minVersion: 0 },
+        { name: 'microphone_stream_factory', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.AudioStreamFactoryRemote), nullable: true, minVersion: 0 },
+        { name: 'system_audio_stream_factory', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.AudioStreamFactoryRemote), nullable: true, minVersion: 0 },
+        { name: 'drive_fs_quota_delegate', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(recording.mojom.DriveFsQuotaDelegateRemote), nullable: true, minVersion: 0 },
+        { name: 'output_file_path', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
+        { name: 'frame_sink_id', packedOffset: 48, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },
+        { name: 'frame_sink_size_dip', packedOffset: 56, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
+        { name: 'device_scale_factor', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
+        { name: 'crop_region_dip', packedOffset: 64, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 64}]
+      versions: [{version: 0, packedSize: 88}]
     }
   }
 };

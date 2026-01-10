@@ -164,7 +164,7 @@ ash.color_internals.color_internals.mojom.mojom.WallpaperColorsHandler_SetWallpa
       name: 'ash.color_internals.mojom.WallpaperColorsHandler.SetWallpaperColorsObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.color_internals.mojom.WallpaperColorsObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

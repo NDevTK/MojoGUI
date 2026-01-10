@@ -246,7 +246,7 @@ ash.help_app.help_app.mojom.mojom.SearchHandler_Observe_ParamsSpec = {
       name: 'ash.help_app.mojom.SearchHandler.Observe_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.help_app.mojom.SearchResultsObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

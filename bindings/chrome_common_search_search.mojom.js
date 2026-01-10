@@ -71,12 +71,12 @@ search.mojom.mojom.EmbeddedSearchConnector_Connect_ParamsSpec = {
   $: {
     structSpec: {
       name: 'search.mojom.EmbeddedSearchConnector.Connect_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'embedded_search', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'embedded_search', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(search.mojom.EmbeddedSearchRemote), nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(search.mojom.EmbeddedSearchClientRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

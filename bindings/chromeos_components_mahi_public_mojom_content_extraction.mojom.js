@@ -277,7 +277,7 @@ mahi.mojom.mojom.ContentExtractionServiceFactory_BindContentExtractionService_Pa
       name: 'mahi.mojom.ContentExtractionServiceFactory.BindContentExtractionService_Params',
       packedSize: 16,
       fields: [
-        { name: 'content_extraction_service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'content_extraction_service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(mahi.mojom.ContentExtractionServiceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -291,7 +291,7 @@ mahi.mojom.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec = {
       name: 'mahi.mojom.ContentExtractionServiceFactory.OnScreen2xReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'extractor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'extractor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(screen_ai.mojom.Screen2xMainContentExtractorRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

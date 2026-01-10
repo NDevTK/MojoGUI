@@ -72,7 +72,7 @@ device.mojom.mojom.TimeZoneMonitor_AddClient_ParamsSpec = {
       name: 'device.mojom.TimeZoneMonitor.AddClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.TimeZoneMonitorClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

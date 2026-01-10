@@ -239,7 +239,7 @@ webxr.mojom.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec = {
       name: 'webxr.mojom.WebXrInternalsHandler.SubscribeToEvents_Params',
       packedSize: 16,
       fields: [
-        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(webxr.mojom.XRInternalsSessionListenerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

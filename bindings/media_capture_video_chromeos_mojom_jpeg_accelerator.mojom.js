@@ -81,7 +81,7 @@ cros.mojom.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_ParamsSpec = {
       name: 'cros.mojom.JpegAcceleratorProvider.GetJpegEncodeAccelerator_Params',
       packedSize: 16,
       fields: [
-        { name: 'jea', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'jea', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos_camera.mojom.JpegEncodeAcceleratorRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -95,7 +95,7 @@ cros.mojom.mojom.JpegAcceleratorProvider_GetMjpegDecodeAccelerator_ParamsSpec = 
       name: 'cros.mojom.JpegAcceleratorProvider.GetMjpegDecodeAccelerator_Params',
       packedSize: 16,
       fields: [
-        { name: 'jda', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'jda', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos_camera.mojom.MjpegDecodeAcceleratorRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

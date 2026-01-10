@@ -89,14 +89,14 @@ heap_profiling.mojom.mojom.ProfilingService_AddProfilingClient_ParamsSpec = {
   $: {
     structSpec: {
       name: 'heap_profiling.mojom.ProfilingService.AddProfilingClient_Params',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
         { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProcessIdSpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'process_type', packedOffset: 20, packedBitOffset: 0, type: heap_profiling.mojom.ProcessTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: heap_profiling.mojom.ProfilingParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(heap_profiling.mojom.ProfilingClientRemote), nullable: false, minVersion: 0 },
+        { name: 'process_type', packedOffset: 24, packedBitOffset: 0, type: heap_profiling.mojom.ProcessTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'params', packedOffset: 16, packedBitOffset: 0, type: heap_profiling.mojom.ProfilingParamsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

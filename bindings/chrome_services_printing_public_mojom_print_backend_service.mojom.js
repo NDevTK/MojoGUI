@@ -89,7 +89,7 @@ printing.mojom.mojom.UnsandboxedPrintBackendHost_BindBackend_ParamsSpec = {
       name: 'printing.mojom.UnsandboxedPrintBackendHost.BindBackend_Params',
       packedSize: 16,
       fields: [
-        { name: 'service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(printing.mojom.PrintBackendServiceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -164,7 +164,7 @@ printing.mojom.mojom.SandboxedPrintBackendHost_BindBackend_ParamsSpec = {
       name: 'printing.mojom.SandboxedPrintBackendHost.BindBackend_Params',
       packedSize: 16,
       fields: [
-        { name: 'service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(printing.mojom.PrintBackendServiceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -375,7 +375,7 @@ printing.mojom.mojom.PrintBackendService_Init_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'locale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(printing.mojom.PrinterXmlParserRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

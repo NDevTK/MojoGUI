@@ -165,11 +165,11 @@ arc.mojom.mojom.IntentInfoSpec = {
         { name: 'data', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
         { name: 'type', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
         { name: 'clip_data_uri', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 13 },
-        { name: 'ui_bypassed', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 20 },
-        { name: 'extras', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: true, minVersion: 22 },
-        { name: 'uri_components', packedOffset: 48, packedBitOffset: 0, type: arc.mojom.UriComponentsSpec, nullable: true, minVersion: 30 },
+        { name: 'ui_bypassed', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 20 },
+        { name: 'extras', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: true, minVersion: 22 },
+        { name: 'uri_components', packedOffset: 56, packedBitOffset: 0, type: arc.mojom.UriComponentsSpec, nullable: true, minVersion: 30 },
       ],
-      versions: [{version: 0, packedSize: 40}, {version: 13, packedSize: 48}, {version: 20, packedSize: 72}, {version: 22, packedSize: 72}, {version: 30, packedSize: 72}]
+      versions: [{version: 0, packedSize: 40}, {version: 13, packedSize: 48}, {version: 20, packedSize: 56}, {version: 22, packedSize: 64}, {version: 30, packedSize: 72}]
     }
   }
 };
@@ -207,12 +207,12 @@ arc.mojom.mojom.IntentHandlerInfoSpec = {
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'package_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'activity_name', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'action_type', packedOffset: 40, packedBitOffset: 0, type: arc.mojom.ActionTypeSpec, nullable: false, minVersion: 4 },
-        { name: 'is_preferred', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 6 },
-        { name: 'action', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 11 },
-        { name: 'fallback_url', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 14 },
+        { name: 'action_type', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.ActionTypeSpec, nullable: false, minVersion: 4 },
+        { name: 'is_preferred', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 6 },
+        { name: 'action', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 11 },
+        { name: 'fallback_url', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 14 },
       ],
-      versions: [{version: 0, packedSize: 32}, {version: 4, packedSize: 56}, {version: 6, packedSize: 56}, {version: 11, packedSize: 56}, {version: 14, packedSize: 56}]
+      versions: [{version: 0, packedSize: 32}, {version: 4, packedSize: 40}, {version: 6, packedSize: 40}, {version: 11, packedSize: 48}, {version: 14, packedSize: 56}]
     }
   }
 };
@@ -225,12 +225,12 @@ arc.mojom.mojom.ActivityIconSpec = {
       packedSize: 40,
       fields: [
         { name: 'activity', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ActivityNameSpec, nullable: false, minVersion: 0 },
-        { name: 'width', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'height', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'width', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'height', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
         { name: 'icon', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
-        { name: 'icon_png_data', packedOffset: 16, packedBitOffset: 0, type: arc.mojom.RawIconPngDataSpec, nullable: true, minVersion: 40 },
+        { name: 'icon_png_data', packedOffset: 24, packedBitOffset: 0, type: arc.mojom.RawIconPngDataSpec, nullable: true, minVersion: 40 },
       ],
-      versions: [{version: 0, packedSize: 40}, {version: 40, packedSize: 40}]
+      versions: [{version: 0, packedSize: 32}, {version: 40, packedSize: 40}]
     }
   }
 };
@@ -752,7 +752,7 @@ arc.mojom.mojom.IntentHelperHost_OnOpenCustomTab_ResponseParamsSpec = {
       name: 'arc.mojom.IntentHelperHost.OnOpenCustomTab_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.CustomTabSessionRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -835,10 +835,10 @@ arc.mojom.mojom.IntentHelperHost_LaunchCameraApp_ParamsSpec = {
       fields: [
         { name: 'intent_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
         { name: 'mode', packedOffset: 4, packedBitOffset: 0, type: arc.mojom.CameraIntentModeSpec, nullable: false, minVersion: 0 },
-        { name: 'should_handle_result', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'should_down_scale', packedOffset: 12, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_secure', packedOffset: 12, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'task_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 36 },
+        { name: 'should_handle_result', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'should_down_scale', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_secure', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'task_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 36 },
       ],
       versions: [{version: 0, packedSize: 24}, {version: 36, packedSize: 24}]
     }
@@ -1265,7 +1265,7 @@ arc.mojom.mojom.IntentHelperInstance_Init_ParamsSpec = {
       name: 'arc.mojom.IntentHelperInstance.Init_Params',
       packedSize: 16,
       fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.IntentHelperHostRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

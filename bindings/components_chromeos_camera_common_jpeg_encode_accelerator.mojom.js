@@ -165,19 +165,19 @@ chromeos_camera.mojom.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ParamsSpec = 
       name: 'chromeos_camera.mojom.JpegEncodeAccelerator.EncodeWithDmaBuf_Params',
       packedSize: 64,
       fields: [
-        { name: 'task_id', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'input_format', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'task_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'input_format', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
         { name: 'input_planes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromeos_camera.mojom.DmaBufPlaneSpec, false), nullable: false, minVersion: 0 },
         { name: 'output_planes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(chromeos_camera.mojom.DmaBufPlaneSpec, false), nullable: false, minVersion: 0 },
-        { name: 'exif_handle', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
-        { name: 'exif_buffer_size', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'coded_size_width', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'coded_size_height', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'quality', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'has_input_modifier', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 1 },
-        { name: 'input_modifier', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 1 },
+        { name: 'exif_handle', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
+        { name: 'exif_buffer_size', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'coded_size_width', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'coded_size_height', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'quality', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'has_input_modifier', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 1 },
+        { name: 'input_modifier', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 1 },
       ],
-      versions: [{version: 0, packedSize: 64}, {version: 1, packedSize: 64}]
+      versions: [{version: 0, packedSize: 56}, {version: 1, packedSize: 64}]
     }
   }
 };

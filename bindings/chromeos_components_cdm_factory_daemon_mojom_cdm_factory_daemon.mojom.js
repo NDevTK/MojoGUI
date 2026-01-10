@@ -96,14 +96,14 @@ chromeos.cdm.cdm.mojom.mojom.CdmFactory_DEPRECATED_1_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.CdmFactory.DEPRECATED_1_Params',
-      packedSize: 24,
+      packedSize: 40,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'storage', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'cdm', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'output_protection', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(chromeos.cdm.mojom.ContentDecryptionModuleClientRemote), nullable: false, minVersion: 0 },
+        { name: 'storage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(chromeos.cdm.mojom.CdmStorageRemote), nullable: false, minVersion: 0 },
+        { name: 'cdm', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(chromeos.cdm.mojom.ContentDecryptionModuleRemote), nullable: false, minVersion: 0 },
+        { name: 'output_protection', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.cdm.mojom.OutputProtectionRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -113,15 +113,15 @@ chromeos.cdm.cdm.mojom.mojom.CdmFactory_CreateCdmDeprecated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.CdmFactory.CreateCdmDeprecated_Params',
-      packedSize: 32,
+      packedSize: 48,
       fields: [
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'storage', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'output_protection', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'cdm', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(chromeos.cdm.mojom.ContentDecryptionModuleClientRemote), nullable: false, minVersion: 0 },
+        { name: 'storage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(chromeos.cdm.mojom.CdmStorageRemote), nullable: false, minVersion: 0 },
+        { name: 'output_protection', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.cdm.mojom.OutputProtectionRemote), nullable: false, minVersion: 0 },
+        { name: 'host', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'cdm', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(chromeos.cdm.mojom.ContentDecryptionModuleRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -131,15 +131,15 @@ chromeos.cdm.cdm.mojom.mojom.CdmFactory_CreateCdm_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.CdmFactory.CreateCdm_Params',
-      packedSize: 32,
+      packedSize: 48,
       fields: [
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'storage', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'output_protection', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'cdm', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(chromeos.cdm.mojom.ContentDecryptionModuleClientRemote), nullable: false, minVersion: 0 },
+        { name: 'storage', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(chromeos.cdm.mojom.CdmStorageRemote), nullable: false, minVersion: 0 },
+        { name: 'output_protection', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.cdm.mojom.OutputProtectionRemote), nullable: false, minVersion: 0 },
+        { name: 'host', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'cdm', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(chromeos.cdm.mojom.ContentDecryptionModuleRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0, packedSize: 48}]
     }
   }
 };
@@ -319,7 +319,7 @@ chromeos.cdm.cdm.mojom.mojom.CdmFactoryDaemon_CreateFactory_ResponseParamsSpec =
       name: 'chromeos.cdm.mojom.CdmFactoryDaemon.CreateFactory_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.cdm.mojom.CdmFactoryRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -344,13 +344,13 @@ chromeos.cdm.cdm.mojom.mojom.CdmFactoryDaemon_ConnectOemCrypto_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromeos.cdm.mojom.CdmFactoryDaemon.ConnectOemCrypto_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'oemcryptor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'protected_buffer_manager', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'output_protection', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'oemcryptor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(arc.mojom.OemCryptoServiceRemote), nullable: false, minVersion: 0 },
+        { name: 'protected_buffer_manager', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ProtectedBufferManagerRemote), nullable: false, minVersion: 0 },
+        { name: 'output_protection', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.cdm.mojom.OutputProtectionRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

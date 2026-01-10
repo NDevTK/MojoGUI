@@ -18,12 +18,12 @@ tracing.mojom.mojom.ClientInfoSpec = {
   $: {
     structSpec: {
       name: 'tracing.mojom.ClientInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'process', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'pid', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'process', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(tracing.mojom.TracedProcessRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -137,7 +137,7 @@ tracing.mojom.mojom.TracingService_BindConsumerHost_ParamsSpec = {
       name: 'tracing.mojom.TracingService.BindConsumerHost_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(tracing.mojom.ConsumerHostRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

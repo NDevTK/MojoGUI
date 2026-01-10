@@ -1094,7 +1094,7 @@ ash.personalization_app.personalization_app.mojom.mojom.WallpaperProvider_SetWal
       name: 'ash.personalization_app.mojom.WallpaperProvider.SetWallpaperObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.personalization_app.mojom.WallpaperObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1828,7 +1828,7 @@ ash.personalization_app.personalization_app.mojom.mojom.ThemeProvider_SetThemeOb
       name: 'ash.personalization_app.mojom.ThemeProvider.SetThemeObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.personalization_app.mojom.ThemeObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -2361,7 +2361,7 @@ ash.personalization_app.personalization_app.mojom.mojom.UserProvider_SetUserImag
       name: 'ash.personalization_app.mojom.UserProvider.SetUserImageObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.personalization_app.mojom.UserImageObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -3013,7 +3013,7 @@ ash.personalization_app.personalization_app.mojom.mojom.AmbientProvider_SetAmbie
       name: 'ash.personalization_app.mojom.AmbientProvider.SetAmbientObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.personalization_app.mojom.AmbientObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -3437,7 +3437,7 @@ ash.personalization_app.personalization_app.mojom.mojom.KeyboardBacklightProvide
       name: 'ash.personalization_app.mojom.KeyboardBacklightProvider.SetKeyboardBacklightObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.personalization_app.mojom.KeyboardBacklightObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

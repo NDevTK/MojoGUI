@@ -161,7 +161,7 @@ video_capture.mojom.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'source_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(video_capture.mojom.VideoSourceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -173,13 +173,13 @@ video_capture.mojom.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_Param
   $: {
     structSpec: {
       name: 'video_capture.mojom.VideoSourceProvider.AddSharedMemoryVirtualDevice_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
         { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCaptureDeviceInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'producer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'virtual_device_receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'producer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(video_capture.mojom.ProducerRemote), nullable: false, minVersion: 0 },
+        { name: 'virtual_device_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(video_capture.mojom.SharedMemoryVirtualDeviceRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -192,7 +192,7 @@ video_capture.mojom.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec
       packedSize: 24,
       fields: [
         { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoCaptureDeviceInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'virtual_device_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'virtual_device_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(video_capture.mojom.TextureVirtualDeviceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -204,12 +204,12 @@ video_capture.mojom.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObser
   $: {
     structSpec: {
       name: 'video_capture.mojom.VideoSourceProvider.RegisterVirtualDevicesChangedObserver_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'raise_event_if_virtual_devices_already_present', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(video_capture.mojom.DevicesChangedObserverRemote), nullable: false, minVersion: 0 },
+        { name: 'raise_event_if_virtual_devices_already_present', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -221,7 +221,7 @@ video_capture.mojom.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_Par
       name: 'video_capture.mojom.VideoSourceProvider.RegisterDevicesChangedObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(video_capture.mojom.DevicesChangedObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

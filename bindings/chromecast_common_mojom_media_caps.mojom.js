@@ -89,7 +89,7 @@ chromecast.media.media.mojom.mojom.MediaCaps_AddObserver_ParamsSpec = {
       name: 'chromecast.media.mojom.MediaCaps.AddObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.media.mojom.MediaCapsObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

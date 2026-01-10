@@ -145,12 +145,12 @@ side_panel.customize_chrome.customize_chrome.mojom.mojom.CustomizeToolbarHandler
   $: {
     structSpec: {
       name: 'side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory.CreateCustomizeToolbarHandler_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(side_panel.customize_chrome.mojom.CustomizeToolbarClientRemote), nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

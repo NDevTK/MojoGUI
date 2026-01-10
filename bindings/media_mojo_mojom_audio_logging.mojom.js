@@ -313,9 +313,9 @@ media.mojom.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec = {
       name: 'media.mojom.AudioLogFactory.CreateAudioLog_Params',
       packedSize: 24,
       fields: [
-        { name: 'component', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioLogComponentSpec, nullable: false, minVersion: 0 },
-        { name: 'component_id', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'audio_log_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'component', packedOffset: 8, packedBitOffset: 0, type: media.mojom.AudioLogComponentSpec, nullable: false, minVersion: 0 },
+        { name: 'component_id', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'audio_log_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.AudioLogRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

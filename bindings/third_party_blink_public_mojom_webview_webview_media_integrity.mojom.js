@@ -98,8 +98,8 @@ blink.mojom.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ParamsSpec =
       name: 'blink.mojom.WebViewMediaIntegrityService.GetIntegrityProvider_Params',
       packedSize: 24,
       fields: [
-        { name: 'provider_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'cloud_project_number', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
+        { name: 'provider_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.WebViewMediaIntegrityProviderRemote), nullable: false, minVersion: 0 },
+        { name: 'cloud_project_number', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

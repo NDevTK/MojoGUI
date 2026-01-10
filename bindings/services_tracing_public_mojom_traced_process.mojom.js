@@ -16,7 +16,7 @@ tracing.mojom.mojom.ConnectToTracingRequestSpec = {
       name: 'tracing.mojom.ConnectToTracingRequest',
       packedSize: 16,
       fields: [
-        { name: 'perfetto_service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'perfetto_service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(tracing.mojom.PerfettoServiceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

@@ -165,7 +165,7 @@ ash.eche_app.eche_app.mojom.mojom.SignalingMessageExchanger_SetSignalingMessageO
       name: 'ash.eche_app.mojom.SignalingMessageExchanger.SetSignalingMessageObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.eche_app.mojom.SignalingMessageObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -363,7 +363,7 @@ ash.eche_app.eche_app.mojom.mojom.SystemInfoProvider_SetSystemInfoObserver_Param
       name: 'ash.eche_app.mojom.SystemInfoProvider.SetSystemInfoObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.eche_app.mojom.SystemInfoObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -592,7 +592,7 @@ ash.eche_app.eche_app.mojom.mojom.AccessibilityProvider_SetAccessibilityObserver
       name: 'ash.eche_app.mojom.AccessibilityProvider.SetAccessibilityObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.eche_app.mojom.AccessibilityObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1095,7 +1095,7 @@ ash.eche_app.eche_app.mojom.mojom.DisplayStreamHandler_SetStreamActionObserver_P
       name: 'ash.eche_app.mojom.DisplayStreamHandler.SetStreamActionObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.eche_app.mojom.StreamActionObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1417,7 +1417,7 @@ ash.eche_app.eche_app.mojom.mojom.KeyboardLayoutHandler_SetKeyboardLayoutObserve
       name: 'ash.eche_app.mojom.KeyboardLayoutHandler.SetKeyboardLayoutObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.eche_app.mojom.KeyboardLayoutObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

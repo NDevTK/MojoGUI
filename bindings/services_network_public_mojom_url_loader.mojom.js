@@ -17,12 +17,12 @@ network.mojom.mojom.URLLoaderClientEndpointsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.URLLoaderClientEndpoints',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'url_loader', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'url_loader_client', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'url_loader', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.URLLoaderRemote), nullable: false, minVersion: 0 },
+        { name: 'url_loader_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.URLLoaderClientRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

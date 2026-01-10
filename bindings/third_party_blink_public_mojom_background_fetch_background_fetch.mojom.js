@@ -109,7 +109,7 @@ blink.mojom.mojom.BackgroundFetchRegistrationSpec = {
       packedSize: 24,
       fields: [
         { name: 'registration_data', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundFetchRegistrationDataSpec, nullable: false, minVersion: 0 },
-        { name: 'registration_interface', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'registration_interface', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.BackgroundFetchRegistrationServiceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -633,7 +633,7 @@ blink.mojom.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_Par
       name: 'blink.mojom.BackgroundFetchRegistrationService.AddRegistrationObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.BackgroundFetchRegistrationObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

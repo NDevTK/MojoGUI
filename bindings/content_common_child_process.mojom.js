@@ -354,7 +354,7 @@ content.mojom.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec = 
       name: 'content.mojom.ChildProcess.GetBackgroundTracingAgentProvider_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(tracing.mojom.BackgroundTracingAgentProviderRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -368,7 +368,7 @@ content.mojom.mojom.ChildProcess_EnableSystemTracingService_ParamsSpec = {
       name: 'content.mojom.ChildProcess.EnableSystemTracingService_Params',
       packedSize: 16,
       fields: [
-        { name: 'remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(tracing.mojom.SystemTracingServiceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

@@ -928,12 +928,12 @@ memory_instrumentation.mojom.mojom.CoordinatorConnector_RegisterCoordinatorClien
   $: {
     structSpec: {
       name: 'memory_instrumentation.mojom.CoordinatorConnector.RegisterCoordinatorClient_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'client_process', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(memory_instrumentation.mojom.CoordinatorRemote), nullable: false, minVersion: 0 },
+        { name: 'client_process', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(memory_instrumentation.mojom.ClientProcessRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

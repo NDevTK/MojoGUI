@@ -15,13 +15,13 @@ blink.mojom.mojom.ServiceWorkerInstalledScriptsInfoSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerInstalledScriptsInfo',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'manager_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'manager_host_remote', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'installed_urls', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
+        { name: 'manager_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.ServiceWorkerInstalledScriptsManagerRemote), nullable: false, minVersion: 0 },
+        { name: 'manager_host_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.ServiceWorkerInstalledScriptsManagerHostRemote), nullable: false, minVersion: 0 },
+        { name: 'installed_urls', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

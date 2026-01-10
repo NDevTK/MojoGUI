@@ -670,12 +670,12 @@ blink.mojom.mojom.WidgetInputHandlerHost_RequestMouseLock_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WidgetInputHandlerHost.RequestMouseLock_ResponseParams',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PointerLockResultSpec, nullable: false, minVersion: 0 },
-        { name: 'context', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PointerLockResultSpec, nullable: false, minVersion: 0 },
+        { name: 'context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.PointerLockContextRemote), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1940,13 +1940,13 @@ blink.mojom.mojom.WidgetInputHandler_AttachSynchronousCompositor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.WidgetInputHandler.AttachSynchronousCompositor_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'control_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'host', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'compositor_request', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'control_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.SynchronousCompositorControlHostRemote), nullable: false, minVersion: 0 },
+        { name: 'host', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.SynchronousCompositorHostRemote), nullable: false, minVersion: 0 },
+        { name: 'compositor_request', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(blink.mojom.SynchronousCompositorRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -1958,7 +1958,7 @@ blink.mojom.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_ParamsSpec = {
       name: 'blink.mojom.WidgetInputHandler.GetFrameWidgetInputHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'interface_request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'interface_request', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(blink.mojom.FrameWidgetInputHandlerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

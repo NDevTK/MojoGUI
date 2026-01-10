@@ -261,12 +261,12 @@ ash.diagnostics.diagnostics.mojom.mojom.SystemRoutineController_RunRoutine_Param
   $: {
     structSpec: {
       name: 'ash.diagnostics.mojom.SystemRoutineController.RunRoutine_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'type', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.RoutineTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'runner', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 8, packedBitOffset: 0, type: ash.diagnostics.mojom.RoutineTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'runner', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.diagnostics.mojom.RoutineRunnerRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

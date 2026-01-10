@@ -147,8 +147,8 @@ optimization_guide.mojom.mojom.ModelSolution_CreateSession_ParamsSpec = {
       name: 'optimization_guide.mojom.ModelSolution.CreateSession_Params',
       packedSize: 24,
       fields: [
-        { name: 'session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.SessionParamsSpec, nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(on_device_model.mojom.SessionRemote), nullable: false, minVersion: 0 },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.SessionParamsSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -162,7 +162,7 @@ optimization_guide.mojom.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec 
       name: 'optimization_guide.mojom.ModelSolution.CreateTextSafetySession_Params',
       packedSize: 16,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(on_device_model.mojom.TextSafetySessionRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -274,7 +274,7 @@ optimization_guide.mojom.mojom.ModelSubscriber_Available_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: optimization_guide.mojom.ModelSolutionConfigSpec, nullable: false, minVersion: 0 },
-        { name: 'solution', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'solution', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(optimization_guide.mojom.ModelSolutionRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -350,7 +350,7 @@ optimization_guide.mojom.mojom.ModelBroker_Subscribe_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'options', packedOffset: 0, packedBitOffset: 0, type: optimization_guide.mojom.ModelSubscriptionOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'subcriber', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'subcriber', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(optimization_guide.mojom.ModelSubscriberRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

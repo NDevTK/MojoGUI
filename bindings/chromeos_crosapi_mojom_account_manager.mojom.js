@@ -476,7 +476,7 @@ crosapi.mojom.mojom.AccountManager_AddObserver_ResponseParamsSpec = {
       name: 'crosapi.mojom.AccountManager.AddObserver_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(crosapi.mojom.AccountManagerObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -624,7 +624,7 @@ crosapi.mojom.mojom.AccountManager_CreateAccessTokenFetcher_ResponseParamsSpec =
       name: 'crosapi.mojom.AccountManager.CreateAccessTokenFetcher_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'access_token_fetcher', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'access_token_fetcher', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(crosapi.mojom.AccessTokenFetcherRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

@@ -150,7 +150,7 @@ network.mojom.mojom.NetworkQualityEstimatorManager_RequestNotifications_ParamsSp
       name: 'network.mojom.NetworkQualityEstimatorManager.RequestNotifications_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.NetworkQualityEstimatorManagerClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

@@ -172,13 +172,13 @@ chromecast.mojom.mojom.CastWebService_CreateWebView_ParamsSpec = {
   $: {
     structSpec: {
       name: 'chromecast.mojom.CastWebService.CreateWebView_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: chromecast.mojom.CastWebViewParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'web_contents', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'window', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'web_contents', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromecast.mojom.CastWebContentsRemote), nullable: false, minVersion: 0 },
+        { name: 'window', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromecast.mojom.CastContentWindowRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -190,8 +190,8 @@ chromecast.mojom.mojom.CastWebService_RegisterWebUiClient_ParamsSpec = {
       name: 'chromecast.mojom.CastWebService.RegisterWebUiClient_Params',
       packedSize: 24,
       fields: [
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'hosts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromecast.mojom.WebUiClientRemote), nullable: false, minVersion: 0 },
+        { name: 'hosts', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

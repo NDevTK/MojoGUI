@@ -212,12 +212,12 @@ ash.cros_healthd.cros_healthd.connectivity.connectivity.mojom.mojom.Connectivity
   $: {
     structSpec: {
       name: 'ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider.BindContext_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cros_healthd.connectivity.mojom.StateRemote), nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.cros_healthd.connectivity.mojom.StateRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

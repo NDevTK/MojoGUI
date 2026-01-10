@@ -205,7 +205,7 @@ audio.mojom.mojom.DebugRecording_Enable_ParamsSpec = {
       name: 'audio.mojom.DebugRecording.Enable_Params',
       packedSize: 16,
       fields: [
-        { name: 'file_provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'file_provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(audio.mojom.DebugRecordingFileProviderRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

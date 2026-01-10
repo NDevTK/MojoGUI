@@ -395,12 +395,12 @@ ntp_promo.mojom.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec = 
   $: {
     structSpec: {
       name: 'ntp_promo.mojom.NtpPromoHandlerFactory.CreateNtpPromoHandler_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ntp_promo.mojom.NtpPromoClientRemote), nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ntp_promo.mojom.NtpPromoHandlerRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

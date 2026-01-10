@@ -370,7 +370,7 @@ cros.mojom.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec = {
       name: 'cros.mojom.CrosSystemEventMonitor.AddDisplayObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cros.mojom.CrosDisplayObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -384,7 +384,7 @@ cros.mojom.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec = {
       name: 'cros.mojom.CrosSystemEventMonitor.AddLidObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cros.mojom.CrosLidObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -399,7 +399,7 @@ cros.mojom.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'client_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cros.mojom.CrosPowerObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

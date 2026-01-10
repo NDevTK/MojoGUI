@@ -118,7 +118,7 @@ network.mojom.mojom.SharedDictionaryAccessObserver_Clone_ParamsSpec = {
       name: 'network.mojom.SharedDictionaryAccessObserver.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.SharedDictionaryAccessObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

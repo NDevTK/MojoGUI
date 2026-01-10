@@ -60,8 +60,8 @@ arc.mojom.mojom.CompositionSegmentSpec = {
       fields: [
         { name: 'start_offset', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
         { name: 'end_offset', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'emphasized', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'style', packedOffset: 8, packedBitOffset: 0, type: arc.mojom.SegmentStyleSpec, nullable: false, minVersion: 18 },
+        { name: 'emphasized', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'style', packedOffset: 12, packedBitOffset: 0, type: arc.mojom.SegmentStyleSpec, nullable: false, minVersion: 18 },
       ],
       versions: [{version: 0, packedSize: 24}, {version: 18, packedSize: 24}]
     }
@@ -75,17 +75,17 @@ arc.mojom.mojom.KeyEventDataSpec = {
       name: 'arc.mojom.KeyEventData',
       packedSize: 24,
       fields: [
-        { name: 'pressed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'pressed', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
         { name: 'key_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
-        { name: 'is_shift_down', packedOffset: 8, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_control_down', packedOffset: 8, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_alt_down', packedOffset: 8, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'is_capslock_on', packedOffset: 8, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'scan_code', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 16 },
-        { name: 'is_alt_gr_down', packedOffset: 8, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 20 },
-        { name: 'is_repeat', packedOffset: 8, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 23 },
+        { name: 'is_shift_down', packedOffset: 4, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_control_down', packedOffset: 4, packedBitOffset: 2, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_alt_down', packedOffset: 4, packedBitOffset: 3, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'is_capslock_on', packedOffset: 4, packedBitOffset: 4, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'scan_code', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 16 },
+        { name: 'is_alt_gr_down', packedOffset: 4, packedBitOffset: 5, type: mojo.internal.Bool, nullable: false, minVersion: 20 },
+        { name: 'is_repeat', packedOffset: 4, packedBitOffset: 6, type: mojo.internal.Bool, nullable: false, minVersion: 23 },
       ],
-      versions: [{version: 0, packedSize: 24}, {version: 16, packedSize: 24}, {version: 20, packedSize: 24}, {version: 23, packedSize: 24}]
+      versions: [{version: 0, packedSize: 16}, {version: 16, packedSize: 24}, {version: 20, packedSize: 24}, {version: 23, packedSize: 24}]
     }
   }
 };
@@ -199,10 +199,10 @@ arc.mojom.mojom.ImeHost_OnTextInputTypeChanged_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.TextInputTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'is_personalized_learning_allowed', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 10 },
-        { name: 'flags', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 11 },
+        { name: 'is_personalized_learning_allowed', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 10 },
+        { name: 'flags', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 11 },
       ],
-      versions: [{version: 0, packedSize: 16}, {version: 10, packedSize: 24}, {version: 11, packedSize: 24}]
+      versions: [{version: 0, packedSize: 16}, {version: 10, packedSize: 16}, {version: 11, packedSize: 24}]
     }
   }
 };
@@ -424,7 +424,7 @@ arc.mojom.mojom.ImeInstance_Init_ParamsSpec = {
       name: 'arc.mojom.ImeInstance.Init_Params',
       packedSize: 16,
       fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ImeHostRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

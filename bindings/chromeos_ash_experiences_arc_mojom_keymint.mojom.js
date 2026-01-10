@@ -805,7 +805,7 @@ arc.mojom.mojom.keymint.keymint.KeyMintHost_GetServer_ResponseParamsSpec = {
       name: 'arc.mojom.keymint.KeyMintHost.GetServer_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'server_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'server_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.keymint.KeyMintServerRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -880,7 +880,7 @@ arc.mojom.mojom.keymint.keymint.KeyMintInstance_Init_ParamsSpec = {
       name: 'arc.mojom.keymint.KeyMintInstance.Init_Params',
       packedSize: 16,
       fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.keymint.KeyMintHostRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

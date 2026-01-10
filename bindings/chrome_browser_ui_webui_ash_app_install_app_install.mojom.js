@@ -26,7 +26,7 @@ ash.app_install.app_install.mojom.mojom.DialogArgsSpec = { $: mojo.internal.Unio
       }},
       'connection_error_actions': {
         'ordinal': 2,
-        'type': mojo.internal.InterfaceProxy,
+        'type': mojo.internal.InterfaceProxy(ash.app_install.mojom.ConnectionErrorActionsRemote),
       }},
     })
 };
@@ -39,7 +39,7 @@ ash.app_install.app_install.mojom.mojom.AppInfoArgsSpec = {
       packedSize: 24,
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: ash.app_install.mojom.AppInfoDataSpec, nullable: false, minVersion: 0 },
-        { name: 'actions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'actions', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.app_install.mojom.AppInfoActionsRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -339,7 +339,7 @@ ash.app_install.app_install.mojom.mojom.PageHandlerFactory_CreatePageHandler_Par
       name: 'ash.app_install.mojom.PageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.app_install.mojom.PageHandlerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

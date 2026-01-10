@@ -208,7 +208,7 @@ network.mojom.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec = {
       name: 'network.mojom.P2PSocketManager.StartNetworkNotifications_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.P2PNetworkNotificationClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -249,7 +249,7 @@ network.mojom.mojom.P2PSocketManager_CreateSocket_ParamsSpec = {
   $: {
     structSpec: {
       name: 'network.mojom.P2PSocketManager.CreateSocket_Params',
-      packedSize: 64,
+      packedSize: 72,
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: network.mojom.P2PSocketTypeSpec, nullable: false, minVersion: 0 },
         { name: 'local_address', packedOffset: 8, packedBitOffset: 0, type: network.mojom.IPEndPointSpec, nullable: false, minVersion: 0 },
@@ -257,10 +257,10 @@ network.mojom.mojom.P2PSocketManager_CreateSocket_ParamsSpec = {
         { name: 'remote_address', packedOffset: 24, packedBitOffset: 0, type: network.mojom.P2PHostAndIPEndPointSpec, nullable: false, minVersion: 0 },
         { name: 'traffic_annotation', packedOffset: 32, packedBitOffset: 0, type: network.mojom.MutableNetworkTrafficAnnotationTagSpec, nullable: false, minVersion: 0 },
         { name: 'devtools_token', packedOffset: 40, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
-        { name: 'client', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'socket', packedOffset: 52, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.P2PSocketClientRemote), nullable: false, minVersion: 0 },
+        { name: 'socket', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(network.mojom.P2PSocketRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 64}]
+      versions: [{version: 0, packedSize: 72}]
     }
   }
 };

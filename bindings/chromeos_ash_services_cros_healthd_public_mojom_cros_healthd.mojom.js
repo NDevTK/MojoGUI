@@ -1492,9 +1492,9 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdDiagnosticsService_DEPRECAT
       name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.DEPRECATED_RunLedLitUpRoutine_Params',
       packedSize: 24,
       fields: [
-        { name: 'name', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.DEPRECATED_LedNameSpec, nullable: false, minVersion: 0 },
-        { name: 'color', packedOffset: 4, packedBitOffset: 0, type: ash.cros_healthd.mojom.DEPRECATED_LedColorSpec, nullable: false, minVersion: 0 },
-        { name: 'replier', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'name', packedOffset: 8, packedBitOffset: 0, type: ash.cros_healthd.mojom.DEPRECATED_LedNameSpec, nullable: false, minVersion: 0 },
+        { name: 'color', packedOffset: 12, packedBitOffset: 0, type: ash.cros_healthd.mojom.DEPRECATED_LedColorSpec, nullable: false, minVersion: 0 },
+        { name: 'replier', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -1949,7 +1949,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_DEPRECATED_Add
       name: 'ash.cros_healthd.mojom.CrosHealthdEventService.DEPRECATED_AddBluetoothObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1963,7 +1963,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_DEPRECATED_Add
       name: 'ash.cros_healthd.mojom.CrosHealthdEventService.DEPRECATED_AddLidObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cros_healthd.mojom.CrosHealthdLidObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1977,7 +1977,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_DEPRECATED_Add
       name: 'ash.cros_healthd.mojom.CrosHealthdEventService.DEPRECATED_AddPowerObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cros_healthd.mojom.CrosHealthdPowerObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1991,7 +1991,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_AddNetworkObse
       name: 'ash.cros_healthd.mojom.CrosHealthdEventService.AddNetworkObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.network_health.mojom.NetworkEventsObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -2005,7 +2005,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_DEPRECATED_Add
       name: 'ash.cros_healthd.mojom.CrosHealthdEventService.DEPRECATED_AddAudioObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cros_healthd.mojom.CrosHealthdAudioObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -2019,7 +2019,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_DEPRECATED_Add
       name: 'ash.cros_healthd.mojom.CrosHealthdEventService.DEPRECATED_AddThunderboltObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -2033,7 +2033,7 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_DEPRECATED_Add
       name: 'ash.cros_healthd.mojom.CrosHealthdEventService.DEPRECATED_AddUsbObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cros_healthd.mojom.CrosHealthdUsbObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -2045,12 +2045,12 @@ ash.cros_healthd.cros_healthd.mojom.mojom.CrosHealthdEventService_AddEventObserv
   $: {
     structSpec: {
       name: 'ash.cros_healthd.mojom.CrosHealthdEventService.AddEventObserver_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'category', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.EventCategoryEnumSpec, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'category', packedOffset: 8, packedBitOffset: 0, type: ash.cros_healthd.mojom.EventCategoryEnumSpec, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cros_healthd.mojom.EventObserverRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

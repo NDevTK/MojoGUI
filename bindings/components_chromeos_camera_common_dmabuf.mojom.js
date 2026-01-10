@@ -34,13 +34,13 @@ chromeos_camera.mojom.mojom.DmaBufVideoFrameSpec = {
       packedSize: 48,
       fields: [
         { name: 'format', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoPixelFormatSpec, nullable: false, minVersion: 0 },
-        { name: 'coded_width', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'coded_height', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'coded_width', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'coded_height', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
         { name: 'planes', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(chromeos_camera.mojom.DmaBufPlaneSpec, false), nullable: false, minVersion: 0 },
         { name: 'has_modifier', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 1 },
-        { name: 'modifier', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 1 },
+        { name: 'modifier', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 1 },
       ],
-      versions: [{version: 0, packedSize: 40}, {version: 1, packedSize: 48}]
+      versions: [{version: 0, packedSize: 32}, {version: 1, packedSize: 48}]
     }
   }
 };

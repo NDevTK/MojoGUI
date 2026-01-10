@@ -85,7 +85,7 @@ quick_answers.mojom.mojom.SpellCheckService_CreateDictionary_ResponseParamsSpec 
       name: 'quick_answers.mojom.SpellCheckService.CreateDictionary_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'dictionary', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'dictionary', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(quick_answers.mojom.SpellCheckDictionaryRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

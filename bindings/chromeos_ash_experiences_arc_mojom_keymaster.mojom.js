@@ -428,7 +428,7 @@ arc.mojom.mojom.KeymasterHost_GetServer_ResponseParamsSpec = {
       name: 'arc.mojom.KeymasterHost.GetServer_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'server_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'server_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.KeymasterServerRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -503,7 +503,7 @@ arc.mojom.mojom.KeymasterInstance_Init_ParamsSpec = {
       name: 'arc.mojom.KeymasterInstance.Init_Params',
       packedSize: 16,
       fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.KeymasterHostRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

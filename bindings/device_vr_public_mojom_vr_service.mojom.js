@@ -274,19 +274,19 @@ device.mojom.mojom.XRSessionSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRSession',
-      packedSize: 56,
+      packedSize: 72,
       fields: [
-        { name: 'data_provider', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'layer_manager', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'client_receiver', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: true, minVersion: 0 },
-        { name: 'submit_frame_sink', packedOffset: 0, packedBitOffset: 0, type: device.mojom.XRPresentationConnectionSpec, nullable: true, minVersion: 0 },
-        { name: 'enabled_features', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.XRSessionFeatureSpec, false), nullable: false, minVersion: 0 },
-        { name: 'device_config', packedOffset: 16, packedBitOffset: 0, type: device.mojom.XRSessionDeviceConfigSpec, nullable: false, minVersion: 0 },
-        { name: 'enviroment_blend_mode', packedOffset: 36, packedBitOffset: 0, type: device.mojom.XREnvironmentBlendModeSpec, nullable: false, minVersion: 0 },
-        { name: 'interaction_mode', packedOffset: 40, packedBitOffset: 0, type: device.mojom.XRInteractionModeSpec, nullable: false, minVersion: 0 },
-        { name: 'wants_fullscreen', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'data_provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.XRFrameDataProviderRemote), nullable: false, minVersion: 0 },
+        { name: 'layer_manager', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.XRLayerManagerRemote), nullable: true, minVersion: 0 },
+        { name: 'client_receiver', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.XRSessionClientRemote), nullable: true, minVersion: 0 },
+        { name: 'submit_frame_sink', packedOffset: 24, packedBitOffset: 0, type: device.mojom.XRPresentationConnectionSpec, nullable: true, minVersion: 0 },
+        { name: 'enabled_features', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.XRSessionFeatureSpec, false), nullable: false, minVersion: 0 },
+        { name: 'device_config', packedOffset: 40, packedBitOffset: 0, type: device.mojom.XRSessionDeviceConfigSpec, nullable: false, minVersion: 0 },
+        { name: 'enviroment_blend_mode', packedOffset: 48, packedBitOffset: 0, type: device.mojom.XREnvironmentBlendModeSpec, nullable: false, minVersion: 0 },
+        { name: 'interaction_mode', packedOffset: 52, packedBitOffset: 0, type: device.mojom.XRInteractionModeSpec, nullable: false, minVersion: 0 },
+        { name: 'wants_fullscreen', packedOffset: 56, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 56}]
+      versions: [{version: 0, packedSize: 72}]
     }
   }
 };
@@ -296,13 +296,13 @@ device.mojom.mojom.XRPresentationConnectionSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.XRPresentationConnection',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'provider', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'client_receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'transport_options', packedOffset: 0, packedBitOffset: 0, type: device.mojom.XRPresentationTransportOptionsSpec, nullable: false, minVersion: 0 },
+        { name: 'provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.XRPresentationProviderRemote), nullable: false, minVersion: 0 },
+        { name: 'client_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.XRPresentationClientRemote), nullable: false, minVersion: 0 },
+        { name: 'transport_options', packedOffset: 16, packedBitOffset: 0, type: device.mojom.XRPresentationTransportOptionsSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -1088,14 +1088,14 @@ device.mojom.mojom.RequestSessionSuccessSpec = {
   $: {
     structSpec: {
       name: 'device.mojom.RequestSessionSuccess',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
         { name: 'session', packedOffset: 0, packedBitOffset: 0, type: device.mojom.XRSessionSpec, nullable: false, minVersion: 0 },
         { name: 'trace_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
-        { name: 'metrics_recorder', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'xr_internals_listener', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'metrics_recorder', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.XRSessionMetricsRecorderRemote), nullable: false, minVersion: 0 },
+        { name: 'xr_internals_listener', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.WebXrInternalsRendererListenerRemote), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };
@@ -1224,7 +1224,7 @@ device.mojom.mojom.VRService_SetClient_ParamsSpec = {
       name: 'device.mojom.VRService.SetClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device.mojom.VRServiceClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1803,7 +1803,7 @@ device.mojom.mojom.XRFrameDataProvider_GetEnvironmentIntegrationProvider_ParamsS
       name: 'device.mojom.XRFrameDataProvider.GetEnvironmentIntegrationProvider_Params',
       packedSize: 16,
       fields: [
-        { name: 'environment_provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'environment_provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(device.mojom.XREnvironmentIntegrationProviderRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

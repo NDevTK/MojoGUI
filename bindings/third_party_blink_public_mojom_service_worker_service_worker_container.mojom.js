@@ -30,12 +30,12 @@ blink.mojom.mojom.ServiceWorkerContainerInfoForClientSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerContainerInfoForClient',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'client_receiver', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'host_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.ServiceWorkerContainerHostRemote), nullable: false, minVersion: 0 },
+        { name: 'client_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(blink.mojom.ServiceWorkerContainerRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -287,12 +287,12 @@ blink.mojom.mojom.ServiceWorkerContainerHost_EnsureControllerServiceWorker_Param
   $: {
     structSpec: {
       name: 'blink.mojom.ServiceWorkerContainerHost.EnsureControllerServiceWorker_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'purpose', packedOffset: 4, packedBitOffset: 0, type: blink.mojom.ControllerServiceWorkerPurposeSpec, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.ControllerServiceWorkerRemote), nullable: false, minVersion: 0 },
+        { name: 'purpose', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.ControllerServiceWorkerPurposeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -304,7 +304,7 @@ blink.mojom.mojom.ServiceWorkerContainerHost_CloneContainerHost_ParamsSpec = {
       name: 'blink.mojom.ServiceWorkerContainerHost.CloneContainerHost_Params',
       packedSize: 16,
       fields: [
-        { name: 'container_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'container_host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.ServiceWorkerContainerHostRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

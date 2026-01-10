@@ -253,7 +253,7 @@ ash.focus_mode.focus_mode.mojom.mojom.TrackProvider_SetMediaClient_ParamsSpec = 
       name: 'ash.focus_mode.mojom.TrackProvider.SetMediaClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.focus_mode.mojom.MediaClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

@@ -194,14 +194,14 @@ mantis.mojom.mojom.MantisService_Initialize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'mantis.mojom.MantisService.Initialize_Params',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
-        { name: 'progress_observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'processor', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'dlc_uuid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: true, minVersion: 3 },
-        { name: 'text_classifier', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 4 },
+        { name: 'progress_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(mantis.mojom.PlatformModelProgressObserverRemote), nullable: true, minVersion: 0 },
+        { name: 'processor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(mantis.mojom.MantisProcessorRemote), nullable: false, minVersion: 0 },
+        { name: 'dlc_uuid', packedOffset: 16, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: true, minVersion: 3 },
+        { name: 'text_classifier', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.machine_learning.mojom.TextClassifierRemote), nullable: true, minVersion: 4 },
       ],
-      versions: [{version: 0, packedSize: 24}, {version: 3, packedSize: 24}, {version: 4, packedSize: 32}]
+      versions: [{version: 0, packedSize: 24}, {version: 3, packedSize: 32}, {version: 4, packedSize: 40}]
     }
   }
 };

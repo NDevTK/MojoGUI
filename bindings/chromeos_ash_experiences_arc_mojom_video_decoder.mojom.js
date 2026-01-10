@@ -153,13 +153,13 @@ arc.mojom.mojom.VideoDecoder_Initialize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'arc.mojom.VideoDecoder.Initialize_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.VideoDecoderConfigSpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'video_frame_pool', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.VideoDecoderClientRemote), nullable: false, minVersion: 0 },
+        { name: 'video_frame_pool', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(arc.mojom.VideoFramePoolRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

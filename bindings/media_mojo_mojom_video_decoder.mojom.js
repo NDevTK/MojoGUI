@@ -22,7 +22,7 @@ media.mojom.mojom.CdmSpec = { $: mojo.internal.Union(
       }},
       'cdm_context': {
         'ordinal': 1,
-        'type': mojo.internal.InterfaceProxy,
+        'type': mojo.internal.InterfaceProxy(media.mojom.CdmContextForOOPVDRemote),
       }},
     })
 };
@@ -270,16 +270,16 @@ media.mojom.mojom.VideoDecoder_Construct_ParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.VideoDecoder.Construct_Params',
-      packedSize: 48,
+      packedSize: 56,
       fields: [
-        { name: 'client', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'media_log', packedOffset: 28, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'video_frame_handle_releaser', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'decoder_buffer_pipe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
-        { name: 'command_buffer_id', packedOffset: 8, packedBitOffset: 0, type: media.mojom.CommandBufferIdSpec, nullable: true, minVersion: 0 },
-        { name: 'target_color_space', packedOffset: 16, packedBitOffset: 0, type: gfx.mojom.ColorSpaceSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(media.mojom.VideoDecoderClientRemote), nullable: false, minVersion: 0 },
+        { name: 'media_log', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.MediaLogRemote), nullable: false, minVersion: 0 },
+        { name: 'video_frame_handle_releaser', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.VideoFrameHandleReleaserRemote), nullable: false, minVersion: 0 },
+        { name: 'decoder_buffer_pipe', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
+        { name: 'command_buffer_id', packedOffset: 32, packedBitOffset: 0, type: media.mojom.CommandBufferIdSpec, nullable: true, minVersion: 0 },
+        { name: 'target_color_space', packedOffset: 40, packedBitOffset: 0, type: gfx.mojom.ColorSpaceSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };

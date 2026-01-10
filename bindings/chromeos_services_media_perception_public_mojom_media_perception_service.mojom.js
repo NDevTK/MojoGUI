@@ -71,12 +71,12 @@ chromeos.media_perception.media_perception.mojom.mojom.MediaPerceptionService_Ge
   $: {
     structSpec: {
       name: 'chromeos.media_perception.mojom.MediaPerceptionService.GetController_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.media_perception.mojom.MediaPerceptionControllerRemote), nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.media_perception.mojom.MediaPerceptionControllerClientRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -149,7 +149,7 @@ chromeos.media_perception.media_perception.mojom.mojom.MediaPerceptionController
       name: 'chromeos.media_perception.mojom.MediaPerceptionController.ActivateMediaPerception_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.media_perception.mojom.MediaPerceptionRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -224,7 +224,7 @@ chromeos.media_perception.media_perception.mojom.mojom.MediaPerceptionController
       name: 'chromeos.media_perception.mojom.MediaPerceptionControllerClient.ConnectToVideoCaptureService_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(video_capture.mojom.VideoSourceProviderRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

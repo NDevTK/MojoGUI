@@ -115,7 +115,7 @@ browser_command.mojom.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_Pa
       name: 'browser_command.mojom.CommandHandlerFactory.CreateBrowserCommandHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(browser_command.mojom.CommandHandlerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

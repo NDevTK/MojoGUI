@@ -96,7 +96,7 @@ shape_detection.mojom.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_P
       name: 'shape_detection.mojom.ShapeDetectionService.BindBarcodeDetectionProvider_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(shape_detection.mojom.BarcodeDetectionProviderRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -110,7 +110,7 @@ shape_detection.mojom.mojom.ShapeDetectionService_BindFaceDetectionProvider_Para
       name: 'shape_detection.mojom.ShapeDetectionService.BindFaceDetectionProvider_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(shape_detection.mojom.FaceDetectionProviderRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -124,7 +124,7 @@ shape_detection.mojom.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec =
       name: 'shape_detection.mojom.ShapeDetectionService.BindTextDetection_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(shape_detection.mojom.TextDetectionRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

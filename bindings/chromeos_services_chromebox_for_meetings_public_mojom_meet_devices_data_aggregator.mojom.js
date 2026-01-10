@@ -213,7 +213,7 @@ ash.cfm.cfm.mojom.mojom.DataSource_AddWatchDog_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'filter', packedOffset: 0, packedBitOffset: 0, type: ash.cfm.mojom.DataFilterSpec, nullable: false, minVersion: 0 },
-        { name: 'watch_dog', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'watch_dog', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cfm.mojom.DataWatchDogRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -359,7 +359,7 @@ ash.cfm.cfm.mojom.mojom.DataAggregator_AddDataSource_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'source_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'data_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'data_source', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cfm.mojom.DataSourceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -388,7 +388,7 @@ ash.cfm.cfm.mojom.mojom.DataAggregator_AddWatchDog_ParamsSpec = {
       fields: [
         { name: 'source_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'filter', packedOffset: 8, packedBitOffset: 0, type: ash.cfm.mojom.DataFilterSpec, nullable: false, minVersion: 0 },
-        { name: 'watch_dog', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'watch_dog', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cfm.mojom.DataWatchDogRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }

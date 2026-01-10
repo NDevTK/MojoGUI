@@ -323,13 +323,13 @@ cros.mojom.mojom.CameraHalDispatcher_RegisterClientWithToken_ParamsSpec = {
   $: {
     structSpec: {
       name: 'cros.mojom.CameraHalDispatcher.RegisterClientWithToken_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'type', packedOffset: 12, packedBitOffset: 0, type: cros.mojom.CameraClientTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'auth_token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cros.mojom.CameraHalClientRemote), nullable: false, minVersion: 0 },
+        { name: 'type', packedOffset: 16, packedBitOffset: 0, type: cros.mojom.CameraClientTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'auth_token', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -670,7 +670,7 @@ cros.mojom.mojom.CrosCameraService_GetCameraModule_ResponseParamsSpec = {
       name: 'cros.mojom.CrosCameraService.GetCameraModule_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'camera_module_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'camera_module_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cros.mojom.CameraModuleRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -805,7 +805,7 @@ cros.mojom.mojom.CrosCameraService_AddCrosCameraServiceObserver_ParamsSpec = {
       name: 'cros.mojom.CrosCameraService.AddCrosCameraServiceObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cros.mojom.CrosCameraServiceObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -820,7 +820,7 @@ cros.mojom.mojom.CrosCameraService_StartKioskVisionDetection_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'dlc_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(cros.mojom.KioskVisionObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

@@ -73,7 +73,7 @@ ash.mojom.mojom.demo_mode.demo_mode.UntrustedPageHandlerFactory_CreatePageHandle
       name: 'ash.mojom.demo_mode.UntrustedPageHandlerFactory.CreatePageHandler_Params',
       packedSize: 16,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.mojom.demo_mode.UntrustedPageHandlerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

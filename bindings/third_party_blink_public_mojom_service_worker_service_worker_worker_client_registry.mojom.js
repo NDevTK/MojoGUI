@@ -82,7 +82,7 @@ blink.mojom.mojom.ServiceWorkerWorkerClientRegistry_RegisterWorkerClient_ParamsS
       name: 'blink.mojom.ServiceWorkerWorkerClientRegistry.RegisterWorkerClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.ServiceWorkerWorkerClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -96,7 +96,7 @@ blink.mojom.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_Pa
       name: 'blink.mojom.ServiceWorkerWorkerClientRegistry.CloneWorkerClientRegistry_Params',
       packedSize: 16,
       fields: [
-        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.ServiceWorkerWorkerClientRegistryRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

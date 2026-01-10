@@ -85,14 +85,14 @@ blink.mojom.mojom.ColorChooserFactory_OpenColorChooser_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.ColorChooserFactory.OpenColorChooser_Params',
-      packedSize: 32,
+      packedSize: 40,
       fields: [
-        { name: 'chooser', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'color', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'suggestions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.ColorSuggestionSpec, false), nullable: false, minVersion: 0 },
+        { name: 'chooser', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.ColorChooserRemote), nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.ColorChooserClientRemote), nullable: false, minVersion: 0 },
+        { name: 'color', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'suggestions', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.ColorSuggestionSpec, false), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 32}]
+      versions: [{version: 0, packedSize: 40}]
     }
   }
 };

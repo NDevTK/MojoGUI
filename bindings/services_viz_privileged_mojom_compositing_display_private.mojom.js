@@ -435,7 +435,7 @@ viz.mojom.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec = {
       name: 'viz.mojom.DisplayPrivate.AddVSyncParameterObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(viz.mojom.VSyncParameterObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -449,7 +449,7 @@ viz.mojom.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec = {
       name: 'viz.mojom.DisplayPrivate.SetDelegatedInkPointRenderer_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(gfx.mojom.DelegatedInkPointRendererRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -463,7 +463,7 @@ viz.mojom.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec = {
       name: 'viz.mojom.DisplayPrivate.SetStandaloneBeginFrameObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(viz.mojom.BeginFrameObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -630,7 +630,7 @@ viz.mojom.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec = {
       name: 'viz.mojom.DisplayClient.CreateLayeredWindowUpdater_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(viz.mojom.LayeredWindowUpdaterRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

@@ -720,7 +720,7 @@ ash.orca.orca.mojom.mojom.EditorClientConnector_BindEditorClient_ParamsSpec = {
       name: 'ash.orca.mojom.EditorClientConnector.BindEditorClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'editor_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'editor_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(ash.orca.mojom.EditorClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1211,15 +1211,15 @@ ash.orca.orca.mojom.mojom.OrcaService_BindEditor_ParamsSpec = {
   $: {
     structSpec: {
       name: 'ash.orca.mojom.OrcaService.BindEditor_Params',
-      packedSize: 32,
+      packedSize: 48,
       fields: [
-        { name: 'system_actuator', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'text_query_provider', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'client_connector', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'event_sink', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'editor_config', packedOffset: 0, packedBitOffset: 0, type: ash.orca.mojom.EditorConfigSpec, nullable: true, minVersion: 9 },
+        { name: 'system_actuator', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(ash.orca.mojom.SystemActuatorRemote), nullable: false, minVersion: 0 },
+        { name: 'text_query_provider', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(ash.orca.mojom.TextQueryProviderRemote), nullable: false, minVersion: 0 },
+        { name: 'client_connector', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(ash.orca.mojom.EditorClientConnectorRemote), nullable: false, minVersion: 0 },
+        { name: 'event_sink', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(ash.orca.mojom.EditorEventSinkRemote), nullable: false, minVersion: 0 },
+        { name: 'editor_config', packedOffset: 32, packedBitOffset: 0, type: ash.orca.mojom.EditorConfigSpec, nullable: true, minVersion: 9 },
       ],
-      versions: [{version: 0, packedSize: 32}, {version: 9, packedSize: 32}]
+      versions: [{version: 0, packedSize: 40}, {version: 9, packedSize: 48}]
     }
   }
 };

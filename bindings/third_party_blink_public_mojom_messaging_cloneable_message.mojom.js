@@ -28,7 +28,7 @@ blink.mojom.mojom.CloneableMessageSpec = {
         { name: 'stack_trace_should_pause', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
         { name: 'sender_agent_cluster_id', packedOffset: 56, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
         { name: 'locked_to_sender_agent_cluster', packedOffset: 72, packedBitOffset: 1, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'file_system_access_tokens', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.InterfaceProxy, false), nullable: false, minVersion: 0 },
+        { name: 'file_system_access_tokens', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 88}]
     }

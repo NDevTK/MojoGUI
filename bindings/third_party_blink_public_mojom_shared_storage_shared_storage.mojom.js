@@ -296,17 +296,17 @@ blink.mojom.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.SharedStorageDocumentService.CreateWorklet_Params',
-      packedSize: 48,
+      packedSize: 56,
       fields: [
         { name: 'script_source_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
         { name: 'data_origin', packedOffset: 8, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'data_origin_type', packedOffset: 24, packedBitOffset: 0, type: blink.mojom.SharedStorageDataOriginTypeSpec, nullable: false, minVersion: 0 },
-        { name: 'credentials_mode', packedOffset: 28, packedBitOffset: 0, type: network.mojom.CredentialsModeSpec, nullable: false, minVersion: 0 },
-        { name: 'creation_method', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.SharedStorageWorkletCreationMethodSpec, nullable: false, minVersion: 0 },
+        { name: 'data_origin_type', packedOffset: 32, packedBitOffset: 0, type: blink.mojom.SharedStorageDataOriginTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'credentials_mode', packedOffset: 36, packedBitOffset: 0, type: network.mojom.CredentialsModeSpec, nullable: false, minVersion: 0 },
+        { name: 'creation_method', packedOffset: 40, packedBitOffset: 0, type: blink.mojom.SharedStorageWorkletCreationMethodSpec, nullable: false, minVersion: 0 },
         { name: 'origin_trial_features', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.OriginTrialFeatureSpec, false), nullable: false, minVersion: 0 },
-        { name: 'worklet_host', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'worklet_host', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(blink.mojom.SharedStorageWorkletHostRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 48}]
+      versions: [{version: 0, packedSize: 56}]
     }
   }
 };

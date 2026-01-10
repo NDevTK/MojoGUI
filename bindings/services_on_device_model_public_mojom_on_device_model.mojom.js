@@ -245,10 +245,10 @@ on_device_model.mojom.mojom.GenerateOptionsSpec = {
       name: 'on_device_model.mojom.GenerateOptions',
       packedSize: 32,
       fields: [
-        { name: 'max_output_tokens', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'constraint', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.ResponseConstraintSpec, nullable: true, minVersion: 2 },
+        { name: 'max_output_tokens', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'constraint', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.ResponseConstraintSpec, nullable: true, minVersion: 2 },
       ],
-      versions: [{version: 0, packedSize: 32}, {version: 2, packedSize: 32}]
+      versions: [{version: 0, packedSize: 16}, {version: 2, packedSize: 32}]
     }
   }
 };
@@ -631,7 +631,7 @@ on_device_model.mojom.mojom.Session_Append_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'options', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.AppendOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(on_device_model.mojom.ContextClientRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -646,7 +646,7 @@ on_device_model.mojom.mojom.Session_Generate_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'options', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.GenerateOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'responder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'responder', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(on_device_model.mojom.StreamingResponderRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -714,7 +714,7 @@ on_device_model.mojom.mojom.Session_Clone_ParamsSpec = {
       name: 'on_device_model.mojom.Session.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(on_device_model.mojom.SessionRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -767,13 +767,13 @@ on_device_model.mojom.mojom.Session_AsrStream_ParamsSpec = {
   $: {
     structSpec: {
       name: 'on_device_model.mojom.Session.AsrStream_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
         { name: 'options', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.AsrStreamOptionsSpec, nullable: false, minVersion: 0 },
-        { name: 'stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'responder', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(on_device_model.mojom.AsrStreamInputRemote), nullable: false, minVersion: 0 },
+        { name: 'responder', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(on_device_model.mojom.AsrStreamResponderRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -873,10 +873,10 @@ on_device_model.mojom.mojom.OnDeviceModel_StartSession_ParamsSpec = {
       name: 'on_device_model.mojom.OnDeviceModel.StartSession_Params',
       packedSize: 24,
       fields: [
-        { name: 'session', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'params', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.SessionParamsSpec, nullable: true, minVersion: 1 },
+        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(on_device_model.mojom.SessionRemote), nullable: false, minVersion: 0 },
+        { name: 'params', packedOffset: 8, packedBitOffset: 0, type: on_device_model.mojom.SessionParamsSpec, nullable: true, minVersion: 1 },
       ],
-      versions: [{version: 0, packedSize: 24}, {version: 1, packedSize: 24}]
+      versions: [{version: 0, packedSize: 16}, {version: 1, packedSize: 24}]
     }
   }
 };
@@ -943,7 +943,7 @@ on_device_model.mojom.mojom.OnDeviceModel_LoadAdaptation_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.LoadAdaptationParamsSpec, nullable: false, minVersion: 0 },
-        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(on_device_model.mojom.OnDeviceModelRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -1103,7 +1103,7 @@ on_device_model.mojom.mojom.TextSafetySession_Clone_ParamsSpec = {
       name: 'on_device_model.mojom.TextSafetySession.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(on_device_model.mojom.TextSafetySessionRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1178,7 +1178,7 @@ on_device_model.mojom.mojom.TextSafetyModel_StartSession_ParamsSpec = {
       name: 'on_device_model.mojom.TextSafetyModel.StartSession_Params',
       packedSize: 16,
       fields: [
-        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(on_device_model.mojom.TextSafetySessionRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

@@ -235,7 +235,7 @@ crosapi.mojom.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec = {
       name: 'crosapi.mojom.Login.AddExternalLogoutRequestObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(crosapi.mojom.ExternalLogoutRequestObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

@@ -44,7 +44,7 @@ tabs_api.mojom.mojom.TabsSnapshotSpec = {
       packedSize: 24,
       fields: [
         { name: 'tab_strip', packedOffset: 0, packedBitOffset: 0, type: tabs_api.mojom.ContainerSpec, nullable: false, minVersion: 0 },
-        { name: 'stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'stream', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(tabs_api.mojom.TabsObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

@@ -70,13 +70,13 @@ device.mojom.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_ParamsSp
   $: {
     structSpec: {
       name: 'device.mojom.PublicIpAddressGeolocationProvider.CreateGeolocation_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
         { name: 'tag', packedOffset: 0, packedBitOffset: 0, type: network.mojom.MutablePartialNetworkTrafficAnnotationTagSpec, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'client_id', packedOffset: 12, packedBitOffset: 0, type: device.mojom.GeolocationClientIdSpec, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.GeolocationRemote), nullable: false, minVersion: 0 },
+        { name: 'client_id', packedOffset: 16, packedBitOffset: 0, type: device.mojom.GeolocationClientIdSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

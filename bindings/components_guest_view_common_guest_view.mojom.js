@@ -147,13 +147,13 @@ guest_view.mojom.mojom.GuestViewHost_ViewCreated_ParamsSpec = {
   $: {
     structSpec: {
       name: 'guest_view.mojom.GuestViewHost.ViewCreated_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'view_instance_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
+        { name: 'view_instance_id', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
         { name: 'view_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'keep_alive_handle_receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'keep_alive_handle_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(guest_view.mojom.ViewHandleRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

@@ -112,7 +112,7 @@ content.mojom.mojom.CookieManagerInfoSpec = {
       packedSize: 24,
       fields: [
         { name: 'origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },
-        { name: 'cookie_manager', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'cookie_manager', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.RestrictedCookieManagerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -124,12 +124,12 @@ content.mojom.mojom.StorageInfoSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.StorageInfo',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'local_storage_area', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'session_storage_area', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'local_storage_area', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.StorageAreaRemote), nullable: true, minVersion: 0 },
+        { name: 'session_storage_area', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.StorageAreaRemote), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -204,7 +204,7 @@ content.mojom.mojom.NavigationClient_CommitNavigation_ParamsSpec = {
   $: {
     structSpec: {
       name: 'content.mojom.NavigationClient.CommitNavigation_Params',
-      packedSize: 160,
+      packedSize: 176,
       fields: [
         { name: 'common_params', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CommonNavigationParamsSpec, nullable: false, minVersion: 0 },
         { name: 'request_params', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.CommitNavigationParamsSpec, nullable: false, minVersion: 0 },
@@ -215,20 +215,20 @@ content.mojom.mojom.NavigationClient_CommitNavigation_ParamsSpec = {
         { name: 'subresource_overrides', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.TransferrableURLLoaderSpec, false), nullable: true, minVersion: 0 },
         { name: 'controller_service_worker_info', packedOffset: 56, packedBitOffset: 0, type: blink.mojom.ControllerServiceWorkerInfoSpec, nullable: true, minVersion: 0 },
         { name: 'container_info', packedOffset: 64, packedBitOffset: 0, type: blink.mojom.ServiceWorkerContainerInfoForClientSpec, nullable: true, minVersion: 0 },
-        { name: 'subresource_proxying_loader_factory', packedOffset: 128, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'keep_alive_loader_factory', packedOffset: 132, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'fetch_later_loader_factory', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'document_token', packedOffset: 72, packedBitOffset: 0, type: blink.mojom.DocumentTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'devtools_navigation_token', packedOffset: 80, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
-        { name: 'base_auction_nonce', packedOffset: 88, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false, minVersion: 0 },
-        { name: 'permissions_policy', packedOffset: 96, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.ParsedPermissionsPolicyDeclarationSpec, false), nullable: true, minVersion: 0 },
-        { name: 'policy_container', packedOffset: 104, packedBitOffset: 0, type: blink.mojom.PolicyContainerSpec, nullable: false, minVersion: 0 },
-        { name: 'code_cache_host', packedOffset: 140, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'code_cache_host_for_background', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'cookie_manager_info', packedOffset: 112, packedBitOffset: 0, type: content.mojom.CookieManagerInfoSpec, nullable: true, minVersion: 0 },
-        { name: 'storage_info', packedOffset: 120, packedBitOffset: 0, type: content.mojom.StorageInfoSpec, nullable: true, minVersion: 0 },
+        { name: 'subresource_proxying_loader_factory', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.URLLoaderFactoryRemote), nullable: true, minVersion: 0 },
+        { name: 'keep_alive_loader_factory', packedOffset: 80, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.URLLoaderFactoryRemote), nullable: true, minVersion: 0 },
+        { name: 'fetch_later_loader_factory', packedOffset: 88, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(blink.mojom.FetchLaterLoaderFactoryRemote), nullable: true, minVersion: 0 },
+        { name: 'document_token', packedOffset: 96, packedBitOffset: 0, type: blink.mojom.DocumentTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'devtools_navigation_token', packedOffset: 104, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
+        { name: 'base_auction_nonce', packedOffset: 112, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false, minVersion: 0 },
+        { name: 'permissions_policy', packedOffset: 120, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.ParsedPermissionsPolicyDeclarationSpec, false), nullable: true, minVersion: 0 },
+        { name: 'policy_container', packedOffset: 128, packedBitOffset: 0, type: blink.mojom.PolicyContainerSpec, nullable: false, minVersion: 0 },
+        { name: 'code_cache_host', packedOffset: 136, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.CodeCacheHostRemote), nullable: true, minVersion: 0 },
+        { name: 'code_cache_host_for_background', packedOffset: 144, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.CodeCacheHostRemote), nullable: true, minVersion: 0 },
+        { name: 'cookie_manager_info', packedOffset: 152, packedBitOffset: 0, type: content.mojom.CookieManagerInfoSpec, nullable: true, minVersion: 0 },
+        { name: 'storage_info', packedOffset: 160, packedBitOffset: 0, type: content.mojom.StorageInfoSpec, nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 160}]
+      versions: [{version: 0, packedSize: 176}]
     }
   }
 };

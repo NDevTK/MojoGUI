@@ -192,7 +192,7 @@ optimization_guide.mojom.mojom.PageTextService_RequestPageTextDump_ParamsSpec = 
       packedSize: 24,
       fields: [
         { name: 'request', packedOffset: 0, packedBitOffset: 0, type: optimization_guide.mojom.PageTextDumpRequestSpec, nullable: false, minVersion: 0 },
-        { name: 'consumer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'consumer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(optimization_guide.mojom.PageTextConsumerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

@@ -470,7 +470,7 @@ ash.recorder_app.recorder_app.mojom.mojom.PageHandler_LoadModel_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'model_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false, minVersion: 0 },
-        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'model', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(on_device_model.mojom.OnDeviceModelRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -556,7 +556,7 @@ ash.recorder_app.recorder_app.mojom.mojom.PageHandler_AddModelMonitor_ParamsSpec
       packedSize: 24,
       fields: [
         { name: 'model_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UuidSpec, nullable: false, minVersion: 0 },
-        { name: 'monitor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'monitor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.recorder_app.mojom.ModelStateMonitorRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -636,7 +636,7 @@ ash.recorder_app.recorder_app.mojom.mojom.PageHandler_AddSodaMonitor_ParamsSpec 
       packedSize: 24,
       fields: [
         { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'monitor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'monitor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.recorder_app.mojom.ModelStateMonitorRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -675,13 +675,13 @@ ash.recorder_app.recorder_app.mojom.mojom.PageHandler_LoadSpeechRecognizer_Param
   $: {
     structSpec: {
       name: 'ash.recorder_app.mojom.PageHandler.LoadSpeechRecognizer_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
         { name: 'language', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'soda_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'soda_recognizer', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'soda_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.machine_learning.mojom.SodaClientRemote), nullable: false, minVersion: 0 },
+        { name: 'soda_recognizer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.machine_learning.mojom.SodaRecognizerRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -747,7 +747,7 @@ ash.recorder_app.recorder_app.mojom.mojom.PageHandler_AddQuietModeMonitor_Params
       name: 'ash.recorder_app.mojom.PageHandler.AddQuietModeMonitor_Params',
       packedSize: 16,
       fields: [
-        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'monitor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.recorder_app.mojom.QuietModeMonitorRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

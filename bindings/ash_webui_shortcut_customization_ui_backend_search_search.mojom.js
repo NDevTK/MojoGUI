@@ -200,7 +200,7 @@ ash.shortcut_customization.shortcut_customization.mojom.mojom.SearchHandler_AddS
       name: 'ash.shortcut_customization.mojom.SearchHandler.AddSearchResultsAvailabilityObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

@@ -771,10 +771,10 @@ ash.ime.ime.mojom.mojom.InputMethod_OnFocusDeprecated_ParamsSpec = {
       name: 'ash.ime.mojom.InputMethod.OnFocusDeprecated_Params',
       packedSize: 32,
       fields: [
-        { name: 'input_field_info', packedOffset: 16, packedBitOffset: 0, type: ash.ime.mojom.InputFieldInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.InputMethodSettingsSpec, nullable: true, minVersion: 4 },
+        { name: 'input_field_info', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.InputFieldInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'settings', packedOffset: 8, packedBitOffset: 0, type: ash.ime.mojom.InputMethodSettingsSpec, nullable: true, minVersion: 4 },
       ],
-      versions: [{version: 0, packedSize: 32}, {version: 4, packedSize: 32}]
+      versions: [{version: 0, packedSize: 16}, {version: 4, packedSize: 32}]
     }
   }
 };
@@ -800,10 +800,10 @@ ash.ime.ime.mojom.mojom.InputMethod_OnFocus_ResponseParamsSpec = {
       name: 'ash.ime.mojom.InputMethod.OnFocus_ResponseParams',
       packedSize: 24,
       fields: [
-        { name: 'success', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.InputMethodMetadataSpec, nullable: true, minVersion: 17 },
+        { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'metadata', packedOffset: 8, packedBitOffset: 0, type: ash.ime.mojom.InputMethodMetadataSpec, nullable: true, minVersion: 17 },
       ],
-      versions: [{version: 0, packedSize: 24}, {version: 17, packedSize: 24}]
+      versions: [{version: 0, packedSize: 16}, {version: 17, packedSize: 24}]
     }
   }
 };

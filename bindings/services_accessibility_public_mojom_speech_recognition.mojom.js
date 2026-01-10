@@ -21,7 +21,7 @@ ax.mojom.mojom.ObserverOrErrorSpec = { $: mojo.internal.Union(
     'ax.mojom.ObserverOrError', {
       'observer': {
         'ordinal': 0,
-        'type': mojo.internal.InterfaceRequest,
+        'type': mojo.internal.InterfaceRequest(ax.mojom.SpeechRecognitionEventObserverRemote),
       }},
       'error': {
         'ordinal': 1,

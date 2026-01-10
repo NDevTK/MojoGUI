@@ -70,13 +70,13 @@ media.mojom.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_Param
   $: {
     structSpec: {
       name: 'media.mojom.VideoDecoderFactoryProcess.InitializeVideoDecoderFactory_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
         { name: 'gpu_feature_info', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.GpuFeatureInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'gpu_remote', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(media.mojom.InterfaceFactoryRemote), nullable: false, minVersion: 0 },
+        { name: 'gpu_remote', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(viz.mojom.GpuRemote), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

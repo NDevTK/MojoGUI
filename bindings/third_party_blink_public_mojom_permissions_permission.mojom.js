@@ -522,7 +522,7 @@ blink.mojom.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_Params
       fields: [
         { name: 'permissions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.PermissionDescriptorSpec, false), nullable: false, minVersion: 0 },
         { name: 'descriptor', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.EmbeddedPermissionRequestDescriptorSpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.EmbeddedPermissionControlClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -645,13 +645,13 @@ blink.mojom.mojom.PermissionService_AddPermissionObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'blink.mojom.PermissionService.AddPermissionObserver_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
         { name: 'permission', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionDescriptorSpec, nullable: false, minVersion: 0 },
-        { name: 'last_known_status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'last_known_status', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.PermissionObserverRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -661,13 +661,13 @@ blink.mojom.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec
   $: {
     structSpec: {
       name: 'blink.mojom.PermissionService.AddPageEmbeddedPermissionObserver_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
         { name: 'permission', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionDescriptorSpec, nullable: false, minVersion: 0 },
-        { name: 'last_known_status', packedOffset: 8, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'last_known_status', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.PermissionObserverRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

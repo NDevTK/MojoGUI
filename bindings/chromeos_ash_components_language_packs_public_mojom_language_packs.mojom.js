@@ -44,13 +44,13 @@ ash.language.language.mojom.mojom.LanguagePackInfoSpec = {
       name: 'ash.language.mojom.LanguagePackInfo',
       packedSize: 40,
       fields: [
-        { name: 'pack_state', packedOffset: 16, packedBitOffset: 0, type: ash.language.mojom.PackStateSpec, nullable: false, minVersion: 0 },
+        { name: 'pack_state', packedOffset: 8, packedBitOffset: 0, type: ash.language.mojom.PackStateSpec, nullable: false, minVersion: 0 },
         { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'error', packedOffset: 20, packedBitOffset: 0, type: ash.language.mojom.ErrorCodeSpec, nullable: false, minVersion: 2 },
+        { name: 'error', packedOffset: 12, packedBitOffset: 0, type: ash.language.mojom.ErrorCodeSpec, nullable: false, minVersion: 2 },
         { name: 'feature_id', packedOffset: 24, packedBitOffset: 0, type: ash.language.mojom.FeatureIdSpec, nullable: false, minVersion: 3 },
-        { name: 'locale', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 3 },
+        { name: 'locale', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 3 },
       ],
-      versions: [{version: 0, packedSize: 32}, {version: 2, packedSize: 32}, {version: 3, packedSize: 40}]
+      versions: [{version: 0, packedSize: 24}, {version: 2, packedSize: 24}, {version: 3, packedSize: 40}]
     }
   }
 };
@@ -343,7 +343,7 @@ ash.language.language.mojom.mojom.LanguagePacks_AddObserver_ParamsSpec = {
       name: 'ash.language.mojom.LanguagePacks.AddObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(ash.language.mojom.LanguagePacksObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

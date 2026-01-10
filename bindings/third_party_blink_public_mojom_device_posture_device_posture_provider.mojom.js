@@ -97,7 +97,7 @@ blink.mojom.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSp
       name: 'blink.mojom.DevicePostureProvider.AddListenerAndGetCurrentPosture_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.DevicePostureClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

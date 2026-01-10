@@ -140,12 +140,12 @@ crosapi.mojom.mojom.LocalDestinationInfoSpec = {
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'description', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'configured_via_policy', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'uri', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 3 },
-        { name: 'printer_status', packedOffset: 32, packedBitOffset: 0, type: crosapi.mojom.PrinterStatusSpec, nullable: true, minVersion: 4 },
-        { name: 'managed_print_options', packedOffset: 40, packedBitOffset: 0, type: crosapi.mojom.ManagedPrintOptionsSpec, nullable: true, minVersion: 5 },
+        { name: 'configured_via_policy', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'uri', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 3 },
+        { name: 'printer_status', packedOffset: 40, packedBitOffset: 0, type: crosapi.mojom.PrinterStatusSpec, nullable: true, minVersion: 4 },
+        { name: 'managed_print_options', packedOffset: 48, packedBitOffset: 0, type: crosapi.mojom.ManagedPrintOptionsSpec, nullable: true, minVersion: 5 },
       ],
-      versions: [{version: 0, packedSize: 64}, {version: 3, packedSize: 64}, {version: 4, packedSize: 64}, {version: 5, packedSize: 64}]
+      versions: [{version: 0, packedSize: 40}, {version: 3, packedSize: 48}, {version: 4, packedSize: 56}, {version: 5, packedSize: 64}]
     }
   }
 };
@@ -388,7 +388,7 @@ crosapi.mojom.mojom.CapabilitiesResponseSpec = {
       packedSize: 56,
       fields: [
         { name: 'basic_info', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.LocalDestinationInfoSpec, nullable: false, minVersion: 0 },
-        { name: 'has_secure_protocol', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'has_secure_protocol', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
         { name: 'capabilities', packedOffset: 8, packedBitOffset: 0, type: printing.mojom.PrinterSemanticCapsAndDefaultsSpec, nullable: true, minVersion: 0 },
         { name: 'allowed_color_modes_deprecated', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
         { name: 'allowed_duplex_modes_deprecated', packedOffset: 20, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
@@ -396,7 +396,7 @@ crosapi.mojom.mojom.CapabilitiesResponseSpec = {
         { name: 'default_color_mode_deprecated', packedOffset: 28, packedBitOffset: 0, type: printing.mojom.ColorModeRestrictionSpec, nullable: false, minVersion: 0 },
         { name: 'default_duplex_mode_deprecated', packedOffset: 32, packedBitOffset: 0, type: printing.mojom.DuplexModeRestrictionSpec, nullable: false, minVersion: 0 },
         { name: 'default_pin_mode_deprecated', packedOffset: 36, packedBitOffset: 0, type: printing.mojom.PinModeRestrictionSpec, nullable: false, minVersion: 0 },
-        { name: 'allowed_pin_modes_deprecated_version_1', packedOffset: 40, packedBitOffset: 0, type: printing.mojom.PinModeRestrictionSpec, nullable: false, minVersion: 1 },
+        { name: 'allowed_pin_modes_deprecated_version_1', packedOffset: 44, packedBitOffset: 0, type: printing.mojom.PinModeRestrictionSpec, nullable: false, minVersion: 1 },
       ],
       versions: [{version: 0, packedSize: 56}, {version: 1, packedSize: 56}]
     }
@@ -416,17 +416,17 @@ crosapi.mojom.mojom.PoliciesSpec = {
         { name: 'background_graphics_default', packedOffset: 28, packedBitOffset: 0, type: crosapi.mojom.BackgroundGraphicsModeRestrictionSpec, nullable: false, minVersion: 0 },
         { name: 'paper_size_default', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: true, minVersion: 0 },
         { name: 'max_sheets_allowed', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
-        { name: 'max_sheets_allowed_has_value', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
-        { name: 'allowed_color_modes', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 1 },
-        { name: 'allowed_duplex_modes', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 1 },
-        { name: 'allowed_pin_modes', packedOffset: 44, packedBitOffset: 0, type: printing.mojom.PinModeRestrictionSpec, nullable: false, minVersion: 1 },
-        { name: 'default_color_mode', packedOffset: 48, packedBitOffset: 0, type: printing.mojom.ColorModeRestrictionSpec, nullable: false, minVersion: 1 },
-        { name: 'default_duplex_mode', packedOffset: 52, packedBitOffset: 0, type: printing.mojom.DuplexModeRestrictionSpec, nullable: false, minVersion: 1 },
-        { name: 'default_pin_mode', packedOffset: 56, packedBitOffset: 0, type: printing.mojom.PinModeRestrictionSpec, nullable: false, minVersion: 1 },
-        { name: 'default_print_pdf_as_image', packedOffset: 60, packedBitOffset: 0, type: crosapi.mojom.OptionalBoolSpec, nullable: false, minVersion: 2 },
+        { name: 'max_sheets_allowed_has_value', packedOffset: 36, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
+        { name: 'allowed_color_modes', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 1 },
+        { name: 'allowed_duplex_modes', packedOffset: 44, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 1 },
+        { name: 'allowed_pin_modes', packedOffset: 48, packedBitOffset: 0, type: printing.mojom.PinModeRestrictionSpec, nullable: false, minVersion: 1 },
+        { name: 'default_color_mode', packedOffset: 52, packedBitOffset: 0, type: printing.mojom.ColorModeRestrictionSpec, nullable: false, minVersion: 1 },
+        { name: 'default_duplex_mode', packedOffset: 56, packedBitOffset: 0, type: printing.mojom.DuplexModeRestrictionSpec, nullable: false, minVersion: 1 },
+        { name: 'default_pin_mode', packedOffset: 60, packedBitOffset: 0, type: printing.mojom.PinModeRestrictionSpec, nullable: false, minVersion: 1 },
+        { name: 'default_print_pdf_as_image', packedOffset: 64, packedBitOffset: 0, type: crosapi.mojom.OptionalBoolSpec, nullable: false, minVersion: 2 },
         { name: 'kUnset', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 80}, {version: 1, packedSize: 80}, {version: 2, packedSize: 80}]
+      versions: [{version: 0, packedSize: 48}, {version: 1, packedSize: 72}, {version: 2, packedSize: 80}]
     }
   }
 };
@@ -1169,7 +1169,7 @@ crosapi.mojom.mojom.LocalPrinter_AddPrintServerObserver_ParamsSpec = {
       name: 'crosapi.mojom.LocalPrinter.AddPrintServerObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(crosapi.mojom.PrintServerObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1259,12 +1259,12 @@ crosapi.mojom.mojom.LocalPrinter_AddPrintJobObserver_ParamsSpec = {
   $: {
     structSpec: {
       name: 'crosapi.mojom.LocalPrinter.AddPrintJobObserver_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'source', packedOffset: 4, packedBitOffset: 0, type: crosapi.mojom.PrintJobSourceSpec, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(crosapi.mojom.PrintJobObserverRemote), nullable: false, minVersion: 0 },
+        { name: 'source', packedOffset: 8, packedBitOffset: 0, type: crosapi.mojom.PrintJobSourceSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -1330,7 +1330,7 @@ crosapi.mojom.mojom.LocalPrinter_AddLocalPrintersObserver_ParamsSpec = {
       name: 'crosapi.mojom.LocalPrinter.AddLocalPrintersObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(crosapi.mojom.LocalPrintersObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

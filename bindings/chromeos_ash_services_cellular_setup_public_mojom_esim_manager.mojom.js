@@ -198,7 +198,7 @@ ash.cellular_setup.cellular_setup.mojom.mojom.ESimManagerObserver_OnProfileListC
       name: 'ash.cellular_setup.mojom.ESimManagerObserver.OnProfileListChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'euicc', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'euicc', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.EuiccRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -212,7 +212,7 @@ ash.cellular_setup.cellular_setup.mojom.mojom.ESimManagerObserver_OnEuiccChanged
       name: 'ash.cellular_setup.mojom.ESimManagerObserver.OnEuiccChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'euicc', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'euicc', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.EuiccRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -226,7 +226,7 @@ ash.cellular_setup.cellular_setup.mojom.mojom.ESimManagerObserver_OnProfileChang
       name: 'ash.cellular_setup.mojom.ESimManagerObserver.OnProfileChanged_Params',
       packedSize: 16,
       fields: [
-        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.ESimProfileRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -310,7 +310,7 @@ ash.cellular_setup.cellular_setup.mojom.mojom.ESimManager_AddObserver_ParamsSpec
       name: 'ash.cellular_setup.mojom.ESimManager.AddObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.ESimManagerObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -336,7 +336,7 @@ ash.cellular_setup.cellular_setup.mojom.mojom.ESimManager_GetAvailableEuiccs_Res
       name: 'ash.cellular_setup.mojom.ESimManager.GetAvailableEuiccs_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'euiccs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.InterfaceProxy, false), nullable: false, minVersion: 0 },
+        { name: 'euiccs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.EuiccRemote), false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -494,7 +494,7 @@ ash.cellular_setup.cellular_setup.mojom.mojom.Euicc_GetProfileList_ResponseParam
       name: 'ash.cellular_setup.mojom.Euicc.GetProfileList_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'profiles', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.InterfaceProxy, false), nullable: false, minVersion: 0 },
+        { name: 'profiles', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.ESimProfileRemote), false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -574,12 +574,12 @@ ash.cellular_setup.cellular_setup.mojom.mojom.Euicc_InstallProfileFromActivation
   $: {
     structSpec: {
       name: 'ash.cellular_setup.mojom.Euicc.InstallProfileFromActivationCode_ResponseParams',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.cellular_setup.mojom.ProfileInstallResultSpec, nullable: false, minVersion: 0 },
-        { name: 'profile', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'result', packedOffset: 8, packedBitOffset: 0, type: ash.cellular_setup.mojom.ProfileInstallResultSpec, nullable: false, minVersion: 0 },
+        { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.cellular_setup.mojom.ESimProfileRemote), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

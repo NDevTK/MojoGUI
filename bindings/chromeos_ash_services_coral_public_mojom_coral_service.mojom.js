@@ -366,7 +366,7 @@ coral.mojom.mojom.CoralProcessor_Group_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'request', packedOffset: 0, packedBitOffset: 0, type: coral.mojom.GroupRequestSpec, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(coral.mojom.TitleObserverRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -509,7 +509,7 @@ coral.mojom.mojom.CoralService_GroupDeprecated_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'request', packedOffset: 0, packedBitOffset: 0, type: coral.mojom.GroupRequestSpec, nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(coral.mojom.TitleObserverRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -574,13 +574,13 @@ coral.mojom.mojom.CoralService_Initialize_ParamsSpec = {
   $: {
     structSpec: {
       name: 'coral.mojom.CoralService.Initialize_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'ml_service', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'processor', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'language_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 2 },
+        { name: 'ml_service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.machine_learning.mojom.MachineLearningServiceRemote), nullable: true, minVersion: 0 },
+        { name: 'processor', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(coral.mojom.CoralProcessorRemote), nullable: false, minVersion: 0 },
+        { name: 'language_code', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 2 },
       ],
-      versions: [{version: 0, packedSize: 24}, {version: 2, packedSize: 24}]
+      versions: [{version: 0, packedSize: 24}, {version: 2, packedSize: 32}]
     }
   }
 };

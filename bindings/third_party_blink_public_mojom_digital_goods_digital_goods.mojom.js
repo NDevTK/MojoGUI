@@ -280,12 +280,12 @@ payments.mojom.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec =
   $: {
     structSpec: {
       name: 'payments.mojom.DigitalGoodsFactory.CreateDigitalGoods_ResponseParams',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'code', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.CreateDigitalGoodsResponseCodeSpec, nullable: false, minVersion: 0 },
-        { name: 'digital_goods', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'code', packedOffset: 8, packedBitOffset: 0, type: payments.mojom.CreateDigitalGoodsResponseCodeSpec, nullable: false, minVersion: 0 },
+        { name: 'digital_goods', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(payments.mojom.DigitalGoodsRemote), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

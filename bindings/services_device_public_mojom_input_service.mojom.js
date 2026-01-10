@@ -221,7 +221,7 @@ device.mojom.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec = {
       name: 'device.mojom.InputDeviceManager.GetDevicesAndSetClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy(device.mojom.InputDeviceManagerClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

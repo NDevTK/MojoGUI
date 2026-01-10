@@ -97,11 +97,11 @@ chrome.mojom.mojom.AppShimInfoSpec = {
         { name: 'profile_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
         { name: 'app_id', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'app_url', packedOffset: 16, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
-        { name: 'launch_type', packedOffset: 40, packedBitOffset: 0, type: chrome.mojom.AppShimLaunchTypeSpec, nullable: false, minVersion: 0 },
+        { name: 'launch_type', packedOffset: 48, packedBitOffset: 0, type: chrome.mojom.AppShimLaunchTypeSpec, nullable: false, minVersion: 0 },
         { name: 'files', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), nullable: false, minVersion: 0 },
-        { name: 'login_item_restore_state', packedOffset: 44, packedBitOffset: 0, type: chrome.mojom.AppShimLoginItemRestoreStateSpec, nullable: false, minVersion: 0 },
+        { name: 'login_item_restore_state', packedOffset: 52, packedBitOffset: 0, type: chrome.mojom.AppShimLoginItemRestoreStateSpec, nullable: false, minVersion: 0 },
         { name: 'urls', packedOffset: 32, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.UrlSpec, false), nullable: false, minVersion: 0 },
-        { name: 'notification_action_handler', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'notification_action_handler', packedOffset: 40, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(mac_notifications.mojom.MacNotificationActionHandlerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 64}]
     }
@@ -260,7 +260,7 @@ chrome.mojom.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec = {
       name: 'chrome.mojom.AppShim.CreateRemoteCocoaApplication_Params',
       packedSize: 16,
       fields: [
-        { name: 'application', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'application', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest(remote_cocoa.mojom.ApplicationRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -344,7 +344,7 @@ chrome.mojom.mojom.AppShim_BindNotificationProvider_ParamsSpec = {
       name: 'chrome.mojom.AppShim.BindNotificationProvider_Params',
       packedSize: 16,
       fields: [
-        { name: 'provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'provider', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(mac_notifications.mojom.MacNotificationProviderRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -384,7 +384,7 @@ chrome.mojom.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec = {
       name: 'chrome.mojom.AppShim.BindChildHistogramFetcherFactory_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(metrics.mojom.ChildHistogramFetcherFactoryRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -737,8 +737,8 @@ chrome.mojom.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec = {
       name: 'chrome.mojom.AppShimHostBootstrap.OnShimConnected_Params',
       packedSize: 24,
       fields: [
-        { name: 'host_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'app_shim_info', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.AppShimInfoSpec, nullable: false, minVersion: 0 },
+        { name: 'host_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chrome.mojom.AppShimHostRemote), nullable: false, minVersion: 0 },
+        { name: 'app_shim_info', packedOffset: 8, packedBitOffset: 0, type: chrome.mojom.AppShimInfoSpec, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -749,13 +749,13 @@ chrome.mojom.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'chrome.mojom.AppShimHostBootstrap.OnShimConnected_ResponseParams',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'launch_result', packedOffset: 8, packedBitOffset: 0, type: chrome.mojom.AppShimLaunchResultSpec, nullable: false, minVersion: 0 },
+        { name: 'launch_result', packedOffset: 16, packedBitOffset: 0, type: chrome.mojom.AppShimLaunchResultSpec, nullable: false, minVersion: 0 },
         { name: 'feature_state', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.FeatureStateSpec, nullable: false, minVersion: 0 },
-        { name: 'app_shim_receiver', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'app_shim_receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chrome.mojom.AppShimRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

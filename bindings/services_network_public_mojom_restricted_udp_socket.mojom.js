@@ -24,7 +24,7 @@ network.mojom.mojom.RestrictedUDPSocketParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'socket_options', packedOffset: 0, packedBitOffset: 0, type: network.mojom.UDPSocketOptionsSpec, nullable: true, minVersion: 0 },
-        { name: 'connection_tracker', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'connection_tracker', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(network.mojom.SocketConnectionTrackerRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

@@ -160,7 +160,7 @@ ash.common.common.mojom.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_Param
       packedSize: 24,
       fields: [
         { name: 'actionIds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.mojom.AcceleratorActionSpec, false), nullable: false, minVersion: 0 },
-        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.common.mojom.AcceleratorFetcherObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

@@ -124,7 +124,7 @@ payments.mojom.mojom.PaymentRequestEventDataSpec = {
         { name: 'instrument_key', packedOffset: 48, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
         { name: 'payment_options', packedOffset: 56, packedBitOffset: 0, type: payments.mojom.PaymentOptionsSpec, nullable: true, minVersion: 0 },
         { name: 'shipping_options', packedOffset: 64, packedBitOffset: 0, type: mojo.internal.Array(payments.mojom.PaymentShippingOptionSpec, false), nullable: true, minVersion: 0 },
-        { name: 'payment_handler_host', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'payment_handler_host', packedOffset: 72, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(payments.mojom.PaymentHandlerHostRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 88}]
     }

@@ -585,7 +585,7 @@ device_test.mojom.mojom.XRServiceTestHook_SetTestHook_ParamsSpec = {
       name: 'device_test.mojom.XRServiceTestHook.SetTestHook_Params',
       packedSize: 16,
       fields: [
-        { name: 'hook', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'hook', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(device_test.mojom.XRTestHookRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

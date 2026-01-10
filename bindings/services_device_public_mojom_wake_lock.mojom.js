@@ -150,7 +150,7 @@ device.mojom.mojom.WakeLock_AddClient_ParamsSpec = {
       name: 'device.mojom.WakeLock.AddClient_Params',
       packedSize: 16,
       fields: [
-        { name: 'wake_lock', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'wake_lock', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(device.mojom.WakeLockRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

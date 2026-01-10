@@ -34,12 +34,12 @@ pdf.mojom.mojom.SaveDataBufferHandlerGetResultSpec = {
   $: {
     structSpec: {
       name: 'pdf.mojom.SaveDataBufferHandlerGetResult',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'total_file_size', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
+        { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(pdf.mojom.SaveDataBufferHandlerRemote), nullable: false, minVersion: 0 },
+        { name: 'total_file_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -518,7 +518,7 @@ pdf.mojom.mojom.PdfHost_SetListener_ParamsSpec = {
       name: 'pdf.mojom.PdfHost.SetListener_Params',
       packedSize: 16,
       fields: [
-        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(pdf.mojom.PdfListenerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

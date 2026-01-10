@@ -297,13 +297,13 @@ media.mojom.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec = {
   $: {
     structSpec: {
       name: 'media.mojom.Decryptor.DecryptAndDecodeVideo_ResponseParams',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
-        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false, minVersion: 0 },
+        { name: 'status', packedOffset: 16, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false, minVersion: 0 },
         { name: 'video_frame', packedOffset: 0, packedBitOffset: 0, type: media.mojom.VideoFrameSpec, nullable: true, minVersion: 0 },
-        { name: 'releaser', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'releaser', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.FrameResourceReleaserRemote), nullable: true, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };

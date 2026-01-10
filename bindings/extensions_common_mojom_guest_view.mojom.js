@@ -238,7 +238,7 @@ extensions.mojom.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl
       name: 'extensions.mojom.MimeHandlerViewContainerManager.CreateBeforeUnloadControl_ResponseParams',
       packedSize: 16,
       fields: [
-        { name: 'before_unload_control', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'before_unload_control', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(extensions.mime_handler.BeforeUnloadControlRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

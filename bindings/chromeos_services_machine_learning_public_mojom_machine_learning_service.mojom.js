@@ -191,7 +191,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_Cl
       name: 'chromeos.machine_learning.mojom.MachineLearningService.Clone_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.machine_learning.mojom.MachineLearningServiceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -206,7 +206,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_Lo
       packedSize: 24,
       fields: [
         { name: 'spec', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.BuiltinModelSpecSpec, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.machine_learning.mojom.ModelRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -234,7 +234,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_Lo
       packedSize: 24,
       fields: [
         { name: 'spec', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.FlatBufferModelSpecSpec, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.machine_learning.mojom.ModelRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -261,7 +261,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_Lo
       name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadTextClassifier_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.machine_learning.mojom.TextClassifierRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -289,7 +289,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_Lo
       packedSize: 24,
       fields: [
         { name: 'spec', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.HandwritingRecognizerSpecSpec, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.machine_learning.mojom.HandwritingRecognizerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -314,13 +314,13 @@ chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_Lo
   $: {
     structSpec: {
       name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadSpeechRecognizer_Params',
-      packedSize: 24,
+      packedSize: 32,
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.SodaConfigSpec, nullable: false, minVersion: 0 },
-        { name: 'soda_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'soda_recognizer', packedOffset: 12, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'soda_client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.machine_learning.mojom.SodaClientRemote), nullable: false, minVersion: 0 },
+        { name: 'soda_recognizer', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.machine_learning.mojom.SodaRecognizerRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 24}]
+      versions: [{version: 0, packedSize: 32}]
     }
   }
 };
@@ -345,7 +345,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_Lo
       name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadGrammarChecker_Params',
       packedSize: 16,
       fields: [
-        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.machine_learning.mojom.GrammarCheckerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -372,10 +372,10 @@ chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_Lo
       name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadTextSuggester_Params',
       packedSize: 24,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'spec', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.TextSuggesterSpecSpec, nullable: true, minVersion: 3 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.machine_learning.mojom.TextSuggesterRemote), nullable: false, minVersion: 0 },
+        { name: 'spec', packedOffset: 8, packedBitOffset: 0, type: chromeos.machine_learning.mojom.TextSuggesterSpecSpec, nullable: true, minVersion: 3 },
       ],
-      versions: [{version: 0, packedSize: 24}, {version: 3, packedSize: 24}]
+      versions: [{version: 0, packedSize: 16}, {version: 3, packedSize: 24}]
     }
   }
 };
@@ -401,7 +401,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_Lo
       packedSize: 24,
       fields: [
         { name: 'constraint', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.web_platform.mojom.HandwritingModelConstraintSpec, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -428,10 +428,10 @@ chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_Lo
       name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadDocumentScanner_Params',
       packedSize: 24,
       fields: [
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
-        { name: 'config', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.DocumentScannerConfigSpec, nullable: true, minVersion: 6 },
+        { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.machine_learning.mojom.DocumentScannerRemote), nullable: false, minVersion: 0 },
+        { name: 'config', packedOffset: 8, packedBitOffset: 0, type: chromeos.machine_learning.mojom.DocumentScannerConfigSpec, nullable: true, minVersion: 6 },
       ],
-      versions: [{version: 0, packedSize: 24}, {version: 6, packedSize: 24}]
+      versions: [{version: 0, packedSize: 16}, {version: 6, packedSize: 24}]
     }
   }
 };
@@ -457,7 +457,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_Lo
       packedSize: 24,
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.ImageAnnotatorConfigSpec, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.machine_learning.mojom.ImageContentAnnotatorRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -485,7 +485,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_Lo
       packedSize: 24,
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.HeatmapPalmRejectionConfigSpec, nullable: false, minVersion: 0 },
-        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'client', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.machine_learning.mojom.HeatmapPalmRejectionClientRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -513,7 +513,7 @@ chromeos.machine_learning.machine_learning.mojom.mojom.MachineLearningService_RE
       packedSize: 24,
       fields: [
         { name: 'spec', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.HandwritingRecognizerSpecSpec, nullable: false, minVersion: 0 },
-        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'receiver', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(chromeos.machine_learning.mojom.HandwritingRecognizerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

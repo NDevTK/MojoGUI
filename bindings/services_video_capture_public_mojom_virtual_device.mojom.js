@@ -232,7 +232,7 @@ video_capture.mojom.mojom.TextureVirtualDevice_OnFrameAccessHandlerReady_ParamsS
       name: 'video_capture.mojom.TextureVirtualDevice.OnFrameAccessHandlerReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'frame_access_handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'frame_access_handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(video_capture.mojom.VideoFrameAccessHandlerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -378,7 +378,7 @@ video_capture.mojom.mojom.GpuMemoryBufferVirtualDevice_OnFrameAccessHandlerReady
       name: 'video_capture.mojom.GpuMemoryBufferVirtualDevice.OnFrameAccessHandlerReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'frame_access_handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'frame_access_handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(video_capture.mojom.VideoFrameAccessHandlerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

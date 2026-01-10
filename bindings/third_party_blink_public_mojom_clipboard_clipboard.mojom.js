@@ -897,7 +897,7 @@ blink.mojom.mojom.ClipboardHost_RegisterClipboardListener_ParamsSpec = {
       name: 'blink.mojom.ClipboardHost.RegisterClipboardListener_Params',
       packedSize: 16,
       fields: [
-        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'listener', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.ClipboardListenerRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

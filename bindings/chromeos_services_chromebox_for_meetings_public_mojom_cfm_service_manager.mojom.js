@@ -147,7 +147,7 @@ chromeos.cfm.cfm.mojom.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec = {
       packedSize: 24,
       fields: [
         { name: 'interface_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
-        { name: 'adaptor_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'adaptor_remote', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.cfm.mojom.CfmServiceAdaptorRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

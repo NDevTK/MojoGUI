@@ -78,12 +78,12 @@ customize_color_scheme_mode.mojom.mojom.CustomizeColorSchemeModeHandlerFactory_C
   $: {
     structSpec: {
       name: 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory.CreateCustomizeColorSchemeModeHandler_Params',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'pending_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'pending_handler', packedOffset: 4, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'pending_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientRemote), nullable: false, minVersion: 0 },
+        { name: 'pending_handler', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRemote), nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };

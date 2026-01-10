@@ -72,7 +72,7 @@ audio.mojom.mojom.LogFactoryManager_SetLogFactory_ParamsSpec = {
       name: 'audio.mojom.LogFactoryManager.SetLogFactory_Params',
       packedSize: 16,
       fields: [
-        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(media.mojom.AudioLogFactoryRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

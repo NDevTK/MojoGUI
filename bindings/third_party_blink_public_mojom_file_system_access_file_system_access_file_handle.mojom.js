@@ -44,7 +44,7 @@ blink.mojom.mojom.FileSystemAccessAccessHandleFileSpec = { $: mojo.internal.Unio
       }},
       'incognito_file_delegate': {
         'ordinal': 1,
-        'type': mojo.internal.InterfaceProxy,
+        'type': mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessFileDelegateHostRemote),
       }},
     })
 };
@@ -58,7 +58,7 @@ blink.mojom.mojom.FileSystemAccessRegularFileSpec = {
       fields: [
         { name: 'os_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
         { name: 'file_size', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'file_modification_host', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'file_modification_host', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessFileModificationHostRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -326,7 +326,7 @@ blink.mojom.mojom.FileSystemAccessFileHandle_CreateFileWriter_ResponseParamsSpec
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false, minVersion: 0 },
-        { name: 'writer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'writer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessFileWriterRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -367,8 +367,8 @@ blink.mojom.mojom.FileSystemAccessFileHandle_Move_ParamsSpec = {
       name: 'blink.mojom.FileSystemAccessFileHandle.Move_Params',
       packedSize: 24,
       fields: [
-        { name: 'destination_directory', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'new_entry_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
+        { name: 'destination_directory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), nullable: false, minVersion: 0 },
+        { name: 'new_entry_name', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -436,7 +436,7 @@ blink.mojom.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ResponseParamsSpec
       fields: [
         { name: 'result', packedOffset: 16, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false, minVersion: 0 },
         { name: 'file', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessAccessHandleFileSpec, nullable: true, minVersion: 0 },
-        { name: 'access_handle_host', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'access_handle_host', packedOffset: 24, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessAccessHandleHostRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 40}]
     }
@@ -450,7 +450,7 @@ blink.mojom.mojom.FileSystemAccessFileHandle_IsSameEntry_ParamsSpec = {
       name: 'blink.mojom.FileSystemAccessFileHandle.IsSameEntry_Params',
       packedSize: 16,
       fields: [
-        { name: 'other', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'other', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.FileSystemAccessTransferTokenRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -478,7 +478,7 @@ blink.mojom.mojom.FileSystemAccessFileHandle_Transfer_ParamsSpec = {
       name: 'blink.mojom.FileSystemAccessFileHandle.Transfer_Params',
       packedSize: 16,
       fields: [
-        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.FileSystemAccessTransferTokenRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

@@ -491,12 +491,12 @@ ash.nearby.nearby.presence.presence.mojom.mojom.NearbyPresence_StartScan_Respons
   $: {
     structSpec: {
       name: 'ash.nearby.presence.mojom.NearbyPresence.StartScan_ResponseParams',
-      packedSize: 16,
+      packedSize: 24,
       fields: [
-        { name: 'scan_session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
-        { name: 'status', packedOffset: 4, packedBitOffset: 0, type: mojo_base.mojom.AbslStatusCodeSpec, nullable: false, minVersion: 0 },
+        { name: 'scan_session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.nearby.presence.mojom.ScanSessionRemote), nullable: true, minVersion: 0 },
+        { name: 'status', packedOffset: 8, packedBitOffset: 0, type: mojo_base.mojom.AbslStatusCodeSpec, nullable: false, minVersion: 0 },
       ],
-      versions: [{version: 0, packedSize: 16}]
+      versions: [{version: 0, packedSize: 24}]
     }
   }
 };
@@ -508,7 +508,7 @@ ash.nearby.nearby.presence.presence.mojom.mojom.NearbyPresence_SetScanObserver_P
       name: 'ash.nearby.presence.mojom.NearbyPresence.SetScanObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'scan_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'scan_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.nearby.presence.mojom.ScanObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

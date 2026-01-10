@@ -448,7 +448,7 @@ blink.mojom.mojom.FrameWidget_PassImeRenderWidgetHost_ParamsSpec = {
       name: 'blink.mojom.FrameWidget.PassImeRenderWidgetHost_Params',
       packedSize: 16,
       fields: [
-        { name: 'remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(blink.mojom.ImeRenderWidgetHostRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -604,7 +604,7 @@ blink.mojom.mojom.FrameWidget_BindWidgetCompositor_ParamsSpec = {
       name: 'blink.mojom.FrameWidget.BindWidgetCompositor_Params',
       packedSize: 16,
       fields: [
-        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(blink.mojom.WidgetCompositorRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

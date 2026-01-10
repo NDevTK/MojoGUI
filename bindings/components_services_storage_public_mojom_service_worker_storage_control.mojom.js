@@ -28,7 +28,7 @@ storage.mojom.mojom.ServiceWorkerLiveVersionInfoSpec = {
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
         { name: 'purgeable_resources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int64, false), nullable: false, minVersion: 0 },
-        { name: 'reference', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'reference', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(storage.mojom.ServiceWorkerLiveVersionRefRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -42,9 +42,9 @@ storage.mojom.mojom.ServiceWorkerFindRegistrationResultSpec = {
       name: 'storage.mojom.ServiceWorkerFindRegistrationResult',
       packedSize: 32,
       fields: [
-        { name: 'version_reference', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
-        { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.ServiceWorkerRegistrationDataSpec, nullable: false, minVersion: 0 },
-        { name: 'resources', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.ServiceWorkerResourceRecordSpec, false), nullable: false, minVersion: 0 },
+        { name: 'version_reference', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(storage.mojom.ServiceWorkerLiveVersionRefRemote), nullable: false, minVersion: 0 },
+        { name: 'registration', packedOffset: 8, packedBitOffset: 0, type: storage.mojom.ServiceWorkerRegistrationDataSpec, nullable: false, minVersion: 0 },
+        { name: 'resources', packedOffset: 16, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.ServiceWorkerResourceRecordSpec, false), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 32}]
     }
@@ -1483,7 +1483,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_GetNewVersionId_ResponseParamsSp
       packedSize: 24,
       fields: [
         { name: 'version_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'version_reference', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
+        { name: 'version_reference', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(storage.mojom.ServiceWorkerLiveVersionRefRemote), nullable: true, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -1524,7 +1524,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_CreateResourceReader_ParamsSpec 
       packedSize: 24,
       fields: [
         { name: 'resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'reader', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'reader', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(storage.mojom.ServiceWorkerResourceReaderRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -1539,7 +1539,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_CreateResourceWriter_ParamsSpec 
       packedSize: 24,
       fields: [
         { name: 'resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'writer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'writer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(storage.mojom.ServiceWorkerResourceWriterRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }
@@ -1554,7 +1554,7 @@ storage.mojom.mojom.ServiceWorkerStorageControl_CreateResourceMetadataWriter_Par
       packedSize: 24,
       fields: [
         { name: 'resource_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
-        { name: 'writer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
+        { name: 'writer', packedOffset: 8, packedBitOffset: 0, type: mojo.internal.InterfaceRequest(storage.mojom.ServiceWorkerResourceMetadataWriterRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 24}]
     }

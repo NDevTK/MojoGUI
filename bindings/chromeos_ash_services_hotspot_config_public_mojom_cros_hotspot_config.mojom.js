@@ -242,7 +242,7 @@ ash.hotspot_config.hotspot_config.mojom.mojom.CrosHotspotConfig_AddObserver_Para
       name: 'ash.hotspot_config.mojom.CrosHotspotConfig.AddObserver_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.hotspot_config.mojom.CrosHotspotConfigObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -256,7 +256,7 @@ ash.hotspot_config.hotspot_config.mojom.mojom.CrosHotspotConfig_ObserveEnabledSt
       name: 'ash.hotspot_config.mojom.CrosHotspotConfig.ObserveEnabledStateChanges_Params',
       packedSize: 16,
       fields: [
-        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ash.hotspot_config.mojom.HotspotEnabledStateObserverRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }

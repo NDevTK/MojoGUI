@@ -585,7 +585,7 @@ arc.mojom.mojom.ArcBridgeHost_OnAccessibilityHelperInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnAccessibilityHelperInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(ax.android.mojom.AccessibilityHelperInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -599,7 +599,7 @@ arc.mojom.mojom.ArcBridgeHost_OnAdbdMonitorInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnAdbdMonitorInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AdbdMonitorInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -613,7 +613,7 @@ arc.mojom.mojom.ArcBridgeHost_OnAppInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnAppInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AppInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -627,7 +627,7 @@ arc.mojom.mojom.ArcBridgeHost_OnAppPermissionsInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnAppPermissionsInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AppPermissionsInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -641,7 +641,7 @@ arc.mojom.mojom.ArcBridgeHost_OnAppfuseInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnAppfuseInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AppfuseInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -655,7 +655,7 @@ arc.mojom.mojom.ArcBridgeHost_OnArcShellExecutionInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnArcShellExecutionInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ArcShellExecutionInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -669,7 +669,7 @@ arc.mojom.mojom.ArcBridgeHost_OnArcWifiInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnArcWifiInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ArcWifiInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -683,7 +683,7 @@ arc.mojom.mojom.ArcBridgeHost_OnAudioInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnAudioInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AudioInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -697,7 +697,7 @@ arc.mojom.mojom.ArcBridgeHost_OnAuthInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnAuthInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.AuthInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -711,7 +711,7 @@ arc.mojom.mojom.ArcBridgeHost_OnBackupSettingsInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnBackupSettingsInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.BackupSettingsInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -725,7 +725,7 @@ arc.mojom.mojom.ArcBridgeHost_OnBluetoothInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnBluetoothInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.BluetoothInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -739,7 +739,7 @@ arc.mojom.mojom.ArcBridgeHost_OnBootPhaseMonitorInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnBootPhaseMonitorInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.BootPhaseMonitorInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -753,7 +753,7 @@ arc.mojom.mojom.ArcBridgeHost_OnCameraInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnCameraInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.CameraInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -767,7 +767,7 @@ arc.mojom.mojom.ArcBridgeHost_OnChromeFeatureFlagsInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnChromeFeatureFlagsInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ChromeFeatureFlagsInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -781,7 +781,7 @@ arc.mojom.mojom.ArcBridgeHost_OnCompatibilityModeInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnCompatibilityModeInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.CompatibilityModeInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -795,7 +795,7 @@ arc.mojom.mojom.ArcBridgeHost_OnCrashCollectorInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnCrashCollectorInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.CrashCollectorInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -809,7 +809,7 @@ arc.mojom.mojom.ArcBridgeHost_OnOnDeviceSafetyInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnOnDeviceSafetyInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.OnDeviceSafetyInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -823,7 +823,7 @@ arc.mojom.mojom.ArcBridgeHost_OnDigitalGoodsInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnDigitalGoodsInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.DigitalGoodsInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -837,7 +837,7 @@ arc.mojom.mojom.ArcBridgeHost_OnDiskSpaceInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnDiskSpaceInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.DiskSpaceInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -851,7 +851,7 @@ arc.mojom.mojom.ArcBridgeHost_OnEnterpriseReportingInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnEnterpriseReportingInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.EnterpriseReportingInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -865,7 +865,7 @@ arc.mojom.mojom.ArcBridgeHost_OnErrorNotificationInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnErrorNotificationInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ErrorNotificationInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -879,7 +879,7 @@ arc.mojom.mojom.ArcBridgeHost_OnFileSystemInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnFileSystemInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.FileSystemInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -893,7 +893,7 @@ arc.mojom.mojom.ArcBridgeHost_OnIioSensorInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnIioSensorInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.IioSensorInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -907,7 +907,7 @@ arc.mojom.mojom.ArcBridgeHost_OnImeInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnImeInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ImeInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -921,7 +921,7 @@ arc.mojom.mojom.ArcBridgeHost_OnInputMethodManagerInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnInputMethodManagerInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.InputMethodManagerInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -935,7 +935,7 @@ arc.mojom.mojom.ArcBridgeHost_OnIntentHelperInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnIntentHelperInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.IntentHelperInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -949,7 +949,7 @@ arc.mojom.mojom.ArcBridgeHost_OnKeymasterInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnKeymasterInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.KeymasterInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -963,7 +963,7 @@ arc.mojom.mojom.ArcBridgeHost_OnKeyMintInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnKeyMintInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(keymint.KeyMintInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -977,7 +977,7 @@ arc.mojom.mojom.ArcBridgeHost_OnKioskInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnKioskInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.KioskInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -991,7 +991,7 @@ arc.mojom.mojom.ArcBridgeHost_OnMediaSessionInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnMediaSessionInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.MediaSessionInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1005,7 +1005,7 @@ arc.mojom.mojom.ArcBridgeHost_OnMemoryInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnMemoryInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.MemoryInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1019,7 +1019,7 @@ arc.mojom.mojom.ArcBridgeHost_OnMetricsInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnMetricsInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.MetricsInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1033,7 +1033,7 @@ arc.mojom.mojom.ArcBridgeHost_OnMidisInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnMidisInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.MidisInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1047,7 +1047,7 @@ arc.mojom.mojom.ArcBridgeHost_OnNearbyShareInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnNearbyShareInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.NearbyShareInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1061,7 +1061,7 @@ arc.mojom.mojom.ArcBridgeHost_OnNetInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnNetInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.NetInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1075,7 +1075,7 @@ arc.mojom.mojom.ArcBridgeHost_OnNotificationsInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnNotificationsInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.NotificationsInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1089,7 +1089,7 @@ arc.mojom.mojom.ArcBridgeHost_OnObbMounterInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnObbMounterInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ObbMounterInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1103,7 +1103,7 @@ arc.mojom.mojom.ArcBridgeHost_OnOemCryptoInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnOemCryptoInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.OemCryptoInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1117,7 +1117,7 @@ arc.mojom.mojom.ArcBridgeHost_OnPaymentAppInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnPaymentAppInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(chromeos.payments.mojom.PaymentAppInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1131,7 +1131,7 @@ arc.mojom.mojom.ArcBridgeHost_OnPipInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnPipInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.PipInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1145,7 +1145,7 @@ arc.mojom.mojom.ArcBridgeHost_OnPolicyInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnPolicyInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.PolicyInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1159,7 +1159,7 @@ arc.mojom.mojom.ArcBridgeHost_OnPowerInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnPowerInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.PowerInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1173,7 +1173,7 @@ arc.mojom.mojom.ArcBridgeHost_OnPrintSpoolerInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnPrintSpoolerInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.PrintSpoolerInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1187,7 +1187,7 @@ arc.mojom.mojom.ArcBridgeHost_OnPrivacyItemsInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnPrivacyItemsInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.PrivacyItemsInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1201,7 +1201,7 @@ arc.mojom.mojom.ArcBridgeHost_OnProcessInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnProcessInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ProcessInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1215,7 +1215,7 @@ arc.mojom.mojom.ArcBridgeHost_OnScreenCaptureInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnScreenCaptureInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.ScreenCaptureInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1229,7 +1229,7 @@ arc.mojom.mojom.ArcBridgeHost_OnSharesheetInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnSharesheetInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.SharesheetInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1243,7 +1243,7 @@ arc.mojom.mojom.ArcBridgeHost_OnSystemStateInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnSystemStateInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.SystemStateInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1257,7 +1257,7 @@ arc.mojom.mojom.ArcBridgeHost_OnSystemUiInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnSystemUiInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.SystemUiInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1271,7 +1271,7 @@ arc.mojom.mojom.ArcBridgeHost_OnTimerInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnTimerInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.TimerInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1285,7 +1285,7 @@ arc.mojom.mojom.ArcBridgeHost_OnTracingInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnTracingInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.TracingInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1299,7 +1299,7 @@ arc.mojom.mojom.ArcBridgeHost_OnTtsInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnTtsInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.TtsInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1313,7 +1313,7 @@ arc.mojom.mojom.ArcBridgeHost_OnUsbHostInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnUsbHostInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.UsbHostInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1327,7 +1327,7 @@ arc.mojom.mojom.ArcBridgeHost_OnVideoInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnVideoInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.VideoInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1341,7 +1341,7 @@ arc.mojom.mojom.ArcBridgeHost_OnVolumeMounterInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnVolumeMounterInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.VolumeMounterInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1355,7 +1355,7 @@ arc.mojom.mojom.ArcBridgeHost_OnWakeLockInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnWakeLockInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.WakeLockInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1369,7 +1369,7 @@ arc.mojom.mojom.ArcBridgeHost_OnWallpaperInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnWallpaperInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.WallpaperInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
@@ -1383,7 +1383,7 @@ arc.mojom.mojom.ArcBridgeHost_OnWebApkInstanceReady_ParamsSpec = {
       name: 'arc.mojom.ArcBridgeHost.OnWebApkInstanceReady_Params',
       packedSize: 16,
       fields: [
-        { name: 'instance_ptr', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
+        { name: 'instance_ptr', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy(arc.mojom.WebApkInstanceRemote), nullable: false, minVersion: 0 },
       ],
       versions: [{version: 0, packedSize: 16}]
     }
