@@ -86,7 +86,7 @@
             // Polyfill createResponder if missing
             if (typeof mojo.internal.interfaceSupport.createResponder !== 'function') {
                 console.log('[Interceptor] Polyfilling createResponder');
-                mojo.internal.interfaceSupport.createResponder = function (endpoint, requestId, responseParamsSpec) {
+                mojo.internal.interfaceSupport.createResponder = function (endpoint, requestId, responseParamsSpec, ordinal) {
                     return function (response) {
                         try {
                             const structSpec = responseParamsSpec.$.structSpec;
@@ -101,7 +101,7 @@
                             view.setUint32(0, totalSize, true);     // num_bytes
                             view.setUint32(4, 1, true);             // version (1 = includes requestId)
                             view.setUint32(8, 0, true);             // interface_id
-                            view.setUint32(12, 0, true);            // ordinal
+                            view.setUint32(12, ordinal || 0, true); // ordinal (MATCH REQUEST)
                             view.setUint32(16, 2, true);            // flags (2 = kMessageIsResponse)
                             view.setUint32(20, 0, true);            // padding (aligned to 8 bytes)
 
@@ -121,20 +121,61 @@
 
                             encoder.encodeStructInline(structSpec, response);
 
-                            // 3. Send via Handle (Instance Method)
-                            // We know from probe that MojoHandle.prototype.writeMessage exists
+                            // 3. Send using "Cascade of Doom"
+                            let sent = false;
                             const pipe = endpoint.router_.pipe_ || endpoint.router_.handle_;
+
+                            // Try 1: Instance method (observed in probe)
                             if (pipe && typeof pipe.writeMessage === 'function') {
-                                // console.log('[Interceptor] sending response via pipe.writeMessage', totalSize, 'bytes');
-                                pipe.writeMessage(buffer, []);
-                            } else {
-                                console.error('[Interceptor] No valid pipe handle found for response');
+                                try {
+                                    // Some envs prefer Uint8Array over raw ArrayBuffer
+                                    pipe.writeMessage(new Uint8Array(buffer), []);
+                                    sent = true;
+                                } catch (e) {
+                                    try {
+                                        pipe.writeMessage(buffer, []);
+                                        sent = true;
+                                    } catch (e2) { console.warn('[Interceptor] pipe.writeMessage failed:', e2); }
+                                }
+                            }
+
+                            // Try 2: Router.send (Alternative)
+                            if (!sent && endpoint.router_ && typeof endpoint.router_.send === 'function') {
+                                try {
+                                    endpoint.router_.send({ buffer, handles: [], header: { requestId, flags: 2, ordinal } });
+                                    sent = true;
+                                } catch (e) {
+                                    try {
+                                        endpoint.router_.send(buffer, []);
+                                        sent = true;
+                                    } catch (e2) { console.warn('[Interceptor] router.send failed:', e2); }
+                                }
+                            }
+
+                            if (!sent) {
+                                console.error('[Interceptor] FAILED TO SEND RESPONSE. No valid method found.');
                             }
                         } catch (e) {
                             console.error('[Interceptor] createResponder polyfill FAILED:', e);
                         }
                     };
                 };
+            }
+
+            // Fix Endpoint crash: "this.client_.onError is not a function"
+            if (mojo.internal.interfaceSupport && mojo.internal.interfaceSupport.Endpoint) {
+                const Proto = mojo.internal.interfaceSupport.Endpoint.prototype;
+                const origOnError = Proto.onError;
+                if (typeof origOnError === 'function' && !Proto._interceptor_patched) {
+                    Proto._interceptor_patched = true;
+                    Proto.onError = function (e) {
+                        if (!this.client_ || typeof this.client_.onError !== 'function') {
+                            console.warn('[Interceptor] Endpoint.onError prevented crash. Client missing onError. Event:', e);
+                            return;
+                        }
+                        return origOnError.apply(this, arguments);
+                    };
+                }
             }
         }
         // MONKEY PATCH: Fix ControlMessageHandler crash (RUN_MESSAGE_ID)
