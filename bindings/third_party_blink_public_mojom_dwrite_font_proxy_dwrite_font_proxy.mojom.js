@@ -176,7 +176,7 @@ blink.mojom.DWriteFontProxy_FindFamily_ParamsSpec = {
 blink.mojom.DWriteFontProxy_FindFamily_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.DWriteFontProxy.FindFamily_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'out_index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
@@ -202,7 +202,7 @@ blink.mojom.DWriteFontProxy_GetFamilyCount_ParamsSpec = {
 blink.mojom.DWriteFontProxy_GetFamilyCount_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.DWriteFontProxy.GetFamilyCount_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'out_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
@@ -229,7 +229,7 @@ blink.mojom.DWriteFontProxy_GetFamilyNames_ParamsSpec = {
 blink.mojom.DWriteFontProxy_GetFamilyNames_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.DWriteFontProxy.GetFamilyNames_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'out_family_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.DWriteStringPairSpec, false), nullable: false, minVersion: 0 },
@@ -256,7 +256,7 @@ blink.mojom.DWriteFontProxy_GetFontFileHandles_ParamsSpec = {
 blink.mojom.DWriteFontProxy_GetFontFileHandles_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.DWriteFontProxy.GetFontFileHandles_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'file_handles', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.ReadOnlyFileSpec, false), nullable: false, minVersion: 0 },
@@ -283,7 +283,7 @@ blink.mojom.DWriteFontProxy_MatchUniqueFont_ParamsSpec = {
 blink.mojom.DWriteFontProxy_MatchUniqueFont_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.DWriteFontProxy.MatchUniqueFont_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'file_handle', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true, minVersion: 0 },
@@ -315,7 +315,7 @@ blink.mojom.DWriteFontProxy_MapCharacters_ParamsSpec = {
 blink.mojom.DWriteFontProxy_MapCharacters_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.DWriteFontProxy.MapCharacters_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'out', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.MapCharactersResultSpec, nullable: false, minVersion: 0 },

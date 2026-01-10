@@ -113,7 +113,7 @@ pdf.mojom.PdfThumbnailer_GetThumbnail_ParamsSpec = {
 pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'pdf.mojom.PdfThumbnailer.GetThumbnail_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },

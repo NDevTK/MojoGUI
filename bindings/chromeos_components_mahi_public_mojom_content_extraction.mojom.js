@@ -162,7 +162,7 @@ mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec = {
 mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mahi.mojom.ContentExtractionService.ExtractContent_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'extraction_response', packedOffset: 0, packedBitOffset: 0, type: mahi.mojom.ExtractionResponseSpec, nullable: false, minVersion: 0 },
@@ -189,7 +189,7 @@ mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec = {
 mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mahi.mojom.ContentExtractionService.GetContentSize_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'contents_size_response', packedOffset: 0, packedBitOffset: 0, type: mahi.mojom.ContentSizeResponseSpec, nullable: false, minVersion: 0 },

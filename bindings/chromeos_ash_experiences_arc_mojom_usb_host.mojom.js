@@ -101,7 +101,7 @@ arc.mojom.UsbHostHost_OpenDevice_ParamsSpec = {
 arc.mojom.UsbHostHost_OpenDevice_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.UsbHostHost.OpenDevice_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'usb_fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: true, minVersion: 0 },
@@ -128,7 +128,7 @@ arc.mojom.UsbHostHost_GetDeviceInfo_ParamsSpec = {
 arc.mojom.UsbHostHost_GetDeviceInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.UsbHostHost.GetDeviceInfo_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'device_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -158,7 +158,7 @@ arc.mojom.UsbHostHost_RequestPermission_ParamsSpec = {
 arc.mojom.UsbHostHost_RequestPermission_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.UsbHostHost.RequestPermission_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'authorized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

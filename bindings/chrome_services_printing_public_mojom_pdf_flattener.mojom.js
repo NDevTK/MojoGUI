@@ -106,7 +106,7 @@ printing.mojom.PdfFlattener_FlattenPdf_ParamsSpec = {
 printing.mojom.PdfFlattener_FlattenPdf_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'printing.mojom.PdfFlattener.FlattenPdf_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.FlattenPdfResultSpec, nullable: true, minVersion: 0 },

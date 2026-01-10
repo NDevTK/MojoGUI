@@ -354,7 +354,7 @@ blink.mojom.BackgroundFetchService_Fetch_ParamsSpec = {
 blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.BackgroundFetchService.Fetch_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundFetchErrorSpec, nullable: false, minVersion: 0 },
@@ -383,7 +383,7 @@ blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec = {
 blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.BackgroundFetchService.GetRegistration_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundFetchErrorSpec, nullable: false, minVersion: 0 },
@@ -411,7 +411,7 @@ blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec = {
 blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.BackgroundFetchService.GetDeveloperIds_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundFetchErrorSpec, nullable: false, minVersion: 0 },
@@ -438,7 +438,7 @@ blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec = {
 blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.BackgroundFetchService.GetIconDisplaySize_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'icon_size_pixels', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },
@@ -554,7 +554,7 @@ blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec = {
 blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.BackgroundFetchRegistrationService.UpdateUI_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundFetchErrorSpec, nullable: false, minVersion: 0 },
@@ -580,7 +580,7 @@ blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec = {
 blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.BackgroundFetchRegistrationService.Abort_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundFetchErrorSpec, nullable: false, minVersion: 0 },
@@ -609,7 +609,7 @@ blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec = {
 blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.BackgroundFetchRegistrationService.MatchRequests_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'fetches', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.BackgroundFetchSettledFetchSpec, false), nullable: false, minVersion: 0 },

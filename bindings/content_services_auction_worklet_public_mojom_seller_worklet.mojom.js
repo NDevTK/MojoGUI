@@ -363,7 +363,7 @@ auction_worklet.mojom.SellerWorklet_ReportResult_ParamsSpec = {
 auction_worklet.mojom.SellerWorklet_ReportResult_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'auction_worklet.mojom.SellerWorklet.ReportResult_ResponseParams',
       packedSize: 56,
       fields: [
         { name: 'signals_for_winner', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },

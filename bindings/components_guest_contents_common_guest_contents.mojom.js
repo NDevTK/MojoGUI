@@ -83,7 +83,7 @@ guest_contents.mojom.GuestContentsHost_Attach_ParamsSpec = {
 guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'guest_contents.mojom.GuestContentsHost.Attach_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

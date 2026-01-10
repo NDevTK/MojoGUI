@@ -408,7 +408,7 @@ blink.mojom.ClipboardHost_GetSequenceNumber_ParamsSpec = {
 blink.mojom.ClipboardHost_GetSequenceNumber_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ClipboardHost.GetSequenceNumber_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.Uint128Spec, nullable: false, minVersion: 0 },
@@ -436,7 +436,7 @@ blink.mojom.ClipboardHost_IsFormatAvailable_ParamsSpec = {
 blink.mojom.ClipboardHost_IsFormatAvailable_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ClipboardHost.IsFormatAvailable_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -463,7 +463,7 @@ blink.mojom.ClipboardHost_ReadAvailableTypes_ParamsSpec = {
 blink.mojom.ClipboardHost_ReadAvailableTypes_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ClipboardHost.ReadAvailableTypes_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.String16Spec, false), nullable: false, minVersion: 0 },
@@ -490,7 +490,7 @@ blink.mojom.ClipboardHost_ReadText_ParamsSpec = {
 blink.mojom.ClipboardHost_ReadText_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ClipboardHost.ReadText_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigString16Spec, nullable: false, minVersion: 0 },
@@ -517,7 +517,7 @@ blink.mojom.ClipboardHost_ReadHtml_ParamsSpec = {
 blink.mojom.ClipboardHost_ReadHtml_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ClipboardHost.ReadHtml_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'markup', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigString16Spec, nullable: false, minVersion: 0 },
@@ -547,7 +547,7 @@ blink.mojom.ClipboardHost_ReadSvg_ParamsSpec = {
 blink.mojom.ClipboardHost_ReadSvg_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ClipboardHost.ReadSvg_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigString16Spec, nullable: false, minVersion: 0 },
@@ -574,7 +574,7 @@ blink.mojom.ClipboardHost_ReadRtf_ParamsSpec = {
 blink.mojom.ClipboardHost_ReadRtf_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ClipboardHost.ReadRtf_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigStringSpec, nullable: false, minVersion: 0 },
@@ -601,7 +601,7 @@ blink.mojom.ClipboardHost_ReadPng_ParamsSpec = {
 blink.mojom.ClipboardHost_ReadPng_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ClipboardHost.ReadPng_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'png', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
@@ -628,7 +628,7 @@ blink.mojom.ClipboardHost_ReadFiles_ParamsSpec = {
 blink.mojom.ClipboardHost_ReadFiles_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ClipboardHost.ReadFiles_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ClipboardFilesSpec, nullable: false, minVersion: 0 },
@@ -656,7 +656,7 @@ blink.mojom.ClipboardHost_ReadDataTransferCustomData_ParamsSpec = {
 blink.mojom.ClipboardHost_ReadDataTransferCustomData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ClipboardHost.ReadDataTransferCustomData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigString16Spec, nullable: false, minVersion: 0 },
@@ -682,7 +682,7 @@ blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ParamsSpec = {
 blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ClipboardHost.ReadAvailableCustomAndStandardFormats_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'format_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.String16Spec, false), nullable: false, minVersion: 0 },
@@ -709,7 +709,7 @@ blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ParamsSpec = {
 blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ClipboardHost.ReadUnsanitizedCustomFormat_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
@@ -876,7 +876,7 @@ blink.mojom.ClipboardHost_GetPlatformPermissionState_ParamsSpec = {
 blink.mojom.ClipboardHost_GetPlatformPermissionState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ClipboardHost.GetPlatformPermissionState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PlatformClipboardPermissionStateSpec, nullable: false, minVersion: 0 },

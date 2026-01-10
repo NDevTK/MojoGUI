@@ -295,7 +295,7 @@ glic.mojom.FrePageHandler_PrepareForClient_ParamsSpec = {
 glic.mojom.FrePageHandler_PrepareForClient_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.FrePageHandler.PrepareForClient_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

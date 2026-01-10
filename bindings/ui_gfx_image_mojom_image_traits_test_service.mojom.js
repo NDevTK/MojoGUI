@@ -91,7 +91,7 @@ gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec = {
 gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'gfx.mojom.ImageTraitsTestService.EchoImageSkiaRep_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'out', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.ImageSkiaRepSpec, nullable: true, minVersion: 0 },
@@ -118,7 +118,7 @@ gfx.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec = {
 gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'gfx.mojom.ImageTraitsTestService.EchoImageSkia_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'out', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true, minVersion: 0 },

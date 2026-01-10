@@ -198,7 +198,7 @@ unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ParamsSpec
 unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'unexportable_keys_internals.mojom.PageHandler.GetUnexportableKeysInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(unexportable_keys_internals.mojom.UnexportableKeyInfoSpec, false), nullable: false, minVersion: 0 },
@@ -225,7 +225,7 @@ unexportable_keys_internals.mojom.PageHandler_DeleteKey_ParamsSpec = {
 unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'unexportable_keys_internals.mojom.PageHandler.DeleteKey_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

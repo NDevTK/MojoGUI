@@ -227,7 +227,7 @@ chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec
 chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.connectivity.mojom.PasspointService.GetPasspointSubscription_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.connectivity.mojom.PasspointSubscriptionSpec, nullable: true, minVersion: 0 },
@@ -253,7 +253,7 @@ chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSp
 chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.connectivity.mojom.PasspointService.ListPasspointSubscriptions_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromeos.connectivity.mojom.PasspointSubscriptionSpec, false), nullable: false, minVersion: 0 },
@@ -280,7 +280,7 @@ chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsS
 chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.connectivity.mojom.PasspointService.DeletePasspointSubscription_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

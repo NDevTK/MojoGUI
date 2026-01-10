@@ -152,7 +152,7 @@ ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec = {
 ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ntp.tab_groups.mojom.PageHandler.GetTabGroups_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'tab_groups', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ntp.tab_groups.mojom.TabGroupSpec, false), nullable: true, minVersion: 0 },

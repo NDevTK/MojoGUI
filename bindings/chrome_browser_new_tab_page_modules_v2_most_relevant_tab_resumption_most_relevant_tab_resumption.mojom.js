@@ -136,7 +136,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec = {
 ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ntp.most_relevant_tab_resumption.mojom.PageHandler.GetURLVisits_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'url_visits', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, false), nullable: false, minVersion: 0 },

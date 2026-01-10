@@ -957,7 +957,7 @@ ash.camera_app.mojom.WindowStateController_AddMonitor_ParamsSpec = {
 ash.camera_app.mojom.WindowStateController_AddMonitor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.camera_app.mojom.WindowStateController.AddMonitor_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'states', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.camera_app.mojom.WindowStateTypeSpec, false), nullable: false, minVersion: 0 },
@@ -983,7 +983,7 @@ ash.camera_app.mojom.WindowStateController_GetWindowState_ParamsSpec = {
 ash.camera_app.mojom.WindowStateController_GetWindowState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.camera_app.mojom.WindowStateController.GetWindowState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'states', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.camera_app.mojom.WindowStateTypeSpec, false), nullable: false, minVersion: 0 },
@@ -1417,7 +1417,7 @@ ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.camera_app.mojom.CameraAppHelper.HandleCameraResult_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1443,7 +1443,7 @@ ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.camera_app.mojom.CameraAppHelper.IsTabletMode_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_tablet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1498,7 +1498,7 @@ ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.camera_app.mojom.CameraAppHelper.SetTabletMonitor_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_tablet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1525,7 +1525,7 @@ ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.camera_app.mojom.CameraAppHelper.SetScreenStateMonitor_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'initial_state', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.ScreenStateSpec, nullable: false, minVersion: 0 },
@@ -1551,7 +1551,7 @@ ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ParamsSpe
 ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.camera_app.mojom.CameraAppHelper.IsMetricsAndCrashReportingEnabled_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1578,7 +1578,7 @@ ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.camera_app.mojom.CameraAppHelper.SetExternalScreenMonitor_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'has_external_screen', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1646,7 +1646,7 @@ ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.camera_app.mojom.CameraAppHelper.GetWindowStateController_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
@@ -1674,7 +1674,7 @@ ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.camera_app.mojom.CameraAppHelper.ProcessCapturedFile_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'succeeded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1701,7 +1701,7 @@ ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.camera_app.mojom.CameraAppHelper.MonitorFileDeletion_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.FileMonitorResultSpec, nullable: false, minVersion: 0 },
@@ -1727,7 +1727,7 @@ ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.camera_app.mojom.CameraAppHelper.IsDocumentScannerSupported_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1753,7 +1753,7 @@ ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.camera_app.mojom.CameraAppHelper.CheckDocumentModeReadiness_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_loaded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1780,7 +1780,7 @@ ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.camera_app.mojom.CameraAppHelper.ScanDocumentCorners_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'corners', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.PointFSpec, false), nullable: false, minVersion: 0 },
@@ -1809,7 +1809,7 @@ ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.camera_app.mojom.CameraAppHelper.ConvertToDocument_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'doc_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
@@ -1849,7 +1849,7 @@ ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.camera_app.mojom.CameraAppHelper.StartStorageMonitor_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'initial_status', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.StorageMonitorStatusSpec, nullable: false, minVersion: 0 },
@@ -1916,7 +1916,7 @@ ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.camera_app.mojom.CameraAppHelper.SetLidStateMonitor_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'lid_status', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.LidStateSpec, nullable: false, minVersion: 0 },
@@ -1943,7 +1943,7 @@ ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.camera_app.mojom.CameraAppHelper.SetSWPrivacySwitchMonitor_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_sw_privacy_switch_on', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1969,7 +1969,7 @@ ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.camera_app.mojom.CameraAppHelper.GetEventsSender_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'events_sender', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
@@ -1996,7 +1996,7 @@ ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.camera_app.mojom.CameraAppHelper.SetScreenLockedMonitor_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_screen_locked', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -2023,7 +2023,7 @@ ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.camera_app.mojom.CameraAppHelper.RenderPdfAsJpeg_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'jpeg_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
@@ -2050,7 +2050,7 @@ ash.camera_app.mojom.CameraAppHelper_PerformOcr_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_PerformOcr_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.camera_app.mojom.CameraAppHelper.PerformOcr_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'ocr_result', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.OcrResultSpec, nullable: false, minVersion: 0 },
@@ -2077,7 +2077,7 @@ ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.camera_app.mojom.CameraAppHelper.PerformOcrInline_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'ocr_result', packedOffset: 0, packedBitOffset: 0, type: ash.camera_app.mojom.OcrResultSpec, nullable: false, minVersion: 0 },
@@ -2117,7 +2117,7 @@ ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ParamsSpec = {
 ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.camera_app.mojom.CameraAppHelper.GetAspectRatioOrder_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'order', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.camera_app.mojom.AspectRatioSpec, false), nullable: false, minVersion: 0 },

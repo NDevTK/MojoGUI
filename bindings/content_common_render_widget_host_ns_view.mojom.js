@@ -697,7 +697,7 @@ remote_cocoa.mojom.RenderWidgetHostNSView_ShowSharingServicePicker_ParamsSpec = 
 remote_cocoa.mojom.RenderWidgetHostNSView_ShowSharingServicePicker_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remote_cocoa.mojom.RenderWidgetHostNSView.ShowSharingServicePicker_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ShareErrorSpec, nullable: false, minVersion: 0 },
@@ -766,7 +766,7 @@ remote_cocoa.mojom.RenderWidgetHostNSView_DisplayPopupMenu_ParamsSpec = {
 remote_cocoa.mojom.RenderWidgetHostNSView_DisplayPopupMenu_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remote_cocoa.mojom.RenderWidgetHostNSView.DisplayPopupMenu_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'selected_item_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'selected_item_$value', originalFieldName: 'selected_item' } },
@@ -1205,7 +1205,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsWidgetForMainFrame_ParamsSpe
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsWidgetForMainFrame_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remote_cocoa.mojom.RenderWidgetHostNSViewHost.SyncIsWidgetForMainFrame_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_for_main_frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1545,7 +1545,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetCharacterIndexAtPoint_Param
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetCharacterIndexAtPoint_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remote_cocoa.mojom.RenderWidgetHostNSViewHost.SyncGetCharacterIndexAtPoint_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'index', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
@@ -1572,7 +1572,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetFirstRectForRange_ParamsSpe
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetFirstRectForRange_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remote_cocoa.mojom.RenderWidgetHostNSViewHost.SyncGetFirstRectForRange_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'out_rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
@@ -1757,7 +1757,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsSpeaking_ParamsSpec = {
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsSpeaking_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remote_cocoa.mojom.RenderWidgetHostNSViewHost.SyncIsSpeaking_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_speaking', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1783,7 +1783,7 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost_GetRenderWidgetAccessibilityToken_
 remote_cocoa.mojom.RenderWidgetHostNSViewHost_GetRenderWidgetAccessibilityToken_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remote_cocoa.mojom.RenderWidgetHostNSViewHost.GetRenderWidgetAccessibilityToken_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'host_pid', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ProcessIdSpec, nullable: false, minVersion: 0 },

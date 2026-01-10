@@ -81,7 +81,7 @@ wallet.mojom.ImageExtractor_ExtractImages_ParamsSpec = {
 wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'wallet.mojom.ImageExtractor.ExtractImages_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(skia.mojom.BitmapWithArbitraryBppSpec, false), nullable: false, minVersion: 0 },

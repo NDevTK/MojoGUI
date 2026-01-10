@@ -82,7 +82,7 @@ ui.mojom.IMEStructTraitsTest_EchoTextInputType_ParamsSpec = {
 ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ui.mojom.IMEStructTraitsTest.EchoTextInputType_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'out', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.TextInputTypeSpec, nullable: false, minVersion: 0 },

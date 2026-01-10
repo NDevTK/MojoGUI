@@ -89,7 +89,7 @@ arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ParamsSpec = {
 arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.OnDeviceSafetyHost.IsCrosSafetyServiceEnabled_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -186,7 +186,7 @@ arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ParamsSpec = {
 arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.OnDeviceSafetyInstance.GetArcSafetySession_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.GetArcSafetySessionResultSpec, nullable: false, minVersion: 0 },

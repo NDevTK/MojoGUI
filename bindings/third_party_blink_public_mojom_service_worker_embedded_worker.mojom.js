@@ -311,7 +311,7 @@ blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec = {
 blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.EmbeddedWorkerInstanceHost.RequestTermination_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'will_be_terminated', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

@@ -444,7 +444,7 @@ ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ParamsSpec = {
 ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cloud_upload.mojom.PageHandler.GetDialogArgs_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'args', packedOffset: 0, packedBitOffset: 0, type: ash.cloud_upload.mojom.DialogArgsSpec, nullable: true, minVersion: 0 },
@@ -470,7 +470,7 @@ ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ParamsSpec = {
 ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cloud_upload.mojom.PageHandler.IsOfficeWebAppInstalled_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'installed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -496,7 +496,7 @@ ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ParamsSpec = {
 ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cloud_upload.mojom.PageHandler.InstallOfficeWebApp_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'installed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -522,7 +522,7 @@ ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ParamsSpec = {
 ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cloud_upload.mojom.PageHandler.IsODFSMounted_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'mounted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -548,7 +548,7 @@ ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ParamsSpec = {
 ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cloud_upload.mojom.PageHandler.SignInToOneDrive_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -615,7 +615,7 @@ ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec = 
 ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cloud_upload.mojom.PageHandler.GetAlwaysMoveOfficeFilesToDrive_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'always_move', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -655,7 +655,7 @@ ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec
 ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cloud_upload.mojom.PageHandler.GetAlwaysMoveOfficeFilesToOneDrive_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'always_move', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -695,7 +695,7 @@ ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_Params
 ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cloud_upload.mojom.PageHandler.GetOfficeMoveConfirmationShownForDrive_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'move_confirmation_shown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -721,7 +721,7 @@ ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_Par
 ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cloud_upload.mojom.PageHandler.GetOfficeMoveConfirmationShownForOneDrive_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'move_confirmation_shown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

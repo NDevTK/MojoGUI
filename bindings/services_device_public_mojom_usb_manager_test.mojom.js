@@ -119,7 +119,7 @@ device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec = {
 device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.UsbDeviceManagerTest.AddDeviceForTesting_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -160,7 +160,7 @@ device.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec = {
 device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.UsbDeviceManagerTest.GetTestDevices_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.TestDeviceInfoSpec, false), nullable: false, minVersion: 0 },

@@ -330,7 +330,7 @@ device.mojom.XRRuntime_RequestSession_ParamsSpec = {
 device.mojom.XRRuntime_RequestSession_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.XRRuntime.RequestSession_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'session', packedOffset: 0, packedBitOffset: 0, type: device.mojom.XRRuntimeSessionResultSpec, nullable: true, minVersion: 0 },
@@ -471,7 +471,7 @@ device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ParamsSpec = {
 device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.ImmersiveOverlay.RequestNextOverlayPose_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'render_info', packedOffset: 0, packedBitOffset: 0, type: device.mojom.XRRenderInfoSpec, nullable: false, minVersion: 0 },
@@ -502,7 +502,7 @@ device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ParamsSpec = {
 device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.ImmersiveOverlay.SubmitOverlayTexture_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

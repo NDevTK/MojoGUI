@@ -802,7 +802,7 @@ arc.mojom.keymint.KeyMintHost_GetServer_ParamsSpec = {
 arc.mojom.keymint.KeyMintHost_GetServer_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.keymint.KeyMintHost.GetServer_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'server_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
@@ -1214,7 +1214,7 @@ arc.mojom.keymint.KeyMintServer_AddRngEntropy_ParamsSpec = {
 arc.mojom.keymint.KeyMintServer_AddRngEntropy_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.keymint.KeyMintServer.AddRngEntropy_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -1241,7 +1241,7 @@ arc.mojom.keymint.KeyMintServer_GenerateKey_ParamsSpec = {
 arc.mojom.keymint.KeyMintServer_GenerateKey_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.keymint.KeyMintServer.GenerateKey_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.KeyCreationResultOrErrorSpec, nullable: false, minVersion: 0 },
@@ -1268,7 +1268,7 @@ arc.mojom.keymint.KeyMintServer_ImportKey_ParamsSpec = {
 arc.mojom.keymint.KeyMintServer_ImportKey_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.keymint.KeyMintServer.ImportKey_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.KeyCreationResultOrErrorSpec, nullable: false, minVersion: 0 },
@@ -1295,7 +1295,7 @@ arc.mojom.keymint.KeyMintServer_ImportWrappedKey_ParamsSpec = {
 arc.mojom.keymint.KeyMintServer_ImportWrappedKey_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.keymint.KeyMintServer.ImportWrappedKey_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.KeyCreationResultOrErrorSpec, nullable: false, minVersion: 0 },
@@ -1322,7 +1322,7 @@ arc.mojom.keymint.KeyMintServer_UpgradeKey_ParamsSpec = {
 arc.mojom.keymint.KeyMintServer_UpgradeKey_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.keymint.KeyMintServer.UpgradeKey_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.ByteArrayOrErrorSpec, nullable: false, minVersion: 0 },
@@ -1349,7 +1349,7 @@ arc.mojom.keymint.KeyMintServer_DeleteKey_ParamsSpec = {
 arc.mojom.keymint.KeyMintServer_DeleteKey_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.keymint.KeyMintServer.DeleteKey_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -1375,7 +1375,7 @@ arc.mojom.keymint.KeyMintServer_DeleteAllKeys_ParamsSpec = {
 arc.mojom.keymint.KeyMintServer_DeleteAllKeys_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.keymint.KeyMintServer.DeleteAllKeys_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -1401,7 +1401,7 @@ arc.mojom.keymint.KeyMintServer_DestroyAttestationIds_ParamsSpec = {
 arc.mojom.keymint.KeyMintServer_DestroyAttestationIds_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.keymint.KeyMintServer.DestroyAttestationIds_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -1428,7 +1428,7 @@ arc.mojom.keymint.KeyMintServer_Begin_ParamsSpec = {
 arc.mojom.keymint.KeyMintServer_Begin_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.keymint.KeyMintServer.Begin_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.BeginResultOrErrorSpec, nullable: false, minVersion: 0 },
@@ -1456,7 +1456,7 @@ arc.mojom.keymint.KeyMintServer_DeviceLocked_ParamsSpec = {
 arc.mojom.keymint.KeyMintServer_DeviceLocked_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.keymint.KeyMintServer.DeviceLocked_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -1482,7 +1482,7 @@ arc.mojom.keymint.KeyMintServer_EarlyBootEnded_ParamsSpec = {
 arc.mojom.keymint.KeyMintServer_EarlyBootEnded_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.keymint.KeyMintServer.EarlyBootEnded_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -1509,7 +1509,7 @@ arc.mojom.keymint.KeyMintServer_ConvertStorageKeyToEphemeral_ParamsSpec = {
 arc.mojom.keymint.KeyMintServer_ConvertStorageKeyToEphemeral_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.keymint.KeyMintServer.ConvertStorageKeyToEphemeral_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.ByteArrayOrErrorSpec, nullable: false, minVersion: 0 },
@@ -1536,7 +1536,7 @@ arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_ParamsSpec = {
 arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.keymint.KeyMintServer.GetKeyCharacteristics_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.KeyCharacteristicsArrayOrErrorSpec, nullable: false, minVersion: 0 },
@@ -1562,7 +1562,7 @@ arc.mojom.keymint.KeyMintServer_GetRootOfTrustChallenge_ParamsSpec = {
 arc.mojom.keymint.KeyMintServer_GetRootOfTrustChallenge_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.keymint.KeyMintServer.GetRootOfTrustChallenge_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.ByteArrayOrErrorSpec, nullable: false, minVersion: 0 },
@@ -1589,7 +1589,7 @@ arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ParamsSpec = {
 arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.keymint.KeyMintServer.GetRootOfTrust_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.ByteArrayOrErrorSpec, nullable: false, minVersion: 0 },
@@ -1616,7 +1616,7 @@ arc.mojom.keymint.KeyMintServer_SendRootOfTrust_ParamsSpec = {
 arc.mojom.keymint.KeyMintServer_SendRootOfTrust_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.keymint.KeyMintServer.SendRootOfTrust_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -1643,7 +1643,7 @@ arc.mojom.keymint.KeyMintServer_UpdateAad_ParamsSpec = {
 arc.mojom.keymint.KeyMintServer_UpdateAad_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.keymint.KeyMintServer.UpdateAad_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -1670,7 +1670,7 @@ arc.mojom.keymint.KeyMintServer_Update_ParamsSpec = {
 arc.mojom.keymint.KeyMintServer_Update_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.keymint.KeyMintServer.Update_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.ByteArrayOrErrorSpec, nullable: false, minVersion: 0 },
@@ -1697,7 +1697,7 @@ arc.mojom.keymint.KeyMintServer_Finish_ParamsSpec = {
 arc.mojom.keymint.KeyMintServer_Finish_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.keymint.KeyMintServer.Finish_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.ByteArrayOrErrorSpec, nullable: false, minVersion: 0 },
@@ -1724,7 +1724,7 @@ arc.mojom.keymint.KeyMintServer_Abort_ParamsSpec = {
 arc.mojom.keymint.KeyMintServer_Abort_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.keymint.KeyMintServer.Abort_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -1750,7 +1750,7 @@ arc.mojom.keymint.KeyMintServer_GetSharedSecretParameters_ParamsSpec = {
 arc.mojom.keymint.KeyMintServer_GetSharedSecretParameters_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.keymint.KeyMintServer.GetSharedSecretParameters_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.SharedSecretParametersOrErrorSpec, nullable: false, minVersion: 0 },
@@ -1777,7 +1777,7 @@ arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_ParamsSpec = {
 arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.keymint.KeyMintServer.ComputeSharedSecret_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.ByteArrayOrErrorSpec, nullable: false, minVersion: 0 },
@@ -1804,7 +1804,7 @@ arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_ParamsSpec = {
 arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.keymint.KeyMintServer.GenerateTimeStamp_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.TimeStampTokenOrErrorSpec, nullable: false, minVersion: 0 },
@@ -1831,7 +1831,7 @@ arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_ParamsSpec = {
 arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.keymint.KeyMintServer.GenerateEcdsaP256KeyPair_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.GenerateEcdsaP256KeyPairResultOrErrorSpec, nullable: false, minVersion: 0 },
@@ -1858,7 +1858,7 @@ arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_ParamsSpec = {
 arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.keymint.KeyMintServer.GenerateCertificateRequest_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.keymint.GenerateCertificateRequestResultOrErrorSpec, nullable: false, minVersion: 0 },

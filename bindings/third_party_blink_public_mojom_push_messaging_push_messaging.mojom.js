@@ -147,7 +147,7 @@ blink.mojom.PushMessaging_Subscribe_ParamsSpec = {
 blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.PushMessaging.Subscribe_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PushRegistrationStatusSpec, nullable: false, minVersion: 0 },
@@ -175,7 +175,7 @@ blink.mojom.PushMessaging_Unsubscribe_ParamsSpec = {
 blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.PushMessaging.Unsubscribe_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'error_type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PushErrorTypeSpec, nullable: false, minVersion: 0 },
@@ -204,7 +204,7 @@ blink.mojom.PushMessaging_GetSubscription_ParamsSpec = {
 blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.PushMessaging.GetSubscription_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PushGetRegistrationStatusSpec, nullable: false, minVersion: 0 },

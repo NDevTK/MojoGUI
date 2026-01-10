@@ -101,7 +101,7 @@ arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedSharedMemory_ParamsSpec
 arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedSharedMemory_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.VideoProtectedBufferAllocator.AllocateProtectedSharedMemory_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -130,7 +130,7 @@ arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_ParamsSpec
 arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.VideoProtectedBufferAllocator.AllocateProtectedNativePixmap_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

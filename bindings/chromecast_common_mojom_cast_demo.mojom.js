@@ -308,7 +308,7 @@ chromecast.shell.mojom.CastDemo_GetRetailerName_ParamsSpec = {
 chromecast.shell.mojom.CastDemo_GetRetailerName_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromecast.shell.mojom.CastDemo.GetRetailerName_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'retailer_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -334,7 +334,7 @@ chromecast.shell.mojom.CastDemo_GetStoreId_ParamsSpec = {
 chromecast.shell.mojom.CastDemo_GetStoreId_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromecast.shell.mojom.CastDemo.GetStoreId_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'store_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -374,7 +374,7 @@ chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ParamsSpec = {
 chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromecast.shell.mojom.CastDemo.GetDefaultVolumeLevel_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'level', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
@@ -428,7 +428,7 @@ chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ParamsSpec = {
 chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromecast.shell.mojom.CastDemo.GetAvailableWifiNetworks_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'network_list', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
@@ -454,7 +454,7 @@ chromecast.shell.mojom.CastDemo_GetConnectionStatus_ParamsSpec = {
 chromecast.shell.mojom.CastDemo_GetConnectionStatus_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromecast.shell.mojom.CastDemo.GetConnectionStatus_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },

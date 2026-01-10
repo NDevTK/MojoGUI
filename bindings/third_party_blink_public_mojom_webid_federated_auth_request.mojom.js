@@ -361,7 +361,7 @@ blink.mojom.FederatedAuthRequest_RequestToken_ParamsSpec = {
 blink.mojom.FederatedAuthRequest_RequestToken_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.FederatedAuthRequest.RequestToken_ResponseParams',
       packedSize: 48,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RequestTokenStatusSpec, nullable: false, minVersion: 0 },
@@ -392,7 +392,7 @@ blink.mojom.FederatedAuthRequest_RequestUserInfo_ParamsSpec = {
 blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.FederatedAuthRequest.RequestUserInfo_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RequestUserInfoStatusSpec, nullable: false, minVersion: 0 },
@@ -434,7 +434,7 @@ blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec = {
 blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.FederatedAuthRequest.ResolveTokenRequest_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -477,7 +477,7 @@ blink.mojom.FederatedAuthRequest_RegisterIdP_ParamsSpec = {
 blink.mojom.FederatedAuthRequest_RegisterIdP_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.FederatedAuthRequest.RegisterIdP_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RegisterIdpStatusSpec, nullable: false, minVersion: 0 },
@@ -504,7 +504,7 @@ blink.mojom.FederatedAuthRequest_UnregisterIdP_ParamsSpec = {
 blink.mojom.FederatedAuthRequest_UnregisterIdP_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.FederatedAuthRequest.UnregisterIdP_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -557,7 +557,7 @@ blink.mojom.FederatedAuthRequest_Disconnect_ParamsSpec = {
 blink.mojom.FederatedAuthRequest_Disconnect_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.FederatedAuthRequest.Disconnect_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DisconnectStatusSpec, nullable: false, minVersion: 0 },

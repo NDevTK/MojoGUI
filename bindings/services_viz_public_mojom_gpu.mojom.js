@@ -99,7 +99,7 @@ viz.mojom.Gpu_EstablishGpuChannel_ParamsSpec = {
 viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'viz.mojom.Gpu.EstablishGpuChannel_ResponseParams',
       packedSize: 48,
       fields: [
         { name: 'client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },

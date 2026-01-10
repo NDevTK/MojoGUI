@@ -106,7 +106,7 @@ enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ParamsSpec = {
 enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'enterprise_companion.mojom.EnterpriseCompanion.Shutdown_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: enterprise_companion.mojom.StatusSpec, nullable: false, minVersion: 0 },
@@ -133,7 +133,7 @@ enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ParamsSpec = {
 enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'enterprise_companion.mojom.EnterpriseCompanion.FetchPolicies_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: enterprise_companion.mojom.StatusSpec, nullable: false, minVersion: 0 },

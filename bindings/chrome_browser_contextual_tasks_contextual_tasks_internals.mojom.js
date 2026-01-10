@@ -203,7 +203,7 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevant
 contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler.GetRelevantContext_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: contextual_tasks_internals.mojom.GetRelevantContextResponseSpec, nullable: false, minVersion: 0 },

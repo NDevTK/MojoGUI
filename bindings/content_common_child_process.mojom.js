@@ -323,7 +323,7 @@ content.mojom.ChildProcess_GetTaskPort_ParamsSpec = {
 content.mojom.ChildProcess_GetTaskPort_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.ChildProcess.GetTaskPort_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'task_port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: false, minVersion: 0 },

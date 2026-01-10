@@ -669,7 +669,7 @@ on_device_model.mojom.Session_GetSizeInTokens_ParamsSpec = {
 on_device_model.mojom.Session_GetSizeInTokens_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'on_device_model.mojom.Session.GetSizeInTokens_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
@@ -696,7 +696,7 @@ on_device_model.mojom.Session_Score_ParamsSpec = {
 on_device_model.mojom.Session_Score_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'on_device_model.mojom.Session.Score_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'probability', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
@@ -737,7 +737,7 @@ on_device_model.mojom.Session_GetProbabilitiesBlocking_ParamsSpec = {
 on_device_model.mojom.Session_GetProbabilitiesBlocking_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'on_device_model.mojom.Session.GetProbabilitiesBlocking_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'probabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Float, false), nullable: false, minVersion: 0 },
@@ -897,7 +897,7 @@ on_device_model.mojom.OnDeviceModel_ClassifyTextSafety_ParamsSpec = {
 on_device_model.mojom.OnDeviceModel_ClassifyTextSafety_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'on_device_model.mojom.OnDeviceModel.ClassifyTextSafety_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'safety_info', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.SafetyInfoSpec, nullable: true, minVersion: 0 },
@@ -924,7 +924,7 @@ on_device_model.mojom.OnDeviceModel_DetectLanguage_ParamsSpec = {
 on_device_model.mojom.OnDeviceModel_DetectLanguage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'on_device_model.mojom.OnDeviceModel.DetectLanguage_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.LanguageDetectionResultSpec, nullable: true, minVersion: 0 },
@@ -952,7 +952,7 @@ on_device_model.mojom.OnDeviceModel_LoadAdaptation_ParamsSpec = {
 on_device_model.mojom.OnDeviceModel_LoadAdaptation_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'on_device_model.mojom.OnDeviceModel.LoadAdaptation_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.LoadModelResultSpec, nullable: false, minVersion: 0 },
@@ -1058,7 +1058,7 @@ on_device_model.mojom.TextSafetySession_ClassifyTextSafety_ParamsSpec = {
 on_device_model.mojom.TextSafetySession_ClassifyTextSafety_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'on_device_model.mojom.TextSafetySession.ClassifyTextSafety_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'safety_info', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.SafetyInfoSpec, nullable: true, minVersion: 0 },
@@ -1085,7 +1085,7 @@ on_device_model.mojom.TextSafetySession_DetectLanguage_ParamsSpec = {
 on_device_model.mojom.TextSafetySession_DetectLanguage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'on_device_model.mojom.TextSafetySession.DetectLanguage_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.LanguageDetectionResultSpec, nullable: true, minVersion: 0 },

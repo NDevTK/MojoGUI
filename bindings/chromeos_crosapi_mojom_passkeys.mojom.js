@@ -209,7 +209,7 @@ crosapi.mojom.PasskeyAuthenticator_Create_ParamsSpec = {
 crosapi.mojom.PasskeyAuthenticator_Create_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.PasskeyAuthenticator.Create_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.PasskeyCreationResultSpec, nullable: false, minVersion: 0 },
@@ -237,7 +237,7 @@ crosapi.mojom.PasskeyAuthenticator_Assert_ParamsSpec = {
 crosapi.mojom.PasskeyAuthenticator_Assert_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.PasskeyAuthenticator.Assert_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.PasskeyAssertionResultSpec, nullable: false, minVersion: 0 },

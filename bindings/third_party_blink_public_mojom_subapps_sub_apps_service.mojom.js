@@ -182,7 +182,7 @@ blink.mojom.SubAppsService_Add_ParamsSpec = {
 blink.mojom.SubAppsService_Add_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.SubAppsService.Add_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SubAppsServiceAddResultSpec, false), nullable: false, minVersion: 0 },
@@ -208,7 +208,7 @@ blink.mojom.SubAppsService_List_ParamsSpec = {
 blink.mojom.SubAppsService_List_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.SubAppsService.List_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SubAppsServiceListResultSpec, nullable: false, minVersion: 0 },
@@ -235,7 +235,7 @@ blink.mojom.SubAppsService_Remove_ParamsSpec = {
 blink.mojom.SubAppsService_Remove_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.SubAppsService.Remove_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SubAppsServiceRemoveResultSpec, false), nullable: false, minVersion: 0 },

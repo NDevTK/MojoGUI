@@ -255,7 +255,7 @@ private_aggregation_internals.mojom.Handler_GetReports_ParamsSpec = {
 private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'private_aggregation_internals.mojom.Handler.GetReports_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'reports', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(private_aggregation_internals.mojom.WebUIAggregatableReportSpec, false), nullable: false, minVersion: 0 },

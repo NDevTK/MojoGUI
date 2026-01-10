@@ -373,7 +373,7 @@ whats_new.mojom.PageHandler_GetServerUrl_ParamsSpec = {
 whats_new.mojom.PageHandler_GetServerUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'whats_new.mojom.PageHandler.GetServerUrl_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },

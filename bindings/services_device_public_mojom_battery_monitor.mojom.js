@@ -81,7 +81,7 @@ device.mojom.BatteryMonitor_QueryNextStatus_ParamsSpec = {
 device.mojom.BatteryMonitor_QueryNextStatus_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.BatteryMonitor.QueryNextStatus_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: device.mojom.BatteryStatusSpec, nullable: false, minVersion: 0 },

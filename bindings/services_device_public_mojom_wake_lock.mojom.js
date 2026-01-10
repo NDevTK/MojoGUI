@@ -174,7 +174,7 @@ device.mojom.WakeLock_ChangeType_ParamsSpec = {
 device.mojom.WakeLock_ChangeType_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.WakeLock.ChangeType_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -200,7 +200,7 @@ device.mojom.WakeLock_HasWakeLockForTests_ParamsSpec = {
 device.mojom.WakeLock_HasWakeLockForTests_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.WakeLock.HasWakeLockForTests_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

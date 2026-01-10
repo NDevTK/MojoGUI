@@ -293,7 +293,7 @@ extensions.mojom.LocalFrame_ExecuteCode_ParamsSpec = {
 extensions.mojom.LocalFrame_ExecuteCode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'extensions.mojom.LocalFrame.ExecuteCode_ResponseParams',
       packedSize: 40,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -359,7 +359,7 @@ extensions.mojom.LocalFrame_DispatchOnConnect_ParamsSpec = {
 extensions.mojom.LocalFrame_DispatchOnConnect_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'extensions.mojom.LocalFrame.DispatchOnConnect_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -557,7 +557,7 @@ extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ParamsSpec = {
 extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'extensions.mojom.LocalFrameHost.RequestScriptInjectionPermission_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'granted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -584,7 +584,7 @@ extensions.mojom.LocalFrameHost_GetAppInstallState_ParamsSpec = {
 extensions.mojom.LocalFrameHost_GetAppInstallState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'extensions.mojom.LocalFrameHost.GetAppInstallState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -611,7 +611,7 @@ extensions.mojom.LocalFrameHost_Request_ParamsSpec = {
 extensions.mojom.LocalFrameHost_Request_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'extensions.mojom.LocalFrameHost.Request_ResponseParams',
       packedSize: 40,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

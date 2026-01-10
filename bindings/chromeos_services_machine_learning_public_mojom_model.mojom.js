@@ -168,7 +168,7 @@ chromeos.machine_learning.mojom.Model_REMOVED_0_ParamsSpec = {
 chromeos.machine_learning.mojom.Model_REMOVED_0_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.machine_learning.mojom.Model.REMOVED_0_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.CreateGraphExecutorResultSpec, nullable: false, minVersion: 0 },
@@ -196,7 +196,7 @@ chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ParamsSpec = {
 chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.machine_learning.mojom.Model.CreateGraphExecutor_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.CreateGraphExecutorResultSpec, nullable: false, minVersion: 0 },

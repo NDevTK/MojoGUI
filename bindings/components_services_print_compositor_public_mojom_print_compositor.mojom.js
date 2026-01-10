@@ -243,7 +243,7 @@ printing.mojom.PrintCompositor_CompositePage_ParamsSpec = {
 printing.mojom.PrintCompositor_CompositePage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'printing.mojom.PrintCompositor.CompositePage_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.StatusSpec, nullable: false, minVersion: 0 },
@@ -274,7 +274,7 @@ printing.mojom.PrintCompositor_CompositeDocument_ParamsSpec = {
 printing.mojom.PrintCompositor_CompositeDocument_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'printing.mojom.PrintCompositor.CompositeDocument_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.StatusSpec, nullable: false, minVersion: 0 },
@@ -302,7 +302,7 @@ printing.mojom.PrintCompositor_PrepareToCompositeDocument_ParamsSpec = {
 printing.mojom.PrintCompositor_PrepareToCompositeDocument_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'printing.mojom.PrintCompositor.PrepareToCompositeDocument_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.StatusSpec, nullable: false, minVersion: 0 },
@@ -329,7 +329,7 @@ printing.mojom.PrintCompositor_FinishDocumentComposition_ParamsSpec = {
 printing.mojom.PrintCompositor_FinishDocumentComposition_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'printing.mojom.PrintCompositor.FinishDocumentComposition_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.StatusSpec, nullable: false, minVersion: 0 },

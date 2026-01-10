@@ -141,7 +141,7 @@ network.mojom.TCPBoundSocket_Listen_ParamsSpec = {
 network.mojom.TCPBoundSocket_Listen_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.TCPBoundSocket.Listen_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -171,7 +171,7 @@ network.mojom.TCPBoundSocket_Connect_ParamsSpec = {
 network.mojom.TCPBoundSocket_Connect_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.TCPBoundSocket.Connect_ResponseParams',
       packedSize: 48,
       fields: [
         { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -303,7 +303,7 @@ network.mojom.TCPConnectedSocket_UpgradeToTLS_ParamsSpec = {
 network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.TCPConnectedSocket.UpgradeToTLS_ResponseParams',
       packedSize: 40,
       fields: [
         { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -333,7 +333,7 @@ network.mojom.TCPConnectedSocket_SetSendBufferSize_ParamsSpec = {
 network.mojom.TCPConnectedSocket_SetSendBufferSize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.TCPConnectedSocket.SetSendBufferSize_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -360,7 +360,7 @@ network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ParamsSpec = {
 network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.TCPConnectedSocket.SetReceiveBufferSize_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -387,7 +387,7 @@ network.mojom.TCPConnectedSocket_SetNoDelay_ParamsSpec = {
 network.mojom.TCPConnectedSocket_SetNoDelay_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.TCPConnectedSocket.SetNoDelay_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -415,7 +415,7 @@ network.mojom.TCPConnectedSocket_SetKeepAlive_ParamsSpec = {
 network.mojom.TCPConnectedSocket_SetKeepAlive_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.TCPConnectedSocket.SetKeepAlive_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -601,7 +601,7 @@ network.mojom.TCPServerSocket_Accept_ParamsSpec = {
 network.mojom.TCPServerSocket_Accept_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.TCPServerSocket.Accept_ResponseParams',
       packedSize: 40,
       fields: [
         { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },

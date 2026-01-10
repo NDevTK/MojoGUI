@@ -252,7 +252,7 @@ cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ParamsSpec = {
 cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cert_verifier.mojom.CertVerifierService.Verify2QwacBinding_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'verified_cert', packedOffset: 0, packedBitOffset: 0, type: network.mojom.X509CertificateSpec, nullable: false, minVersion: 0 },

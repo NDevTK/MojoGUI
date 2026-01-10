@@ -85,7 +85,7 @@ network.mojom.SystemDnsResolver_Resolve_ParamsSpec = {
 network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.SystemDnsResolver.Resolve_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'addr_list', packedOffset: 0, packedBitOffset: 0, type: network.mojom.AddressListSpec, nullable: false, minVersion: 0 },

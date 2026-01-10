@@ -97,7 +97,7 @@ media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ParamsSp
 media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.CastApplicationMediaInfoManager.GetCastApplicationMediaInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'cast_application_media_info', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CastApplicationMediaInfoSpec, nullable: false, minVersion: 0 },

@@ -185,7 +185,7 @@ discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec = {
 discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'discards.mojom.SiteDataProvider.GetSiteDataArray_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.SiteDataArraySpec, nullable: true, minVersion: 0 },
@@ -211,7 +211,7 @@ discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec = {
 discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'discards.mojom.SiteDataProvider.GetSiteDataDatabaseSize_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'db_size', packedOffset: 0, packedBitOffset: 0, type: discards.mojom.SiteDataDatabaseSizeSpec, nullable: true, minVersion: 0 },

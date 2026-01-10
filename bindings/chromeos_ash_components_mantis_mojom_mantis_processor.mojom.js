@@ -175,7 +175,7 @@ mantis.mojom.MantisProcessor_Inpainting_ParamsSpec = {
 mantis.mojom.MantisProcessor_Inpainting_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mantis.mojom.MantisProcessor.Inpainting_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.MantisResultSpec, nullable: false, minVersion: 0 },
@@ -205,7 +205,7 @@ mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec = {
 mantis.mojom.MantisProcessor_GenerativeFill_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mantis.mojom.MantisProcessor.GenerativeFill_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.MantisResultSpec, nullable: false, minVersion: 0 },
@@ -233,7 +233,7 @@ mantis.mojom.MantisProcessor_Segmentation_ParamsSpec = {
 mantis.mojom.MantisProcessor_Segmentation_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mantis.mojom.MantisProcessor.Segmentation_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.MantisResultSpec, nullable: false, minVersion: 0 },
@@ -260,7 +260,7 @@ mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec = {
 mantis.mojom.MantisProcessor_ClassifyImageSafety_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mantis.mojom.MantisProcessor.ClassifyImageSafety_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'verdict', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.SafetyClassifierVerdictSpec, nullable: false, minVersion: 0 },
@@ -289,7 +289,7 @@ mantis.mojom.MantisProcessor_Outpainting_ParamsSpec = {
 mantis.mojom.MantisProcessor_Outpainting_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mantis.mojom.MantisProcessor.Outpainting_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.MantisResultSpec, nullable: false, minVersion: 0 },
@@ -316,7 +316,7 @@ mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec = {
 mantis.mojom.MantisProcessor_InferSegmentationMode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mantis.mojom.MantisProcessor.InferSegmentationMode_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.SegmentationModeSpec, nullable: false, minVersion: 0 },

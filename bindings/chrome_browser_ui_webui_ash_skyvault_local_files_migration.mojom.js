@@ -206,7 +206,7 @@ policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec = {
 policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'policy.local_user_files.mojom.PageHandler.GetInitialDialogInfo_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'cloud_provider', packedOffset: 0, packedBitOffset: 0, type: policy.local_user_files.mojom.CloudProviderSpec, nullable: false, minVersion: 0 },

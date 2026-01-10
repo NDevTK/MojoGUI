@@ -149,7 +149,7 @@ continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_Params
 continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'continuous_search.mojom.SearchResultExtractor.ExtractCurrentSearchResults_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: continuous_search.mojom.StatusSpec, nullable: false, minVersion: 0 },

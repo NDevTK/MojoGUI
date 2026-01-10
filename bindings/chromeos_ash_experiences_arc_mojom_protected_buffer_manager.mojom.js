@@ -109,7 +109,7 @@ arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_Pa
 arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.ProtectedBufferManager.DeprecatedGetProtectedSharedMemoryFromHandle_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'shared_memory_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
@@ -136,7 +136,7 @@ arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ParamsSpec =
 arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.ProtectedBufferManager.GetProtectedSharedMemoryFromHandle_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'unsafe_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: true, minVersion: 0 },
@@ -163,7 +163,7 @@ arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_Params
 arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.ProtectedBufferManager.GetProtectedNativePixmapHandleFromHandle_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'native_pixmap_handle', packedOffset: 0, packedBitOffset: 0, type: media.stable.mojom.NativePixmapHandleSpec, nullable: true, minVersion: 0 },
@@ -190,7 +190,7 @@ arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ParamsSpec = {
 arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.ProtectedBufferManager.IsProtectedNativePixmapHandle_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_protected', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

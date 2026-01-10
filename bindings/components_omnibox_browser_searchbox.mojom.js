@@ -733,7 +733,7 @@ searchbox.mojom.PageHandler_GetPlaceholderConfig_ParamsSpec = {
 searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'searchbox.mojom.PageHandler.GetPlaceholderConfig_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: searchbox.mojom.PlaceholderConfigSpec, nullable: false, minVersion: 0 },
@@ -759,7 +759,7 @@ searchbox.mojom.PageHandler_GetRecentTabs_ParamsSpec = {
 searchbox.mojom.PageHandler_GetRecentTabs_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'searchbox.mojom.PageHandler.GetRecentTabs_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(searchbox.mojom.TabInfoSpec, false), nullable: false, minVersion: 0 },
@@ -786,7 +786,7 @@ searchbox.mojom.PageHandler_GetTabPreview_ParamsSpec = {
 searchbox.mojom.PageHandler_GetTabPreview_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'searchbox.mojom.PageHandler.GetTabPreview_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'preview_data_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -840,7 +840,7 @@ searchbox.mojom.PageHandler_AddFileContext_ParamsSpec = {
 searchbox.mojom.PageHandler_AddFileContext_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'searchbox.mojom.PageHandler.AddFileContext_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
@@ -868,7 +868,7 @@ searchbox.mojom.PageHandler_AddTabContext_ParamsSpec = {
 searchbox.mojom.PageHandler_AddTabContext_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'searchbox.mojom.PageHandler.AddTabContext_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },

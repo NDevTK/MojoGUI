@@ -337,7 +337,7 @@ cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ParamsSpec = {
 cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.CameraHalDispatcher.RegisterClientWithToken_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -667,7 +667,7 @@ cros.mojom.CrosCameraService_GetCameraModule_ParamsSpec = {
 cros.mojom.CrosCameraService_GetCameraModule_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.CrosCameraService.GetCameraModule_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'camera_module_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
@@ -721,7 +721,7 @@ cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ParamsSpec = {
 cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.CrosCameraService.GetCameraSWPrivacySwitchState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CameraPrivacySwitchStateSpec, nullable: false, minVersion: 0 },
@@ -761,7 +761,7 @@ cros.mojom.CrosCameraService_GetAutoFramingSupported_ParamsSpec = {
 cros.mojom.CrosCameraService_GetAutoFramingSupported_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.CrosCameraService.GetAutoFramingSupported_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -788,7 +788,7 @@ cros.mojom.CrosCameraService_SetCameraEffect_ParamsSpec = {
 cros.mojom.CrosCameraService_SetCameraEffect_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.CrosCameraService.SetCameraEffect_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.SetEffectResultSpec, nullable: false, minVersion: 0 },

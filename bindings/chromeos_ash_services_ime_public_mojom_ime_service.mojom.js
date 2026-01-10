@@ -95,7 +95,7 @@ ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec = {
 ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.ime.mojom.InputEngineManager.ConnectToImeEngine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -122,7 +122,7 @@ ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec = {
 ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.ime.mojom.InputEngineManager.InitializeConnectionFactory_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -211,7 +211,7 @@ ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec = {
 ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.ime.mojom.PlatformAccessProvider.DownloadImeFileTo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'file_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },

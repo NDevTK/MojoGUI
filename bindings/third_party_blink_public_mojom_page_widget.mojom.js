@@ -295,7 +295,7 @@ blink.mojom.FrameWidget_DragTargetDragEnter_ParamsSpec = {
 blink.mojom.FrameWidget_DragTargetDragEnter_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.FrameWidget.DragTargetDragEnter_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'operation', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.DragOperationSpec, nullable: false, minVersion: 0 },
@@ -326,7 +326,7 @@ blink.mojom.FrameWidget_DragTargetDragOver_ParamsSpec = {
 blink.mojom.FrameWidget_DragTargetDragOver_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.FrameWidget.DragTargetDragOver_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'operation', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.DragOperationSpec, nullable: false, minVersion: 0 },
@@ -415,7 +415,7 @@ blink.mojom.FrameWidget_OnStartStylusWriting_ParamsSpec = {
 blink.mojom.FrameWidget_OnStartStylusWriting_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.FrameWidget.OnStartStylusWriting_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'focus_result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.StylusWritingFocusResultSpec, nullable: true, minVersion: 0 },
@@ -542,7 +542,7 @@ blink.mojom.FrameWidget_GetStringAtPoint_ParamsSpec = {
 blink.mojom.FrameWidget_GetStringAtPoint_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.FrameWidget.GetStringAtPoint_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'string', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.AttributedStringSpec, nullable: true, minVersion: 0 },

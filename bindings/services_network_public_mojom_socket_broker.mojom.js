@@ -91,7 +91,7 @@ network.mojom.SocketBroker_CreateTcpSocket_ParamsSpec = {
 network.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.SocketBroker.CreateTcpSocket_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'created_socket', packedOffset: 0, packedBitOffset: 0, type: network.mojom.TransferableSocketSpec, nullable: false, minVersion: 0 },
@@ -119,7 +119,7 @@ network.mojom.SocketBroker_CreateUdpSocket_ParamsSpec = {
 network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.SocketBroker.CreateUdpSocket_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'created_socket', packedOffset: 0, packedBitOffset: 0, type: network.mojom.TransferableSocketSpec, nullable: false, minVersion: 0 },

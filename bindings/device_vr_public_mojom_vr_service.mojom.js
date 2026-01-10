@@ -1241,7 +1241,7 @@ device.mojom.VRService_RequestSession_ParamsSpec = {
 device.mojom.VRService_RequestSession_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.VRService.RequestSession_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.RequestSessionResultSpec, nullable: false, minVersion: 0 },
@@ -1268,7 +1268,7 @@ device.mojom.VRService_SupportsSession_ParamsSpec = {
 device.mojom.VRService_SupportsSession_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.VRService.SupportsSession_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'supports_session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1321,7 +1321,7 @@ device.mojom.VRService_MakeXrCompatible_ParamsSpec = {
 device.mojom.VRService_MakeXrCompatible_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.VRService.MakeXrCompatible_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'xr_compatible_result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.XrCompatibleResultSpec, nullable: false, minVersion: 0 },
@@ -1596,7 +1596,7 @@ device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ParamsSpec = {
 device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.XREnvironmentIntegrationProvider.SubscribeToHitTest_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'subscription_id', packedOffset: 0, packedBitOffset: 0, type: device.mojom.HitTestSubscriptionIdSpec, nullable: true, minVersion: 0 },
@@ -1625,7 +1625,7 @@ device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInpu
 device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.XREnvironmentIntegrationProvider.SubscribeToHitTestForTransientInput_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'subscription_id', packedOffset: 0, packedBitOffset: 0, type: device.mojom.HitTestSubscriptionIdSpec, nullable: true, minVersion: 0 },
@@ -1668,7 +1668,7 @@ device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ParamsSpec = {
 device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.XREnvironmentIntegrationProvider.CreateAnchor_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'anchor_id', packedOffset: 0, packedBitOffset: 0, type: device.mojom.AnchorIdSpec, nullable: true, minVersion: 0 },
@@ -1779,7 +1779,7 @@ device.mojom.XRFrameDataProvider_GetFrameData_ParamsSpec = {
 device.mojom.XRFrameDataProvider_GetFrameData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.XRFrameDataProvider.GetFrameData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'frame_data', packedOffset: 0, packedBitOffset: 0, type: device.mojom.XRFrameDataSpec, nullable: true, minVersion: 0 },
@@ -2302,7 +2302,7 @@ device.mojom.XRLayerManager_CreateCompositionLayer_ParamsSpec = {
 device.mojom.XRLayerManager_CreateCompositionLayer_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.XRLayerManager.CreateCompositionLayer_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'code', packedOffset: 0, packedBitOffset: 0, type: device.mojom.CreateCompositionLayerResultSpec, nullable: false, minVersion: 0 },

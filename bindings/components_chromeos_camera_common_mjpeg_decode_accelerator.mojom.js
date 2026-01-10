@@ -140,7 +140,7 @@ chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ParamsSpec = {
 chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos_camera.mojom.MjpegDecodeAccelerator.Initialize_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -170,7 +170,7 @@ chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ParamsSpec = {
 chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos_camera.mojom.MjpegDecodeAccelerator.Decode_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'bitstream_buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -202,7 +202,7 @@ chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ParamsSpec = {
 chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos_camera.mojom.MjpegDecodeAccelerator.DecodeWithDmaBuf_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: chromeos_camera.mojom.DecodeErrorSpec, nullable: false, minVersion: 0 },

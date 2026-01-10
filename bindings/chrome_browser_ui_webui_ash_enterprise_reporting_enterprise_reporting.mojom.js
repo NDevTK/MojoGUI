@@ -235,7 +235,7 @@ enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec = {
 enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'enterprise_reporting.mojom.PageHandler.GetDebugState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -261,7 +261,7 @@ enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec = {
 enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'enterprise_reporting.mojom.PageHandler.GetErpHistoryData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'history_data', packedOffset: 0, packedBitOffset: 0, type: enterprise_reporting.mojom.ErpHistoryDataSpec, nullable: false, minVersion: 0 },

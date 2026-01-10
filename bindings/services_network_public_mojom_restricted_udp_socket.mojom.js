@@ -140,7 +140,7 @@ network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec = {
 network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.RestrictedUDPSocket.JoinGroup_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -167,7 +167,7 @@ network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec = {
 network.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.RestrictedUDPSocket.LeaveGroup_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -208,7 +208,7 @@ network.mojom.RestrictedUDPSocket_Send_ParamsSpec = {
 network.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.RestrictedUDPSocket.Send_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -237,7 +237,7 @@ network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec = {
 network.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.RestrictedUDPSocket.SendTo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },

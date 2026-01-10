@@ -179,7 +179,7 @@ mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec = {
 mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mantis.mojom.MantisService.GetMantisFeatureStatus_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.MantisFeatureStatusSpec, nullable: false, minVersion: 0 },
@@ -209,7 +209,7 @@ mantis.mojom.MantisService_Initialize_ParamsSpec = {
 mantis.mojom.MantisService_Initialize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mantis.mojom.MantisService.Initialize_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.InitializeResultSpec, nullable: false, minVersion: 0 },

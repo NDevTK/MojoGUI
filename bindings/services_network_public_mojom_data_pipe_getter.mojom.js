@@ -91,7 +91,7 @@ network.mojom.DataPipeGetter_Read_ParamsSpec = {
 network.mojom.DataPipeGetter_Read_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.DataPipeGetter.Read_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },

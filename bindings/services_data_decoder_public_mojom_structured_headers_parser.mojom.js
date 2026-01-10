@@ -100,7 +100,7 @@ data_decoder.mojom.StructuredHeadersParser_ParseItem_ParamsSpec = {
 data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'data_decoder.mojom.StructuredHeadersParser.ParseItem_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: network.mojom.StructuredHeadersParameterizedItemSpec, nullable: true, minVersion: 0 },
@@ -127,7 +127,7 @@ data_decoder.mojom.StructuredHeadersParser_ParseList_ParamsSpec = {
 data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'data_decoder.mojom.StructuredHeadersParser.ParseList_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.StructuredHeadersParameterizedMemberSpec, false), nullable: true, minVersion: 0 },
@@ -154,7 +154,7 @@ data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ParamsSpec = {
 data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'data_decoder.mojom.StructuredHeadersParser.ParseDictionary_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: network.mojom.StructuredHeadersDictionarySpec, nullable: true, minVersion: 0 },

@@ -123,7 +123,7 @@ blink.mojom.ManifestManager_RequestManifest_ParamsSpec = {
 blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ManifestManager.RequestManifest_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ManifestRequestResultSpec, nullable: false, minVersion: 0 },
@@ -164,7 +164,7 @@ blink.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec = {
 blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ManifestManager.RequestManifestDebugInfo_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
@@ -195,7 +195,7 @@ blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec = {
 blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ManifestManager.ParseManifestFromString_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'parsed_manifest', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ManifestSpec, nullable: true, minVersion: 0 },

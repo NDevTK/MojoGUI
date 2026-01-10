@@ -144,7 +144,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec = {
 chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeZipFile_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'results', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.SafeArchiveAnalyzerResultsSpec, nullable: false, minVersion: 0 },
@@ -172,7 +172,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec = {
 chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeDmgFile_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'results', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.SafeArchiveAnalyzerResultsSpec, nullable: false, minVersion: 0 },
@@ -201,7 +201,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec = {
 chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeRarFile_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'results', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.SafeArchiveAnalyzerResultsSpec, nullable: false, minVersion: 0 },
@@ -229,7 +229,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec = {
 chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeSevenZipFile_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'results', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.SafeArchiveAnalyzerResultsSpec, nullable: false, minVersion: 0 },
@@ -259,7 +259,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec = {
 chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeObfuscatedZipFile_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'results', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.SafeArchiveAnalyzerResultsSpec, nullable: false, minVersion: 0 },
@@ -289,7 +289,7 @@ chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec = {
 chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome.mojom.SafeArchiveAnalyzer.AnalyzeObfuscatedRarFile_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'results', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.SafeArchiveAnalyzerResultsSpec, nullable: false, minVersion: 0 },
@@ -376,7 +376,7 @@ chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec = {
 chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome.mojom.TemporaryFileGetter.RequestTemporaryFile_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'temp_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true, minVersion: 0 },

@@ -864,7 +864,7 @@ nearby.connections.mojom.NearbyConnections_StartAdvertising_ParamsSpec = {
 nearby.connections.mojom.NearbyConnections_StartAdvertising_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'nearby.connections.mojom.NearbyConnections.StartAdvertising_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
@@ -891,7 +891,7 @@ nearby.connections.mojom.NearbyConnections_StopAdvertising_ParamsSpec = {
 nearby.connections.mojom.NearbyConnections_StopAdvertising_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'nearby.connections.mojom.NearbyConnections.StopAdvertising_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
@@ -920,7 +920,7 @@ nearby.connections.mojom.NearbyConnections_StartDiscovery_ParamsSpec = {
 nearby.connections.mojom.NearbyConnections_StartDiscovery_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'nearby.connections.mojom.NearbyConnections.StartDiscovery_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
@@ -947,7 +947,7 @@ nearby.connections.mojom.NearbyConnections_StopDiscovery_ParamsSpec = {
 nearby.connections.mojom.NearbyConnections_StopDiscovery_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'nearby.connections.mojom.NearbyConnections.StopDiscovery_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
@@ -977,7 +977,7 @@ nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ParamsSpec = 
 nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'nearby.connections.mojom.NearbyConnections.InjectBluetoothEndpoint_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
@@ -1008,7 +1008,7 @@ nearby.connections.mojom.NearbyConnections_RequestConnection_ParamsSpec = {
 nearby.connections.mojom.NearbyConnections_RequestConnection_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'nearby.connections.mojom.NearbyConnections.RequestConnection_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
@@ -1037,7 +1037,7 @@ nearby.connections.mojom.NearbyConnections_AcceptConnection_ParamsSpec = {
 nearby.connections.mojom.NearbyConnections_AcceptConnection_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'nearby.connections.mojom.NearbyConnections.AcceptConnection_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
@@ -1065,7 +1065,7 @@ nearby.connections.mojom.NearbyConnections_RejectConnection_ParamsSpec = {
 nearby.connections.mojom.NearbyConnections_RejectConnection_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'nearby.connections.mojom.NearbyConnections.RejectConnection_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
@@ -1093,7 +1093,7 @@ nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ParamsSpec = {
 nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'nearby.connections.mojom.NearbyConnections.DisconnectFromEndpoint_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
@@ -1122,7 +1122,7 @@ nearby.connections.mojom.NearbyConnections_SendPayload_ParamsSpec = {
 nearby.connections.mojom.NearbyConnections_SendPayload_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'nearby.connections.mojom.NearbyConnections.SendPayload_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
@@ -1150,7 +1150,7 @@ nearby.connections.mojom.NearbyConnections_CancelPayload_ParamsSpec = {
 nearby.connections.mojom.NearbyConnections_CancelPayload_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'nearby.connections.mojom.NearbyConnections.CancelPayload_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
@@ -1177,7 +1177,7 @@ nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ParamsSpec = {
 nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'nearby.connections.mojom.NearbyConnections.StopAllEndpoints_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
@@ -1205,7 +1205,7 @@ nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ParamsSpec =
 nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'nearby.connections.mojom.NearbyConnections.InitiateBandwidthUpgrade_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
@@ -1235,7 +1235,7 @@ nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ParamsSpec = {
 nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'nearby.connections.mojom.NearbyConnections.RegisterPayloadFile_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
@@ -1265,7 +1265,7 @@ nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ParamsSpec = {
 nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'nearby.connections.mojom.NearbyConnections.RequestConnectionV3_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
@@ -1294,7 +1294,7 @@ nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ParamsSpec = {
 nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'nearby.connections.mojom.NearbyConnections.AcceptConnectionV3_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
@@ -1322,7 +1322,7 @@ nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ParamsSpec = {
 nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'nearby.connections.mojom.NearbyConnections.RejectConnectionV3_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },
@@ -1350,7 +1350,7 @@ nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ParamsSpec = {
 nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'nearby.connections.mojom.NearbyConnections.DisconnectFromDeviceV3_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: nearby.connections.mojom.StatusSpec, nullable: false, minVersion: 0 },

@@ -101,7 +101,7 @@ ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ParamsSpec = {
 ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.connectivity.mojom.State.LastCallHasNext_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'has_next', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

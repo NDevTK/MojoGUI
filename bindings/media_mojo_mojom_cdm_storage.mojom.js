@@ -97,7 +97,7 @@ media.mojom.CdmStorage_Open_ParamsSpec = {
 media.mojom.CdmStorage_Open_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.CdmStorage.Open_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false, minVersion: 0 },
@@ -194,7 +194,7 @@ media.mojom.CdmFile_Read_ParamsSpec = {
 media.mojom.CdmFile_Read_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.CdmFile.Read_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false, minVersion: 0 },
@@ -222,7 +222,7 @@ media.mojom.CdmFile_Write_ParamsSpec = {
 media.mojom.CdmFile_Write_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.CdmFile.Write_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false, minVersion: 0 },

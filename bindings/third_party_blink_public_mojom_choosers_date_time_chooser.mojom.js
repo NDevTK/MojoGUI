@@ -126,7 +126,7 @@ blink.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec = {
 blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.DateTimeChooser.OpenDateTimeDialog_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

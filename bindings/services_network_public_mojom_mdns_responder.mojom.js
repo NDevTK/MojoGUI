@@ -91,7 +91,7 @@ network.mojom.MdnsResponder_CreateNameForAddress_ParamsSpec = {
 network.mojom.MdnsResponder_CreateNameForAddress_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.MdnsResponder.CreateNameForAddress_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -119,7 +119,7 @@ network.mojom.MdnsResponder_RemoveNameForAddress_ParamsSpec = {
 network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.MdnsResponder.RemoveNameForAddress_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'removed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

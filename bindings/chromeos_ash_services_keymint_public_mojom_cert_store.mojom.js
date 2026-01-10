@@ -133,7 +133,7 @@ arc.keymint.mojom.CertStoreInstance_UpdatePlaceholderKeys_ParamsSpec = {
 arc.keymint.mojom.CertStoreInstance_UpdatePlaceholderKeys_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.keymint.mojom.CertStoreInstance.UpdatePlaceholderKeys_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

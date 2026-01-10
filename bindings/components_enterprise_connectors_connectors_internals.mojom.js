@@ -309,7 +309,7 @@ connectors_internals.mojom.PageHandler_GetDeviceTrustState_ParamsSpec = {
 connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'connectors_internals.mojom.PageHandler.GetDeviceTrustState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: connectors_internals.mojom.DeviceTrustStateSpec, nullable: false, minVersion: 0 },
@@ -348,7 +348,7 @@ connectors_internals.mojom.PageHandler_GetClientCertificateState_ParamsSpec = {
 connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'connectors_internals.mojom.PageHandler.GetClientCertificateState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: connectors_internals.mojom.ClientCertificateStateSpec, nullable: false, minVersion: 0 },
@@ -374,7 +374,7 @@ connectors_internals.mojom.PageHandler_GetSignalsReportingState_ParamsSpec = {
 connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'connectors_internals.mojom.PageHandler.GetSignalsReportingState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: connectors_internals.mojom.SignalsReportingStateSpec, nullable: false, minVersion: 0 },

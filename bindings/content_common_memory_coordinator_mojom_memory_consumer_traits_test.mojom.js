@@ -82,7 +82,7 @@ content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ParamsSpec = {
 content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.MemoryConsumerTraitsTest.EchoMemoryConsumerTraits_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'out', packedOffset: 0, packedBitOffset: 0, type: content.mojom.MemoryConsumerTraitsSpec, nullable: false, minVersion: 0 },

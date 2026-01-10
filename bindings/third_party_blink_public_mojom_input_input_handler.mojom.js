@@ -649,7 +649,7 @@ blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ParamsSpec = {
 blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.WidgetInputHandlerHost.RequestMouseLock_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PointerLockResultSpec, nullable: false, minVersion: 0 },
@@ -1150,7 +1150,7 @@ blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ParamsSpec 
 blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.FrameWidgetInputHandler.HandleStylusWritingGestureAction_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.HandwritingGestureResultSpec, nullable: false, minVersion: 0 },
@@ -1396,7 +1396,7 @@ blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ParamsSpec = {
 blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.FrameWidgetInputHandler.SelectAroundCaret_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SelectAroundCaretResultSpec, nullable: true, minVersion: 0 },
@@ -1504,7 +1504,7 @@ blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ParamsSpec = {
 blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.FrameWidgetInputHandler.RectForEditFieldChars_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
@@ -1861,7 +1861,7 @@ blink.mojom.WidgetInputHandler_DispatchEvent_ParamsSpec = {
 blink.mojom.WidgetInputHandler_DispatchEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.WidgetInputHandler.DispatchEvent_ResponseParams',
       packedSize: 40,
       fields: [
         { name: 'source', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.InputEventResultSourceSpec, nullable: false, minVersion: 0 },

@@ -205,7 +205,7 @@ font_service.mojom.FontService_MatchFamilyName_ParamsSpec = {
 font_service.mojom.FontService_MatchFamilyName_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'font_service.mojom.FontService.MatchFamilyName_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: font_service.mojom.FontIdentitySpec, nullable: true, minVersion: 0 },
@@ -234,7 +234,7 @@ font_service.mojom.FontService_OpenStream_ParamsSpec = {
 font_service.mojom.FontService_OpenStream_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'font_service.mojom.FontService.OpenStream_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'font_handle', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true, minVersion: 0 },
@@ -262,7 +262,7 @@ font_service.mojom.FontService_FallbackFontForCharacter_ParamsSpec = {
 font_service.mojom.FontService_FallbackFontForCharacter_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'font_service.mojom.FontService.FallbackFontForCharacter_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: font_service.mojom.FontIdentitySpec, nullable: true, minVersion: 0 },
@@ -296,7 +296,7 @@ font_service.mojom.FontService_FontRenderStyleForStrike_ParamsSpec = {
 font_service.mojom.FontService_FontRenderStyleForStrike_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'font_service.mojom.FontService.FontRenderStyleForStrike_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'font_render_style', packedOffset: 0, packedBitOffset: 0, type: font_service.mojom.FontRenderStyleSpec, nullable: true, minVersion: 0 },
@@ -323,7 +323,7 @@ font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ParamsSpe
 font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'font_service.mojom.FontService.MatchFontByPostscriptNameOrFullFontName_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'identity', packedOffset: 0, packedBitOffset: 0, type: font_service.mojom.FontIdentitySpec, nullable: true, minVersion: 0 },
@@ -349,7 +349,7 @@ font_service.mojom.FontService_ListFamilies_ParamsSpec = {
 font_service.mojom.FontService_ListFamilies_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'font_service.mojom.FontService.ListFamilies_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'families', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
@@ -380,7 +380,7 @@ font_service.mojom.FontService_MatchFontWithFallback_ParamsSpec = {
 font_service.mojom.FontService_MatchFontWithFallback_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'font_service.mojom.FontService.MatchFontWithFallback_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'font_file_handle', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true, minVersion: 0 },

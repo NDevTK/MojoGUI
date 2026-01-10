@@ -109,7 +109,7 @@ storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec = {
 storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'storage.mojom.QuotaClient.GetBucketUsage_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
@@ -135,7 +135,7 @@ storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec = {
 storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'storage.mojom.QuotaClient.GetDefaultStorageKeys_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'storage_keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.StorageKeySpec, false), nullable: false, minVersion: 0 },
@@ -162,7 +162,7 @@ storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec = {
 storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'storage.mojom.QuotaClient.DeleteBucketData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.QuotaStatusCodeSpec, nullable: false, minVersion: 0 },

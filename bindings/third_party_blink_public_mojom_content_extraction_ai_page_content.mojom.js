@@ -667,7 +667,7 @@ blink.mojom.AIPageContentAgent_GetAIPageContent_ParamsSpec = {
 blink.mojom.AIPageContentAgent_GetAIPageContent_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.AIPageContentAgent.GetAIPageContent_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'page_content', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AIPageContentSpec, nullable: true, minVersion: 0 },

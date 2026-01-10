@@ -117,7 +117,7 @@ blink.mojom.CookieStore_AddSubscriptions_ParamsSpec = {
 blink.mojom.CookieStore_AddSubscriptions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.CookieStore.AddSubscriptions_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -145,7 +145,7 @@ blink.mojom.CookieStore_RemoveSubscriptions_ParamsSpec = {
 blink.mojom.CookieStore_RemoveSubscriptions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.CookieStore.RemoveSubscriptions_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -172,7 +172,7 @@ blink.mojom.CookieStore_GetSubscriptions_ParamsSpec = {
 blink.mojom.CookieStore_GetSubscriptions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.CookieStore.GetSubscriptions_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'subscriptions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.CookieChangeSubscriptionSpec, false), nullable: false, minVersion: 0 },

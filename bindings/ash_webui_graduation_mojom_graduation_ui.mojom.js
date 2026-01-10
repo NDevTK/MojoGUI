@@ -139,7 +139,7 @@ ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec = {
 ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.graduation_ui.mojom.GraduationUiHandler.AuthenticateWebview_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.graduation_ui.mojom.AuthResultSpec, nullable: false, minVersion: 0 },
@@ -165,7 +165,7 @@ ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ParamsSpec = {
 ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.graduation_ui.mojom.GraduationUiHandler.GetProfileInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'profile_info', packedOffset: 0, packedBitOffset: 0, type: ash.graduation_ui.mojom.ProfileInfoSpec, nullable: false, minVersion: 0 },

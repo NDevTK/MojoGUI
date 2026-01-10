@@ -83,7 +83,7 @@ ash.mall.mojom.PageHandler_GetMallEmbedUrl_ParamsSpec = {
 ash.mall.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.mall.mojom.PageHandler.GetMallEmbedUrl_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },

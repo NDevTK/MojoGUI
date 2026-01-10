@@ -104,7 +104,7 @@ device.mojom.Geolocation_QueryNextPosition_ParamsSpec = {
 device.mojom.Geolocation_QueryNextPosition_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.Geolocation.QueryNextPosition_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.GeopositionResultSpec, nullable: false, minVersion: 0 },

@@ -830,7 +830,7 @@ network.mojom.NetworkService_GetNetworkList_ParamsSpec = {
 network.mojom.NetworkService_GetNetworkList_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkService.GetNetworkList_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'networks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.NetworkInterfaceSpec, false), nullable: true, minVersion: 0 },
@@ -1080,7 +1080,7 @@ network.mojom.NetworkService_ParseHeaders_ParamsSpec = {
 network.mojom.NetworkService_ParseHeaders_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkService.ParseHeaders_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'parsed_headers', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ParsedHeadersSpec, nullable: false, minVersion: 0 },
@@ -1199,7 +1199,7 @@ network.mojom.NetworkService_DecodeContentEncoding_ParamsSpec = {
 network.mojom.NetworkService_DecodeContentEncoding_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkService.DecodeContentEncoding_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -1384,7 +1384,7 @@ network.mojom.DurableMessageCollector_Retrieve_ParamsSpec = {
 network.mojom.DurableMessageCollector_Retrieve_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.DurableMessageCollector.Retrieve_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true, minVersion: 0 },

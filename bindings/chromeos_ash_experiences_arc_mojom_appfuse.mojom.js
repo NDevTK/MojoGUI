@@ -101,7 +101,7 @@ arc.mojom.AppfuseHost_Mount_ParamsSpec = {
 arc.mojom.AppfuseHost_Mount_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.AppfuseHost.Mount_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: true, minVersion: 0 },
@@ -129,7 +129,7 @@ arc.mojom.AppfuseHost_Unmount_ParamsSpec = {
 arc.mojom.AppfuseHost_Unmount_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.AppfuseHost.Unmount_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -159,7 +159,7 @@ arc.mojom.AppfuseHost_OpenFile_ParamsSpec = {
 arc.mojom.AppfuseHost_OpenFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.AppfuseHost.OpenFile_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: true, minVersion: 0 },

@@ -231,7 +231,7 @@ browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ParamsSpec = {
 browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'browsing_topics.mojom.PageHandler.GetBrowsingTopicsConfiguration_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: browsing_topics.mojom.WebUIBrowsingTopicsConfigurationSpec, nullable: false, minVersion: 0 },
@@ -258,7 +258,7 @@ browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ParamsSpec = {
 browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'browsing_topics.mojom.PageHandler.GetBrowsingTopicsState_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: browsing_topics.mojom.WebUIGetBrowsingTopicsStateResultSpec, nullable: false, minVersion: 0 },
@@ -284,7 +284,7 @@ browsing_topics.mojom.PageHandler_GetModelInfo_ParamsSpec = {
 browsing_topics.mojom.PageHandler_GetModelInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'browsing_topics.mojom.PageHandler.GetModelInfo_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: browsing_topics.mojom.WebUIGetModelInfoResultSpec, nullable: false, minVersion: 0 },
@@ -311,7 +311,7 @@ browsing_topics.mojom.PageHandler_ClassifyHosts_ParamsSpec = {
 browsing_topics.mojom.PageHandler_ClassifyHosts_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'browsing_topics.mojom.PageHandler.ClassifyHosts_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'topics_for_hosts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Array(browsing_topics.mojom.WebUITopicSpec, false), false), nullable: false, minVersion: 0 },

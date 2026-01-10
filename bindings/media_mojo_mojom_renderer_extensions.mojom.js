@@ -204,7 +204,7 @@ media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec = {
 media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.MediaFoundationRendererExtension.GetDCOMPSurface_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
@@ -246,7 +246,7 @@ media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec = {
 media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.MediaFoundationRendererExtension.SetOutputRect_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

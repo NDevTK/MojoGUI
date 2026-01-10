@@ -246,7 +246,7 @@ handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec = {
 handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'handwriting.mojom.HandwritingRecognizer.GetPrediction_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'prediction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(handwriting.mojom.HandwritingPredictionSpec, false), nullable: true, minVersion: 0 },
@@ -343,7 +343,7 @@ handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_Para
 handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'handwriting.mojom.HandwritingRecognitionService.CreateHandwritingRecognizer_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: handwriting.mojom.CreateHandwritingRecognizerResultSpec, nullable: false, minVersion: 0 },
@@ -371,7 +371,7 @@ handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_Param
 handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'handwriting.mojom.HandwritingRecognitionService.QueryHandwritingRecognizer_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: handwriting.mojom.QueryHandwritingRecognizerResultSpec, nullable: true, minVersion: 0 },

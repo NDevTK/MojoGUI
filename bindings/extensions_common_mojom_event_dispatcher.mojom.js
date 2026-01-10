@@ -122,7 +122,7 @@ extensions.mojom.EventDispatcher_DispatchEvent_ParamsSpec = {
 extensions.mojom.EventDispatcher_DispatchEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'extensions.mojom.EventDispatcher.DispatchEvent_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'event_will_run_in_lazy_background_page_script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

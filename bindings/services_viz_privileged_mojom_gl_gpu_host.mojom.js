@@ -396,7 +396,7 @@ viz.mojom.GpuHost_GetIsolationKey_ParamsSpec = {
 viz.mojom.GpuHost_GetIsolationKey_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'viz.mojom.GpuHost.GetIsolationKey_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'isolation_key', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -451,7 +451,7 @@ viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ParamsSpec = {
 viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'viz.mojom.GpuHost.EnsureWebNNExecutionProvidersReady_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'ep_package_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, webnn.mojom.EpPackageInfoSpec, false), nullable: false, minVersion: 0 },
@@ -477,7 +477,7 @@ viz.mojom.GpuHost_CreateWebNNWeightsFile_ParamsSpec = {
 viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'viz.mojom.GpuHost.CreateWebNNWeightsFile_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true, minVersion: 0 },

@@ -128,7 +128,7 @@ content.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec = {
 content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.MhtmlFileWriter.SerializeAsMHTML_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: content.mojom.MhtmlSaveStatusSpec, nullable: false, minVersion: 0 },

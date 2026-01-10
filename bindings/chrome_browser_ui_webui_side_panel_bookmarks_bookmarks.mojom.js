@@ -421,7 +421,7 @@ side_panel.mojom.BookmarksPageHandler_CreateFolder_ParamsSpec = {
 side_panel.mojom.BookmarksPageHandler_CreateFolder_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'side_panel.mojom.BookmarksPageHandler.CreateFolder_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'new_folder_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -742,7 +742,7 @@ side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ParamsSpec = {
 side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'side_panel.mojom.BookmarksPageHandler.GetAllBookmarks_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'nodes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(side_panel.mojom.BookmarksTreeNodeSpec, false), nullable: false, minVersion: 0 },

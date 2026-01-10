@@ -90,7 +90,7 @@ arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ParamsSpec = {
 arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.VideoHost.OnBootstrapVideoAcceleratorFactory_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'channel_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: false, minVersion: 0 },
@@ -117,7 +117,7 @@ arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ParamsSpec = {
 arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.VideoHost.CreateVideoAcceleratorFactory_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },

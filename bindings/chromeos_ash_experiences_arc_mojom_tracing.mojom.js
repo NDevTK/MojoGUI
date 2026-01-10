@@ -99,7 +99,7 @@ arc.mojom.TracingInstance_QueryAvailableCategories_ParamsSpec = {
 arc.mojom.TracingInstance_QueryAvailableCategories_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.TracingInstance.QueryAvailableCategories_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'categories', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
@@ -127,7 +127,7 @@ arc.mojom.TracingInstance_StartTracing_ParamsSpec = {
 arc.mojom.TracingInstance_StartTracing_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.TracingInstance.StartTracing_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -153,7 +153,7 @@ arc.mojom.TracingInstance_StopTracing_ParamsSpec = {
 arc.mojom.TracingInstance_StopTracing_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.TracingInstance.StopTracing_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

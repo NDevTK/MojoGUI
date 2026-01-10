@@ -154,7 +154,7 @@ webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec = {
 webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'webnn.mojom.WebNNTensor.ReadTensor_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.ReadTensorResultSpec, nullable: false, minVersion: 0 },

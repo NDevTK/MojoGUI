@@ -203,7 +203,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ParamsSpec =
 ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.settings.app_notification.mojom.AppNotificationsHandler.GetApps_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.settings.app_notification.mojom.AppSpec, false), nullable: false, minVersion: 0 },
@@ -229,7 +229,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ParamsS
 ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.settings.app_notification.mojom.AppNotificationsHandler.GetQuietMode_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

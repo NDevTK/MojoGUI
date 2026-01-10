@@ -331,7 +331,7 @@ device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec = {
 device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.GeolocationInternals.AddInternalsObserver_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'diagnostics', packedOffset: 0, packedBitOffset: 0, type: device.mojom.GeolocationDiagnosticsSpec, nullable: true, minVersion: 0 },

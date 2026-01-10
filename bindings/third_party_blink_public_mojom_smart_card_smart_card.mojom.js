@@ -81,7 +81,7 @@ blink.mojom.SmartCardService_CreateContext_ParamsSpec = {
 blink.mojom.SmartCardService_CreateContext_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.SmartCardService.CreateContext_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardCreateContextResultSpec, nullable: false, minVersion: 0 },

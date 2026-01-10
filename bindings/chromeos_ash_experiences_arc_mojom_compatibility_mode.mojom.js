@@ -116,7 +116,7 @@ arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ParamsSpec = {
 arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.CompatibilityModeInstance.IsOptimizedForCrosApp_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_o4c_app', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

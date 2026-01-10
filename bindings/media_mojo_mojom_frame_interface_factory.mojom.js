@@ -257,7 +257,7 @@ media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec = {
 media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.FrameInterfaceFactory.GetCdmOrigin_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'cdm_origin', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },

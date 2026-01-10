@@ -118,7 +118,7 @@ content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec = {
 content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.RendererHost.GetBrowserHistogram_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'histogram_json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -186,7 +186,7 @@ content.mojom.RendererHost_HasGpuProcess_ParamsSpec = {
 content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.RendererHost.HasGpuProcess_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'has_gpu_process', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

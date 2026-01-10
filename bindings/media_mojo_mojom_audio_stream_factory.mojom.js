@@ -188,7 +188,7 @@ media.mojom.AudioStreamFactory_CreateInputStream_ParamsSpec = {
 media.mojom.AudioStreamFactory_CreateInputStream_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.AudioStreamFactory.CreateInputStream_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'data_pipe', packedOffset: 0, packedBitOffset: 0, type: media.mojom.ReadWriteAudioDataPipeSpec, nullable: true, minVersion: 0 },
@@ -237,7 +237,7 @@ media.mojom.AudioStreamFactory_CreateOutputStream_ParamsSpec = {
 media.mojom.AudioStreamFactory_CreateOutputStream_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.AudioStreamFactory.CreateOutputStream_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'data_pipe', packedOffset: 0, packedBitOffset: 0, type: media.mojom.ReadWriteAudioDataPipeSpec, nullable: true, minVersion: 0 },
@@ -270,7 +270,7 @@ media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ParamsSpec = {
 media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.AudioStreamFactory.CreateSwitchableOutputStream_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'data_pipe', packedOffset: 0, packedBitOffset: 0, type: media.mojom.ReadWriteAudioDataPipeSpec, nullable: true, minVersion: 0 },
@@ -317,7 +317,7 @@ media.mojom.AudioStreamFactory_CreateLoopbackStream_ParamsSpec = {
 media.mojom.AudioStreamFactory_CreateLoopbackStream_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.AudioStreamFactory.CreateLoopbackStream_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'data_pipe', packedOffset: 0, packedBitOffset: 0, type: media.mojom.ReadWriteAudioDataPipeSpec, nullable: true, minVersion: 0 },

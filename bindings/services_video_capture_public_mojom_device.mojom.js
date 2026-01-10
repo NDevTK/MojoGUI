@@ -185,7 +185,7 @@ video_capture.mojom.Device_GetPhotoState_ParamsSpec = {
 video_capture.mojom.Device_GetPhotoState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'video_capture.mojom.Device.GetPhotoState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PhotoStateSpec, nullable: true, minVersion: 0 },
@@ -212,7 +212,7 @@ video_capture.mojom.Device_SetPhotoOptions_ParamsSpec = {
 video_capture.mojom.Device_SetPhotoOptions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'video_capture.mojom.Device.SetPhotoOptions_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -238,7 +238,7 @@ video_capture.mojom.Device_TakePhoto_ParamsSpec = {
 video_capture.mojom.Device_TakePhoto_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'video_capture.mojom.Device.TakePhoto_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: media.mojom.BlobSpec, nullable: true, minVersion: 0 },

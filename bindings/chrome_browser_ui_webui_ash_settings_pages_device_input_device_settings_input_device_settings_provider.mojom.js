@@ -1197,7 +1197,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ParamsSpec = {
 ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.settings.mojom.InputDeviceSettingsProvider.ObserveLidState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_lid_open', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1367,7 +1367,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomiza
 ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.settings.mojom.InputDeviceSettingsProvider.GetActionsForMouseButtonCustomization_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.settings.mojom.ActionChoiceSpec, false), nullable: false, minVersion: 0 },
@@ -1393,7 +1393,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButton
 ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.settings.mojom.InputDeviceSettingsProvider.GetActionsForGraphicsTabletButtonCustomization_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'options', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.settings.mojom.ActionChoiceSpec, false), nullable: false, minVersion: 0 },
@@ -1419,7 +1419,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ParamsSpec = 
 ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.settings.mojom.InputDeviceSettingsProvider.GetMetaKeyToDisplay_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'meta_key', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.MetaKeySpec, nullable: false, minVersion: 0 },
@@ -1445,7 +1445,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ParamsSpec =
 ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.settings.mojom.InputDeviceSettingsProvider.HasKeyboardBacklight_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'has_keyboard_backlight', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1471,7 +1471,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ParamsSpec 
 ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.settings.mojom.InputDeviceSettingsProvider.HasAmbientLightSensor_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'has_ambient_light_sensor', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1497,7 +1497,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ParamsSpec
 ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.settings.mojom.InputDeviceSettingsProvider.IsRgbKeyboardSupported_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_rgb_keyboard_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1551,7 +1551,7 @@ ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ParamsSpec = {
 ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.settings.mojom.InputDeviceSettingsProvider.GetDeviceIconImage_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'data_url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },

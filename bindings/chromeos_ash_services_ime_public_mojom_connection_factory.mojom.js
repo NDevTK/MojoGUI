@@ -95,7 +95,7 @@ ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ParamsSpec = {
 ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.ime.mojom.ConnectionFactory.ConnectToInputMethod_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -122,7 +122,7 @@ ash.ime.mojom.ConnectionFactory_Unused_ParamsSpec = {
 ash.ime.mojom.ConnectionFactory_Unused_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.ime.mojom.ConnectionFactory.Unused_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

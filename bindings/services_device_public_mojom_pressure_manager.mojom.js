@@ -180,7 +180,7 @@ device.mojom.PressureManager_AddClient_ParamsSpec = {
 device.mojom.PressureManager_AddClient_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.PressureManager.AddClient_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.PressureManagerAddClientResultSpec, nullable: false, minVersion: 0 },

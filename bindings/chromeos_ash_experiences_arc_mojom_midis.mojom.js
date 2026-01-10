@@ -232,7 +232,7 @@ arc.mojom.MidisServer_ListDevices_ParamsSpec = {
 arc.mojom.MidisServer_ListDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.MidisServer.ListDevices_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.MidisDeviceInfoSpec, false), nullable: false, minVersion: 0 },
@@ -259,7 +259,7 @@ arc.mojom.MidisServer_RequestPort_ParamsSpec = {
 arc.mojom.MidisServer_RequestPort_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.MidisServer.RequestPort_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'port_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: true, minVersion: 0 },

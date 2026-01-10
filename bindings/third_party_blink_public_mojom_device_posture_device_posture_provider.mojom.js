@@ -107,7 +107,7 @@ blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec = {
 blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.DevicePostureProvider.AddListenerAndGetCurrentPosture_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'posture', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DevicePostureTypeSpec, nullable: false, minVersion: 0 },

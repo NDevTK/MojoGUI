@@ -145,7 +145,7 @@ echo.mojom.EchoService_EchoString_ParamsSpec = {
 echo.mojom.EchoService_EchoString_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'echo.mojom.EchoService.EchoString_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'echoed_input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -227,7 +227,7 @@ echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec = {
 echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'echo.mojom.EchoService.LoadNativeLibrary_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: echo.mojom.LoadStatusSpec, nullable: false, minVersion: 0 },
@@ -256,7 +256,7 @@ echo.mojom.EchoService_DecryptEncrypt_ParamsSpec = {
 echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'echo.mojom.EchoService.DecryptEncrypt_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },

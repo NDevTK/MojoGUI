@@ -161,7 +161,7 @@ ash.ime.mojom.JpUnused_Unused_ParamsSpec = {
 ash.ime.mojom.JpUnused_Unused_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.ime.mojom.JpUnused.Unused_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'unused', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.JpUnusedStructSpec, nullable: false, minVersion: 0 },

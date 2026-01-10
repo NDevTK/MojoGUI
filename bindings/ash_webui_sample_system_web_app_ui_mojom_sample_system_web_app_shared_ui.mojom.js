@@ -158,7 +158,7 @@ ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec = {
 ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.mojom.sample_swa.ParentTrustedPage.DoSomethingForChild_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'resp', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },

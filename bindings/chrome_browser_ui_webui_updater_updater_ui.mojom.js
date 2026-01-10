@@ -157,7 +157,7 @@ updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ParamsSpec = {
 updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'updater_ui.mojom.PageHandler.GetAllUpdaterEvents_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },

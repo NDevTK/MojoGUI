@@ -603,7 +603,7 @@ blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec = {
 blink.mojom.AIManager_CanCreateLanguageModel_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.AIManager.CanCreateLanguageModel_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ModelAvailabilityCheckResultSpec, nullable: false, minVersion: 0 },
@@ -645,7 +645,7 @@ blink.mojom.AIManager_CanCreateSummarizer_ParamsSpec = {
 blink.mojom.AIManager_CanCreateSummarizer_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.AIManager.CanCreateSummarizer_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ModelAvailabilityCheckResultSpec, nullable: false, minVersion: 0 },
@@ -686,7 +686,7 @@ blink.mojom.AIManager_GetLanguageModelParams_ParamsSpec = {
 blink.mojom.AIManager_GetLanguageModelParams_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.AIManager.GetLanguageModelParams_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'language_model_params', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AILanguageModelParamsSpec, nullable: true, minVersion: 0 },
@@ -713,7 +713,7 @@ blink.mojom.AIManager_CanCreateWriter_ParamsSpec = {
 blink.mojom.AIManager_CanCreateWriter_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.AIManager.CanCreateWriter_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ModelAvailabilityCheckResultSpec, nullable: false, minVersion: 0 },
@@ -755,7 +755,7 @@ blink.mojom.AIManager_CanCreateRewriter_ParamsSpec = {
 blink.mojom.AIManager_CanCreateRewriter_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.AIManager.CanCreateRewriter_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ModelAvailabilityCheckResultSpec, nullable: false, minVersion: 0 },
@@ -797,7 +797,7 @@ blink.mojom.AIManager_CanCreateProofreader_ParamsSpec = {
 blink.mojom.AIManager_CanCreateProofreader_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.AIManager.CanCreateProofreader_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ModelAvailabilityCheckResultSpec, nullable: false, minVersion: 0 },

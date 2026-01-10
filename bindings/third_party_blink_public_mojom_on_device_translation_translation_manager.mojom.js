@@ -258,7 +258,7 @@ blink.mojom.TranslationManager_TranslationAvailable_ParamsSpec = {
 blink.mojom.TranslationManager_TranslationAvailable_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.TranslationManager.TranslationAvailable_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CanCreateTranslatorResultSpec, nullable: false, minVersion: 0 },

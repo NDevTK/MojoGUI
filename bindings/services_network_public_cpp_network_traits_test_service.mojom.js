@@ -82,7 +82,7 @@ network.mojom.TraitsTestService_EchoHttpRequestHeaders_ParamsSpec = {
 network.mojom.TraitsTestService_EchoHttpRequestHeaders_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.TraitsTestService.EchoHttpRequestHeaders_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HttpRequestHeadersSpec, nullable: false, minVersion: 0 },

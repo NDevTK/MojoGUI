@@ -92,7 +92,7 @@ ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_Par
 ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.rollback_network_config.mojom.RollbackNetworkConfig.RollbackConfigImport_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -118,7 +118,7 @@ ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_Par
 ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.rollback_network_config.mojom.RollbackNetworkConfig.RollbackConfigExport_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },

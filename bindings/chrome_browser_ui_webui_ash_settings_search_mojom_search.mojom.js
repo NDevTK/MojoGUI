@@ -232,7 +232,7 @@ ash.settings.mojom.SearchHandler_Search_ParamsSpec = {
 ash.settings.mojom.SearchHandler_Search_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.settings.mojom.SearchHandler.Search_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.settings.mojom.SearchResultSpec, false), nullable: false, minVersion: 0 },

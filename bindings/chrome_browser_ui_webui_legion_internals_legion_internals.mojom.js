@@ -144,7 +144,7 @@ legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec = {
 legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'legion_internals.mojom.LegionInternalsPageHandler.SendRequest_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: legion_internals.mojom.LegionResponseSpec, nullable: false, minVersion: 0 },

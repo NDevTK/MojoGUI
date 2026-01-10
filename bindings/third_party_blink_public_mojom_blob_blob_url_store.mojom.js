@@ -252,7 +252,7 @@ blink.mojom.BlobURLToken_GetToken_ParamsSpec = {
 blink.mojom.BlobURLToken_GetToken_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.BlobURLToken.GetToken_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },

@@ -217,7 +217,7 @@ ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ParamsSpec = {
 ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.settings.google_drive.mojom.PageHandler.GetContentCacheSize_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },

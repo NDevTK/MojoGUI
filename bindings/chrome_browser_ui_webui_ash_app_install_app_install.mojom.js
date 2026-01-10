@@ -171,7 +171,7 @@ ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec = {
 ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.app_install.mojom.AppInfoActions.InstallApp_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'installed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -429,7 +429,7 @@ ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec = {
 ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.app_install.mojom.PageHandler.GetDialogArgs_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'dialog_args', packedOffset: 0, packedBitOffset: 0, type: ash.app_install.mojom.DialogArgsSpec, nullable: false, minVersion: 0 },

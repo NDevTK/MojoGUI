@@ -239,7 +239,7 @@ media.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec = {
 media.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.ContentDecryptionModule.SetServerCertificate_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmPromiseResultSpec, nullable: false, minVersion: 0 },
@@ -266,7 +266,7 @@ media.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec = {
 media.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.ContentDecryptionModule.GetStatusForPolicy_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmPromiseResultSpec, nullable: false, minVersion: 0 },
@@ -296,7 +296,7 @@ media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec =
 media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.ContentDecryptionModule.CreateSessionAndGenerateRequest_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmPromiseResultSpec, nullable: false, minVersion: 0 },
@@ -325,7 +325,7 @@ media.mojom.ContentDecryptionModule_LoadSession_ParamsSpec = {
 media.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.ContentDecryptionModule.LoadSession_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmPromiseResultSpec, nullable: false, minVersion: 0 },
@@ -354,7 +354,7 @@ media.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec = {
 media.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.ContentDecryptionModule.UpdateSession_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmPromiseResultSpec, nullable: false, minVersion: 0 },
@@ -381,7 +381,7 @@ media.mojom.ContentDecryptionModule_CloseSession_ParamsSpec = {
 media.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.ContentDecryptionModule.CloseSession_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmPromiseResultSpec, nullable: false, minVersion: 0 },
@@ -408,7 +408,7 @@ media.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec = {
 media.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.ContentDecryptionModule.RemoveSession_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: media.mojom.CdmPromiseResultSpec, nullable: false, minVersion: 0 },
@@ -646,7 +646,7 @@ media.mojom.CdmFactory_CreateCdm_ParamsSpec = {
 media.mojom.CdmFactory_CreateCdm_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.CdmFactory.CreateCdm_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'cdm', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },

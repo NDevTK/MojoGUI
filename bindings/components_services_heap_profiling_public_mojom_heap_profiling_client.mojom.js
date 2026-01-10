@@ -166,7 +166,7 @@ heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec = {
 heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'heap_profiling.mojom.ProfilingClient.RetrieveHeapProfile_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'profile', packedOffset: 0, packedBitOffset: 0, type: heap_profiling.mojom.HeapProfileSpec, nullable: false, minVersion: 0 },

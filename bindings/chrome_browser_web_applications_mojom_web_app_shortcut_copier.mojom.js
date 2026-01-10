@@ -83,7 +83,7 @@ web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ParamsSpec = {
 web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'web_app.mojom.WebAppShortcutCopier.CopyWebAppShortcut_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

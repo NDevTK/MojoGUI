@@ -115,7 +115,7 @@ service_manager.mojom.Service_OnStart_ParamsSpec = {
 service_manager.mojom.Service_OnStart_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'service_manager.mojom.Service.OnStart_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'connector_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },

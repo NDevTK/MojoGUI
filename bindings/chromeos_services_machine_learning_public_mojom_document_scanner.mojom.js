@@ -153,7 +153,7 @@ chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_Param
 chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.machine_learning.mojom.DocumentScanner.DetectCornersFromNV12Image_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.DetectCornersResultSpec, nullable: false, minVersion: 0 },
@@ -180,7 +180,7 @@ chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_Param
 chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.machine_learning.mojom.DocumentScanner.DetectCornersFromJPEGImage_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.DetectCornersResultSpec, nullable: false, minVersion: 0 },
@@ -209,7 +209,7 @@ chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ParamsSpec = {
 chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.machine_learning.mojom.DocumentScanner.DoPostProcessing_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.DoPostProcessingResultSpec, nullable: false, minVersion: 0 },

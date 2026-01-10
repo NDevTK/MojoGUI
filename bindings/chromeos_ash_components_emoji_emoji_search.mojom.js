@@ -106,7 +106,7 @@ emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec = {
 emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'emoji_search.mojom.EmojiSearch.SearchEmoji_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'emoji_results', packedOffset: 0, packedBitOffset: 0, type: emoji_search.mojom.SearchResultsSpec, nullable: false, minVersion: 0 },

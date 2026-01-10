@@ -124,7 +124,7 @@ chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec = {
 chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.tts.mojom.TtsService.BindPlaybackTtsStream_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'audio_parameters', packedOffset: 0, packedBitOffset: 0, type: chromeos.tts.mojom.AudioParametersSpec, nullable: false, minVersion: 0 },
@@ -267,7 +267,7 @@ chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ParamsSpec = {
 chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.tts.mojom.GoogleTtsStream.InstallVoice_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -294,7 +294,7 @@ chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ParamsSpec = {
 chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.tts.mojom.GoogleTtsStream.SelectVoice_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -322,7 +322,7 @@ chromeos.tts.mojom.GoogleTtsStream_Speak_ParamsSpec = {
 chromeos.tts.mojom.GoogleTtsStream_Speak_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.tts.mojom.GoogleTtsStream.Speak_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'event_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
@@ -507,7 +507,7 @@ chromeos.tts.mojom.PlaybackTtsStream_Play_ParamsSpec = {
 chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.tts.mojom.PlaybackTtsStream.Play_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'event_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },

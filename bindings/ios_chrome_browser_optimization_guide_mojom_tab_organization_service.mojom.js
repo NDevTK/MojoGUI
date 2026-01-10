@@ -82,7 +82,7 @@ ai.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec = {
 ai.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ai.mojom.TabOrganizationService.ExecuteGroupTabs_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },

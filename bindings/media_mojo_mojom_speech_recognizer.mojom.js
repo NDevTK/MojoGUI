@@ -201,7 +201,7 @@ media.mojom.OnDeviceSpeechRecognition_Available_ParamsSpec = {
 media.mojom.OnDeviceSpeechRecognition_Available_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.OnDeviceSpeechRecognition.Available_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AvailabilityStatusSpec, nullable: false, minVersion: 0 },
@@ -228,7 +228,7 @@ media.mojom.OnDeviceSpeechRecognition_Install_ParamsSpec = {
 media.mojom.OnDeviceSpeechRecognition_Install_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.OnDeviceSpeechRecognition.Install_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

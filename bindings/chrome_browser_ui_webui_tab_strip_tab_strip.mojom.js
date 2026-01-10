@@ -346,7 +346,7 @@ tab_strip.mojom.PageHandler_GetGroupVisualData_ParamsSpec = {
 tab_strip.mojom.PageHandler_GetGroupVisualData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'tab_strip.mojom.PageHandler.GetGroupVisualData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, tab_strip.mojom.TabGroupVisualDataSpec, false), nullable: false, minVersion: 0 },
@@ -372,7 +372,7 @@ tab_strip.mojom.PageHandler_GetTabs_ParamsSpec = {
 tab_strip.mojom.PageHandler_GetTabs_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'tab_strip.mojom.PageHandler.GetTabs_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'tabs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(tab_strip.mojom.TabSpec, false), nullable: false, minVersion: 0 },
@@ -487,7 +487,7 @@ tab_strip.mojom.PageHandler_GetLayout_ParamsSpec = {
 tab_strip.mojom.PageHandler_GetLayout_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'tab_strip.mojom.PageHandler.GetLayout_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'layout', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },

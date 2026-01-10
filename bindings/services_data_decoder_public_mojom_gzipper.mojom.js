@@ -109,7 +109,7 @@ data_decoder.mojom.Gzipper_Deflate_ParamsSpec = {
 data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'data_decoder.mojom.Gzipper.Deflate_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'deflated_data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true, minVersion: 0 },
@@ -137,7 +137,7 @@ data_decoder.mojom.Gzipper_Inflate_ParamsSpec = {
 data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'data_decoder.mojom.Gzipper.Inflate_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'inflated_data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true, minVersion: 0 },
@@ -164,7 +164,7 @@ data_decoder.mojom.Gzipper_Compress_ParamsSpec = {
 data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'data_decoder.mojom.Gzipper.Compress_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'compressed_data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true, minVersion: 0 },
@@ -191,7 +191,7 @@ data_decoder.mojom.Gzipper_Uncompress_ParamsSpec = {
 data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'data_decoder.mojom.Gzipper.Uncompress_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true, minVersion: 0 },

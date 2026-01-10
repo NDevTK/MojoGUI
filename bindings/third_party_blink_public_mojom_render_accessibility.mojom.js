@@ -266,7 +266,7 @@ blink.mojom.RenderAccessibility_HitTest_ParamsSpec = {
 blink.mojom.RenderAccessibility_HitTest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.RenderAccessibility.HitTest_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'hit_test_response', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.HitTestResponseSpec, nullable: true, minVersion: 0 },

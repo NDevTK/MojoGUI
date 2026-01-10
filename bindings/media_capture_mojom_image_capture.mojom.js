@@ -294,7 +294,7 @@ media.mojom.ImageCapture_GetPhotoState_ParamsSpec = {
 media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.ImageCapture.GetPhotoState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PhotoStateSpec, nullable: false, minVersion: 0 },
@@ -322,7 +322,7 @@ media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec = {
 media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.ImageCapture.SetPhotoOptions_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -349,7 +349,7 @@ media.mojom.ImageCapture_TakePhoto_ParamsSpec = {
 media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.ImageCapture.TakePhoto_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: media.mojom.BlobSpec, nullable: false, minVersion: 0 },

@@ -104,7 +104,7 @@ chromecast.mojom.ApiBindings_GetAll_ParamsSpec = {
 chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromecast.mojom.ApiBindings.GetAll_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'bindings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromecast.mojom.ApiBindingSpec, false), nullable: false, minVersion: 0 },

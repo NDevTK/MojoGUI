@@ -328,7 +328,7 @@ printing.mojom.PrintRenderer_CreatePreviewDocument_ParamsSpec = {
 printing.mojom.PrintRenderer_CreatePreviewDocument_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'printing.mojom.PrintRenderer.CreatePreviewDocument_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'preview_document_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true, minVersion: 0 },
@@ -873,7 +873,7 @@ printing.mojom.PrintRenderFrame_PrintFrameContent_ParamsSpec = {
 printing.mojom.PrintRenderFrame_PrintFrameContent_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'printing.mojom.PrintRenderFrame.PrintFrameContent_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'document_cookie', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -1124,7 +1124,7 @@ printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ParamsSpec = {
 printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'printing.mojom.PrintManagerHost.GetDefaultPrintSettings_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'default_settings', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.PrintParamsSpec, nullable: true, minVersion: 0 },
@@ -1164,7 +1164,7 @@ printing.mojom.PrintManagerHost_DidPrintDocument_ParamsSpec = {
 printing.mojom.PrintManagerHost_DidPrintDocument_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'printing.mojom.PrintManagerHost.DidPrintDocument_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'completed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1190,7 +1190,7 @@ printing.mojom.PrintManagerHost_IsPrintingEnabled_ParamsSpec = {
 printing.mojom.PrintManagerHost_IsPrintingEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'printing.mojom.PrintManagerHost.IsPrintingEnabled_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'printing_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1217,7 +1217,7 @@ printing.mojom.PrintManagerHost_ScriptedPrint_ParamsSpec = {
 printing.mojom.PrintManagerHost_ScriptedPrint_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'printing.mojom.PrintManagerHost.ScriptedPrint_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.PrintPagesParamsSpec, nullable: true, minVersion: 0 },
@@ -1259,7 +1259,7 @@ printing.mojom.PrintManagerHost_UpdatePrintSettings_ParamsSpec = {
 printing.mojom.PrintManagerHost_UpdatePrintSettings_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'printing.mojom.PrintManagerHost.UpdatePrintSettings_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'current_settings', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.PrintPagesParamsSpec, nullable: true, minVersion: 0 },
@@ -1328,7 +1328,7 @@ printing.mojom.PrintManagerHost_CheckForCancel_ParamsSpec = {
 printing.mojom.PrintManagerHost_CheckForCancel_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'printing.mojom.PrintManagerHost.CheckForCancel_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'cancel', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

@@ -465,7 +465,7 @@ printing.mojom.PrintBackendService_GetPaperPrintableArea_ParamsSpec = {
 printing.mojom.PrintBackendService_GetPaperPrintableArea_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'printing.mojom.PrintBackendService.GetPaperPrintableArea_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'printable_area_um', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
@@ -556,7 +556,7 @@ printing.mojom.PrintBackendService_StartPrinting_ParamsSpec = {
 printing.mojom.PrintBackendService_StartPrinting_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'printing.mojom.PrintBackendService.StartPrinting_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.ResultCodeSpec, nullable: false, minVersion: 0 },
@@ -590,7 +590,7 @@ printing.mojom.PrintBackendService_RenderPrintedPage_ParamsSpec = {
 printing.mojom.PrintBackendService_RenderPrintedPage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'printing.mojom.PrintBackendService.RenderPrintedPage_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.ResultCodeSpec, nullable: false, minVersion: 0 },
@@ -620,7 +620,7 @@ printing.mojom.PrintBackendService_RenderPrintedDocument_ParamsSpec = {
 printing.mojom.PrintBackendService_RenderPrintedDocument_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'printing.mojom.PrintBackendService.RenderPrintedDocument_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.ResultCodeSpec, nullable: false, minVersion: 0 },
@@ -647,7 +647,7 @@ printing.mojom.PrintBackendService_DocumentDone_ParamsSpec = {
 printing.mojom.PrintBackendService_DocumentDone_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'printing.mojom.PrintBackendService.DocumentDone_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.ResultCodeSpec, nullable: false, minVersion: 0 },

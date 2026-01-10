@@ -283,7 +283,7 @@ chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec = {
 chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromecast.external_mojo.mojom.ExternalConnector.QueryServiceList_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'services', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromecast.external_mojo.mojom.ExternalServiceInfoSpec, false), nullable: false, minVersion: 0 },

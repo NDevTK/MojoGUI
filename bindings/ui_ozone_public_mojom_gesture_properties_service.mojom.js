@@ -146,7 +146,7 @@ ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec = {
 ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ui.ozone.mojom.GesturePropertiesService.ListDevices_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int32, mojo.internal.String, false), nullable: false, minVersion: 0 },
@@ -173,7 +173,7 @@ ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec = {
 ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ui.ozone.mojom.GesturePropertiesService.ListProperties_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
@@ -201,7 +201,7 @@ ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec = {
 ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ui.ozone.mojom.GesturePropertiesService.GetProperty_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'is_read_only', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -231,7 +231,7 @@ ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec = {
 ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ui.ozone.mojom.GesturePropertiesService.SetProperty_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: ui.ozone.mojom.SetGesturePropErrorCodeSpec, nullable: false, minVersion: 0 },

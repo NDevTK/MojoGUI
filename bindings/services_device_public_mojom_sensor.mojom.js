@@ -177,7 +177,7 @@ device.mojom.Sensor_GetDefaultConfiguration_ParamsSpec = {
 device.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.Sensor.GetDefaultConfiguration_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'configuration', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SensorConfigurationSpec, nullable: false, minVersion: 0 },
@@ -204,7 +204,7 @@ device.mojom.Sensor_AddConfiguration_ParamsSpec = {
 device.mojom.Sensor_AddConfiguration_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.Sensor.AddConfiguration_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

@@ -324,7 +324,7 @@ performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequest
 performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'performance_manager.mojom.DocumentCoordinationUnit.OnWebMemoryMeasurementRequested_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'measurement', packedOffset: 0, packedBitOffset: 0, type: performance_manager.mojom.WebMemoryMeasurementSpec, nullable: false, minVersion: 0 },
@@ -618,7 +618,7 @@ performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoo
 performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'performance_manager.mojom.ChildProcessCoordinationUnit.InitializeChildProcessCoordination_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'global_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true, minVersion: 0 },

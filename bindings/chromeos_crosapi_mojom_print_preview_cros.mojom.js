@@ -205,7 +205,7 @@ crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ParamsSpec = {
 crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.PrintPreviewCrosDelegate.RequestPrintPreview_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -232,7 +232,7 @@ crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ParamsSpec = {
 crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.PrintPreviewCrosDelegate.PrintPreviewDone_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -330,7 +330,7 @@ crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ParamsSpec = {
 crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.PrintPreviewCrosClient.GeneratePrintPreview_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -357,7 +357,7 @@ crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ParamsSpec = {
 crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.PrintPreviewCrosClient.HandleDialogClosed_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

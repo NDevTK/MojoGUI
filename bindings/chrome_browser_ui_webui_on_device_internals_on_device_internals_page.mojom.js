@@ -319,7 +319,7 @@ on_device_internals.mojom.PageHandler_LoadModel_ParamsSpec = {
 on_device_internals.mojom.PageHandler_LoadModel_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'on_device_internals.mojom.PageHandler.LoadModel_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.LoadModelResultSpec, nullable: false, minVersion: 0 },
@@ -348,7 +348,7 @@ on_device_internals.mojom.PageHandler_LoadPlatformModel_ParamsSpec = {
 on_device_internals.mojom.PageHandler_LoadPlatformModel_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'on_device_internals.mojom.PageHandler.LoadPlatformModel_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.LoadModelResultSpec, nullable: false, minVersion: 0 },
@@ -374,7 +374,7 @@ on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ParamsSpec = {
 on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'on_device_internals.mojom.PageHandler.GetDeviceAndPerformanceInfo_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'performance_info', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.DevicePerformanceInfoSpec, nullable: false, minVersion: 0 },
@@ -401,7 +401,7 @@ on_device_internals.mojom.PageHandler_GetDefaultModelPath_ParamsSpec = {
 on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'on_device_internals.mojom.PageHandler.GetDefaultModelPath_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'model_path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: true, minVersion: 0 },
@@ -440,7 +440,7 @@ on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec = {
 on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'on_device_internals.mojom.PageHandler.GetPageData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'page_data', packedOffset: 0, packedBitOffset: 0, type: on_device_internals.mojom.PageDataSpec, nullable: false, minVersion: 0 },
@@ -482,7 +482,7 @@ on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec = {
 on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'on_device_internals.mojom.PageHandler.DecodeBitmap_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapMappedFromTrustedProcessSpec, nullable: true, minVersion: 0 },

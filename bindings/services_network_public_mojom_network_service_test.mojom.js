@@ -165,7 +165,7 @@ network.mojom.SimpleCacheEntry_WriteData_ParamsSpec = {
 network.mojom.SimpleCacheEntry_WriteData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.SimpleCacheEntry.WriteData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -194,7 +194,7 @@ network.mojom.SimpleCacheEntry_ReadData_ParamsSpec = {
 network.mojom.SimpleCacheEntry_ReadData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.SimpleCacheEntry.ReadData_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
@@ -223,7 +223,7 @@ network.mojom.SimpleCacheEntry_WriteSparseData_ParamsSpec = {
 network.mojom.SimpleCacheEntry_WriteSparseData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.SimpleCacheEntry.WriteSparseData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -251,7 +251,7 @@ network.mojom.SimpleCacheEntry_ReadSparseData_ParamsSpec = {
 network.mojom.SimpleCacheEntry_ReadSparseData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.SimpleCacheEntry.ReadSparseData_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
@@ -352,7 +352,7 @@ network.mojom.SimpleCacheEntryEnumerator_GetNext_ParamsSpec = {
 network.mojom.SimpleCacheEntryEnumerator_GetNext_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.SimpleCacheEntryEnumerator.GetNext_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: network.mojom.SimpleCacheOpenEntryResultSpec, nullable: false, minVersion: 0 },
@@ -485,7 +485,7 @@ network.mojom.SimpleCache_CreateEntry_ParamsSpec = {
 network.mojom.SimpleCache_CreateEntry_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.SimpleCache.CreateEntry_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
@@ -513,7 +513,7 @@ network.mojom.SimpleCache_OpenEntry_ParamsSpec = {
 network.mojom.SimpleCache_OpenEntry_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.SimpleCache.OpenEntry_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'entry', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
@@ -541,7 +541,7 @@ network.mojom.SimpleCache_DoomEntry_ParamsSpec = {
 network.mojom.SimpleCache_DoomEntry_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.SimpleCache.DoomEntry_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -567,7 +567,7 @@ network.mojom.SimpleCache_DoomAllEntries_ParamsSpec = {
 network.mojom.SimpleCache_DoomAllEntries_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.SimpleCache.DoomAllEntries_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -1114,7 +1114,7 @@ network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ParamsSpec = {
 network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkServiceTest.GetLatestMemoryPressureLevel_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'memory_pressure_level', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.MemoryPressureLevelSpec, nullable: false, minVersion: 0 },
@@ -1140,7 +1140,7 @@ network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ParamsSpec 
 network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkServiceTest.GetPeerToPeerConnectionsCountChange_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'connection_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
@@ -1167,7 +1167,7 @@ network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ParamsSpec = {
 network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkServiceTest.GetEnvironmentVariableValue_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -1236,7 +1236,7 @@ network.mojom.NetworkServiceTest_OpenFile_ParamsSpec = {
 network.mojom.NetworkServiceTest_OpenFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkServiceTest.OpenFile_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1264,7 +1264,7 @@ network.mojom.NetworkServiceTest_EnumerateFiles_ParamsSpec = {
 network.mojom.NetworkServiceTest_EnumerateFiles_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkServiceTest.EnumerateFiles_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.FileEnumerationEntrySpec, false), nullable: false, minVersion: 0 },
@@ -1294,7 +1294,7 @@ network.mojom.NetworkServiceTest_CreateSimpleCache_ParamsSpec = {
 network.mojom.NetworkServiceTest_CreateSimpleCache_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkServiceTest.CreateSimpleCache_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'backend', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
@@ -1322,7 +1322,7 @@ network.mojom.NetworkServiceTest_MakeRequestToServer_ParamsSpec = {
 network.mojom.NetworkServiceTest_MakeRequestToServer_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkServiceTest.MakeRequestToServer_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1348,7 +1348,7 @@ network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ParamsSpec = {
 network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkServiceTest.ResolveOwnHostnameWithSystemDns_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'addr_list', packedOffset: 0, packedBitOffset: 0, type: network.mojom.AddressListSpec, nullable: false, minVersion: 0 },
@@ -1390,7 +1390,7 @@ network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ParamsSpec = {
 network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkServiceTest.GetAddressMapCacheLinux_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'addr_map', packedOffset: 0, packedBitOffset: 0, type: network.mojom.AddressMapSpec, nullable: false, minVersion: 0 },
@@ -1417,7 +1417,7 @@ network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ParamsSpec = {
 network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkServiceTest.AllowsGSSAPILibraryLoad_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'allow_gssapi_library_load', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1456,7 +1456,7 @@ network.mojom.NetworkServiceTest_IsHappyEyeballsV3Enabled_ParamsSpec = {
 network.mojom.NetworkServiceTest_IsHappyEyeballsV3Enabled_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkServiceTest.IsHappyEyeballsV3Enabled_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_happy_eyeballs_v3_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

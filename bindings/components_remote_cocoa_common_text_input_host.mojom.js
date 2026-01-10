@@ -207,7 +207,7 @@ remote_cocoa.mojom.TextInputHost_HasClient_ParamsSpec = {
 remote_cocoa.mojom.TextInputHost_HasClient_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remote_cocoa.mojom.TextInputHost.HasClient_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'has_client', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -233,7 +233,7 @@ remote_cocoa.mojom.TextInputHost_HasInputContext_ParamsSpec = {
 remote_cocoa.mojom.TextInputHost_HasInputContext_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remote_cocoa.mojom.TextInputHost.HasInputContext_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'has_input_context', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -259,7 +259,7 @@ remote_cocoa.mojom.TextInputHost_IsRTL_ParamsSpec = {
 remote_cocoa.mojom.TextInputHost_IsRTL_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remote_cocoa.mojom.TextInputHost.IsRTL_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_rtl', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -285,7 +285,7 @@ remote_cocoa.mojom.TextInputHost_GetSelectionRange_ParamsSpec = {
 remote_cocoa.mojom.TextInputHost_GetSelectionRange_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remote_cocoa.mojom.TextInputHost.GetSelectionRange_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'range', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: false, minVersion: 0 },
@@ -311,7 +311,7 @@ remote_cocoa.mojom.TextInputHost_GetSelectionText_ParamsSpec = {
 remote_cocoa.mojom.TextInputHost_GetSelectionText_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remote_cocoa.mojom.TextInputHost.GetSelectionText_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -396,7 +396,7 @@ remote_cocoa.mojom.TextInputHost_HasCompositionText_ParamsSpec = {
 remote_cocoa.mojom.TextInputHost_HasCompositionText_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remote_cocoa.mojom.TextInputHost.HasCompositionText_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'has_composition_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -422,7 +422,7 @@ remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ParamsSpec = {
 remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remote_cocoa.mojom.TextInputHost.GetCompositionTextRange_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'composition_range', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: false, minVersion: 0 },
@@ -449,7 +449,7 @@ remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ParamsSpec = {
 remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remote_cocoa.mojom.TextInputHost.GetAttributedSubstringForRange_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
@@ -477,7 +477,7 @@ remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ParamsSpec = {
 remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remote_cocoa.mojom.TextInputHost.GetFirstRectForRange_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'rect', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },
@@ -505,7 +505,7 @@ remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ParamsSpec = {
 remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remote_cocoa.mojom.TextInputHost.IsTextEditCommandEnabled_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

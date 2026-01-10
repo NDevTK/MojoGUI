@@ -217,7 +217,7 @@ device.mojom.SensorProvider_GetSensor_ParamsSpec = {
 device.mojom.SensorProvider_GetSensor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.SensorProvider.GetSensor_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SensorCreationResultSpec, nullable: false, minVersion: 0 },
@@ -246,7 +246,7 @@ device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec = {
 device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.SensorProvider.CreateVirtualSensor_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.CreateVirtualSensorResultSpec, nullable: false, minVersion: 0 },
@@ -274,7 +274,7 @@ device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec = {
 device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.SensorProvider.UpdateVirtualSensor_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.UpdateVirtualSensorResultSpec, nullable: false, minVersion: 0 },
@@ -315,7 +315,7 @@ device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec = {
 device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.SensorProvider.GetVirtualSensorInformation_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.GetVirtualSensorInformationResultSpec, nullable: false, minVersion: 0 },

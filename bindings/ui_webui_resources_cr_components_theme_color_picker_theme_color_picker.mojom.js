@@ -257,7 +257,7 @@ theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec = {
 theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'theme_color_picker.mojom.ThemeColorPickerHandler.GetChromeColors_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'colors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(theme_color_picker.mojom.ChromeColorSpec, false), nullable: false, minVersion: 0 },

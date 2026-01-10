@@ -124,7 +124,7 @@ arc.mojom.VideoFramePool_AddVideoFrame_ParamsSpec = {
 arc.mojom.VideoFramePool_AddVideoFrame_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.VideoFramePool.AddVideoFrame_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

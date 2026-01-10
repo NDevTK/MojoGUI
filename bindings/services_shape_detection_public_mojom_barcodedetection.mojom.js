@@ -118,7 +118,7 @@ shape_detection.mojom.BarcodeDetection_Detect_ParamsSpec = {
 shape_detection.mojom.BarcodeDetection_Detect_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'shape_detection.mojom.BarcodeDetection.Detect_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(shape_detection.mojom.BarcodeDetectionResultSpec, false), nullable: false, minVersion: 0 },

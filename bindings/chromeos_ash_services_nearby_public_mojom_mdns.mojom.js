@@ -231,7 +231,7 @@ sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec = {
 sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'sharing.mojom.MdnsManager.StartDiscoverySession_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -258,7 +258,7 @@ sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec = {
 sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'sharing.mojom.MdnsManager.StopDiscoverySession_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

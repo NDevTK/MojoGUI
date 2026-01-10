@@ -124,7 +124,7 @@ remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec = {
 remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remoting.mojom.WebAuthnRequestCanceller.Cancel_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'was_canceled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -229,7 +229,7 @@ remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_Param
 remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remoting.mojom.WebAuthnProxy.IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -257,7 +257,7 @@ remoting.mojom.WebAuthnProxy_Create_ParamsSpec = {
 remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remoting.mojom.WebAuthnProxy.Create_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.WebAuthnCreateResponseSpec, nullable: true, minVersion: 0 },
@@ -285,7 +285,7 @@ remoting.mojom.WebAuthnProxy_Get_ParamsSpec = {
 remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remoting.mojom.WebAuthnProxy.Get_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.WebAuthnGetResponseSpec, nullable: true, minVersion: 0 },

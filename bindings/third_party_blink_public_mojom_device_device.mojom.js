@@ -206,7 +206,7 @@ blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec = {
 blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.DeviceAPIService.GetDirectoryId_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DeviceAttributeResultSpec, nullable: false, minVersion: 0 },
@@ -232,7 +232,7 @@ blink.mojom.DeviceAPIService_GetHostname_ParamsSpec = {
 blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.DeviceAPIService.GetHostname_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DeviceAttributeResultSpec, nullable: false, minVersion: 0 },
@@ -258,7 +258,7 @@ blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec = {
 blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.DeviceAPIService.GetSerialNumber_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DeviceAttributeResultSpec, nullable: false, minVersion: 0 },
@@ -284,7 +284,7 @@ blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec = {
 blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.DeviceAPIService.GetAnnotatedAssetId_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DeviceAttributeResultSpec, nullable: false, minVersion: 0 },
@@ -310,7 +310,7 @@ blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec = {
 blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.DeviceAPIService.GetAnnotatedLocation_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.DeviceAttributeResultSpec, nullable: false, minVersion: 0 },
@@ -407,7 +407,7 @@ blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec = {
 blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ManagedConfigurationService.GetManagedConfiguration_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'configurations', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: true, minVersion: 0 },

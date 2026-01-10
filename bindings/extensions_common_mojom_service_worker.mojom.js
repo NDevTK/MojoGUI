@@ -112,7 +112,7 @@ extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec = {
 extensions.mojom.ServiceWorker_DispatchOnConnect_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'extensions.mojom.ServiceWorker.DispatchOnConnect_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

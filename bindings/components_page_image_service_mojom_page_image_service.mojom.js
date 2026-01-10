@@ -125,7 +125,7 @@ page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec = {
 page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'page_image_service.mojom.PageImageServiceHandler.GetPageImageUrl_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: page_image_service.mojom.ImageResultSpec, nullable: true, minVersion: 0 },

@@ -226,7 +226,7 @@ arc.mojom.VideoDecodeAccelerator_Initialize_ParamsSpec = {
 arc.mojom.VideoDecodeAccelerator_Initialize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.VideoDecodeAccelerator.Initialize_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ResultSpec, nullable: false, minVersion: 0 },
@@ -312,7 +312,7 @@ arc.mojom.VideoDecodeAccelerator_Reset_ParamsSpec = {
 arc.mojom.VideoDecodeAccelerator_Reset_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.VideoDecodeAccelerator.Reset_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ResultSpec, nullable: false, minVersion: 0 },
@@ -338,7 +338,7 @@ arc.mojom.VideoDecodeAccelerator_Flush_ParamsSpec = {
 arc.mojom.VideoDecodeAccelerator_Flush_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.VideoDecodeAccelerator.Flush_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ResultSpec, nullable: false, minVersion: 0 },

@@ -153,7 +153,7 @@ chromecast.mojom.GestureHandler_OnBackGesture_ParamsSpec = {
 chromecast.mojom.GestureHandler_OnBackGesture_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromecast.mojom.GestureHandler.OnBackGesture_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'was_handled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

@@ -363,7 +363,7 @@ updater.mojom.FetchService_PostRequest_ParamsSpec = {
 updater.mojom.FetchService_PostRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'updater.mojom.FetchService.PostRequest_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
@@ -391,7 +391,7 @@ updater.mojom.FetchService_DownloadToFile_ParamsSpec = {
 updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'updater.mojom.FetchService.DownloadToFile_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },

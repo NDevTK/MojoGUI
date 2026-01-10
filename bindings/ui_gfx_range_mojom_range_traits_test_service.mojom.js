@@ -91,7 +91,7 @@ gfx.mojom.RangeTraitsTestService_EchoRange_ParamsSpec = {
 gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'gfx.mojom.RangeTraitsTestService.EchoRange_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RangeSpec, nullable: false, minVersion: 0 },
@@ -118,7 +118,7 @@ gfx.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec = {
 gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'gfx.mojom.RangeTraitsTestService.EchoRangeF_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RangeFSpec, nullable: false, minVersion: 0 },

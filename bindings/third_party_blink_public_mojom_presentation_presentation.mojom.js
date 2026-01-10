@@ -442,7 +442,7 @@ blink.mojom.PresentationService_StartPresentation_ParamsSpec = {
 blink.mojom.PresentationService_StartPresentation_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.PresentationService.StartPresentation_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PresentationConnectionResultSpec, nullable: true, minVersion: 0 },
@@ -471,7 +471,7 @@ blink.mojom.PresentationService_ReconnectPresentation_ParamsSpec = {
 blink.mojom.PresentationService_ReconnectPresentation_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.PresentationService.ReconnectPresentation_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PresentationConnectionResultSpec, nullable: true, minVersion: 0 },

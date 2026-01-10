@@ -91,7 +91,7 @@ remoting.mojom.RemoteUrlOpener_OpenUrl_ParamsSpec = {
 remoting.mojom.RemoteUrlOpener_OpenUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remoting.mojom.RemoteUrlOpener.OpenUrl_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.OpenUrlResultSpec, nullable: false, minVersion: 0 },

@@ -304,7 +304,7 @@ ax.mojom.Tts_Speak_ParamsSpec = {
 ax.mojom.Tts_Speak_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ax.mojom.Tts.Speak_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.TtsSpeakResultSpec, nullable: false, minVersion: 0 },
@@ -369,7 +369,7 @@ ax.mojom.Tts_IsSpeaking_ParamsSpec = {
 ax.mojom.Tts_IsSpeaking_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ax.mojom.Tts.IsSpeaking_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'speaking', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -395,7 +395,7 @@ ax.mojom.Tts_GetVoices_ParamsSpec = {
 ax.mojom.Tts_GetVoices_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ax.mojom.Tts.GetVoices_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'voices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ax.mojom.TtsVoiceSpec, false), nullable: false, minVersion: 0 },

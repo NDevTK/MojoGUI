@@ -157,7 +157,7 @@ crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ParamsSpec = {
 crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.GuestOsSkForwarder.ForwardRequest_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },

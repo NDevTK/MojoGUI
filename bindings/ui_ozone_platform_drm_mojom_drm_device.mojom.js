@@ -288,7 +288,7 @@ ui.ozone.mojom.DrmDevice_TakeDisplayControl_ParamsSpec = {
 ui.ozone.mojom.DrmDevice_TakeDisplayControl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ui.ozone.mojom.DrmDevice.TakeDisplayControl_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -314,7 +314,7 @@ ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ParamsSpec = {
 ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ui.ozone.mojom.DrmDevice.RelinquishDisplayControl_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -340,7 +340,7 @@ ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ParamsSpec = {
 ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ui.ozone.mojom.DrmDevice.RefreshNativeDisplays_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'display_snapshots', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(display.mojom.DisplaySnapshotSpec, false), nullable: false, minVersion: 0 },
@@ -396,7 +396,7 @@ ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ParamsSpec = {
 ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ui.ozone.mojom.DrmDevice.ShouldDisplayEventTriggerConfiguration_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'should_trigger', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -424,7 +424,7 @@ ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ParamsSpec = {
 ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ui.ozone.mojom.DrmDevice.ConfigureNativeDisplays_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'request_results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(display.mojom.DisplayConfigurationParamsSpec, false), nullable: false, minVersion: 0 },
@@ -453,7 +453,7 @@ ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ParamsSpec = {
 ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ui.ozone.mojom.DrmDevice.SetHdcpKeyProp_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
@@ -481,7 +481,7 @@ ui.ozone.mojom.DrmDevice_GetHDCPState_ParamsSpec = {
 ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ui.ozone.mojom.DrmDevice.GetHDCPState_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
@@ -513,7 +513,7 @@ ui.ozone.mojom.DrmDevice_SetHDCPState_ParamsSpec = {
 ui.ozone.mojom.DrmDevice_SetHDCPState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ui.ozone.mojom.DrmDevice.SetHDCPState_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'display_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
@@ -587,7 +587,7 @@ ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ParamsSpec = {
 ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ui.ozone.mojom.DrmDevice.SetPrivacyScreen_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -614,7 +614,7 @@ ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ParamsSpec = {
 ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ui.ozone.mojom.DrmDevice.GetSeamlessRefreshRates_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'ranges', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Float, false), nullable: true, minVersion: 0 },

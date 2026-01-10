@@ -157,7 +157,7 @@ media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec = {
 media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.SeatbeltExtensionTokenProvider.GetTokens_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'tokens', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(sandbox.mac.mojom.SeatbeltExtensionTokenSpec, false), nullable: false, minVersion: 0 },

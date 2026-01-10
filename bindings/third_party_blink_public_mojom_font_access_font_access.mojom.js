@@ -109,7 +109,7 @@ blink.mojom.FontAccessManager_EnumerateLocalFonts_ParamsSpec = {
 blink.mojom.FontAccessManager_EnumerateLocalFonts_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.FontAccessManager.EnumerateLocalFonts_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'enumeration_status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FontEnumerationStatusSpec, nullable: false, minVersion: 0 },

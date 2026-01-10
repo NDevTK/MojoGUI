@@ -135,7 +135,7 @@ shape_detection.mojom.FaceDetection_Detect_ParamsSpec = {
 shape_detection.mojom.FaceDetection_Detect_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'shape_detection.mojom.FaceDetection.Detect_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(shape_detection.mojom.FaceDetectionResultSpec, false), nullable: false, minVersion: 0 },

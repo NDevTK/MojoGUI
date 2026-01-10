@@ -232,7 +232,7 @@ ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec = {
 ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.secure_channel.mojom.Channel.RegisterPayloadFile_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -258,7 +258,7 @@ ash.secure_channel.mojom.Channel_GetConnectionMetadata_ParamsSpec = {
 ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.secure_channel.mojom.Channel.GetConnectionMetadata_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: ash.secure_channel.mojom.ConnectionMetadataSpec, nullable: false, minVersion: 0 },
@@ -724,7 +724,7 @@ ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec = {
 ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.secure_channel.mojom.SecureChannel.GetLastSeenTimestamp_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true, minVersion: 0 },

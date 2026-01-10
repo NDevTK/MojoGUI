@@ -82,7 +82,7 @@ blink.mojom.PointerLockContext_RequestMouseLockChange_ParamsSpec = {
 blink.mojom.PointerLockContext_RequestMouseLockChange_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.PointerLockContext.RequestMouseLockChange_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PointerLockResultSpec, nullable: false, minVersion: 0 },

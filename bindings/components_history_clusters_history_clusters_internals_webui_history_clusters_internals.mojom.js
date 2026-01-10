@@ -166,7 +166,7 @@ history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ParamsSpec =
 history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'history_clusters_internals.mojom.PageHandler.GetContextClustersJson_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'context_clusters_json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },

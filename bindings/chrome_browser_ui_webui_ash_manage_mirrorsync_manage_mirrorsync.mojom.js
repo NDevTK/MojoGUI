@@ -175,7 +175,7 @@ ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ParamsSpec = {
 ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.manage_mirrorsync.mojom.PageHandler.GetChildFolders_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), nullable: false, minVersion: 0 },
@@ -201,7 +201,7 @@ ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ParamsSpec = {
 ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.manage_mirrorsync.mojom.PageHandler.GetSyncingPaths_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: ash.manage_mirrorsync.mojom.GetSyncPathErrorSpec, nullable: false, minVersion: 0 },

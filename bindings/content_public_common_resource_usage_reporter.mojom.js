@@ -134,7 +134,7 @@ content.mojom.ResourceUsageReporter_GetUsageData_ParamsSpec = {
 content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.ResourceUsageReporter.GetUsageData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: content.mojom.ResourceUsageDataSpec, nullable: false, minVersion: 0 },

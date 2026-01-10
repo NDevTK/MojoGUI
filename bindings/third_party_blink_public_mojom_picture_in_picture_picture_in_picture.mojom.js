@@ -309,7 +309,7 @@ blink.mojom.PictureInPictureService_StartSession_ParamsSpec = {
 blink.mojom.PictureInPictureService_StartSession_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.PictureInPictureService.StartSession_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },

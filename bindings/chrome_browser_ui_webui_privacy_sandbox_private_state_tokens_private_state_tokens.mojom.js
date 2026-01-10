@@ -96,7 +96,7 @@ private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_Pa
 private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'private_state_tokens.mojom.PrivateStateTokensPageHandler.GetIssuerTokenCounts_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'private_state_tokens_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(private_state_tokens.mojom.IssuerTokenCountSpec, false), nullable: false, minVersion: 0 },

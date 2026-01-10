@@ -409,7 +409,7 @@ device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec = {
 device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.GamepadMonitor.GamepadStartPolling_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'memory_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
@@ -535,7 +535,7 @@ device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec = {
 device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.GamepadHapticsManager.PlayVibrationEffectOnce_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.GamepadHapticsResultSpec, nullable: false, minVersion: 0 },
@@ -562,7 +562,7 @@ device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec = {
 device.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.GamepadHapticsManager.ResetVibrationActuator_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.GamepadHapticsResultSpec, nullable: false, minVersion: 0 },

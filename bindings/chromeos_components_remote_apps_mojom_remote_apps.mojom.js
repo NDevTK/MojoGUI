@@ -148,7 +148,7 @@ chromeos.remote_apps.mojom.RemoteApps_AddFolder_ParamsSpec = {
 chromeos.remote_apps.mojom.RemoteApps_AddFolder_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.remote_apps.mojom.RemoteApps.AddFolder_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.remote_apps.mojom.AddFolderResultSpec, nullable: false, minVersion: 0 },
@@ -179,7 +179,7 @@ chromeos.remote_apps.mojom.RemoteApps_AddApp_ParamsSpec = {
 chromeos.remote_apps.mojom.RemoteApps_AddApp_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.remote_apps.mojom.RemoteApps.AddApp_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.remote_apps.mojom.AddAppResultSpec, nullable: false, minVersion: 0 },
@@ -206,7 +206,7 @@ chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ParamsSpec = {
 chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.remote_apps.mojom.RemoteApps.DeleteApp_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -232,7 +232,7 @@ chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ParamsSpec
 chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.remote_apps.mojom.RemoteApps.SortLauncherWithRemoteAppsFirst_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -259,7 +259,7 @@ chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ParamsSpec = {
 chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.remote_apps.mojom.RemoteApps.SetPinnedApps_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },

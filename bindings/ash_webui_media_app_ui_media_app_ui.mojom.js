@@ -211,7 +211,7 @@ ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec = {
 ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.media_app_ui.mojom.PageHandler.OpenFeedbackDialog_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -264,7 +264,7 @@ ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ParamsSpec = {
 ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.media_app_ui.mojom.PageHandler.IsFileArcWritable_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'writable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -291,7 +291,7 @@ ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ParamsSpec = {
 ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.media_app_ui.mojom.PageHandler.IsFileBrowserWritable_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'writable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

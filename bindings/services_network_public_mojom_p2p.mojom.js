@@ -234,7 +234,7 @@ network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec = {
 network.mojom.P2PSocketManager_GetHostAddress_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.P2PSocketManager.GetHostAddress_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'addresses', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.IPAddressSpec, false), nullable: false, minVersion: 0 },

@@ -199,7 +199,7 @@ blink.mojom.DirectSocketsService_OpenTCPSocket_ParamsSpec = {
 blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.DirectSocketsService.OpenTCPSocket_ResponseParams',
       packedSize: 48,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -232,7 +232,7 @@ blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ParamsSpec = {
 blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.DirectSocketsService.OpenConnectedUDPSocket_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -263,7 +263,7 @@ blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ParamsSpec = {
 blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.DirectSocketsService.OpenBoundUDPSocket_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -292,7 +292,7 @@ blink.mojom.DirectSocketsService_OpenTCPServerSocket_ParamsSpec = {
 blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.DirectSocketsService.OpenTCPServerSocket_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },

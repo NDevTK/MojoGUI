@@ -809,7 +809,7 @@ ax.android.mojom.AccessibilityHelperInstance_PerformAction_ParamsSpec = {
 ax.android.mojom.AccessibilityHelperInstance_PerformAction_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ax.android.mojom.AccessibilityHelperInstance.PerformAction_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -850,7 +850,7 @@ ax.android.mojom.AccessibilityHelperInstance_RefreshWithExtraData_ParamsSpec = {
 ax.android.mojom.AccessibilityHelperInstance_RefreshWithExtraData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ax.android.mojom.AccessibilityHelperInstance.RefreshWithExtraData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'text_location', packedOffset: 0, packedBitOffset: 0, type: ax.android.mojom.RectSpec, nullable: true, minVersion: 0 },
@@ -891,7 +891,7 @@ ax.android.mojom.AccessibilityHelperInstance_SetNativeChromeVoxArcSupportForFocu
 ax.android.mojom.AccessibilityHelperInstance_SetNativeChromeVoxArcSupportForFocusedWindow_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ax.android.mojom.AccessibilityHelperInstance.SetNativeChromeVoxArcSupportForFocusedWindow_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ax.android.mojom.SetNativeChromeVoxResponseSpec, nullable: false, minVersion: 0 },

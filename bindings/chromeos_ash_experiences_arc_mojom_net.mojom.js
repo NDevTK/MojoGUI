@@ -865,7 +865,7 @@ arc.mojom.NetHost_GetWifiEnabledState_ParamsSpec = {
 arc.mojom.NetHost_GetWifiEnabledState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.NetHost.GetWifiEnabledState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -905,7 +905,7 @@ arc.mojom.NetHost_SetWifiEnabledState_ParamsSpec = {
 arc.mojom.NetHost_SetWifiEnabledState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.NetHost.SetWifiEnabledState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -932,7 +932,7 @@ arc.mojom.NetHost_CreateNetwork_ParamsSpec = {
 arc.mojom.NetHost_CreateNetwork_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.NetHost.CreateNetwork_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -959,7 +959,7 @@ arc.mojom.NetHost_ForgetNetwork_ParamsSpec = {
 arc.mojom.NetHost_ForgetNetwork_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.NetHost.ForgetNetwork_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.NetworkResultSpec, nullable: false, minVersion: 0 },
@@ -987,7 +987,7 @@ arc.mojom.NetHost_UpdateWifiNetwork_ParamsSpec = {
 arc.mojom.NetHost_UpdateWifiNetwork_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.NetHost.UpdateWifiNetwork_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.NetworkResultSpec, nullable: false, minVersion: 0 },
@@ -1014,7 +1014,7 @@ arc.mojom.NetHost_StartConnect_ParamsSpec = {
 arc.mojom.NetHost_StartConnect_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.NetHost.StartConnect_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.NetworkResultSpec, nullable: false, minVersion: 0 },
@@ -1041,7 +1041,7 @@ arc.mojom.NetHost_StartDisconnect_ParamsSpec = {
 arc.mojom.NetHost_StartDisconnect_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.NetHost.StartDisconnect_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.NetworkResultSpec, nullable: false, minVersion: 0 },
@@ -1068,7 +1068,7 @@ arc.mojom.NetHost_GetNetworks_ParamsSpec = {
 arc.mojom.NetHost_GetNetworks_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.NetHost.GetNetworks_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.GetNetworksResponseTypeSpec, nullable: false, minVersion: 0 },
@@ -1165,7 +1165,7 @@ arc.mojom.NetHost_RequestPasspointAppApproval_ParamsSpec = {
 arc.mojom.NetHost_RequestPasspointAppApproval_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.NetHost.RequestPasspointAppApproval_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.PasspointApprovalResponseSpec, nullable: false, minVersion: 0 },
@@ -1233,7 +1233,7 @@ arc.mojom.NetHost_StartLohs_ParamsSpec = {
 arc.mojom.NetHost_StartLohs_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.NetHost.StartLohs_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.LohsStatusSpec, nullable: false, minVersion: 0 },
@@ -1539,7 +1539,7 @@ arc.mojom.NetInstance_DnsResolutionTest_ParamsSpec = {
 arc.mojom.NetInstance_DnsResolutionTest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.NetInstance.DnsResolutionTest_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcDnsResolutionTestResultSpec, nullable: false, minVersion: 0 },
@@ -1567,7 +1567,7 @@ arc.mojom.NetInstance_HttpTest_ParamsSpec = {
 arc.mojom.NetInstance_HttpTest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.NetInstance.HttpTest_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcHttpTestResultSpec, nullable: false, minVersion: 0 },
@@ -1595,7 +1595,7 @@ arc.mojom.NetInstance_PingTest_ParamsSpec = {
 arc.mojom.NetInstance_PingTest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.NetInstance.PingTest_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcPingTestResultSpec, nullable: false, minVersion: 0 },

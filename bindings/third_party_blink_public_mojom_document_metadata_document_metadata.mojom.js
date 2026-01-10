@@ -97,7 +97,7 @@ blink.mojom.DocumentMetadata_GetEntities_ParamsSpec = {
 blink.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.DocumentMetadata.GetEntities_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebPageSpec, nullable: true, minVersion: 0 },

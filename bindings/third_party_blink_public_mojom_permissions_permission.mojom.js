@@ -499,7 +499,7 @@ blink.mojom.PermissionService_HasPermission_ParamsSpec = {
 blink.mojom.PermissionService_HasPermission_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.PermissionService.HasPermission_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false, minVersion: 0 },
@@ -543,7 +543,7 @@ blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec = {
 blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.PermissionService.RequestPageEmbeddedPermission_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.EmbeddedPermissionControlResultSpec, nullable: false, minVersion: 0 },
@@ -571,7 +571,7 @@ blink.mojom.PermissionService_RequestPermission_ParamsSpec = {
 blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.PermissionService.RequestPermission_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false, minVersion: 0 },
@@ -599,7 +599,7 @@ blink.mojom.PermissionService_RequestPermissions_ParamsSpec = {
 blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.PermissionService.RequestPermissions_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'statuses', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.PermissionStatusSpec, false), nullable: false, minVersion: 0 },
@@ -626,7 +626,7 @@ blink.mojom.PermissionService_RevokePermission_ParamsSpec = {
 blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.PermissionService.RevokePermission_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false, minVersion: 0 },

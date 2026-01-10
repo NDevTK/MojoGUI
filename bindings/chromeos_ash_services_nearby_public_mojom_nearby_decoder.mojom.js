@@ -91,7 +91,7 @@ sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ParamsSpec = {
 sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'sharing.mojom.NearbySharingDecoder.DecodeAdvertisement_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'advertisement', packedOffset: 0, packedBitOffset: 0, type: sharing.mojom.AdvertisementSpec, nullable: true, minVersion: 0 },
@@ -118,7 +118,7 @@ sharing.mojom.NearbySharingDecoder_DecodeFrame_ParamsSpec = {
 sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'sharing.mojom.NearbySharingDecoder.DecodeFrame_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: sharing.mojom.FrameSpec, nullable: true, minVersion: 0 },

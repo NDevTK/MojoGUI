@@ -205,7 +205,7 @@ network.mojom.UDPSocket_Bind_ParamsSpec = {
 network.mojom.UDPSocket_Bind_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.UDPSocket.Bind_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -234,7 +234,7 @@ network.mojom.UDPSocket_Connect_ParamsSpec = {
 network.mojom.UDPSocket_Connect_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.UDPSocket.Connect_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -262,7 +262,7 @@ network.mojom.UDPSocket_SetBroadcast_ParamsSpec = {
 network.mojom.UDPSocket_SetBroadcast_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.UDPSocket.SetBroadcast_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -289,7 +289,7 @@ network.mojom.UDPSocket_SetSendBufferSize_ParamsSpec = {
 network.mojom.UDPSocket_SetSendBufferSize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.UDPSocket.SetSendBufferSize_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -316,7 +316,7 @@ network.mojom.UDPSocket_SetReceiveBufferSize_ParamsSpec = {
 network.mojom.UDPSocket_SetReceiveBufferSize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.UDPSocket.SetReceiveBufferSize_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -343,7 +343,7 @@ network.mojom.UDPSocket_JoinGroup_ParamsSpec = {
 network.mojom.UDPSocket_JoinGroup_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.UDPSocket.JoinGroup_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -370,7 +370,7 @@ network.mojom.UDPSocket_LeaveGroup_ParamsSpec = {
 network.mojom.UDPSocket_LeaveGroup_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.UDPSocket.LeaveGroup_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -428,7 +428,7 @@ network.mojom.UDPSocket_SendTo_ParamsSpec = {
 network.mojom.UDPSocket_SendTo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.UDPSocket.SendTo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -456,7 +456,7 @@ network.mojom.UDPSocket_Send_ParamsSpec = {
 network.mojom.UDPSocket_Send_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.UDPSocket.Send_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },

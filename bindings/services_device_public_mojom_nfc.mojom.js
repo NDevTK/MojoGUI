@@ -277,7 +277,7 @@ device.mojom.NFC_Push_ParamsSpec = {
 device.mojom.NFC_Push_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.NFC.Push_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: device.mojom.NDEFErrorSpec, nullable: true, minVersion: 0 },
@@ -316,7 +316,7 @@ device.mojom.NFC_MakeReadOnly_ParamsSpec = {
 device.mojom.NFC_MakeReadOnly_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.NFC.MakeReadOnly_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: device.mojom.NDEFErrorSpec, nullable: true, minVersion: 0 },
@@ -356,7 +356,7 @@ device.mojom.NFC_Watch_ParamsSpec = {
 device.mojom.NFC_Watch_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.NFC.Watch_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: device.mojom.NDEFErrorSpec, nullable: true, minVersion: 0 },

@@ -249,7 +249,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ParamsSpec = {
 parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'parent_access_ui.mojom.ParentAccessUiHandler.GetOauthToken_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: parent_access_ui.mojom.GetOauthTokenStatusSpec, nullable: false, minVersion: 0 },
@@ -277,7 +277,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_Para
 parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'parent_access_ui.mojom.ParentAccessUiHandler.OnParentAccessCallbackReceived_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'message', packedOffset: 0, packedBitOffset: 0, type: parent_access_ui.mojom.ParentAccessServerMessageSpec, nullable: false, minVersion: 0 },
@@ -303,7 +303,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ParamsSpec = 
 parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'parent_access_ui.mojom.ParentAccessUiHandler.GetParentAccessParams_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: parent_access_ui.mojom.ParentAccessParamsSpec, nullable: false, minVersion: 0 },
@@ -329,7 +329,7 @@ parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ParamsSpec = {
 parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'parent_access_ui.mojom.ParentAccessUiHandler.GetParentAccessUrl_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },

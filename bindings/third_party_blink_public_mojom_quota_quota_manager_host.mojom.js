@@ -81,7 +81,7 @@ blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ParamsSpec = {
 blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.QuotaManagerHost.QueryStorageUsageAndQuota_ResponseParams',
       packedSize: 40,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.QuotaStatusCodeSpec, nullable: false, minVersion: 0 },

@@ -99,7 +99,7 @@ arc.mojom.WallpaperHost_GetWallpaper_ParamsSpec = {
 arc.mojom.WallpaperHost_GetWallpaper_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.WallpaperHost.GetWallpaper_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'wallpaper', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },

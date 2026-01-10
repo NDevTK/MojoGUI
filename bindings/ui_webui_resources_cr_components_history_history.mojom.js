@@ -344,7 +344,7 @@ history.mojom.PageHandler_QueryHistory_ParamsSpec = {
 history.mojom.PageHandler_QueryHistory_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'history.mojom.PageHandler.QueryHistory_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'results', packedOffset: 0, packedBitOffset: 0, type: history.mojom.QueryResultSpec, nullable: false, minVersion: 0 },
@@ -370,7 +370,7 @@ history.mojom.PageHandler_QueryHistoryContinuation_ParamsSpec = {
 history.mojom.PageHandler_QueryHistoryContinuation_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'history.mojom.PageHandler.QueryHistoryContinuation_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'results', packedOffset: 0, packedBitOffset: 0, type: history.mojom.QueryResultSpec, nullable: false, minVersion: 0 },
@@ -464,7 +464,7 @@ history.mojom.PageHandler_RequestAccountInfo_ParamsSpec = {
 history.mojom.PageHandler_RequestAccountInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'history.mojom.PageHandler.RequestAccountInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'account_info', packedOffset: 0, packedBitOffset: 0, type: history.mojom.AccountInfoSpec, nullable: false, minVersion: 0 },
@@ -503,7 +503,7 @@ history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ParamsSpec = {
 history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'history.mojom.PageHandler.ShouldShowHistoryPageHistorySyncPromo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'should_show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

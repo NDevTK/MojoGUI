@@ -179,7 +179,7 @@ ax.mojom.AutoclickClient_BindAutoclick_ParamsSpec = {
 ax.mojom.AutoclickClient_BindAutoclick_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ax.mojom.AutoclickClient.BindAutoclick_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'autoclick_receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },

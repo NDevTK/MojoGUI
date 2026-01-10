@@ -168,7 +168,7 @@ viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec = {
 viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'viz.mojom.FrameSinksMetricsRecorder.StopFrameCounting_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameCountingDataSpec, nullable: true, minVersion: 0 },
@@ -210,7 +210,7 @@ viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec = {
 viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'viz.mojom.FrameSinksMetricsRecorder.StopOverdrawTracking_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.OverdrawDataSpec, nullable: true, minVersion: 0 },

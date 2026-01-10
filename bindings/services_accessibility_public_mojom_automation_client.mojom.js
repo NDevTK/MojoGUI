@@ -108,7 +108,7 @@ ax.mojom.AutomationClient_Enable_ParamsSpec = {
 ax.mojom.AutomationClient_Enable_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ax.mojom.AutomationClient.Enable_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'desktop_id', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeIDSpec, nullable: false, minVersion: 0 },

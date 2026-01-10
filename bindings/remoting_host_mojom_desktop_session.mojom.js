@@ -792,7 +792,7 @@ remoting.mojom.DesktopSessionAgent_Start_ParamsSpec = {
 remoting.mojom.DesktopSessionAgent_Start_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remoting.mojom.DesktopSessionAgent.Start_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'desktop_session_control', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceProxy, nullable: false, minVersion: 0 },
@@ -889,7 +889,7 @@ remoting.mojom.FileWriter_WriteChunk_ParamsSpec = {
 remoting.mojom.FileWriter_WriteChunk_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remoting.mojom.FileWriter.WriteChunk_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.FileTransferErrorSpec, nullable: true, minVersion: 0 },
@@ -915,7 +915,7 @@ remoting.mojom.FileWriter_CloseFile_ParamsSpec = {
 remoting.mojom.FileWriter_CloseFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remoting.mojom.FileWriter.CloseFile_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.FileTransferErrorSpec, nullable: true, minVersion: 0 },
@@ -1003,7 +1003,7 @@ remoting.mojom.FileReader_ReadChunk_ParamsSpec = {
 remoting.mojom.FileReader_ReadChunk_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remoting.mojom.FileReader.ReadChunk_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.ReadChunkResultSpec, nullable: false, minVersion: 0 },
@@ -1208,7 +1208,7 @@ remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ParamsSpec = {
 remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remoting.mojom.DesktopSessionControl.CreateVideoCapturer_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.CreateVideoCapturerResultSpec, nullable: false, minVersion: 0 },
@@ -1370,7 +1370,7 @@ remoting.mojom.DesktopSessionControl_BeginFileRead_ParamsSpec = {
 remoting.mojom.DesktopSessionControl_BeginFileRead_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remoting.mojom.DesktopSessionControl.BeginFileRead_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.BeginFileReadResultSpec, nullable: false, minVersion: 0 },
@@ -1397,7 +1397,7 @@ remoting.mojom.DesktopSessionControl_BeginFileWrite_ParamsSpec = {
 remoting.mojom.DesktopSessionControl_BeginFileWrite_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remoting.mojom.DesktopSessionControl.BeginFileWrite_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.BeginFileWriteResultSpec, nullable: false, minVersion: 0 },

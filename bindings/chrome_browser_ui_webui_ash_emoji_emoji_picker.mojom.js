@@ -374,7 +374,7 @@ emoji_picker.mojom.PageHandler_IsIncognitoTextField_ParamsSpec = {
 emoji_picker.mojom.PageHandler_IsIncognitoTextField_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'emoji_picker.mojom.PageHandler.IsIncognitoTextField_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'incognito', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -400,7 +400,7 @@ emoji_picker.mojom.PageHandler_GetFeatureList_ParamsSpec = {
 emoji_picker.mojom.PageHandler_GetFeatureList_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'emoji_picker.mojom.PageHandler.GetFeatureList_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'feature_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(emoji_picker.mojom.FeatureSpec, false), nullable: false, minVersion: 0 },
@@ -426,7 +426,7 @@ emoji_picker.mojom.PageHandler_GetCategories_ParamsSpec = {
 emoji_picker.mojom.PageHandler_GetCategories_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'emoji_picker.mojom.PageHandler.GetCategories_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: tenor.mojom.StatusSpec, nullable: false, minVersion: 0 },
@@ -454,7 +454,7 @@ emoji_picker.mojom.PageHandler_GetFeaturedGifs_ParamsSpec = {
 emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'emoji_picker.mojom.PageHandler.GetFeaturedGifs_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: tenor.mojom.StatusSpec, nullable: false, minVersion: 0 },
@@ -483,7 +483,7 @@ emoji_picker.mojom.PageHandler_SearchGifs_ParamsSpec = {
 emoji_picker.mojom.PageHandler_SearchGifs_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'emoji_picker.mojom.PageHandler.SearchGifs_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: tenor.mojom.StatusSpec, nullable: false, minVersion: 0 },
@@ -511,7 +511,7 @@ emoji_picker.mojom.PageHandler_GetGifsByIds_ParamsSpec = {
 emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'emoji_picker.mojom.PageHandler.GetGifsByIds_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: tenor.mojom.StatusSpec, nullable: false, minVersion: 0 },
@@ -551,7 +551,7 @@ emoji_picker.mojom.PageHandler_GetInitialCategory_ParamsSpec = {
 emoji_picker.mojom.PageHandler_GetInitialCategory_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'emoji_picker.mojom.PageHandler.GetInitialCategory_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'category', packedOffset: 0, packedBitOffset: 0, type: emoji_picker.mojom.CategorySpec, nullable: false, minVersion: 0 },
@@ -577,7 +577,7 @@ emoji_picker.mojom.PageHandler_GetInitialQuery_ParamsSpec = {
 emoji_picker.mojom.PageHandler_GetInitialQuery_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'emoji_picker.mojom.PageHandler.GetInitialQuery_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'query', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -633,7 +633,7 @@ emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec = {
 emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'emoji_picker.mojom.PageHandler.GetHistoryFromPrefs_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'history', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(emoji_picker.mojom.HistoryItemSpec, false), nullable: false, minVersion: 0 },

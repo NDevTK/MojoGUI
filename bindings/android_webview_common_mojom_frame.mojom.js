@@ -176,7 +176,7 @@ android_webview.mojom.LocalMainFrame_DocumentHasImage_ParamsSpec = {
 android_webview.mojom.LocalMainFrame_DocumentHasImage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'android_webview.mojom.LocalMainFrame.DocumentHasImage_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'has_images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -342,7 +342,7 @@ android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec = {
 android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'android_webview.mojom.FrameHost.ShouldOverrideUrlLoading_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

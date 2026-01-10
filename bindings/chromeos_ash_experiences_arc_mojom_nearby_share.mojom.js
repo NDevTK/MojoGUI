@@ -244,7 +244,7 @@ arc.mojom.NearbyShareHost_StartNearbyShare_ParamsSpec = {
 arc.mojom.NearbyShareHost_StartNearbyShare_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.NearbyShareHost.StartNearbyShare_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },

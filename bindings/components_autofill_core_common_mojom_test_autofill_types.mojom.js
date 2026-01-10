@@ -145,7 +145,7 @@ autofill.mojom.TypeTraitsTest_PassFormData_ParamsSpec = {
 autofill.mojom.TypeTraitsTest_PassFormData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'autofill.mojom.TypeTraitsTest.PassFormData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'passed', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: false, minVersion: 0 },
@@ -172,7 +172,7 @@ autofill.mojom.TypeTraitsTest_PassFormFieldData_ParamsSpec = {
 autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'autofill.mojom.TypeTraitsTest.PassFormFieldData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'passed', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormFieldDataSpec, nullable: false, minVersion: 0 },
@@ -199,7 +199,7 @@ autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ParamsSpec = {
 autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'autofill.mojom.TypeTraitsTest.PassFormDataPredictions_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'passed', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataPredictionsSpec, nullable: false, minVersion: 0 },
@@ -226,7 +226,7 @@ autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ParamsSpec = {
 autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'autofill.mojom.TypeTraitsTest.PassFormFieldDataPredictions_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'passed', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormFieldDataPredictionsSpec, nullable: false, minVersion: 0 },
@@ -253,7 +253,7 @@ autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ParamsSpec = {
 autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'autofill.mojom.TypeTraitsTest.PassPasswordFormFillData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'passed', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.PasswordFormFillDataSpec, nullable: false, minVersion: 0 },
@@ -280,7 +280,7 @@ autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ParamsSpec = {
 autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'autofill.mojom.TypeTraitsTest.PassPasswordFormGenerationData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'passed', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.PasswordFormGenerationDataSpec, nullable: false, minVersion: 0 },
@@ -307,7 +307,7 @@ autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ParamsSpec = {
 autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'autofill.mojom.TypeTraitsTest.PassPasswordGenerationUIData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'passed', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.PasswordGenerationUIDataSpec, nullable: false, minVersion: 0 },
@@ -334,7 +334,7 @@ autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ParamsSpec = {
 autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'autofill.mojom.TypeTraitsTest.PassPasswordSuggestionRequest_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'passed', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.PasswordSuggestionRequestSpec, nullable: false, minVersion: 0 },

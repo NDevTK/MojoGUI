@@ -91,7 +91,7 @@ ai.mojom.AIPrototypingService_ExecuteServerQuery_ParamsSpec = {
 ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ai.mojom.AIPrototypingService.ExecuteServerQuery_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -119,7 +119,7 @@ ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ParamsSpec = {
 ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ai.mojom.AIPrototypingService.ExecuteOnDeviceQuery_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },

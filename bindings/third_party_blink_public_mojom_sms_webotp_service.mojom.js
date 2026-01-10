@@ -101,7 +101,7 @@ blink.mojom.WebOTPService_Receive_ParamsSpec = {
 blink.mojom.WebOTPService_Receive_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.WebOTPService.Receive_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SmsStatusSpec, nullable: false, minVersion: 0 },

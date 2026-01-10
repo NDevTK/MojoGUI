@@ -209,7 +209,7 @@ browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec = {
 browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'browser_command.mojom.CommandHandler.CanExecuteCommand_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'can_execute', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -237,7 +237,7 @@ browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec = {
 browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'browser_command.mojom.CommandHandler.ExecuteCommand_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'command_executed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

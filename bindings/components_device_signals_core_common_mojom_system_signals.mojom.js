@@ -199,7 +199,7 @@ device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec = {
 device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device_signals.mojom.SystemSignalsService.GetFileSystemSignals_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'items', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device_signals.mojom.FileSystemItemSpec, false), nullable: false, minVersion: 0 },
@@ -225,7 +225,7 @@ device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec = {
 device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device_signals.mojom.SystemSignalsService.GetAntiVirusSignals_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'av_signals', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device_signals.mojom.AntiVirusSignalSpec, false), nullable: false, minVersion: 0 },
@@ -251,7 +251,7 @@ device_signals.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec = {
 device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device_signals.mojom.SystemSignalsService.GetHotfixSignals_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'hotfix_signals', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device_signals.mojom.HotfixSignalSpec, false), nullable: false, minVersion: 0 },

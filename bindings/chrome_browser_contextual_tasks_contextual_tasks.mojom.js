@@ -232,7 +232,7 @@ contextual_tasks.mojom.PageHandler_GetThreadUrl_ParamsSpec = {
 contextual_tasks.mojom.PageHandler_GetThreadUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'contextual_tasks.mojom.PageHandler.GetThreadUrl_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
@@ -259,7 +259,7 @@ contextual_tasks.mojom.PageHandler_GetUrlForTask_ParamsSpec = {
 contextual_tasks.mojom.PageHandler_GetUrlForTask_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'contextual_tasks.mojom.PageHandler.GetUrlForTask_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
@@ -300,7 +300,7 @@ contextual_tasks.mojom.PageHandler_IsZeroState_ParamsSpec = {
 contextual_tasks.mojom.PageHandler_IsZeroState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'contextual_tasks.mojom.PageHandler.IsZeroState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_zero_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -366,7 +366,7 @@ contextual_tasks.mojom.PageHandler_IsShownInTab_ParamsSpec = {
 contextual_tasks.mojom.PageHandler_IsShownInTab_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'contextual_tasks.mojom.PageHandler.IsShownInTab_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_in_tab', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -475,7 +475,7 @@ contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ParamsSpec = {
 contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'contextual_tasks.mojom.PageHandler.GetCommonSearchParams_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },

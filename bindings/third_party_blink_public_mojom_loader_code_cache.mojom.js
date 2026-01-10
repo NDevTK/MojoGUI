@@ -125,7 +125,7 @@ blink.mojom.CodeCacheHost_GetPendingBackend_ParamsSpec = {
 blink.mojom.CodeCacheHost_GetPendingBackend_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.CodeCacheHost.GetPendingBackend_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'pending_backend', packedOffset: 0, packedBitOffset: 0, type: persistent_cache.mojom.PendingReadOnlyBackendSpec, nullable: true, minVersion: 0 },
@@ -170,7 +170,7 @@ blink.mojom.CodeCacheHost_FetchCachedCode_ParamsSpec = {
 blink.mojom.CodeCacheHost_FetchCachedCode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.CodeCacheHost.FetchCachedCode_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'response_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: false, minVersion: 0 },

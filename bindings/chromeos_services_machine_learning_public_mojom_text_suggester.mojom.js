@@ -185,7 +185,7 @@ chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec = {
 chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.machine_learning.mojom.TextSuggester.Suggest_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.TextSuggesterResultSpec, nullable: false, minVersion: 0 },

@@ -151,7 +151,7 @@ user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec = {
 user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'user_data_importer.mojom.BookmarkHtmlParser.Parse_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: user_data_importer.mojom.ParsedBookmarksSpec, nullable: false, minVersion: 0 },

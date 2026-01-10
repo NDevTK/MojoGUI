@@ -279,7 +279,7 @@ chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec = {
 chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome.mojom.PluginInfoHost.GetPluginInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'plugin_info', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.PluginInfoSpec, nullable: false, minVersion: 0 },

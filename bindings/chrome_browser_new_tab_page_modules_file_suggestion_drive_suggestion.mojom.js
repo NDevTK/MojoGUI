@@ -99,7 +99,7 @@ file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ParamsSpec = {
 file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'file_suggestion.mojom.DriveSuggestionHandler.GetFiles_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'files', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(file_suggestion.mojom.FileSpec, false), nullable: false, minVersion: 0 },

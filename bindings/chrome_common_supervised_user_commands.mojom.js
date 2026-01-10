@@ -121,7 +121,7 @@ supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec =
 supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'supervised_user.mojom.SupervisedUserCommands.RequestUrlAccessRemote_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'request_issued', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -147,7 +147,7 @@ supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec = 
 supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'supervised_user.mojom.SupervisedUserCommands.RequestUrlAccessLocal_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'request_issued', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

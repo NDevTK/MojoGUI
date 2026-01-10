@@ -447,7 +447,7 @@ arc.mojom.AuthHost_RequestPrimaryAccount_ParamsSpec = {
 arc.mojom.AuthHost_RequestPrimaryAccount_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.AuthHost.RequestPrimaryAccount_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'account_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -474,7 +474,7 @@ arc.mojom.AuthHost_RequestPrimaryAccountInfo_ParamsSpec = {
 arc.mojom.AuthHost_RequestPrimaryAccountInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.AuthHost.RequestPrimaryAccountInfo_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcAuthCodeStatusSpec, nullable: false, minVersion: 0 },
@@ -502,7 +502,7 @@ arc.mojom.AuthHost_RequestAccountInfo_ParamsSpec = {
 arc.mojom.AuthHost_RequestAccountInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.AuthHost.RequestAccountInfo_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcAuthCodeStatusSpec, nullable: false, minVersion: 0 },
@@ -530,7 +530,7 @@ arc.mojom.AuthHost_IsAccountManagerAvailable_ParamsSpec = {
 arc.mojom.AuthHost_IsAccountManagerAvailable_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.AuthHost.IsAccountManagerAvailable_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -737,7 +737,7 @@ arc.mojom.AuthInstance_GetGoogleAccounts_ParamsSpec = {
 arc.mojom.AuthInstance_GetGoogleAccounts_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.AuthInstance.GetGoogleAccounts_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'accounts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.ArcAccountInfoSpec, false), nullable: false, minVersion: 0 },
@@ -763,7 +763,7 @@ arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ParamsSpec = {
 arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.AuthInstance.GetMainAccountResolutionStatus_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.MainAccountResolutionStatusSpec, nullable: false, minVersion: 0 },

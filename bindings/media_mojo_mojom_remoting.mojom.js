@@ -370,7 +370,7 @@ media.mojom.Remoter_EstimateTransmissionCapacity_ParamsSpec = {
 media.mojom.Remoter_EstimateTransmissionCapacity_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.Remoter.EstimateTransmissionCapacity_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'rate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },

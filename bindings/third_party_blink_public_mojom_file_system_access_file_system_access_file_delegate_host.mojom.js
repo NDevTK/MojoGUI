@@ -110,7 +110,7 @@ blink.mojom.FileSystemAccessFileDelegateHost_Read_ParamsSpec = {
 blink.mojom.FileSystemAccessFileDelegateHost_Read_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.FileSystemAccessFileDelegateHost.Read_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true, minVersion: 0 },
@@ -140,7 +140,7 @@ blink.mojom.FileSystemAccessFileDelegateHost_Write_ParamsSpec = {
 blink.mojom.FileSystemAccessFileDelegateHost_Write_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.FileSystemAccessFileDelegateHost.Write_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -167,7 +167,7 @@ blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ParamsSpec = {
 blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.FileSystemAccessFileDelegateHost.GetLength_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -195,7 +195,7 @@ blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ParamsSpec = {
 blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.FileSystemAccessFileDelegateHost.SetLength_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },

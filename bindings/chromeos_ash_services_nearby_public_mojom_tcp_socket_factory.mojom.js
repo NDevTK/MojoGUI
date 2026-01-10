@@ -95,7 +95,7 @@ sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ParamsSpec = {
 sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'sharing.mojom.TcpSocketFactory.CreateTCPServerSocket_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -129,7 +129,7 @@ sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ParamsSpec = {
 sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'sharing.mojom.TcpSocketFactory.CreateTCPConnectedSocket_ResponseParams',
       packedSize: 48,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },

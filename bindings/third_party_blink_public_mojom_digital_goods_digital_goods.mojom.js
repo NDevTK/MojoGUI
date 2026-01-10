@@ -109,7 +109,7 @@ payments.mojom.DigitalGoods_GetDetails_ParamsSpec = {
 payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'payments.mojom.DigitalGoods.GetDetails_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'code', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.BillingResponseCodeSpec, nullable: false, minVersion: 0 },
@@ -136,7 +136,7 @@ payments.mojom.DigitalGoods_ListPurchases_ParamsSpec = {
 payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'payments.mojom.DigitalGoods.ListPurchases_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'code', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.BillingResponseCodeSpec, nullable: false, minVersion: 0 },
@@ -163,7 +163,7 @@ payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec = {
 payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'payments.mojom.DigitalGoods.ListPurchaseHistory_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'code', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.BillingResponseCodeSpec, nullable: false, minVersion: 0 },
@@ -191,7 +191,7 @@ payments.mojom.DigitalGoods_Consume_ParamsSpec = {
 payments.mojom.DigitalGoods_Consume_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'payments.mojom.DigitalGoods.Consume_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'code', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.BillingResponseCodeSpec, nullable: false, minVersion: 0 },
@@ -279,7 +279,7 @@ payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec = {
 payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'payments.mojom.DigitalGoodsFactory.CreateDigitalGoods_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'code', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.CreateDigitalGoodsResponseCodeSpec, nullable: false, minVersion: 0 },

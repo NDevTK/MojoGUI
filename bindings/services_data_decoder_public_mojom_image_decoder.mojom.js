@@ -117,7 +117,7 @@ data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec = {
 data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'data_decoder.mojom.ImageDecoder.DecodeImage_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'decoding_duration', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: false, minVersion: 0 },
@@ -147,7 +147,7 @@ data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec = {
 data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'data_decoder.mojom.ImageDecoder.DecodeAnimation_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'decoded_image', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(data_decoder.mojom.AnimationFrameSpec, false), nullable: false, minVersion: 0 },

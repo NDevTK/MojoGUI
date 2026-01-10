@@ -610,7 +610,7 @@ network.mojom.HostResolver_MdnsListen_ParamsSpec = {
 network.mojom.HostResolver_MdnsListen_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.HostResolver.MdnsListen_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },

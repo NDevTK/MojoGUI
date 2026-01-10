@@ -153,7 +153,7 @@ arc.mojom.WebApkInstance_InstallWebApk_ParamsSpec = {
 arc.mojom.WebApkInstance_InstallWebApk_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.WebApkInstance.InstallWebApk_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.WebApkInstallResultSpec, nullable: false, minVersion: 0 },
@@ -180,7 +180,7 @@ arc.mojom.WebApkInstance_GetWebApkInfo_ParamsSpec = {
 arc.mojom.WebApkInstance_GetWebApkInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.WebApkInstance.GetWebApkInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.WebApkInfoSpec, nullable: true, minVersion: 0 },

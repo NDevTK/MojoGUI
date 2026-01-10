@@ -514,7 +514,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetAvailableRoutines_Params
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetAvailableRoutines_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.GetAvailableRoutines_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'available_routines', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.cros_healthd.mojom.DiagnosticRoutineEnumSpec, false), nullable: false, minVersion: 0 },
@@ -543,7 +543,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ParamsSpec
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.GetRoutineUpdate_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'routine_update', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RoutineUpdateSpec, nullable: false, minVersion: 0 },
@@ -570,7 +570,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ParamsSpe
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunUrandomRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -596,7 +596,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryCapacityRoutine_P
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunBatteryCapacityRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -622,7 +622,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryHealthRoutine_Par
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunBatteryHealthRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -649,7 +649,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_Par
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunSmartctlCheckRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -677,7 +677,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ParamsSpe
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunAcPowerRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -704,7 +704,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ParamsSp
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunCpuCacheRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -731,7 +731,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ParamsS
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunCpuStressRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -758,7 +758,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRou
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunFloatingPointAccuracyRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -785,7 +785,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevel
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -812,7 +812,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevel
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.DEPRECATED_RunNvmeWearLevelRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -839,7 +839,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_Para
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunNvmeSelfTestRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -868,7 +868,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ParamsSp
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunDiskReadRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -895,7 +895,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_Param
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunPrimeSearchRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -923,7 +923,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunBatteryDischargeRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -951,7 +951,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_Par
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunBatteryChargeRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -979,7 +979,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ParamsSpec
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunMemoryRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1005,7 +1005,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunLanConnectivityRoutine_P
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunLanConnectivityRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1031,7 +1031,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSignalStrengthRoutine_Pa
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunSignalStrengthRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1057,7 +1057,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunGatewayCanBePingedRoutin
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunGatewayCanBePingedRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1083,7 +1083,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHasSecureWiFiConnectionR
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHasSecureWiFiConnectionRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunHasSecureWiFiConnectionRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1109,7 +1109,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolverPresentRoutin
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunDnsResolverPresentRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1135,7 +1135,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsLatencyRoutine_Params
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsLatencyRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunDnsLatencyRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1161,7 +1161,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolutionRoutine_Par
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunDnsResolutionRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1187,7 +1187,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCaptivePortalRoutine_Par
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCaptivePortalRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunCaptivePortalRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1213,7 +1213,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpFirewallRoutine_Para
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpFirewallRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunHttpFirewallRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1239,7 +1239,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsFirewallRoutine_Par
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsFirewallRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunHttpsFirewallRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1265,7 +1265,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsLatencyRoutine_Para
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsLatencyRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunHttpsLatencyRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1292,7 +1292,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunVideoConferencingRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1318,7 +1318,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcHttpRoutine_ParamsSpe
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcHttpRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunArcHttpRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1344,7 +1344,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcPingRoutine_ParamsSpe
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcPingRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunArcPingRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1370,7 +1370,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcDnsResolutionRoutine_
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcDnsResolutionRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunArcDnsResolutionRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1396,7 +1396,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSensitiveSensorRoutine_P
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunSensitiveSensorRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1422,7 +1422,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintRoutine_Param
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunFingerprintRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1448,7 +1448,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintAliveRoutine_
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunFingerprintAliveRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1475,7 +1475,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_Par
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunPrivacyScreenRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1504,7 +1504,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRouti
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.DEPRECATED_RunLedLitUpRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1530,7 +1530,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunEmmcLifetimeRoutine_Para
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunEmmcLifetimeRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1559,7 +1559,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolum
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolumeRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.DEPRECATED_RunAudioSetVolumeRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1588,7 +1588,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainR
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.DEPRECATED_RunAudioSetGainRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1614,7 +1614,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPowerRoutine_Pa
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunBluetoothPowerRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1640,7 +1640,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothDiscoveryRoutin
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunBluetoothDiscoveryRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1667,7 +1667,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunBluetoothScanningRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1694,7 +1694,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunBluetoothPairingRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1721,7 +1721,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_Param
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunPowerButtonRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1747,7 +1747,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAudioDriverRoutine_Param
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunAudioDriverRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1773,7 +1773,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUfsLifetimeRoutine_Param
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunUfsLifetimeRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1799,7 +1799,7 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFanRoutine_ParamsSpec = 
 ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFanRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService.RunFanRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -2072,7 +2072,7 @@ ash.cros_healthd.mojom.CrosHealthdEventService_IsEventSupported_ParamsSpec = {
 ash.cros_healthd.mojom.CrosHealthdEventService_IsEventSupported_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdEventService.IsEventSupported_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.SupportStatusSpec, nullable: false, minVersion: 0 },
@@ -2178,7 +2178,7 @@ ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeProcessInfo_ParamsSpec = {
 ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeProcessInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdProbeService.ProbeProcessInfo_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'process_info', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.ProcessResultSpec, nullable: false, minVersion: 0 },
@@ -2205,7 +2205,7 @@ ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ParamsSpec = {
 ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdProbeService.ProbeTelemetryInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'telemetry_info', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.TelemetryInfoSpec, nullable: false, minVersion: 0 },
@@ -2233,7 +2233,7 @@ ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_ParamsSp
 ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdProbeService.ProbeMultipleProcessInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'multiple_process_info', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.MultipleProcessResultSpec, nullable: false, minVersion: 0 },

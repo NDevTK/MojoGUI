@@ -124,7 +124,7 @@ printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec = {
 printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'printing.mojom.PdfToPwgRasterConverter.Convert_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'pwg_raster_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true, minVersion: 0 },

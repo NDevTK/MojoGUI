@@ -461,7 +461,7 @@ media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec = {
 media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.VideoCaptureHost.GetDeviceSupportedFormats_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'formats_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.VideoCaptureFormatSpec, false), nullable: false, minVersion: 0 },
@@ -489,7 +489,7 @@ media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec = {
 media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.VideoCaptureHost.GetDeviceFormatsInUse_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'formats_in_use', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.VideoCaptureFormatSpec, false), nullable: false, minVersion: 0 },

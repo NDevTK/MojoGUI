@@ -605,7 +605,7 @@ ash.ime.mojom.InputMethodHost_RequestSuggestions_ParamsSpec = {
 ash.ime.mojom.InputMethodHost_RequestSuggestions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.ime.mojom.InputMethodHost.RequestSuggestions_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.SuggestionsResponseSpec, nullable: false, minVersion: 0 },

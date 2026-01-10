@@ -185,7 +185,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisc
 commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.MaybeShowDisclosure_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'disclosure_shown', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -238,7 +238,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleF
 commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.GetPageTitleFromHistory_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'title', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -309,7 +309,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparison
 commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'commerce.product_specifications.mojom.ProductSpecificationsHandler.GetComparisonTableUrlForUuid_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },

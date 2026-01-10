@@ -120,7 +120,7 @@ printing.mojom.PdfNupConverter_NupPageConvert_ParamsSpec = {
 printing.mojom.PdfNupConverter_NupPageConvert_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'printing.mojom.PdfNupConverter.NupPageConvert_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.StatusSpec, nullable: false, minVersion: 0 },
@@ -151,7 +151,7 @@ printing.mojom.PdfNupConverter_NupDocumentConvert_ParamsSpec = {
 printing.mojom.PdfNupConverter_NupDocumentConvert_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'printing.mojom.PdfNupConverter.NupDocumentConvert_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: printing.mojom.StatusSpec, nullable: false, minVersion: 0 },

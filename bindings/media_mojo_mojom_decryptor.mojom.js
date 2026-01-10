@@ -172,7 +172,7 @@ media.mojom.Decryptor_Decrypt_ParamsSpec = {
 media.mojom.Decryptor_Decrypt_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.Decryptor.Decrypt_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false, minVersion: 0 },
@@ -214,7 +214,7 @@ media.mojom.Decryptor_InitializeAudioDecoder_ParamsSpec = {
 media.mojom.Decryptor_InitializeAudioDecoder_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.Decryptor.InitializeAudioDecoder_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -241,7 +241,7 @@ media.mojom.Decryptor_InitializeVideoDecoder_ParamsSpec = {
 media.mojom.Decryptor_InitializeVideoDecoder_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.Decryptor.InitializeVideoDecoder_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -268,7 +268,7 @@ media.mojom.Decryptor_DecryptAndDecodeAudio_ParamsSpec = {
 media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.Decryptor.DecryptAndDecodeAudio_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false, minVersion: 0 },
@@ -296,7 +296,7 @@ media.mojom.Decryptor_DecryptAndDecodeVideo_ParamsSpec = {
 media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.Decryptor.DecryptAndDecodeVideo_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false, minVersion: 0 },

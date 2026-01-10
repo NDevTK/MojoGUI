@@ -142,7 +142,7 @@ blink.mojom.DigitalIdentityRequest_Get_ParamsSpec = {
 blink.mojom.DigitalIdentityRequest_Get_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.DigitalIdentityRequest.Get_ResponseParams',
       packedSize: 40,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RequestDigitalIdentityStatusSpec, nullable: false, minVersion: 0 },
@@ -171,7 +171,7 @@ blink.mojom.DigitalIdentityRequest_Create_ParamsSpec = {
 blink.mojom.DigitalIdentityRequest_Create_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.DigitalIdentityRequest.Create_ResponseParams',
       packedSize: 40,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RequestDigitalIdentityStatusSpec, nullable: false, minVersion: 0 },

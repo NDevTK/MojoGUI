@@ -376,7 +376,7 @@ dlp_internals.mojom.PageHandler_GetClipboardDataSource_ParamsSpec = {
 dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'dlp_internals.mojom.PageHandler.GetClipboardDataSource_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'source', packedOffset: 0, packedBitOffset: 0, type: dlp_internals.mojom.DataTransferEndpointSpec, nullable: true, minVersion: 0 },
@@ -402,7 +402,7 @@ dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ParamsSpec = {
 dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'dlp_internals.mojom.PageHandler.GetContentRestrictionsInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'web_contents_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(dlp_internals.mojom.WebContentsInfoSpec, false), nullable: false, minVersion: 0 },
@@ -442,7 +442,7 @@ dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ParamsSpec = {
 dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'dlp_internals.mojom.PageHandler.GetFilesDatabaseEntries_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'db_entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(dlp_internals.mojom.FileDatabaseEntrySpec, false), nullable: false, minVersion: 0 },
@@ -469,7 +469,7 @@ dlp_internals.mojom.PageHandler_GetFileInode_ParamsSpec = {
 dlp_internals.mojom.PageHandler_GetFileInode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'dlp_internals.mojom.PageHandler.GetFileInode_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'inode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },

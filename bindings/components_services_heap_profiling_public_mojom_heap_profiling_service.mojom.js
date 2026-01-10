@@ -104,7 +104,7 @@ heap_profiling.mojom.ProfilingService_AddProfilingClient_ParamsSpec = {
 heap_profiling.mojom.ProfilingService_AddProfilingClient_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'heap_profiling.mojom.ProfilingService.AddProfilingClient_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -130,7 +130,7 @@ heap_profiling.mojom.ProfilingService_GetProfiledPids_ParamsSpec = {
 heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'heap_profiling.mojom.ProfilingService.GetProfiledPids_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'pids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.ProcessIdSpec, false), nullable: false, minVersion: 0 },

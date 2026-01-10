@@ -229,7 +229,7 @@ filesystem.mojom.Directory_Read_ParamsSpec = {
 filesystem.mojom.Directory_Read_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'filesystem.mojom.Directory.Read_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -258,7 +258,7 @@ filesystem.mojom.Directory_OpenFileHandle_ParamsSpec = {
 filesystem.mojom.Directory_OpenFileHandle_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'filesystem.mojom.Directory.OpenFileHandle_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -286,7 +286,7 @@ filesystem.mojom.Directory_OpenFileHandles_ParamsSpec = {
 filesystem.mojom.Directory_OpenFileHandles_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'filesystem.mojom.Directory.OpenFileHandles_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(filesystem.mojom.FileOpenResultSpec, false), nullable: false, minVersion: 0 },
@@ -315,7 +315,7 @@ filesystem.mojom.Directory_OpenDirectory_ParamsSpec = {
 filesystem.mojom.Directory_OpenDirectory_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'filesystem.mojom.Directory.OpenDirectory_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -343,7 +343,7 @@ filesystem.mojom.Directory_Rename_ParamsSpec = {
 filesystem.mojom.Directory_Rename_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'filesystem.mojom.Directory.Rename_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -371,7 +371,7 @@ filesystem.mojom.Directory_Replace_ParamsSpec = {
 filesystem.mojom.Directory_Replace_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'filesystem.mojom.Directory.Replace_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -399,7 +399,7 @@ filesystem.mojom.Directory_Delete_ParamsSpec = {
 filesystem.mojom.Directory_Delete_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'filesystem.mojom.Directory.Delete_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -426,7 +426,7 @@ filesystem.mojom.Directory_Exists_ParamsSpec = {
 filesystem.mojom.Directory_Exists_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'filesystem.mojom.Directory.Exists_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -454,7 +454,7 @@ filesystem.mojom.Directory_IsWritable_ParamsSpec = {
 filesystem.mojom.Directory_IsWritable_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'filesystem.mojom.Directory.IsWritable_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -481,7 +481,7 @@ filesystem.mojom.Directory_Flush_ParamsSpec = {
 filesystem.mojom.Directory_Flush_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'filesystem.mojom.Directory.Flush_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -508,7 +508,7 @@ filesystem.mojom.Directory_StatFile_ParamsSpec = {
 filesystem.mojom.Directory_StatFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'filesystem.mojom.Directory.StatFile_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -550,7 +550,7 @@ filesystem.mojom.Directory_ReadEntireFile_ParamsSpec = {
 filesystem.mojom.Directory_ReadEntireFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'filesystem.mojom.Directory.ReadEntireFile_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -579,7 +579,7 @@ filesystem.mojom.Directory_WriteFile_ParamsSpec = {
 filesystem.mojom.Directory_WriteFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'filesystem.mojom.Directory.WriteFile_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },

@@ -154,7 +154,7 @@ blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec = {
 blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.V8DetailedMemoryReporter.GetV8MemoryUsage_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'memory_usage', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PerProcessV8MemoryUsageSpec, nullable: false, minVersion: 0 },

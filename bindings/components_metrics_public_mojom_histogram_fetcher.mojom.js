@@ -181,7 +181,7 @@ metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpe
 metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'metrics.mojom.ChildHistogramFetcher.GetChildNonPersistentHistogramData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'deltas', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.ByteStringSpec, false), nullable: false, minVersion: 0 },

@@ -599,7 +599,7 @@ side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ParamsSpec 
 side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'side_panel.mojom.CustomizeChromePageHandler.GetBackgroundCollections_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'collections', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(side_panel.mojom.BackgroundCollectionSpec, false), nullable: false, minVersion: 0 },
@@ -626,7 +626,7 @@ side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage
 side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'side_panel.mojom.CustomizeChromePageHandler.GetReplacementCollectionPreviewImage_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'preview_image_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
@@ -653,7 +653,7 @@ side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ParamsSpec = {
 side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'side_panel.mojom.CustomizeChromePageHandler.GetBackgroundImages_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(side_panel.mojom.CollectionImageSpec, false), nullable: false, minVersion: 0 },
@@ -759,7 +759,7 @@ side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ParamsSp
 side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'side_panel.mojom.CustomizeChromePageHandler.ChooseLocalCustomBackground_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

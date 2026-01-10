@@ -183,7 +183,7 @@ network.mojom.RestrictedCookieManager_GetAllForUrl_ParamsSpec = {
 network.mojom.RestrictedCookieManager_GetAllForUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.RestrictedCookieManager.GetAllForUrl_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'cookies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.CookieWithAccessResultSpec, false), nullable: false, minVersion: 0 },
@@ -217,7 +217,7 @@ network.mojom.RestrictedCookieManager_SetCanonicalCookie_ParamsSpec = {
 network.mojom.RestrictedCookieManager_SetCanonicalCookie_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.RestrictedCookieManager.SetCanonicalCookie_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -269,7 +269,7 @@ network.mojom.RestrictedCookieManager_SetCookieFromString_ParamsSpec = {
 network.mojom.RestrictedCookieManager_SetCookieFromString_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.RestrictedCookieManager.SetCookieFromString_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CookiesResponseSpec, nullable: true, minVersion: 0 },
@@ -303,7 +303,7 @@ network.mojom.RestrictedCookieManager_GetCookiesString_ParamsSpec = {
 network.mojom.RestrictedCookieManager_GetCookiesString_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.RestrictedCookieManager.GetCookiesString_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
@@ -336,7 +336,7 @@ network.mojom.RestrictedCookieManager_CookiesEnabledFor_ParamsSpec = {
 network.mojom.RestrictedCookieManager_CookiesEnabledFor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.RestrictedCookieManager.CookiesEnabledFor_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'cookies_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

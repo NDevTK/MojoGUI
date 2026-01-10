@@ -325,7 +325,7 @@ blink.mojom.CacheStorageCache_Batch_ParamsSpec = {
 blink.mojom.CacheStorageCache_Batch_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.CacheStorageCache.Batch_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CacheStorageVerboseErrorSpec, nullable: false, minVersion: 0 },
@@ -355,7 +355,7 @@ blink.mojom.CacheStorageCache_WriteSideData_ParamsSpec = {
 blink.mojom.CacheStorageCache_WriteSideData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.CacheStorageCache.WriteSideData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CacheStorageErrorSpec, nullable: false, minVersion: 0 },
@@ -480,7 +480,7 @@ blink.mojom.CacheStorage_Has_ParamsSpec = {
 blink.mojom.CacheStorage_Has_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.CacheStorage.Has_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CacheStorageErrorSpec, nullable: false, minVersion: 0 },
@@ -508,7 +508,7 @@ blink.mojom.CacheStorage_Delete_ParamsSpec = {
 blink.mojom.CacheStorage_Delete_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.CacheStorage.Delete_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CacheStorageErrorSpec, nullable: false, minVersion: 0 },
@@ -535,7 +535,7 @@ blink.mojom.CacheStorage_Keys_ParamsSpec = {
 blink.mojom.CacheStorage_Keys_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.CacheStorage.Keys_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.String16Spec, false), nullable: false, minVersion: 0 },

@@ -103,7 +103,7 @@ mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ParamsSpec = {
 mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.WebEngineMediaResourceProvider.ShouldUseAudioConsumer_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

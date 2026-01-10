@@ -118,7 +118,7 @@ remote_cocoa.mojom.AlertBridge_Show_ParamsSpec = {
 remote_cocoa.mojom.AlertBridge_Show_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remote_cocoa.mojom.AlertBridge.Show_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'disposition', packedOffset: 0, packedBitOffset: 0, type: remote_cocoa.mojom.AlertDispositionSpec, nullable: false, minVersion: 0 },

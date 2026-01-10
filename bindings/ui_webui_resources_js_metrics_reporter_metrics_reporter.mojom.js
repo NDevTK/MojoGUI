@@ -123,7 +123,7 @@ metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec = {
 metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'metrics_reporter.mojom.PageMetricsHost.OnGetMark_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'marked_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 0 },
@@ -249,7 +249,7 @@ metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec = {
 metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'metrics_reporter.mojom.PageMetrics.OnGetMark_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'marked_time', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeDeltaSpec, nullable: true, minVersion: 0 },

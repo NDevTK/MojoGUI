@@ -110,7 +110,7 @@ media.mojom.OutputProtection_QueryStatus_ParamsSpec = {
 media.mojom.OutputProtection_QueryStatus_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.OutputProtection.QueryStatus_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -139,7 +139,7 @@ media.mojom.OutputProtection_EnableProtection_ParamsSpec = {
 media.mojom.OutputProtection_EnableProtection_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.OutputProtection.EnableProtection_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

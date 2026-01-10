@@ -230,7 +230,7 @@ network.mojom.WebTransport_SendDatagram_ParamsSpec = {
 network.mojom.WebTransport_SendDatagram_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.WebTransport.SendDatagram_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -258,7 +258,7 @@ network.mojom.WebTransport_CreateStream_ParamsSpec = {
 network.mojom.WebTransport_CreateStream_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.WebTransport.CreateStream_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'succeeded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -285,7 +285,7 @@ network.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec = {
 network.mojom.WebTransport_AcceptBidirectionalStream_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.WebTransport.AcceptBidirectionalStream_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
@@ -313,7 +313,7 @@ network.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec = {
 network.mojom.WebTransport_AcceptUnidirectionalStream_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.WebTransport.AcceptUnidirectionalStream_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'stream_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
@@ -398,7 +398,7 @@ network.mojom.WebTransport_GetStats_ParamsSpec = {
 network.mojom.WebTransport_GetStats_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.WebTransport.GetStats_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'stats', packedOffset: 0, packedBitOffset: 0, type: network.mojom.WebTransportStatsSpec, nullable: true, minVersion: 0 },

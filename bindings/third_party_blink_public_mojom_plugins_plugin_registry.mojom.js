@@ -116,7 +116,7 @@ blink.mojom.PluginRegistry_GetPlugins_ParamsSpec = {
 blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.PluginRegistry.GetPlugins_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'plugins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.PluginInfoSpec, false), nullable: false, minVersion: 0 },

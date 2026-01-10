@@ -157,7 +157,7 @@ media.mojom.AudioEncoder_Initialize_ParamsSpec = {
 media.mojom.AudioEncoder_Initialize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.AudioEncoder.Initialize_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.EncoderStatusSpec, nullable: false, minVersion: 0 },
@@ -184,7 +184,7 @@ media.mojom.AudioEncoder_Encode_ParamsSpec = {
 media.mojom.AudioEncoder_Encode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.AudioEncoder.Encode_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.EncoderStatusSpec, nullable: false, minVersion: 0 },
@@ -210,7 +210,7 @@ media.mojom.AudioEncoder_Flush_ParamsSpec = {
 media.mojom.AudioEncoder_Flush_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.AudioEncoder.Flush_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.EncoderStatusSpec, nullable: false, minVersion: 0 },

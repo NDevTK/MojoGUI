@@ -148,7 +148,7 @@ chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ParamsSpe
 chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.machine_learning.mojom.ImageContentAnnotator.AnnotateRawImage_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.ImageAnnotationResultSpec, nullable: false, minVersion: 0 },
@@ -175,7 +175,7 @@ chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_Param
 chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.machine_learning.mojom.ImageContentAnnotator.AnnotateEncodedImage_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.ImageAnnotationResultSpec, nullable: false, minVersion: 0 },

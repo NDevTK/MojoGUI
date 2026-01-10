@@ -777,7 +777,7 @@ downloads.mojom.PageHandler_IsEligibleForEsbPromo_ParamsSpec = {
 downloads.mojom.PageHandler_IsEligibleForEsbPromo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'downloads.mojom.PageHandler.IsEligibleForEsbPromo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

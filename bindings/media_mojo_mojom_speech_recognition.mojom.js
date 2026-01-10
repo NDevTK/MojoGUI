@@ -231,7 +231,7 @@ media.mojom.SpeechRecognitionContext_BindRecognizer_ParamsSpec = {
 media.mojom.SpeechRecognitionContext_BindRecognizer_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.SpeechRecognitionContext.BindRecognizer_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_multichannel_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -533,7 +533,7 @@ media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionRecognitionEven
 media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionRecognitionEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.SpeechRecognitionRecognizerClient.OnSpeechRecognitionRecognitionEvent_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'continue_recognition', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -803,7 +803,7 @@ media.mojom.SpeechRecognitionSurface_GetBounds_ParamsSpec = {
 media.mojom.SpeechRecognitionSurface_GetBounds_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.SpeechRecognitionSurface.GetBounds_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: true, minVersion: 0 },

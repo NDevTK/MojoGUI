@@ -235,7 +235,7 @@ content.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec = {
 content.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.GinJavaBridgeRemoteObject.GetMethods_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'method_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
@@ -262,7 +262,7 @@ content.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec = {
 content.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.GinJavaBridgeRemoteObject.HasMethod_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -290,7 +290,7 @@ content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec = {
 content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.GinJavaBridgeRemoteObject.InvokeMethod_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: content.mojom.GinJavaBridgeErrorSpec, nullable: false, minVersion: 0 },

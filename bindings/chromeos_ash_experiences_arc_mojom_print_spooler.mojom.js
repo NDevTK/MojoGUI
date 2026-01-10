@@ -156,7 +156,7 @@ arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec = {
 arc.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.PrintSessionInstance.CreatePreviewDocument_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'preview_document', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: true, minVersion: 0 },
@@ -247,7 +247,7 @@ arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec = {
 arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.PrintSpoolerHost.StartPrintInCustomTab_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'host', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },

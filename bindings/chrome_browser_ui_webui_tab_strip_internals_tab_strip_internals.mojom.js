@@ -538,7 +538,7 @@ tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec = {
 tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'tab_strip_internals.mojom.PageHandler.GetTabStripData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: tab_strip_internals.mojom.ContainerSpec, nullable: false, minVersion: 0 },

@@ -283,7 +283,7 @@ arc.mojom.ImeHost_SendKeyEvent_ParamsSpec = {
 arc.mojom.ImeHost_SendKeyEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.ImeHost.SendKeyEvent_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_consumed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

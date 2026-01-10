@@ -533,7 +533,7 @@ network.mojom.DeviceBoundSessionManager_GetAllSessions_ParamsSpec = {
 network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.DeviceBoundSessionManager.GetAllSessions_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'sessions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.DeviceBoundSessionKeySpec, false), nullable: false, minVersion: 0 },
@@ -624,7 +624,7 @@ network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ParamsSpec = {
 network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.DeviceBoundSessionManager.CreateBoundSessions_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'session_results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.DeviceBoundSessionErrorSpec, false), nullable: false, minVersion: 0 },

@@ -130,7 +130,7 @@ network.mojom.NetworkContextClient_OnFileUploadRequested_ParamsSpec = {
 network.mojom.NetworkContextClient_OnFileUploadRequested_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkContextClient.OnFileUploadRequested_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -158,7 +158,7 @@ network.mojom.NetworkContextClient_OnCanSendReportingReports_ParamsSpec = {
 network.mojom.NetworkContextClient_OnCanSendReportingReports_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkContextClient.OnCanSendReportingReports_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.OriginSpec, false), nullable: false, minVersion: 0 },
@@ -185,7 +185,7 @@ network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ParamsSpec =
 network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkContextClient.OnCanSendDomainReliabilityUpload_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -215,7 +215,7 @@ network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ParamsSpec =
 network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkContextClient.OnGenerateHttpNegotiateAuthToken_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -242,7 +242,7 @@ network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ParamsSpec = {
 network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkContextClient.OnCanSendSCTAuditingReport_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

@@ -257,7 +257,7 @@ chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec = {
 chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromecast.mojom.Resources.RequestResourceBytes_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'bytes', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.RefCountedMemorySpec, nullable: false, minVersion: 0 },

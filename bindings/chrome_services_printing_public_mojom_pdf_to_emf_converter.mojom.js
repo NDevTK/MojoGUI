@@ -100,7 +100,7 @@ printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec = {
 printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'printing.mojom.PdfToEmfConverter.ConvertPage_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'emf_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true, minVersion: 0 },
@@ -218,7 +218,7 @@ printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec = {
 printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'printing.mojom.PdfToEmfConverterFactory.CreateConverter_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'converter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },

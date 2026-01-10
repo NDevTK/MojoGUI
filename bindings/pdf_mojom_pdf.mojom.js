@@ -115,7 +115,7 @@ pdf.mojom.SaveDataBufferHandler_Read_ParamsSpec = {
 pdf.mojom.SaveDataBufferHandler_Read_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'pdf.mojom.SaveDataBufferHandler.Read_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'block', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
@@ -300,7 +300,7 @@ pdf.mojom.PdfListener_GetPdfBytes_ParamsSpec = {
 pdf.mojom.PdfListener_GetPdfBytes_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'pdf.mojom.PdfListener.GetPdfBytes_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: pdf.mojom.GetPdfBytesStatusSpec, nullable: false, minVersion: 0 },
@@ -329,7 +329,7 @@ pdf.mojom.PdfListener_GetPageText_ParamsSpec = {
 pdf.mojom.PdfListener_GetPageText_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'pdf.mojom.PdfListener.GetPageText_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
@@ -355,7 +355,7 @@ pdf.mojom.PdfListener_GetMostVisiblePageIndex_ParamsSpec = {
 pdf.mojom.PdfListener_GetMostVisiblePageIndex_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'pdf.mojom.PdfListener.GetMostVisiblePageIndex_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'page_index_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'page_index_$value', originalFieldName: 'page_index' } },
@@ -383,7 +383,7 @@ pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ParamsSpec = {
 pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'pdf.mojom.PdfListener.GetSaveDataBufferHandlerForDrive_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: pdf.mojom.SaveDataBufferHandlerGetResultSpec, nullable: true, minVersion: 0 },

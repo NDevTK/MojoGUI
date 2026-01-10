@@ -140,7 +140,7 @@ passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec = {
 passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'passage_embeddings.mojom.PassageEmbedder.GenerateEmbeddings_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(passage_embeddings.mojom.PassageEmbeddingsResultSpec, false), nullable: false, minVersion: 0 },
@@ -230,7 +230,7 @@ passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec = {
 passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'passage_embeddings.mojom.PassageEmbeddingsService.LoadModels_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

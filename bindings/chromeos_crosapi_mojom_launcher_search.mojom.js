@@ -271,7 +271,7 @@ crosapi.mojom.SearchController_Search_ParamsSpec = {
 crosapi.mojom.SearchController_Search_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.SearchController.Search_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'publisher', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },

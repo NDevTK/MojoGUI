@@ -133,7 +133,7 @@ add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec = {
 add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'add_supervision.mojom.AddSupervisionHandler.RequestClose_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'closed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -159,7 +159,7 @@ add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec = {
 add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'add_supervision.mojom.AddSupervisionHandler.GetInstalledArcApps_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'package_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
@@ -185,7 +185,7 @@ add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec = {
 add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'add_supervision.mojom.AddSupervisionHandler.GetOAuthToken_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: add_supervision.mojom.OAuthTokenFetchStatusSpec, nullable: false, minVersion: 0 },

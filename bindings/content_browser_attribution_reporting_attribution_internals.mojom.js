@@ -680,7 +680,7 @@ attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ParamsSpec = {
 attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'attribution_internals.mojom.Handler.IsAttributionReportingEnabled_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

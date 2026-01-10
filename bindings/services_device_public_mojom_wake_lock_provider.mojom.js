@@ -156,7 +156,7 @@ device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec = {
 device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.WakeLockProvider.GetActiveWakeLocksForTests_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },

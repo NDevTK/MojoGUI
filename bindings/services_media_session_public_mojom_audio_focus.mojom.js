@@ -461,7 +461,7 @@ media_session.mojom.AudioFocusManager_RequestAudioFocus_ParamsSpec = {
 media_session.mojom.AudioFocusManager_RequestAudioFocus_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media_session.mojom.AudioFocusManager.RequestAudioFocus_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'request_id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
@@ -493,7 +493,7 @@ media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_ParamsSpec = {
 media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media_session.mojom.AudioFocusManager.RequestGroupedAudioFocus_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -519,7 +519,7 @@ media_session.mojom.AudioFocusManager_GetFocusRequests_ParamsSpec = {
 media_session.mojom.AudioFocusManager_GetFocusRequests_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media_session.mojom.AudioFocusManager.GetFocusRequests_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'requests', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media_session.mojom.AudioFocusRequestStateSpec, false), nullable: false, minVersion: 0 },
@@ -604,7 +604,7 @@ media_session.mojom.AudioFocusManager_GetSourceFocusRequests_ParamsSpec = {
 media_session.mojom.AudioFocusManager_GetSourceFocusRequests_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media_session.mojom.AudioFocusManager.GetSourceFocusRequests_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'requests', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media_session.mojom.AudioFocusRequestStateSpec, false), nullable: false, minVersion: 0 },
@@ -746,7 +746,7 @@ media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ParamsSpec = {
 media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media_session.mojom.AudioFocusManagerDebug.GetDebugInfoForRequest_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'debug_info', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaSessionDebugInfoSpec, nullable: false, minVersion: 0 },

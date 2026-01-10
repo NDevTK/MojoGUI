@@ -90,7 +90,7 @@ network.mojom.ChunkedDataPipeGetter_GetSize_ParamsSpec = {
 network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.ChunkedDataPipeGetter.GetSize_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },

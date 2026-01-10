@@ -432,7 +432,7 @@ ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec = {
 ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.firmware_update.mojom.UpdateProvider.PrepareForUpdate_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
@@ -458,7 +458,7 @@ ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec = {
 ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.firmware_update.mojom.UpdateProvider.FetchInProgressUpdate_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'update', packedOffset: 0, packedBitOffset: 0, type: ash.firmware_update.mojom.FirmwareUpdateSpec, nullable: true, minVersion: 0 },

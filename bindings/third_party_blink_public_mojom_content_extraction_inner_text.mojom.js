@@ -143,7 +143,7 @@ blink.mojom.InnerTextAgent_GetInnerText_ParamsSpec = {
 blink.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.InnerTextAgent.GetInnerText_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'frame', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.InnerTextFrameSpec, nullable: false, minVersion: 0 },

@@ -437,7 +437,7 @@ memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec = 
 memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'memory_instrumentation.mojom.ClientProcess.RequestChromeMemoryDump_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'outcome', packedOffset: 0, packedBitOffset: 0, type: memory_instrumentation.mojom.RequestOutcomeSpec, nullable: false, minVersion: 0 },
@@ -468,7 +468,7 @@ memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec = {
 memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'memory_instrumentation.mojom.ClientProcess.RequestOSMemoryDump_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'outcome', packedOffset: 0, packedBitOffset: 0, type: memory_instrumentation.mojom.RequestOutcomeSpec, nullable: false, minVersion: 0 },
@@ -558,7 +558,7 @@ memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec = {
 memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'memory_instrumentation.mojom.HeapProfiler.DumpProcessesForTracing_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(memory_instrumentation.mojom.HeapProfileResultSpec, false), nullable: false, minVersion: 0 },
@@ -646,7 +646,7 @@ memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_Para
 memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'memory_instrumentation.mojom.HeapProfilerHelper.GetVmRegionsForHeapProfiler_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'vm_regions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo_base.mojom.ProcessIdSpec, mojo.internal.Array(memory_instrumentation.mojom.VmRegionSpec, false), false), nullable: false, minVersion: 0 },
@@ -764,7 +764,7 @@ memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec = {
 memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'memory_instrumentation.mojom.Coordinator.RequestGlobalMemoryDump_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'outcome', packedOffset: 0, packedBitOffset: 0, type: memory_instrumentation.mojom.RequestOutcomeSpec, nullable: false, minVersion: 0 },
@@ -793,7 +793,7 @@ memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpe
 memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'memory_instrumentation.mojom.Coordinator.RequestGlobalMemoryDumpForPid_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'outcome', packedOffset: 0, packedBitOffset: 0, type: memory_instrumentation.mojom.RequestOutcomeSpec, nullable: false, minVersion: 0 },
@@ -821,7 +821,7 @@ memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpe
 memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'memory_instrumentation.mojom.Coordinator.RequestPrivateMemoryFootprint_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'outcome', packedOffset: 0, packedBitOffset: 0, type: memory_instrumentation.mojom.RequestOutcomeSpec, nullable: false, minVersion: 0 },
@@ -851,7 +851,7 @@ memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace
 memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'memory_instrumentation.mojom.Coordinator.RequestGlobalMemoryDumpAndAppendToTrace_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'outcome', packedOffset: 0, packedBitOffset: 0, type: memory_instrumentation.mojom.RequestOutcomeSpec, nullable: false, minVersion: 0 },

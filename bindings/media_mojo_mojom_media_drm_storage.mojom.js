@@ -134,7 +134,7 @@ media.mojom.MediaDrmStorage_Initialize_ParamsSpec = {
 media.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.MediaDrmStorage.Initialize_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -161,7 +161,7 @@ media.mojom.MediaDrmStorage_OnProvisioned_ParamsSpec = {
 media.mojom.MediaDrmStorage_OnProvisioned_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.MediaDrmStorage.OnProvisioned_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -189,7 +189,7 @@ media.mojom.MediaDrmStorage_SavePersistentSession_ParamsSpec = {
 media.mojom.MediaDrmStorage_SavePersistentSession_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.MediaDrmStorage.SavePersistentSession_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -216,7 +216,7 @@ media.mojom.MediaDrmStorage_LoadPersistentSession_ParamsSpec = {
 media.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.MediaDrmStorage.LoadPersistentSession_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'session_data', packedOffset: 0, packedBitOffset: 0, type: media.mojom.SessionDataSpec, nullable: true, minVersion: 0 },
@@ -243,7 +243,7 @@ media.mojom.MediaDrmStorage_RemovePersistentSession_ParamsSpec = {
 media.mojom.MediaDrmStorage_RemovePersistentSession_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.MediaDrmStorage.RemovePersistentSession_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

@@ -333,7 +333,7 @@ network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ParamsSpec = {
 network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.TrustTokenQueryAnswerer.HasTrustTokens_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HasTrustTokensResultSpec, nullable: false, minVersion: 0 },
@@ -360,7 +360,7 @@ network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ParamsSpec = {
 network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.TrustTokenQueryAnswerer.HasRedemptionRecord_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: network.mojom.HasRedemptionRecordResultSpec, nullable: false, minVersion: 0 },

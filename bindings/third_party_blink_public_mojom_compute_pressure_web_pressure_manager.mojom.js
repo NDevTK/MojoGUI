@@ -83,7 +83,7 @@ blink.mojom.WebPressureManager_AddClient_ParamsSpec = {
 blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.WebPressureManager.AddClient_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.PressureManagerAddClientResultSpec, nullable: false, minVersion: 0 },

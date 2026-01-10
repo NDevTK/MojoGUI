@@ -645,7 +645,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ParamsSpec = {
 ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.bluetooth_config.mojom.DevicePairingDelegate.RequestPinCode_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'pin_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -671,7 +671,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ParamsSpec = {
 ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.bluetooth_config.mojom.DevicePairingDelegate.RequestPasskey_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'passkey', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -728,7 +728,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegate_ConfirmPasskey_ParamsSpec = {
 ash.bluetooth_config.mojom.DevicePairingDelegate_ConfirmPasskey_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.bluetooth_config.mojom.DevicePairingDelegate.ConfirmPasskey_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'confirmed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -754,7 +754,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ParamsSpec = {
 ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.bluetooth_config.mojom.DevicePairingDelegate.AuthorizePairing_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'confirmed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -852,7 +852,7 @@ ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ParamsSpec = {
 ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.bluetooth_config.mojom.DevicePairingHandler.PairDevice_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.bluetooth_config.mojom.PairingResultSpec, nullable: false, minVersion: 0 },
@@ -879,7 +879,7 @@ ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ParamsSpec = {
 ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.bluetooth_config.mojom.DevicePairingHandler.FetchDevice_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'device', packedOffset: 0, packedBitOffset: 0, type: ash.bluetooth_config.mojom.BluetoothDevicePropertiesSpec, nullable: true, minVersion: 0 },
@@ -1274,7 +1274,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfig_Connect_ParamsSpec = {
 ash.bluetooth_config.mojom.CrosBluetoothConfig_Connect_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.bluetooth_config.mojom.CrosBluetoothConfig.Connect_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1301,7 +1301,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfig_Disconnect_ParamsSpec = {
 ash.bluetooth_config.mojom.CrosBluetoothConfig_Disconnect_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.bluetooth_config.mojom.CrosBluetoothConfig.Disconnect_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1328,7 +1328,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfig_Forget_ParamsSpec = {
 ash.bluetooth_config.mojom.CrosBluetoothConfig_Forget_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.bluetooth_config.mojom.CrosBluetoothConfig.Forget_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

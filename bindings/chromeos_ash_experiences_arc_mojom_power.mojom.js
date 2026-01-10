@@ -231,7 +231,7 @@ arc.mojom.PowerHost_IsDisplayOn_ParamsSpec = {
 arc.mojom.PowerHost_IsDisplayOn_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.PowerHost.IsDisplayOn_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_on', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -299,7 +299,7 @@ arc.mojom.PowerHost_GetBatterySaverModeState_ParamsSpec = {
 arc.mojom.PowerHost_GetBatterySaverModeState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.PowerHost.GetBatterySaverModeState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BatterySaverModeStateSpec, nullable: false, minVersion: 0 },
@@ -548,7 +548,7 @@ arc.mojom.PowerInstance_GetWakefulnessMode_ParamsSpec = {
 arc.mojom.PowerInstance_GetWakefulnessMode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.PowerInstance.GetWakefulnessMode_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.WakefulnessModeSpec, nullable: false, minVersion: 0 },

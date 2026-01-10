@@ -132,7 +132,7 @@ blink.mojom.WebUsbService_GetDevices_ParamsSpec = {
 blink.mojom.WebUsbService_GetDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.WebUsbService.GetDevices_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.UsbDeviceInfoSpec, false), nullable: false, minVersion: 0 },
@@ -174,7 +174,7 @@ blink.mojom.WebUsbService_GetPermission_ParamsSpec = {
 blink.mojom.WebUsbService_GetPermission_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.WebUsbService.GetPermission_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.UsbDeviceInfoSpec, nullable: true, minVersion: 0 },

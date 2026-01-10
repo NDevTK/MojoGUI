@@ -105,7 +105,7 @@ blink.mojom.LeakDetector_PerformLeakDetection_ParamsSpec = {
 blink.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.LeakDetector.PerformLeakDetection_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LeakDetectionResultSpec, nullable: true, minVersion: 0 },

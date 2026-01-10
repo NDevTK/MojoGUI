@@ -973,7 +973,7 @@ crosapi.mojom.LocalPrinter_GetPrinters_ParamsSpec = {
 crosapi.mojom.LocalPrinter_GetPrinters_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.LocalPrinter.GetPrinters_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'printers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(crosapi.mojom.LocalDestinationInfoSpec, false), nullable: false, minVersion: 0 },
@@ -1000,7 +1000,7 @@ crosapi.mojom.LocalPrinter_GetCapability_ParamsSpec = {
 crosapi.mojom.LocalPrinter_GetCapability_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.LocalPrinter.GetCapability_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.CapabilitiesResponseSpec, nullable: true, minVersion: 0 },
@@ -1027,7 +1027,7 @@ crosapi.mojom.LocalPrinter_GetEulaUrl_ParamsSpec = {
 crosapi.mojom.LocalPrinter_GetEulaUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.LocalPrinter.GetEulaUrl_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
@@ -1054,7 +1054,7 @@ crosapi.mojom.LocalPrinter_GetStatus_ParamsSpec = {
 crosapi.mojom.LocalPrinter_GetStatus_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.LocalPrinter.GetStatus_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.PrinterStatusSpec, nullable: false, minVersion: 0 },
@@ -1109,7 +1109,7 @@ crosapi.mojom.LocalPrinter_CancelPrintJob_ParamsSpec = {
 crosapi.mojom.LocalPrinter_CancelPrintJob_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.LocalPrinter.CancelPrintJob_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'attempted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1135,7 +1135,7 @@ crosapi.mojom.LocalPrinter_GetPrintServersConfig_ParamsSpec = {
 crosapi.mojom.LocalPrinter_GetPrintServersConfig_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.LocalPrinter.GetPrintServersConfig_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.PrintServersConfigSpec, nullable: false, minVersion: 0 },
@@ -1189,7 +1189,7 @@ crosapi.mojom.LocalPrinter_GetPolicies_ParamsSpec = {
 crosapi.mojom.LocalPrinter_GetPolicies_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.LocalPrinter.GetPolicies_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'policies', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.PoliciesSpec, nullable: false, minVersion: 0 },
@@ -1215,7 +1215,7 @@ crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ParamsSpec = {
 crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.LocalPrinter.GetUsernamePerPolicy_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'username', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -1241,7 +1241,7 @@ crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ParamsSpec = {
 crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.LocalPrinter.GetPrinterTypeDenyList_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'deny_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(printing.mojom.PrinterTypeSpec, false), nullable: false, minVersion: 0 },
@@ -1283,7 +1283,7 @@ crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ParamsSpec = {
 crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.LocalPrinter.GetOAuthAccessToken_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'oauth_result', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.GetOAuthAccessTokenResultSpec, nullable: false, minVersion: 0 },
@@ -1310,7 +1310,7 @@ crosapi.mojom.LocalPrinter_GetIppClientInfo_ParamsSpec = {
 crosapi.mojom.LocalPrinter_GetIppClientInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.LocalPrinter.GetIppClientInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(printing.mojom.IppClientInfoSpec, false), nullable: false, minVersion: 0 },
@@ -1337,7 +1337,7 @@ crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ParamsSpec = {
 crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.LocalPrinter.AddLocalPrintersObserver_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'printers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(crosapi.mojom.LocalDestinationInfoSpec, false), nullable: false, minVersion: 0 },

@@ -91,7 +91,7 @@ ash.growth.mojom.PageHandler_GetCampaignsLogs_ParamsSpec = {
 ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.growth.mojom.PageHandler.GetCampaignsLogs_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'logs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },

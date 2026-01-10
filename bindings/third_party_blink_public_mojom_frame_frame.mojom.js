@@ -1012,7 +1012,7 @@ blink.mojom.LocalFrameHost_EnterFullscreen_ParamsSpec = {
 blink.mojom.LocalFrameHost_EnterFullscreen_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.LocalFrameHost.EnterFullscreen_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'granted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1595,7 +1595,7 @@ blink.mojom.LocalFrameHost_RunModalConfirmDialog_ParamsSpec = {
 blink.mojom.LocalFrameHost_RunModalConfirmDialog_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.LocalFrameHost.RunModalConfirmDialog_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1624,7 +1624,7 @@ blink.mojom.LocalFrameHost_RunModalPromptDialog_ParamsSpec = {
 blink.mojom.LocalFrameHost_RunModalPromptDialog_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.LocalFrameHost.RunModalPromptDialog_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1652,7 +1652,7 @@ blink.mojom.LocalFrameHost_RunBeforeUnloadConfirm_ParamsSpec = {
 blink.mojom.LocalFrameHost_RunBeforeUnloadConfirm_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.LocalFrameHost.RunBeforeUnloadConfirm_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -2905,7 +2905,7 @@ blink.mojom.LocalFrame_GetTextSurroundingSelection_ParamsSpec = {
 blink.mojom.LocalFrame_GetTextSurroundingSelection_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.LocalFrame.GetTextSurroundingSelection_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'content', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
@@ -3169,7 +3169,7 @@ blink.mojom.LocalFrame_BeforeUnload_ParamsSpec = {
 blink.mojom.LocalFrame_BeforeUnload_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.LocalFrame.BeforeUnload_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'proceed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -3215,7 +3215,7 @@ blink.mojom.LocalFrame_RequestVideoFrameAtWithBoundsHint_ParamsSpec = {
 blink.mojom.LocalFrame_RequestVideoFrameAtWithBoundsHint_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.LocalFrame.RequestVideoFrameAtWithBoundsHint_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
@@ -3349,7 +3349,7 @@ blink.mojom.LocalFrame_JavaScriptMethodExecuteRequest_ParamsSpec = {
 blink.mojom.LocalFrame_JavaScriptMethodExecuteRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.LocalFrame.JavaScriptMethodExecuteRequest_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
@@ -3377,7 +3377,7 @@ blink.mojom.LocalFrame_JavaScriptExecuteRequest_ParamsSpec = {
 blink.mojom.LocalFrame_JavaScriptExecuteRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.LocalFrame.JavaScriptExecuteRequest_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
@@ -3408,7 +3408,7 @@ blink.mojom.LocalFrame_JavaScriptExecuteRequestForTests_ParamsSpec = {
 blink.mojom.LocalFrame_JavaScriptExecuteRequestForTests_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.LocalFrame.JavaScriptExecuteRequestForTests_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'result_type', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.JavaScriptExecutionResultTypeSpec, nullable: false, minVersion: 0 },
@@ -3438,7 +3438,7 @@ blink.mojom.LocalFrame_JavaScriptExecuteRequestInIsolatedWorld_ParamsSpec = {
 blink.mojom.LocalFrame_JavaScriptExecuteRequestInIsolatedWorld_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.LocalFrame.JavaScriptExecuteRequestInIsolatedWorld_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
@@ -3493,7 +3493,7 @@ blink.mojom.LocalFrame_GetStringForRange_ParamsSpec = {
 blink.mojom.LocalFrame_GetStringForRange_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.LocalFrame.GetStringForRange_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'string', packedOffset: 0, packedBitOffset: 0, type: ui.mojom.AttributedStringSpec, nullable: true, minVersion: 0 },
@@ -3548,7 +3548,7 @@ blink.mojom.LocalFrame_GetSavableResourceLinks_ParamsSpec = {
 blink.mojom.LocalFrame_GetSavableResourceLinks_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.LocalFrame.GetSavableResourceLinks_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'reply', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.GetSavableResourceLinksReplySpec, nullable: true, minVersion: 0 },
@@ -3610,7 +3610,7 @@ blink.mojom.LocalFrame_ExtractSmartClipData_ParamsSpec = {
 blink.mojom.LocalFrame_ExtractSmartClipData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.LocalFrame.ExtractSmartClipData_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
@@ -3652,7 +3652,7 @@ blink.mojom.LocalFrame_GetCanonicalUrlForSharing_ParamsSpec = {
 blink.mojom.LocalFrame_GetCanonicalUrlForSharing_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.LocalFrame.GetCanonicalUrlForSharing_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'canonical_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
@@ -3678,7 +3678,7 @@ blink.mojom.LocalFrame_GetOpenGraphMetadata_ParamsSpec = {
 blink.mojom.LocalFrame_GetOpenGraphMetadata_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.LocalFrame.GetOpenGraphMetadata_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.OpenGraphMetadataSpec, nullable: false, minVersion: 0 },
@@ -3780,7 +3780,7 @@ blink.mojom.LocalFrame_SnapshotDocumentForViewTransition_ParamsSpec = {
 blink.mojom.LocalFrame_SnapshotDocumentForViewTransition_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.LocalFrame.SnapshotDocumentForViewTransition_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'view_transition_state', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ViewTransitionStateSpec, nullable: false, minVersion: 0 },
@@ -3861,7 +3861,7 @@ blink.mojom.LocalFrame_GetScrollPosition_ParamsSpec = {
 blink.mojom.LocalFrame_GetScrollPosition_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.LocalFrame.GetScrollPosition_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'scroll_position', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.PointSpec, nullable: false, minVersion: 0 },
@@ -4102,7 +4102,7 @@ blink.mojom.LocalMainFrame_GetFullPageSize_ParamsSpec = {
 blink.mojom.LocalMainFrame_GetFullPageSize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.LocalMainFrame.GetFullPageSize_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'full_page_size', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.SizeSpec, nullable: false, minVersion: 0 },

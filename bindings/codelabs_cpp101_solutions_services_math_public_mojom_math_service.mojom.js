@@ -83,7 +83,7 @@ math.mojom.MathService_Divide_ParamsSpec = {
 math.mojom.MathService_Divide_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'math.mojom.MathService.Divide_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'quotient', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },

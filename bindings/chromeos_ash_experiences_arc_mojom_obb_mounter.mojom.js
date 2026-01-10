@@ -93,7 +93,7 @@ arc.mojom.ObbMounterHost_MountObb_ParamsSpec = {
 arc.mojom.ObbMounterHost_MountObb_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.ObbMounterHost.MountObb_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -120,7 +120,7 @@ arc.mojom.ObbMounterHost_UnmountObb_ParamsSpec = {
 arc.mojom.ObbMounterHost_UnmountObb_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.ObbMounterHost.UnmountObb_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

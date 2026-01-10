@@ -447,7 +447,7 @@ crosapi.mojom.AccountManager_IsInitialized_ParamsSpec = {
 crosapi.mojom.AccountManager_IsInitialized_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.AccountManager.IsInitialized_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_initialized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -473,7 +473,7 @@ crosapi.mojom.AccountManager_AddObserver_ParamsSpec = {
 crosapi.mojom.AccountManager_AddObserver_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.AccountManager.AddObserver_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
@@ -499,7 +499,7 @@ crosapi.mojom.AccountManager_GetAccounts_ParamsSpec = {
 crosapi.mojom.AccountManager_GetAccounts_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.AccountManager.GetAccounts_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'accounts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(crosapi.mojom.AccountSpec, false), nullable: false, minVersion: 0 },
@@ -526,7 +526,7 @@ crosapi.mojom.AccountManager_ShowAddAccountDialog_ParamsSpec = {
 crosapi.mojom.AccountManager_ShowAddAccountDialog_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.AccountManager.ShowAddAccountDialog_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.AccountUpsertionResultSpec, nullable: false, minVersion: 0 },
@@ -553,7 +553,7 @@ crosapi.mojom.AccountManager_ShowReauthAccountDialog_ParamsSpec = {
 crosapi.mojom.AccountManager_ShowReauthAccountDialog_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.AccountManager.ShowReauthAccountDialog_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.AccountUpsertionResultSpec, nullable: true, minVersion: 13 },
@@ -593,7 +593,7 @@ crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ParamsSpec = {
 crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.AccountManager.GetPersistentErrorForAccount_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.GoogleServiceAuthErrorSpec, nullable: false, minVersion: 0 },
@@ -621,7 +621,7 @@ crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ParamsSpec = {
 crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.AccountManager.CreateAccessTokenFetcher_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'access_token_fetcher', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
@@ -724,7 +724,7 @@ crosapi.mojom.AccessTokenFetcher_Start_ParamsSpec = {
 crosapi.mojom.AccessTokenFetcher_Start_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.AccessTokenFetcher.Start_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.AccessTokenResultSpec, nullable: false, minVersion: 0 },

@@ -379,7 +379,7 @@ ash.orca.mojom.EditorClient_GetPresetTextQueries_ParamsSpec = {
 ash.orca.mojom.EditorClient_GetPresetTextQueries_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.orca.mojom.EditorClient.GetPresetTextQueries_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'text_queries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.orca.mojom.PresetTextQuerySpec, false), nullable: false, minVersion: 0 },
@@ -407,7 +407,7 @@ ash.orca.mojom.EditorClient_RequestPresetRewrite_ParamsSpec = {
 ash.orca.mojom.EditorClient_RequestPresetRewrite_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.orca.mojom.EditorClient.RequestPresetRewrite_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.orca.mojom.TextQueryResponseSpec, nullable: false, minVersion: 0 },
@@ -435,7 +435,7 @@ ash.orca.mojom.EditorClient_RequestFreeformRewrite_ParamsSpec = {
 ash.orca.mojom.EditorClient_RequestFreeformRewrite_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.orca.mojom.EditorClient.RequestFreeformRewrite_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.orca.mojom.TextQueryResponseSpec, nullable: false, minVersion: 0 },
@@ -462,7 +462,7 @@ ash.orca.mojom.EditorClient_RequestFreeformWrite_ParamsSpec = {
 ash.orca.mojom.EditorClient_RequestFreeformWrite_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.orca.mojom.EditorClient.RequestFreeformWrite_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.orca.mojom.TextQueryResponseSpec, nullable: false, minVersion: 0 },
@@ -596,7 +596,7 @@ ash.orca.mojom.EditorClient_PreviewFeedback_ParamsSpec = {
 ash.orca.mojom.EditorClient_PreviewFeedback_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.orca.mojom.EditorClient.PreviewFeedback_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'preview', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
@@ -1132,7 +1132,7 @@ ash.orca.mojom.TextQueryProvider_Process_ParamsSpec = {
 ash.orca.mojom.TextQueryProvider_Process_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.orca.mojom.TextQueryProvider.Process_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.orca.mojom.TextQueryResponseSpec, nullable: false, minVersion: 0 },

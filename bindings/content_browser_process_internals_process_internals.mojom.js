@@ -236,7 +236,7 @@ mojom.ProcessInternalsHandler_GetProcessCountInfo_ParamsSpec = {
 mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.ProcessInternalsHandler.GetProcessCountInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojom.ProcessCountInfoSpec, nullable: false, minVersion: 0 },
@@ -262,7 +262,7 @@ mojom.ProcessInternalsHandler_GetIsolationMode_ParamsSpec = {
 mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.ProcessInternalsHandler.GetIsolationMode_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -288,7 +288,7 @@ mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ParamsSpec = {
 mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.ProcessInternalsHandler.GetProcessPerSiteMode_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -314,7 +314,7 @@ mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ParamsSpec = {
 mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.ProcessInternalsHandler.GetUserTriggeredIsolatedOrigins_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'isolated_origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
@@ -340,7 +340,7 @@ mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ParamsSpec = {
 mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.ProcessInternalsHandler.GetWebTriggeredIsolatedOrigins_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'isolated_origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
@@ -366,7 +366,7 @@ mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ParamsSpec = {
 mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.ProcessInternalsHandler.GetGloballyIsolatedOrigins_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'isolated_origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojom.IsolatedOriginInfoSpec, false), nullable: false, minVersion: 0 },
@@ -392,7 +392,7 @@ mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ParamsSpec = {
 mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.ProcessInternalsHandler.GetAllWebContentsInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'infos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojom.WebContentsInfoSpec, false), nullable: false, minVersion: 0 },

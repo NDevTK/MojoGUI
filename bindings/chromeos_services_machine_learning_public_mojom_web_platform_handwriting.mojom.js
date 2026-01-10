@@ -194,7 +194,7 @@ chromeos.machine_learning.web_platform.mojom.HandwritingRecognizer_GetPrediction
 chromeos.machine_learning.web_platform.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.machine_learning.web_platform.mojom.HandwritingRecognizer.GetPrediction_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'prediction', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromeos.machine_learning.web_platform.mojom.HandwritingPredictionSpec, false), nullable: true, minVersion: 0 },

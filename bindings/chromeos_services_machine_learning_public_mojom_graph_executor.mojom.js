@@ -99,7 +99,7 @@ chromeos.machine_learning.mojom.GraphExecutor_Execute_ParamsSpec = {
 chromeos.machine_learning.mojom.GraphExecutor_Execute_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.machine_learning.mojom.GraphExecutor.Execute_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.ExecuteResultSpec, nullable: false, minVersion: 0 },

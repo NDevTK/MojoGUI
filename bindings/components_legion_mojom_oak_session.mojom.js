@@ -123,7 +123,7 @@ legion.mojom.OakSession_InitiateHandshake_ParamsSpec = {
 legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'legion.mojom.OakSession.InitiateHandshake_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'request', packedOffset: 0, packedBitOffset: 0, type: legion.mojom.HandshakeMessageSpec, nullable: false, minVersion: 0 },
@@ -150,7 +150,7 @@ legion.mojom.OakSession_CompleteHandshake_ParamsSpec = {
 legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'legion.mojom.OakSession.CompleteHandshake_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -177,7 +177,7 @@ legion.mojom.OakSession_Encrypt_ParamsSpec = {
 legion.mojom.OakSession_Encrypt_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'legion.mojom.OakSession.Encrypt_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
@@ -204,7 +204,7 @@ legion.mojom.OakSession_Decrypt_ParamsSpec = {
 legion.mojom.OakSession_Decrypt_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'legion.mojom.OakSession.Decrypt_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },

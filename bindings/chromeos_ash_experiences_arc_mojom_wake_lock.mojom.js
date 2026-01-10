@@ -90,7 +90,7 @@ arc.mojom.WakeLockHost_AcquirePartialWakeLock_ParamsSpec = {
 arc.mojom.WakeLockHost_AcquirePartialWakeLock_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.WakeLockHost.AcquirePartialWakeLock_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -116,7 +116,7 @@ arc.mojom.WakeLockHost_ReleasePartialWakeLock_ParamsSpec = {
 arc.mojom.WakeLockHost_ReleasePartialWakeLock_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.WakeLockHost.ReleasePartialWakeLock_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

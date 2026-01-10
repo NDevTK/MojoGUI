@@ -242,7 +242,7 @@ service_manager.mojom.Connector_BindInterface_ParamsSpec = {
 service_manager.mojom.Connector_BindInterface_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'service_manager.mojom.Connector.BindInterface_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.ConnectResultSpec, nullable: false, minVersion: 0 },
@@ -270,7 +270,7 @@ service_manager.mojom.Connector_QueryService_ParamsSpec = {
 service_manager.mojom.Connector_QueryService_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'service_manager.mojom.Connector.QueryService_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.ServiceInfoSpec, nullable: true, minVersion: 0 },
@@ -297,7 +297,7 @@ service_manager.mojom.Connector_WarmService_ParamsSpec = {
 service_manager.mojom.Connector_WarmService_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'service_manager.mojom.Connector.WarmService_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.ConnectResultSpec, nullable: false, minVersion: 0 },
@@ -327,7 +327,7 @@ service_manager.mojom.Connector_RegisterServiceInstance_ParamsSpec = {
 service_manager.mojom.Connector_RegisterServiceInstance_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'service_manager.mojom.Connector.RegisterServiceInstance_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: service_manager.mojom.ConnectResultSpec, nullable: false, minVersion: 0 },

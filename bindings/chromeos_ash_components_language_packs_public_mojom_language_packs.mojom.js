@@ -256,7 +256,7 @@ ash.language.mojom.LanguagePacks_GetPackInfo_ParamsSpec = {
 ash.language.mojom.LanguagePacks_GetPackInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.language.mojom.LanguagePacks.GetPackInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: ash.language.mojom.LanguagePackInfoSpec, nullable: false, minVersion: 0 },
@@ -284,7 +284,7 @@ ash.language.mojom.LanguagePacks_InstallPack_ParamsSpec = {
 ash.language.mojom.LanguagePacks_InstallPack_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.language.mojom.LanguagePacks.InstallPack_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: ash.language.mojom.LanguagePackInfoSpec, nullable: false, minVersion: 0 },
@@ -311,7 +311,7 @@ ash.language.mojom.LanguagePacks_InstallBasePack_ParamsSpec = {
 ash.language.mojom.LanguagePacks_InstallBasePack_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.language.mojom.LanguagePacks.InstallBasePack_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: ash.language.mojom.BasePackInfoSpec, nullable: false, minVersion: 0 },

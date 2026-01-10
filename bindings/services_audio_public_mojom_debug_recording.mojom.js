@@ -100,7 +100,7 @@ audio.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec = {
 audio.mojom.DebugRecordingFileProvider_CreateWavFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'audio.mojom.DebugRecordingFileProvider.CreateWavFile_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true, minVersion: 0 },
@@ -127,7 +127,7 @@ audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ParamsSpec = {
 audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'audio.mojom.DebugRecordingFileProvider.CreateAecdumpFile_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true, minVersion: 0 },

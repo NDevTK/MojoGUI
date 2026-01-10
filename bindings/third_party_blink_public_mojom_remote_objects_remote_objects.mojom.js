@@ -351,7 +351,7 @@ blink.mojom.RemoteObject_HasMethod_ParamsSpec = {
 blink.mojom.RemoteObject_HasMethod_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.RemoteObject.HasMethod_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'method_exists', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -377,7 +377,7 @@ blink.mojom.RemoteObject_GetMethods_ParamsSpec = {
 blink.mojom.RemoteObject_GetMethods_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.RemoteObject.GetMethods_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'method_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
@@ -405,7 +405,7 @@ blink.mojom.RemoteObject_InvokeMethod_ParamsSpec = {
 blink.mojom.RemoteObject_InvokeMethod_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.RemoteObject.InvokeMethod_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.RemoteInvocationResultSpec, nullable: false, minVersion: 0 },

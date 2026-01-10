@@ -227,7 +227,7 @@ media.mojom.CdmContextForOOPVD_GetHwKeyData_ParamsSpec = {
 media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.CdmContextForOOPVD.GetHwKeyData_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.DecryptStatusSpec, nullable: false, minVersion: 0 },
@@ -268,7 +268,7 @@ media.mojom.CdmContextForOOPVD_GetHwConfigData_ParamsSpec = {
 media.mojom.CdmContextForOOPVD_GetHwConfigData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.CdmContextForOOPVD.GetHwConfigData_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -295,7 +295,7 @@ media.mojom.CdmContextForOOPVD_GetScreenResolutions_ParamsSpec = {
 media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.CdmContextForOOPVD.GetScreenResolutions_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'resolutions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.SizeSpec, false), nullable: false, minVersion: 0 },
@@ -322,7 +322,7 @@ media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ParamsSpec = {
 media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.CdmContextForOOPVD.AllocateSecureBuffer_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'secure_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
@@ -351,7 +351,7 @@ media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ParamsSpec = {
 media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.CdmContextForOOPVD.ParseEncryptedSliceHeader_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -380,7 +380,7 @@ media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ParamsSpec = {
 media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.CdmContextForOOPVD.DecryptVideoBuffer_ResponseParams',
       packedSize: 40,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.DecryptStatusSpec, nullable: false, minVersion: 0 },

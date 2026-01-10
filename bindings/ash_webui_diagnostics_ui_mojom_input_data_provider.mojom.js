@@ -707,7 +707,7 @@ ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ParamsSpec = {
 ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.diagnostics.mojom.InputDataProvider.GetConnectedDevices_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.ConnectedDevicesSpec, nullable: false, minVersion: 0 },
@@ -763,7 +763,7 @@ ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ParamsSpec = {
 ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.diagnostics.mojom.InputDataProvider.ObserveTabletMode_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_tablet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -790,7 +790,7 @@ ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ParamsSpec = {
 ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.diagnostics.mojom.InputDataProvider.ObserveLidState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_lid_open', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

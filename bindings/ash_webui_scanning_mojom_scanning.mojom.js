@@ -404,7 +404,7 @@ ash.scanning.mojom.ScanService_GetScanners_ParamsSpec = {
 ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.scanning.mojom.ScanService.GetScanners_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'scanners', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.scanning.mojom.ScannerSpec, false), nullable: false, minVersion: 0 },
@@ -431,7 +431,7 @@ ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec = {
 ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.scanning.mojom.ScanService.GetScannerCapabilities_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: ash.scanning.mojom.ScannerCapabilitiesSpec, nullable: false, minVersion: 0 },
@@ -460,7 +460,7 @@ ash.scanning.mojom.ScanService_StartScan_ParamsSpec = {
 ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.scanning.mojom.ScanService.StartScan_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -489,7 +489,7 @@ ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec = {
 ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.scanning.mojom.ScanService.StartMultiPageScan_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'controller', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
@@ -618,7 +618,7 @@ ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec = {
 ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.scanning.mojom.MultiPageScanController.ScanNextPage_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -661,7 +661,7 @@ ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec = {
 ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.scanning.mojom.MultiPageScanController.RescanPage_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

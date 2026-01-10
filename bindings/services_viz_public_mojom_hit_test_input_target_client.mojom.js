@@ -83,7 +83,7 @@ viz.mojom.InputTargetClient_FrameSinkIdAt_ParamsSpec = {
 viz.mojom.InputTargetClient_FrameSinkIdAt_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'viz.mojom.InputTargetClient.FrameSinkIdAt_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: viz.mojom.FrameSinkIdSpec, nullable: false, minVersion: 0 },

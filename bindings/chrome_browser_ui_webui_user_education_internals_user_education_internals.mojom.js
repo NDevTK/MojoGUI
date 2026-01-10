@@ -317,7 +317,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_Pa
 mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetTutorials_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'tutorial_infos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojom.user_education_internals.FeaturePromoDemoPageInfoSpec, false), nullable: false, minVersion: 0 },
@@ -344,7 +344,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_P
 mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.StartTutorial_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -370,7 +370,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_
 mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetSessionData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'session_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojom.user_education_internals.FeaturePromoDemoPageDataSpec, false), nullable: false, minVersion: 0 },
@@ -396,7 +396,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromo
 mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetFeaturePromos_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'feature_promos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojom.user_education_internals.FeaturePromoDemoPageInfoSpec, false), nullable: false, minVersion: 0 },
@@ -423,7 +423,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeatureProm
 mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ShowFeaturePromo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -450,7 +450,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePro
 mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearFeaturePromoData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -476,7 +476,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionDat
 mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearSessionData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -502,7 +502,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession
 mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ForceNewSession_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -528,7 +528,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeri
 mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.RemoveGracePeriods_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -554,7 +554,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_Pa
 mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetNewBadges_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'new_badges', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojom.user_education_internals.FeaturePromoDemoPageInfoSpec, false), nullable: false, minVersion: 0 },
@@ -580,7 +580,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModu
 mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetWhatsNewModules_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'whats_new_modules', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojom.user_education_internals.WhatsNewModuleDemoPageInfoSpec, false), nullable: false, minVersion: 0 },
@@ -606,7 +606,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEdit
 mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetWhatsNewEditions_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'whats_new_editions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojom.user_education_internals.WhatsNewEditionDemoPageInfoSpec, false), nullable: false, minVersion: 0 },
@@ -632,7 +632,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_Pa
 mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetNtpPromos_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'ntp_promos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojom.user_education_internals.FeaturePromoDemoPageInfoSpec, false), nullable: false, minVersion: 0 },
@@ -658,7 +658,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPref
 mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.GetNtpPromoPreferences_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'ntp_promo_preferences', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojom.user_education_internals.FeaturePromoDemoPageDataSpec, false), nullable: false, minVersion: 0 },
@@ -685,7 +685,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeDa
 mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearNewBadgeData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -711,7 +711,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewDa
 mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearWhatsNewData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -738,7 +738,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoDa
 mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearNtpPromoData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -764,7 +764,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPr
 mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.user_education_internals.UserEducationInternalsPageHandler.ClearNtpPromoPreferences_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },

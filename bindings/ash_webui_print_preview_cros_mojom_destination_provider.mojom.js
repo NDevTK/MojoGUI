@@ -85,7 +85,7 @@ ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ParamsSpe
 ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.printing.print_preview.mojom.DestinationProvider.FetchCapabilities_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: ash.printing.print_preview.mojom.CapabilitiesSpec, nullable: false, minVersion: 0 },

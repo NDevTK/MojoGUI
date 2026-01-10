@@ -204,7 +204,7 @@ crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ParamsSpec = {
 crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.VideoConferenceManagerClient.GetMediaApps_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(crosapi.mojom.VideoConferenceMediaAppInfoSpec, false), nullable: false, minVersion: 0 },
@@ -231,7 +231,7 @@ crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ParamsSpec = {
 crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.VideoConferenceManagerClient.ReturnToApp_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -259,7 +259,7 @@ crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ParamsSpec
 crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.VideoConferenceManagerClient.SetSystemMediaDeviceStatus_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

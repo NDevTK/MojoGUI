@@ -373,7 +373,7 @@ viz.mojom.GpuService_EstablishGpuChannel_ParamsSpec = {
 viz.mojom.GpuService_EstablishGpuChannel_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'viz.mojom.GpuService.EstablishGpuChannel_ResponseParams',
       packedSize: 40,
       fields: [
         { name: 'channel_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
@@ -505,7 +505,7 @@ viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ParamsSpec = {
 viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'viz.mojom.GpuService.RegisterDCOMPSurfaceHandle_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: true, minVersion: 0 },
@@ -574,7 +574,7 @@ viz.mojom.GpuService_GetVideoMemoryUsageStats_ParamsSpec = {
 viz.mojom.GpuService_GetVideoMemoryUsageStats_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'viz.mojom.GpuService.GetVideoMemoryUsageStats_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'stats', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.VideoMemoryUsageStatsSpec, nullable: false, minVersion: 0 },
@@ -615,7 +615,7 @@ viz.mojom.GpuService_GetPeakMemoryUsage_ParamsSpec = {
 viz.mojom.GpuService_GetPeakMemoryUsage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'viz.mojom.GpuService.GetPeakMemoryUsage_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'memory_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
@@ -642,7 +642,7 @@ viz.mojom.GpuService_RequestDXGIInfo_ParamsSpec = {
 viz.mojom.GpuService_RequestDXGIInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'viz.mojom.GpuService.RequestDXGIInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'dxgi_info', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.DXGIInfoSpec, nullable: false, minVersion: 0 },
@@ -841,7 +841,7 @@ viz.mojom.GpuService_GetDawnInfo_ParamsSpec = {
 viz.mojom.GpuService_GetDawnInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'viz.mojom.GpuService.GetDawnInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'dawn_info_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },

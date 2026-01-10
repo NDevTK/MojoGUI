@@ -541,7 +541,7 @@ app_management.mojom.PageHandler_GetApps_ParamsSpec = {
 app_management.mojom.PageHandler_GetApps_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'app_management.mojom.PageHandler.GetApps_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(app_management.mojom.AppSpec, false), nullable: false, minVersion: 0 },
@@ -568,7 +568,7 @@ app_management.mojom.PageHandler_GetApp_ParamsSpec = {
 app_management.mojom.PageHandler_GetApp_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'app_management.mojom.PageHandler.GetApp_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'app', packedOffset: 0, packedBitOffset: 0, type: app_management.mojom.AppSpec, nullable: true, minVersion: 0 },
@@ -594,7 +594,7 @@ app_management.mojom.PageHandler_GetSubAppToParentMap_ParamsSpec = {
 app_management.mojom.PageHandler_GetSubAppToParentMap_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'app_management.mojom.PageHandler.GetSubAppToParentMap_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'sub_app_to_parent_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
@@ -621,7 +621,7 @@ app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ParamsSpec = 
 app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'app_management.mojom.PageHandler.GetExtensionAppPermissionMessages_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'messages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(app_management.mojom.ExtensionAppPermissionMessageSpec, false), nullable: false, minVersion: 0 },
@@ -736,7 +736,7 @@ app_management.mojom.PageHandler_GetOverlappingPreferredApps_ParamsSpec = {
 app_management.mojom.PageHandler_GetOverlappingPreferredApps_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'app_management.mojom.PageHandler.GetOverlappingPreferredApps_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'app_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },

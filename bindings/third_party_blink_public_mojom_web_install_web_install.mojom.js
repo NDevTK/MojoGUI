@@ -114,7 +114,7 @@ blink.mojom.WebInstallService_Install_ParamsSpec = {
 blink.mojom.WebInstallService_Install_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.WebInstallService.Install_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebInstallServiceResultSpec, nullable: false, minVersion: 0 },
@@ -142,7 +142,7 @@ blink.mojom.WebInstallService_InstallFromElement_ParamsSpec = {
 blink.mojom.WebInstallService_InstallFromElement_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.WebInstallService.InstallFromElement_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebInstallServiceResultSpec, nullable: false, minVersion: 0 },

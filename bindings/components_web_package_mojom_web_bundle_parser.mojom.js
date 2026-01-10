@@ -480,7 +480,7 @@ web_package.mojom.WebBundleParser_ParseIntegrityBlock_ParamsSpec = {
 web_package.mojom.WebBundleParser_ParseIntegrityBlock_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'web_package.mojom.WebBundleParser.ParseIntegrityBlock_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'Result', packedOffset: 0, packedBitOffset: 0, type: web_package.mojom.BundleIntegrityBlockSpec, nullable: true, minVersion: 0 },
@@ -509,7 +509,7 @@ web_package.mojom.WebBundleParser_ParseMetadata_ParamsSpec = {
 web_package.mojom.WebBundleParser_ParseMetadata_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'web_package.mojom.WebBundleParser.ParseMetadata_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'Result', packedOffset: 0, packedBitOffset: 0, type: web_package.mojom.BundleMetadataSpec, nullable: true, minVersion: 0 },
@@ -538,7 +538,7 @@ web_package.mojom.WebBundleParser_ParseResponse_ParamsSpec = {
 web_package.mojom.WebBundleParser_ParseResponse_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'web_package.mojom.WebBundleParser.ParseResponse_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'Result', packedOffset: 0, packedBitOffset: 0, type: web_package.mojom.BundleResponseSpec, nullable: true, minVersion: 0 },
@@ -668,7 +668,7 @@ web_package.mojom.BundleDataSource_Read_ParamsSpec = {
 web_package.mojom.BundleDataSource_Read_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'web_package.mojom.BundleDataSource.Read_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'buffer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
@@ -694,7 +694,7 @@ web_package.mojom.BundleDataSource_Length_ParamsSpec = {
 web_package.mojom.BundleDataSource_Length_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'web_package.mojom.BundleDataSource.Length_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'length', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
@@ -720,7 +720,7 @@ web_package.mojom.BundleDataSource_IsRandomAccessContext_ParamsSpec = {
 web_package.mojom.BundleDataSource_IsRandomAccessContext_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'web_package.mojom.BundleDataSource.IsRandomAccessContext_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_random_access', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

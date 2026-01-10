@@ -90,7 +90,7 @@ crosapi.mojom.Remoting_GetSupportHostDetails_ParamsSpec = {
 crosapi.mojom.Remoting_GetSupportHostDetails_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.Remoting.GetSupportHostDetails_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'host_details', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.SupportHostDetailsSpec, nullable: false, minVersion: 0 },
@@ -117,7 +117,7 @@ crosapi.mojom.Remoting_StartSupportSession_ParamsSpec = {
 crosapi.mojom.Remoting_StartSupportSession_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.Remoting.StartSupportSession_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: remoting.mojom.StartSupportSessionResponseSpec, nullable: false, minVersion: 0 },

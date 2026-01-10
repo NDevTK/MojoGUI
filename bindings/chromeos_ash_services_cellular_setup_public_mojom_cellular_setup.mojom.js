@@ -292,7 +292,7 @@ ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec = {
 ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cellular_setup.mojom.CellularSetup.StartActivation_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },

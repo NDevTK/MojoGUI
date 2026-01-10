@@ -100,7 +100,7 @@ blink.mojom.ShareService_Share_ParamsSpec = {
 blink.mojom.ShareService_Share_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ShareService.Share_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ShareErrorSpec, nullable: false, minVersion: 0 },

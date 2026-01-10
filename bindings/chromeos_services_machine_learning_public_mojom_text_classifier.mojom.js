@@ -223,7 +223,7 @@ chromeos.machine_learning.mojom.TextClassifier_Annotate_ParamsSpec = {
 chromeos.machine_learning.mojom.TextClassifier_Annotate_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.machine_learning.mojom.TextClassifier.Annotate_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'outputs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromeos.machine_learning.mojom.TextAnnotationSpec, false), nullable: false, minVersion: 0 },
@@ -250,7 +250,7 @@ chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ParamsSpec = {
 chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.machine_learning.mojom.TextClassifier.FindLanguages_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'outputs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromeos.machine_learning.mojom.TextLanguageSpec, false), nullable: false, minVersion: 0 },
@@ -277,7 +277,7 @@ chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ParamsSpec = {
 chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.machine_learning.mojom.TextClassifier.REMOVED_1_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'outputs', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.CodepointSpanSpec, nullable: false, minVersion: 0 },

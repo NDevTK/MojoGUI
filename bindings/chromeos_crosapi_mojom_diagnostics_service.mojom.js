@@ -516,7 +516,7 @@ crosapi.mojom.DiagnosticsService_GetAvailableRoutines_ParamsSpec = {
 crosapi.mojom.DiagnosticsService_GetAvailableRoutines_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.GetAvailableRoutines_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'available_routines', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(crosapi.mojom.DiagnosticsRoutineEnumSpec, false), nullable: false, minVersion: 0 },
@@ -545,7 +545,7 @@ crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ParamsSpec = {
 crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.GetRoutineUpdate_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'routine_update', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRoutineUpdateSpec, nullable: false, minVersion: 0 },
@@ -571,7 +571,7 @@ crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec = {
 crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.RunBatteryCapacityRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -597,7 +597,7 @@ crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ParamsSpec = {
 crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.RunBatteryHealthRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -624,7 +624,7 @@ crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec = {
 crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.RunSmartctlCheckRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -652,7 +652,7 @@ crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_ParamsSpec = {
 crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.RunAcPowerRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -679,7 +679,7 @@ crosapi.mojom.DiagnosticsService_RunCpuCacheRoutine_ParamsSpec = {
 crosapi.mojom.DiagnosticsService_RunCpuCacheRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.RunCpuCacheRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -706,7 +706,7 @@ crosapi.mojom.DiagnosticsService_RunCpuStressRoutine_ParamsSpec = {
 crosapi.mojom.DiagnosticsService_RunCpuStressRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.RunCpuStressRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -733,7 +733,7 @@ crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec = {
 crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.RunFloatingPointAccuracyRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -760,7 +760,7 @@ crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec =
 crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.DEPRECATED_RunNvmeWearLevelRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -787,7 +787,7 @@ crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec = {
 crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.RunNvmeSelfTestRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -816,7 +816,7 @@ crosapi.mojom.DiagnosticsService_RunDiskReadRoutine_ParamsSpec = {
 crosapi.mojom.DiagnosticsService_RunDiskReadRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.RunDiskReadRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -843,7 +843,7 @@ crosapi.mojom.DiagnosticsService_RunPrimeSearchRoutine_ParamsSpec = {
 crosapi.mojom.DiagnosticsService_RunPrimeSearchRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.RunPrimeSearchRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -871,7 +871,7 @@ crosapi.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec = {
 crosapi.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.RunBatteryDischargeRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -899,7 +899,7 @@ crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ParamsSpec = {
 crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.RunBatteryChargeRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -925,7 +925,7 @@ crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ParamsSpec = {
 crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.RunMemoryRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -951,7 +951,7 @@ crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ParamsSpec = {
 crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.RunLanConnectivityRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -977,7 +977,7 @@ crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ParamsSpec = {
 crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.RunDnsResolutionRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1003,7 +1003,7 @@ crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ParamsSpec = {
 crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.RunSignalStrengthRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1029,7 +1029,7 @@ crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec = {
 crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.RunGatewayCanBePingedRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1055,7 +1055,7 @@ crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec = {
 crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.RunDnsResolverPresentRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1081,7 +1081,7 @@ crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec = {
 crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.RunSensitiveSensorRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1107,7 +1107,7 @@ crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec = {
 crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.RunFingerprintAliveRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1133,7 +1133,7 @@ crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec = {
 crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.RunEmmcLifetimeRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1159,7 +1159,7 @@ crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec = {
 crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.RunBluetoothPowerRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1185,7 +1185,7 @@ crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec = {
 crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.RunUfsLifetimeRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1212,7 +1212,7 @@ crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ParamsSpec = {
 crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.RunPowerButtonRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1238,7 +1238,7 @@ crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ParamsSpec = {
 crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.RunAudioDriverRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1264,7 +1264,7 @@ crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec = {
 crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.RunBluetoothDiscoveryRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1291,7 +1291,7 @@ crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec = {
 crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.RunBluetoothScanningRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1318,7 +1318,7 @@ crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec = {
 crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.RunBluetoothPairingRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRunRoutineResponseSpec, nullable: false, minVersion: 0 },
@@ -1344,7 +1344,7 @@ crosapi.mojom.DiagnosticsService_RunFanRoutine_ParamsSpec = {
 crosapi.mojom.DiagnosticsService_RunFanRoutine_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DiagnosticsService.RunFanRoutine_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DiagnosticsRunRoutineResponseSpec, nullable: false, minVersion: 0 },

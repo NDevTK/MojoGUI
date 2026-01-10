@@ -132,7 +132,7 @@ arc.mojom.PolicyHost_GetPolicies_ParamsSpec = {
 arc.mojom.PolicyHost_GetPolicies_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.PolicyHost.GetPolicies_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'policies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -159,7 +159,7 @@ arc.mojom.PolicyHost_ReportCompliance_ParamsSpec = {
 arc.mojom.PolicyHost_ReportCompliance_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.PolicyHost.ReportCompliance_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -321,7 +321,7 @@ arc.mojom.PolicyInstance_OnCommandReceived_ParamsSpec = {
 arc.mojom.PolicyInstance_OnCommandReceived_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.PolicyInstance.OnCommandReceived_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.CommandResultTypeSpec, nullable: false, minVersion: 0 },

@@ -136,7 +136,7 @@ webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec = {
 webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'webnn.mojom.WebNNContextProvider.CreateWebNNContext_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.CreateContextResultSpec, nullable: false, minVersion: 0 },

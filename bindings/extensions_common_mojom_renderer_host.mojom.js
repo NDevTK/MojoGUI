@@ -162,7 +162,7 @@ extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec = {
 extensions.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'extensions.mojom.RendererHost.GetMessageBundle_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'message_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },

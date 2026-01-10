@@ -694,7 +694,7 @@ gpu.mojom.GpuChannel_GetChannelToken_ParamsSpec = {
 gpu.mojom.GpuChannel_GetChannelToken_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'gpu.mojom.GpuChannel.GetChannelToken_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'token', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
@@ -733,7 +733,7 @@ gpu.mojom.GpuChannel_GetSharedMemoryForFlushId_ParamsSpec = {
 gpu.mojom.GpuChannel_GetSharedMemoryForFlushId_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'gpu.mojom.GpuChannel.GetSharedMemoryForFlushId_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'version_buffer', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true, minVersion: 0 },
@@ -764,7 +764,7 @@ gpu.mojom.GpuChannel_CreateCommandBuffer_ParamsSpec = {
 gpu.mojom.GpuChannel_CreateCommandBuffer_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'gpu.mojom.GpuChannel.CreateCommandBuffer_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.ContextResultSpec, nullable: false, minVersion: 0 },
@@ -824,7 +824,7 @@ gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ParamsSpec = {
 gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'gpu.mojom.GpuChannel.CreateGpuMemoryBuffer_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'buffer_handle', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.GpuMemoryBufferHandleSpec, nullable: false, minVersion: 0 },
@@ -852,7 +852,7 @@ gpu.mojom.GpuChannel_CreateDCOMPTexture_ParamsSpec = {
 gpu.mojom.GpuChannel_CreateDCOMPTexture_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'gpu.mojom.GpuChannel.CreateDCOMPTexture_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -880,7 +880,7 @@ gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ParamsSpec = {
 gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'gpu.mojom.GpuChannel.RegisterOverlayStateObserver_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -909,7 +909,7 @@ gpu.mojom.GpuChannel_WaitForTokenInRange_ParamsSpec = {
 gpu.mojom.GpuChannel_WaitForTokenInRange_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'gpu.mojom.GpuChannel.WaitForTokenInRange_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.CommandBufferStateSpec, nullable: false, minVersion: 0 },
@@ -939,7 +939,7 @@ gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ParamsSpec = {
 gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'gpu.mojom.GpuChannel.WaitForGetOffsetInRange_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: gpu.mojom.CommandBufferStateSpec, nullable: false, minVersion: 0 },
@@ -986,7 +986,7 @@ gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ParamsSpec = {
 gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'gpu.mojom.GpuChannel.CopyToGpuMemoryBufferAsync_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1014,7 +1014,7 @@ gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ParamsSpec = {
 gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'gpu.mojom.GpuChannel.CopyNativeGmbToSharedMemoryAsync_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1191,7 +1191,7 @@ gpu.mojom.CommandBuffer_GetGpuFenceHandle_ParamsSpec = {
 gpu.mojom.CommandBuffer_GetGpuFenceHandle_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'gpu.mojom.CommandBuffer.GetGpuFenceHandle_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'fence_handle', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.GpuFenceHandleSpec, nullable: true, minVersion: 0 },
@@ -1523,7 +1523,7 @@ gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ParamsSpec = {
 gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'gpu.mojom.DCOMPTexture.SetDCOMPSurfaceHandle_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

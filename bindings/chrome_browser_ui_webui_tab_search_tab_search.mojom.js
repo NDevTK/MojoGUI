@@ -824,7 +824,7 @@ tab_search.mojom.PageHandler_GetProfileData_ParamsSpec = {
 tab_search.mojom.PageHandler_GetProfileData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'tab_search.mojom.PageHandler.GetProfileData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'profile_data', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.ProfileDataSpec, nullable: false, minVersion: 0 },
@@ -850,7 +850,7 @@ tab_search.mojom.PageHandler_GetUnusedTabs_ParamsSpec = {
 tab_search.mojom.PageHandler_GetUnusedTabs_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'tab_search.mojom.PageHandler.GetUnusedTabs_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'tabs', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.UnusedTabInfoSpec, nullable: false, minVersion: 0 },
@@ -876,7 +876,7 @@ tab_search.mojom.PageHandler_GetTabSearchSection_ParamsSpec = {
 tab_search.mojom.PageHandler_GetTabSearchSection_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'tab_search.mojom.PageHandler.GetTabSearchSection_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'section', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.TabSearchSectionSpec, nullable: false, minVersion: 0 },
@@ -902,7 +902,7 @@ tab_search.mojom.PageHandler_GetTabOrganizationFeature_ParamsSpec = {
 tab_search.mojom.PageHandler_GetTabOrganizationFeature_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'tab_search.mojom.PageHandler.GetTabOrganizationFeature_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'feature', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.TabOrganizationFeatureSpec, nullable: false, minVersion: 0 },
@@ -928,7 +928,7 @@ tab_search.mojom.PageHandler_GetTabOrganizationSession_ParamsSpec = {
 tab_search.mojom.PageHandler_GetTabOrganizationSession_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'tab_search.mojom.PageHandler.GetTabOrganizationSession_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'session', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.TabOrganizationSessionSpec, nullable: false, minVersion: 0 },
@@ -954,7 +954,7 @@ tab_search.mojom.PageHandler_GetTabOrganizationModelStrategy_ParamsSpec = {
 tab_search.mojom.PageHandler_GetTabOrganizationModelStrategy_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'tab_search.mojom.PageHandler.GetTabOrganizationModelStrategy_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'strategy', packedOffset: 0, packedBitOffset: 0, type: tab_search.mojom.TabOrganizationModelStrategySpec, nullable: false, minVersion: 0 },
@@ -980,7 +980,7 @@ tab_search.mojom.PageHandler_GetIsSplit_ParamsSpec = {
 tab_search.mojom.PageHandler_GetIsSplit_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'tab_search.mojom.PageHandler.GetIsSplit_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_split', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

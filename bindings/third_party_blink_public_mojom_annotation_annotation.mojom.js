@@ -318,7 +318,7 @@ blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ParamsSpec = {
 blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.AnnotationAgentContainer.CreateAgentFromSelection_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SelectorCreationResultSpec, nullable: true, minVersion: 0 },

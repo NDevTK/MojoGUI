@@ -485,7 +485,7 @@ arc.mojom.FileSystemHost_GetFileName_ParamsSpec = {
 arc.mojom.FileSystemHost_GetFileName_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.FileSystemHost.GetFileName_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -512,7 +512,7 @@ arc.mojom.FileSystemHost_GetFileSize_ParamsSpec = {
 arc.mojom.FileSystemHost_GetFileSize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.FileSystemHost.GetFileSize_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
@@ -539,7 +539,7 @@ arc.mojom.FileSystemHost_GetLastModified_ParamsSpec = {
 arc.mojom.FileSystemHost_GetLastModified_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.FileSystemHost.GetLastModified_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'last_modified', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true, minVersion: 0 },
@@ -566,7 +566,7 @@ arc.mojom.FileSystemHost_GetFileType_ParamsSpec = {
 arc.mojom.FileSystemHost_GetFileType_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.FileSystemHost.GetFileType_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -621,7 +621,7 @@ arc.mojom.FileSystemHost_GetVirtualFileId_ParamsSpec = {
 arc.mojom.FileSystemHost_GetVirtualFileId_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.FileSystemHost.GetVirtualFileId_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -648,7 +648,7 @@ arc.mojom.FileSystemHost_HandleIdReleased_ParamsSpec = {
 arc.mojom.FileSystemHost_HandleIdReleased_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.FileSystemHost.HandleIdReleased_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -675,7 +675,7 @@ arc.mojom.FileSystemHost_OpenFileToRead_ParamsSpec = {
 arc.mojom.FileSystemHost_OpenFileToRead_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.FileSystemHost.OpenFileToRead_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: true, minVersion: 0 },
@@ -702,7 +702,7 @@ arc.mojom.FileSystemHost_SelectFiles_ParamsSpec = {
 arc.mojom.FileSystemHost_SelectFiles_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.FileSystemHost.SelectFiles_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.SelectFilesResultSpec, nullable: false, minVersion: 0 },
@@ -743,7 +743,7 @@ arc.mojom.FileSystemHost_GetFileSelectorElements_ParamsSpec = {
 arc.mojom.FileSystemHost_GetFileSelectorElements_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.FileSystemHost.GetFileSelectorElements_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'elements', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.FileSelectorElementsSpec, nullable: false, minVersion: 0 },
@@ -786,7 +786,7 @@ arc.mojom.FileSystemHost_CreateMoniker_ParamsSpec = {
 arc.mojom.FileSystemHost_CreateMoniker_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.FileSystemHost.CreateMoniker_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'moniker', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TokenSpec, nullable: true, minVersion: 0 },
@@ -813,7 +813,7 @@ arc.mojom.FileSystemHost_DestroyMoniker_ParamsSpec = {
 arc.mojom.FileSystemHost_DestroyMoniker_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.FileSystemHost.DestroyMoniker_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1100,7 +1100,7 @@ arc.mojom.FileSystemInstance_AddWatcher_ParamsSpec = {
 arc.mojom.FileSystemInstance_AddWatcher_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.FileSystemInstance.AddWatcher_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'watcher_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
@@ -1128,7 +1128,7 @@ arc.mojom.FileSystemInstance_GetChildDocuments_ParamsSpec = {
 arc.mojom.FileSystemInstance_GetChildDocuments_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.FileSystemInstance.GetChildDocuments_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'documents', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.DocumentSpec, false), nullable: true, minVersion: 0 },
@@ -1156,7 +1156,7 @@ arc.mojom.FileSystemInstance_GetDocument_ParamsSpec = {
 arc.mojom.FileSystemInstance_GetDocument_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.FileSystemInstance.GetDocument_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'document', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.DocumentSpec, nullable: true, minVersion: 0 },
@@ -1183,7 +1183,7 @@ arc.mojom.FileSystemInstance_GetFileSize_ParamsSpec = {
 arc.mojom.FileSystemInstance_GetFileSize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.FileSystemInstance.GetFileSize_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
@@ -1210,7 +1210,7 @@ arc.mojom.FileSystemInstance_GetMimeType_ParamsSpec = {
 arc.mojom.FileSystemInstance_GetMimeType_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.FileSystemInstance.GetMimeType_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'mime_type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -1238,7 +1238,7 @@ arc.mojom.FileSystemInstance_GetRecentDocuments_ParamsSpec = {
 arc.mojom.FileSystemInstance_GetRecentDocuments_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.FileSystemInstance.GetRecentDocuments_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'documents', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.DocumentSpec, false), nullable: true, minVersion: 0 },
@@ -1264,7 +1264,7 @@ arc.mojom.FileSystemInstance_GetRoots_ParamsSpec = {
 arc.mojom.FileSystemInstance_GetRoots_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.FileSystemInstance.GetRoots_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'roots', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.RootSpec, false), nullable: true, minVersion: 0 },
@@ -1292,7 +1292,7 @@ arc.mojom.FileSystemInstance_GetRootSize_ParamsSpec = {
 arc.mojom.FileSystemInstance_GetRootSize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.FileSystemInstance.GetRootSize_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'root_size', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.RootSizeSpec, nullable: true, minVersion: 0 },
@@ -1320,7 +1320,7 @@ arc.mojom.FileSystemInstance_DeleteDocument_ParamsSpec = {
 arc.mojom.FileSystemInstance_DeleteDocument_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.FileSystemInstance.DeleteDocument_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1349,7 +1349,7 @@ arc.mojom.FileSystemInstance_RenameDocument_ParamsSpec = {
 arc.mojom.FileSystemInstance_RenameDocument_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.FileSystemInstance.RenameDocument_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'document', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.DocumentSpec, nullable: true, minVersion: 0 },
@@ -1379,7 +1379,7 @@ arc.mojom.FileSystemInstance_CreateDocument_ParamsSpec = {
 arc.mojom.FileSystemInstance_CreateDocument_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.FileSystemInstance.CreateDocument_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'document', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.DocumentSpec, nullable: true, minVersion: 0 },
@@ -1408,7 +1408,7 @@ arc.mojom.FileSystemInstance_CopyDocument_ParamsSpec = {
 arc.mojom.FileSystemInstance_CopyDocument_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.FileSystemInstance.CopyDocument_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'document', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.DocumentSpec, nullable: true, minVersion: 0 },
@@ -1438,7 +1438,7 @@ arc.mojom.FileSystemInstance_MoveDocument_ParamsSpec = {
 arc.mojom.FileSystemInstance_MoveDocument_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.FileSystemInstance.MoveDocument_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'document', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.DocumentSpec, nullable: true, minVersion: 0 },
@@ -1480,7 +1480,7 @@ arc.mojom.FileSystemInstance_OpenThumbnail_ParamsSpec = {
 arc.mojom.FileSystemInstance_OpenThumbnail_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.FileSystemInstance.OpenThumbnail_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Handle, nullable: true, minVersion: 0 },
@@ -1522,7 +1522,7 @@ arc.mojom.FileSystemInstance_OpenFileSessionToWrite_ParamsSpec = {
 arc.mojom.FileSystemInstance_OpenFileSessionToWrite_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.FileSystemInstance.OpenFileSessionToWrite_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'file_session', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.FileSessionSpec, nullable: true, minVersion: 0 },
@@ -1549,7 +1549,7 @@ arc.mojom.FileSystemInstance_OpenFileSessionToRead_ParamsSpec = {
 arc.mojom.FileSystemInstance_OpenFileSessionToRead_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.FileSystemInstance.OpenFileSessionToRead_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'file_session', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.FileSessionSpec, nullable: true, minVersion: 0 },
@@ -1576,7 +1576,7 @@ arc.mojom.FileSystemInstance_RemoveWatcher_ParamsSpec = {
 arc.mojom.FileSystemInstance_RemoveWatcher_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.FileSystemInstance.RemoveWatcher_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

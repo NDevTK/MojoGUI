@@ -303,7 +303,7 @@ storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec = {
 storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'storage.mojom.IndexedDBControl.DownloadBucketData_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -331,7 +331,7 @@ storage.mojom.IndexedDBControl_GetAllBucketsDetails_ParamsSpec = {
 storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'storage.mojom.IndexedDBControl.GetAllBucketsDetails_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'incognito', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -373,7 +373,7 @@ storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec = {
 storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'storage.mojom.IndexedDBControl.StopMetadataRecording_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.IdbBucketMetadataSpec, false), nullable: false, minVersion: 0 },

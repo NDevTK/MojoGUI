@@ -177,7 +177,7 @@ blink.mojom.ServiceWorkerContainerHost_Register_ParamsSpec = {
 blink.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorkerContainerHost.Register_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerErrorTypeSpec, nullable: false, minVersion: 0 },
@@ -206,7 +206,7 @@ blink.mojom.ServiceWorkerContainerHost_GetRegistration_ParamsSpec = {
 blink.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorkerContainerHost.GetRegistration_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerErrorTypeSpec, nullable: false, minVersion: 0 },
@@ -234,7 +234,7 @@ blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ParamsSpec = {
 blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorkerContainerHost.GetRegistrations_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerErrorTypeSpec, nullable: false, minVersion: 0 },
@@ -262,7 +262,7 @@ blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ParamsSpec = {
 blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorkerContainerHost.GetRegistrationForReady_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'registration', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerRegistrationObjectInfoSpec, nullable: true, minVersion: 0 },

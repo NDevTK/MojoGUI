@@ -113,7 +113,7 @@ network.mojom.NetLogExporter_Start_ParamsSpec = {
 network.mojom.NetLogExporter_Start_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetLogExporter.Start_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -140,7 +140,7 @@ network.mojom.NetLogExporter_Stop_ParamsSpec = {
 network.mojom.NetLogExporter_Stop_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetLogExporter.Stop_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'net_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },

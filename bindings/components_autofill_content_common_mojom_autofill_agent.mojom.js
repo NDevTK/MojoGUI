@@ -229,7 +229,7 @@ autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ParamsSpec = {
 autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'autofill.mojom.AutofillAgent.TriggerFormExtractionWithResponse_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -291,7 +291,7 @@ autofill.mojom.AutofillAgent_ExtractFormWithField_ParamsSpec = {
 autofill.mojom.AutofillAgent_ExtractFormWithField_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'autofill.mojom.AutofillAgent.ExtractFormWithField_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'form', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: true, minVersion: 0 },
@@ -320,7 +320,7 @@ autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ParamsSpec = {
 autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'autofill.mojom.AutofillAgent.ExtractLabeledTextNodeValue_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -460,7 +460,7 @@ autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_Pa
 autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'autofill.mojom.AutofillAgent.GetPotentialLastFourCombinationsForStandaloneCvc_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'potential_matches', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
@@ -686,7 +686,7 @@ autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ParamsSpec = {
 autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'autofill.mojom.PasswordAutofillAgent.FillPasswordSuggestion_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -794,7 +794,7 @@ autofill.mojom.PasswordAutofillAgent_FillField_ParamsSpec = {
 autofill.mojom.PasswordAutofillAgent_FillField_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'autofill.mojom.PasswordAutofillAgent.FillField_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -825,7 +825,7 @@ autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ParamsSpec = {
 autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'autofill.mojom.PasswordAutofillAgent.FillChangePasswordForm_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'form_data', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.FormDataSpec, nullable: true, minVersion: 0 },
@@ -893,7 +893,7 @@ autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ParamsSpec = {
 autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'autofill.mojom.PasswordAutofillAgent.CheckViewAreaVisible_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1043,7 +1043,7 @@ autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ParamsSpec = {
 autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'autofill.mojom.PasswordGenerationAgent.TriggeredGeneratePassword_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: autofill.mojom.PasswordGenerationUIDataSpec, nullable: true, minVersion: 0 },

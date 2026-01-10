@@ -81,7 +81,7 @@ network.mojom.DhcpWpadUrlClient_GetPacUrl_ParamsSpec = {
 network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.DhcpWpadUrlClient.GetPacUrl_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigStringSpec, nullable: false, minVersion: 0 },

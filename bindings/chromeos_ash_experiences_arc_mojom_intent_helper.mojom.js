@@ -748,7 +748,7 @@ arc.mojom.IntentHelperHost_OnOpenCustomTab_ParamsSpec = {
 arc.mojom.IntentHelperHost_OnOpenCustomTab_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.IntentHelperHost.OnOpenCustomTab_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
@@ -889,7 +889,7 @@ arc.mojom.IntentHelperHost_IsChromeAppEnabled_ParamsSpec = {
 arc.mojom.IntentHelperHost_IsChromeAppEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.IntentHelperHost.IsChromeAppEnabled_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1289,7 +1289,7 @@ arc.mojom.IntentHelperInstance_RequestActivityIcons_ParamsSpec = {
 arc.mojom.IntentHelperInstance_RequestActivityIcons_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.IntentHelperInstance.RequestActivityIcons_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'icons', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.ActivityIconSpec, false), nullable: false, minVersion: 0 },
@@ -1316,7 +1316,7 @@ arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ParamsSpec = {
 arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.IntentHelperInstance.RequestIntentHandlerList_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'handlers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.IntentHandlerInfoSpec, false), nullable: false, minVersion: 0 },
@@ -1343,7 +1343,7 @@ arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ParamsSpec = {
 arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.IntentHelperInstance.RequestUrlHandlerList_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'handlers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.IntentHandlerInfoSpec, false), nullable: false, minVersion: 0 },
@@ -1370,7 +1370,7 @@ arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ParamsSpec = {
 arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.IntentHelperInstance.RequestUrlListHandlerList_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'handlers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.IntentHandlerInfoSpec, false), nullable: false, minVersion: 0 },
@@ -1415,7 +1415,7 @@ arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ParamsSpec = {
 arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.IntentHelperInstance.RequestTextSelectionActions_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'actions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.TextSelectionActionSpec, false), nullable: false, minVersion: 0 },
@@ -1444,7 +1444,7 @@ arc.mojom.IntentHelperInstance_HandleCameraResult_ParamsSpec = {
 arc.mojom.IntentHelperInstance_HandleCameraResult_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.IntentHelperInstance.HandleCameraResult_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

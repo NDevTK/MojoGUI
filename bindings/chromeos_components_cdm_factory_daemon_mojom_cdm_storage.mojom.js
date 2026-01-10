@@ -119,7 +119,7 @@ chromeos.cdm.mojom.CdmStorage_Read_ParamsSpec = {
 chromeos.cdm.mojom.CdmStorage_Read_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.cdm.mojom.CdmStorage.Read_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -148,7 +148,7 @@ chromeos.cdm.mojom.CdmStorage_Write_ParamsSpec = {
 chromeos.cdm.mojom.CdmStorage_Write_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.cdm.mojom.CdmStorage.Write_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -175,7 +175,7 @@ chromeos.cdm.mojom.CdmStorage_Exists_ParamsSpec = {
 chromeos.cdm.mojom.CdmStorage_Exists_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.cdm.mojom.CdmStorage.Exists_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -202,7 +202,7 @@ chromeos.cdm.mojom.CdmStorage_GetSize_ParamsSpec = {
 chromeos.cdm.mojom.CdmStorage_GetSize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.cdm.mojom.CdmStorage.GetSize_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -230,7 +230,7 @@ chromeos.cdm.mojom.CdmStorage_Remove_ParamsSpec = {
 chromeos.cdm.mojom.CdmStorage_Remove_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.cdm.mojom.CdmStorage.Remove_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

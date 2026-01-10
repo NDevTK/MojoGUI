@@ -126,7 +126,7 @@ arc.mojom.MemoryInstance_DropCaches_ParamsSpec = {
 arc.mojom.MemoryInstance_DropCaches_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.MemoryInstance.DropCaches_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -153,7 +153,7 @@ arc.mojom.MemoryInstance_Reclaim_ParamsSpec = {
 arc.mojom.MemoryInstance_Reclaim_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.MemoryInstance.Reclaim_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ReclaimResultSpec, nullable: false, minVersion: 0 },

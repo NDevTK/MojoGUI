@@ -215,7 +215,7 @@ ash.help_app.mojom.SearchHandler_Search_ParamsSpec = {
 ash.help_app.mojom.SearchHandler_Search_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.help_app.mojom.SearchHandler.Search_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.help_app.mojom.SearchResultSpec, false), nullable: false, minVersion: 0 },

@@ -204,7 +204,7 @@ video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec = {
 video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'video_capture.mojom.PushVideoStreamSubscription.GetPhotoState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PhotoStateSpec, nullable: true, minVersion: 0 },
@@ -231,7 +231,7 @@ video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec = {
 video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'video_capture.mojom.PushVideoStreamSubscription.SetPhotoOptions_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -257,7 +257,7 @@ video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec = {
 video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'video_capture.mojom.PushVideoStreamSubscription.TakePhoto_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: media.mojom.BlobSpec, nullable: true, minVersion: 0 },
@@ -375,7 +375,7 @@ video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec = {
 video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'video_capture.mojom.VideoSource.CreatePushSubscription_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: video_capture.mojom.CreatePushSubscriptionResultCodeSpec, nullable: false, minVersion: 0 },

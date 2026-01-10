@@ -183,7 +183,7 @@ ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec = {
 ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.shortcut_customization.mojom.SearchHandler.Search_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.shortcut_customization.mojom.SearchResultSpec, false), nullable: false, minVersion: 0 },

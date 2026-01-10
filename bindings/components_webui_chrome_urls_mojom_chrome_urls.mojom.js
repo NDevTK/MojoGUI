@@ -198,7 +198,7 @@ chrome_urls.mojom.PageHandler_GetUrls_ParamsSpec = {
 chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome_urls.mojom.PageHandler.GetUrls_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'urls_data', packedOffset: 0, packedBitOffset: 0, type: chrome_urls.mojom.ChromeUrlsDataSpec, nullable: false, minVersion: 0 },

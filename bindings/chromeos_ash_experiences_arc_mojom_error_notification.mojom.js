@@ -106,7 +106,7 @@ arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec = {
 arc.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.ErrorNotificationHost.SendErrorDetails_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'item', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },

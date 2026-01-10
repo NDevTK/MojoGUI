@@ -149,7 +149,7 @@ chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ParamsSpec = {
 chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.cfm.mojom.CfmBrowser.GetVariationsData_ResponseParams',
       packedSize: 40,
       fields: [
         { name: 'field_trial_parameters', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -178,7 +178,7 @@ chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ParamsSpec = {
 chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.cfm.mojom.CfmBrowser.GetMemoryDetails_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'process_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromeos.cfm.mojom.ProcessDataSpec, false), nullable: false, minVersion: 0 },

@@ -82,7 +82,7 @@ quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec = {
 quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'quick_answers.mojom.SpellCheckService.CreateDictionary_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'dictionary', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
@@ -170,7 +170,7 @@ quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ParamsSpec = {
 quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'quick_answers.mojom.SpellCheckDictionary.CheckSpelling_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'correctness', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

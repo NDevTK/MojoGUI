@@ -246,7 +246,7 @@ ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec = 
 ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.diagnostics.mojom.SystemRoutineController.GetSupportedRoutines_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'routines', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.diagnostics.mojom.RoutineTypeSpec, false), nullable: false, minVersion: 0 },

@@ -909,7 +909,7 @@ blink.mojom.IDBCursor_Advance_ParamsSpec = {
 blink.mojom.IDBCursor_Advance_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.IDBCursor.Advance_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IDBCursorResultSpec, nullable: false, minVersion: 0 },
@@ -937,7 +937,7 @@ blink.mojom.IDBCursor_Continue_ParamsSpec = {
 blink.mojom.IDBCursor_Continue_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.IDBCursor.Continue_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IDBCursorResultSpec, nullable: false, minVersion: 0 },
@@ -964,7 +964,7 @@ blink.mojom.IDBCursor_Prefetch_ParamsSpec = {
 blink.mojom.IDBCursor_Prefetch_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.IDBCursor.Prefetch_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IDBCursorResultSpec, nullable: false, minVersion: 0 },
@@ -1146,7 +1146,7 @@ blink.mojom.IDBTransaction_Put_ParamsSpec = {
 blink.mojom.IDBTransaction_Put_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.IDBTransaction.Put_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IDBTransactionPutResultSpec, nullable: false, minVersion: 0 },
@@ -1562,7 +1562,7 @@ blink.mojom.IDBDatabase_Get_ParamsSpec = {
 blink.mojom.IDBDatabase_Get_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.IDBDatabase.Get_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IDBDatabaseGetResultSpec, nullable: false, minVersion: 0 },
@@ -1595,7 +1595,7 @@ blink.mojom.IDBDatabase_GetAll_ParamsSpec = {
 blink.mojom.IDBDatabase_GetAll_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.IDBDatabase.GetAll_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'receiver', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.AssociatedInterfaceRequest, nullable: false, minVersion: 0 },
@@ -1628,7 +1628,7 @@ blink.mojom.IDBDatabase_OpenCursor_ParamsSpec = {
 blink.mojom.IDBDatabase_OpenCursor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.IDBDatabase.OpenCursor_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.IDBDatabaseOpenCursorResultSpec, nullable: false, minVersion: 0 },
@@ -1658,7 +1658,7 @@ blink.mojom.IDBDatabase_Count_ParamsSpec = {
 blink.mojom.IDBDatabase_Count_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.IDBDatabase.Count_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1688,7 +1688,7 @@ blink.mojom.IDBDatabase_DeleteRange_ParamsSpec = {
 blink.mojom.IDBDatabase_DeleteRange_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.IDBDatabase.DeleteRange_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1716,7 +1716,7 @@ blink.mojom.IDBDatabase_GetKeyGeneratorCurrentNumber_ParamsSpec = {
 blink.mojom.IDBDatabase_GetKeyGeneratorCurrentNumber_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.IDBDatabase.GetKeyGeneratorCurrentNumber_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
@@ -1745,7 +1745,7 @@ blink.mojom.IDBDatabase_Clear_ParamsSpec = {
 blink.mojom.IDBDatabase_Clear_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.IDBDatabase.Clear_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1940,7 +1940,7 @@ blink.mojom.IDBFactory_GetDatabaseInfo_ParamsSpec = {
 blink.mojom.IDBFactory_GetDatabaseInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.IDBFactory.GetDatabaseInfo_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'names_and_versions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.IDBNameAndVersionSpec, false), nullable: false, minVersion: 0 },

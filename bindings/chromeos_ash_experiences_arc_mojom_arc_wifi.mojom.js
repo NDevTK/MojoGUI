@@ -126,7 +126,7 @@ arc.mojom.ArcWifiHost_GetWifiEnabledState_ParamsSpec = {
 arc.mojom.ArcWifiHost_GetWifiEnabledState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.ArcWifiHost.GetWifiEnabledState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -153,7 +153,7 @@ arc.mojom.ArcWifiHost_SetWifiEnabledState_ParamsSpec = {
 arc.mojom.ArcWifiHost_SetWifiEnabledState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.ArcWifiHost.SetWifiEnabledState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'enabled_state', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -192,7 +192,7 @@ arc.mojom.ArcWifiHost_GetScanResults_ParamsSpec = {
 arc.mojom.ArcWifiHost_GetScanResults_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.ArcWifiHost.GetScanResults_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.WifiScanResultSpec, false), nullable: false, minVersion: 0 },

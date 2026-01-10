@@ -798,7 +798,7 @@ blink.mojom.Authenticator_MakeCredential_ParamsSpec = {
 blink.mojom.Authenticator_MakeCredential_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.Authenticator.MakeCredential_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AuthenticatorStatusSpec, nullable: false, minVersion: 0 },
@@ -827,7 +827,7 @@ blink.mojom.Authenticator_GetCredential_ParamsSpec = {
 blink.mojom.Authenticator_GetCredential_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.Authenticator.GetCredential_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.GetCredentialResponseSpec, nullable: false, minVersion: 0 },
@@ -853,7 +853,7 @@ blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSp
 blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.Authenticator.IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -879,7 +879,7 @@ blink.mojom.Authenticator_IsConditionalMediationAvailable_ParamsSpec = {
 blink.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.Authenticator.IsConditionalMediationAvailable_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -906,7 +906,7 @@ blink.mojom.Authenticator_Report_ParamsSpec = {
 blink.mojom.Authenticator_Report_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.Authenticator.Report_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AuthenticatorStatusSpec, nullable: false, minVersion: 0 },
@@ -933,7 +933,7 @@ blink.mojom.Authenticator_GetClientCapabilities_ParamsSpec = {
 blink.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.Authenticator.GetClientCapabilities_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.WebAuthnClientCapabilitySpec, false), nullable: false, minVersion: 0 },

@@ -337,7 +337,7 @@ blink.mojom.StorageArea_Put_ParamsSpec = {
 blink.mojom.StorageArea_Put_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.StorageArea.Put_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -366,7 +366,7 @@ blink.mojom.StorageArea_Delete_ParamsSpec = {
 blink.mojom.StorageArea_Delete_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.StorageArea.Delete_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -394,7 +394,7 @@ blink.mojom.StorageArea_DeleteAll_ParamsSpec = {
 blink.mojom.StorageArea_DeleteAll_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.StorageArea.DeleteAll_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -421,7 +421,7 @@ blink.mojom.StorageArea_Get_ParamsSpec = {
 blink.mojom.StorageArea_Get_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.StorageArea.Get_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -449,7 +449,7 @@ blink.mojom.StorageArea_GetAll_ParamsSpec = {
 blink.mojom.StorageArea_GetAll_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.StorageArea.GetAll_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.KeyValueSpec, false), nullable: false, minVersion: 0 },

@@ -169,7 +169,7 @@ ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ParamsSpec = {
 ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.media_app_ui.mojom.UntrustedServiceFactory.IsMantisAvailable_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -197,7 +197,7 @@ ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_Para
 ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.media_app_ui.mojom.UntrustedServiceFactory.CreateMantisUntrustedService_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.media_app_ui.mojom.MantisUntrustedServiceResultSpec, nullable: false, minVersion: 0 },
@@ -425,7 +425,7 @@ ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ParamsSpec = {
 ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.media_app_ui.mojom.OcrUntrustedPage.RequestBitmap_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'page', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
@@ -706,7 +706,7 @@ ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ParamsSpec = {
 ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.media_app_ui.mojom.MahiUntrustedPage.GetPdfContent_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'content', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -840,7 +840,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ParamsSpec = {
 ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.media_app_ui.mojom.MantisUntrustedService.SegmentImage_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.MantisResultSpec, nullable: false, minVersion: 0 },
@@ -870,7 +870,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ParamsSpec = {
 ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.media_app_ui.mojom.MantisUntrustedService.GenerativeFillImage_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.MantisResultSpec, nullable: false, minVersion: 0 },
@@ -899,7 +899,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ParamsSpec = {
 ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.media_app_ui.mojom.MantisUntrustedService.InpaintImage_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.MantisResultSpec, nullable: false, minVersion: 0 },
@@ -928,7 +928,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ParamsSpec = {
 ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.media_app_ui.mojom.MantisUntrustedService.OutpaintImage_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.MantisResultSpec, nullable: false, minVersion: 0 },
@@ -955,7 +955,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ParamsSpec = {
 ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.media_app_ui.mojom.MantisUntrustedService.ClassifyImageSafety_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'verdict', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.SafetyClassifierVerdictSpec, nullable: false, minVersion: 0 },
@@ -982,7 +982,7 @@ ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ParamsSpec =
 ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.media_app_ui.mojom.MantisUntrustedService.InferSegmentationMode_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'mode', packedOffset: 0, packedBitOffset: 0, type: mantis.mojom.SegmentationModeSpec, nullable: false, minVersion: 0 },

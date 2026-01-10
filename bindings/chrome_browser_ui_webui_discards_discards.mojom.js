@@ -280,7 +280,7 @@ discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec = {
 discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'discards.mojom.DetailsProvider.GetTabDiscardsInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'infos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(discards.mojom.TabDiscardsInfoSpec, false), nullable: false, minVersion: 0 },
@@ -770,7 +770,7 @@ discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec = {
 discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'discards.mojom.GraphDump.RequestNodeDescriptions_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'node_descriptions_json', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int64, mojo.internal.String, false), nullable: false, minVersion: 0 },

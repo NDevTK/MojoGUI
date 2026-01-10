@@ -572,7 +572,7 @@ crosapi.mojom.DocumentScan_OpenScanner_ParamsSpec = {
 crosapi.mojom.DocumentScan_OpenScanner_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DocumentScan.OpenScanner_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.OpenScannerResponseSpec, nullable: false, minVersion: 0 },
@@ -599,7 +599,7 @@ crosapi.mojom.DocumentScan_CloseScanner_ParamsSpec = {
 crosapi.mojom.DocumentScan_CloseScanner_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DocumentScan.CloseScanner_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.CloseScannerResponseSpec, nullable: false, minVersion: 0 },
@@ -627,7 +627,7 @@ crosapi.mojom.DocumentScan_StartPreparedScan_ParamsSpec = {
 crosapi.mojom.DocumentScan_StartPreparedScan_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DocumentScan.StartPreparedScan_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.StartPreparedScanResponseSpec, nullable: false, minVersion: 0 },
@@ -654,7 +654,7 @@ crosapi.mojom.DocumentScan_ReadScanData_ParamsSpec = {
 crosapi.mojom.DocumentScan_ReadScanData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DocumentScan.ReadScanData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.ReadScanDataResponseSpec, nullable: false, minVersion: 0 },
@@ -682,7 +682,7 @@ crosapi.mojom.DocumentScan_SetOptions_ParamsSpec = {
 crosapi.mojom.DocumentScan_SetOptions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DocumentScan.SetOptions_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.SetOptionsResponseSpec, nullable: false, minVersion: 0 },
@@ -709,7 +709,7 @@ crosapi.mojom.DocumentScan_GetOptionGroups_ParamsSpec = {
 crosapi.mojom.DocumentScan_GetOptionGroups_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DocumentScan.GetOptionGroups_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.GetOptionGroupsResponseSpec, nullable: false, minVersion: 0 },
@@ -736,7 +736,7 @@ crosapi.mojom.DocumentScan_CancelScan_ParamsSpec = {
 crosapi.mojom.DocumentScan_CancelScan_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.DocumentScan.CancelScan_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.CancelScanResponseSpec, nullable: false, minVersion: 0 },

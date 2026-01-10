@@ -82,7 +82,7 @@ pdf.mojom.Ocr_PerformOcr_ParamsSpec = {
 pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'pdf.mojom.Ocr.PerformOcr_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'visual_annotation', packedOffset: 0, packedBitOffset: 0, type: screen_ai.mojom.VisualAnnotationSpec, nullable: false, minVersion: 0 },

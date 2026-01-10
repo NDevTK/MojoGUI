@@ -364,7 +364,7 @@ updater.mojom.UpdateService_GetVersion_ParamsSpec = {
 updater.mojom.UpdateService_GetVersion_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'updater.mojom.UpdateService.GetVersion_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -391,7 +391,7 @@ updater.mojom.UpdateService_FetchPolicies_ParamsSpec = {
 updater.mojom.UpdateService_FetchPolicies_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'updater.mojom.UpdateService.FetchPolicies_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -418,7 +418,7 @@ updater.mojom.UpdateService_RegisterApp_ParamsSpec = {
 updater.mojom.UpdateService_RegisterApp_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'updater.mojom.UpdateService.RegisterApp_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -444,7 +444,7 @@ updater.mojom.UpdateService_GetAppStates_ParamsSpec = {
 updater.mojom.UpdateService_GetAppStates_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'updater.mojom.UpdateService.GetAppStates_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'app_states', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(updater.mojom.AppStateSpec, false), nullable: false, minVersion: 0 },
@@ -483,7 +483,7 @@ updater.mojom.UpdateService_UpdateAll_ParamsSpec = {
 updater.mojom.UpdateService_UpdateAll_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'updater.mojom.UpdateService.UpdateAll_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
@@ -515,7 +515,7 @@ updater.mojom.UpdateService_Update_ParamsSpec = {
 updater.mojom.UpdateService_Update_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'updater.mojom.UpdateService.Update_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
@@ -546,7 +546,7 @@ updater.mojom.UpdateService_Install_ParamsSpec = {
 updater.mojom.UpdateService_Install_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'updater.mojom.UpdateService.Install_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
@@ -592,7 +592,7 @@ updater.mojom.UpdateService_RunInstaller_ParamsSpec = {
 updater.mojom.UpdateService_RunInstaller_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'updater.mojom.UpdateService.RunInstaller_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
@@ -622,7 +622,7 @@ updater.mojom.UpdateService_CheckForUpdate_ParamsSpec = {
 updater.mojom.UpdateService_CheckForUpdate_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'updater.mojom.UpdateService.CheckForUpdate_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceRequest, nullable: false, minVersion: 0 },
@@ -648,7 +648,7 @@ updater.mojom.UpdateService_GetUpdaterState_ParamsSpec = {
 updater.mojom.UpdateService_GetUpdaterState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'updater.mojom.UpdateService.GetUpdaterState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'updater_state', packedOffset: 0, packedBitOffset: 0, type: updater.mojom.UpdaterStateSpec, nullable: false, minVersion: 0 },
@@ -674,7 +674,7 @@ updater.mojom.UpdateService_GetUpdaterPolicies_ParamsSpec = {
 updater.mojom.UpdateService_GetUpdaterPolicies_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'updater.mojom.UpdateService.GetUpdaterPolicies_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'updater_policies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, updater.mojom.PolicyValueSpec, false), nullable: false, minVersion: 0 },
@@ -700,7 +700,7 @@ updater.mojom.UpdateService_GetAppPolicies_ParamsSpec = {
 updater.mojom.UpdateService_GetAppPolicies_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'updater.mojom.UpdateService.GetAppPolicies_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'app_policies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.Map(mojo.internal.String, updater.mojom.PolicyValueSpec, false), false), nullable: false, minVersion: 0 },

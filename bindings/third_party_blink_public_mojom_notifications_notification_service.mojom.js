@@ -252,7 +252,7 @@ blink.mojom.NotificationService_GetPermissionStatus_ParamsSpec = {
 blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.NotificationService.GetPermissionStatus_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false, minVersion: 0 },
@@ -312,7 +312,7 @@ blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec = {
 blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.NotificationService.DisplayPersistentNotification_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PersistentNotificationErrorSpec, nullable: false, minVersion: 0 },
@@ -355,7 +355,7 @@ blink.mojom.NotificationService_GetNotifications_ParamsSpec = {
 blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.NotificationService.GetNotifications_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'notification_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },

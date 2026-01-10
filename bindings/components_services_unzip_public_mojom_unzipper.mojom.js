@@ -114,7 +114,7 @@ unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec = {
 unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'unzip.mojom.UnzipFilter.ShouldUnzipFile_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -308,7 +308,7 @@ unzip.mojom.Unzipper_Unzip_ParamsSpec = {
 unzip.mojom.Unzipper_Unzip_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'unzip.mojom.Unzipper.Unzip_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -335,7 +335,7 @@ unzip.mojom.Unzipper_DetectEncoding_ParamsSpec = {
 unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'unzip.mojom.Unzipper.DetectEncoding_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'encoding', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -362,7 +362,7 @@ unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec = {
 unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'unzip.mojom.Unzipper.GetExtractedInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: unzip.mojom.InfoSpec, nullable: false, minVersion: 0 },
@@ -390,7 +390,7 @@ unzip.mojom.Unzipper_DecodeXz_ParamsSpec = {
 unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'unzip.mojom.Unzipper.DecodeXz_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

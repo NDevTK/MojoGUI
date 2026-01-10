@@ -385,7 +385,7 @@ media.mojom.MediaPlayer_RequestVisibility_ParamsSpec = {
 media.mojom.MediaPlayer_RequestVisibility_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.MediaPlayer.RequestVisibility_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'has_sufficiently_visible_video', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -486,7 +486,7 @@ media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ParamsSpec = {
 media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.MediaPlayerObserverClient.GetHasPlayedBefore_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'has_played_before', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

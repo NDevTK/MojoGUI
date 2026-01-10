@@ -169,7 +169,7 @@ blink.mojom.SerialService_GetPorts_ParamsSpec = {
 blink.mojom.SerialService_GetPorts_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.SerialService.GetPorts_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'ports', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.SerialPortInfoSpec, false), nullable: false, minVersion: 0 },
@@ -197,7 +197,7 @@ blink.mojom.SerialService_RequestPort_ParamsSpec = {
 blink.mojom.SerialService_RequestPort_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.SerialService.RequestPort_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'port', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SerialPortInfoSpec, nullable: true, minVersion: 0 },
@@ -226,7 +226,7 @@ blink.mojom.SerialService_OpenPort_ParamsSpec = {
 blink.mojom.SerialService_OpenPort_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.SerialService.OpenPort_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },

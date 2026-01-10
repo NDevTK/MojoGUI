@@ -166,7 +166,7 @@ media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec = {
 media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.MediaFoundationService.IsKeySystemSupported_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'is_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -279,7 +279,7 @@ media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec = {
 media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.MediaFoundationServiceBroker.UpdateGpuInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'gpu_info_observer', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },

@@ -199,7 +199,7 @@ extensions.mojom.ServiceWorkerHost_RequestWorker_ParamsSpec = {
 extensions.mojom.ServiceWorkerHost_RequestWorker_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'extensions.mojom.ServiceWorkerHost.RequestWorker_ResponseParams',
       packedSize: 40,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

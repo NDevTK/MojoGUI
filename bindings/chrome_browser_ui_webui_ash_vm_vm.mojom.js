@@ -82,7 +82,7 @@ ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ParamsSpec = {
 ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.vm.mojom.VmDiagnosticsProvider.GetPluginVmDiagnostics_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'diagnostics', packedOffset: 0, packedBitOffset: 0, type: guest_os.mojom.DiagnosticsSpec, nullable: false, minVersion: 0 },

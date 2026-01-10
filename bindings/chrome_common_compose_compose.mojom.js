@@ -495,7 +495,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ParamsSpec 
 compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'compose.mojom.ComposeSessionUntrustedPageHandler.AcceptComposeResult_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -521,7 +521,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ParamsSpec 
 compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'compose.mojom.ComposeSessionUntrustedPageHandler.RequestInitialState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'initial_state', packedOffset: 0, packedBitOffset: 0, type: compose.mojom.OpenMetadataSpec, nullable: false, minVersion: 0 },
@@ -547,7 +547,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ParamsSpec = {
 compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'compose.mojom.ComposeSessionUntrustedPageHandler.Undo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'last_state', packedOffset: 0, packedBitOffset: 0, type: compose.mojom.ComposeStateSpec, nullable: true, minVersion: 0 },
@@ -573,7 +573,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ParamsSpe
 compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'compose.mojom.ComposeSessionUntrustedPageHandler.RecoverFromErrorState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'state_before_error', packedOffset: 0, packedBitOffset: 0, type: compose.mojom.ComposeStateSpec, nullable: true, minVersion: 0 },
@@ -599,7 +599,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ParamsSpec = {
 compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'compose.mojom.ComposeSessionUntrustedPageHandler.Redo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'next_state', packedOffset: 0, packedBitOffset: 0, type: compose.mojom.ComposeStateSpec, nullable: true, minVersion: 0 },
@@ -705,7 +705,7 @@ compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ParamsSpec = {
 compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'compose.mojom.ComposeSessionUntrustedPageHandler.EditResult_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_edited', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

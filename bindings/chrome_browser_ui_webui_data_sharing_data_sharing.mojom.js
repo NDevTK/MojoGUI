@@ -406,7 +406,7 @@ data_sharing.mojom.PageHandler_MakeTabGroupShared_ParamsSpec = {
 data_sharing.mojom.PageHandler_MakeTabGroupShared_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'data_sharing.mojom.PageHandler.MakeTabGroupShared_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
@@ -434,7 +434,7 @@ data_sharing.mojom.PageHandler_GetShareLink_ParamsSpec = {
 data_sharing.mojom.PageHandler_GetShareLink_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'data_sharing.mojom.PageHandler.GetShareLink_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
@@ -462,7 +462,7 @@ data_sharing.mojom.PageHandler_GetTabGroupPreview_ParamsSpec = {
 data_sharing.mojom.PageHandler_GetTabGroupPreview_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'data_sharing.mojom.PageHandler.GetTabGroupPreview_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'group_preview', packedOffset: 0, packedBitOffset: 0, type: data_sharing.mojom.GroupPreviewSpec, nullable: false, minVersion: 0 },
@@ -657,7 +657,7 @@ data_sharing.mojom.Page_ReadGroups_ParamsSpec = {
 data_sharing.mojom.Page_ReadGroups_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'data_sharing.mojom.Page.ReadGroups_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: data_sharing.mojom.ReadGroupsResultSpec, nullable: false, minVersion: 0 },
@@ -684,7 +684,7 @@ data_sharing.mojom.Page_ReadGroupWithToken_ParamsSpec = {
 data_sharing.mojom.Page_ReadGroupWithToken_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'data_sharing.mojom.Page.ReadGroupWithToken_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: data_sharing.mojom.ReadGroupWithTokenResultSpec, nullable: false, minVersion: 0 },
@@ -711,7 +711,7 @@ data_sharing.mojom.Page_DeleteGroup_ParamsSpec = {
 data_sharing.mojom.Page_DeleteGroup_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'data_sharing.mojom.Page.DeleteGroup_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -738,7 +738,7 @@ data_sharing.mojom.Page_LeaveGroup_ParamsSpec = {
 data_sharing.mojom.Page_LeaveGroup_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'data_sharing.mojom.Page.LeaveGroup_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },

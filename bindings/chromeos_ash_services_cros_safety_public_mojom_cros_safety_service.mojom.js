@@ -104,7 +104,7 @@ ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ParamsSpec =
 ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_safety.mojom.CrosSafetyService.CreateOnDeviceSafetySession_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.cros_safety.mojom.GetOnDeviceSafetySessionResultSpec, nullable: false, minVersion: 0 },
@@ -131,7 +131,7 @@ ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ParamsSpec = {
 ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_safety.mojom.CrosSafetyService.CreateCloudSafetySession_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.cros_safety.mojom.GetCloudSafetySessionResultSpec, nullable: false, minVersion: 0 },

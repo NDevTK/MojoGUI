@@ -83,7 +83,7 @@ ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ParamsSpec = {
 ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cfm.mojom.MeetBrowser.TranslateVideoDeviceId_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'device_path', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },

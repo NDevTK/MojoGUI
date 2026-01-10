@@ -165,7 +165,7 @@ blink.mojom.ContentIndexService_GetIconSizes_ParamsSpec = {
 blink.mojom.ContentIndexService_GetIconSizes_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ContentIndexService.GetIconSizes_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'icon_sizes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.SizeSpec, false), nullable: false, minVersion: 0 },
@@ -195,7 +195,7 @@ blink.mojom.ContentIndexService_Add_ParamsSpec = {
 blink.mojom.ContentIndexService_Add_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ContentIndexService.Add_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ContentIndexErrorSpec, nullable: false, minVersion: 0 },
@@ -223,7 +223,7 @@ blink.mojom.ContentIndexService_Delete_ParamsSpec = {
 blink.mojom.ContentIndexService_Delete_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ContentIndexService.Delete_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ContentIndexErrorSpec, nullable: false, minVersion: 0 },
@@ -250,7 +250,7 @@ blink.mojom.ContentIndexService_GetDescriptions_ParamsSpec = {
 blink.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ContentIndexService.GetDescriptions_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ContentIndexErrorSpec, nullable: false, minVersion: 0 },

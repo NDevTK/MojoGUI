@@ -269,7 +269,7 @@ mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsS
 mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mac_notifications.mojom.MacNotificationService.GetDisplayedNotifications_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'notifications', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mac_notifications.mojom.NotificationIdentifierSpec, false), nullable: false, minVersion: 0 },
@@ -336,7 +336,7 @@ mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec
 mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mac_notifications.mojom.MacNotificationService.OkayToTerminateService_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'can_terminate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

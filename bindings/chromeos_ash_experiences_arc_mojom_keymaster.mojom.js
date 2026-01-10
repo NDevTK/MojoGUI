@@ -425,7 +425,7 @@ arc.mojom.KeymasterHost_GetServer_ParamsSpec = {
 arc.mojom.KeymasterHost_GetServer_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.KeymasterHost.GetServer_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'server_remote', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
@@ -720,7 +720,7 @@ arc.mojom.KeymasterServer_AddRngEntropy_ParamsSpec = {
 arc.mojom.KeymasterServer_AddRngEntropy_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.KeymasterServer.AddRngEntropy_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -747,7 +747,7 @@ arc.mojom.KeymasterServer_GetKeyCharacteristics_ParamsSpec = {
 arc.mojom.KeymasterServer_GetKeyCharacteristics_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.KeymasterServer.GetKeyCharacteristics_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.GetKeyCharacteristicsResultSpec, nullable: false, minVersion: 0 },
@@ -774,7 +774,7 @@ arc.mojom.KeymasterServer_GenerateKey_ParamsSpec = {
 arc.mojom.KeymasterServer_GenerateKey_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.KeymasterServer.GenerateKey_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.GenerateKeyResultSpec, nullable: false, minVersion: 0 },
@@ -801,7 +801,7 @@ arc.mojom.KeymasterServer_ImportKey_ParamsSpec = {
 arc.mojom.KeymasterServer_ImportKey_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.KeymasterServer.ImportKey_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ImportKeyResultSpec, nullable: false, minVersion: 0 },
@@ -828,7 +828,7 @@ arc.mojom.KeymasterServer_ExportKey_ParamsSpec = {
 arc.mojom.KeymasterServer_ExportKey_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.KeymasterServer.ExportKey_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ExportKeyResultSpec, nullable: false, minVersion: 0 },
@@ -855,7 +855,7 @@ arc.mojom.KeymasterServer_AttestKey_ParamsSpec = {
 arc.mojom.KeymasterServer_AttestKey_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.KeymasterServer.AttestKey_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AttestKeyResultSpec, nullable: false, minVersion: 0 },
@@ -882,7 +882,7 @@ arc.mojom.KeymasterServer_UpgradeKey_ParamsSpec = {
 arc.mojom.KeymasterServer_UpgradeKey_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.KeymasterServer.UpgradeKey_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.UpgradeKeyResultSpec, nullable: false, minVersion: 0 },
@@ -909,7 +909,7 @@ arc.mojom.KeymasterServer_DeleteKey_ParamsSpec = {
 arc.mojom.KeymasterServer_DeleteKey_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.KeymasterServer.DeleteKey_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -935,7 +935,7 @@ arc.mojom.KeymasterServer_DeleteAllKeys_ParamsSpec = {
 arc.mojom.KeymasterServer_DeleteAllKeys_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.KeymasterServer.DeleteAllKeys_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -962,7 +962,7 @@ arc.mojom.KeymasterServer_Begin_ParamsSpec = {
 arc.mojom.KeymasterServer_Begin_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.KeymasterServer.Begin_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.BeginResultSpec, nullable: false, minVersion: 0 },
@@ -989,7 +989,7 @@ arc.mojom.KeymasterServer_Update_ParamsSpec = {
 arc.mojom.KeymasterServer_Update_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.KeymasterServer.Update_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.UpdateResultSpec, nullable: false, minVersion: 0 },
@@ -1016,7 +1016,7 @@ arc.mojom.KeymasterServer_Finish_ParamsSpec = {
 arc.mojom.KeymasterServer_Finish_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.KeymasterServer.Finish_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.FinishResultSpec, nullable: false, minVersion: 0 },
@@ -1043,7 +1043,7 @@ arc.mojom.KeymasterServer_Abort_ParamsSpec = {
 arc.mojom.KeymasterServer_Abort_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.KeymasterServer.Abort_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },

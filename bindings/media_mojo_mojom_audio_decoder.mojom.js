@@ -141,7 +141,7 @@ media.mojom.AudioDecoder_GetSupportedConfigs_ParamsSpec = {
 media.mojom.AudioDecoder_GetSupportedConfigs_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.AudioDecoder.GetSupportedConfigs_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'supported_configs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.SupportedAudioDecoderConfigSpec, false), nullable: false, minVersion: 0 },
@@ -184,7 +184,7 @@ media.mojom.AudioDecoder_Initialize_ParamsSpec = {
 media.mojom.AudioDecoder_Initialize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.AudioDecoder.Initialize_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: media.mojom.DecoderStatusSpec, nullable: false, minVersion: 0 },
@@ -227,7 +227,7 @@ media.mojom.AudioDecoder_Decode_ParamsSpec = {
 media.mojom.AudioDecoder_Decode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.AudioDecoder.Decode_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.DecoderStatusSpec, nullable: false, minVersion: 0 },

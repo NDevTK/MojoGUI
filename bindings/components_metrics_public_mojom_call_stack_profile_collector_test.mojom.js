@@ -82,7 +82,7 @@ metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ParamsSpec = {
 metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'metrics.mojom.CallStackProfileCollectorTest.BounceSampledProfile_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'out', packedOffset: 0, packedBitOffset: 0, type: metrics.mojom.SampledProfileSpec, nullable: false, minVersion: 0 },

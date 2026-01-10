@@ -353,7 +353,7 @@ on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec = {
 on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'on_device_model.mojom.OnDeviceModelService.LoadModel_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.LoadModelResultSpec, nullable: false, minVersion: 0 },
@@ -380,7 +380,7 @@ on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec = {
 on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'on_device_model.mojom.OnDeviceModelService.GetCapabilities_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.CapabilitiesSpec, nullable: false, minVersion: 0 },
@@ -421,7 +421,7 @@ on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpe
 on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'on_device_model.mojom.OnDeviceModelService.GetDeviceAndPerformanceInfo_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'performanceInfo', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.DevicePerformanceInfoSpec, nullable: false, minVersion: 0 },
@@ -548,7 +548,7 @@ on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec 
 on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'on_device_model.mojom.OnDeviceModelPlatformService.LoadPlatformModel_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.LoadModelResultSpec, nullable: false, minVersion: 0 },
@@ -575,7 +575,7 @@ on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsS
 on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'on_device_model.mojom.OnDeviceModelPlatformService.GetPlatformModelState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.PlatformModelStateSpec, nullable: false, minVersion: 0 },
@@ -601,7 +601,7 @@ on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_
 on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'on_device_model.mojom.OnDeviceModelPlatformService.GetEstimatedPerformanceClass_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'performance_class', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.PerformanceClassSpec, nullable: false, minVersion: 0 },
@@ -630,7 +630,7 @@ on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec = {
 on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'on_device_model.mojom.OnDeviceModelPlatformService.FormatInput_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -659,7 +659,7 @@ on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSp
 on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'on_device_model.mojom.OnDeviceModelPlatformService.ValidateSafetyResult_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

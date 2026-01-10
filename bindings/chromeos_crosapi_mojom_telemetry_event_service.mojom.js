@@ -583,7 +583,7 @@ crosapi.mojom.TelemetryEventService_IsEventSupported_ParamsSpec = {
 crosapi.mojom.TelemetryEventService_IsEventSupported_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.TelemetryEventService.IsEventSupported_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.TelemetryExtensionSupportStatusSpec, nullable: false, minVersion: 0 },

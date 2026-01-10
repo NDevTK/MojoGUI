@@ -191,7 +191,7 @@ ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ParamsSpec = {
 ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.extended_updates.mojom.PageHandler.OptInToExtendedUpdates_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -230,7 +230,7 @@ ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ParamsSpec = {
 ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.extended_updates.mojom.PageHandler.GetInstalledAndroidApps_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.extended_updates.mojom.AppSpec, false), nullable: false, minVersion: 0 },

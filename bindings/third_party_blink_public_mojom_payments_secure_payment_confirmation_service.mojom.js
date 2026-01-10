@@ -116,7 +116,7 @@ payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailab
 payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'payments.mojom.SecurePaymentConfirmationService.SecurePaymentConfirmationAvailability_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'availability', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.SecurePaymentConfirmationAvailabilityEnumSpec, nullable: false, minVersion: 0 },
@@ -145,7 +145,7 @@ payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ParamsSpe
 payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'payments.mojom.SecurePaymentConfirmationService.StorePaymentCredential_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentCredentialStorageStatusSpec, nullable: false, minVersion: 0 },
@@ -172,7 +172,7 @@ payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ParamsSpec
 payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'payments.mojom.SecurePaymentConfirmationService.MakePaymentCredential_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AuthenticatorStatusSpec, nullable: false, minVersion: 0 },

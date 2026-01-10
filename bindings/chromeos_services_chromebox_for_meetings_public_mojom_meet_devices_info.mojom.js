@@ -178,7 +178,7 @@ chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec = {
 chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.cfm.mojom.MeetDevicesInfo.GetPolicyInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: chromeos.cfm.mojom.PolicyInfoSpec, nullable: true, minVersion: 0 },
@@ -204,7 +204,7 @@ chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec = {
 chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.cfm.mojom.MeetDevicesInfo.GetSysInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: chromeos.cfm.mojom.SysInfoSpec, nullable: false, minVersion: 0 },
@@ -230,7 +230,7 @@ chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec = {
 chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.cfm.mojom.MeetDevicesInfo.GetMachineStatisticsInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: chromeos.cfm.mojom.MachineStatisticsInfoSpec, nullable: true, minVersion: 0 },

@@ -279,7 +279,7 @@ chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec = {
 chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome.mojom.UtilWin.IsPinnedToTaskbar_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'succeeded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -323,7 +323,7 @@ chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec = {
 chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome.mojom.UtilWin.CreateOrUpdateShortcuts_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'succeeded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -356,7 +356,7 @@ chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec = {
 chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome.mojom.UtilWin.CallExecuteSelectFile_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'paths', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), nullable: false, minVersion: 0 },
@@ -384,7 +384,7 @@ chrome.mojom.UtilWin_InspectModule_ParamsSpec = {
 chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome.mojom.UtilWin.InspectModule_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'inspection_result', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.InspectionResultSpec, nullable: false, minVersion: 0 },
@@ -411,7 +411,7 @@ chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec = {
 chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome.mojom.UtilWin.GetAntiVirusProducts_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'av_products', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chrome.mojom.AntiVirusProductSpec, false), nullable: false, minVersion: 0 },
@@ -437,7 +437,7 @@ chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec = {
 chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome.mojom.UtilWin.GetTpmIdentifier_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'tpm_identifier', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.TpmIdentifierSpec, nullable: true, minVersion: 0 },

@@ -133,7 +133,7 @@ chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec = {
 chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.auth.mojom.InSessionAuth.RequestToken_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'reply', packedOffset: 0, packedBitOffset: 0, type: chromeos.auth.mojom.RequestTokenReplySpec, nullable: true, minVersion: 0 },
@@ -161,7 +161,7 @@ chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec = {
 chromeos.auth.mojom.InSessionAuth_CheckToken_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.auth.mojom.InSessionAuth.CheckToken_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'valid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -203,7 +203,7 @@ chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec = {
 chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.auth.mojom.InSessionAuth.RequestLegacyWebAuthn_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

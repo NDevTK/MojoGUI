@@ -152,7 +152,7 @@ blink.mojom.AISummarizer_MeasureUsage_ParamsSpec = {
 blink.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.AISummarizer.MeasureUsage_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'number_of_tokens_$flag', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0, nullableValueKindProperties: { isPrimary: true, linkedValueFieldName: 'number_of_tokens_$value', originalFieldName: 'number_of_tokens' } },

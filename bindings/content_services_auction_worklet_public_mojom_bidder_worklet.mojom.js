@@ -548,7 +548,7 @@ auction_worklet.mojom.BidderWorklet_ReportWin_ParamsSpec = {
 auction_worklet.mojom.BidderWorklet_ReportWin_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'auction_worklet.mojom.BidderWorklet.ReportWin_ResponseParams',
       packedSize: 64,
       fields: [
         { name: 'report_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },

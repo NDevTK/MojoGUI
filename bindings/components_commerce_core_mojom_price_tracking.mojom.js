@@ -187,7 +187,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProduct
 commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'commerce.price_tracking.mojom.PriceTrackingHandler.GetAllShoppingBookmarkProductInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'productInfos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(commerce.shared.mojom.BookmarkProductInfoSpec, false), nullable: false, minVersion: 0 },
@@ -213,7 +213,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkPro
 commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'commerce.price_tracking.mojom.PriceTrackingHandler.GetAllPriceTrackedBookmarkProductInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'productInfos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(commerce.shared.mojom.BookmarkProductInfoSpec, false), nullable: false, minVersion: 0 },
@@ -239,7 +239,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmark
 commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'commerce.price_tracking.mojom.PriceTrackingHandler.GetShoppingCollectionBookmarkFolderId_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'collectionId', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
@@ -265,7 +265,7 @@ commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameFo
 commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'commerce.price_tracking.mojom.PriceTrackingHandler.GetParentBookmarkFolderNameForCurrentUrl_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },

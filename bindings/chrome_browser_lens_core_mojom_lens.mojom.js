@@ -547,7 +547,7 @@ lens.mojom.LensPageHandler_GetOverlayInvocationSource_ParamsSpec = {
 lens.mojom.LensPageHandler_GetOverlayInvocationSource_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'lens.mojom.LensPageHandler.GetOverlayInvocationSource_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'invocation_source', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -806,7 +806,7 @@ lens.mojom.LensPageHandler_FetchSupportedLanguages_ParamsSpec = {
 lens.mojom.LensPageHandler_FetchSupportedLanguages_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'lens.mojom.LensPageHandler.FetchSupportedLanguages_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'browser_locale', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },

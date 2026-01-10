@@ -160,7 +160,7 @@ mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ParamsSp
 mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.app_service_internals.AppServiceInternalsPageHandler.GetDebugInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'debug_info', packedOffset: 0, packedBitOffset: 0, type: mojom.app_service_internals.DebugInfoSpec, nullable: true, minVersion: 0 },

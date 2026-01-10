@@ -82,7 +82,7 @@ blink.mojom.WebSensorProvider_GetSensor_ParamsSpec = {
 blink.mojom.WebSensorProvider_GetSensor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.WebSensorProvider.GetSensor_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SensorCreationResultSpec, nullable: false, minVersion: 0 },

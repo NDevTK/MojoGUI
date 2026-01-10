@@ -91,7 +91,7 @@ url.mojom.UrlTest_BounceUrl_ParamsSpec = {
 url.mojom.UrlTest_BounceUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'url.mojom.UrlTest.BounceUrl_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'out', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
@@ -118,7 +118,7 @@ url.mojom.UrlTest_BounceOrigin_ParamsSpec = {
 url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'url.mojom.UrlTest.BounceOrigin_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'out', packedOffset: 0, packedBitOffset: 0, type: url.mojom.OriginSpec, nullable: false, minVersion: 0 },

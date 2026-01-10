@@ -379,7 +379,7 @@ device.mojom.SmartCardTransaction_EndTransaction_ParamsSpec = {
 device.mojom.SmartCardTransaction_EndTransaction_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.SmartCardTransaction.EndTransaction_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardResultSpec, nullable: false, minVersion: 0 },
@@ -521,7 +521,7 @@ device.mojom.SmartCardConnection_Disconnect_ParamsSpec = {
 device.mojom.SmartCardConnection_Disconnect_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.SmartCardConnection.Disconnect_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardResultSpec, nullable: false, minVersion: 0 },
@@ -549,7 +549,7 @@ device.mojom.SmartCardConnection_Transmit_ParamsSpec = {
 device.mojom.SmartCardConnection_Transmit_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.SmartCardConnection.Transmit_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardDataResultSpec, nullable: false, minVersion: 0 },
@@ -577,7 +577,7 @@ device.mojom.SmartCardConnection_Control_ParamsSpec = {
 device.mojom.SmartCardConnection_Control_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.SmartCardConnection.Control_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardDataResultSpec, nullable: false, minVersion: 0 },
@@ -604,7 +604,7 @@ device.mojom.SmartCardConnection_GetAttrib_ParamsSpec = {
 device.mojom.SmartCardConnection_GetAttrib_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.SmartCardConnection.GetAttrib_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardDataResultSpec, nullable: false, minVersion: 0 },
@@ -632,7 +632,7 @@ device.mojom.SmartCardConnection_SetAttrib_ParamsSpec = {
 device.mojom.SmartCardConnection_SetAttrib_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.SmartCardConnection.SetAttrib_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardResultSpec, nullable: false, minVersion: 0 },
@@ -658,7 +658,7 @@ device.mojom.SmartCardConnection_Status_ParamsSpec = {
 device.mojom.SmartCardConnection_Status_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.SmartCardConnection.Status_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardStatusResultSpec, nullable: false, minVersion: 0 },
@@ -684,7 +684,7 @@ device.mojom.SmartCardConnection_BeginTransaction_ParamsSpec = {
 device.mojom.SmartCardConnection_BeginTransaction_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.SmartCardConnection.BeginTransaction_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardTransactionResultSpec, nullable: false, minVersion: 0 },
@@ -872,7 +872,7 @@ device.mojom.SmartCardContext_ListReaders_ParamsSpec = {
 device.mojom.SmartCardContext_ListReaders_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.SmartCardContext.ListReaders_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardListReadersResultSpec, nullable: false, minVersion: 0 },
@@ -900,7 +900,7 @@ device.mojom.SmartCardContext_GetStatusChange_ParamsSpec = {
 device.mojom.SmartCardContext_GetStatusChange_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.SmartCardContext.GetStatusChange_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardStatusChangeResultSpec, nullable: false, minVersion: 0 },
@@ -926,7 +926,7 @@ device.mojom.SmartCardContext_Cancel_ParamsSpec = {
 device.mojom.SmartCardContext_Cancel_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.SmartCardContext.Cancel_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardResultSpec, nullable: false, minVersion: 0 },
@@ -956,7 +956,7 @@ device.mojom.SmartCardContext_Connect_ParamsSpec = {
 device.mojom.SmartCardContext_Connect_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.SmartCardContext.Connect_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardConnectResultSpec, nullable: false, minVersion: 0 },
@@ -1043,7 +1043,7 @@ device.mojom.SmartCardContextFactory_CreateContext_ParamsSpec = {
 device.mojom.SmartCardContextFactory_CreateContext_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.SmartCardContextFactory.CreateContext_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SmartCardCreateContextResultSpec, nullable: false, minVersion: 0 },

@@ -92,7 +92,7 @@ crosapi.mojom.TelemetryManagementService_SetAudioGain_ParamsSpec = {
 crosapi.mojom.TelemetryManagementService_SetAudioGain_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.TelemetryManagementService.SetAudioGain_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 2 },
@@ -121,7 +121,7 @@ crosapi.mojom.TelemetryManagementService_SetAudioVolume_ParamsSpec = {
 crosapi.mojom.TelemetryManagementService_SetAudioVolume_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.TelemetryManagementService.SetAudioVolume_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

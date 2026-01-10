@@ -82,7 +82,7 @@ ax.mojom.AccessibilityFileLoader_Load_ParamsSpec = {
 ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ax.mojom.AccessibilityFileLoader.Load_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true, minVersion: 0 },

@@ -186,7 +186,7 @@ ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ParamsSpec = {
 ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.settings.one_drive.mojom.PageHandler.GetUserEmailAddress_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'email', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -212,7 +212,7 @@ ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ParamsSpec = {
 ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.settings.one_drive.mojom.PageHandler.ConnectToOneDrive_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -238,7 +238,7 @@ ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ParamsSpec = {
 ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.settings.one_drive.mojom.PageHandler.DisconnectFromOneDrive_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -264,7 +264,7 @@ ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ParamsSpec = {
 ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.settings.one_drive.mojom.PageHandler.OpenOneDriveFolder_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

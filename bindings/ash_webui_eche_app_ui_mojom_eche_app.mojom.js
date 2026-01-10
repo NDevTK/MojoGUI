@@ -346,7 +346,7 @@ ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ParamsSpec = {
 ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.eche_app.mojom.SystemInfoProvider.GetSystemInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'system_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -615,7 +615,7 @@ ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ParamsSpec = {
 ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.eche_app.mojom.AccessibilityProvider.IsAccessibilityEnabled_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -758,7 +758,7 @@ ash.eche_app.mojom.AccessibilityObserver_PerformAction_ParamsSpec = {
 ash.eche_app.mojom.AccessibilityObserver_PerformAction_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.eche_app.mojom.AccessibilityObserver.PerformAction_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -785,7 +785,7 @@ ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ParamsSpec = {
 ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.eche_app.mojom.AccessibilityObserver.RefreshWithExtraData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'text_location_proto', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
@@ -872,7 +872,7 @@ ash.eche_app.mojom.UidGenerator_GetUid_ParamsSpec = {
 ash.eche_app.mojom.UidGenerator_GetUid_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.eche_app.mojom.UidGenerator.GetUid_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'local_uid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },

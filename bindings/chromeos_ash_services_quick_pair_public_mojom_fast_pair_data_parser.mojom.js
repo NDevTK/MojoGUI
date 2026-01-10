@@ -326,7 +326,7 @@ ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec 
 ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.quick_pair.mojom.FastPairDataParser.GetHexModelIdFromServiceData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'model_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -354,7 +354,7 @@ ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec = {
 ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.quick_pair.mojom.FastPairDataParser.ParseDecryptedResponse_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.quick_pair.mojom.DecryptedResponseSpec, nullable: true, minVersion: 0 },
@@ -382,7 +382,7 @@ ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec = {
 ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.quick_pair.mojom.FastPairDataParser.ParseDecryptedPasskey_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'passkey', packedOffset: 0, packedBitOffset: 0, type: ash.quick_pair.mojom.DecryptedPasskeySpec, nullable: true, minVersion: 0 },
@@ -410,7 +410,7 @@ ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_Params
 ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.quick_pair.mojom.FastPairDataParser.ParseNotDiscoverableAdvertisement_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'advertisement', packedOffset: 0, packedBitOffset: 0, type: ash.quick_pair.mojom.NotDiscoverableAdvertisementSpec, nullable: true, minVersion: 0 },
@@ -437,7 +437,7 @@ ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec = 
 ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.quick_pair.mojom.FastPairDataParser.ParseMessageStreamMessages_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'messages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.quick_pair.mojom.MessageStreamMessageSpec, false), nullable: false, minVersion: 0 },

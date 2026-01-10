@@ -464,7 +464,7 @@ device.mojom.UsbDevice_Open_ParamsSpec = {
 device.mojom.UsbDevice_Open_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.UsbDevice.Open_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.UsbOpenDeviceResultSpec, nullable: false, minVersion: 0 },
@@ -504,7 +504,7 @@ device.mojom.UsbDevice_SetConfiguration_ParamsSpec = {
 device.mojom.UsbDevice_SetConfiguration_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.UsbDevice.SetConfiguration_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -531,7 +531,7 @@ device.mojom.UsbDevice_ClaimInterface_ParamsSpec = {
 device.mojom.UsbDevice_ClaimInterface_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.UsbDevice.ClaimInterface_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.UsbClaimInterfaceResultSpec, nullable: false, minVersion: 0 },
@@ -558,7 +558,7 @@ device.mojom.UsbDevice_ReleaseInterface_ParamsSpec = {
 device.mojom.UsbDevice_ReleaseInterface_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.UsbDevice.ReleaseInterface_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -586,7 +586,7 @@ device.mojom.UsbDevice_SetInterfaceAlternateSetting_ParamsSpec = {
 device.mojom.UsbDevice_SetInterfaceAlternateSetting_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.UsbDevice.SetInterfaceAlternateSetting_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -612,7 +612,7 @@ device.mojom.UsbDevice_Reset_ParamsSpec = {
 device.mojom.UsbDevice_Reset_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.UsbDevice.Reset_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -640,7 +640,7 @@ device.mojom.UsbDevice_ClearHalt_ParamsSpec = {
 device.mojom.UsbDevice_ClearHalt_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.UsbDevice.ClearHalt_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -669,7 +669,7 @@ device.mojom.UsbDevice_ControlTransferIn_ParamsSpec = {
 device.mojom.UsbDevice_ControlTransferIn_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.UsbDevice.ControlTransferIn_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: device.mojom.UsbTransferStatusSpec, nullable: false, minVersion: 0 },
@@ -699,7 +699,7 @@ device.mojom.UsbDevice_ControlTransferOut_ParamsSpec = {
 device.mojom.UsbDevice_ControlTransferOut_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.UsbDevice.ControlTransferOut_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: device.mojom.UsbTransferStatusSpec, nullable: false, minVersion: 0 },
@@ -728,7 +728,7 @@ device.mojom.UsbDevice_GenericTransferIn_ParamsSpec = {
 device.mojom.UsbDevice_GenericTransferIn_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.UsbDevice.GenericTransferIn_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: device.mojom.UsbTransferStatusSpec, nullable: false, minVersion: 0 },
@@ -758,7 +758,7 @@ device.mojom.UsbDevice_GenericTransferOut_ParamsSpec = {
 device.mojom.UsbDevice_GenericTransferOut_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.UsbDevice.GenericTransferOut_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: device.mojom.UsbTransferStatusSpec, nullable: false, minVersion: 0 },
@@ -787,7 +787,7 @@ device.mojom.UsbDevice_IsochronousTransferIn_ParamsSpec = {
 device.mojom.UsbDevice_IsochronousTransferIn_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.UsbDevice.IsochronousTransferIn_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyBufferSpec, nullable: false, minVersion: 0 },
@@ -818,7 +818,7 @@ device.mojom.UsbDevice_IsochronousTransferOut_ParamsSpec = {
 device.mojom.UsbDevice_IsochronousTransferOut_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.UsbDevice.IsochronousTransferOut_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'packets', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.UsbIsochronousPacketSpec, false), nullable: false, minVersion: 0 },

@@ -172,7 +172,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_P
 ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.projector.mojom.UntrustedProjectorPageHandler.GetNewScreencastPrecondition_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'precondition', packedOffset: 0, packedBitOffset: 0, type: ash.projector.mojom.NewScreencastPreconditionSpec, nullable: false, minVersion: 0 },
@@ -198,7 +198,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec 
 ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.projector.mojom.UntrustedProjectorPageHandler.ShouldDownloadSoda_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'should_download', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -224,7 +224,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec = {
 ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.projector.mojom.UntrustedProjectorPageHandler.InstallSoda_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'triggered', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -250,7 +250,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSp
 ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.projector.mojom.UntrustedProjectorPageHandler.GetPendingScreencasts_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'pending_screencasts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.projector.mojom.PendingScreencastSpec, false), nullable: false, minVersion: 0 },
@@ -277,7 +277,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec = {
 ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.projector.mojom.UntrustedProjectorPageHandler.GetUserPref_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },
@@ -332,7 +332,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSp
 ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.projector.mojom.UntrustedProjectorPageHandler.StartProjectorSession_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -365,7 +365,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec = {
 ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.projector.mojom.UntrustedProjectorPageHandler.SendXhr_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.projector.mojom.XhrResponseSpec, nullable: false, minVersion: 0 },
@@ -391,7 +391,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec = {
 ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.projector.mojom.UntrustedProjectorPageHandler.GetAccounts_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'accounts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.projector.mojom.AccountSpec, false), nullable: false, minVersion: 0 },
@@ -419,7 +419,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec = {
 ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.projector.mojom.UntrustedProjectorPageHandler.GetVideo_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.projector.mojom.GetVideoResultSpec, nullable: false, minVersion: 0 },

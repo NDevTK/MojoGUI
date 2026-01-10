@@ -108,7 +108,7 @@ data_decoder.mojom.XmlParser_Parse_ParamsSpec = {
 data_decoder.mojom.XmlParser_Parse_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'data_decoder.mojom.XmlParser.Parse_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: true, minVersion: 0 },

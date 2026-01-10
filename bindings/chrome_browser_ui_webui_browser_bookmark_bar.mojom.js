@@ -193,7 +193,7 @@ bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec = {
 bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'bookmark_bar.mojom.PageHandler.GetBookmarkBar_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'bookmarks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(bookmark_bar.mojom.BookmarkDataSpec, false), nullable: false, minVersion: 0 },

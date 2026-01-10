@@ -157,7 +157,7 @@ chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec = {
 chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.cfm.mojom.CfmServiceContext.ProvideAdaptor_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -185,7 +185,7 @@ chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec = {
 chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.cfm.mojom.CfmServiceContext.RequestBindService_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

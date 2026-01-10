@@ -195,7 +195,7 @@ access_code_cast.mojom.PageHandler_AddSink_ParamsSpec = {
 access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'access_code_cast.mojom.PageHandler.AddSink_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: access_code_cast.mojom.AddSinkResultCodeSpec, nullable: false, minVersion: 0 },
@@ -221,7 +221,7 @@ access_code_cast.mojom.PageHandler_CastToSink_ParamsSpec = {
 access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'access_code_cast.mojom.PageHandler.CastToSink_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: media_router.mojom.RouteRequestResultCodeSpec, nullable: false, minVersion: 0 },

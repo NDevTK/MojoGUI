@@ -151,7 +151,7 @@ chromeos.machine_learning.mojom.GrammarChecker_Check_ParamsSpec = {
 chromeos.machine_learning.mojom.GrammarChecker_Check_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.machine_learning.mojom.GrammarChecker.Check_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.GrammarCheckerResultSpec, nullable: false, minVersion: 0 },

@@ -90,7 +90,7 @@ blink.mojom.FileSystemAccessDataTransferToken_GetInternalId_ParamsSpec = {
 blink.mojom.FileSystemAccessDataTransferToken_GetInternalId_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.FileSystemAccessDataTransferToken.GetInternalId_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },

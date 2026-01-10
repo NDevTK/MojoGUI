@@ -142,7 +142,7 @@ video_capture.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec = {
 video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'video_capture.mojom.VideoSourceProvider.GetSourceInfos_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: video_capture.mojom.GetSourceInfosResultSpec, nullable: false, minVersion: 0 },

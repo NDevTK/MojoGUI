@@ -366,7 +366,7 @@ spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec = {
 spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'spellcheck.mojom.SpellCheckHost.CallSpellingService_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -395,7 +395,7 @@ spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec = {
 spellcheck.mojom.SpellCheckHost_RequestTextCheck_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'spellcheck.mojom.SpellCheckHost.RequestTextCheck_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(spellcheck.mojom.SpellCheckResultSpec, false), nullable: false, minVersion: 0 },
@@ -435,7 +435,7 @@ spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec = {
 spellcheck.mojom.SpellCheckHost_CheckSpelling_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'spellcheck.mojom.SpellCheckHost.CheckSpelling_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'correct', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -462,7 +462,7 @@ spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec = {
 spellcheck.mojom.SpellCheckHost_FillSuggestionList_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'spellcheck.mojom.SpellCheckHost.FillSuggestionList_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'suggestions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.String16Spec, false), nullable: false, minVersion: 0 },
@@ -488,7 +488,7 @@ spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ParamsSpec = {
 spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'spellcheck.mojom.SpellCheckHost.InitializeDictionaries_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'dictionaries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(spellcheck.mojom.SpellCheckBDictLanguageSpec, false), nullable: false, minVersion: 0 },

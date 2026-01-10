@@ -82,7 +82,7 @@ remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ParamsSpec = {
 remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remoting.mojom.SecurityKeyForwarder.OnSecurityKeyRequest_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response_data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ByteStringSpec, nullable: false, minVersion: 0 },

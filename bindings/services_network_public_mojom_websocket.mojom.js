@@ -146,7 +146,7 @@ network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec = {
 network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.WebSocketAuthenticationHandler.OnAuthRequired_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: network.mojom.AuthCredentialsSpec, nullable: true, minVersion: 0 },

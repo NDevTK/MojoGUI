@@ -276,7 +276,7 @@ commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec = {
 commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'commerce.mojom.CommerceInternalsHandler.GetIsShoppingListEligible_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'eligible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -316,7 +316,7 @@ commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec = {
 commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'commerce.mojom.CommerceInternalsHandler.GetProductInfoForUrl_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: commerce.shared.mojom.ProductInfoSpec, nullable: false, minVersion: 0 },
@@ -342,7 +342,7 @@ commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec = {
 commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'commerce.mojom.CommerceInternalsHandler.GetSubscriptionDetails_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'subscriptions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(commerce.mojom.SubscriptionSpec, false), nullable: false, minVersion: 0 },
@@ -368,7 +368,7 @@ commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSp
 commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'commerce.mojom.CommerceInternalsHandler.GetProductSpecificationsDetails_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'product_specifications_set', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(commerce.mojom.ProductSpecificationsSetSpec, false), nullable: false, minVersion: 0 },
@@ -407,7 +407,7 @@ commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec
 commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'commerce.mojom.CommerceInternalsHandler.GetShoppingEligibilityDetails_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'details', packedOffset: 0, packedBitOffset: 0, type: commerce.mojom.ShoppingEligibilityDetailsSpec, nullable: false, minVersion: 0 },

@@ -504,7 +504,7 @@ cros.mojom.Camera3CallbackOps_RequestStreamBuffers_ParamsSpec = {
 cros.mojom.Camera3CallbackOps_RequestStreamBuffers_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.Camera3CallbackOps.RequestStreamBuffers_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.Camera3BufferRequestStatusSpec, nullable: false, minVersion: 0 },
@@ -706,7 +706,7 @@ cros.mojom.Camera3DeviceOps_Initialize_ParamsSpec = {
 cros.mojom.Camera3DeviceOps_Initialize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.Camera3DeviceOps.Initialize_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -733,7 +733,7 @@ cros.mojom.Camera3DeviceOps_ConfigureStreams_ParamsSpec = {
 cros.mojom.Camera3DeviceOps_ConfigureStreams_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.Camera3DeviceOps.ConfigureStreams_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -761,7 +761,7 @@ cros.mojom.Camera3DeviceOps_ConstructDefaultRequestSettings_ParamsSpec = {
 cros.mojom.Camera3DeviceOps_ConstructDefaultRequestSettings_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.Camera3DeviceOps.ConstructDefaultRequestSettings_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'settings', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.CameraMetadataSpec, nullable: true, minVersion: 0 },
@@ -788,7 +788,7 @@ cros.mojom.Camera3DeviceOps_ProcessCaptureRequest_ParamsSpec = {
 cros.mojom.Camera3DeviceOps_ProcessCaptureRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.Camera3DeviceOps.ProcessCaptureRequest_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -828,7 +828,7 @@ cros.mojom.Camera3DeviceOps_Flush_ParamsSpec = {
 cros.mojom.Camera3DeviceOps_Flush_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.Camera3DeviceOps.Flush_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -863,7 +863,7 @@ cros.mojom.Camera3DeviceOps_RegisterBuffer_ParamsSpec = {
 cros.mojom.Camera3DeviceOps_RegisterBuffer_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.Camera3DeviceOps.RegisterBuffer_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -889,7 +889,7 @@ cros.mojom.Camera3DeviceOps_Close_ParamsSpec = {
 cros.mojom.Camera3DeviceOps_Close_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.Camera3DeviceOps.Close_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -916,7 +916,7 @@ cros.mojom.Camera3DeviceOps_ConfigureStreamsAndGetAllocatedBuffers_ParamsSpec = 
 cros.mojom.Camera3DeviceOps_ConfigureStreamsAndGetAllocatedBuffers_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.Camera3DeviceOps.ConfigureStreamsAndGetAllocatedBuffers_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -959,7 +959,7 @@ cros.mojom.Camera3DeviceOps_OnNewBuffer_ParamsSpec = {
 cros.mojom.Camera3DeviceOps_OnNewBuffer_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.Camera3DeviceOps.OnNewBuffer_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },

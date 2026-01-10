@@ -748,7 +748,7 @@ crosapi.mojom.VideoCaptureDevice_GetPhotoState_ParamsSpec = {
 crosapi.mojom.VideoCaptureDevice_GetPhotoState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.VideoCaptureDevice.GetPhotoState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'capabilities', packedOffset: 0, packedBitOffset: 0, type: media.mojom.PhotoStateSpec, nullable: true, minVersion: 0 },
@@ -775,7 +775,7 @@ crosapi.mojom.VideoCaptureDevice_SetPhotoOptions_ParamsSpec = {
 crosapi.mojom.VideoCaptureDevice_SetPhotoOptions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.VideoCaptureDevice.SetPhotoOptions_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -801,7 +801,7 @@ crosapi.mojom.VideoCaptureDevice_TakePhoto_ParamsSpec = {
 crosapi.mojom.VideoCaptureDevice_TakePhoto_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.VideoCaptureDevice.TakePhoto_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: media.mojom.BlobSpec, nullable: true, minVersion: 0 },
@@ -924,7 +924,7 @@ crosapi.mojom.VideoCaptureDeviceFactory_GetDeviceInfos_ParamsSpec = {
 crosapi.mojom.VideoCaptureDeviceFactory_GetDeviceInfos_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.VideoCaptureDeviceFactory.GetDeviceInfos_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'device_infos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.VideoCaptureDeviceInfoSpec, false), nullable: false, minVersion: 0 },
@@ -952,7 +952,7 @@ crosapi.mojom.VideoCaptureDeviceFactory_CreateDevice_ParamsSpec = {
 crosapi.mojom.VideoCaptureDeviceFactory_CreateDevice_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.VideoCaptureDeviceFactory.CreateDevice_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result_code', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DeviceAccessResultCodeSpec, nullable: false, minVersion: 0 },

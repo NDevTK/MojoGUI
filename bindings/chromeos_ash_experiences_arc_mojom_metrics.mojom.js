@@ -1283,7 +1283,7 @@ arc.mojom.MetricsInstance_GetGfxMetrics_ParamsSpec = {
 arc.mojom.MetricsInstance_GetGfxMetrics_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.MetricsInstance.GetGfxMetrics_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'metrics', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.GfxMetricsSpec, nullable: true, minVersion: 0 },

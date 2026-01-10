@@ -209,7 +209,7 @@ font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec = {
 font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'font_data_service.mojom.FontDataService.MatchFamilyName_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: font_data_service.mojom.MatchFamilyNameResultSpec, nullable: true, minVersion: 0 },
@@ -239,7 +239,7 @@ font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec = {
 font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'font_data_service.mojom.FontDataService.MatchFamilyNameCharacter_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: font_data_service.mojom.MatchFamilyNameResultSpec, nullable: true, minVersion: 0 },
@@ -265,7 +265,7 @@ font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec = {
 font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'font_data_service.mojom.FontDataService.GetAllFamilyNames_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
@@ -293,7 +293,7 @@ font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec = {
 font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'font_data_service.mojom.FontDataService.LegacyMakeTypeface_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: font_data_service.mojom.MatchFamilyNameResultSpec, nullable: true, minVersion: 0 },

@@ -1289,7 +1289,7 @@ ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_Par
 ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.CrosHealthdRoutinesService.IsRoutineArgumentSupported_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.SupportStatusSpec, nullable: false, minVersion: 0 },
@@ -1394,7 +1394,7 @@ ash.cros_healthd.mojom.RoutineControl_GetState_ParamsSpec = {
 ash.cros_healthd.mojom.RoutineControl_GetState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.mojom.RoutineControl.GetState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.cros_healthd.mojom.RoutineStateSpec, nullable: false, minVersion: 0 },

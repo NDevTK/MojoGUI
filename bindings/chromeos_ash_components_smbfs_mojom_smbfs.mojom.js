@@ -204,7 +204,7 @@ smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec = {
 smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'smbfs.mojom.SmbFsBootstrap.MountShare_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: smbfs.mojom.MountErrorSpec, nullable: false, minVersion: 0 },
@@ -301,7 +301,7 @@ smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec = {
 smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'smbfs.mojom.SmbFs.RemoveSavedCredentials_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -328,7 +328,7 @@ smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec = {
 smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'smbfs.mojom.SmbFs.DeleteRecursively_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: smbfs.mojom.DeleteRecursivelyErrorSpec, nullable: false, minVersion: 0 },
@@ -415,7 +415,7 @@ smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec = {
 smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'smbfs.mojom.SmbFsDelegate.RequestCredentials_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: smbfs.mojom.CredentialsSpec, nullable: true, minVersion: 0 },

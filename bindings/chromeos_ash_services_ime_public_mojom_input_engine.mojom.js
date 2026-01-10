@@ -83,7 +83,7 @@ ash.ime.mojom.InputChannel_ProcessMessage_ParamsSpec = {
 ash.ime.mojom.InputChannel_ProcessMessage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.ime.mojom.InputChannel.ProcessMessage_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },

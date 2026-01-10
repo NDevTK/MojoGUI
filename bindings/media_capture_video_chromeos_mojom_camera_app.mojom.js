@@ -133,7 +133,7 @@ cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ParamsSpec = {
 cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.CameraAppDeviceProvider.GetCameraAppDevice_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.GetCameraAppDeviceStatusSpec, nullable: false, minVersion: 0 },
@@ -160,7 +160,7 @@ cros.mojom.CameraAppDeviceProvider_IsSupported_ParamsSpec = {
 cros.mojom.CameraAppDeviceProvider_IsSupported_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.CameraAppDeviceProvider.IsSupported_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -187,7 +187,7 @@ cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ParamsSpec = {
 cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.CameraAppDeviceProvider.IsDeviceInUse_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'in_use', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -302,7 +302,7 @@ cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ParamsSpec = {
 cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.CameraAppDeviceBridge.GetCameraAppDevice_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.GetCameraAppDeviceStatusSpec, nullable: false, minVersion: 0 },
@@ -329,7 +329,7 @@ cros.mojom.CameraAppDeviceBridge_IsSupported_ParamsSpec = {
 cros.mojom.CameraAppDeviceBridge_IsSupported_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.CameraAppDeviceBridge.IsSupported_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -357,7 +357,7 @@ cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ParamsSpec = {
 cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.CameraAppDeviceBridge.SetVirtualDeviceEnabled_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -384,7 +384,7 @@ cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ParamsSpec = {
 cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.CameraAppDeviceBridge.IsDeviceInUse_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'in_use', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -594,7 +594,7 @@ cros.mojom.CameraAppDevice_SetFpsRange_ParamsSpec = {
 cros.mojom.CameraAppDevice_SetFpsRange_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.CameraAppDevice.SetFpsRange_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -678,7 +678,7 @@ cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ParamsSpec = {
 cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.CameraAppDevice.SetCameraFrameRotationEnabledAtSource_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -704,7 +704,7 @@ cros.mojom.CameraAppDevice_GetCameraFrameRotation_ParamsSpec = {
 cros.mojom.CameraAppDevice_GetCameraFrameRotation_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.CameraAppDevice.GetCameraFrameRotation_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'rotation', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },

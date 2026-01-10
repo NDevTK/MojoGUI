@@ -146,7 +146,7 @@ storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ParamsSpe
 storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'storage.mojom.QuotaInternalsHandler.GetDiskAvailabilityAndTempPoolSize_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'total_space', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
@@ -174,7 +174,7 @@ storage.mojom.QuotaInternalsHandler_GetStatistics_ParamsSpec = {
 storage.mojom.QuotaInternalsHandler_GetStatistics_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'storage.mojom.QuotaInternalsHandler.GetStatistics_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'eviction_statistics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), nullable: false, minVersion: 0 },
@@ -214,7 +214,7 @@ storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ParamsSpec = {
 storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'storage.mojom.QuotaInternalsHandler.RetrieveBucketsTable_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.BucketTableEntrySpec, false), nullable: false, minVersion: 0 },
@@ -240,7 +240,7 @@ storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ParamsSpec = {
 storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'storage.mojom.QuotaInternalsHandler.GetGlobalUsageForInternals_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
@@ -267,7 +267,7 @@ storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ParamsSpe
 storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'storage.mojom.QuotaInternalsHandler.IsSimulateStoragePressureAvailable_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

@@ -163,7 +163,7 @@ infobar_internals.mojom.PageHandler_GetInfoBars_ParamsSpec = {
 infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'infobar_internals.mojom.PageHandler.GetInfoBars_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'infobars', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(infobar_internals.mojom.InfoBarEntrySpec, false), nullable: false, minVersion: 0 },
@@ -190,7 +190,7 @@ infobar_internals.mojom.PageHandler_TriggerInfoBar_ParamsSpec = {
 infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'infobar_internals.mojom.PageHandler.TriggerInfoBar_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

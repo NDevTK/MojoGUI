@@ -252,7 +252,7 @@ lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ParamsSpec = {
 lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'lobster.mojom.UntrustedLobsterPageHandler.RequestCandidates_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: lobster.mojom.ResponseSpec, nullable: false, minVersion: 0 },
@@ -279,7 +279,7 @@ lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ParamsSpec = {
 lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'lobster.mojom.UntrustedLobsterPageHandler.DownloadCandidate_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -306,7 +306,7 @@ lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ParamsSpec = {
 lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'lobster.mojom.UntrustedLobsterPageHandler.CommitAsInsert_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -333,7 +333,7 @@ lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ParamsSpec = {
 lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'lobster.mojom.UntrustedLobsterPageHandler.CommitAsDownload_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -360,7 +360,7 @@ lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ParamsSpec = {
 lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'lobster.mojom.UntrustedLobsterPageHandler.PreviewFeedback_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'preview', packedOffset: 0, packedBitOffset: 0, type: lobster.mojom.FeedbackPreviewSpec, nullable: false, minVersion: 0 },
@@ -388,7 +388,7 @@ lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ParamsSpec = {
 lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'lobster.mojom.UntrustedLobsterPageHandler.SubmitFeedback_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

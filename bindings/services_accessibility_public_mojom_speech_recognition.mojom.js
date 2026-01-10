@@ -307,7 +307,7 @@ ax.mojom.SpeechRecognition_Start_ParamsSpec = {
 ax.mojom.SpeechRecognition_Start_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ax.mojom.SpeechRecognition.Start_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.SpeechRecognitionStartInfoSpec, nullable: false, minVersion: 0 },
@@ -334,7 +334,7 @@ ax.mojom.SpeechRecognition_Stop_ParamsSpec = {
 ax.mojom.SpeechRecognition_Stop_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ax.mojom.SpeechRecognition.Stop_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },

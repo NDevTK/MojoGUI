@@ -246,7 +246,7 @@ chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ParamsSpec = {
 chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.network_health.mojom.NetworkHealthService.GetNetworkList_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'networks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(chromeos.network_health.mojom.NetworkSpec, false), nullable: false, minVersion: 0 },
@@ -272,7 +272,7 @@ chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ParamsSpec 
 chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.network_health.mojom.NetworkHealthService.GetHealthSnapshot_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_health.mojom.NetworkHealthStateSpec, nullable: false, minVersion: 0 },
@@ -298,7 +298,7 @@ chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_Par
 chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.network_health.mojom.NetworkHealthService.GetRecentlyActiveNetworks_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'guids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },

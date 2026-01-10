@@ -129,7 +129,7 @@ content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec = {
 content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content_settings.mojom.ContentSettingsManager.AllowStorageAccess_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

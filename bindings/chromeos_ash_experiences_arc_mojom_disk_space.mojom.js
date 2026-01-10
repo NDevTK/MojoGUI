@@ -172,7 +172,7 @@ arc.mojom.DiskSpaceHost_IsQuotaSupported_ParamsSpec = {
 arc.mojom.DiskSpaceHost_IsQuotaSupported_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.DiskSpaceHost.IsQuotaSupported_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -199,7 +199,7 @@ arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ParamsSpec = {
 arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.DiskSpaceHost.GetQuotaCurrentSpaceForUid_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'cur_space', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
@@ -226,7 +226,7 @@ arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ParamsSpec = {
 arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.DiskSpaceHost.GetQuotaCurrentSpaceForGid_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'cur_space', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
@@ -253,7 +253,7 @@ arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ParamsSpec = {
 arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.DiskSpaceHost.GetQuotaCurrentSpaceForProjectId_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'cur_space', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
@@ -282,7 +282,7 @@ arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ParamsSpec = {
 arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.DiskSpaceHost.GetQuotaCurrentSpacesForIds_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'quota_spaces', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.QuotaSpacesSpec, nullable: true, minVersion: 0 },
@@ -308,7 +308,7 @@ arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ParamsSpec = {
 arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.DiskSpaceHost.GetFreeDiskSpace_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'free_space', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.DiskSpaceSpec, nullable: true, minVersion: 0 },
@@ -427,7 +427,7 @@ arc.mojom.DiskSpaceInstance_GetApplicationsSize_ParamsSpec = {
 arc.mojom.DiskSpaceInstance_GetApplicationsSize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.DiskSpaceInstance.GetApplicationsSize_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'succeeded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

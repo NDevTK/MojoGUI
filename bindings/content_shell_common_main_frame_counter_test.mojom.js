@@ -81,7 +81,7 @@ content.mojom.MainFrameCounterTest_HasMainFrame_ParamsSpec = {
 content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.MainFrameCounterTest.HasMainFrame_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'has_main_frame', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

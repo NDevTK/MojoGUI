@@ -281,7 +281,7 @@ blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ParamsSpec = {
 blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.MediaDevicesDispatcherHost.EnumerateDevices_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'enumeration', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Array(blink.mojom.MediaDeviceInfoSpec, false), false), nullable: false, minVersion: 0 },
@@ -309,7 +309,7 @@ blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ParamsSpec = {
 blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.MediaDevicesDispatcherHost.GetVideoInputCapabilities_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'video_input_device_capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.VideoInputDeviceCapabilitiesSpec, false), nullable: false, minVersion: 0 },
@@ -336,7 +336,7 @@ blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ParamsSpec 
 blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.MediaDevicesDispatcherHost.GetAllVideoInputDeviceFormats_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'formats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.VideoCaptureFormatSpec, false), nullable: false, minVersion: 0 },
@@ -363,7 +363,7 @@ blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_Param
 blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.MediaDevicesDispatcherHost.GetAvailableVideoInputDeviceFormats_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'formats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.VideoCaptureFormatSpec, false), nullable: false, minVersion: 0 },
@@ -389,7 +389,7 @@ blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ParamsSpec = {
 blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.MediaDevicesDispatcherHost.GetAudioInputCapabilities_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'audio_input_device_capabilities', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.AudioInputDeviceCapabilitiesSpec, false), nullable: false, minVersion: 0 },
@@ -461,7 +461,7 @@ blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ParamsSpec = {
 blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.MediaDevicesDispatcherHost.ProduceSubCaptureTargetId_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -488,7 +488,7 @@ blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ParamsSpec = {
 blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.MediaDevicesDispatcherHost.SetPreferredSinkId_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.OutputDeviceStatusSpec, nullable: false, minVersion: 0 },
@@ -515,7 +515,7 @@ blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ParamsSpec = {
 blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.MediaDevicesDispatcherHost.SelectAudioOutput_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SelectAudioOutputResultSpec, nullable: false, minVersion: 0 },

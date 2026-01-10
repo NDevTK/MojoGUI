@@ -262,7 +262,7 @@ bluetooth.mojom.DiscoverySession_IsActive_ParamsSpec = {
 bluetooth.mojom.DiscoverySession_IsActive_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'bluetooth.mojom.DiscoverySession.IsActive_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'active', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -288,7 +288,7 @@ bluetooth.mojom.DiscoverySession_Stop_ParamsSpec = {
 bluetooth.mojom.DiscoverySession_Stop_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'bluetooth.mojom.DiscoverySession.Stop_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -458,7 +458,7 @@ bluetooth.mojom.ServerSocket_Accept_ParamsSpec = {
 bluetooth.mojom.ServerSocket_Accept_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'bluetooth.mojom.ServerSocket.Accept_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.AcceptConnectionResultSpec, nullable: true, minVersion: 0 },
@@ -570,7 +570,7 @@ bluetooth.mojom.GattService_CreateCharacteristic_ParamsSpec = {
 bluetooth.mojom.GattService_CreateCharacteristic_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'bluetooth.mojom.GattService.CreateCharacteristic_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -596,7 +596,7 @@ bluetooth.mojom.GattService_Register_ParamsSpec = {
 bluetooth.mojom.GattService_Register_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'bluetooth.mojom.GattService.Register_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.GattServiceErrorCodeSpec, nullable: true, minVersion: 0 },
@@ -687,7 +687,7 @@ bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ParamsSpec = {
 bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'bluetooth.mojom.GattServiceObserver.OnLocalCharacteristicRead_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'read_result', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.LocalCharacteristicReadResultSpec, nullable: false, minVersion: 0 },
@@ -874,7 +874,7 @@ bluetooth.mojom.Adapter_ConnectToDevice_ParamsSpec = {
 bluetooth.mojom.Adapter_ConnectToDevice_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'bluetooth.mojom.Adapter.ConnectToDevice_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.ConnectResultSpec, nullable: false, minVersion: 0 },
@@ -901,7 +901,7 @@ bluetooth.mojom.Adapter_GetDevices_ParamsSpec = {
 bluetooth.mojom.Adapter_GetDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'bluetooth.mojom.Adapter.GetDevices_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(bluetooth.mojom.DeviceInfoSpec, false), nullable: false, minVersion: 0 },
@@ -927,7 +927,7 @@ bluetooth.mojom.Adapter_GetInfo_ParamsSpec = {
 bluetooth.mojom.Adapter_GetInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'bluetooth.mojom.Adapter.GetInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.AdapterInfoSpec, nullable: false, minVersion: 0 },
@@ -971,7 +971,7 @@ bluetooth.mojom.Adapter_RegisterAdvertisement_ParamsSpec = {
 bluetooth.mojom.Adapter_RegisterAdvertisement_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'bluetooth.mojom.Adapter.RegisterAdvertisement_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'advertisement', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
@@ -998,7 +998,7 @@ bluetooth.mojom.Adapter_SetDiscoverable_ParamsSpec = {
 bluetooth.mojom.Adapter_SetDiscoverable_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'bluetooth.mojom.Adapter.SetDiscoverable_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1025,7 +1025,7 @@ bluetooth.mojom.Adapter_SetName_ParamsSpec = {
 bluetooth.mojom.Adapter_SetName_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'bluetooth.mojom.Adapter.SetName_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1052,7 +1052,7 @@ bluetooth.mojom.Adapter_StartDiscoverySession_ParamsSpec = {
 bluetooth.mojom.Adapter_StartDiscoverySession_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'bluetooth.mojom.Adapter.StartDiscoverySession_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
@@ -1081,7 +1081,7 @@ bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ParamsSpec = {
 bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'bluetooth.mojom.Adapter.ConnectToServiceInsecurely_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.ConnectToServiceResultSpec, nullable: true, minVersion: 0 },
@@ -1109,7 +1109,7 @@ bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ParamsSpec = {
 bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'bluetooth.mojom.Adapter.CreateRfcommServiceInsecurely_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'server_socket', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
@@ -1137,7 +1137,7 @@ bluetooth.mojom.Adapter_CreateLocalGattService_ParamsSpec = {
 bluetooth.mojom.Adapter_CreateLocalGattService_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'bluetooth.mojom.Adapter.CreateLocalGattService_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'gatt_service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
@@ -1163,7 +1163,7 @@ bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ParamsSpec = {
 bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'bluetooth.mojom.Adapter.IsLeScatternetDualRoleSupported_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

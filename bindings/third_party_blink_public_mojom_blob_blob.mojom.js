@@ -321,7 +321,7 @@ blink.mojom.Blob_ReadSideData_ParamsSpec = {
 blink.mojom.Blob_ReadSideData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.Blob.ReadSideData_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: true, minVersion: 0 },
@@ -347,7 +347,7 @@ blink.mojom.Blob_CaptureSnapshot_ParamsSpec = {
 blink.mojom.Blob_CaptureSnapshot_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.Blob.CaptureSnapshot_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'length', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
@@ -374,7 +374,7 @@ blink.mojom.Blob_GetInternalUUID_ParamsSpec = {
 blink.mojom.Blob_GetInternalUUID_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.Blob.GetInternalUUID_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'uuid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },

@@ -139,7 +139,7 @@ on_device_translation.mojom.FileOperationProxy_FileExists_ParamsSpec = {
 on_device_translation.mojom.FileOperationProxy_FileExists_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'on_device_translation.mojom.FileOperationProxy.FileExists_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'exists', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -168,7 +168,7 @@ on_device_translation.mojom.FileOperationProxy_Open_ParamsSpec = {
 on_device_translation.mojom.FileOperationProxy_Open_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'on_device_translation.mojom.FileOperationProxy.Open_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true, minVersion: 0 },
@@ -290,7 +290,7 @@ on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ParamsSp
 on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'on_device_translation.mojom.OnDeviceTranslationService.CreateTranslator_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: on_device_translation.mojom.CreateTranslatorResultSpec, nullable: false, minVersion: 0 },
@@ -318,7 +318,7 @@ on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ParamsSpec =
 on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'on_device_translation.mojom.OnDeviceTranslationService.CanTranslate_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'can_stranslate', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

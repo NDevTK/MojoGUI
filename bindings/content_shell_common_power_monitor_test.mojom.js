@@ -81,7 +81,7 @@ content.mojom.PowerMonitorTest_QueryNextState_ParamsSpec = {
 content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.PowerMonitorTest.QueryNextState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'battery_power_status', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BatteryPowerStatusSpec, nullable: false, minVersion: 0 },

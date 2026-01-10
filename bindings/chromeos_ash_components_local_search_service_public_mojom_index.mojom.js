@@ -136,7 +136,7 @@ ash.local_search_service.mojom.Index_GetSize_ParamsSpec = {
 ash.local_search_service.mojom.Index_GetSize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.local_search_service.mojom.Index.GetSize_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'num_items', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint64, nullable: false, minVersion: 0 },
@@ -177,7 +177,7 @@ ash.local_search_service.mojom.Index_Delete_ParamsSpec = {
 ash.local_search_service.mojom.Index_Delete_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.local_search_service.mojom.Index.Delete_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'num_deleted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
@@ -204,7 +204,7 @@ ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec = {
 ash.local_search_service.mojom.Index_UpdateDocuments_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.local_search_service.mojom.Index.UpdateDocuments_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'num_deleted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
@@ -232,7 +232,7 @@ ash.local_search_service.mojom.Index_Find_ParamsSpec = {
 ash.local_search_service.mojom.Index_Find_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.local_search_service.mojom.Index.Find_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: ash.local_search_service.mojom.ResponseStatusSpec, nullable: false, minVersion: 0 },

@@ -188,7 +188,7 @@ blink.mojom.BlobRegistry_RegisterFromStream_ParamsSpec = {
 blink.mojom.BlobRegistry_RegisterFromStream_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.BlobRegistry.RegisterFromStream_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'blob', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SerializedBlobSpec, nullable: true, minVersion: 0 },

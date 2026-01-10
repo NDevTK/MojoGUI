@@ -227,7 +227,7 @@ arc.mojom.InputConnection_RequestTextInputState_ParamsSpec = {
 arc.mojom.InputConnection_RequestTextInputState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.InputConnection.RequestTextInputState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.TextInputStateSpec, nullable: false, minVersion: 0 },
@@ -563,7 +563,7 @@ arc.mojom.InputMethodManagerInstance_EnableIme_ParamsSpec = {
 arc.mojom.InputMethodManagerInstance_EnableIme_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.InputMethodManagerInstance.EnableIme_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -590,7 +590,7 @@ arc.mojom.InputMethodManagerInstance_SwitchImeTo_ParamsSpec = {
 arc.mojom.InputMethodManagerInstance_SwitchImeTo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.InputMethodManagerInstance.SwitchImeTo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

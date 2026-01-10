@@ -91,7 +91,7 @@ on_device_translation.mojom.Translator_Translate_ParamsSpec = {
 on_device_translation.mojom.Translator_Translate_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'on_device_translation.mojom.Translator.Translate_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'output', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -118,7 +118,7 @@ on_device_translation.mojom.Translator_SplitSentences_ParamsSpec = {
 on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'on_device_translation.mojom.Translator.SplitSentences_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'sentences', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },

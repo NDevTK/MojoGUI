@@ -267,7 +267,7 @@ chromeos.mojo_service_manager.mojom.ServiceManager_Query_ParamsSpec = {
 chromeos.mojo_service_manager.mojom.ServiceManager_Query_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.mojo_service_manager.mojom.ServiceManager.Query_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.mojo_service_manager.mojom.ErrorOrServiceStateSpec, nullable: false, minVersion: 0 },

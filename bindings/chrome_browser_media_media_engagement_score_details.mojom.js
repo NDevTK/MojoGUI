@@ -134,7 +134,7 @@ media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_P
 media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.MediaEngagementScoreDetailsProvider.GetMediaEngagementScoreDetails_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.MediaEngagementScoreDetailsSpec, false), nullable: false, minVersion: 0 },
@@ -160,7 +160,7 @@ media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ParamsS
 media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.MediaEngagementScoreDetailsProvider.GetMediaEngagementConfig_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: media.mojom.MediaEngagementConfigSpec, nullable: false, minVersion: 0 },

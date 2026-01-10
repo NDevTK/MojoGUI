@@ -167,7 +167,7 @@ arc.mojom.VideoDecoder_Initialize_ParamsSpec = {
 arc.mojom.VideoDecoder_Initialize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.VideoDecoder.Initialize_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.DecoderStatusSpec, nullable: false, minVersion: 0 },
@@ -194,7 +194,7 @@ arc.mojom.VideoDecoder_Decode_ParamsSpec = {
 arc.mojom.VideoDecoder_Decode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.VideoDecoder.Decode_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.DecoderStatusSpec, nullable: false, minVersion: 0 },

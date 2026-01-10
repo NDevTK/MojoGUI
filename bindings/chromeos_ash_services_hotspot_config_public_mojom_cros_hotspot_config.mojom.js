@@ -279,7 +279,7 @@ ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec = {
 ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.hotspot_config.mojom.CrosHotspotConfig.GetHotspotInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'hotspot_info', packedOffset: 0, packedBitOffset: 0, type: ash.hotspot_config.mojom.HotspotInfoSpec, nullable: false, minVersion: 0 },
@@ -306,7 +306,7 @@ ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec = {
 ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.hotspot_config.mojom.CrosHotspotConfig.SetHotspotConfig_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.hotspot_config.mojom.SetHotspotConfigResultSpec, nullable: false, minVersion: 0 },
@@ -332,7 +332,7 @@ ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec = {
 ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.hotspot_config.mojom.CrosHotspotConfig.EnableHotspot_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.hotspot_config.mojom.HotspotControlResultSpec, nullable: false, minVersion: 0 },
@@ -358,7 +358,7 @@ ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec = {
 ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.hotspot_config.mojom.CrosHotspotConfig.DisableHotspot_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.hotspot_config.mojom.HotspotControlResultSpec, nullable: false, minVersion: 0 },

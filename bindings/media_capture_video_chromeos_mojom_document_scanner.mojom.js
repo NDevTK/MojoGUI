@@ -97,7 +97,7 @@ cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ParamsSpec = {
 cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.CrosDocumentScanner.DetectCornersFromNV12Image_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: cros.mojom.DetectCornersResultSpec, nullable: false, minVersion: 0 },

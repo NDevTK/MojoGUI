@@ -576,7 +576,7 @@ device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec = {
 device.mojom.HidManager_GetDevicesAndSetClient_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.HidManager.GetDevicesAndSetClient_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.HidDeviceInfoSpec, false), nullable: false, minVersion: 0 },
@@ -602,7 +602,7 @@ device.mojom.HidManager_GetDevices_ParamsSpec = {
 device.mojom.HidManager_GetDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.HidManager.GetDevices_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.HidDeviceInfoSpec, false), nullable: false, minVersion: 0 },
@@ -633,7 +633,7 @@ device.mojom.HidManager_Connect_ParamsSpec = {
 device.mojom.HidManager_Connect_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.HidManager.Connect_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'connection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
@@ -761,7 +761,7 @@ device.mojom.HidConnection_Read_ParamsSpec = {
 device.mojom.HidConnection_Read_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.HidConnection.Read_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -791,7 +791,7 @@ device.mojom.HidConnection_Write_ParamsSpec = {
 device.mojom.HidConnection_Write_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.HidConnection.Write_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -818,7 +818,7 @@ device.mojom.HidConnection_GetFeatureReport_ParamsSpec = {
 device.mojom.HidConnection_GetFeatureReport_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.HidConnection.GetFeatureReport_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -847,7 +847,7 @@ device.mojom.HidConnection_SendFeatureReport_ParamsSpec = {
 device.mojom.HidConnection_SendFeatureReport_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.HidConnection.SendFeatureReport_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

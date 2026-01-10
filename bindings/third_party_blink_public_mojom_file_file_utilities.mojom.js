@@ -82,7 +82,7 @@ blink.mojom.FileUtilitiesHost_GetFileInfo_ParamsSpec = {
 blink.mojom.FileUtilitiesHost_GetFileInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.FileUtilitiesHost.GetFileInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileInfoSpec, nullable: true, minVersion: 0 },

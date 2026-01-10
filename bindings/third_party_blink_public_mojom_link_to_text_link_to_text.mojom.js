@@ -167,7 +167,7 @@ blink.mojom.TextFragmentReceiver_RequestSelector_ParamsSpec = {
 blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.TextFragmentReceiver.RequestSelector_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'selector', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -208,7 +208,7 @@ blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ParamsSpec = {
 blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.TextFragmentReceiver.ExtractTextFragmentsMatches_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
@@ -234,7 +234,7 @@ blink.mojom.TextFragmentReceiver_GetExistingSelectors_ParamsSpec = {
 blink.mojom.TextFragmentReceiver_GetExistingSelectors_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.TextFragmentReceiver.GetExistingSelectors_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'selectors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
@@ -260,7 +260,7 @@ blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ParamsSpec = {
 blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.TextFragmentReceiver.ExtractFirstFragmentRect_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'bounds', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.RectSpec, nullable: false, minVersion: 0 },

@@ -137,7 +137,7 @@ mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec = {
 mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mirroring.mojom.MirroringService.GetMirroringStats_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'json_stats', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },

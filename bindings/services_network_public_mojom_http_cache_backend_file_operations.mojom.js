@@ -117,7 +117,7 @@ network.mojom.FileEnumerator_GetNext_ParamsSpec = {
 network.mojom.FileEnumerator_GetNext_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.FileEnumerator.GetNext_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.FileEnumerationEntrySpec, false), nullable: false, minVersion: 0 },
@@ -279,7 +279,7 @@ network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec = {
 network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.HttpCacheBackendFileOperations.CreateDirectory_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -306,7 +306,7 @@ network.mojom.HttpCacheBackendFileOperations_PathExists_ParamsSpec = {
 network.mojom.HttpCacheBackendFileOperations_PathExists_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.HttpCacheBackendFileOperations.PathExists_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -333,7 +333,7 @@ network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ParamsSpec = {
 network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.HttpCacheBackendFileOperations.DirectoryExists_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -361,7 +361,7 @@ network.mojom.HttpCacheBackendFileOperations_OpenFile_ParamsSpec = {
 network.mojom.HttpCacheBackendFileOperations_OpenFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.HttpCacheBackendFileOperations.OpenFile_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true, minVersion: 0 },
@@ -390,7 +390,7 @@ network.mojom.HttpCacheBackendFileOperations_DeleteFile_ParamsSpec = {
 network.mojom.HttpCacheBackendFileOperations_DeleteFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.HttpCacheBackendFileOperations.DeleteFile_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -418,7 +418,7 @@ network.mojom.HttpCacheBackendFileOperations_RenameFile_ParamsSpec = {
 network.mojom.HttpCacheBackendFileOperations_RenameFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.HttpCacheBackendFileOperations.RenameFile_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -445,7 +445,7 @@ network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ParamsSpec = {
 network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.HttpCacheBackendFileOperations.GetFileInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileInfoSpec, nullable: true, minVersion: 0 },
@@ -487,7 +487,7 @@ network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ParamsSpec = {
 network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.HttpCacheBackendFileOperations.CleanupDirectory_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

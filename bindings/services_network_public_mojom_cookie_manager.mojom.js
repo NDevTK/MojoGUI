@@ -729,7 +729,7 @@ network.mojom.CookieManager_GetAllCookies_ParamsSpec = {
 network.mojom.CookieManager_GetAllCookies_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.CookieManager.GetAllCookies_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'cookies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.CanonicalCookieSpec, false), nullable: false, minVersion: 0 },
@@ -755,7 +755,7 @@ network.mojom.CookieManager_GetAllCookiesWithAccessSemantics_ParamsSpec = {
 network.mojom.CookieManager_GetAllCookiesWithAccessSemantics_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.CookieManager.GetAllCookiesWithAccessSemantics_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'cookies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.CanonicalCookieSpec, false), nullable: false, minVersion: 0 },
@@ -785,7 +785,7 @@ network.mojom.CookieManager_GetCookieList_ParamsSpec = {
 network.mojom.CookieManager_GetCookieList_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.CookieManager.GetCookieList_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'cookies', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.CookieWithAccessResultSpec, false), nullable: false, minVersion: 0 },
@@ -815,7 +815,7 @@ network.mojom.CookieManager_SetCanonicalCookie_ParamsSpec = {
 network.mojom.CookieManager_SetCanonicalCookie_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.CookieManager.SetCanonicalCookie_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'access_result', packedOffset: 0, packedBitOffset: 0, type: network.mojom.CookieAccessResultSpec, nullable: false, minVersion: 0 },
@@ -842,7 +842,7 @@ network.mojom.CookieManager_DeleteCanonicalCookie_ParamsSpec = {
 network.mojom.CookieManager_DeleteCanonicalCookie_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.CookieManager.DeleteCanonicalCookie_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -869,7 +869,7 @@ network.mojom.CookieManager_DeleteCookies_ParamsSpec = {
 network.mojom.CookieManager_DeleteCookies_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.CookieManager.DeleteCookies_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'num_deleted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
@@ -895,7 +895,7 @@ network.mojom.CookieManager_DeleteSessionOnlyCookies_ParamsSpec = {
 network.mojom.CookieManager_DeleteSessionOnlyCookies_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.CookieManager.DeleteSessionOnlyCookies_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'num_deleted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
@@ -921,7 +921,7 @@ network.mojom.CookieManager_DeleteStaleSessionOnlyCookies_ParamsSpec = {
 network.mojom.CookieManager_DeleteStaleSessionOnlyCookies_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.CookieManager.DeleteStaleSessionOnlyCookies_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'num_deleted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
@@ -1005,7 +1005,7 @@ network.mojom.CookieManager_AllowFileSchemeCookies_ParamsSpec = {
 network.mojom.CookieManager_AllowFileSchemeCookies_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.CookieManager.AllowFileSchemeCookies_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

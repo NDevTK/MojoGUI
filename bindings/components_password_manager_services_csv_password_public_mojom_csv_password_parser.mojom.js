@@ -118,7 +118,7 @@ password_manager.mojom.CSVPasswordParser_ParseCSV_ParamsSpec = {
 password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'password_manager.mojom.CSVPasswordParser.ParseCSV_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'sequence', packedOffset: 0, packedBitOffset: 0, type: password_manager.mojom.CSVPasswordSequenceSpec, nullable: true, minVersion: 0 },

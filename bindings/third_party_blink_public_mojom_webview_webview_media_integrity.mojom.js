@@ -109,7 +109,7 @@ blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ParamsSpec = {
 blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.WebViewMediaIntegrityService.GetIntegrityProvider_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebViewMediaIntegrityErrorCodeSpec, nullable: true, minVersion: 0 },
@@ -197,7 +197,7 @@ blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ParamsSpec = {
 blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.WebViewMediaIntegrityProvider.RequestToken_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebViewMediaIntegrityTokenResponseSpec, nullable: false, minVersion: 0 },

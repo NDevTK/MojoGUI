@@ -114,7 +114,7 @@ sharing.mojom.IceConfigFetcher_GetIceServers_ParamsSpec = {
 sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'sharing.mojom.IceConfigFetcher.GetIceServers_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'ice_servers', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(sharing.mojom.IceServerSpec, false), nullable: false, minVersion: 0 },

@@ -401,7 +401,7 @@ crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ParamsSpec = {
 crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.CrosDisplayConfigController.GetDisplayLayoutInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DisplayLayoutInfoSpec, nullable: false, minVersion: 0 },
@@ -428,7 +428,7 @@ crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ParamsSpec = {
 crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.CrosDisplayConfigController.SetDisplayLayoutInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DisplayConfigResultSpec, nullable: false, minVersion: 0 },
@@ -455,7 +455,7 @@ crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ParamsSpec = {
 crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.CrosDisplayConfigController.GetDisplayUnitInfoList_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'info_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(crosapi.mojom.DisplayUnitInfoSpec, false), nullable: false, minVersion: 0 },
@@ -484,7 +484,7 @@ crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ParamsSpec = {
 crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.CrosDisplayConfigController.SetDisplayProperties_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DisplayConfigResultSpec, nullable: false, minVersion: 0 },
@@ -527,7 +527,7 @@ crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ParamsSpec = {
 crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.CrosDisplayConfigController.OverscanCalibration_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DisplayConfigResultSpec, nullable: false, minVersion: 0 },
@@ -556,7 +556,7 @@ crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ParamsSpec = {
 crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.CrosDisplayConfigController.TouchCalibration_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.DisplayConfigResultSpec, nullable: false, minVersion: 0 },

@@ -83,7 +83,7 @@ media.mojom.ProvisionFetcher_Retrieve_ParamsSpec = {
 media.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.ProvisionFetcher.Retrieve_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

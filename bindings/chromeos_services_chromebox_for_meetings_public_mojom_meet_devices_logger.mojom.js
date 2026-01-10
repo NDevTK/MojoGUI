@@ -221,7 +221,7 @@ chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ParamsSpec = {
 chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.cfm.mojom.MeetDevicesLogger.Enqueue_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: chromeos.cfm.mojom.LoggerStatusSpec, nullable: false, minVersion: 0 },

@@ -139,7 +139,7 @@ content.mojom.SandboxSupport_GetSystemColors_ParamsSpec = {
 content.mojom.SandboxSupport_GetSystemColors_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.SandboxSupport.GetSystemColors_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: false, minVersion: 0 },
@@ -168,7 +168,7 @@ content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec = {
 content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.SandboxSupport.LcidAndFirstDayOfWeek_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'lcid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
@@ -197,7 +197,7 @@ content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec = {
 content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.SandboxSupport.DigitsAndSigns_ResponseParams',
       packedSize: 48,
       fields: [
         { name: 'digit_substitution', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
@@ -231,7 +231,7 @@ content.mojom.SandboxSupport_LocaleString_ParamsSpec = {
 content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.SandboxSupport.LocaleString_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'str', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.String16Spec, nullable: false, minVersion: 0 },
@@ -260,7 +260,7 @@ content.mojom.SandboxSupport_LocaleStrings_ParamsSpec = {
 content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.SandboxSupport.LocaleStrings_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'strings', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.String16Spec, false), nullable: false, minVersion: 0 },

@@ -577,7 +577,7 @@ ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec = {
 ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.diagnostics.mojom.SystemDataProvider.GetSystemInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'system_info', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.SystemInfoSpec, nullable: false, minVersion: 0 },
@@ -603,7 +603,7 @@ ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec = {
 ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.diagnostics.mojom.SystemDataProvider.GetBatteryInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'battery_info', packedOffset: 0, packedBitOffset: 0, type: ash.diagnostics.mojom.BatteryInfoSpec, nullable: false, minVersion: 0 },

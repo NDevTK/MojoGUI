@@ -144,7 +144,7 @@ webnn.mojom.WebNNContext_CreateTensor_ParamsSpec = {
 webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'webnn.mojom.WebNNContext.CreateTensor_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.CreateTensorResultSpec, nullable: false, minVersion: 0 },
@@ -173,7 +173,7 @@ webnn.mojom.WebNNContext_CreateTensorFromMailbox_ParamsSpec = {
 webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'webnn.mojom.WebNNContext.CreateTensorFromMailbox_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: webnn.mojom.CreateTensorResultSpec, nullable: false, minVersion: 0 },

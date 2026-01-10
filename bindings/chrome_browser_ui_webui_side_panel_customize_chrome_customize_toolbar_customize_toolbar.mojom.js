@@ -267,7 +267,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ParamsSpec
 side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'side_panel.customize_chrome.mojom.CustomizeToolbarHandler.ListActions_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'actions', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(side_panel.customize_chrome.mojom.ActionSpec, false), nullable: false, minVersion: 0 },
@@ -293,7 +293,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ParamsS
 side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'side_panel.customize_chrome.mojom.CustomizeToolbarHandler.ListCategories_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'categories', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(side_panel.customize_chrome.mojom.CategorySpec, false), nullable: false, minVersion: 0 },
@@ -334,7 +334,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_Params
 side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'side_panel.customize_chrome.mojom.CustomizeToolbarHandler.GetIsCustomized_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'customized', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

@@ -235,7 +235,7 @@ ash.focus_mode.mojom.TrackProvider_GetTrack_ParamsSpec = {
 ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.focus_mode.mojom.TrackProvider.GetTrack_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'track', packedOffset: 0, packedBitOffset: 0, type: ash.focus_mode.mojom.TrackDefinitionSpec, nullable: false, minVersion: 0 },

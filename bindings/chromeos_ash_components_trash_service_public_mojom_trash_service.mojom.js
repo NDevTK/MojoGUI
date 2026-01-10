@@ -83,7 +83,7 @@ ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ParamsSpec = {
 ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.trash_service.mojom.TrashService.ParseTrashInfoFile_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileErrorSpec, nullable: false, minVersion: 0 },

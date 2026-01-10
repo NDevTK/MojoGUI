@@ -81,7 +81,7 @@ blink.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec = {
 blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.InnerHtmlAgent.GetInnerHtml_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'inner_html', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },

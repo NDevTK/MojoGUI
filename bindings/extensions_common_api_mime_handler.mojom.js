@@ -124,7 +124,7 @@ extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec = {
 extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'extensions.mime_handler.MimeHandlerService.GetStreamInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'stream_info', packedOffset: 0, packedBitOffset: 0, type: extensions.mime_handler.StreamInfoSpec, nullable: true, minVersion: 0 },

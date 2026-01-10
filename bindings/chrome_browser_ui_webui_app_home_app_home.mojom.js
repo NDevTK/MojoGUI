@@ -297,7 +297,7 @@ app_home.mojom.PageHandler_GetApps_ParamsSpec = {
 app_home.mojom.PageHandler_GetApps_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'app_home.mojom.PageHandler.GetApps_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'app_list', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(app_home.mojom.AppInfoSpec, false), nullable: false, minVersion: 0 },
@@ -323,7 +323,7 @@ app_home.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec = {
 app_home.mojom.PageHandler_GetDeprecationLinkString_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'app_home.mojom.PageHandler.GetDeprecationLinkString_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'link_string', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },

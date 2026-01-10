@@ -701,7 +701,7 @@ chromecast.mojom.CastWebContents_GetMainFramePid_ParamsSpec = {
 chromecast.mojom.CastWebContents_GetMainFramePid_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromecast.mojom.CastWebContents.GetMainFramePid_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'pid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },

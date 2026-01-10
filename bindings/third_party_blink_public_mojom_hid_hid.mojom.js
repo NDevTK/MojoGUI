@@ -189,7 +189,7 @@ blink.mojom.HidService_GetDevices_ParamsSpec = {
 blink.mojom.HidService_GetDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.HidService.GetDevices_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.HidDeviceInfoSpec, false), nullable: false, minVersion: 0 },
@@ -217,7 +217,7 @@ blink.mojom.HidService_RequestDevice_ParamsSpec = {
 blink.mojom.HidService_RequestDevice_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.HidService.RequestDevice_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.HidDeviceInfoSpec, false), nullable: false, minVersion: 0 },
@@ -245,7 +245,7 @@ blink.mojom.HidService_Connect_ParamsSpec = {
 blink.mojom.HidService_Connect_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.HidService.Connect_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'connection', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },

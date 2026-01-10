@@ -227,7 +227,7 @@ blink.mojom.FindInPage_GetNearestFindResult_ParamsSpec = {
 blink.mojom.FindInPage_GetNearestFindResult_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.FindInPage.GetNearestFindResult_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'distance', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },
@@ -269,7 +269,7 @@ blink.mojom.FindInPage_FindMatchRects_ParamsSpec = {
 blink.mojom.FindInPage_FindMatchRects_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.FindInPage.FindMatchRects_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },

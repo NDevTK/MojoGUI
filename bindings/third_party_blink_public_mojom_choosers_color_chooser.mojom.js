@@ -324,7 +324,7 @@ blink.mojom.EyeDropperChooser_Choose_ParamsSpec = {
 blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.EyeDropperChooser.Choose_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

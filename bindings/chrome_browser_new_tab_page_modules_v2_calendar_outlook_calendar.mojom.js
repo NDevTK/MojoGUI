@@ -100,7 +100,7 @@ ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_ParamsSpec = {
 ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ntp.calendar.mojom.OutlookCalendarPageHandler.GetEvents_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ntp.calendar.mojom.CalendarEventSpec, false), nullable: false, minVersion: 0 },

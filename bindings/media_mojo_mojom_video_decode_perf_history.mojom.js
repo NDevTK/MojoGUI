@@ -82,7 +82,7 @@ media.mojom.VideoDecodePerfHistory_GetPerfInfo_ParamsSpec = {
 media.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.VideoDecodePerfHistory.GetPerfInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_smooth', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

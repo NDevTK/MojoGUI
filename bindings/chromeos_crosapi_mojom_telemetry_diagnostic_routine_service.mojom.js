@@ -685,7 +685,7 @@ crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_ParamsSpec = {
 crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.TelemetryDiagnosticRoutineControl.GetState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.TelemetryDiagnosticRoutineStateSpec, nullable: false, minVersion: 0 },
@@ -900,7 +900,7 @@ crosapi.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_Para
 crosapi.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.TelemetryDiagnosticRoutinesService.IsRoutineArgumentSupported_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.TelemetryExtensionSupportStatusSpec, nullable: false, minVersion: 0 },

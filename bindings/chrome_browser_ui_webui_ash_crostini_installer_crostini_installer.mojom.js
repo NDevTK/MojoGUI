@@ -248,7 +248,7 @@ ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ParamsSpec
 ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.crostini_installer.mojom.PageHandler.RequestAmountOfFreeDiskSpace_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'ticks', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(crostini.mojom.DiskSliderTickSpec, false), nullable: false, minVersion: 0 },

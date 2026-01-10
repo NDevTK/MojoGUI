@@ -82,7 +82,7 @@ gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ParamsSpec = {
 gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'gcpw_hid.mojom.GaiaCredentialProviderHidBroker.OpenDevice_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'out_handle', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },

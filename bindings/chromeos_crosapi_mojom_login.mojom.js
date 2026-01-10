@@ -272,7 +272,7 @@ crosapi.mojom.Login_REMOVED_0_ParamsSpec = {
 crosapi.mojom.Login_REMOVED_0_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.Login.REMOVED_0_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -299,7 +299,7 @@ crosapi.mojom.Login_REMOVED_4_ParamsSpec = {
 crosapi.mojom.Login_REMOVED_4_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.Login.REMOVED_4_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -326,7 +326,7 @@ crosapi.mojom.Login_REMOVED_5_ParamsSpec = {
 crosapi.mojom.Login_REMOVED_5_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.Login.REMOVED_5_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -353,7 +353,7 @@ crosapi.mojom.Login_REMOVED_6_ParamsSpec = {
 crosapi.mojom.Login_REMOVED_6_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.Login.REMOVED_6_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -380,7 +380,7 @@ crosapi.mojom.Login_REMOVED_7_ParamsSpec = {
 crosapi.mojom.Login_REMOVED_7_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.Login.REMOVED_7_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -407,7 +407,7 @@ crosapi.mojom.Login_REMOVED_10_ParamsSpec = {
 crosapi.mojom.Login_REMOVED_10_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.Login.REMOVED_10_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -434,7 +434,7 @@ crosapi.mojom.Login_REMOVED_12_ParamsSpec = {
 crosapi.mojom.Login_REMOVED_12_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.Login.REMOVED_12_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },

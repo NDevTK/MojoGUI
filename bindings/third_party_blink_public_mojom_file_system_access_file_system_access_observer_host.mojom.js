@@ -92,7 +92,7 @@ blink.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec = {
 blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.FileSystemAccessObserverHost.Observe_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false, minVersion: 0 },

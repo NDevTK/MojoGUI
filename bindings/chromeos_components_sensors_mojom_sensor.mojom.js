@@ -179,7 +179,7 @@ chromeos.sensors.mojom.SensorService_GetDeviceIds_ParamsSpec = {
 chromeos.sensors.mojom.SensorService_GetDeviceIds_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.sensors.mojom.SensorService.GetDeviceIds_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'iio_device_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Int32, false), nullable: false, minVersion: 0 },
@@ -205,7 +205,7 @@ chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ParamsSpec = {
 chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.sensors.mojom.SensorService.GetAllDeviceIds_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'iio_device_ids_types', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(mojo.internal.Int32, mojo.internal.Array(chromeos.sensors.mojom.DeviceTypeSpec, false), false), nullable: false, minVersion: 0 },
@@ -385,7 +385,7 @@ chromeos.sensors.mojom.SensorDevice_GetAttributes_ParamsSpec = {
 chromeos.sensors.mojom.SensorDevice_GetAttributes_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.sensors.mojom.SensorDevice.GetAttributes_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },
@@ -412,7 +412,7 @@ chromeos.sensors.mojom.SensorDevice_SetFrequency_ParamsSpec = {
 chromeos.sensors.mojom.SensorDevice_SetFrequency_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.sensors.mojom.SensorDevice.SetFrequency_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result_freq', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Double, nullable: false, minVersion: 0 },
@@ -465,7 +465,7 @@ chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ParamsSpec = {
 chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.sensors.mojom.SensorDevice.GetAllChannelIds_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'iio_chn_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
@@ -492,7 +492,7 @@ chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ParamsSpec = {
 chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.sensors.mojom.SensorDevice.GetChannelsEnabled_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Bool, false), nullable: false, minVersion: 0 },
@@ -520,7 +520,7 @@ chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ParamsSpec = {
 chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.sensors.mojom.SensorDevice.GetChannelsAttributes_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'values', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: true, minVersion: 0 },

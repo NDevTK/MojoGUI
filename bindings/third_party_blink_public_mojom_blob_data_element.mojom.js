@@ -169,7 +169,7 @@ blink.mojom.BytesProvider_RequestAsReply_ParamsSpec = {
 blink.mojom.BytesProvider_RequestAsReply_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.BytesProvider.RequestAsReply_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
@@ -213,7 +213,7 @@ blink.mojom.BytesProvider_RequestAsFile_ParamsSpec = {
 blink.mojom.BytesProvider_RequestAsFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.BytesProvider.RequestAsFile_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'time_file_modified', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.TimeSpec, nullable: true, minVersion: 0 },

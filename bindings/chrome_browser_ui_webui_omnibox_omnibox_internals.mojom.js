@@ -320,7 +320,7 @@ mojom.OmniboxPageHandler_GetMlModelVersion_ParamsSpec = {
 mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.OmniboxPageHandler.GetMlModelVersion_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -347,7 +347,7 @@ mojom.OmniboxPageHandler_StartMl_ParamsSpec = {
 mojom.OmniboxPageHandler_StartMl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.OmniboxPageHandler.StartMl_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'score', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Float, nullable: false, minVersion: 0 },

@@ -617,7 +617,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ParamsSp
 chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.GetResult_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineResultSpec, nullable: true, minVersion: 0 },
@@ -643,7 +643,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_Para
 chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.GetAllResults_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(chromeos.network_diagnostics.mojom.RoutineTypeSpec, chromeos.network_diagnostics.mojom.RoutineResultSpec, false), nullable: false, minVersion: 0 },
@@ -670,7 +670,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity
 chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunLanConnectivity_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineResultSpec, nullable: false, minVersion: 0 },
@@ -697,7 +697,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_
 chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunSignalStrength_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineResultSpec, nullable: false, minVersion: 0 },
@@ -724,7 +724,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePin
 chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunGatewayCanBePinged_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineResultSpec, nullable: false, minVersion: 0 },
@@ -751,7 +751,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiCo
 chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunHasSecureWiFiConnection_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineResultSpec, nullable: false, minVersion: 0 },
@@ -778,7 +778,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPres
 chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunDnsResolverPresent_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineResultSpec, nullable: false, minVersion: 0 },
@@ -805,7 +805,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_Para
 chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunDnsLatency_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineResultSpec, nullable: false, minVersion: 0 },
@@ -832,7 +832,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_P
 chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunDnsResolution_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineResultSpec, nullable: false, minVersion: 0 },
@@ -859,7 +859,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_P
 chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunCaptivePortal_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineResultSpec, nullable: false, minVersion: 0 },
@@ -886,7 +886,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_Pa
 chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunHttpFirewall_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineResultSpec, nullable: false, minVersion: 0 },
@@ -913,7 +913,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_P
 chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunHttpsFirewall_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineResultSpec, nullable: false, minVersion: 0 },
@@ -940,7 +940,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_Pa
 chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunHttpsLatency_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineResultSpec, nullable: false, minVersion: 0 },
@@ -968,7 +968,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferenci
 chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunVideoConferencing_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineResultSpec, nullable: false, minVersion: 0 },
@@ -995,7 +995,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ParamsS
 chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunArcHttp_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineResultSpec, nullable: false, minVersion: 0 },
@@ -1022,7 +1022,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ParamsS
 chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunArcPing_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineResultSpec, nullable: false, minVersion: 0 },
@@ -1049,7 +1049,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolutio
 chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunArcDnsResolution_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineResultSpec, nullable: false, minVersion: 0 },
@@ -1076,7 +1076,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesC
 chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines.RunGoogleServicesConnectivity_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.network_diagnostics.mojom.RoutineResultSpec, nullable: false, minVersion: 0 },

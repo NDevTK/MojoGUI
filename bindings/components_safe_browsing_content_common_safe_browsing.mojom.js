@@ -192,7 +192,7 @@ safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec = {
 safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'safe_browsing.mojom.SafeBrowsing.CreateCheckerAndCheck_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'proceed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -294,7 +294,7 @@ safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec = {
 safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'safe_browsing.mojom.ThreatReporter.GetThreatDOMDetails_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'nodes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(safe_browsing.mojom.ThreatDOMDetailsNodeSpec, false), nullable: false, minVersion: 0 },
@@ -383,7 +383,7 @@ safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec = {
 safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'safe_browsing.mojom.PhishingDetector.StartPhishingDetection_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: safe_browsing.mojom.PhishingDetectorResultSpec, nullable: false, minVersion: 0 },
@@ -715,7 +715,7 @@ safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec
 safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'safe_browsing.mojom.PhishingImageEmbedderDetector.StartImageEmbedding_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: safe_browsing.mojom.PhishingImageEmbeddingResultSpec, nullable: false, minVersion: 0 },

@@ -250,7 +250,7 @@ media.mojom.VideoDecoder_GetSupportedConfigs_ParamsSpec = {
 media.mojom.VideoDecoder_GetSupportedConfigs_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.VideoDecoder.GetSupportedConfigs_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'supported_configs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.SupportedVideoDecoderConfigSpec, false), nullable: false, minVersion: 0 },
@@ -299,7 +299,7 @@ media.mojom.VideoDecoder_Initialize_ParamsSpec = {
 media.mojom.VideoDecoder_Initialize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.VideoDecoder.Initialize_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.DecoderStatusSpec, nullable: false, minVersion: 0 },
@@ -330,7 +330,7 @@ media.mojom.VideoDecoder_Decode_ParamsSpec = {
 media.mojom.VideoDecoder_Decode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.VideoDecoder.Decode_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.DecoderStatusSpec, nullable: false, minVersion: 0 },

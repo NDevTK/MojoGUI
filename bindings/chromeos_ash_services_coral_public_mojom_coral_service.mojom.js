@@ -375,7 +375,7 @@ coral.mojom.CoralProcessor_Group_ParamsSpec = {
 coral.mojom.CoralProcessor_Group_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'coral.mojom.CoralProcessor.Group_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: coral.mojom.GroupResultSpec, nullable: false, minVersion: 0 },
@@ -402,7 +402,7 @@ coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec = {
 coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'coral.mojom.CoralProcessor.CacheEmbeddings_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: coral.mojom.CacheEmbeddingsResultSpec, nullable: false, minVersion: 0 },
@@ -518,7 +518,7 @@ coral.mojom.CoralService_GroupDeprecated_ParamsSpec = {
 coral.mojom.CoralService_GroupDeprecated_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'coral.mojom.CoralService.GroupDeprecated_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: coral.mojom.GroupResultSpec, nullable: false, minVersion: 0 },
@@ -545,7 +545,7 @@ coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec = {
 coral.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'coral.mojom.CoralService.CacheEmbeddingsDeprecated_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: coral.mojom.CacheEmbeddingsResultSpec, nullable: false, minVersion: 0 },

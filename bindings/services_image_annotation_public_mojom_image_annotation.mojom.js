@@ -128,7 +128,7 @@ image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec = {
 image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'image_annotation.mojom.ImageProcessor.GetJpgImageData_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'bytes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
@@ -220,7 +220,7 @@ image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec = {
 image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'image_annotation.mojom.Annotator.AnnotateImage_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: image_annotation.mojom.AnnotateImageResultSpec, nullable: false, minVersion: 0 },

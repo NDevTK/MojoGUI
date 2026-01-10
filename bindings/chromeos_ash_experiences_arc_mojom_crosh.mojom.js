@@ -118,7 +118,7 @@ arc.mojom.ArcShellExecutionInstance_Exec_ParamsSpec = {
 arc.mojom.ArcShellExecutionInstance_Exec_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.ArcShellExecutionInstance.Exec_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcShellExecutionResultSpec, nullable: false, minVersion: 0 },

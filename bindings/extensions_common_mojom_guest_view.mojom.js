@@ -105,7 +105,7 @@ extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec = {
 extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'extensions.mojom.GuestView.CanExecuteContentScript_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -233,7 +233,7 @@ extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_Param
 extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'extensions.mojom.MimeHandlerViewContainerManager.CreateBeforeUnloadControl_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'before_unload_control', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },

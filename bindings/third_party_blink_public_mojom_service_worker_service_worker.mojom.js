@@ -260,7 +260,7 @@ blink.mojom.ServiceWorkerHost_GetClients_ParamsSpec = {
 blink.mojom.ServiceWorkerHost_GetClients_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorkerHost.GetClients_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'clients', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.ServiceWorkerClientInfoSpec, false), nullable: false, minVersion: 0 },
@@ -287,7 +287,7 @@ blink.mojom.ServiceWorkerHost_GetClient_ParamsSpec = {
 blink.mojom.ServiceWorkerHost_GetClient_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorkerHost.GetClient_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'client', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerClientInfoSpec, nullable: true, minVersion: 0 },
@@ -314,7 +314,7 @@ blink.mojom.ServiceWorkerHost_OpenNewTab_ParamsSpec = {
 blink.mojom.ServiceWorkerHost_OpenNewTab_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorkerHost.OpenNewTab_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -343,7 +343,7 @@ blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ParamsSpec = {
 blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorkerHost.OpenPaymentHandlerWindow_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -387,7 +387,7 @@ blink.mojom.ServiceWorkerHost_FocusClient_ParamsSpec = {
 blink.mojom.ServiceWorkerHost_FocusClient_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorkerHost.FocusClient_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FocusResultSpec, nullable: false, minVersion: 0 },
@@ -415,7 +415,7 @@ blink.mojom.ServiceWorkerHost_NavigateClient_ParamsSpec = {
 blink.mojom.ServiceWorkerHost_NavigateClient_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorkerHost.NavigateClient_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -443,7 +443,7 @@ blink.mojom.ServiceWorkerHost_SkipWaiting_ParamsSpec = {
 blink.mojom.ServiceWorkerHost_SkipWaiting_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorkerHost.SkipWaiting_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -469,7 +469,7 @@ blink.mojom.ServiceWorkerHost_ClaimClients_ParamsSpec = {
 blink.mojom.ServiceWorkerHost_ClaimClients_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorkerHost.ClaimClients_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerErrorTypeSpec, nullable: false, minVersion: 0 },
@@ -497,7 +497,7 @@ blink.mojom.ServiceWorkerHost_AddRoutes_ParamsSpec = {
 blink.mojom.ServiceWorkerHost_AddRoutes_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorkerHost.AddRoutes_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_parse_error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -839,7 +839,7 @@ blink.mojom.ServiceWorker_DispatchInstallEvent_ParamsSpec = {
 blink.mojom.ServiceWorker_DispatchInstallEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorker.DispatchInstallEvent_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
@@ -866,7 +866,7 @@ blink.mojom.ServiceWorker_DispatchActivateEvent_ParamsSpec = {
 blink.mojom.ServiceWorker_DispatchActivateEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorker.DispatchActivateEvent_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
@@ -893,7 +893,7 @@ blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ParamsSpec = {
 blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorker.DispatchBackgroundFetchAbortEvent_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
@@ -920,7 +920,7 @@ blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ParamsSpec = {
 blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorker.DispatchBackgroundFetchClickEvent_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
@@ -947,7 +947,7 @@ blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ParamsSpec = {
 blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorker.DispatchBackgroundFetchFailEvent_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
@@ -974,7 +974,7 @@ blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ParamsSpec = {
 blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorker.DispatchBackgroundFetchSuccessEvent_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
@@ -1001,7 +1001,7 @@ blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ParamsSpec = {
 blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorker.DispatchCookieChangeEvent_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
@@ -1029,7 +1029,7 @@ blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ParamsSpec = {
 blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorker.DispatchFetchEventForMainResource_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
@@ -1059,7 +1059,7 @@ blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ParamsSpec = {
 blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorker.DispatchNotificationClickEvent_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
@@ -1087,7 +1087,7 @@ blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ParamsSpec = {
 blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorker.DispatchNotificationCloseEvent_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
@@ -1114,7 +1114,7 @@ blink.mojom.ServiceWorker_DispatchPushEvent_ParamsSpec = {
 blink.mojom.ServiceWorker_DispatchPushEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorker.DispatchPushEvent_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
@@ -1141,7 +1141,7 @@ blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ParamsSpec =
 blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorker.DispatchPushEventRecordingNetworkRequests_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
@@ -1170,7 +1170,7 @@ blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ParamsSpec = {
 blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorker.DispatchPushSubscriptionChangeEvent_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
@@ -1199,7 +1199,7 @@ blink.mojom.ServiceWorker_DispatchSyncEvent_ParamsSpec = {
 blink.mojom.ServiceWorker_DispatchSyncEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorker.DispatchSyncEvent_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
@@ -1227,7 +1227,7 @@ blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ParamsSpec = {
 blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorker.DispatchPeriodicSyncEvent_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
@@ -1254,7 +1254,7 @@ blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ParamsSpec = {
 blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorker.DispatchAbortPaymentEvent_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
@@ -1282,7 +1282,7 @@ blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ParamsSpec = {
 blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorker.DispatchCanMakePaymentEvent_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
@@ -1310,7 +1310,7 @@ blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ParamsSpec = {
 blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorker.DispatchPaymentRequestEvent_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
@@ -1337,7 +1337,7 @@ blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ParamsSpec = {
 blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorker.DispatchExtendableMessageEvent_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
@@ -1364,7 +1364,7 @@ blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ParamsSpec = {
 blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorker.DispatchContentDeleteEvent_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.ServiceWorkerEventStatusSpec, nullable: false, minVersion: 0 },
@@ -1460,7 +1460,7 @@ blink.mojom.ServiceWorker_ExecuteScriptForTest_ParamsSpec = {
 blink.mojom.ServiceWorker_ExecuteScriptForTest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ServiceWorker.ExecuteScriptForTest_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },

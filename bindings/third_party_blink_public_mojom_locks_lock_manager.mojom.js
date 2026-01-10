@@ -287,7 +287,7 @@ blink.mojom.LockManager_QueryState_ParamsSpec = {
 blink.mojom.LockManager_QueryState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.LockManager.QueryState_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'requested', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.LockInfoSpec, false), nullable: false, minVersion: 0 },

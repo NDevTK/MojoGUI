@@ -577,7 +577,7 @@ blink.mojom.WebPrinter_FetchAttributes_ParamsSpec = {
 blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.WebPrinter.FetchAttributes_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebPrinterFetchResultSpec, nullable: false, minVersion: 0 },
@@ -605,7 +605,7 @@ blink.mojom.WebPrinter_Print_ParamsSpec = {
 blink.mojom.WebPrinter_Print_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.WebPrinter.Print_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.WebPrintResultSpec, nullable: false, minVersion: 0 },
@@ -692,7 +692,7 @@ blink.mojom.WebPrintingService_GetPrinters_ParamsSpec = {
 blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.WebPrintingService.GetPrinters_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.GetPrintersResultSpec, nullable: false, minVersion: 0 },

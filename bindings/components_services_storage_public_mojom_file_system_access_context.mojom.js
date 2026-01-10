@@ -100,7 +100,7 @@ storage.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec = {
 storage.mojom.FileSystemAccessContext_SerializeHandle_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'storage.mojom.FileSystemAccessContext.SerializeHandle_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'bits', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },

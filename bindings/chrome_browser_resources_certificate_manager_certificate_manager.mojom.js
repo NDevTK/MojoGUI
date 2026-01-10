@@ -298,7 +298,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSp
 certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'certificate_manager.mojom.CertificateManagerPageHandler.GetCertificates_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'certs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(certificate_manager.mojom.SummaryCertInfoSpec, false), nullable: false, minVersion: 0 },
@@ -324,7 +324,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadat
 certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'certificate_manager.mojom.CertificateManagerPageHandler.GetCertManagementMetadata_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'metadata', packedOffset: 0, packedBitOffset: 0, type: certificate_manager.mojom.CertManagementMetadataSpec, nullable: false, minVersion: 0 },
@@ -380,7 +380,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_Params
 certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'certificate_manager.mojom.CertificateManagerPageHandler.ImportCertificate_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: certificate_manager.mojom.ActionResultSpec, nullable: true, minVersion: 0 },
@@ -407,7 +407,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate
 certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'certificate_manager.mojom.CertificateManagerPageHandler.ImportAndBindCertificate_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: certificate_manager.mojom.ActionResultSpec, nullable: true, minVersion: 0 },
@@ -436,7 +436,7 @@ certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_Params
 certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'certificate_manager.mojom.CertificateManagerPageHandler.DeleteCertificate_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: certificate_manager.mojom.ActionResultSpec, nullable: true, minVersion: 0 },
@@ -577,7 +577,7 @@ certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ParamsSpec
 certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'certificate_manager.mojom.CertificateManagerPage.AskForImportPassword_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'password', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -605,7 +605,7 @@ certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ParamsSpec =
 certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'certificate_manager.mojom.CertificateManagerPage.AskForConfirmation_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'confirmed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

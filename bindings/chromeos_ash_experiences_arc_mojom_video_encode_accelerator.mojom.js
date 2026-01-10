@@ -244,7 +244,7 @@ arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ParamsSpec = {
 arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.VideoEncodeAccelerator.GetSupportedProfiles_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'profiles', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.VideoEncodeProfileSpec, false), nullable: false, minVersion: 0 },
@@ -272,7 +272,7 @@ arc.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec = {
 arc.mojom.VideoEncodeAccelerator_Initialize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.VideoEncodeAccelerator.Initialize_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ResultSpec, nullable: false, minVersion: 0 },
@@ -319,7 +319,7 @@ arc.mojom.VideoEncodeAccelerator_UseBitstreamBuffer_ParamsSpec = {
 arc.mojom.VideoEncodeAccelerator_UseBitstreamBuffer_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.VideoEncodeAccelerator.UseBitstreamBuffer_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'payload_size', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
@@ -377,7 +377,7 @@ arc.mojom.VideoEncodeAccelerator_Flush_ParamsSpec = {
 arc.mojom.VideoEncodeAccelerator_Flush_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.VideoEncodeAccelerator.Flush_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'flush_done', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

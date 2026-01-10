@@ -336,7 +336,7 @@ history_clusters.mojom.PageHandler_ToggleVisibility_ParamsSpec = {
 history_clusters.mojom.PageHandler_ToggleVisibility_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'history_clusters.mojom.PageHandler.ToggleVisibility_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'visible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -393,7 +393,7 @@ history_clusters.mojom.PageHandler_HideVisits_ParamsSpec = {
 history_clusters.mojom.PageHandler_HideVisits_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'history_clusters.mojom.PageHandler.HideVisits_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -420,7 +420,7 @@ history_clusters.mojom.PageHandler_RemoveVisits_ParamsSpec = {
 history_clusters.mojom.PageHandler_RemoveVisits_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'history_clusters.mojom.PageHandler.RemoveVisits_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -448,7 +448,7 @@ history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ParamsSpec = {
 history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'history_clusters.mojom.PageHandler.RemoveVisitByUrlAndTime_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

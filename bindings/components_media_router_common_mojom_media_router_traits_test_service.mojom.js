@@ -82,7 +82,7 @@ media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ParamsSpec = {
 media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media_router.mojom.MediaRouterTraitsTestService.EchoMediaSink_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'sink', packedOffset: 0, packedBitOffset: 0, type: media_router.mojom.MediaSinkSpec, nullable: false, minVersion: 0 },

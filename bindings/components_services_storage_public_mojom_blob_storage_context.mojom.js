@@ -130,7 +130,7 @@ storage.mojom.BlobDataItemReader_Read_ParamsSpec = {
 storage.mojom.BlobDataItemReader_Read_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'storage.mojom.BlobDataItemReader.Read_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -156,7 +156,7 @@ storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec = {
 storage.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'storage.mojom.BlobDataItemReader.ReadSideData_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -307,7 +307,7 @@ storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec = {
 storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'storage.mojom.BlobStorageContext.WriteBlobToFile_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: storage.mojom.WriteBlobToFileResultSpec, nullable: false, minVersion: 0 },

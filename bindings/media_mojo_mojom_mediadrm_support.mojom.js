@@ -99,7 +99,7 @@ media.mojom.MediaDrmSupport_IsKeySystemSupported_ParamsSpec = {
 media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.MediaDrmSupport.IsKeySystemSupported_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'key_system_supports', packedOffset: 0, packedBitOffset: 0, type: media.mojom.MediaDrmSupportResultSpec, nullable: true, minVersion: 0 },

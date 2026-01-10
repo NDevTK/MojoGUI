@@ -517,7 +517,7 @@ blink.mojom.AdAuctionService_CreateAdRequest_ParamsSpec = {
 blink.mojom.AdAuctionService_CreateAdRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.AdAuctionService.CreateAdRequest_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'ads_guid', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -545,7 +545,7 @@ blink.mojom.AdAuctionService_FinalizeAd_ParamsSpec = {
 blink.mojom.AdAuctionService_FinalizeAd_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.AdAuctionService.FinalizeAd_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'ad_display_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
@@ -573,7 +573,7 @@ blink.mojom.AdAuctionService_RunAdAuction_ParamsSpec = {
 blink.mojom.AdAuctionService_RunAdAuction_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.AdAuctionService.RunAdAuction_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'aborted_by_script', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -601,7 +601,7 @@ blink.mojom.AdAuctionService_JoinInterestGroup_ParamsSpec = {
 blink.mojom.AdAuctionService_JoinInterestGroup_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.AdAuctionService.JoinInterestGroup_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'failed_well_known_check', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -629,7 +629,7 @@ blink.mojom.AdAuctionService_LeaveInterestGroup_ParamsSpec = {
 blink.mojom.AdAuctionService_LeaveInterestGroup_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.AdAuctionService.LeaveInterestGroup_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'failed_well_known_check', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -670,7 +670,7 @@ blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ParamsSpec = {
 blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.AdAuctionService.ClearOriginJoinedInterestGroups_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'failed_well_known_check', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -711,7 +711,7 @@ blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ParamsSpec = {
 blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.AdAuctionService.DeprecatedGetURLFromURN_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'decoded_url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
@@ -754,7 +754,7 @@ blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ParamsSpec = {
 blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.AdAuctionService.GetInterestGroupAdAuctionData_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'requests', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.AdAuctionPerSellerRequestSpec, false), nullable: false, minVersion: 0 },

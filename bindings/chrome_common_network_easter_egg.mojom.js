@@ -99,7 +99,7 @@ chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec = {
 chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome.mojom.NetworkEasterEgg.GetHighScore_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'high_score', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },

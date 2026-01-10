@@ -240,7 +240,7 @@ feed_internals.mojom.PageHandler_GetGeneralProperties_ParamsSpec = {
 feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'feed_internals.mojom.PageHandler.GetGeneralProperties_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: feed_internals.mojom.PropertiesSpec, nullable: false, minVersion: 0 },
@@ -266,7 +266,7 @@ feed_internals.mojom.PageHandler_GetLastFetchProperties_ParamsSpec = {
 feed_internals.mojom.PageHandler_GetLastFetchProperties_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'feed_internals.mojom.PageHandler.GetLastFetchProperties_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'properties', packedOffset: 0, packedBitOffset: 0, type: feed_internals.mojom.LastFetchPropertiesSpec, nullable: false, minVersion: 0 },
@@ -331,7 +331,7 @@ feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ParamsSpec = {
 feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'feed_internals.mojom.PageHandler.GetFeedProcessScopeDump_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'dump', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -357,7 +357,7 @@ feed_internals.mojom.PageHandler_GetFeedHistograms_ParamsSpec = {
 feed_internals.mojom.PageHandler_GetFeedHistograms_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'feed_internals.mojom.PageHandler.GetFeedHistograms_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'log', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },

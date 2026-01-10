@@ -309,7 +309,7 @@ omnibox_popup_aim.mojom.Page_OnPopupHidden_ParamsSpec = {
 omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'omnibox_popup_aim.mojom.Page.OnPopupHidden_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'input', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },

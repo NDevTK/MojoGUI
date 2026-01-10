@@ -168,7 +168,7 @@ optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInf
 optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'optimization_guide_internals.mojom.PageHandlerFactory.RequestDownloadedModelsInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'downloaded_models_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(optimization_guide_internals.mojom.DownloadedModelInfoSpec, false), nullable: false, minVersion: 0 },
@@ -194,7 +194,7 @@ optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityC
 optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'optimization_guide_internals.mojom.PageHandlerFactory.RequestLoggedModelQualityClientIds_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'logged_client_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(optimization_guide_internals.mojom.LoggedClientIdsSpec, false), nullable: false, minVersion: 0 },
@@ -220,7 +220,7 @@ optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec
 optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'optimization_guide_internals.mojom.PageHandlerFactory.RequestMqlsLogs_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'mqls_logs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(optimization_guide_internals.mojom.MqlsLogSpec, false), nullable: false, minVersion: 0 },

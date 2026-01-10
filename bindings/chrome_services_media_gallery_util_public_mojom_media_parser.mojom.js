@@ -200,7 +200,7 @@ chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec = {
 chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome.mojom.MediaParser.ParseMediaMetadata_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'parse_success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -231,7 +231,7 @@ chrome.mojom.MediaParser_ExtractVideoFrame_ParamsSpec = {
 chrome.mojom.MediaParser_ExtractVideoFrame_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome.mojom.MediaParser.ExtractVideoFrame_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.ExtractVideoFrameResultSpec, nullable: true, minVersion: 0 },
@@ -259,7 +259,7 @@ chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec = {
 chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome.mojom.MediaParser.CheckMediaFile_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -285,7 +285,7 @@ chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec = {
 chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome.mojom.MediaParser.GetCpuInfo_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'libyuv_cpu_flags', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
@@ -375,7 +375,7 @@ chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec = {
 chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome.mojom.MediaParserFactory.CreateMediaParser_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'media_parser', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
@@ -464,7 +464,7 @@ chrome.mojom.MediaDataSource_Read_ParamsSpec = {
 chrome.mojom.MediaDataSource_Read_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome.mojom.MediaDataSource.Read_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },

@@ -1262,7 +1262,7 @@ arc.mojom.AppInstance_RequestAppIcon_ParamsSpec = {
 arc.mojom.AppInstance_RequestAppIcon_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.AppInstance.RequestAppIcon_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'icon_png_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
@@ -1291,7 +1291,7 @@ arc.mojom.AppInstance_GetAppIcon_ParamsSpec = {
 arc.mojom.AppInstance_GetAppIcon_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.AppInstance.GetAppIcon_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'icon', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.RawIconPngDataSpec, nullable: false, minVersion: 0 },
@@ -1319,7 +1319,7 @@ arc.mojom.AppInstance_RequestShortcutIcon_ParamsSpec = {
 arc.mojom.AppInstance_RequestShortcutIcon_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.AppInstance.RequestShortcutIcon_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'icon_png_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
@@ -1347,7 +1347,7 @@ arc.mojom.AppInstance_GetAppShortcutIcon_ParamsSpec = {
 arc.mojom.AppInstance_GetAppShortcutIcon_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.AppInstance.GetAppShortcutIcon_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'icon', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.RawIconPngDataSpec, nullable: false, minVersion: 0 },
@@ -1376,7 +1376,7 @@ arc.mojom.AppInstance_RequestPackageIcon_ParamsSpec = {
 arc.mojom.AppInstance_RequestPackageIcon_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.AppInstance.RequestPackageIcon_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'icon_png_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
@@ -1405,7 +1405,7 @@ arc.mojom.AppInstance_GetPackageIcon_ParamsSpec = {
 arc.mojom.AppInstance_GetPackageIcon_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.AppInstance.GetPackageIcon_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'icon', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.RawIconPngDataSpec, nullable: false, minVersion: 0 },
@@ -1521,7 +1521,7 @@ arc.mojom.AppInstance_StartPaiFlow_ParamsSpec = {
 arc.mojom.AppInstance_StartPaiFlow_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.AppInstance.StartPaiFlow_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.PaiFlowStateSpec, nullable: false, minVersion: 0 },
@@ -1589,7 +1589,7 @@ arc.mojom.AppInstance_GetAndroidId_ParamsSpec = {
 arc.mojom.AppInstance_GetAndroidId_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.AppInstance.GetAndroidId_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'android_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },
@@ -1617,7 +1617,7 @@ arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ParamsSpec = {
 arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.AppInstance.GetAppShortcutGlobalQueryItems_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'shortcut_items', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.AppShortcutItemSpec, false), nullable: false, minVersion: 0 },
@@ -1644,7 +1644,7 @@ arc.mojom.AppInstance_GetAppShortcutItems_ParamsSpec = {
 arc.mojom.AppInstance_GetAppShortcutItems_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.AppInstance.GetAppShortcutItems_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'shortcut_items', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.AppShortcutItemSpec, false), nullable: false, minVersion: 0 },
@@ -1672,7 +1672,7 @@ arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ParamsSpec = {
 arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.AppInstance.GetRecentAndSuggestedAppsFromPlayStore_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.AppDiscoveryResultSpec, false), nullable: false, minVersion: 0 },
@@ -1700,7 +1700,7 @@ arc.mojom.AppInstance_IsInstallable_ParamsSpec = {
 arc.mojom.AppInstance_IsInstallable_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.AppInstance.IsInstallable_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_installable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1727,7 +1727,7 @@ arc.mojom.AppInstance_GetAppCategory_ParamsSpec = {
 arc.mojom.AppInstance_GetAppCategory_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.AppInstance.GetAppCategory_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'category', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.AppCategorySpec, nullable: false, minVersion: 0 },

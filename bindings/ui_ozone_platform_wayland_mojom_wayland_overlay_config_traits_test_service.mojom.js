@@ -82,7 +82,7 @@ wl.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec = {
 wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'wl.mojom.ConfigTraitsTestService.EchoTransform_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: wl.mojom.TransformUnionSpec, nullable: false, minVersion: 0 },

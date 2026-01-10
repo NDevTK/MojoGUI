@@ -81,7 +81,7 @@ test.mojom.Foo_GetFoo_ParamsSpec = {
 test.mojom.Foo_GetFoo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'test.mojom.Foo.GetFoo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -168,7 +168,7 @@ test.mojom.Bar_GetBar_ParamsSpec = {
 test.mojom.Bar_GetBar_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'test.mojom.Bar.GetBar_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -255,7 +255,7 @@ test.mojom.Baz_GetBaz_ParamsSpec = {
 test.mojom.Baz_GetBaz_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'test.mojom.Baz.GetBaz_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },

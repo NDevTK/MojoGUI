@@ -291,7 +291,7 @@ cros.mojom.VendorTagOps_GetTagCount_ParamsSpec = {
 cros.mojom.VendorTagOps_GetTagCount_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.VendorTagOps.GetTagCount_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -317,7 +317,7 @@ cros.mojom.VendorTagOps_GetAllTags_ParamsSpec = {
 cros.mojom.VendorTagOps_GetAllTags_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.VendorTagOps.GetAllTags_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'tag_array', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint32, false), nullable: false, minVersion: 0 },
@@ -344,7 +344,7 @@ cros.mojom.VendorTagOps_GetSectionName_ParamsSpec = {
 cros.mojom.VendorTagOps_GetSectionName_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.VendorTagOps.GetSectionName_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -371,7 +371,7 @@ cros.mojom.VendorTagOps_GetTagName_ParamsSpec = {
 cros.mojom.VendorTagOps_GetTagName_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.VendorTagOps.GetTagName_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -398,7 +398,7 @@ cros.mojom.VendorTagOps_GetTagType_ParamsSpec = {
 cros.mojom.VendorTagOps_GetTagType_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.VendorTagOps.GetTagType_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -550,7 +550,7 @@ cros.mojom.CameraModule_OpenDevice_ParamsSpec = {
 cros.mojom.CameraModule_OpenDevice_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.CameraModule.OpenDevice_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -576,7 +576,7 @@ cros.mojom.CameraModule_GetNumberOfCameras_ParamsSpec = {
 cros.mojom.CameraModule_GetNumberOfCameras_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.CameraModule.GetNumberOfCameras_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -603,7 +603,7 @@ cros.mojom.CameraModule_GetCameraInfo_ParamsSpec = {
 cros.mojom.CameraModule_GetCameraInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.CameraModule.GetCameraInfo_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -631,7 +631,7 @@ cros.mojom.CameraModule_SetCallbacks_ParamsSpec = {
 cros.mojom.CameraModule_SetCallbacks_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.CameraModule.SetCallbacks_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -659,7 +659,7 @@ cros.mojom.CameraModule_SetTorchMode_ParamsSpec = {
 cros.mojom.CameraModule_SetTorchMode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.CameraModule.SetTorchMode_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -685,7 +685,7 @@ cros.mojom.CameraModule_Init_ParamsSpec = {
 cros.mojom.CameraModule_Init_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.CameraModule.Init_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -726,7 +726,7 @@ cros.mojom.CameraModule_SetCallbacksAssociated_ParamsSpec = {
 cros.mojom.CameraModule_SetCallbacksAssociated_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cros.mojom.CameraModule.SetCallbacksAssociated_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },

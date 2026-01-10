@@ -178,7 +178,7 @@ ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec = {
 ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.local_search_service.mojom.LocalSearchService.BindIndex_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },

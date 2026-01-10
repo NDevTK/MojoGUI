@@ -107,7 +107,7 @@ ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ParamsSpec = {
 ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_safety.mojom.CloudSafetySession.ClassifyTextSafety_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'verdict', packedOffset: 0, packedBitOffset: 0, type: ash.cros_safety.mojom.SafetyClassifierVerdictSpec, nullable: false, minVersion: 0 },
@@ -136,7 +136,7 @@ ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ParamsSpec = {
 ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_safety.mojom.CloudSafetySession.ClassifyImageSafety_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'verdict', packedOffset: 0, packedBitOffset: 0, type: ash.cros_safety.mojom.SafetyClassifierVerdictSpec, nullable: false, minVersion: 0 },
@@ -234,7 +234,7 @@ ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ParamsSpec = {
 ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_safety.mojom.OnDeviceSafetySession.ClassifyTextSafety_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'verdict', packedOffset: 0, packedBitOffset: 0, type: ash.cros_safety.mojom.SafetyClassifierVerdictSpec, nullable: false, minVersion: 0 },
@@ -262,7 +262,7 @@ ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ParamsSpec = {
 ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_safety.mojom.OnDeviceSafetySession.ClassifyImageSafety_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'verdict', packedOffset: 0, packedBitOffset: 0, type: ash.cros_safety.mojom.SafetyClassifierVerdictSpec, nullable: false, minVersion: 0 },

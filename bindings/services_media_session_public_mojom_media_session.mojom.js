@@ -710,7 +710,7 @@ media_session.mojom.MediaSession_GetMediaSessionInfo_ParamsSpec = {
 media_session.mojom.MediaSession_GetMediaSessionInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media_session.mojom.MediaSession.GetMediaSessionInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaSessionInfoSpec, nullable: false, minVersion: 0 },
@@ -736,7 +736,7 @@ media_session.mojom.MediaSession_GetDebugInfo_ParamsSpec = {
 media_session.mojom.MediaSession_GetDebugInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media_session.mojom.MediaSession.GetDebugInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaSessionDebugInfoSpec, nullable: false, minVersion: 0 },
@@ -900,7 +900,7 @@ media_session.mojom.MediaSession_GetMediaImageBitmap_ParamsSpec = {
 media_session.mojom.MediaSession_GetMediaImageBitmap_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media_session.mojom.MediaSession.GetMediaImageBitmap_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'image', packedOffset: 0, packedBitOffset: 0, type: media_session.mojom.MediaImageBitmapSpec, nullable: true, minVersion: 0 },
@@ -1112,7 +1112,7 @@ media_session.mojom.MediaSession_GetVisibility_ParamsSpec = {
 media_session.mojom.MediaSession_GetVisibility_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media_session.mojom.MediaSession.GetVisibility_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'has_sufficiently_visible_video', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

@@ -112,7 +112,7 @@ chromeos.cdm.mojom.OutputProtection_QueryStatus_ParamsSpec = {
 chromeos.cdm.mojom.OutputProtection_QueryStatus_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.cdm.mojom.OutputProtection.QueryStatus_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -141,7 +141,7 @@ chromeos.cdm.mojom.OutputProtection_EnableProtection_ParamsSpec = {
 chromeos.cdm.mojom.OutputProtection_EnableProtection_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.cdm.mojom.OutputProtection.EnableProtection_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

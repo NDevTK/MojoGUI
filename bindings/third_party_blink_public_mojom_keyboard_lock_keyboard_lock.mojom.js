@@ -133,7 +133,7 @@ blink.mojom.KeyboardLockService_RequestKeyboardLock_ParamsSpec = {
 blink.mojom.KeyboardLockService_RequestKeyboardLock_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.KeyboardLockService.RequestKeyboardLock_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.KeyboardLockRequestResultSpec, nullable: false, minVersion: 0 },
@@ -172,7 +172,7 @@ blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ParamsSpec = {
 blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.KeyboardLockService.GetKeyboardLayoutMap_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.GetKeyboardLayoutMapResultSpec, nullable: false, minVersion: 0 },

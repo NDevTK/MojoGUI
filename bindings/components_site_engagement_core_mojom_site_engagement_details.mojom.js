@@ -107,7 +107,7 @@ site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_Par
 site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'site_engagement.mojom.SiteEngagementDetailsProvider.GetSiteEngagementDetails_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(site_engagement.mojom.SiteEngagementDetailsSpec, false), nullable: false, minVersion: 0 },

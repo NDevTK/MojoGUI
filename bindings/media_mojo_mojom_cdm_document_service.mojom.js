@@ -144,7 +144,7 @@ media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec = {
 media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.CdmDocumentService.ChallengePlatform_ResponseParams',
       packedSize: 40,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -174,7 +174,7 @@ media.mojom.CdmDocumentService_GetStorageId_ParamsSpec = {
 media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.CdmDocumentService.GetStorageId_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'version', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
@@ -201,7 +201,7 @@ media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec = {
 media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.CdmDocumentService.IsVerifiedAccessEnabled_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -227,7 +227,7 @@ media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec = {
 media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.CdmDocumentService.GetMediaFoundationCdmData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'cdm_data', packedOffset: 0, packedBitOffset: 0, type: media.mojom.MediaFoundationCdmDataSpec, nullable: false, minVersion: 0 },

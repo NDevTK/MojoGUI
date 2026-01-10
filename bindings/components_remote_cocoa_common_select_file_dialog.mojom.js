@@ -115,7 +115,7 @@ remote_cocoa.mojom.SelectFileDialog_Show_ParamsSpec = {
 remote_cocoa.mojom.SelectFileDialog_Show_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remote_cocoa.mojom.SelectFileDialog.Show_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'was_cancelled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

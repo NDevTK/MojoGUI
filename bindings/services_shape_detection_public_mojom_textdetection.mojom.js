@@ -98,7 +98,7 @@ shape_detection.mojom.TextDetection_Detect_ParamsSpec = {
 shape_detection.mojom.TextDetection_Detect_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'shape_detection.mojom.TextDetection.Detect_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(shape_detection.mojom.TextDetectionResultSpec, false), nullable: false, minVersion: 0 },

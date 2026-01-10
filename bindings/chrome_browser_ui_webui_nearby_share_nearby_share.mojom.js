@@ -513,7 +513,7 @@ nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec = {
 nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'nearby_share.mojom.DiscoveryManager.StartDiscovery_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.StartDiscoveryResultSpec, nullable: false, minVersion: 0 },
@@ -553,7 +553,7 @@ nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec = {
 nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'nearby_share.mojom.DiscoveryManager.SelectShareTarget_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.SelectShareTargetResultSpec, nullable: false, minVersion: 0 },
@@ -581,7 +581,7 @@ nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec = {
 nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'nearby_share.mojom.DiscoveryManager.GetPayloadPreview_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'payload_preview', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.PayloadPreviewSpec, nullable: false, minVersion: 0 },
@@ -686,7 +686,7 @@ nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec = {
 nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'nearby_share.mojom.ConfirmationManager.Accept_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -712,7 +712,7 @@ nearby_share.mojom.ConfirmationManager_Reject_ParamsSpec = {
 nearby_share.mojom.ConfirmationManager_Reject_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'nearby_share.mojom.ConfirmationManager.Reject_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -738,7 +738,7 @@ nearby_share.mojom.ConfirmationManager_Cancel_ParamsSpec = {
 nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'nearby_share.mojom.ConfirmationManager.Cancel_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1036,7 +1036,7 @@ nearby_share.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec = {
 nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'nearby_share.mojom.ReceiveManager.IsInHighVisibility_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'in_high_visibility', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1062,7 +1062,7 @@ nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec = 
 nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'nearby_share.mojom.ReceiveManager.RegisterForegroundReceiveSurface_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: nearby_share.mojom.RegisterReceiveSurfaceResultSpec, nullable: false, minVersion: 0 },
@@ -1088,7 +1088,7 @@ nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec 
 nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'nearby_share.mojom.ReceiveManager.UnregisterForegroundReceiveSurface_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1115,7 +1115,7 @@ nearby_share.mojom.ReceiveManager_Accept_ParamsSpec = {
 nearby_share.mojom.ReceiveManager_Accept_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'nearby_share.mojom.ReceiveManager.Accept_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1142,7 +1142,7 @@ nearby_share.mojom.ReceiveManager_Reject_ParamsSpec = {
 nearby_share.mojom.ReceiveManager_Reject_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'nearby_share.mojom.ReceiveManager.Reject_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

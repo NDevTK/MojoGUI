@@ -196,7 +196,7 @@ webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec = {
 webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'webxr.mojom.WebXrInternalsHandler.GetDeviceInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: webxr.mojom.DeviceInfoSpec, nullable: false, minVersion: 0 },
@@ -222,7 +222,7 @@ webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec = {
 webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'webxr.mojom.WebXrInternalsHandler.GetActiveRuntimes_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'active_runtimes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(webxr.mojom.RuntimeInfoSpec, false), nullable: false, minVersion: 0 },

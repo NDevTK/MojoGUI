@@ -304,7 +304,7 @@ reading_list.mojom.PageHandler_GetReadLaterEntries_ParamsSpec = {
 reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'reading_list.mojom.PageHandler.GetReadLaterEntries_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'entries', packedOffset: 0, packedBitOffset: 0, type: reading_list.mojom.ReadLaterEntriesByStatusSpec, nullable: false, minVersion: 0 },
@@ -456,7 +456,7 @@ reading_list.mojom.PageHandler_GetWindowData_ParamsSpec = {
 reading_list.mojom.PageHandler_GetWindowData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'reading_list.mojom.PageHandler.GetWindowData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'windows', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(reading_list.mojom.WindowSpec, false), nullable: false, minVersion: 0 },

@@ -81,7 +81,7 @@ commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ParamsSpec = {
 commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'commerce_web_extractor.mojom.CommerceWebExtractor.ExtractMetaInfo_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ValueSpec, nullable: false, minVersion: 0 },

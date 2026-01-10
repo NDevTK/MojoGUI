@@ -135,7 +135,7 @@ translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec = {
 translate.mojom.TranslateAgent_TranslateFrame_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'translate.mojom.TranslateAgent.TranslateFrame_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'cancelled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

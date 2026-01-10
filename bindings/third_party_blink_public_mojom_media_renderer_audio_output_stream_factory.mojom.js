@@ -84,7 +84,7 @@ blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ParamsSp
 blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.RendererAudioOutputStreamFactory.RequestDeviceAuthorization_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: media.mojom.OutputDeviceStatusSpec, nullable: false, minVersion: 0 },

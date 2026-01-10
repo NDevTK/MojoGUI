@@ -178,7 +178,7 @@ cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec = {
 cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cast_streaming.mojom.AudioBufferRequester.GetBuffer_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'buffer_response', packedOffset: 0, packedBitOffset: 0, type: cast_streaming.mojom.GetAudioBufferResponseSpec, nullable: true, minVersion: 0 },
@@ -204,7 +204,7 @@ cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec = 
 cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cast_streaming.mojom.AudioBufferRequester.EnableBitstreamConverter_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -300,7 +300,7 @@ cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec = {
 cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cast_streaming.mojom.VideoBufferRequester.GetBuffer_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'buffer_response', packedOffset: 0, packedBitOffset: 0, type: cast_streaming.mojom.GetVideoBufferResponseSpec, nullable: true, minVersion: 0 },
@@ -326,7 +326,7 @@ cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec = 
 cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cast_streaming.mojom.VideoBufferRequester.EnableBitstreamConverter_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

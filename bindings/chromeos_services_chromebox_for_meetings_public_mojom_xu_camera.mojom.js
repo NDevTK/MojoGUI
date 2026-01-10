@@ -217,7 +217,7 @@ ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec = {
 ash.cfm.mojom.XuCamera_GetUnitId_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cfm.mojom.XuCamera.GetUnitId_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
@@ -246,7 +246,7 @@ ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec = {
 ash.cfm.mojom.XuCamera_MapCtrl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cfm.mojom.XuCamera.MapCtrl_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
@@ -275,7 +275,7 @@ ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec = {
 ash.cfm.mojom.XuCamera_GetCtrl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cfm.mojom.XuCamera.GetCtrl_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },
@@ -305,7 +305,7 @@ ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec = {
 ash.cfm.mojom.XuCamera_SetCtrl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cfm.mojom.XuCamera.SetCtrl_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint8, nullable: false, minVersion: 0 },

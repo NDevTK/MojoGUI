@@ -563,7 +563,7 @@ read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ParamsSpec = {
 read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'read_anything.mojom.UntrustedPageHandler.GetDependencyParserModel_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'model_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true, minVersion: 0 },

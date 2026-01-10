@@ -261,7 +261,7 @@ arc.mojom.ProcessInstance_RequestProcessList_ParamsSpec = {
 arc.mojom.ProcessInstance_RequestProcessList_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.ProcessInstance.RequestProcessList_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'processes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.RunningAppProcessInfoSpec, false), nullable: false, minVersion: 0 },
@@ -287,7 +287,7 @@ arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ParamsSpec = {
 arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.ProcessInstance.RequestApplicationProcessMemoryInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'process_dumps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.ArcMemoryDumpSpec, false), nullable: false, minVersion: 0 },
@@ -314,7 +314,7 @@ arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ParamsSpec = {
 arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.ProcessInstance.RequestSystemProcessMemoryInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'process_dumps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.ArcMemoryDumpSpec, false), nullable: false, minVersion: 0 },
@@ -342,7 +342,7 @@ arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ParamsSpec = {
 arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.ProcessInstance.ApplyHostMemoryPressureDeprecated_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'killed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
@@ -371,7 +371,7 @@ arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ParamsSpec = {
 arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.ProcessInstance.ApplyHostMemoryPressure_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'killed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
@@ -398,7 +398,7 @@ arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ParamsSpec = {
 arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.ProcessInstance.RequestLowMemoryKillCounts_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'counts', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.LowMemoryKillCountsSpec, nullable: false, minVersion: 0 },

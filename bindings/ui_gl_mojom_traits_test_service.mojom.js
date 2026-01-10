@@ -91,7 +91,7 @@ gl.mojom.TraitsTestService_EchoGpuPreference_ParamsSpec = {
 gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'gl.mojom.TraitsTestService.EchoGpuPreference_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: gl.mojom.GpuPreferenceSpec, nullable: false, minVersion: 0 },
@@ -118,7 +118,7 @@ gl.mojom.TraitsTestService_EchoGLImplementationParts_ParamsSpec = {
 gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'gl.mojom.TraitsTestService.EchoGLImplementationParts_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'pass', packedOffset: 0, packedBitOffset: 0, type: gl.mojom.GLImplementationPartsSpec, nullable: false, minVersion: 0 },

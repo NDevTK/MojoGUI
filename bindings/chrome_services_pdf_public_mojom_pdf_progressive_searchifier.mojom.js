@@ -128,7 +128,7 @@ pdf.mojom.PdfProgressiveSearchifier_Save_ParamsSpec = {
 pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'pdf.mojom.PdfProgressiveSearchifier.Save_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'searchified_pdf', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },

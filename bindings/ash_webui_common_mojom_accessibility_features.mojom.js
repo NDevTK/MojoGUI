@@ -158,7 +158,7 @@ ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ParamsS
 ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.common.mojom.AccessibilityFeatures.ObserveForceHiddenElementsVisible_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'forceVisible', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

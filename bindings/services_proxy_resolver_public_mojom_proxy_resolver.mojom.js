@@ -664,7 +664,7 @@ proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ParamsSpec = {
 proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'proxy_resolver.mojom.SystemProxyResolver.GetProxyForUrl_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'proxy_list', packedOffset: 0, packedBitOffset: 0, type: network.mojom.ProxyListSpec, nullable: false, minVersion: 0 },

@@ -91,7 +91,7 @@ device.mojom.ScreenOrientation_LockOrientation_ParamsSpec = {
 device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.ScreenOrientation.LockOrientation_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: device.mojom.ScreenOrientationLockResultSpec, nullable: false, minVersion: 0 },
@@ -191,7 +191,7 @@ device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ParamsSpec = {
 device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.ScreenOrientationListener.IsAutoRotateEnabledByUser_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

@@ -97,7 +97,7 @@ foo.mojom.FooHandler_GetData_ParamsSpec = {
 foo.mojom.FooHandler_GetData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'foo.mojom.FooHandler.GetData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(foo.mojom.FooDataItemSpec, false), nullable: false, minVersion: 0 },

@@ -1172,7 +1172,7 @@ drivefs.mojom.DriveFs_GetMetadata_ParamsSpec = {
 drivefs.mojom.DriveFs_GetMetadata_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'drivefs.mojom.DriveFs.GetMetadata_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -1201,7 +1201,7 @@ drivefs.mojom.DriveFs_SetPinned_ParamsSpec = {
 drivefs.mojom.DriveFs_SetPinned_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'drivefs.mojom.DriveFs.SetPinned_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -1242,7 +1242,7 @@ drivefs.mojom.DriveFs_ResetCache_ParamsSpec = {
 drivefs.mojom.DriveFs_ResetCache_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'drivefs.mojom.DriveFs.ResetCache_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -1270,7 +1270,7 @@ drivefs.mojom.DriveFs_GetThumbnail_ParamsSpec = {
 drivefs.mojom.DriveFs_GetThumbnail_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'drivefs.mojom.DriveFs.GetThumbnail_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'thumbnail', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: true, minVersion: 0 },
@@ -1298,7 +1298,7 @@ drivefs.mojom.DriveFs_CopyFile_ParamsSpec = {
 drivefs.mojom.DriveFs_CopyFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'drivefs.mojom.DriveFs.CopyFile_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -1367,7 +1367,7 @@ drivefs.mojom.DriveFs_SendNativeMessageRequest_ParamsSpec = {
 drivefs.mojom.DriveFs_SendNativeMessageRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'drivefs.mojom.DriveFs.SendNativeMessageRequest_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -1395,7 +1395,7 @@ drivefs.mojom.DriveFs_SetStartupArguments_ParamsSpec = {
 drivefs.mojom.DriveFs_SetStartupArguments_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'drivefs.mojom.DriveFs.SetStartupArguments_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1421,7 +1421,7 @@ drivefs.mojom.DriveFs_GetStartupArguments_ParamsSpec = {
 drivefs.mojom.DriveFs_GetStartupArguments_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'drivefs.mojom.DriveFs.GetStartupArguments_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'arguments', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -1532,7 +1532,7 @@ drivefs.mojom.DriveFs_LocateFilesByItemIds_ParamsSpec = {
 drivefs.mojom.DriveFs_LocateFilesByItemIds_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'drivefs.mojom.DriveFs.LocateFilesByItemIds_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(drivefs.mojom.FilePathOrErrorSpec, false), nullable: true, minVersion: 0 },
@@ -1558,7 +1558,7 @@ drivefs.mojom.DriveFs_GetQuotaUsage_ParamsSpec = {
 drivefs.mojom.DriveFs_GetQuotaUsage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'drivefs.mojom.DriveFs.GetQuotaUsage_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -1586,7 +1586,7 @@ drivefs.mojom.DriveFs_ToggleMirroring_ParamsSpec = {
 drivefs.mojom.DriveFs_ToggleMirroring_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'drivefs.mojom.DriveFs.ToggleMirroring_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.MirrorSyncStatusSpec, nullable: false, minVersion: 0 },
@@ -1614,7 +1614,7 @@ drivefs.mojom.DriveFs_ToggleSyncForPath_ParamsSpec = {
 drivefs.mojom.DriveFs_ToggleSyncForPath_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'drivefs.mojom.DriveFs.ToggleSyncForPath_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -1640,7 +1640,7 @@ drivefs.mojom.DriveFs_GetSyncingPaths_ParamsSpec = {
 drivefs.mojom.DriveFs_GetSyncingPaths_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'drivefs.mojom.DriveFs.GetSyncingPaths_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -1680,7 +1680,7 @@ drivefs.mojom.DriveFs_GetPooledQuotaUsage_ParamsSpec = {
 drivefs.mojom.DriveFs_GetPooledQuotaUsage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'drivefs.mojom.DriveFs.GetPooledQuotaUsage_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -1709,7 +1709,7 @@ drivefs.mojom.DriveFs_SetPinnedByStableId_ParamsSpec = {
 drivefs.mojom.DriveFs_SetPinnedByStableId_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'drivefs.mojom.DriveFs.SetPinnedByStableId_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -1736,7 +1736,7 @@ drivefs.mojom.DriveFs_GetMetadataByStableId_ParamsSpec = {
 drivefs.mojom.DriveFs_GetMetadataByStableId_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'drivefs.mojom.DriveFs.GetMetadataByStableId_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -1779,7 +1779,7 @@ drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ParamsSpec = {
 drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'drivefs.mojom.DriveFs.SetDocsOfflineEnabled_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -1806,7 +1806,7 @@ drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ParamsSpec = {
 drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'drivefs.mojom.DriveFs.GetOfflineFilesSpaceUsage_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -1833,7 +1833,7 @@ drivefs.mojom.DriveFs_ClearOfflineFiles_ParamsSpec = {
 drivefs.mojom.DriveFs_ClearOfflineFiles_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'drivefs.mojom.DriveFs.ClearOfflineFiles_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -1860,7 +1860,7 @@ drivefs.mojom.DriveFs_ImmediatelyUpload_ParamsSpec = {
 drivefs.mojom.DriveFs_ImmediatelyUpload_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'drivefs.mojom.DriveFs.ImmediatelyUpload_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -1887,7 +1887,7 @@ drivefs.mojom.DriveFs_UpdateFromPairedDoc_ParamsSpec = {
 drivefs.mojom.DriveFs_UpdateFromPairedDoc_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'drivefs.mojom.DriveFs.UpdateFromPairedDoc_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -1914,7 +1914,7 @@ drivefs.mojom.DriveFs_GetItemFromCloudStore_ParamsSpec = {
 drivefs.mojom.DriveFs_GetItemFromCloudStore_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'drivefs.mojom.DriveFs.GetItemFromCloudStore_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -1940,7 +1940,7 @@ drivefs.mojom.DriveFs_GetDocsOfflineStats_ParamsSpec = {
 drivefs.mojom.DriveFs_GetDocsOfflineStats_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'drivefs.mojom.DriveFs.GetDocsOfflineStats_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.FileErrorSpec, nullable: false, minVersion: 0 },
@@ -1968,7 +1968,7 @@ drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ParamsSpec = {
 drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'drivefs.mojom.DriveFs.GetMirrorSyncStatusForFile_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.MirrorItemSyncingStatusSpec, nullable: false, minVersion: 0 },
@@ -1995,7 +1995,7 @@ drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ParamsSpec = {
 drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'drivefs.mojom.DriveFs.GetMirrorSyncStatusForDirectory_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.MirrorItemSyncingStatusSpec, nullable: false, minVersion: 0 },
@@ -2256,7 +2256,7 @@ drivefs.mojom.DriveFsDelegate_GetAccessToken_ParamsSpec = {
 drivefs.mojom.DriveFsDelegate_GetAccessToken_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'drivefs.mojom.DriveFsDelegate.GetAccessToken_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.AccessTokenStatusSpec, nullable: false, minVersion: 0 },
@@ -2411,7 +2411,7 @@ drivefs.mojom.DriveFsDelegate_ConnectToExtension_ParamsSpec = {
 drivefs.mojom.DriveFsDelegate_ConnectToExtension_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'drivefs.mojom.DriveFsDelegate.ConnectToExtension_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.ExtensionConnectionStatusSpec, nullable: false, minVersion: 0 },
@@ -2438,7 +2438,7 @@ drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ParamsSpec = {
 drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'drivefs.mojom.DriveFsDelegate.DisplayConfirmDialog_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.DialogResultSpec, nullable: false, minVersion: 0 },
@@ -2479,7 +2479,7 @@ drivefs.mojom.DriveFsDelegate_GetMachineRootID_ParamsSpec = {
 drivefs.mojom.DriveFsDelegate_GetMachineRootID_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'drivefs.mojom.DriveFsDelegate.GetMachineRootID_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'doc_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -2550,7 +2550,7 @@ drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ParamsSpec = {
 drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'drivefs.mojom.DriveFsDelegate.GetAccessTokenWithExpiry_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.AccessTokenStatusSpec, nullable: false, minVersion: 0 },
@@ -2666,7 +2666,7 @@ drivefs.mojom.SearchQuery_GetNextPage_ParamsSpec = {
 drivefs.mojom.SearchQuery_GetNextPage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'drivefs.mojom.SearchQuery.GetNextPage_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: drivefs.mojom.FileErrorSpec, nullable: false, minVersion: 0 },

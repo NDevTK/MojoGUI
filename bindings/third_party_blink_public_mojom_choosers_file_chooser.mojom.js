@@ -176,7 +176,7 @@ blink.mojom.FileChooser_OpenFileChooser_ParamsSpec = {
 blink.mojom.FileChooser_OpenFileChooser_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.FileChooser.OpenFileChooser_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileChooserResultSpec, nullable: true, minVersion: 0 },
@@ -203,7 +203,7 @@ blink.mojom.FileChooser_EnumerateChosenDirectory_ParamsSpec = {
 blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.FileChooser.EnumerateChosenDirectory_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileChooserResultSpec, nullable: true, minVersion: 0 },

@@ -156,7 +156,7 @@ arc.mojom.DigitalGoodsInstance_GetDetails_ParamsSpec = {
 arc.mojom.DigitalGoodsInstance_GetDetails_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.DigitalGoodsInstance.GetDetails_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'code', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.BillingResponseCodeSpec, nullable: false, minVersion: 0 },
@@ -187,7 +187,7 @@ arc.mojom.DigitalGoodsInstance_Acknowledge_ParamsSpec = {
 arc.mojom.DigitalGoodsInstance_Acknowledge_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.DigitalGoodsInstance.Acknowledge_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'code', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.BillingResponseCodeSpec, nullable: false, minVersion: 0 },
@@ -215,7 +215,7 @@ arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ParamsSpec = {
 arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.DigitalGoodsInstance.DeprecatedListPurchases_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'code', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.BillingResponseCodeSpec, nullable: false, minVersion: 0 },
@@ -244,7 +244,7 @@ arc.mojom.DigitalGoodsInstance_ListPurchases_ParamsSpec = {
 arc.mojom.DigitalGoodsInstance_ListPurchases_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.DigitalGoodsInstance.ListPurchases_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'code', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.BillingResponseCodeSpec, nullable: false, minVersion: 0 },
@@ -273,7 +273,7 @@ arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ParamsSpec = {
 arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.DigitalGoodsInstance.ListPurchaseHistory_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'code', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.BillingResponseCodeSpec, nullable: false, minVersion: 0 },
@@ -303,7 +303,7 @@ arc.mojom.DigitalGoodsInstance_Consume_ParamsSpec = {
 arc.mojom.DigitalGoodsInstance_Consume_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.DigitalGoodsInstance.Consume_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'code', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.BillingResponseCodeSpec, nullable: false, minVersion: 0 },

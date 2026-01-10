@@ -797,7 +797,7 @@ ash.ime.mojom.InputMethod_OnFocus_ParamsSpec = {
 ash.ime.mojom.InputMethod_OnFocus_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.ime.mojom.InputMethod.OnFocus_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -838,7 +838,7 @@ ash.ime.mojom.InputMethod_ProcessKeyEvent_ParamsSpec = {
 ash.ime.mojom.InputMethod_ProcessKeyEvent_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.ime.mojom.InputMethod.ProcessKeyEvent_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.ime.mojom.KeyEventResultSpec, nullable: false, minVersion: 0 },
@@ -921,7 +921,7 @@ ash.ime.mojom.InputMethod_IsReadyForTesting_ParamsSpec = {
 ash.ime.mojom.InputMethod_IsReadyForTesting_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.ime.mojom.InputMethod.IsReadyForTesting_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'ready', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

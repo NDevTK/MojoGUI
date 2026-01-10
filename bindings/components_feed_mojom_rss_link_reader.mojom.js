@@ -96,7 +96,7 @@ feed.mojom.RssLinkReader_GetRssLinks_ParamsSpec = {
 feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'feed.mojom.RssLinkReader.GetRssLinks_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'rss_links', packedOffset: 0, packedBitOffset: 0, type: feed.mojom.RssLinksSpec, nullable: false, minVersion: 0 },

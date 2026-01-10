@@ -81,7 +81,7 @@ network.mojom.CookieEncryptionProvider_GetEncryptor_ParamsSpec = {
 network.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.CookieEncryptionProvider.GetEncryptor_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'encryptor', packedOffset: 0, packedBitOffset: 0, type: os_crypt_async.mojom.EncryptorSpec, nullable: false, minVersion: 0 },

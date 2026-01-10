@@ -109,7 +109,7 @@ patch.mojom.FilePatcher_PatchFilePuffPatch_ParamsSpec = {
 patch.mojom.FilePatcher_PatchFilePuffPatch_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'patch.mojom.FilePatcher.PatchFilePuffPatch_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -138,7 +138,7 @@ patch.mojom.FilePatcher_PatchFileZucchini_ParamsSpec = {
 patch.mojom.FilePatcher_PatchFileZucchini_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'patch.mojom.FilePatcher.PatchFileZucchini_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: patch.mojom.ZucchiniStatusSpec, nullable: false, minVersion: 0 },

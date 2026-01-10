@@ -1070,7 +1070,7 @@ crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ParamsSpec = {
 crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.TelemetryProbeService.ProbeTelemetryInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'telemetry_info', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.ProbeTelemetryInfoSpec, nullable: false, minVersion: 0 },
@@ -1096,7 +1096,7 @@ crosapi.mojom.TelemetryProbeService_GetOemData_ParamsSpec = {
 crosapi.mojom.TelemetryProbeService_GetOemData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.TelemetryProbeService.GetOemData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'oem_data', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.ProbeOemDataSpec, nullable: false, minVersion: 0 },

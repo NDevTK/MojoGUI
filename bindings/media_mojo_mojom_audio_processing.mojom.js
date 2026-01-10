@@ -140,7 +140,7 @@ media.mojom.AudioProcessorControls_GetStats_ParamsSpec = {
 media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.AudioProcessorControls.GetStats_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'stats', packedOffset: 0, packedBitOffset: 0, type: media.mojom.AudioProcessingStatsSpec, nullable: false, minVersion: 0 },

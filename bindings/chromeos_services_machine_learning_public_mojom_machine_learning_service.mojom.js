@@ -216,7 +216,7 @@ chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ParamsSp
 chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadBuiltinModel_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.LoadModelResultSpec, nullable: false, minVersion: 0 },
@@ -244,7 +244,7 @@ chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_Param
 chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadFlatBufferModel_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.LoadModelResultSpec, nullable: false, minVersion: 0 },
@@ -271,7 +271,7 @@ chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_Params
 chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadTextClassifier_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.LoadModelResultSpec, nullable: false, minVersion: 0 },
@@ -299,7 +299,7 @@ chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_Para
 chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadHandwritingModel_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.LoadHandwritingModelResultSpec, nullable: false, minVersion: 0 },
@@ -328,7 +328,7 @@ chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_Para
 chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadSpeechRecognizer_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.LoadModelResultSpec, nullable: false, minVersion: 0 },
@@ -355,7 +355,7 @@ chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_Params
 chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadGrammarChecker_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.LoadModelResultSpec, nullable: false, minVersion: 0 },
@@ -383,7 +383,7 @@ chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ParamsS
 chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadTextSuggester_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.LoadModelResultSpec, nullable: false, minVersion: 0 },
@@ -411,7 +411,7 @@ chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritin
 chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadWebPlatformHandwritingModel_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.LoadHandwritingModelResultSpec, nullable: false, minVersion: 0 },
@@ -439,7 +439,7 @@ chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_Param
 chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadDocumentScanner_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.LoadModelResultSpec, nullable: false, minVersion: 0 },
@@ -467,7 +467,7 @@ chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_Params
 chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadImageAnnotator_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.LoadModelResultSpec, nullable: false, minVersion: 0 },
@@ -495,7 +495,7 @@ chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_
 chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.machine_learning.mojom.MachineLearningService.LoadHeatmapPalmRejection_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.LoadHeatmapPalmRejectionResultSpec, nullable: false, minVersion: 0 },
@@ -523,7 +523,7 @@ chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ParamsSpec = {
 chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.machine_learning.mojom.MachineLearningService.REMOVED_4_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.LoadModelResultSpec, nullable: false, minVersion: 0 },

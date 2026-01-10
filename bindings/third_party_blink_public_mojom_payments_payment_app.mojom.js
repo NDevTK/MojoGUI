@@ -323,7 +323,7 @@ payments.mojom.PaymentManager_DeletePaymentInstrument_ParamsSpec = {
 payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'payments.mojom.PaymentManager.DeletePaymentInstrument_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentHandlerStatusSpec, nullable: false, minVersion: 0 },
@@ -350,7 +350,7 @@ payments.mojom.PaymentManager_GetPaymentInstrument_ParamsSpec = {
 payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'payments.mojom.PaymentManager.GetPaymentInstrument_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'instrument', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentInstrumentSpec, nullable: false, minVersion: 0 },
@@ -377,7 +377,7 @@ payments.mojom.PaymentManager_KeysOfPaymentInstruments_ParamsSpec = {
 payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'payments.mojom.PaymentManager.KeysOfPaymentInstruments_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
@@ -405,7 +405,7 @@ payments.mojom.PaymentManager_HasPaymentInstrument_ParamsSpec = {
 payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'payments.mojom.PaymentManager.HasPaymentInstrument_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentHandlerStatusSpec, nullable: false, minVersion: 0 },
@@ -433,7 +433,7 @@ payments.mojom.PaymentManager_SetPaymentInstrument_ParamsSpec = {
 payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'payments.mojom.PaymentManager.SetPaymentInstrument_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentHandlerStatusSpec, nullable: false, minVersion: 0 },
@@ -459,7 +459,7 @@ payments.mojom.PaymentManager_ClearPaymentInstruments_ParamsSpec = {
 payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'payments.mojom.PaymentManager.ClearPaymentInstruments_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentHandlerStatusSpec, nullable: false, minVersion: 0 },
@@ -500,7 +500,7 @@ payments.mojom.PaymentManager_EnableDelegations_ParamsSpec = {
 payments.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'payments.mojom.PaymentManager.EnableDelegations_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: payments.mojom.PaymentHandlerStatusSpec, nullable: false, minVersion: 0 },

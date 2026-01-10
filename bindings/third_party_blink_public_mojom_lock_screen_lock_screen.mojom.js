@@ -98,7 +98,7 @@ blink.mojom.LockScreenService_GetKeys_ParamsSpec = {
 blink.mojom.LockScreenService_GetKeys_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.LockScreenService.GetKeys_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'keys', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
@@ -126,7 +126,7 @@ blink.mojom.LockScreenService_SetData_ParamsSpec = {
 blink.mojom.LockScreenService_SetData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.LockScreenService.SetData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.LockScreenServiceStatusSpec, nullable: false, minVersion: 0 },

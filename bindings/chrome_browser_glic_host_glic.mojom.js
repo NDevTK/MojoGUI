@@ -1352,7 +1352,7 @@ glic.mojom.GlicPreloadHandler_PrepareForClient_ParamsSpec = {
 glic.mojom.GlicPreloadHandler_PrepareForClient_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.GlicPreloadHandler.PrepareForClient_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.PrepareForClientResultSpec, nullable: false, minVersion: 0 },
@@ -1695,7 +1695,7 @@ glic.mojom.PageHandler_PrepareForClient_ParamsSpec = {
 glic.mojom.PageHandler_PrepareForClient_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.PageHandler.PrepareForClient_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.PrepareForClientResultSpec, nullable: false, minVersion: 0 },
@@ -1830,7 +1830,7 @@ glic.mojom.PageHandler_GetProfileEnablement_ParamsSpec = {
 glic.mojom.PageHandler_GetProfileEnablement_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.PageHandler.GetProfileEnablement_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'enablement', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.ProfileEnablementSpec, nullable: false, minVersion: 0 },
@@ -2758,7 +2758,7 @@ glic.mojom.WebClientHandler_WebClientCreated_ParamsSpec = {
 glic.mojom.WebClientHandler_WebClientCreated_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClientHandler.WebClientCreated_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'initial_state', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.WebClientInitialStateSpec, nullable: false, minVersion: 0 },
@@ -2814,7 +2814,7 @@ glic.mojom.WebClientHandler_CreateTab_ParamsSpec = {
 glic.mojom.WebClientHandler_CreateTab_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClientHandler.CreateTab_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'tab_data', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.TabDataSpec, nullable: true, minVersion: 0 },
@@ -2962,7 +2962,7 @@ glic.mojom.WebClientHandler_GetModelQualityClientId_ParamsSpec = {
 glic.mojom.WebClientHandler_GetModelQualityClientId_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClientHandler.GetModelQualityClientId_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'model_quality_client_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -2989,7 +2989,7 @@ glic.mojom.WebClientHandler_GetContextFromFocusedTab_ParamsSpec = {
 glic.mojom.WebClientHandler_GetContextFromFocusedTab_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClientHandler.GetContextFromFocusedTab_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.GetContextResultSpec, nullable: false, minVersion: 0 },
@@ -3017,7 +3017,7 @@ glic.mojom.WebClientHandler_GetContextFromTab_ParamsSpec = {
 glic.mojom.WebClientHandler_GetContextFromTab_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClientHandler.GetContextFromTab_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.GetContextResultSpec, nullable: false, minVersion: 0 },
@@ -3045,7 +3045,7 @@ glic.mojom.WebClientHandler_GetContextForActorFromTab_ParamsSpec = {
 glic.mojom.WebClientHandler_GetContextForActorFromTab_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClientHandler.GetContextForActorFromTab_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.GetContextResultSpec, nullable: false, minVersion: 0 },
@@ -3072,7 +3072,7 @@ glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ParamsSpec = {
 glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClientHandler.SetMaximumNumberOfPinnedTabs_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'effective_max', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
@@ -3100,7 +3100,7 @@ glic.mojom.WebClientHandler_PinTabs_ParamsSpec = {
 glic.mojom.WebClientHandler_PinTabs_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClientHandler.PinTabs_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'pinned_all', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -3128,7 +3128,7 @@ glic.mojom.WebClientHandler_UnpinTabs_ParamsSpec = {
 glic.mojom.WebClientHandler_UnpinTabs_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClientHandler.UnpinTabs_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'unpinned_all', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -3169,7 +3169,7 @@ glic.mojom.WebClientHandler_CreateSkill_ParamsSpec = {
 glic.mojom.WebClientHandler_CreateSkill_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClientHandler.CreateSkill_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'modal_opened', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -3196,7 +3196,7 @@ glic.mojom.WebClientHandler_UpdateSkill_ParamsSpec = {
 glic.mojom.WebClientHandler_UpdateSkill_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClientHandler.UpdateSkill_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'modal_opened', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -3223,7 +3223,7 @@ glic.mojom.WebClientHandler_GetSkill_ParamsSpec = {
 glic.mojom.WebClientHandler_GetSkill_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClientHandler.GetSkill_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'skill', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.SkillSpec, nullable: true, minVersion: 0 },
@@ -3293,7 +3293,7 @@ glic.mojom.WebClientHandler_CancelActions_ParamsSpec = {
 glic.mojom.WebClientHandler_CancelActions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClientHandler.CancelActions_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.CancelActionsResultSpec, nullable: false, minVersion: 0 },
@@ -3353,7 +3353,7 @@ glic.mojom.WebClientHandler_ResumeActorTask_ParamsSpec = {
 glic.mojom.WebClientHandler_ResumeActorTask_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClientHandler.ResumeActorTask_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.GetContextResultWithActionResultCodeSpec, nullable: false, minVersion: 0 },
@@ -3413,7 +3413,7 @@ glic.mojom.WebClientHandler_CreateActorTab_ParamsSpec = {
 glic.mojom.WebClientHandler_CreateActorTab_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClientHandler.CreateActorTab_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'tab_data', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.TabDataSpec, nullable: true, minVersion: 0 },
@@ -3468,7 +3468,7 @@ glic.mojom.WebClientHandler_CaptureScreenshot_ParamsSpec = {
 glic.mojom.WebClientHandler_CaptureScreenshot_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClientHandler.CaptureScreenshot_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.CaptureScreenshotResultSpec, nullable: false, minVersion: 0 },
@@ -3509,7 +3509,7 @@ glic.mojom.WebClientHandler_SetAudioDucking_ParamsSpec = {
 glic.mojom.WebClientHandler_SetAudioDucking_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClientHandler.SetAudioDucking_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -3633,7 +3633,7 @@ glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ParamsSpec = {
 glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClientHandler.ShouldAllowMediaPermissionRequest_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -3659,7 +3659,7 @@ glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ParamsSpec =
 glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClientHandler.ShouldAllowGeolocationPermissionRequest_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -3699,7 +3699,7 @@ glic.mojom.WebClientHandler_GetUserProfileInfo_ParamsSpec = {
 glic.mojom.WebClientHandler_GetUserProfileInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClientHandler.GetUserProfileInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'profile_info', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.UserProfileInfoSpec, nullable: true, minVersion: 0 },
@@ -3725,7 +3725,7 @@ glic.mojom.WebClientHandler_SyncCookies_ParamsSpec = {
 glic.mojom.WebClientHandler_SyncCookies_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClientHandler.SyncCookies_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -3813,7 +3813,7 @@ glic.mojom.WebClientHandler_JournalSnapshot_ParamsSpec = {
 glic.mojom.WebClientHandler_JournalSnapshot_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClientHandler.JournalSnapshot_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'journal', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.JournalSpec, nullable: false, minVersion: 0 },
@@ -4047,7 +4047,7 @@ glic.mojom.WebClientHandler_ScrollTo_ParamsSpec = {
 glic.mojom.WebClientHandler_ScrollTo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClientHandler.ScrollTo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error_reason', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.ScrollToErrorReasonSpec, nullable: true, minVersion: 0 },
@@ -4115,7 +4115,7 @@ glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ParamsSpec = {
 glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClientHandler.GetOsMicrophonePermissionStatus_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -4143,7 +4143,7 @@ glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ParamsSpec = {
 glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClientHandler.GetZeroStateSuggestionsAndSubscribe_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'zero_state_suggestions', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.ZeroStateSuggestionsV2Spec, nullable: true, minVersion: 0 },
@@ -4171,7 +4171,7 @@ glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ParamsSpec = {
 glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClientHandler.GetZeroStateSuggestionsForFocusedTab_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'suggestions', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.ZeroStateSuggestionsSpec, nullable: true, minVersion: 0 },
@@ -4210,7 +4210,7 @@ glic.mojom.WebClientHandler_IsDebuggerAttached_ParamsSpec = {
 glic.mojom.WebClientHandler_IsDebuggerAttached_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClientHandler.IsDebuggerAttached_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_attached_to_webview', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -4252,7 +4252,7 @@ glic.mojom.WebClientHandler_SubscribeToPageMetadata_ParamsSpec = {
 glic.mojom.WebClientHandler_SubscribeToPageMetadata_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClientHandler.SubscribeToPageMetadata_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -4279,7 +4279,7 @@ glic.mojom.WebClientHandler_SwitchConversation_ParamsSpec = {
 glic.mojom.WebClientHandler_SwitchConversation_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClientHandler.SwitchConversation_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error_reason', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.SwitchConversationErrorReasonSpec, nullable: true, minVersion: 0 },
@@ -4306,7 +4306,7 @@ glic.mojom.WebClientHandler_RegisterConversation_ParamsSpec = {
 glic.mojom.WebClientHandler_RegisterConversation_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClientHandler.RegisterConversation_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error_reason', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.RegisterConversationErrorReasonSpec, nullable: true, minVersion: 0 },
@@ -4785,7 +4785,7 @@ glic.mojom.WebClient_NotifyPanelWillOpen_ParamsSpec = {
 glic.mojom.WebClient_NotifyPanelWillOpen_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClient.NotifyPanelWillOpen_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'openPanelInfo', packedOffset: 0, packedBitOffset: 0, type: glic.mojom.OpenPanelInfoSpec, nullable: false, minVersion: 0 },
@@ -5150,7 +5150,7 @@ glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ParamsSpec = {
 glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClient.RequestToShowCredentialSelectionDialog_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: actor.webui.mojom.SelectCredentialDialogResponseSpec, nullable: false, minVersion: 0 },
@@ -5177,7 +5177,7 @@ glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ParamsSpec = {
 glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClient.RequestToShowAutofillSuggestionsDialog_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: actor.webui.mojom.SelectAutofillSuggestionsDialogResponseSpec, nullable: false, minVersion: 0 },
@@ -5204,7 +5204,7 @@ glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ParamsSpec = {
 glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClient.RequestToShowUserConfirmationDialog_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: actor.webui.mojom.UserConfirmationDialogResponseSpec, nullable: false, minVersion: 0 },
@@ -5231,7 +5231,7 @@ glic.mojom.WebClient_RequestToConfirmNavigation_ParamsSpec = {
 glic.mojom.WebClient_RequestToConfirmNavigation_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'glic.mojom.WebClient.RequestToConfirmNavigation_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: actor.webui.mojom.NavigationConfirmationResponseSpec, nullable: false, minVersion: 0 },

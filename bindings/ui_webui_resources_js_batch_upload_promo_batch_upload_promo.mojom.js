@@ -166,7 +166,7 @@ batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ParamsSpe
 batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'batch_upload_promo.mojom.PageHandler.GetBatchUploadPromoLocalDataCount_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'local_data_count', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },

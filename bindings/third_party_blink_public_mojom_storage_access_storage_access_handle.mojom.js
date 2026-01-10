@@ -186,7 +186,7 @@ blink.mojom.StorageAccessHandle_GetDirectory_ParamsSpec = {
 blink.mojom.StorageAccessHandle_GetDirectory_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.StorageAccessHandle.GetDirectory_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.FileSystemAccessErrorSpec, nullable: false, minVersion: 0 },
@@ -213,7 +213,7 @@ blink.mojom.StorageAccessHandle_Estimate_ParamsSpec = {
 blink.mojom.StorageAccessHandle_Estimate_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.StorageAccessHandle.Estimate_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'current_usage', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ByteCountSpec, nullable: false, minVersion: 0 },

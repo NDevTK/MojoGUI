@@ -620,7 +620,7 @@ network.mojom.TrustedHeaderClient_OnBeforeSendHeaders_ParamsSpec = {
 network.mojom.TrustedHeaderClient_OnBeforeSendHeaders_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.TrustedHeaderClient.OnBeforeSendHeaders_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -650,7 +650,7 @@ network.mojom.TrustedHeaderClient_OnHeadersReceived_ParamsSpec = {
 network.mojom.TrustedHeaderClient_OnHeadersReceived_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.TrustedHeaderClient.OnHeadersReceived_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -1839,7 +1839,7 @@ network.mojom.NetworkContext_ClearTrustTokenSessionOnlyData_ParamsSpec = {
 network.mojom.NetworkContext_ClearTrustTokenSessionOnlyData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkContext.ClearTrustTokenSessionOnlyData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'any_data_deleted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1865,7 +1865,7 @@ network.mojom.NetworkContext_GetStoredTrustTokenCounts_ParamsSpec = {
 network.mojom.NetworkContext_GetStoredTrustTokenCounts_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkContext.GetStoredTrustTokenCounts_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'tokens', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.StoredTrustTokensForIssuerSpec, false), nullable: false, minVersion: 0 },
@@ -1891,7 +1891,7 @@ network.mojom.NetworkContext_GetPrivateStateTokenRedemptionRecords_ParamsSpec = 
 network.mojom.NetworkContext_GetPrivateStateTokenRedemptionRecords_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkContext.GetPrivateStateTokenRedemptionRecords_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'issuer_redemption_record_map', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Map(url.mojom.OriginSpec, mojo.internal.Array(network.mojom.ToplevelRedemptionRecordSpec, false), false), nullable: false, minVersion: 0 },
@@ -1918,7 +1918,7 @@ network.mojom.NetworkContext_DeleteStoredTrustTokens_ParamsSpec = {
 network.mojom.NetworkContext_DeleteStoredTrustTokens_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkContext.DeleteStoredTrustTokens_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: network.mojom.DeleteStoredTrustTokensStatusSpec, nullable: false, minVersion: 0 },
@@ -1991,7 +1991,7 @@ network.mojom.NetworkContext_ComputeHttpCacheSize_ParamsSpec = {
 network.mojom.NetworkContext_ComputeHttpCacheSize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkContext.ComputeHttpCacheSize_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'is_upper_bound', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -2380,7 +2380,7 @@ network.mojom.NetworkContext_CreateRestrictedUDPSocket_ParamsSpec = {
 network.mojom.NetworkContext_CreateRestrictedUDPSocket_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkContext.CreateRestrictedUDPSocket_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -2411,7 +2411,7 @@ network.mojom.NetworkContext_CreateTCPServerSocket_ParamsSpec = {
 network.mojom.NetworkContext_CreateTCPServerSocket_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkContext.CreateTCPServerSocket_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -2444,7 +2444,7 @@ network.mojom.NetworkContext_CreateTCPConnectedSocket_ParamsSpec = {
 network.mojom.NetworkContext_CreateTCPConnectedSocket_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkContext.CreateTCPConnectedSocket_ResponseParams',
       packedSize: 48,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -2477,7 +2477,7 @@ network.mojom.NetworkContext_CreateTCPBoundSocket_ParamsSpec = {
 network.mojom.NetworkContext_CreateTCPBoundSocket_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkContext.CreateTCPBoundSocket_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -2711,7 +2711,7 @@ network.mojom.NetworkContext_VerifyCert_ParamsSpec = {
 network.mojom.NetworkContext_VerifyCert_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkContext.VerifyCert_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -2743,7 +2743,7 @@ network.mojom.NetworkContext_VerifyCertForSignedExchange_ParamsSpec = {
 network.mojom.NetworkContext_VerifyCertForSignedExchange_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkContext.VerifyCertForSignedExchange_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -2774,7 +2774,7 @@ network.mojom.NetworkContext_Verify2QwacCertBinding_ParamsSpec = {
 network.mojom.NetworkContext_Verify2QwacCertBinding_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkContext.Verify2QwacCertBinding_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'verified_cert', packedOffset: 0, packedBitOffset: 0, type: network.mojom.X509CertificateSpec, nullable: false, minVersion: 0 },
@@ -2818,7 +2818,7 @@ network.mojom.NetworkContext_IsHSTSActiveForHost_ParamsSpec = {
 network.mojom.NetworkContext_IsHSTSActiveForHost_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkContext.IsHSTSActiveForHost_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -2845,7 +2845,7 @@ network.mojom.NetworkContext_GetHSTSState_ParamsSpec = {
 network.mojom.NetworkContext_GetHSTSState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkContext.GetHSTSState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.DictionaryValueSpec, nullable: false, minVersion: 0 },
@@ -2888,7 +2888,7 @@ network.mojom.NetworkContext_DeleteDynamicDataForHost_ParamsSpec = {
 network.mojom.NetworkContext_DeleteDynamicDataForHost_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkContext.DeleteDynamicDataForHost_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -2928,7 +2928,7 @@ network.mojom.NetworkContext_SaveHttpAuthCacheProxyEntries_ParamsSpec = {
 network.mojom.NetworkContext_SaveHttpAuthCacheProxyEntries_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkContext.SaveHttpAuthCacheProxyEntries_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'cache_key', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnguessableTokenSpec, nullable: false, minVersion: 0 },
@@ -3001,7 +3001,7 @@ network.mojom.NetworkContext_LookupProxyAuthCredentials_ParamsSpec = {
 network.mojom.NetworkContext_LookupProxyAuthCredentials_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkContext.LookupProxyAuthCredentials_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'credentials', packedOffset: 0, packedBitOffset: 0, type: network.mojom.AuthCredentialsSpec, nullable: true, minVersion: 0 },
@@ -3044,7 +3044,7 @@ network.mojom.NetworkContext_VerifyCertificateForTesting_ParamsSpec = {
 network.mojom.NetworkContext_VerifyCertificateForTesting_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkContext.VerifyCertificateForTesting_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -3070,7 +3070,7 @@ network.mojom.NetworkContext_GetTrustAnchorIDsForTesting_ParamsSpec = {
 network.mojom.NetworkContext_GetTrustAnchorIDsForTesting_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkContext.GetTrustAnchorIDsForTesting_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'trust_anchor_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), nullable: false, minVersion: 0 },
@@ -3152,7 +3152,7 @@ network.mojom.NetworkContext_GetSharedDictionaryUsageInfo_ParamsSpec = {
 network.mojom.NetworkContext_GetSharedDictionaryUsageInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkContext.GetSharedDictionaryUsageInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'usage_info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.SharedDictionaryUsageInfoSpec, false), nullable: false, minVersion: 0 },
@@ -3179,7 +3179,7 @@ network.mojom.NetworkContext_GetSharedDictionaryInfo_ParamsSpec = {
 network.mojom.NetworkContext_GetSharedDictionaryInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkContext.GetSharedDictionaryInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'dictionaries', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(network.mojom.SharedDictionaryInfoSpec, false), nullable: false, minVersion: 0 },
@@ -3207,7 +3207,7 @@ network.mojom.NetworkContext_GetSharedDictionaryOriginsBetween_ParamsSpec = {
 network.mojom.NetworkContext_GetSharedDictionaryOriginsBetween_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkContext.GetSharedDictionaryOriginsBetween_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'origins', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(url.mojom.OriginSpec, false), nullable: false, minVersion: 0 },
@@ -3262,7 +3262,7 @@ network.mojom.NetworkContext_HasPreloadedSharedDictionaryInfoForTesting_ParamsSp
 network.mojom.NetworkContext_HasPreloadedSharedDictionaryInfoForTesting_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkContext.HasPreloadedSharedDictionaryInfoForTesting_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'value', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -3390,7 +3390,7 @@ network.mojom.NetworkContext_GetBoundNetworkForTesting_ParamsSpec = {
 network.mojom.NetworkContext_GetBoundNetworkForTesting_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'network.mojom.NetworkContext.GetBoundNetworkForTesting_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'bound_network', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },

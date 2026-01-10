@@ -81,7 +81,7 @@ blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ParamsSpec = {
 blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.CallStackGenerator.CollectJavaScriptCallStack_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'javascript_call_stack', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },

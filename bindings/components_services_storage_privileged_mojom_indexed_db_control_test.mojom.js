@@ -253,7 +253,7 @@ storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec = {
 storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'storage.mojom.IndexedDBControlTest.GetBaseDataPathForTesting_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
@@ -281,7 +281,7 @@ storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec = {
 storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'storage.mojom.IndexedDBControlTest.GetFilePathForTesting_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
@@ -323,7 +323,7 @@ storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec = {
 storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'storage.mojom.IndexedDBControlTest.GetPathForBlobForTesting_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
@@ -377,7 +377,7 @@ storage.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec = {
 storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'storage.mojom.IndexedDBControlTest.GetUsageForTesting_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'total_usage', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int64, nullable: false, minVersion: 0 },

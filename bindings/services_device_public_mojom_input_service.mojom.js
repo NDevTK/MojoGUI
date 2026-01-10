@@ -231,7 +231,7 @@ device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec = {
 device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.InputDeviceManager.GetDevicesAndSetClient_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.InputDeviceInfoSpec, false), nullable: false, minVersion: 0 },
@@ -257,7 +257,7 @@ device.mojom.InputDeviceManager_GetDevices_ParamsSpec = {
 device.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.InputDeviceManager.GetDevices_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.InputDeviceInfoSpec, false), nullable: false, minVersion: 0 },

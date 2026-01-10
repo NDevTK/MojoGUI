@@ -84,7 +84,7 @@ blink.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec = {
 blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.InstalledAppProvider.FilterInstalledApps_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'installed_apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.RelatedApplicationSpec, false), nullable: false, minVersion: 0 },

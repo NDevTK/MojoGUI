@@ -110,7 +110,7 @@ chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ParamsSpec = {
 chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.payments.mojom.PaymentAppInstance.IsPaymentImplemented_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: chromeos.payments.mojom.IsPaymentImplementedResultSpec, nullable: false, minVersion: 0 },
@@ -137,7 +137,7 @@ chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ParamsSpec = {
 chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.payments.mojom.PaymentAppInstance.IsReadyToPay_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: chromeos.payments.mojom.IsReadyToPayResultSpec, nullable: false, minVersion: 0 },
@@ -164,7 +164,7 @@ chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ParamsSpec = {
 chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.payments.mojom.PaymentAppInstance.InvokePaymentApp_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: chromeos.payments.mojom.InvokePaymentAppResultSpec, nullable: false, minVersion: 0 },
@@ -191,7 +191,7 @@ chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ParamsSpec = {
 chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.payments.mojom.PaymentAppInstance.AbortPaymentApp_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'aborted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

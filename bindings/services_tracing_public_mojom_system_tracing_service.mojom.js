@@ -81,7 +81,7 @@ tracing.mojom.SystemTracingService_OpenProducerSocket_ParamsSpec = {
 tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'tracing.mojom.SystemTracingService.OpenProducerSocket_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'traced_socket', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true, minVersion: 0 },

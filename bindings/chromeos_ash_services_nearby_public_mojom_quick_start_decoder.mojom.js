@@ -83,7 +83,7 @@ ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ParamsSpec = {
 ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.quick_start.mojom.QuickStartDecoder.DecodeQuickStartMessage_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: ash.quick_start.mojom.QuickStartMessageSpec, nullable: true, minVersion: 0 },

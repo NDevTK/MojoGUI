@@ -129,7 +129,7 @@ arc.mojom.TimerHost_CreateTimers_ParamsSpec = {
 arc.mojom.TimerHost_CreateTimers_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.TimerHost.CreateTimers_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcTimerResultSpec, nullable: false, minVersion: 0 },
@@ -157,7 +157,7 @@ arc.mojom.TimerHost_StartTimer_ParamsSpec = {
 arc.mojom.TimerHost_StartTimer_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.TimerHost.StartTimer_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcTimerResultSpec, nullable: false, minVersion: 0 },
@@ -184,7 +184,7 @@ arc.mojom.TimerHost_SetTime_ParamsSpec = {
 arc.mojom.TimerHost_SetTime_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.TimerHost.SetTime_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: arc.mojom.ArcTimerResultSpec, nullable: false, minVersion: 0 },

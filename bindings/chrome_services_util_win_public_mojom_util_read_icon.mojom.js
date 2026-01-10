@@ -92,7 +92,7 @@ chrome.mojom.UtilReadIcon_ReadIcon_ParamsSpec = {
 chrome.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome.mojom.UtilReadIcon.ReadIcon_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'icon', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.ImageSkiaSpec, nullable: true, minVersion: 0 },

@@ -390,7 +390,7 @@ media_router.mojom.MediaRouteProvider_CreateRoute_ParamsSpec = {
 media_router.mojom.MediaRouteProvider_CreateRoute_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media_router.mojom.MediaRouteProvider.CreateRoute_ResponseParams',
       packedSize: 40,
       fields: [
         { name: 'route', packedOffset: 0, packedBitOffset: 0, type: media_router.mojom.MediaRouteSpec, nullable: true, minVersion: 0 },
@@ -424,7 +424,7 @@ media_router.mojom.MediaRouteProvider_JoinRoute_ParamsSpec = {
 media_router.mojom.MediaRouteProvider_JoinRoute_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media_router.mojom.MediaRouteProvider.JoinRoute_ResponseParams',
       packedSize: 40,
       fields: [
         { name: 'route', packedOffset: 0, packedBitOffset: 0, type: media_router.mojom.MediaRouteSpec, nullable: true, minVersion: 0 },
@@ -454,7 +454,7 @@ media_router.mojom.MediaRouteProvider_TerminateRoute_ParamsSpec = {
 media_router.mojom.MediaRouteProvider_TerminateRoute_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media_router.mojom.MediaRouteProvider.TerminateRoute_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'error_text', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -582,7 +582,7 @@ media_router.mojom.MediaRouteProvider_BindMediaController_ParamsSpec = {
 media_router.mojom.MediaRouteProvider_BindMediaController_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media_router.mojom.MediaRouteProvider.BindMediaController_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -608,7 +608,7 @@ media_router.mojom.MediaRouteProvider_GetState_ParamsSpec = {
 media_router.mojom.MediaRouteProvider_GetState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media_router.mojom.MediaRouteProvider.GetState_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: media_router.mojom.ProviderStateSpec, nullable: true, minVersion: 0 },
@@ -915,7 +915,7 @@ media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ParamsSpec = {
 media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media_router.mojom.MediaRouter.GetMediaSinkServiceStatus_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -969,7 +969,7 @@ media_router.mojom.MediaRouter_GetLogsAsString_ParamsSpec = {
 media_router.mojom.MediaRouter_GetLogsAsString_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media_router.mojom.MediaRouter.GetLogsAsString_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'logs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },

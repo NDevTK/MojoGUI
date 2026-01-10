@@ -224,7 +224,7 @@ storage.mojom.SessionStorageControl_GetUsage_ParamsSpec = {
 storage.mojom.SessionStorageControl_GetUsage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'storage.mojom.SessionStorageControl.GetUsage_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.SessionStorageUsageInfoSpec, false), nullable: false, minVersion: 0 },

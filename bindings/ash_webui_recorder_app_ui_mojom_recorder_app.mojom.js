@@ -452,7 +452,7 @@ ash.recorder_app.mojom.PageHandler_GetModelInfo_ParamsSpec = {
 ash.recorder_app.mojom.PageHandler_GetModelInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.recorder_app.mojom.PageHandler.GetModelInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'model_info', packedOffset: 0, packedBitOffset: 0, type: ash.recorder_app.mojom.ModelInfoSpec, nullable: false, minVersion: 0 },
@@ -480,7 +480,7 @@ ash.recorder_app.mojom.PageHandler_LoadModel_ParamsSpec = {
 ash.recorder_app.mojom.PageHandler_LoadModel_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.recorder_app.mojom.PageHandler.LoadModel_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: on_device_model.mojom.LoadModelResultSpec, nullable: false, minVersion: 0 },
@@ -509,7 +509,7 @@ ash.recorder_app.mojom.PageHandler_FormatModelInput_ParamsSpec = {
 ash.recorder_app.mojom.PageHandler_FormatModelInput_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.recorder_app.mojom.PageHandler.FormatModelInput_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -538,7 +538,7 @@ ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ParamsSpec = {
 ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.recorder_app.mojom.PageHandler.ValidateSafetyResult_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_safe', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -566,7 +566,7 @@ ash.recorder_app.mojom.PageHandler_AddModelMonitor_ParamsSpec = {
 ash.recorder_app.mojom.PageHandler_AddModelMonitor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.recorder_app.mojom.PageHandler.AddModelMonitor_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.recorder_app.mojom.ModelStateSpec, nullable: false, minVersion: 0 },
@@ -592,7 +592,7 @@ ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ParamsSpec = {
 ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.recorder_app.mojom.PageHandler.GetAvailableLangPacks_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'lang_packs', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.recorder_app.mojom.LangPackInfoSpec, false), nullable: false, minVersion: 0 },
@@ -618,7 +618,7 @@ ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ParamsSpec = {
 ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.recorder_app.mojom.PageHandler.GetDefaultLanguage_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'language_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -646,7 +646,7 @@ ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ParamsSpec = {
 ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.recorder_app.mojom.PageHandler.AddSodaMonitor_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.recorder_app.mojom.ModelStateSpec, nullable: false, minVersion: 0 },
@@ -689,7 +689,7 @@ ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ParamsSpec = {
 ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.recorder_app.mojom.PageHandler.LoadSpeechRecognizer_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -730,7 +730,7 @@ ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ParamsSpec = {
 ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.recorder_app.mojom.PageHandler.GetMicrophoneInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: ash.recorder_app.mojom.MicrophoneInfoSpec, nullable: true, minVersion: 0 },
@@ -757,7 +757,7 @@ ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ParamsSpec = {
 ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.recorder_app.mojom.PageHandler.AddQuietModeMonitor_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'in_quiet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -797,7 +797,7 @@ ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ParamsSpec = {
 ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.recorder_app.mojom.PageHandler.CanUseSpeakerLabel_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -839,7 +839,7 @@ ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ParamsSpec 
 ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.recorder_app.mojom.PageHandler.CanCaptureSystemAudioWithLoopback_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'supported', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

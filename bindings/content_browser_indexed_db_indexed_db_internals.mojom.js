@@ -141,7 +141,7 @@ storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ParamsSpec =
 storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'storage.mojom.IdbInternalsHandler.GetAllBucketsAcrossAllStorageKeys_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -169,7 +169,7 @@ storage.mojom.IdbInternalsHandler_DownloadBucketData_ParamsSpec = {
 storage.mojom.IdbInternalsHandler_DownloadBucketData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'storage.mojom.IdbInternalsHandler.DownloadBucketData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -196,7 +196,7 @@ storage.mojom.IdbInternalsHandler_ForceClose_ParamsSpec = {
 storage.mojom.IdbInternalsHandler_ForceClose_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'storage.mojom.IdbInternalsHandler.ForceClose_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -223,7 +223,7 @@ storage.mojom.IdbInternalsHandler_StartMetadataRecording_ParamsSpec = {
 storage.mojom.IdbInternalsHandler_StartMetadataRecording_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'storage.mojom.IdbInternalsHandler.StartMetadataRecording_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -250,7 +250,7 @@ storage.mojom.IdbInternalsHandler_StopMetadataRecording_ParamsSpec = {
 storage.mojom.IdbInternalsHandler_StopMetadataRecording_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'storage.mojom.IdbInternalsHandler.StopMetadataRecording_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -278,7 +278,7 @@ storage.mojom.IdbInternalsHandler_InspectClient_ParamsSpec = {
 storage.mojom.IdbInternalsHandler_InspectClient_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'storage.mojom.IdbInternalsHandler.InspectClient_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },

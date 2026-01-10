@@ -166,7 +166,7 @@ data_sharing_internals.mojom.PageHandler_IsEmptyService_ParamsSpec = {
 data_sharing_internals.mojom.PageHandler_IsEmptyService_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'data_sharing_internals.mojom.PageHandler.IsEmptyService_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_empty', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -192,7 +192,7 @@ data_sharing_internals.mojom.PageHandler_GetAllGroups_ParamsSpec = {
 data_sharing_internals.mojom.PageHandler_GetAllGroups_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'data_sharing_internals.mojom.PageHandler.GetAllGroups_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'is_success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

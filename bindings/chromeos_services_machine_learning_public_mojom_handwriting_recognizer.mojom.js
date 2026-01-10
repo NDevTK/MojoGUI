@@ -276,7 +276,7 @@ chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ParamsSpec = {
 chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.machine_learning.mojom.HandwritingRecognizer.Recognize_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.machine_learning.mojom.HandwritingRecognizerResultSpec, nullable: false, minVersion: 0 },

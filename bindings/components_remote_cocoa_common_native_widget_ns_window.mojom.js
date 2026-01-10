@@ -740,7 +740,7 @@ remote_cocoa.mojom.NativeWidgetNSWindow_InitCompositorView_ParamsSpec = {
 remote_cocoa.mojom.NativeWidgetNSWindow_InitCompositorView_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'remote_cocoa.mojom.NativeWidgetNSWindow.InitCompositorView_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'cg_window_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },

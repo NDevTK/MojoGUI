@@ -275,7 +275,7 @@ device.mojom.SerialPortManager_GetDevices_ParamsSpec = {
 device.mojom.SerialPortManager_GetDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.SerialPortManager.GetDevices_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.SerialPortInfoSpec, false), nullable: false, minVersion: 0 },
@@ -306,7 +306,7 @@ device.mojom.SerialPortManager_OpenPort_ParamsSpec = {
 device.mojom.SerialPortManager_OpenPort_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.SerialPortManager.OpenPort_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'port', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
@@ -641,7 +641,7 @@ device.mojom.SerialPort_GetControlSignals_ParamsSpec = {
 device.mojom.SerialPort_GetControlSignals_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.SerialPort.GetControlSignals_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'signals', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SerialPortControlSignalsSpec, nullable: true, minVersion: 0 },
@@ -668,7 +668,7 @@ device.mojom.SerialPort_SetControlSignals_ParamsSpec = {
 device.mojom.SerialPort_SetControlSignals_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.SerialPort.SetControlSignals_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -695,7 +695,7 @@ device.mojom.SerialPort_ConfigurePort_ParamsSpec = {
 device.mojom.SerialPort_ConfigurePort_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.SerialPort.ConfigurePort_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -721,7 +721,7 @@ device.mojom.SerialPort_GetPortInfo_ParamsSpec = {
 device.mojom.SerialPort_GetPortInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.SerialPort.GetPortInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: device.mojom.SerialConnectionInfoSpec, nullable: false, minVersion: 0 },

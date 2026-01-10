@@ -230,7 +230,7 @@ content.mojom.TestService_CreateFolder_ParamsSpec = {
 content.mojom.TestService_CreateFolder_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.TestService.CreateFolder_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'succeeded', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -256,7 +256,7 @@ content.mojom.TestService_GetRequestorName_ParamsSpec = {
 content.mojom.TestService_GetRequestorName_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.TestService.GetRequestorName_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -283,7 +283,7 @@ content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ParamsSpec = {
 content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.TestService.CreateReadOnlySharedMemoryRegion_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, nullable: true, minVersion: 0 },
@@ -310,7 +310,7 @@ content.mojom.TestService_CreateWritableSharedMemoryRegion_ParamsSpec = {
 content.mojom.TestService_CreateWritableSharedMemoryRegion_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.TestService.CreateWritableSharedMemoryRegion_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.WritableSharedMemoryRegionSpec, nullable: true, minVersion: 0 },
@@ -337,7 +337,7 @@ content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ParamsSpec = {
 content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.TestService.CreateUnsafeSharedMemoryRegion_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: true, minVersion: 0 },
@@ -364,7 +364,7 @@ content.mojom.TestService_CloneSharedMemoryContents_ParamsSpec = {
 content.mojom.TestService_CloneSharedMemoryContents_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.TestService.CloneSharedMemoryContents_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'new_region', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.UnsafeSharedMemoryRegionSpec, nullable: false, minVersion: 0 },
@@ -390,7 +390,7 @@ content.mojom.TestService_IsProcessSandboxed_ParamsSpec = {
 content.mojom.TestService_IsProcessSandboxed_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.TestService.IsProcessSandboxed_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_sandboxed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -417,7 +417,7 @@ content.mojom.TestService_PseudonymizeString_ParamsSpec = {
 content.mojom.TestService_PseudonymizeString_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.TestService.PseudonymizeString_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },

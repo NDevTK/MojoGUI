@@ -222,7 +222,7 @@ userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec = 
 userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'userspace_swap.mojom.UserspaceSwap.GetPartitionAllocSuperPagesUsed_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'superpages', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(userspace_swap.mojom.MemoryRegionSpec, false), nullable: false, minVersion: 0 },

@@ -83,7 +83,7 @@ blink.mojom.GeolocationService_CreateGeolocation_ParamsSpec = {
 blink.mojom.GeolocationService_CreateGeolocation_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.GeolocationService.CreateGeolocation_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.PermissionStatusSpec, nullable: false, minVersion: 0 },

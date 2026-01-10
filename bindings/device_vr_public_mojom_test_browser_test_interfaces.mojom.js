@@ -309,7 +309,7 @@ device_test.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec = {
 device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device_test.mojom.XRTestHook.WaitGetDeviceConfig_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'config', packedOffset: 0, packedBitOffset: 0, type: device_test.mojom.DeviceConfigSpec, nullable: false, minVersion: 0 },
@@ -335,7 +335,7 @@ device_test.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec = {
 device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device_test.mojom.XRTestHook.WaitGetPresentingPose_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: true, minVersion: 0 },
@@ -361,7 +361,7 @@ device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec = {
 device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device_test.mojom.XRTestHook.WaitGetMagicWindowPose_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: gfx.mojom.TransformSpec, nullable: true, minVersion: 0 },
@@ -388,7 +388,7 @@ device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSp
 device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device_test.mojom.XRTestHook.WaitGetControllerRoleForTrackedDeviceIndex_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'role', packedOffset: 0, packedBitOffset: 0, type: device_test.mojom.ControllerRoleSpec, nullable: false, minVersion: 0 },
@@ -415,7 +415,7 @@ device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec = {
 device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device_test.mojom.XRTestHook.WaitGetControllerData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: device_test.mojom.ControllerFrameDataSpec, nullable: false, minVersion: 0 },
@@ -441,7 +441,7 @@ device_test.mojom.XRTestHook_WaitGetEventData_ParamsSpec = {
 device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device_test.mojom.XRTestHook.WaitGetEventData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: device_test.mojom.EventDataSpec, nullable: false, minVersion: 0 },
@@ -467,7 +467,7 @@ device_test.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec = {
 device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device_test.mojom.XRTestHook.WaitGetCanCreateSession_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'can_create_session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -494,7 +494,7 @@ device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec = {
 device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device_test.mojom.XRTestHook.WaitGetVisibilityMask_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'mask', packedOffset: 0, packedBitOffset: 0, type: device_test.mojom.XRVisibilityMaskSpec, nullable: true, minVersion: 0 },

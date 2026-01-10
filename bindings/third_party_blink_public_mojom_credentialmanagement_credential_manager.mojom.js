@@ -174,7 +174,7 @@ blink.mojom.CredentialManager_Get_ParamsSpec = {
 blink.mojom.CredentialManager_Get_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.CredentialManager.Get_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CredentialManagerErrorSpec, nullable: false, minVersion: 0 },

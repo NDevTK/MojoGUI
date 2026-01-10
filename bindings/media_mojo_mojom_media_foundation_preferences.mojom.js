@@ -81,7 +81,7 @@ media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ParamsS
 media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.MediaFoundationPreferences.IsHardwareSecureDecryptionAllowed_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'allowed', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

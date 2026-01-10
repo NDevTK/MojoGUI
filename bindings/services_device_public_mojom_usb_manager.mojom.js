@@ -145,7 +145,7 @@ device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ParamsSpec = {
 device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.UsbDeviceManager.EnumerateDevicesAndSetClient_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.UsbDeviceInfoSpec, false), nullable: false, minVersion: 0 },
@@ -172,7 +172,7 @@ device.mojom.UsbDeviceManager_GetDevices_ParamsSpec = {
 device.mojom.UsbDeviceManager_GetDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.UsbDeviceManager.GetDevices_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'results', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(device.mojom.UsbDeviceInfoSpec, false), nullable: false, minVersion: 0 },
@@ -232,7 +232,7 @@ device.mojom.UsbDeviceManager_RefreshDeviceInfo_ParamsSpec = {
 device.mojom.UsbDeviceManager_RefreshDeviceInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.UsbDeviceManager.RefreshDeviceInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: device.mojom.UsbDeviceInfoSpec, nullable: true, minVersion: 0 },
@@ -259,7 +259,7 @@ device.mojom.UsbDeviceManager_CheckAccess_ParamsSpec = {
 device.mojom.UsbDeviceManager_CheckAccess_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.UsbDeviceManager.CheckAccess_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -288,7 +288,7 @@ device.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec = {
 device.mojom.UsbDeviceManager_OpenFileDescriptor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'device.mojom.UsbDeviceManager.OpenFileDescriptor_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'fd', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: true, minVersion: 0 },

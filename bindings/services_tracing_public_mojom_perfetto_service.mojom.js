@@ -807,7 +807,7 @@ tracing.mojom.ConsumerHost_CloneSession_ParamsSpec = {
 tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'tracing.mojom.ConsumerHost.CloneSession_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -973,7 +973,7 @@ tracing.mojom.TracingSessionHost_RequestBufferUsage_ParamsSpec = {
 tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'tracing.mojom.TracingSessionHost.RequestBufferUsage_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

@@ -216,7 +216,7 @@ content.mojom.NavigationClient_CommitNavigation_ParamsSpec = {
 content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.NavigationClient.CommitNavigation_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: content.mojom.DidCommitProvisionalLoadParamsSpec, nullable: false, minVersion: 0 },
@@ -255,7 +255,7 @@ content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec = {
 content.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.NavigationClient.CommitFailedNavigation_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'params', packedOffset: 0, packedBitOffset: 0, type: content.mojom.DidCommitProvisionalLoadParamsSpec, nullable: false, minVersion: 0 },

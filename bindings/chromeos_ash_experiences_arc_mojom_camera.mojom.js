@@ -188,7 +188,7 @@ arc.mojom.CameraService_Connect_ParamsSpec = {
 arc.mojom.CameraService_Connect_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.CameraService.Connect_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -231,7 +231,7 @@ arc.mojom.CameraService_StreamOn_ParamsSpec = {
 arc.mojom.CameraService_StreamOn_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.CameraService.StreamOn_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'fds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Handle, false), nullable: false, minVersion: 0 },
@@ -259,7 +259,7 @@ arc.mojom.CameraService_StreamOff_ParamsSpec = {
 arc.mojom.CameraService_StreamOff_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.CameraService.StreamOff_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -285,7 +285,7 @@ arc.mojom.CameraService_GetNextFrameBuffer_ParamsSpec = {
 arc.mojom.CameraService_GetNextFrameBuffer_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.CameraService.GetNextFrameBuffer_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'buffer_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Uint32, nullable: false, minVersion: 0 },
@@ -314,7 +314,7 @@ arc.mojom.CameraService_ReuseFrameBuffer_ParamsSpec = {
 arc.mojom.CameraService_ReuseFrameBuffer_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.CameraService.ReuseFrameBuffer_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -341,7 +341,7 @@ arc.mojom.CameraService_GetDeviceSupportedFormats_ParamsSpec = {
 arc.mojom.CameraService_GetDeviceSupportedFormats_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.CameraService.GetDeviceSupportedFormats_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'supported_formats', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.CameraSupportedFormatSpec, false), nullable: false, minVersion: 0 },
@@ -367,7 +367,7 @@ arc.mojom.CameraService_GetCameraDeviceInfos_ParamsSpec = {
 arc.mojom.CameraService_GetCameraDeviceInfos_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.CameraService.GetCameraDeviceInfos_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'device_infos', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(arc.mojom.CameraDeviceInfoSpec, false), nullable: false, minVersion: 0 },
@@ -472,7 +472,7 @@ arc.mojom.CameraHost_StartCameraService_ParamsSpec = {
 arc.mojom.CameraHost_StartCameraService_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.CameraHost.StartCameraService_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'service', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: false, minVersion: 0 },
@@ -513,7 +513,7 @@ arc.mojom.CameraHost_RegisterCameraHalClient_ParamsSpec = {
 arc.mojom.CameraHost_RegisterCameraHalClient_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.CameraHost.RegisterCameraHalClient_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },

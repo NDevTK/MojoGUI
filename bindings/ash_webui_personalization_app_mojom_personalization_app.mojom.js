@@ -860,7 +860,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ParamsSpec = {
 ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.WallpaperProvider.FetchCollections_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'collections', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.personalization_app.mojom.WallpaperCollectionSpec, false), nullable: true, minVersion: 0 },
@@ -887,7 +887,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ParamsS
 ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.WallpaperProvider.FetchImagesForCollection_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.personalization_app.mojom.WallpaperImageSpec, false), nullable: true, minVersion: 0 },
@@ -914,7 +914,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ParamsSp
 ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.WallpaperProvider.FetchGooglePhotosAlbums_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.FetchGooglePhotosAlbumsResponseSpec, nullable: false, minVersion: 0 },
@@ -941,7 +941,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_Pa
 ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.WallpaperProvider.FetchGooglePhotosSharedAlbums_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.FetchGooglePhotosAlbumsResponseSpec, nullable: false, minVersion: 0 },
@@ -967,7 +967,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ParamsS
 ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.WallpaperProvider.FetchGooglePhotosEnabled_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.GooglePhotosEnablementStateSpec, nullable: false, minVersion: 0 },
@@ -996,7 +996,7 @@ ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ParamsSp
 ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.WallpaperProvider.FetchGooglePhotosPhotos_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.FetchGooglePhotosPhotosResponseSpec, nullable: false, minVersion: 0 },
@@ -1022,7 +1022,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ParamsSpec = {
 ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.WallpaperProvider.GetLocalImages_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo_base.mojom.FilePathSpec, false), nullable: true, minVersion: 0 },
@@ -1048,7 +1048,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ParamsS
 ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.WallpaperProvider.GetDefaultImageThumbnail_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
@@ -1075,7 +1075,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ParamsSpe
 ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.WallpaperProvider.GetLocalImageThumbnail_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: false, minVersion: 0 },
@@ -1117,7 +1117,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ParamsSpec = {
 ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.WallpaperProvider.SelectWallpaper_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1143,7 +1143,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ParamsSpec = 
 ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.WallpaperProvider.SelectDefaultImage_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1172,7 +1172,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ParamsSpec = {
 ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.WallpaperProvider.SelectLocalImage_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1201,7 +1201,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ParamsSp
 ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.WallpaperProvider.SelectGooglePhotosPhoto_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1228,7 +1228,7 @@ ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ParamsSp
 ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.WallpaperProvider.SelectGooglePhotosAlbum_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1254,7 +1254,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbum
 ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.WallpaperProvider.GetGooglePhotosDailyRefreshAlbumId_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'album_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -1295,7 +1295,7 @@ ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_Para
 ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.WallpaperProvider.SetDailyRefreshCollectionId_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1321,7 +1321,7 @@ ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_Para
 ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.WallpaperProvider.GetDailyRefreshCollectionId_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'collection_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -1347,7 +1347,7 @@ ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_Para
 ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.WallpaperProvider.UpdateDailyRefreshWallpaper_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1373,7 +1373,7 @@ ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ParamsSpec = {
 ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.WallpaperProvider.IsInTabletMode_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'tablet_mode', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1425,7 +1425,7 @@ ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDial
 ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.WallpaperProvider.ShouldShowTimeOfDayWallpaperDialog_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'should_show_dialog', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -1918,7 +1918,7 @@ ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ParamsSpec = {
 ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.ThemeProvider.GetColorScheme_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'color_scheme', packedOffset: 0, packedBitOffset: 0, type: ash.style.mojom.ColorSchemeSpec, nullable: false, minVersion: 0 },
@@ -1944,7 +1944,7 @@ ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ParamsSpec = {
 ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.ThemeProvider.GetStaticColor_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'static_color', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.SkColorSpec, nullable: true, minVersion: 0 },
@@ -1970,7 +1970,7 @@ ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ParamsSpe
 ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.ThemeProvider.GenerateSampleColorSchemes_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'sample_color_schemes', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.personalization_app.mojom.SampleColorSchemeSpec, false), nullable: false, minVersion: 0 },
@@ -1996,7 +1996,7 @@ ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_Param
 ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.ThemeProvider.IsColorModeAutoScheduleEnabled_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -2022,7 +2022,7 @@ ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ParamsSpec = {
 ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.ThemeProvider.IsDarkModeEnabled_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'dark_mode_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -2048,7 +2048,7 @@ ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemService
 ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.ThemeProvider.IsGeolocationEnabledForSystemServices_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'geolocation_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -2074,7 +2074,7 @@ ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ParamsSp
 ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.ThemeProvider.IsGeolocationUserModifiable_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'geolocation_is_user_modifiable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -2382,7 +2382,7 @@ ash.personalization_app.mojom.UserProvider_GetUserInfo_ParamsSpec = {
 ash.personalization_app.mojom.UserProvider_GetUserInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.UserProvider.GetUserInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'user_info', packedOffset: 0, packedBitOffset: 0, type: ash.personalization_app.mojom.UserInfoSpec, nullable: false, minVersion: 0 },
@@ -2408,7 +2408,7 @@ ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ParamsSpec = {
 ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.UserProvider.GetDefaultUserImages_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'default_user_images', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.personalization_app.mojom.DefaultUserImageSpec, false), nullable: false, minVersion: 0 },
@@ -2980,7 +2980,7 @@ ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ParamsSpec = 
 ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.AmbientProvider.IsAmbientModeEnabled_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -3145,7 +3145,7 @@ ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ParamsSp
 ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.AmbientProvider.ShouldShowTimeOfDayBanner_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'should_show_banner', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -3184,7 +3184,7 @@ ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServi
 ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.AmbientProvider.IsGeolocationEnabledForSystemServices_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'geolocation_enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -3210,7 +3210,7 @@ ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_Params
 ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.AmbientProvider.IsGeolocationUserModifiable_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'geolocation_is_user_modifiable', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -3487,7 +3487,7 @@ ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ParamsSp
 ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.personalization_app.mojom.KeyboardBacklightProvider.ShouldShowNudge_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'should_show_nudge', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

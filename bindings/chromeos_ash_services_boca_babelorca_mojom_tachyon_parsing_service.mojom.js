@@ -143,7 +143,7 @@ ash.babelorca.mojom.TachyonParsingService_Parse_ParamsSpec = {
 ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.babelorca.mojom.TachyonParsingService.Parse_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: ash.babelorca.mojom.ParsingStateSpec, nullable: false, minVersion: 0 },

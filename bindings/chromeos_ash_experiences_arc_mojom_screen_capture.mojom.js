@@ -101,7 +101,7 @@ arc.mojom.ScreenCaptureHost_RequestPermission_ParamsSpec = {
 arc.mojom.ScreenCaptureHost_RequestPermission_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.ScreenCaptureHost.RequestPermission_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'granted', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -144,7 +144,7 @@ arc.mojom.ScreenCaptureHost_OpenSession_ParamsSpec = {
 arc.mojom.ScreenCaptureHost_OpenSession_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.ScreenCaptureHost.OpenSession_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'session', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },

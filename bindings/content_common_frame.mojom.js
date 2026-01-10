@@ -525,7 +525,7 @@ content.mojom.Frame_CommitSameDocumentNavigation_ParamsSpec = {
 content.mojom.Frame_CommitSameDocumentNavigation_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.Frame.CommitSameDocumentNavigation_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'commit_result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.CommitResultSpec, nullable: false, minVersion: 0 },
@@ -644,7 +644,7 @@ content.mojom.Frame_SnapshotAccessibilityTree_ParamsSpec = {
 content.mojom.Frame_SnapshotAccessibilityTree_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.Frame.SnapshotAccessibilityTree_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'snapshot', packedOffset: 0, packedBitOffset: 0, type: ax.mojom.AXTreeUpdateSpec, nullable: false, minVersion: 0 },
@@ -1094,7 +1094,7 @@ content.mojom.FrameHost_CreateNewWindow_ParamsSpec = {
 content.mojom.FrameHost_CreateNewWindow_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.FrameHost.CreateNewWindow_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: content.mojom.CreateNewWindowStatusSpec, nullable: false, minVersion: 0 },

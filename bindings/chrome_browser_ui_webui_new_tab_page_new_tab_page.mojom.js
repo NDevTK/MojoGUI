@@ -707,7 +707,7 @@ new_tab_page.mojom.PageHandler_GetMostVisitedSettings_ParamsSpec = {
 new_tab_page.mojom.PageHandler_GetMostVisitedSettings_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'new_tab_page.mojom.PageHandler.GetMostVisitedSettings_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'shortcuts_type', packedOffset: 0, packedBitOffset: 0, type: ntp_tiles.mojom.TileTypeSpec, nullable: false, minVersion: 0 },
@@ -734,7 +734,7 @@ new_tab_page.mojom.PageHandler_GetDoodle_ParamsSpec = {
 new_tab_page.mojom.PageHandler_GetDoodle_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'new_tab_page.mojom.PageHandler.GetDoodle_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'doodle', packedOffset: 0, packedBitOffset: 0, type: new_tab_page.mojom.DoodleSpec, nullable: true, minVersion: 0 },
@@ -884,7 +884,7 @@ new_tab_page.mojom.PageHandler_GetModulesIdNames_ParamsSpec = {
 new_tab_page.mojom.PageHandler_GetModulesIdNames_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'new_tab_page.mojom.PageHandler.GetModulesIdNames_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(new_tab_page.mojom.ModuleIdNameSpec, false), nullable: false, minVersion: 0 },
@@ -910,7 +910,7 @@ new_tab_page.mojom.PageHandler_GetModulesEligibleForRemoval_ParamsSpec = {
 new_tab_page.mojom.PageHandler_GetModulesEligibleForRemoval_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'new_tab_page.mojom.PageHandler.GetModulesEligibleForRemoval_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'module_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
@@ -950,7 +950,7 @@ new_tab_page.mojom.PageHandler_GetModulesOrder_ParamsSpec = {
 new_tab_page.mojom.PageHandler_GetModulesOrder_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'new_tab_page.mojom.PageHandler.GetModulesOrder_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'module_ids', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
@@ -1131,7 +1131,7 @@ new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ParamsSpec = {
 new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'new_tab_page.mojom.PageHandler.OnDoodleImageRendered_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'image_click_params', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },

@@ -364,7 +364,7 @@ chrome.mojom.AppShim_RequestNotificationPermission_ParamsSpec = {
 chrome.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome.mojom.AppShim.RequestNotificationPermission_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mac_notifications.mojom.RequestPermissionResultSpec, nullable: false, minVersion: 0 },
@@ -745,7 +745,7 @@ chrome.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec = {
 chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome.mojom.AppShimHostBootstrap.OnShimConnected_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'launch_result', packedOffset: 0, packedBitOffset: 0, type: chrome.mojom.AppShimLaunchResultSpec, nullable: false, minVersion: 0 },

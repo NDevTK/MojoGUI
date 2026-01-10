@@ -251,7 +251,7 @@ unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ParamsSpec = {
 unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'unexportable_keys.mojom.UnexportableKeyService.DeleteKey_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error', packedOffset: 0, packedBitOffset: 0, type: unexportable_keys.mojom.ServiceErrorSpec, nullable: true, minVersion: 0 },

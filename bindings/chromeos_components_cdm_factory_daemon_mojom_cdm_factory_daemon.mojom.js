@@ -147,7 +147,7 @@ chromeos.cdm.mojom.CdmFactory_CreateCdm_ParamsSpec = {
 chromeos.cdm.mojom.CdmFactory_CreateCdm_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.cdm.mojom.CdmFactory.CreateCdm_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chromeos.cdm.mojom.CreateCdmStatusSpec, nullable: false, minVersion: 0 },
@@ -316,7 +316,7 @@ chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ParamsSpec = {
 chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.cdm.mojom.CdmFactoryDaemon.CreateFactory_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'factory', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
@@ -384,7 +384,7 @@ chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ParamsSpec = {
 chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.cdm.mojom.CdmFactoryDaemon.GetHwConfigData_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -424,7 +424,7 @@ chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ParamsSpec = {
 chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.cdm.mojom.CdmFactoryDaemon.GetHdcp14Key_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'hdcp_key_base64', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -452,7 +452,7 @@ chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ParamsSpec = {
 chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.cdm.mojom.CdmFactoryDaemon.GetAndroidHwKeyData_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: chromeos.cdm.mojom.DecryptStatusSpec, nullable: false, minVersion: 0 },
@@ -480,7 +480,7 @@ chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ParamsSpec = {
 chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.cdm.mojom.CdmFactoryDaemon.AllocateSecureBuffer_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'fd', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Pointer, nullable: true, minVersion: 0 },
@@ -509,7 +509,7 @@ chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ParamsSpec = {
 chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chromeos.cdm.mojom.CdmFactoryDaemon.ParseEncryptedSliceHeader_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

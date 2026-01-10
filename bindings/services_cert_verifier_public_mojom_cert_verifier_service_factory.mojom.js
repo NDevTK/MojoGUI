@@ -364,7 +364,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ParamsSpec
 cert_verifier.mojom.CertVerifierServiceFactory_GetChromeRootStoreInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cert_verifier.mojom.CertVerifierServiceFactory.GetChromeRootStoreInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'root_store_info', packedOffset: 0, packedBitOffset: 0, type: cert_verifier.mojom.ChromeRootStoreInfoSpec, nullable: false, minVersion: 0 },
@@ -390,7 +390,7 @@ cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ParamsSp
 cert_verifier.mojom.CertVerifierServiceFactory_GetPlatformRootStoreInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'cert_verifier.mojom.CertVerifierServiceFactory.GetPlatformRootStoreInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'root_store_info', packedOffset: 0, packedBitOffset: 0, type: cert_verifier.mojom.PlatformRootStoreInfoSpec, nullable: false, minVersion: 0 },

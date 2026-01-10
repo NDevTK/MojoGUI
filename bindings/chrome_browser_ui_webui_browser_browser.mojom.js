@@ -126,7 +126,7 @@ webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ParamsSpec = {
 webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'webui_browser.mojom.PageHandlerFactory.GetTabStripInset_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'width', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -473,7 +473,7 @@ webui_browser.mojom.PageHandler_GetGuestIdForTabId_ParamsSpec = {
 webui_browser.mojom.PageHandler_GetGuestIdForTabId_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'webui_browser.mojom.PageHandler.GetGuestIdForTabId_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'guest_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -499,7 +499,7 @@ webui_browser.mojom.PageHandler_LoadTabSearch_ParamsSpec = {
 webui_browser.mojom.PageHandler_LoadTabSearch_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'webui_browser.mojom.PageHandler.LoadTabSearch_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'guest_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -790,7 +790,7 @@ webui_browser.mojom.GuestHandler_CanGoBack_ParamsSpec = {
 webui_browser.mojom.GuestHandler_CanGoBack_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'webui_browser.mojom.GuestHandler.CanGoBack_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'can_go_back', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -829,7 +829,7 @@ webui_browser.mojom.GuestHandler_CanGoForward_ParamsSpec = {
 webui_browser.mojom.GuestHandler_CanGoForward_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'webui_browser.mojom.GuestHandler.CanGoForward_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'can_go_forward', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -907,7 +907,7 @@ webui_browser.mojom.GuestHandler_GetSecurityIcon_ParamsSpec = {
 webui_browser.mojom.GuestHandler_GetSecurityIcon_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'webui_browser.mojom.GuestHandler.GetSecurityIcon_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'security_icon', packedOffset: 0, packedBitOffset: 0, type: webui_browser.mojom.SecurityIconSpec, nullable: false, minVersion: 0 },

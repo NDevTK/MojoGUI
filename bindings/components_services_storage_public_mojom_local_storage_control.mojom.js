@@ -159,7 +159,7 @@ storage.mojom.LocalStorageControl_GetUsage_ParamsSpec = {
 storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'storage.mojom.LocalStorageControl.GetUsage_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(storage.mojom.StorageUsageInfoSpec, false), nullable: false, minVersion: 0 },

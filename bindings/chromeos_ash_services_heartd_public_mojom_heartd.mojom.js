@@ -180,7 +180,7 @@ ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec = {
 ash.heartd.mojom.HeartdControl_RunAction_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.heartd.mojom.HeartdControl.RunAction_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -270,7 +270,7 @@ ash.heartd.mojom.HeartbeatService_Register_ParamsSpec = {
 ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.heartd.mojom.HeartbeatService.Register_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -366,7 +366,7 @@ ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec = {
 ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.heartd.mojom.Pacemaker.SendHeartbeat_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'response', packedOffset: 0, packedBitOffset: 0, type: ash.heartd.mojom.HeartbeatResponseSpec, nullable: false, minVersion: 0 },

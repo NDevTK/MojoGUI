@@ -134,7 +134,7 @@ related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_P
 related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'related_website_sets.mojom.RelatedWebsiteSetsPageHandler.GetRelatedWebsiteSets_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'related_website_sets_info', packedOffset: 0, packedBitOffset: 0, type: related_website_sets.mojom.GetRelatedWebsiteSetsResponseSpec, nullable: false, minVersion: 0 },

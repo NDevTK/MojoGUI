@@ -190,7 +190,7 @@ ash.settings.date_time.mojom.PageHandler_GetTimezones_ParamsSpec = {
 ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.settings.date_time.mojom.PageHandler.GetTimezones_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'timezones', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Array(mojo.internal.Pointer, false), false), nullable: false, minVersion: 0 },

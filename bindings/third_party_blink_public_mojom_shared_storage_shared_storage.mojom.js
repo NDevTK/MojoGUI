@@ -154,7 +154,7 @@ blink.mojom.SharedStorageWorkletHost_SelectURL_ParamsSpec = {
 blink.mojom.SharedStorageWorkletHost_SelectURL_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.SharedStorageWorkletHost.SelectURL_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -187,7 +187,7 @@ blink.mojom.SharedStorageWorkletHost_Run_ParamsSpec = {
 blink.mojom.SharedStorageWorkletHost_Run_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.SharedStorageWorkletHost.Run_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -309,7 +309,7 @@ blink.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec = {
 blink.mojom.SharedStorageDocumentService_CreateWorklet_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.SharedStorageDocumentService.CreateWorklet_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -337,7 +337,7 @@ blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec = {
 blink.mojom.SharedStorageDocumentService_SharedStorageGet_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.SharedStorageDocumentService.SharedStorageGet_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SharedStorageGetStatusSpec, nullable: false, minVersion: 0 },
@@ -366,7 +366,7 @@ blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec = {
 blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.SharedStorageDocumentService.SharedStorageUpdate_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -394,7 +394,7 @@ blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ParamsSpec = {
 blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.SharedStorageDocumentService.SharedStorageBatchUpdate_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },

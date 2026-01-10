@@ -191,7 +191,7 @@ ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec = {
 ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.mojom.sample_swa.PageHandler.GetPreferences_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'preferences', packedOffset: 0, packedBitOffset: 0, type: ash.mojom.sample_swa.PreferencesSpec, nullable: false, minVersion: 0 },

@@ -326,7 +326,7 @@ media.mojom.InterfaceFactory_CreateCdm_ParamsSpec = {
 media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.InterfaceFactory.CreateCdm_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'cdm', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },

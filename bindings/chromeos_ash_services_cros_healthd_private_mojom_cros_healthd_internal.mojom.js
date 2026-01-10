@@ -151,7 +151,7 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_Para
 ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.internal.mojom.ChromiumDataCollector.GetTouchscreenDevices_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'devices', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.cros_healthd.internal.mojom.TouchscreenDeviceSpec, false), nullable: false, minVersion: 0 },
@@ -177,7 +177,7 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_Par
 ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.internal.mojom.ChromiumDataCollector.GetTouchpadLibraryName_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'library_name', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -204,7 +204,7 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_Para
 ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.internal.mojom.ChromiumDataCollector.SetPrivacyScreenState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -231,7 +231,7 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputM
 ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cros_healthd.internal.mojom.ChromiumDataCollector.DEPRECATED_SetAudioOutputMute_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

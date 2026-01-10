@@ -195,7 +195,7 @@ ash.cfm.mojom.DataSource_Fetch_ParamsSpec = {
 ash.cfm.mojom.DataSource_Fetch_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cfm.mojom.DataSource.Fetch_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'serialized_payloads', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
@@ -223,7 +223,7 @@ ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec = {
 ash.cfm.mojom.DataSource_AddWatchDog_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cfm.mojom.DataSource.AddWatchDog_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -341,7 +341,7 @@ ash.cfm.mojom.DataAggregator_GetDataSourceNames_ParamsSpec = {
 ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cfm.mojom.DataAggregator.GetDataSourceNames_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'data_source_names', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
@@ -369,7 +369,7 @@ ash.cfm.mojom.DataAggregator_AddDataSource_ParamsSpec = {
 ash.cfm.mojom.DataAggregator_AddDataSource_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cfm.mojom.DataAggregator.AddDataSource_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -398,7 +398,7 @@ ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec = {
 ash.cfm.mojom.DataAggregator_AddWatchDog_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.cfm.mojom.DataAggregator.AddWatchDog_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

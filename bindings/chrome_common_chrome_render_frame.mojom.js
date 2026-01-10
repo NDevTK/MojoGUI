@@ -245,7 +245,7 @@ chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ParamsSpec = {
 chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome.mojom.ChromeRenderFrame.RequestBitmapForContextNode_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
@@ -271,7 +271,7 @@ chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ParamsS
 chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome.mojom.ChromeRenderFrame.RequestBitmapForContextNodeWithBoundsHint_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'bitmap', packedOffset: 0, packedBitOffset: 0, type: skia.mojom.BitmapN32Spec, nullable: true, minVersion: 0 },
@@ -298,7 +298,7 @@ chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ParamsSpec = {
 chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome.mojom.ChromeRenderFrame.RequestBoundsHintForAllImages_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'all_bounds', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(gfx.mojom.RectSpec, false), nullable: false, minVersion: 0 },
@@ -328,7 +328,7 @@ chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ParamsSpec = {
 chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome.mojom.ChromeRenderFrame.RequestImageForContextNode_ResponseParams',
       packedSize: 48,
       fields: [
         { name: 'image_data', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },
@@ -386,7 +386,7 @@ chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ParamsSpec = {
 chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome.mojom.ChromeRenderFrame.GetMediaFeedURL_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'url', packedOffset: 0, packedBitOffset: 0, type: url.mojom.UrlSpec, nullable: true, minVersion: 0 },
@@ -441,7 +441,7 @@ chrome.mojom.ChromeRenderFrame_InvokeTool_ParamsSpec = {
 chrome.mojom.ChromeRenderFrame_InvokeTool_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome.mojom.ChromeRenderFrame.InvokeTool_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: actor.mojom.ActionResultSpec, nullable: false, minVersion: 0 },

@@ -196,7 +196,7 @@ aim_eligibility.mojom.PageHandler_GetEligibilityState_ParamsSpec = {
 aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'aim_eligibility.mojom.PageHandler.GetEligibilityState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'state', packedOffset: 0, packedBitOffset: 0, type: aim_eligibility.mojom.EligibilityStateSpec, nullable: false, minVersion: 0 },
@@ -236,7 +236,7 @@ aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ParamsSpec 
 aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'aim_eligibility.mojom.PageHandler.SetEligibilityResponseForDebugging_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

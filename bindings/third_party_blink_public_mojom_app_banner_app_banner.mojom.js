@@ -91,7 +91,7 @@ blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec = {
 blink.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.AppBannerController.BannerPromptRequest_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'reply', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.AppBannerPromptReplySpec, nullable: false, minVersion: 0 },

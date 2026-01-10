@@ -129,7 +129,7 @@ crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ParamsSpec = {
 crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.ChromeKioskLaunchController.InstallKioskApp_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.ChromeKioskInstallResultSpec, nullable: false, minVersion: 0 },
@@ -157,7 +157,7 @@ crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ParamsSpec = {
 crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'crosapi.mojom.ChromeKioskLaunchController.LaunchKioskApp_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: crosapi.mojom.ChromeKioskLaunchResultSpec, nullable: false, minVersion: 0 },

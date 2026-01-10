@@ -434,7 +434,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSp
 side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'side_panel.customize_chrome.mojom.WallpaperSearchHandler.GetDescriptors_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'descriptors', packedOffset: 0, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.DescriptorsSpec, nullable: true, minVersion: 0 },
@@ -460,7 +460,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsS
 side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'side_panel.customize_chrome.mojom.WallpaperSearchHandler.GetInspirations_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'inspirationGroups', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(side_panel.customize_chrome.mojom.InspirationGroupSpec, false), nullable: true, minVersion: 0 },
@@ -487,7 +487,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResul
 side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'side_panel.customize_chrome.mojom.WallpaperSearchHandler.GetWallpaperSearchResults_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: side_panel.customize_chrome.mojom.WallpaperSearchStatusSpec, nullable: false, minVersion: 0 },

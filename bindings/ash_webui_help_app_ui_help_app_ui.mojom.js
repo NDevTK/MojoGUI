@@ -308,7 +308,7 @@ ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec = {
 ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.help_app.mojom.PageHandler.OpenFeedbackDialog_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'error_message', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: true, minVersion: 0 },
@@ -374,7 +374,7 @@ ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ParamsSpec = {
 ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.help_app.mojom.PageHandler.IsLauncherSearchEnabled_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -426,7 +426,7 @@ ash.help_app.mojom.PageHandler_GetDeviceInfo_ParamsSpec = {
 ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.help_app.mojom.PageHandler.GetDeviceInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'device_info', packedOffset: 0, packedBitOffset: 0, type: ash.help_app.mojom.DeviceInfoSpec, nullable: false, minVersion: 0 },

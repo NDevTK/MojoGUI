@@ -168,7 +168,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ParamsSpec = {
 ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.settings.app_permission.mojom.AppPermissionsHandler.GetApps_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.settings.app_permission.mojom.AppSpec, false), nullable: false, minVersion: 0 },
@@ -194,7 +194,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCame
 ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.settings.app_permission.mojom.AppPermissionsHandler.GetSystemAppsThatUseCamera_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.settings.app_permission.mojom.AppSpec, false), nullable: false, minVersion: 0 },
@@ -220,7 +220,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicr
 ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.settings.app_permission.mojom.AppPermissionsHandler.GetSystemAppsThatUseMicrophone_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'apps', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(ash.settings.app_permission.mojom.AppSpec, false), nullable: false, minVersion: 0 },

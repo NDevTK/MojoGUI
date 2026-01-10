@@ -98,7 +98,7 @@ quarantine.mojom.Quarantine_QuarantineFile_ParamsSpec = {
 quarantine.mojom.Quarantine_QuarantineFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'quarantine.mojom.Quarantine.QuarantineFile_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: quarantine.mojom.QuarantineFileResultSpec, nullable: false, minVersion: 0 },

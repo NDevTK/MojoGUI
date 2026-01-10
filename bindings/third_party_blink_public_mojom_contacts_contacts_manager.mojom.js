@@ -120,7 +120,7 @@ blink.mojom.ContactsManager_Select_ParamsSpec = {
 blink.mojom.ContactsManager_Select_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ContactsManager.Select_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'contacts', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(blink.mojom.ContactInfoSpec, false), nullable: true, minVersion: 0 },

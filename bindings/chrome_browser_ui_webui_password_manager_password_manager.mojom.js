@@ -310,7 +310,7 @@ password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec = {
 password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'password_manager.mojom.PageHandler.DeleteAllPasswordManagerData_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -337,7 +337,7 @@ password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec = {
 password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'password_manager.mojom.PageHandler.CopyPlaintextBackupPassword_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -377,7 +377,7 @@ password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec = {
 password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'password_manager.mojom.PageHandler.GetActorLoginPermissions_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'sites', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(password_manager.mojom.ActorLoginPermissionSpec, false), nullable: false, minVersion: 0 },
@@ -417,7 +417,7 @@ password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec = {
 password_manager.mojom.PageHandler_ChangePasswordManagerPin_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'password_manager.mojom.PageHandler.ChangePasswordManagerPin_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -456,7 +456,7 @@ password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec = {
 password_manager.mojom.PageHandler_IsAccountStorageEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'password_manager.mojom.PageHandler.IsAccountStorageEnabled_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -496,7 +496,7 @@ password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsS
 password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'password_manager.mojom.PageHandler.ShouldShowAccountStorageSettingToggle_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'should_show', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -522,7 +522,7 @@ password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec = {
 password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'password_manager.mojom.PageHandler.IsPasswordManagerPinAvailable_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'is_available', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -548,7 +548,7 @@ password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsS
 password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'password_manager.mojom.PageHandler.SwitchBiometricAuthBeforeFillingState_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

@@ -136,7 +136,7 @@ suggest_internals.mojom.PageHandler_HardcodeResponse_ParamsSpec = {
 suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'suggest_internals.mojom.PageHandler.HardcodeResponse_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'request', packedOffset: 0, packedBitOffset: 0, type: suggest_internals.mojom.RequestSpec, nullable: false, minVersion: 0 },

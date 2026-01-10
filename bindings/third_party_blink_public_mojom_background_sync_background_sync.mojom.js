@@ -166,7 +166,7 @@ blink.mojom.OneShotBackgroundSyncService_Register_ParamsSpec = {
 blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.OneShotBackgroundSyncService.Register_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'err', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundSyncErrorSpec, nullable: false, minVersion: 0 },
@@ -208,7 +208,7 @@ blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec = {
 blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.OneShotBackgroundSyncService.GetRegistrations_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'err', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundSyncErrorSpec, nullable: false, minVersion: 0 },
@@ -316,7 +316,7 @@ blink.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec = {
 blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.PeriodicBackgroundSyncService.Register_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'err', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundSyncErrorSpec, nullable: false, minVersion: 0 },
@@ -345,7 +345,7 @@ blink.mojom.PeriodicBackgroundSyncService_Unregister_ParamsSpec = {
 blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.PeriodicBackgroundSyncService.Unregister_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'err', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundSyncErrorSpec, nullable: false, minVersion: 0 },
@@ -372,7 +372,7 @@ blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ParamsSpec = {
 blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.PeriodicBackgroundSyncService.GetRegistrations_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'err', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.BackgroundSyncErrorSpec, nullable: false, minVersion: 0 },

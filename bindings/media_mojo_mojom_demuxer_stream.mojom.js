@@ -99,7 +99,7 @@ media.mojom.DemuxerStream_Initialize_ParamsSpec = {
 media.mojom.DemuxerStream_Initialize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.DemuxerStream.Initialize_ResponseParams',
       packedSize: 40,
       fields: [
         { name: 'type', packedOffset: 0, packedBitOffset: 0, type: media.mojom.TypeSpec, nullable: false, minVersion: 0 },
@@ -129,7 +129,7 @@ media.mojom.DemuxerStream_Read_ParamsSpec = {
 media.mojom.DemuxerStream_Read_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.DemuxerStream.Read_ResponseParams',
       packedSize: 40,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: media.mojom.StatusSpec, nullable: false, minVersion: 0 },

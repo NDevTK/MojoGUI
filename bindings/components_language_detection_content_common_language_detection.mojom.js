@@ -98,7 +98,7 @@ language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionMode
 language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'language_detection.mojom.ContentLanguageDetectionDriver.GetLanguageDetectionModel_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'model_file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.ReadOnlyFileSpec, nullable: true, minVersion: 0 },
@@ -124,7 +124,7 @@ language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionMode
 language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'language_detection.mojom.ContentLanguageDetectionDriver.GetLanguageDetectionModelStatus_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: language_detection.mojom.LanguageDetectionModelStatusSpec, nullable: false, minVersion: 0 },

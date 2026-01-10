@@ -200,7 +200,7 @@ arc.mojom.EnterpriseReportingInstance_GetStatus_ParamsSpec = {
 arc.mojom.EnterpriseReportingInstance_GetStatus_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'arc.mojom.EnterpriseReportingInstance.GetStatus_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'status', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },

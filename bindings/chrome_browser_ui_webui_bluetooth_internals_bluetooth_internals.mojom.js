@@ -218,7 +218,7 @@ mojom.BluetoothInternalsHandler_GetAdapter_ParamsSpec = {
 mojom.BluetoothInternalsHandler_GetAdapter_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.BluetoothInternalsHandler.GetAdapter_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'adapter', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
@@ -244,7 +244,7 @@ mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ParamsSpec = {
 mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.BluetoothInternalsHandler.GetDebugLogsChangeHandler_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'handler', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
@@ -271,7 +271,7 @@ mojom.BluetoothInternalsHandler_CheckSystemPermissions_ParamsSpec = {
 mojom.BluetoothInternalsHandler_CheckSystemPermissions_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.BluetoothInternalsHandler.CheckSystemPermissions_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'need_location_permission', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -339,7 +339,7 @@ mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec = {
 mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.BluetoothInternalsHandler.StartBtsnoop_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'btsnoop', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.InterfaceProxy, nullable: true, minVersion: 0 },
@@ -365,7 +365,7 @@ mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ParamsSpec = {
 mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.BluetoothInternalsHandler.IsBtsnoopFeatureEnabled_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'enabled', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -452,7 +452,7 @@ mojom.BluetoothBtsnoop_Stop_ParamsSpec = {
 mojom.BluetoothBtsnoop_Stop_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'mojom.BluetoothBtsnoop.Stop_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

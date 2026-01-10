@@ -260,7 +260,7 @@ blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec = {
 blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.SynchronousCompositor.DemandDrawHw_ResponseParams',
       packedSize: 48,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SyncCompositorCommonRendererParamsSpec, nullable: false, minVersion: 0 },
@@ -292,7 +292,7 @@ blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec = {
 blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.SynchronousCompositor.SetSharedMemory_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'success', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -320,7 +320,7 @@ blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec = {
 blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.SynchronousCompositor.DemandDrawSw_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SyncCompositorCommonRendererParamsSpec, nullable: false, minVersion: 0 },
@@ -376,7 +376,7 @@ blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec = {
 blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.SynchronousCompositor.ZoomBy_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: blink.mojom.SyncCompositorCommonRendererParamsSpec, nullable: false, minVersion: 0 },

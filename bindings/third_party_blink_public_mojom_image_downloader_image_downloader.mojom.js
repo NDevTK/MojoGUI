@@ -95,7 +95,7 @@ blink.mojom.ImageDownloader_DownloadImage_ParamsSpec = {
 blink.mojom.ImageDownloader_DownloadImage_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ImageDownloader.DownloadImage_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'http_status_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },
@@ -127,7 +127,7 @@ blink.mojom.ImageDownloader_DownloadImageFromAxNode_ParamsSpec = {
 blink.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'blink.mojom.ImageDownloader.DownloadImageFromAxNode_ResponseParams',
       packedSize: 32,
       fields: [
         { name: 'http_status_code', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Int32, nullable: false, minVersion: 0 },

@@ -344,7 +344,7 @@ content.mojom.WebTestRenderFrame_DumpFrameLayout_ParamsSpec = {
 content.mojom.WebTestRenderFrame_DumpFrameLayout_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.WebTestRenderFrame.DumpFrameLayout_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'frame_layout_dump', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },
@@ -1099,7 +1099,7 @@ content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_ParamsSpec = {
 content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.WebTestControlHost.GetBluetoothManualChooserEvents_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'events', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.String, false), nullable: false, minVersion: 0 },
@@ -1198,7 +1198,7 @@ content.mojom.WebTestControlHost_GetWritableDirectory_ParamsSpec = {
 content.mojom.WebTestControlHost_GetWritableDirectory_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.WebTestControlHost.GetWritableDirectory_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'path', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FilePathSpec, nullable: false, minVersion: 0 },
@@ -1239,7 +1239,7 @@ content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ParamsSpec =
 content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.WebTestControlHost.CreateSubresourceFilterRulesetFile_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'file', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.FileSpec, nullable: false, minVersion: 0 },
@@ -1365,7 +1365,7 @@ content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ParamsSpec = {
 content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'content.mojom.WebTestControlHost.RegisterIsolatedFileSystem_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'filesystem_id', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.String, nullable: false, minVersion: 0 },

@@ -162,7 +162,7 @@ ash.camera_app.mojom.PdfBuilder_Save_ParamsSpec = {
 ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.camera_app.mojom.PdfBuilder.Save_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'pdf', packedOffset: 0, packedBitOffset: 0, type: mojo_base.mojom.BigBufferSpec, nullable: false, minVersion: 0 },
@@ -188,7 +188,7 @@ ash.camera_app.mojom.PdfBuilder_SaveInline_ParamsSpec = {
 ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'ash.camera_app.mojom.PdfBuilder.SaveInline_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'pdf', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(mojo.internal.Uint8, false), nullable: false, minVersion: 0 },

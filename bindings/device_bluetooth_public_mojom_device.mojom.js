@@ -288,7 +288,7 @@ bluetooth.mojom.Device_GetInfo_ParamsSpec = {
 bluetooth.mojom.Device_GetInfo_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'bluetooth.mojom.Device.GetInfo_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'info', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.DeviceInfoSpec, nullable: true, minVersion: 0 },
@@ -314,7 +314,7 @@ bluetooth.mojom.Device_GetServices_ParamsSpec = {
 bluetooth.mojom.Device_GetServices_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'bluetooth.mojom.Device.GetServices_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'services', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(bluetooth.mojom.ServiceInfoSpec, false), nullable: false, minVersion: 0 },
@@ -341,7 +341,7 @@ bluetooth.mojom.Device_GetCharacteristics_ParamsSpec = {
 bluetooth.mojom.Device_GetCharacteristics_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'bluetooth.mojom.Device.GetCharacteristics_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'characteristics', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(bluetooth.mojom.CharacteristicInfoSpec, false), nullable: true, minVersion: 0 },
@@ -369,7 +369,7 @@ bluetooth.mojom.Device_ReadValueForCharacteristic_ParamsSpec = {
 bluetooth.mojom.Device_ReadValueForCharacteristic_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'bluetooth.mojom.Device.ReadValueForCharacteristic_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.GattResultSpec, nullable: false, minVersion: 0 },
@@ -399,7 +399,7 @@ bluetooth.mojom.Device_WriteValueForCharacteristic_ParamsSpec = {
 bluetooth.mojom.Device_WriteValueForCharacteristic_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'bluetooth.mojom.Device.WriteValueForCharacteristic_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.GattResultSpec, nullable: false, minVersion: 0 },
@@ -427,7 +427,7 @@ bluetooth.mojom.Device_GetDescriptors_ParamsSpec = {
 bluetooth.mojom.Device_GetDescriptors_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'bluetooth.mojom.Device.GetDescriptors_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'descriptors', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(bluetooth.mojom.DescriptorInfoSpec, false), nullable: true, minVersion: 0 },
@@ -456,7 +456,7 @@ bluetooth.mojom.Device_ReadValueForDescriptor_ParamsSpec = {
 bluetooth.mojom.Device_ReadValueForDescriptor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'bluetooth.mojom.Device.ReadValueForDescriptor_ResponseParams',
       packedSize: 24,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.GattResultSpec, nullable: false, minVersion: 0 },
@@ -487,7 +487,7 @@ bluetooth.mojom.Device_WriteValueForDescriptor_ParamsSpec = {
 bluetooth.mojom.Device_WriteValueForDescriptor_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'bluetooth.mojom.Device.WriteValueForDescriptor_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: bluetooth.mojom.GattResultSpec, nullable: false, minVersion: 0 },

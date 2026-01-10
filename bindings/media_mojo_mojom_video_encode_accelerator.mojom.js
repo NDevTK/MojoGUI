@@ -447,7 +447,7 @@ media.mojom.VideoEncodeAcceleratorProvider_GetVideoEncodeAcceleratorSupportedPro
 media.mojom.VideoEncodeAcceleratorProvider_GetVideoEncodeAcceleratorSupportedProfiles_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.VideoEncodeAcceleratorProvider.GetVideoEncodeAcceleratorSupportedProfiles_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'profiles', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Array(media.mojom.VideoEncodeAcceleratorSupportedProfileSpec, false), nullable: false, minVersion: 0 },
@@ -666,7 +666,7 @@ media.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec = {
 media.mojom.VideoEncodeAccelerator_Initialize_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.VideoEncodeAccelerator.Initialize_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: media.mojom.EncoderStatusSpec, nullable: false, minVersion: 0 },
@@ -754,7 +754,7 @@ media.mojom.VideoEncodeAccelerator_IsFlushSupported_ParamsSpec = {
 media.mojom.VideoEncodeAccelerator_IsFlushSupported_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.VideoEncodeAccelerator.IsFlushSupported_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },
@@ -780,7 +780,7 @@ media.mojom.VideoEncodeAccelerator_Flush_ParamsSpec = {
 media.mojom.VideoEncodeAccelerator_Flush_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'media.mojom.VideoEncodeAccelerator.Flush_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: mojo.internal.Bool, nullable: false, minVersion: 0 },

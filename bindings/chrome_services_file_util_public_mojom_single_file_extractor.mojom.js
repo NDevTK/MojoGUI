@@ -84,7 +84,7 @@ chrome.mojom.SingleFileExtractor_Extract_ParamsSpec = {
 chrome.mojom.SingleFileExtractor_Extract_ResponseParamsSpec = {
   $: {
     structSpec: {
-      name: '{interface_string}.{method['name']}_ResponseParams',
+      name: 'chrome.mojom.SingleFileExtractor.Extract_ResponseParams',
       packedSize: 16,
       fields: [
         { name: 'result', packedOffset: 0, packedBitOffset: 0, type: chrome.file_util.mojom.ExtractionResultSpec, nullable: false, minVersion: 0 },
