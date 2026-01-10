@@ -88,45 +88,86 @@
                 console.log('[Interceptor] Polyfilling createResponder');
                 mojo.internal.interfaceSupport.createResponder = function (endpoint, requestId, responseParamsSpec) {
                     return function (response) {
-                        // Construct response message
-                        // We need to encode the response struct 
-                        // We assume responseParamsSpec is the Spec object { $: { ... } }
-
-                        const isResponse = true;
-                        // Flag 2 is 'IsResponse' usually? 
-                        // Header v0: [bytes, version, interfaceId, ordinal, flags, padding, requestId]
-                        // We rely on higher level Message if possible.
-
+                        let message;
                         try {
-                            // Attempt to use internal Encoder if available
-                            // This is a "Best Guess" implementation based on Lite bindings
+                            // Attempt 1: Use internal Encoder
                             var structSpec = responseParamsSpec.$.structSpec;
+                            // console.log('[Interceptor] Polyfill Encoder init', structSpec.packedSize);
                             var encoder = new mojo.internal.Encoder(structSpec.packedSize, 0);
 
-                            // Encode the struct (method parameters are a struct)
-                            // encodeStructInline(spec, value)
+                            // Fix: bindings_lite Encoder might not init data_ in all versions?
+                            if (!encoder.data_ && encoder.buffer_) {
+                                encoder.data_ = new DataView(encoder.buffer_);
+                            }
+
                             encoder.encodeStructInline(structSpec, response);
-
-                            var message = encoder.message_;
-                            // Fix up the header
-                            // We need to set Ordinal? 
-                            // Wait, generated code uses createResponder(endpoint, requestId, spec). 
-                            // It does NOT pass ordinal.
-                            // But the response needs the ordinal?
-                            // Usually response shares ordinal.
-                            // How does createResponder know the ordinal?
-                            // A: It doesn't? Or it matches by RequestID.
-                            // Flag 2 (IsResponse).
-
-                            // We need to set the RequestID on the message header
-                            message.header.requestId = requestId;
-                            message.header.flags = 2; // kMessageIsResponse
-
-                            // Send
-                            endpoint.router_.accept(message);
+                            message = encoder.message_;
 
                         } catch (e) {
-                            console.error('[Interceptor] createResponder polyfill failed:', e);
+                            console.error('[Interceptor] createResponder Encoder failed, attempting manual fallback:', e);
+
+                            // Attempt 2: Manual Buffer Construction (For Empty Response)
+                            // Structure: [Header (24 bytes)] + [Payload (8 bytes)]
+                            // Header: size(4), version(4), interface(4), ordinal(4), flags(4), padding(4), requestID(8)
+                            // Header v1 is 24 bytes? No, v0 is 24 bytes usually without requestID? 
+                            // Check mojo wire format:
+                            // v0: 24 bytes. [u32 num_bytes, u32 version, u32 interface_id, u32 ordinal, u32 flags, u32 padding] ? No.
+                            // Standard Header: 
+                            // 0: u32 num_bytes
+                            // 4: u32 version
+                            // 8: u32 interface_id
+                            // 12: u32 ordinal
+                            // 16: u32 flags
+                            // 20: u32 padding
+                            // 24: u64 request_id (Version 1) -> Total 32 bytes?
+                            // Let's assume Version 1 header which allows RequestID.
+
+                            try {
+                                const headerSize = 32;
+                                const payloadSize = 8; // Empty struct (8 bytes size/ver)
+                                const totalSize = headerSize + payloadSize;
+                                const buffer = new ArrayBuffer(totalSize);
+                                const view = new DataView(buffer);
+
+                                // Header
+                                view.setUint32(0, totalSize, true); // num_bytes
+                                view.setUint32(4, 1, true);         // version (1 for requestID support)
+                                view.setUint32(8, 0, true);         // interface_id (endpoint fixes?)
+                                view.setUint32(12, 0, true);        // ordinal (0/unknown)
+                                view.setUint32(16, 2, true);        // flags: 2 (IsResponse)
+                                view.setUint32(20, 0, true);        // padding
+
+                                // RequestID (u64) - Split into two u32
+                                // requestId is likely a BigInt or Number.
+                                // If it's BigInt
+                                if (typeof requestId === 'bigint') {
+                                    view.setBigUint64(24, requestId, true);
+                                } else {
+                                    // Lo/Hi
+                                    view.setUint32(24, Number(requestId) & 0xFFFFFFFF, true);
+                                    view.setUint32(28, (Number(requestId) / 0x100000000) >>> 0, true);
+                                }
+
+                                // Payload: Empty Struct
+                                // Size=8, Version=0
+                                view.setUint32(32, 8, true);
+                                view.setUint32(36, 0, true);
+
+                                // Create Message wrapper
+                                message = new mojo.internal.Message(buffer, []);
+
+                            } catch (fallbackErr) {
+                                console.error('[Interceptor] Manual fallback failed:', fallbackErr);
+                                return;
+                            }
+                        }
+
+                        if (message) {
+                            if (message.header && !message.header.requestId) {
+                                message.header.requestId = requestId;
+                                message.header.flags = 2;
+                            }
+                            endpoint.router_.accept(message);
                         }
                     };
                 };
