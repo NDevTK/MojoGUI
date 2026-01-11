@@ -251,9 +251,11 @@ ash.eche_app.mojom.SignalingMessageExchangerReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -407,9 +409,11 @@ ash.eche_app.mojom.SignalingMessageObserverReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -562,9 +566,11 @@ ash.eche_app.mojom.SystemInfoProviderReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -752,9 +758,11 @@ ash.eche_app.mojom.SystemInfoObserverReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -953,9 +961,11 @@ ash.eche_app.mojom.AccessibilityProviderReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -1187,9 +1197,11 @@ ash.eche_app.mojom.AccessibilityObserverReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -1373,9 +1385,11 @@ ash.eche_app.mojom.UidGeneratorReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -1531,9 +1545,11 @@ ash.eche_app.mojom.NotificationGeneratorReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -1713,9 +1729,11 @@ ash.eche_app.mojom.DisplayStreamHandlerReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -1869,9 +1887,11 @@ ash.eche_app.mojom.StreamActionObserverReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -1999,9 +2019,11 @@ ash.eche_app.mojom.StreamOrientationObserverReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -2129,9 +2151,11 @@ ash.eche_app.mojom.ConnectionStatusObserverReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -2278,9 +2302,11 @@ ash.eche_app.mojom.KeyboardLayoutHandlerReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -2424,9 +2450,11 @@ ash.eche_app.mojom.KeyboardLayoutObserverReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {

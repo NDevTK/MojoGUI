@@ -162,9 +162,11 @@ chromeos.tts.mojom.TtsServiceReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -448,9 +450,11 @@ chromeos.tts.mojom.GoogleTtsStreamReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -778,9 +782,11 @@ chromeos.tts.mojom.PlaybackTtsStreamReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -1036,9 +1042,11 @@ chromeos.tts.mojom.TtsEventObserverReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {

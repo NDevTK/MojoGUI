@@ -335,9 +335,11 @@ device.mojom.NFCReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -583,9 +585,11 @@ device.mojom.NFCClientReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -747,9 +751,11 @@ device.mojom.RawNFCClientReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {

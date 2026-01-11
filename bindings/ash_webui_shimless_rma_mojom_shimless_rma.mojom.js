@@ -661,9 +661,11 @@ ash.shimless_rma.mojom.ErrorObserverReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -793,9 +795,11 @@ ash.shimless_rma.mojom.OsUpdateObserverReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -943,9 +947,11 @@ ash.shimless_rma.mojom.CalibrationObserverReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -1088,9 +1094,11 @@ ash.shimless_rma.mojom.ProvisioningObserverReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -1218,9 +1226,11 @@ ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -1348,9 +1358,11 @@ ash.shimless_rma.mojom.PowerCableStateObserverReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -1478,9 +1490,11 @@ ash.shimless_rma.mojom.ExternalDiskStateObserverReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -1608,9 +1622,11 @@ ash.shimless_rma.mojom.HardwareVerificationStatusObserverReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -1740,9 +1756,11 @@ ash.shimless_rma.mojom.FinalizationObserverReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -1870,9 +1888,11 @@ ash.shimless_rma.mojom.UpdateRoFirmwareObserverReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -3777,9 +3797,11 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.router_.onConnectionError.addListener(() => {
-       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-    });
+    if (this.router_.onConnectionError) {
+      this.router_.onConnectionError.addListener(() => {
+         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+      });
+    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
