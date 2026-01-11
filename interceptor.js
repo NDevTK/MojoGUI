@@ -556,6 +556,11 @@
         }
     }
 
+    // Export class globally for app.js access
+    if (typeof window !== 'undefined') {
+        window.MojoProxy = MojoProxy;
+    }
+    global.MojoProxy = MojoProxy;
 
 
     // ========================================
