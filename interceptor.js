@@ -305,7 +305,7 @@
                 // Pass-through without pausing
                 try {
                     const result = await this.realRemote[methodName](...args);
-                    
+
                     window.dispatchEvent(new CustomEvent('mojo-response', {
                         detail: {
                             id: callId,
@@ -564,8 +564,14 @@
         modes: new Map(), // interfaceName -> 'INTERCEPT' | 'LOG'
         activeProxies: [],
 
-        handleRequest(interfaceName, clientHandle) {
+        async handleRequest(interfaceName, clientHandle) {
             console.log(`[Interceptor] Caught request for ${interfaceName}`);
+
+            // Try to load binding if missing
+            if (global.MojoLoader) {
+                await global.MojoLoader.ensureBinding(interfaceName);
+            }
+
             try {
                 // Create the proxy: Client -> Proxy -> Real
                 const proxyData = MojoProxy.create(interfaceName, clientHandle);
@@ -675,7 +681,7 @@
         getMode(interfaceName) {
             return this.modes.get(interfaceName) || 'INTERCEPT';
         },
-        
+
         setMode(interfaceName, mode) {
             this.modes.set(interfaceName, mode);
         }

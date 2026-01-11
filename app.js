@@ -215,6 +215,52 @@
     }
 
     // ========================================
+    // Mojo Loader Service
+    // ========================================
+    global.MojoLoader = {
+        async ensureBinding(interfaceName) {
+            // Check if already resolved
+            if (MojoProxy.getInterfaceComponents(interfaceName).Interface) {
+                return true;
+            }
+
+            console.log(`[MojoLoader] resolving binding for ${interfaceName}...`);
+
+            // Find metadata
+            let iface = state.interfaces.find(i => i.name === interfaceName);
+            // Try matching full name if simple name failed, or vice versa
+            if (!iface) {
+                // Try to find by suffix (e.g. searching 'VibrationManager' in 'device.mojom.VibrationManager')
+                iface = state.interfaces.find(i => i.name.endsWith('.' + interfaceName));
+            }
+            if (!iface) {
+                // Try reverse: searching 'device.mojom.VibrationManager' for 'VibrationManager'
+                const parts = interfaceName.split('.');
+                const shortName = parts.pop();
+                iface = state.interfaces.find(i => i.name === shortName);
+            }
+
+            // Special handling for VibrationManager which is often 'VibrationManager' requested but 'device.mojom.VibrationManager' in list
+            if (!iface && interfaceName === 'VibrationManager') {
+                iface = state.interfaces.find(i => i.name === 'device.mojom.VibrationManager');
+            }
+
+            if (iface && iface.file && typeof MojoBindings !== 'undefined') {
+                try {
+                    await MojoBindings.loadBinding(iface.file);
+                    console.log(`[MojoLoader] Loaded ${iface.file} for ${interfaceName}`);
+                    return true;
+                } catch (e) {
+                    console.error(`[MojoLoader] Failed to load ${iface.file}`, e);
+                }
+            } else {
+                console.warn(`[MojoLoader] Could not find binding file for ${interfaceName}`);
+            }
+            return false;
+        }
+    };
+
+    // ========================================
     // Event Listeners
     // ========================================
     function setupEventListeners() {
