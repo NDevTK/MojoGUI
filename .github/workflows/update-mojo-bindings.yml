@@ -1180,6 +1180,7 @@ jobs:
                   for idx, method in enumerate(interface.get('methods', [])):
                        method_name = method['name']
                        param_struct_name = f"{iface_name}_{method_name}_Params"
+                       is_one_way = method.get('is_one_way', False)
                        
                        js_code += f"        // Try Method {idx}: {method_name}\n"
                        js_code += "        if (dispatchId === undefined) {\n"
@@ -1191,13 +1192,18 @@ jobs:
                        js_code += "             for (const v of structSpec.versions) {\n"
                        js_code += "               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }\n"
                        js_code += "             }\n"
-                       js_code += "             if (sizeMatch) {\n"
-                       js_code += "               decoder.decodeStructInline(structSpec);\n"
-                       js_code += f"               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> {method_name} ({idx})');\n"
-                       js_code += f"               this.mapOrdinal(header.ordinal, {idx});\n"
-                       js_code += f"               dispatchId = {idx};\n"
+                       js_code += f"             const methodExpectsResp = {'false' if is_one_way else 'true'};\n"
+                       js_code += "             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {\n"
+                       js_code += "               if (size > 8 || message.payload.byteLength === 8) {\n"
+                       js_code += "                 decoder.decodeStructInline(structSpec);\n"
+                       js_code += f"                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> {method_name} ({idx})');\n"
+                       js_code += f"                 this.mapOrdinal(header.ordinal, {idx});\n"
+                       js_code += f"                 dispatchId = {idx};\n"
+                       js_code += "               }\n"
                        js_code += "             }\n"
-                       js_code += "           } catch (e) { }\n"
+                       js_code += "           } catch (e) {\n"
+                       js_code += f"             if (e instanceof TypeError) console.warn('[Discovery] trial for {method_name} failed with TypeError');\n"
+                       js_code += "           }\n"
                        js_code += "        }\n"
 
                   js_code += "        if (dispatchId === undefined) {\n"

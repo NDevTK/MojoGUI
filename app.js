@@ -252,6 +252,21 @@
                 iface = state.interfaces.find(i => i.name === 'device.mojom.VibrationManager');
             }
 
+            // ENSURE COMMON DEPENDENCIES (mojo_base)
+            // Many interfaces (like SpellCheckHost) depend on mojo_base for String16 etc.
+            if (typeof MojoBindings !== 'undefined') {
+                const mojoBaseFiles = [
+                    'mojo_public_mojom_base_string16.mojom.js',
+                    'mojo_public_mojom_base_big_buffer.mojom.js',
+                    'mojo_public_mojom_base_big_string.mojom.js',
+                    'mojo_public_mojom_base_time.mojom.js',
+                    'mojo_public_mojom_base_unguessable_token.mojom.js'
+                ];
+                for (const file of mojoBaseFiles) {
+                    try { await MojoBindings.loadBinding(file); } catch (e) { }
+                }
+            }
+
             if (iface && iface.file && typeof MojoBindings !== 'undefined') {
                 try {
                     await MojoBindings.loadBinding(iface.file);
