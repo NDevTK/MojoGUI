@@ -41,49 +41,52 @@
       );
     },
 
-    async loadBinding(filename) {
+    loadBinding(filename) {
       if (this._loadedModules[filename]) {
         return this._loadedModules[filename];
       }
 
-      // Load index to resolve dependencies
-      const data = await this.loadIndex();
-      const fileEntry = data.files.find(f => f.filename === filename);
+      const loadPromise = (async () => {
+        // Load index to resolve dependencies
+        const data = await this.loadIndex();
+        const fileEntry = data.files.find(f => f.filename === filename);
 
-      if (fileEntry && fileEntry.imports && fileEntry.imports.length > 0) {
-        const loadPromises = fileEntry.imports.map(async (importPath) => {
-          // Find the file entry that matches this import source
-          // Use suffix matching to handle path discrepancies (e.g. chromium_src/ prefix)
-          const importEntry = data.files.find(f => f.source === importPath || f.source.endsWith(importPath) || f.source.endsWith('/' + importPath));
-          if (importEntry) {
-            await this.loadBinding(importEntry.filename);
-          } else {
-            console.warn(`[MojoBindings] Import not found in index: ${importPath}`);
-          }
-        });
-        await Promise.all(loadPromises);
-      }
-
-      return new Promise((resolve, reject) => {
-        this._loadedModules[filename] = true;
-
-        const script = document.createElement('script');
-        const scriptUrl = `./bindings/${filename}`;
-
-        if (trustedPolicy) {
-          script.src = trustedPolicy.createScriptURL(scriptUrl);
-        } else {
-          script.src = scriptUrl;
+        if (fileEntry && fileEntry.imports && fileEntry.imports.length > 0) {
+          const loadPromises = fileEntry.imports.map(async (importPath) => {
+            // Find the file entry that matches this import source
+            // Use suffix matching to handle path discrepancies (e.g. chromium_src/ prefix)
+            const importEntry = data.files.find(f => f.source === importPath || f.source.endsWith(importPath) || f.source.endsWith('/' + importPath));
+            if (importEntry) {
+              await this.loadBinding(importEntry.filename);
+            } else {
+              console.warn(`[MojoBindings] Import not found in index: ${importPath}`);
+            }
+          });
+          await Promise.all(loadPromises);
         }
 
-        script.onload = () => {
-          resolve(true);
-        };
-        script.onerror = () => {
-          reject(new Error(`Failed to load binding: ${filename}`));
-        };
-        document.head.appendChild(script);
-      });
+        return new Promise((resolve, reject) => {
+          const script = document.createElement('script');
+          const scriptUrl = `./bindings/${filename}`;
+
+          if (trustedPolicy) {
+            script.src = trustedPolicy.createScriptURL(scriptUrl);
+          } else {
+            script.src = scriptUrl;
+          }
+
+          script.onload = () => {
+            resolve(true);
+          };
+          script.onerror = () => {
+            reject(new Error(`Failed to load binding: ${filename}`));
+          };
+          document.head.appendChild(script);
+        });
+      })();
+
+      this._loadedModules[filename] = loadPromise;
+      return loadPromise;
     },
 
     getMetadata() {
