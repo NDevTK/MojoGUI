@@ -367,7 +367,7 @@ jobs:
               def find_type_module(name):
                   # 1. Local?
                   if name in valid_types:
-                      return current_ns
+                      return module
                   
                   # 2. Global FQN match?
                   if name in global_kind_map or f"{name}.{module}" in global_kind_map: 
