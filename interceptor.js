@@ -306,9 +306,33 @@
             if (mode === 'LOG') {
                 // Pass-through without pausing (NATIVE)
                 try {
-                    // Native bindings should automatically unbind handles from 'args' wrapper objects
-                    // when they are passed to the 'realRemote' proxy methods.
-                    const result = await this.realRemote[methodName](...args);
+                    // FAKE OBSERVER TEST
+                    // Ignore the real argument. Create a dummy one.
+                    console.log('[MojoProxy] TEST: Creating FAKE VoiceListObserver to send to browser.');
+
+                    // We need a SpeechSynthesisVoiceListObserverRemote.
+                    // Since we might not have the class loaded comfortably, let's try a lower-level approach:
+                    // Create a fresh pipe. Send one end as the "Remote" (which is just a pipe handle).
+
+                    const { handle0, handle1 } = Mojo.createMessagePipe();
+                    // handle0 = Receiver (we hold it, but don't bind it, so it's a "hanging" receiver)
+                    // handle1 = Remote (we send it to the browser)
+
+                    // The generated bindings expect an object with a 'handle' property or similar to unbind.
+                    // Or we can construct a valid Remote if we can find the class.
+                    // Let's try to mock the Remote object that generated bindings expect.
+
+                    const fakeRemote = {
+                        unbind: () => {
+                            console.log('[MojoProxy] Test: Unbinding FAKE remote');
+                            return handle1;
+                        }
+                    };
+
+                    // We need to match the signature: addVoiceListObserver(pending_remote<SpeechSynthesisVoiceListObserver>)
+                    // passing 'fakeRemote' to realRemote.addVoiceListObserver should work if it calls .unbind()
+
+                    const result = await this.realRemote[methodName](fakeRemote);
 
                     window.dispatchEvent(new CustomEvent('mojo-response', {
                         detail: {
