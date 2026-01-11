@@ -112,7 +112,7 @@ mojo.internal.bindings.chromecast.mojom.VisibilityPriority = {
 // Interface: CastContentWindowObserver
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec, 'chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_Params', [
-      mojo.internal.StructField('arg_visibility_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromecast.mojom.VisibilityTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visibility_type', 0, 0, mojo.internal.bindings.chromecast.mojom.VisibilityTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -301,7 +301,7 @@ mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverRequest = mojo.
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec, 'chromecast.mojom.CastContentWindow_CreateWindow_Params', [
       mojo.internal.StructField('arg_z_order', 0, 0, mojo.internal.bindings.chromecast.mojom.ZOrderSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_priority', 8, 0, mojo.internal.bindings.mojo.internal.bindings.chromecast.mojom.VisibilityPrioritySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_priority', 8, 0, mojo.internal.bindings.chromecast.mojom.VisibilityPrioritySpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -323,7 +323,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec, 'chromecast.mojom.CastContentWindow_RequestVisibility_Params', [
-      mojo.internal.StructField('arg_priority', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromecast.mojom.VisibilityPrioritySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_priority', 0, 0, mojo.internal.bindings.chromecast.mojom.VisibilityPrioritySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

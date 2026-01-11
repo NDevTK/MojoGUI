@@ -242,7 +242,7 @@ mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerFactoryRequest = moj
 // Interface: PageHandler
 mojo.internal.Struct(
     mojo.internal.bindings.ash.office_fallback.mojom.PageHandler_Close_ParamsSpec, 'ash.office_fallback.mojom.PageHandler_Close_Params', [
-      mojo.internal.StructField('arg_choice', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.office_fallback.mojom.DialogChoiceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_choice', 0, 0, mojo.internal.bindings.ash.office_fallback.mojom.DialogChoiceSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

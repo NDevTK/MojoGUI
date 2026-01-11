@@ -88,7 +88,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PrefetchedSignedExchangeInfoSpec, 'blink.mojom.PrefetchedSignedExchangeInfo', [
       mojo.internal.StructField('arg_outer_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_header_integrity', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SHA256HashValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_header_integrity', 8, 0, mojo.internal.bindings.blink.mojom.SHA256HashValueSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_inner_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_inner_response', 24, 0, mojo.internal.bindings.network.mojom.URLResponseHeadSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_loader_factory_handle', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote), null, false, 0, undefined),

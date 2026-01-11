@@ -719,14 +719,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_Params', [
-      mojo.internal.StructField('arg_transport_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.TransportTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_transport_type', 0, 0, mojo.internal.bindings.network.mojom.TransportTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_ip_address_space', 8, 0, mojo.internal.bindings.network.mojom.IPAddressSpaceSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ResponseParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.LocalNetworkAccessResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.network.mojom.LocalNetworkAccessResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -747,7 +747,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_Params', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.LoadInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.network.mojom.LoadInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

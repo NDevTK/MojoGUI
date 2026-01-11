@@ -179,7 +179,7 @@ mojo.internal.Union(
       },
       'arg_value': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerTimeoutsSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerTimeoutsSpec.$,
         'nullable': false,
       },
     });
@@ -194,7 +194,7 @@ mojo.internal.Union(
       },
       'arg_value': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerCurrenciesSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerCurrenciesSpec.$,
         'nullable': false,
       },
     });
@@ -209,7 +209,7 @@ mojo.internal.Union(
       },
       'arg_value': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.DirectFromSellerSignalsSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.DirectFromSellerSignalsSpec.$,
         'nullable': true,
       },
     });
@@ -224,7 +224,7 @@ mojo.internal.Union(
       },
       'arg_value': {
         'ordinal': 1,
-        'type': mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AdKeywordReplacementSpec.$, false),
+        'type': mojo.internal.Array(mojo.internal.bindings.blink.mojom.AdKeywordReplacementSpec.$, false),
         'nullable': false,
       },
     });
@@ -315,16 +315,16 @@ mojo.internal.Struct(
 // Struct: ViewAndClickCounts
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ViewAndClickCountsSpec, 'blink.mojom.ViewAndClickCounts', [
-      mojo.internal.StructField('arg_view_counts', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ViewOrClickCountsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_click_counts', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ViewOrClickCountsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_view_counts', 0, 0, mojo.internal.bindings.blink.mojom.ViewOrClickCountsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_click_counts', 8, 0, mojo.internal.bindings.blink.mojom.ViewOrClickCountsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: BiddingBrowserSignals
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BiddingBrowserSignalsSpec, 'blink.mojom.BiddingBrowserSignals', [
-      mojo.internal.StructField('arg_prev_wins', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.PreviousWinSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_view_and_click_counts', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ViewAndClickCountsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_prev_wins', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.PreviousWinSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_view_and_click_counts', 8, 0, mojo.internal.bindings.blink.mojom.ViewAndClickCountsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_join_count', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_bid_count', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_for_debugging_only_in_cooldown_or_lockout', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -334,8 +334,8 @@ mojo.internal.Struct(
 // Struct: StorageInterestGroup
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.StorageInterestGroupSpec, 'blink.mojom.StorageInterestGroup', [
-      mojo.internal.StructField('arg_interest_group', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.InterestGroupSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bidding_browser_signals', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.BiddingBrowserSignalsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_interest_group', 0, 0, mojo.internal.bindings.blink.mojom.InterestGroupSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bidding_browser_signals', 8, 0, mojo.internal.bindings.blink.mojom.BiddingBrowserSignalsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_joining_origin', 16, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_join_time', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_last_updated', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
@@ -356,9 +356,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DirectFromSellerSignalsSpec, 'blink.mojom.DirectFromSellerSignals', [
       mojo.internal.StructField('arg_prefix', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_per_buyer_signals', 8, 0, mojo.internal.Map(mojo.internal.bindings.url.mojom.OriginSpec.$, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.DirectFromSellerSignalsSubresourceSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_seller_signals', 16, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.DirectFromSellerSignalsSubresourceSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_auction_signals', 24, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.DirectFromSellerSignalsSubresourceSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_per_buyer_signals', 8, 0, mojo.internal.Map(mojo.internal.bindings.url.mojom.OriginSpec.$, mojo.internal.bindings.blink.mojom.DirectFromSellerSignalsSubresourceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_seller_signals', 16, 0, mojo.internal.bindings.blink.mojom.DirectFromSellerSignalsSubresourceSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_auction_signals', 24, 0, mojo.internal.bindings.blink.mojom.DirectFromSellerSignalsSubresourceSpec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -380,8 +380,8 @@ mojo.internal.Struct(
 // Struct: AuctionAdConfigBuyerCurrencies
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerCurrenciesSpec, 'blink.mojom.AuctionAdConfigBuyerCurrencies', [
-      mojo.internal.StructField('arg_all_buyers_currency', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AdCurrencySpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_per_buyer_currencies', 8, 0, mojo.internal.Map(mojo.internal.bindings.url.mojom.OriginSpec.$, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AdCurrencySpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_all_buyers_currency', 0, 0, mojo.internal.bindings.blink.mojom.AdCurrencySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_per_buyer_currencies', 8, 0, mojo.internal.Map(mojo.internal.bindings.url.mojom.OriginSpec.$, mojo.internal.bindings.blink.mojom.AdCurrencySpec.$, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -423,10 +423,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AuctionAdConfigSpec, 'blink.mojom.AuctionAdConfig', [
       mojo.internal.StructField('arg_seller', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_server_response', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AuctionAdServerResponseConfigSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_server_response', 8, 0, mojo.internal.bindings.blink.mojom.AuctionAdServerResponseConfigSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_decision_logic_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_trusted_scoring_signals_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_auction_ad_config_non_shared_params', 32, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AuctionAdConfigNonSharedParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_auction_ad_config_non_shared_params', 32, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigNonSharedParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_direct_from_seller_signals', 40, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseDirectFromSellerSignalsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_per_buyer_experiment_group_ids', 48, 0, mojo.internal.Map(mojo.internal.bindings.url.mojom.OriginSpec.$, mojo.internal.Uint16, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_aggregation_coordinator_origin', 56, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, true, 0, undefined),
@@ -452,7 +452,7 @@ mojo.internal.Struct(
 // Struct: AuctionDataConfig
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AuctionDataConfigSpec, 'blink.mojom.AuctionDataConfig', [
-      mojo.internal.StructField('arg_per_buyer_configs', 0, 0, mojo.internal.Map(mojo.internal.bindings.url.mojom.OriginSpec.$, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AuctionDataBuyerConfigSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_per_buyer_configs', 0, 0, mojo.internal.Map(mojo.internal.bindings.url.mojom.OriginSpec.$, mojo.internal.bindings.blink.mojom.AuctionDataBuyerConfigSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_request_size_$value', 8, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_request_size_$flag', originalFieldName: 'arg_request_size' }),
       mojo.internal.StructField('arg_request_size_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_request_size_$value', originalFieldName: 'arg_request_size' }),
     ],

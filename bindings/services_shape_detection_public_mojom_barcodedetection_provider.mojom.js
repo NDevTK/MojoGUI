@@ -89,7 +89,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec, 'shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_Params', [
       mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.mojo.internal.bindings.shape_detection.mojom.BarcodeDetectorOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.shape_detection.mojom.BarcodeDetectorOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

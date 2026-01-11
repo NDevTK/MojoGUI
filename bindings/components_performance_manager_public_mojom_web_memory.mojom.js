@@ -109,7 +109,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.performance_manager.mojom.WebMemoryBreakdownEntrySpec, 'performance_manager.mojom.WebMemoryBreakdownEntry', [
       mojo.internal.StructField('arg_memory', 0, 0, mojo.internal.bindings.mojo_base.mojom.ByteSizeSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_canvas_memory', 8, 0, mojo.internal.bindings.mojo_base.mojom.ByteSizeSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_attribution', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.performance_manager.mojom.WebMemoryAttributionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_attribution', 16, 0, mojo.internal.Array(mojo.internal.bindings.performance_manager.mojom.WebMemoryAttributionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

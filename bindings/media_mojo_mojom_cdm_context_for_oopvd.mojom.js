@@ -109,7 +109,7 @@ mojo.internal.bindings.media.mojom.CdmContextEvent = {
 // Interface: CdmContextEventCallback
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.CdmContextEventCallback_EventCallback_ParamsSpec, 'media.mojom.CdmContextEventCallback_EventCallback_Params', [
-      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.CdmContextEventSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.media.mojom.CdmContextEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -267,7 +267,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec, 'media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.DecryptStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.DecryptStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_key_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -337,7 +337,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParamsSpec, 'media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.DecryptStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.DecryptStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_decoder_buffer', 8, 0, mojo.internal.bindings.media.mojom.DecoderBufferSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_bytes', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],

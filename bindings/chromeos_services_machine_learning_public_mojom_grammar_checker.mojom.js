@@ -109,7 +109,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerCandidateSpec, 'chromeos.machine_learning.mojom.GrammarCheckerCandidate', [
       mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fragments', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCorrectionFragmentSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_fragments', 8, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCorrectionFragmentSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_score', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -125,13 +125,13 @@ mojo.internal.Struct(
 // Interface: GrammarChecker
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker_Check_ParamsSpec, 'chromeos.machine_learning.mojom.GrammarChecker_Check_Params', [
-      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerQuerySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerQuerySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker_Check_ResponseParamsSpec, 'chromeos.machine_learning.mojom.GrammarChecker_Check_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

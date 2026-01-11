@@ -89,7 +89,7 @@ mojo.internal.Struct(
 // Interface: FeatureManager
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.shell.mojom.FeatureManager_ConfigureFeatures_ParamsSpec, 'chromecast.shell.mojom.FeatureManager_ConfigureFeatures_Params', [
-      mojo.internal.StructField('arg_features', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.chromecast.shell.mojom.FeatureSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_features', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromecast.shell.mojom.FeatureSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

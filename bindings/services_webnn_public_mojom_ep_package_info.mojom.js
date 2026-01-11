@@ -89,7 +89,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.EpPackageInfoSpec, 'webnn.mojom.EpPackageInfo', [
       mojo.internal.StructField('arg_family_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.WStringSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_version', 8, 0, mojo.internal.bindings.mojo.internal.bindings.webnn.mojom.PackageVersionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_version', 8, 0, mojo.internal.bindings.webnn.mojom.PackageVersionSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_library_path', 16, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);

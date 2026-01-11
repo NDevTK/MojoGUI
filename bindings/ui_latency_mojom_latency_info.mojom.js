@@ -94,7 +94,7 @@ mojo.internal.bindings.ui.mojom.LatencyComponentType = {
 // Struct: LatencyInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ui.mojom.LatencyInfoSpec, 'ui.mojom.LatencyInfo', [
-      mojo.internal.StructField('arg_latency_components', 0, 0, mojo.internal.Map(mojo.internal.bindings.mojo.internal.bindings.ui.mojom.LatencyComponentTypeSpec.$, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_latency_components', 0, 0, mojo.internal.Map(mojo.internal.bindings.ui.mojom.LatencyComponentTypeSpec.$, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_trace_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_gesture_scroll_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_touch_trace_id', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),

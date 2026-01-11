@@ -91,6 +91,6 @@ mojo.internal.Struct(
 // Struct: DXGIInfo
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.DXGIInfoSpec, 'gfx.mojom.DXGIInfo', [
-      mojo.internal.StructField('arg_output_descs', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.gfx.mojom.DXGIOutputDescSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_descs', 0, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.DXGIOutputDescSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

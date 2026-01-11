@@ -101,7 +101,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_data', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 24, 0, mojo.internal.bindings.mojo.internal.bindings.suggest_internals.mojom.RequestStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 24, 0, mojo.internal.bindings.suggest_internals.mojom.RequestStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_start_time', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_end_time', 40, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_response', 48, 0, mojo.internal.String, null, false, 0, undefined),
@@ -124,7 +124,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec, 'suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParams', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojo.internal.bindings.suggest_internals.mojom.RequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.suggest_internals.mojom.RequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -315,19 +315,19 @@ mojo.internal.bindings.suggest_internals.mojom.PageHandlerRequest = mojo.interna
 // Interface: Page
 mojo.internal.Struct(
     mojo.internal.bindings.suggest_internals.mojom.Page_OnRequestCreated_ParamsSpec, 'suggest_internals.mojom.Page_OnRequestCreated_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojo.internal.bindings.suggest_internals.mojom.RequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.suggest_internals.mojom.RequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.suggest_internals.mojom.Page_OnRequestStarted_ParamsSpec, 'suggest_internals.mojom.Page_OnRequestStarted_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojo.internal.bindings.suggest_internals.mojom.RequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.suggest_internals.mojom.RequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.suggest_internals.mojom.Page_OnRequestCompleted_ParamsSpec, 'suggest_internals.mojom.Page_OnRequestCompleted_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojo.internal.bindings.suggest_internals.mojom.RequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.suggest_internals.mojom.RequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

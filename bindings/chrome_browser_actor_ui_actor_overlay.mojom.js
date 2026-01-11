@@ -473,7 +473,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_SetTheme_Params', [
-      mojo.internal.StructField('arg_theme', 0, 0, mojo.internal.bindings.mojo.internal.bindings.actor.ui.mojom.ThemeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_theme', 0, 0, mojo.internal.bindings.actor.ui.mojom.ThemeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

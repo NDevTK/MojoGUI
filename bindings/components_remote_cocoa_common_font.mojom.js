@@ -101,7 +101,7 @@ mojo.internal.Union(
     mojo.internal.bindings.remote_cocoa.mojom.FontNameSpec, 'remote_cocoa.mojom.FontName', {
       'arg_system_font': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.remote_cocoa.mojom.SystemFontSpec.$,
+        'type': mojo.internal.bindings.remote_cocoa.mojom.SystemFontSpec.$,
         'nullable': false,
       },
       'arg_regular_font': {
@@ -115,7 +115,7 @@ mojo.internal.Union(
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.FontSpec, 'remote_cocoa.mojom.Font', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.FontNameSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_weight', 8, 0, mojo.internal.bindings.mojo.internal.bindings.remote_cocoa.mojom.FontWeightSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_weight', 8, 0, mojo.internal.bindings.remote_cocoa.mojom.FontWeightSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_size', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_style', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],

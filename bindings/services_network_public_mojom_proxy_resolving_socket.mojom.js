@@ -264,7 +264,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ParamsSpec, 'network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_Params', [
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_network_anonymization_key', 8, 0, mojo.internal.bindings.network.mojom.NetworkAnonymizationKeySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 16, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ProxyResolvingSocketOptionsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_options', 16, 0, mojo.internal.bindings.network.mojom.ProxyResolvingSocketOptionsSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_traffic_annotation', 24, 0, mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_socket', 32, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.ProxyResolvingSocketSpec), null, false, 0, undefined),
       mojo.internal.StructField('arg_observer', 40, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.SocketObserverRemote), null, true, 0, undefined),

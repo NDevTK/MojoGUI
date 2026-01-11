@@ -132,7 +132,7 @@ mojo.internal.Union(
     mojo.internal.bindings.connectors_internals.mojom.KeyUploadStatusSpec, 'connectors_internals.mojom.KeyUploadStatus', {
       'arg_sync_key_response_code': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.connectors_internals.mojom.Int32ValueSpec.$,
+        'type': mojo.internal.bindings.connectors_internals.mojom.Int32ValueSpec.$,
         'nullable': false,
       },
       'arg_upload_client_error': {
@@ -152,8 +152,8 @@ mojo.internal.Struct(
 // Struct: LoadedKeyInfo
 mojo.internal.Struct(
     mojo.internal.bindings.connectors_internals.mojom.LoadedKeyInfoSpec, 'connectors_internals.mojom.LoadedKeyInfo', [
-      mojo.internal.StructField('arg_trust_level', 0, 0, mojo.internal.bindings.mojo.internal.bindings.connectors_internals.mojom.KeyTrustLevelSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_type', 8, 0, mojo.internal.bindings.mojo.internal.bindings.connectors_internals.mojom.KeyTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_trust_level', 0, 0, mojo.internal.bindings.connectors_internals.mojom.KeyTrustLevelSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_type', 8, 0, mojo.internal.bindings.connectors_internals.mojom.KeyTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_encoded_spki_hash', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_key_upload_status', 24, 0, mojo.internal.bindings.connectors_internals.mojom.KeyUploadStatusSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_has_ssl_key', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -163,9 +163,9 @@ mojo.internal.Struct(
 // Struct: KeyInfo
 mojo.internal.Struct(
     mojo.internal.bindings.connectors_internals.mojom.KeyInfoSpec, 'connectors_internals.mojom.KeyInfo', [
-      mojo.internal.StructField('arg_is_key_manager_initialized', 0, 0, mojo.internal.bindings.mojo.internal.bindings.connectors_internals.mojom.KeyManagerInitializedValueSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_loaded_key_info', 8, 0, mojo.internal.bindings.mojo.internal.bindings.connectors_internals.mojom.LoadedKeyInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_permanent_failure', 16, 0, mojo.internal.bindings.mojo.internal.bindings.connectors_internals.mojom.KeyManagerPermanentFailureSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_key_manager_initialized', 0, 0, mojo.internal.bindings.connectors_internals.mojom.KeyManagerInitializedValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_loaded_key_info', 8, 0, mojo.internal.bindings.connectors_internals.mojom.LoadedKeyInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_permanent_failure', 16, 0, mojo.internal.bindings.connectors_internals.mojom.KeyManagerPermanentFailureSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -181,9 +181,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.connectors_internals.mojom.DeviceTrustStateSpec, 'connectors_internals.mojom.DeviceTrustState', [
       mojo.internal.StructField('arg_policy_enabled_levels', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_info', 8, 0, mojo.internal.bindings.mojo.internal.bindings.connectors_internals.mojom.KeyInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_info', 8, 0, mojo.internal.bindings.connectors_internals.mojom.KeyInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_signals_json', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_consent_metadata', 24, 0, mojo.internal.bindings.mojo.internal.bindings.connectors_internals.mojom.ConsentMetadataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_consent_metadata', 24, 0, mojo.internal.bindings.connectors_internals.mojom.ConsentMetadataSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_is_enabled', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
@@ -204,8 +204,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.connectors_internals.mojom.ClientIdentitySpec, 'connectors_internals.mojom.ClientIdentity', [
       mojo.internal.StructField('arg_identity_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_loaded_key_info', 8, 0, mojo.internal.bindings.mojo.internal.bindings.connectors_internals.mojom.LoadedKeyInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_certificate_metadata', 16, 0, mojo.internal.bindings.mojo.internal.bindings.connectors_internals.mojom.CertificateMetadataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_loaded_key_info', 8, 0, mojo.internal.bindings.connectors_internals.mojom.LoadedKeyInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_certificate_metadata', 16, 0, mojo.internal.bindings.connectors_internals.mojom.CertificateMetadataSpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -213,8 +213,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.connectors_internals.mojom.ClientCertificateStateSpec, 'connectors_internals.mojom.ClientCertificateState', [
       mojo.internal.StructField('arg_policy_enabled_levels', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_managed_profile_identity', 8, 0, mojo.internal.bindings.mojo.internal.bindings.connectors_internals.mojom.ClientIdentitySpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_managed_browser_identity', 16, 0, mojo.internal.bindings.mojo.internal.bindings.connectors_internals.mojom.ClientIdentitySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_managed_profile_identity', 8, 0, mojo.internal.bindings.connectors_internals.mojom.ClientIdentitySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_managed_browser_identity', 16, 0, mojo.internal.bindings.connectors_internals.mojom.ClientIdentitySpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -239,7 +239,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec, 'connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParams', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.connectors_internals.mojom.DeviceTrustStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.connectors_internals.mojom.DeviceTrustStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -260,7 +260,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsSpec, 'connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParams', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.connectors_internals.mojom.ClientCertificateStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.connectors_internals.mojom.ClientCertificateStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -271,7 +271,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSpec, 'connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParams', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.connectors_internals.mojom.SignalsReportingStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.connectors_internals.mojom.SignalsReportingStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

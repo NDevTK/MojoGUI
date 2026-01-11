@@ -133,13 +133,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec, 'device.mojom.Sensor_GetDefaultConfiguration_ResponseParams', [
-      mojo.internal.StructField('arg_configuration', 0, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.SensorConfigurationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_configuration', 0, 0, mojo.internal.bindings.device.mojom.SensorConfigurationSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.Sensor_AddConfiguration_ParamsSpec, 'device.mojom.Sensor_AddConfiguration_Params', [
-      mojo.internal.StructField('arg_configuration', 0, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.SensorConfigurationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_configuration', 0, 0, mojo.internal.bindings.device.mojom.SensorConfigurationSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -151,7 +151,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.Sensor_RemoveConfiguration_ParamsSpec, 'device.mojom.Sensor_RemoveConfiguration_Params', [
-      mojo.internal.StructField('arg_configuration', 0, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.SensorConfigurationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_configuration', 0, 0, mojo.internal.bindings.device.mojom.SensorConfigurationSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

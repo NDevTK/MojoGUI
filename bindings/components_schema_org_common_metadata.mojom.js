@@ -95,7 +95,7 @@ mojo.internal.Union(
       },
       'arg_entity_values': {
         'ordinal': 3,
-        'type': mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.schema_org.mojom.EntitySpec.$, false),
+        'type': mojo.internal.Array(mojo.internal.bindings.schema_org.mojom.EntitySpec.$, false),
         'nullable': false,
       },
     });
@@ -112,6 +112,6 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.schema_org.mojom.EntitySpec, 'schema_org.mojom.Entity', [
       mojo.internal.StructField('arg_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_properties', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.schema_org.mojom.PropertySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_properties', 8, 0, mojo.internal.Array(mojo.internal.bindings.schema_org.mojom.PropertySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);

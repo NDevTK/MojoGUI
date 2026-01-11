@@ -127,7 +127,7 @@ mojo.internal.Struct(
 // Interface: CompositorFrameSink
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetParams_ParamsSpec, 'viz.mojom.CompositorFrameSink_SetParams_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.viz.mojom.CompositorFrameSinkParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.viz.mojom.CompositorFrameSinkParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -160,7 +160,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec, 'viz.mojom.CompositorFrameSink_BindLayerContext_Params', [
       mojo.internal.StructField('arg_context', 0, 0, mojo.internal.bindings.viz.mojom.PendingLayerContextSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_settings', 8, 0, mojo.internal.bindings.mojo.internal.bindings.viz.mojom.LayerContextSettingsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings', 8, 0, mojo.internal.bindings.viz.mojom.LayerContextSettingsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

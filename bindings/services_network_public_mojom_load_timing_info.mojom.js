@@ -94,7 +94,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_request_start', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_proxy_resolve_start', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_proxy_resolve_end', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_connect_timing', 32, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.LoadTimingInfoConnectTimingSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_connect_timing', 32, 0, mojo.internal.bindings.network.mojom.LoadTimingInfoConnectTimingSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_send_start', 40, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_send_end', 48, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_receive_headers_start', 56, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),

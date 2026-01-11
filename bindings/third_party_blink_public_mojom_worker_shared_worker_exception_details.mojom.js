@@ -86,6 +86,6 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedWorkerExceptionDetailsSpec, 'blink.mojom.SharedWorkerExceptionDetails', [
       mojo.internal.StructField('arg_error_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_source_location', 8, 0, mojo.internal.bindings.network.mojom.SourceLocationSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error_type', 16, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SharedWorkerErrorTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_type', 16, 0, mojo.internal.bindings.blink.mojom.SharedWorkerErrorTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);

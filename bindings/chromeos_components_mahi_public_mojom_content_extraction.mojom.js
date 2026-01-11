@@ -111,7 +111,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.mahi.mojom.ExtractionRequestSpec, 'mahi.mojom.ExtractionRequest', [
       mojo.internal.StructField('arg_deprecated_ukm_source_id_$value', 0, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_deprecated_ukm_source_id_$flag', originalFieldName: 'arg_deprecated_ukm_source_id' }),
       mojo.internal.StructField('arg_snapshot', 8, 0, mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_extraction_methods', 16, 0, mojo.internal.bindings.mojo.internal.bindings.mahi.mojom.ExtractionMethodsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_extraction_methods', 16, 0, mojo.internal.bindings.mahi.mojom.ExtractionMethodsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_updates', 24, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec.$, false), null, true, 0, undefined),
       mojo.internal.StructField('arg_deprecated_ukm_source_id_$flag', 32, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_deprecated_ukm_source_id_$value', originalFieldName: 'arg_deprecated_ukm_source_id' }),
     ],
@@ -121,14 +121,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.mahi.mojom.ExtractionResponseSpec, 'mahi.mojom.ExtractionResponse', [
       mojo.internal.StructField('arg_contents', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.mojo.internal.bindings.mahi.mojom.ResponseStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.mahi.mojom.ResponseStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: ContentSizeResponse
 mojo.internal.Struct(
     mojo.internal.bindings.mahi.mojom.ContentSizeResponseSpec, 'mahi.mojom.ContentSizeResponse', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mahi.mojom.ResponseStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mahi.mojom.ResponseStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_word_count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -136,25 +136,25 @@ mojo.internal.Struct(
 // Interface: ContentExtractionService
 mojo.internal.Struct(
     mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec, 'mahi.mojom.ContentExtractionService_ExtractContent_Params', [
-      mojo.internal.StructField('arg_extraction_request', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mahi.mojom.ExtractionRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_extraction_request', 0, 0, mojo.internal.bindings.mahi.mojom.ExtractionRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec, 'mahi.mojom.ContentExtractionService_ExtractContent_ResponseParams', [
-      mojo.internal.StructField('arg_extraction_response', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mahi.mojom.ExtractionResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_extraction_response', 0, 0, mojo.internal.bindings.mahi.mojom.ExtractionResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec, 'mahi.mojom.ContentExtractionService_GetContentSize_Params', [
-      mojo.internal.StructField('arg_extraction_request', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mahi.mojom.ExtractionRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_extraction_request', 0, 0, mojo.internal.bindings.mahi.mojom.ExtractionRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec, 'mahi.mojom.ContentExtractionService_GetContentSize_ResponseParams', [
-      mojo.internal.StructField('arg_contents_size_response', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mahi.mojom.ContentSizeResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_contents_size_response', 0, 0, mojo.internal.bindings.mahi.mojom.ContentSizeResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

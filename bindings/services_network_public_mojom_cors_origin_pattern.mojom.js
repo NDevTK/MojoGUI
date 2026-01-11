@@ -106,9 +106,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CorsOriginPatternSpec, 'network.mojom.CorsOriginPattern', [
       mojo.internal.StructField('arg_protocol', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_domain', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_domain_match_mode', 16, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.CorsDomainMatchModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_port_match_mode', 24, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.CorsPortMatchModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_priority', 32, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.CorsOriginAccessMatchPrioritySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_domain_match_mode', 16, 0, mojo.internal.bindings.network.mojom.CorsDomainMatchModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_port_match_mode', 24, 0, mojo.internal.bindings.network.mojom.CorsPortMatchModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_priority', 32, 0, mojo.internal.bindings.network.mojom.CorsOriginAccessMatchPrioritySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_port', 40, 0, mojo.internal.Uint16, 0, false, 0, undefined),
     ],
     [[0, 56]]);
@@ -117,7 +117,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CorsOriginAccessPatternsSpec, 'network.mojom.CorsOriginAccessPatterns', [
       mojo.internal.StructField('arg_source_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_allow_patterns', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.network.mojom.CorsOriginPatternSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_block_patterns', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.network.mojom.CorsOriginPatternSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_allow_patterns', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.CorsOriginPatternSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_block_patterns', 16, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.CorsOriginPatternSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);

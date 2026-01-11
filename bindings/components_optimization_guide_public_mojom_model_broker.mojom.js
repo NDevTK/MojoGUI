@@ -126,7 +126,7 @@ mojo.internal.Struct(
 // Struct: ModelSubscriptionOptions
 mojo.internal.Struct(
     mojo.internal.bindings.optimization_guide.mojom.ModelSubscriptionOptionsSpec, 'optimization_guide.mojom.ModelSubscriptionOptions', [
-      mojo.internal.StructField('arg_feature', 0, 0, mojo.internal.bindings.mojo.internal.bindings.optimization_guide.mojom.OnDeviceFeatureSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_feature', 0, 0, mojo.internal.bindings.optimization_guide.mojom.OnDeviceFeatureSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_mark_used', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -361,13 +361,13 @@ mojo.internal.bindings.optimization_guide.mojom.ModelSolutionRequest = mojo.inte
 // Interface: ModelSubscriber
 mojo.internal.Struct(
     mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec, 'optimization_guide.mojom.ModelSubscriber_Unavailable_Params', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.mojo.internal.bindings.optimization_guide.mojom.ModelUnavailableReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.optimization_guide.mojom.ModelUnavailableReasonSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec, 'optimization_guide.mojom.ModelSubscriber_Available_Params', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.mojo.internal.bindings.optimization_guide.mojom.ModelSolutionConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.optimization_guide.mojom.ModelSolutionConfigSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_solution', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.optimization_guide.mojom.ModelSolutionSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -551,7 +551,7 @@ mojo.internal.bindings.optimization_guide.mojom.ModelSubscriberRequest = mojo.in
 // Interface: ModelBroker
 mojo.internal.Struct(
     mojo.internal.bindings.optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec, 'optimization_guide.mojom.ModelBroker_Subscribe_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.mojo.internal.bindings.optimization_guide.mojom.ModelSubscriptionOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.optimization_guide.mojom.ModelSubscriptionOptionsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_subcriber', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.optimization_guide.mojom.ModelSubscriberSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);

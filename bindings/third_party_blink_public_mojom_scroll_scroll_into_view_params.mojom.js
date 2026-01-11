@@ -113,11 +113,11 @@ mojo.internal.Struct(
 // Struct: ScrollIntoViewParams
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ScrollIntoViewParamsSpec, 'blink.mojom.ScrollIntoViewParams', [
-      mojo.internal.StructField('arg_align_x', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ScrollAlignmentSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_align_y', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ScrollAlignmentSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_align_x', 0, 0, mojo.internal.bindings.blink.mojom.ScrollAlignmentSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_align_y', 8, 0, mojo.internal.bindings.blink.mojom.ScrollAlignmentSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.blink.mojom.ScrollTypeSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('arg_behavior', 24, 0, mojo.internal.bindings.blink.mojom.ScrollBehaviorSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_for_focused_editable', 32, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FocusedEditableParamsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_for_focused_editable', 32, 0, mojo.internal.bindings.blink.mojom.FocusedEditableParamsSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_make_visible_in_visual_viewport', 40, 0, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('arg_is_for_scroll_sequence', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_cross_origin_boundaries', 40, 2, mojo.internal.Bool, true, false, 0, undefined),

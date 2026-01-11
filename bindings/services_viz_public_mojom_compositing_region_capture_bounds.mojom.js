@@ -87,6 +87,6 @@ mojo.internal.Struct(
 // Struct: RegionCaptureBounds
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.RegionCaptureBoundsSpec, 'viz.mojom.RegionCaptureBounds', [
-      mojo.internal.StructField('arg_bounds', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.viz.mojom.CropIdBoundsPairSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_bounds', 0, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.CropIdBoundsPairSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

@@ -94,13 +94,13 @@ mojo.internal.Struct(
 // Interface: TracingService
 mojo.internal.Struct(
     mojo.internal.bindings.tracing.mojom.TracingService_Initialize_ParamsSpec, 'tracing.mojom.TracingService_Initialize_Params', [
-      mojo.internal.StructField('arg_clients', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.tracing.mojom.ClientInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_clients', 0, 0, mojo.internal.Array(mojo.internal.bindings.tracing.mojom.ClientInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.tracing.mojom.TracingService_AddClient_ParamsSpec, 'tracing.mojom.TracingService_AddClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tracing.mojom.ClientInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.bindings.tracing.mojom.ClientInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

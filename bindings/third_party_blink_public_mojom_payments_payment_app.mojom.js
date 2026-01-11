@@ -202,7 +202,7 @@ mojo.internal.Struct(
 // Struct: CanMakePaymentResponse
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.CanMakePaymentResponseSpec, 'payments.mojom.CanMakePaymentResponse', [
-      mojo.internal.StructField('arg_response_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.payments.mojom.CanMakePaymentEventResponseTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response_type', 0, 0, mojo.internal.bindings.payments.mojom.CanMakePaymentEventResponseTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_can_make_payment', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -212,7 +212,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentHandlerResponseSpec, 'payments.mojom.PaymentHandlerResponse', [
       mojo.internal.StructField('arg_method_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_stringified_details', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_response_type', 16, 0, mojo.internal.bindings.mojo.internal.bindings.payments.mojom.PaymentEventResponseTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response_type', 16, 0, mojo.internal.bindings.payments.mojom.PaymentEventResponseTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_payer_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_payer_email', 32, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_payer_phone', 40, 0, mojo.internal.String, null, true, 0, undefined),
@@ -237,7 +237,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec, 'payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -249,8 +249,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec, 'payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParams', [
-      mojo.internal.StructField('arg_instrument', 0, 0, mojo.internal.bindings.mojo.internal.bindings.payments.mojom.PaymentInstrumentSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_instrument', 0, 0, mojo.internal.bindings.payments.mojom.PaymentInstrumentSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -262,7 +262,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec, 'payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParams', [
       mojo.internal.StructField('arg_keys', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -274,20 +274,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec, 'payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentManager_SetPaymentInstrument_ParamsSpec, 'payments.mojom.PaymentManager_SetPaymentInstrument_Params', [
       mojo.internal.StructField('arg_instrument_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_instrument', 8, 0, mojo.internal.bindings.mojo.internal.bindings.payments.mojom.PaymentInstrumentSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_instrument', 8, 0, mojo.internal.bindings.payments.mojom.PaymentInstrumentSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec, 'payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -298,7 +298,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec, 'payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -310,13 +310,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentManager_EnableDelegations_ParamsSpec, 'payments.mojom.PaymentManager_EnableDelegations_Params', [
-      mojo.internal.StructField('arg_delegations', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.payments.mojom.PaymentDelegationSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_delegations', 0, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentDelegationSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec, 'payments.mojom.PaymentManager_EnableDelegations_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -785,13 +785,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_ParamsSpec, 'payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_Params', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.mojo.internal.bindings.payments.mojom.CanMakePaymentResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.payments.mojom.CanMakePaymentResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_ParamsSpec, 'payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_Params', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.mojo.internal.bindings.payments.mojom.PaymentHandlerResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.payments.mojom.PaymentHandlerResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -87,14 +87,14 @@ mojo.internal.bindings.ash.camera_app.mojom.WordDirection = {
 // Struct: OcrResult
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.OcrResultSpec, 'ash.camera_app.mojom.OcrResult', [
-      mojo.internal.StructField('arg_lines', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.LineSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_lines', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.camera_app.mojom.LineSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: Line
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.LineSpec, 'ash.camera_app.mojom.Line', [
-      mojo.internal.StructField('arg_words', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.WordSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_words', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.camera_app.mojom.WordSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_bounding_box', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_language', 24, 0, mojo.internal.String, null, false, 0, undefined),
@@ -108,7 +108,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.WordSpec, 'ash.camera_app.mojom.Word', [
       mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_bounding_box', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_direction', 16, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.WordDirectionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_direction', 16, 0, mojo.internal.bindings.ash.camera_app.mojom.WordDirectionSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_bounding_box_angle', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 40]]);

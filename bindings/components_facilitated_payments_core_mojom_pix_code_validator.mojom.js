@@ -94,7 +94,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ResponseParamsSpec, 'payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ResponseParams', [
-      mojo.internal.StructField('arg_pix_qr_code_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.payments.facilitated.mojom.PixQrCodeTypeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_pix_qr_code_type', 0, 0, mojo.internal.bindings.payments.facilitated.mojom.PixQrCodeTypeSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

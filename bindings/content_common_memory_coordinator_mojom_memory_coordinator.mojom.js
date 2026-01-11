@@ -288,7 +288,7 @@ mojo.internal.bindings.content.mojom.ChildMemoryConsumerRequest = mojo.internal.
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec, 'content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_Params', [
       mojo.internal.StructField('arg_consumer_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_traits', 8, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.MemoryConsumerTraitsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_traits', 8, 0, mojo.internal.bindings.content.mojom.MemoryConsumerTraitsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_child_consumer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.content.mojom.ChildMemoryConsumerSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);

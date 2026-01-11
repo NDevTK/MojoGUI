@@ -86,6 +86,6 @@ mojo.internal.bindings.network.mojom.UnencodedDigestIssue = {
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.UnencodedDigestsSpec, 'network.mojom.UnencodedDigests', [
       mojo.internal.StructField('arg_digests', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.IntegrityMetadataSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_issues', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.network.mojom.UnencodedDigestIssueSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_issues', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.UnencodedDigestIssueSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);

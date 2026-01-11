@@ -155,9 +155,9 @@ mojo.internal.bindings.ui.mojom.ImeTextSpanUnderlineStyle = {
 // Struct: ImeTextSpan
 mojo.internal.Struct(
     mojo.internal.bindings.ui.mojom.ImeTextSpanSpec, 'ui.mojom.ImeTextSpan', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ui.mojom.ImeTextSpanTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_thickness', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ui.mojom.ImeTextSpanThicknessSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_underline_style', 16, 0, mojo.internal.bindings.mojo.internal.bindings.ui.mojom.ImeTextSpanUnderlineStyleSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ui.mojom.ImeTextSpanTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_thickness', 8, 0, mojo.internal.bindings.ui.mojom.ImeTextSpanThicknessSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_underline_style', 16, 0, mojo.internal.bindings.ui.mojom.ImeTextSpanUnderlineStyleSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_suggestions', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_start_offset', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_end_offset', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),

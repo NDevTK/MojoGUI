@@ -121,7 +121,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ResponseParamsSpec, 'chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos_camera.mojom.EncodeStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.chromeos_camera.mojom.EncodeStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_task_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_encoded_buffer_size', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
@@ -145,7 +145,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ResponseParamsSpec, 'chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos_camera.mojom.EncodeStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.chromeos_camera.mojom.EncodeStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_encoded_buffer_size', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

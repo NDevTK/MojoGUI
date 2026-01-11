@@ -173,12 +173,12 @@ mojo.internal.Union(
     mojo.internal.bindings.searchbox.mojom.SearchContextAttachmentSpec, 'searchbox.mojom.SearchContextAttachment', {
       'arg_file_attachment': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.FileAttachmentSpec.$,
+        'type': mojo.internal.bindings.searchbox.mojom.FileAttachmentSpec.$,
         'nullable': false,
       },
       'arg_tab_attachment': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.TabAttachmentSpec.$,
+        'type': mojo.internal.bindings.searchbox.mojom.TabAttachmentSpec.$,
         'nullable': false,
       },
     });
@@ -213,12 +213,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.searchbox.mojom.AutocompleteMatchSpec, 'searchbox.mojom.AutocompleteMatch', [
       mojo.internal.StructField('arg_a11y_label', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_actions', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.ActionSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_answer', 16, 0, mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.SuggestionAnswerSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_actions', 8, 0, mojo.internal.Array(mojo.internal.bindings.searchbox.mojom.ActionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_answer', 16, 0, mojo.internal.bindings.searchbox.mojom.SuggestionAnswerSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_contents', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_contents_class', 32, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.ACMatchClassificationSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_contents_class', 32, 0, mojo.internal.Array(mojo.internal.bindings.searchbox.mojom.ACMatchClassificationSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_description', 40, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_description_class', 48, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.ACMatchClassificationSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_description_class', 48, 0, mojo.internal.Array(mojo.internal.bindings.searchbox.mojom.ACMatchClassificationSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_destination_url', 56, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_inline_autocompletion', 64, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_fill_into_edit', 72, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
@@ -282,7 +282,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.searchbox.mojom.SearchContextSpec, 'searchbox.mojom.SearchContext', [
       mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_attachments', 8, 0, mojo.internal.Array(mojo.internal.bindings.searchbox.mojom.SearchContextAttachmentSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_tool_mode', 16, 0, mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.ToolModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tool_mode', 16, 0, mojo.internal.bindings.searchbox.mojom.ToolModeSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -301,8 +301,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.searchbox.mojom.SuggestionGroupSpec, 'searchbox.mojom.SuggestionGroup', [
       mojo.internal.StructField('arg_header', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_render_type', 8, 0, mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.RenderTypeSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_side_type', 16, 0, mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.SideTypeSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_render_type', 8, 0, mojo.internal.bindings.searchbox.mojom.RenderTypeSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_side_type', 16, 0, mojo.internal.bindings.searchbox.mojom.SideTypeSpec.$, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -310,8 +310,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.searchbox.mojom.AutocompleteResultSpec, 'searchbox.mojom.AutocompleteResult', [
       mojo.internal.StructField('arg_input', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_suggestion_groups_map', 8, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.SuggestionGroupSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_matches', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.AutocompleteMatchSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_suggestion_groups_map', 8, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.bindings.searchbox.mojom.SuggestionGroupSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_matches', 16, 0, mojo.internal.Array(mojo.internal.bindings.searchbox.mojom.AutocompleteMatchSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_smart_compose_inline_hint', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);
@@ -319,7 +319,7 @@ mojo.internal.Struct(
 // Struct: OmniboxPopupSelection
 mojo.internal.Struct(
     mojo.internal.bindings.searchbox.mojom.OmniboxPopupSelectionSpec, 'searchbox.mojom.OmniboxPopupSelection', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.SelectionLineStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.searchbox.mojom.SelectionLineStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_line', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('arg_action_index', 9, 0, mojo.internal.Uint8, 0, false, 0, undefined),
     ],
@@ -429,7 +429,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParamsSpec, 'searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParams', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.PlaceholderConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.searchbox.mojom.PlaceholderConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -440,7 +440,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.searchbox.mojom.PageHandler_GetRecentTabs_ResponseParamsSpec, 'searchbox.mojom.PageHandler_GetRecentTabs_ResponseParams', [
-      mojo.internal.StructField('arg_tabs', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.TabInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tabs', 0, 0, mojo.internal.Array(mojo.internal.bindings.searchbox.mojom.TabInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -468,7 +468,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.searchbox.mojom.PageHandler_AddFileContext_ParamsSpec, 'searchbox.mojom.PageHandler_AddFileContext_Params', [
-      mojo.internal.StructField('arg_file_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.SelectedFileInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_info', 0, 0, mojo.internal.bindings.searchbox.mojom.SelectedFileInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_file_bytes', 8, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -1379,14 +1379,14 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRequest = mojo.internal.bindin
 // Interface: Page
 mojo.internal.Struct(
     mojo.internal.bindings.searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec, 'searchbox.mojom.Page_AutocompleteResultChanged_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.AutocompleteResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.searchbox.mojom.AutocompleteResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.searchbox.mojom.Page_UpdateSelection_ParamsSpec, 'searchbox.mojom.Page_UpdateSelection_Params', [
-      mojo.internal.StructField('arg_old_selection', 0, 0, mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.OmniboxPopupSelectionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_selection', 8, 0, mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.OmniboxPopupSelectionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_old_selection', 0, 0, mojo.internal.bindings.searchbox.mojom.OmniboxPopupSelectionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_selection', 8, 0, mojo.internal.bindings.searchbox.mojom.OmniboxPopupSelectionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1430,13 +1430,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.searchbox.mojom.Page_AddFileContext_ParamsSpec, 'searchbox.mojom.Page_AddFileContext_Params', [
       mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_info', 8, 0, mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.SelectedFileInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_info', 8, 0, mojo.internal.bindings.searchbox.mojom.SelectedFileInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.searchbox.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec, 'searchbox.mojom.Page_UpdateAutoSuggestedTabContext_Params', [
-      mojo.internal.StructField('arg_tab', 0, 0, mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.TabInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_tab', 0, 0, mojo.internal.bindings.searchbox.mojom.TabInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

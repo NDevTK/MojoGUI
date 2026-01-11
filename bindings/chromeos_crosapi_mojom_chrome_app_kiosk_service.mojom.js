@@ -118,13 +118,13 @@ mojo.internal.Struct(
 // Interface: ChromeKioskLaunchController
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ParamsSpec, 'crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.AppInstallParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.crosapi.mojom.AppInstallParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParamsSpec, 'crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.ChromeKioskInstallResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.crosapi.mojom.ChromeKioskInstallResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -137,7 +137,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParamsSpec, 'crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

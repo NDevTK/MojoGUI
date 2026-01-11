@@ -108,7 +108,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_autocomplete', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_form_control_type', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_select_options', 48, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.autofill_ml_internals.mojom.SelectOptionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_select_options', 48, 0, mojo.internal.Array(mojo.internal.bindings.autofill_ml_internals.mojom.SelectOptionSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_probabilities', 56, 0, mojo.internal.Array(mojo.internal.Float, false), null, true, 0, undefined),
       mojo.internal.StructField('arg_tokenized_field_representation', 64, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
@@ -120,18 +120,18 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_form_signature', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_form_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_model_output_types', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_field_predictions', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.autofill_ml_internals.mojom.MlFieldPredictionLogSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_field_predictions', 24, 0, mojo.internal.Array(mojo.internal.bindings.autofill_ml_internals.mojom.MlFieldPredictionLogSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_start_time', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_end_time', 40, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_duration', 48, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_optimization_target', 56, 0, mojo.internal.bindings.mojo.internal.bindings.autofill_ml_internals.mojom.OptimizationTargetSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_optimization_target', 56, 0, mojo.internal.bindings.autofill_ml_internals.mojom.OptimizationTargetSpec.$, null, false, 0, undefined),
     ],
     [[0, 72]]);
 
 // Interface: Page
 mojo.internal.Struct(
     mojo.internal.bindings.autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec, 'autofill_ml_internals.mojom.Page_OnLogAdded_Params', [
-      mojo.internal.StructField('arg_log', 0, 0, mojo.internal.bindings.mojo.internal.bindings.autofill_ml_internals.mojom.MlPredictionLogSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_log', 0, 0, mojo.internal.bindings.autofill_ml_internals.mojom.MlPredictionLogSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -153,20 +153,20 @@ mojo.internal.Struct(
 // Interface: VideoDecodeAccelerator
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Initialize_ParamsSpec, 'arc.mojom.VideoDecodeAccelerator_Initialize_Params', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.VideoDecodeAcceleratorConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.arc.mojom.VideoDecodeAcceleratorConfigSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.VideoDecodeClientSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Initialize_ResponseParamsSpec, 'arc.mojom.VideoDecodeAccelerator_Initialize_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.ResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Decode_ParamsSpec, 'arc.mojom.VideoDecodeAccelerator_Decode_Params', [
-      mojo.internal.StructField('arg_bitstream_buffer', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.BitstreamBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bitstream_buffer', 0, 0, mojo.internal.bindings.arc.mojom.BitstreamBufferSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -182,7 +182,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_planes', 8, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.VideoFramePlaneSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_picture_buffer_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_handle_fd', 20, 0, mojo.internal.Handle, null, false, 0, undefined),
-      mojo.internal.StructField('arg_modifier', 24, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.BufferModifierSpec.$, null, true, 4, undefined),
+      mojo.internal.StructField('arg_modifier', 24, 0, mojo.internal.bindings.arc.mojom.BufferModifierSpec.$, null, true, 4, undefined),
     ],
     [[0, 32], [4, 40]]);
 
@@ -199,7 +199,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Reset_ResponseParamsSpec, 'arc.mojom.VideoDecodeAccelerator_Reset_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.ResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -210,7 +210,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_Flush_ResponseParamsSpec, 'arc.mojom.VideoDecodeAccelerator_Flush_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.ResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -577,7 +577,7 @@ mojo.internal.bindings.arc.mojom.VideoDecodeAcceleratorRequest = mojo.internal.b
 // Interface: VideoDecodeClient
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoDecodeClient_PictureReady_ParamsSpec, 'arc.mojom.VideoDecodeClient_PictureReady_Params', [
-      mojo.internal.StructField('arg_picture', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.PictureSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_picture', 0, 0, mojo.internal.bindings.arc.mojom.PictureSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -595,7 +595,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoDecodeClient_ProvidePictureBuffers_ParamsSpec, 'arc.mojom.VideoDecodeClient_ProvidePictureBuffers_Params', [
-      mojo.internal.StructField('arg_format', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.PictureBufferFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_format', 0, 0, mojo.internal.bindings.arc.mojom.PictureBufferFormatSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_visible_rect', 8, 0, mojo.internal.bindings.arc.mojom.RectSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);

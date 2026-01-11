@@ -98,7 +98,7 @@ mojo.internal.Struct(
 // Interface: PdfThumbnailer
 mojo.internal.Struct(
     mojo.internal.bindings.pdf.mojom.PdfThumbnailer_GetThumbnail_ParamsSpec, 'pdf.mojom.PdfThumbnailer_GetThumbnail_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.pdf.mojom.ThumbParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.pdf.mojom.ThumbParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_pdf_region', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);

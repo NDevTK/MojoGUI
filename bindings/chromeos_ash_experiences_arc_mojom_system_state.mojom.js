@@ -94,7 +94,7 @@ mojo.internal.Struct(
 // Interface: SystemStateHost
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.SystemStateHost_UpdateAppRunningState_ParamsSpec, 'arc.mojom.SystemStateHost_UpdateAppRunningState_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.SystemAppRunningStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.arc.mojom.SystemAppRunningStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -322,7 +322,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.pdf.mojom.PdfListener_GetPdfBytes_ResponseParamsSpec, 'pdf.mojom.PdfListener_GetPdfBytes_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.pdf.mojom.GetPdfBytesStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.pdf.mojom.GetPdfBytesStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_bytes', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_page_count', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
@@ -354,13 +354,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ParamsSpec, 'pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_Params', [
-      mojo.internal.StructField('arg_request_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.pdf.mojom.SaveRequestTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_type', 0, 0, mojo.internal.bindings.pdf.mojom.SaveRequestTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ResponseParamsSpec, 'pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.pdf.mojom.SaveDataBufferHandlerGetResultSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.pdf.mojom.SaveDataBufferHandlerGetResultSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

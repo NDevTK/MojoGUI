@@ -130,7 +130,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListener_DidReadDirectory_ParamsSpec, 'blink.mojom.FileSystemAccessDirectoryEntriesListener_DidReadDirectory_Params', [
       mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_entries', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_entries', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_has_more_entries', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);

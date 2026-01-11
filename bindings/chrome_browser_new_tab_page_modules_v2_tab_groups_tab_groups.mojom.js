@@ -111,7 +111,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec, 'ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParams', [
-      mojo.internal.StructField('arg_tab_groups', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ntp.tab_groups.mojom.TabGroupSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_tab_groups', 0, 0, mojo.internal.Array(mojo.internal.bindings.ntp.tab_groups.mojom.TabGroupSpec.$, false), null, true, 0, undefined),
       mojo.internal.StructField('arg_showZeroState', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);

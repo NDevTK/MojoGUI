@@ -137,7 +137,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.FileEnumerator_GetNext_ResponseParamsSpec, 'network.mojom.FileEnumerator_GetNext_ResponseParams', [
-      mojo.internal.StructField('arg_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.network.mojom.FileEnumerationEntrySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.FileEnumerationEntrySpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_end', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_error', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -335,7 +335,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_OpenFile_ParamsSpec, 'network.mojom.HttpCacheBackendFileOperations_OpenFile_Params', [
       mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_flags', 8, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.HttpCacheBackendOpenFileFlagsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_flags', 8, 0, mojo.internal.bindings.network.mojom.HttpCacheBackendOpenFileFlagsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -349,7 +349,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DeleteFile_ParamsSpec, 'network.mojom.HttpCacheBackendFileOperations_DeleteFile_Params', [
       mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mode', 8, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.HttpCacheBackendDeleteFileModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 8, 0, mojo.internal.bindings.network.mojom.HttpCacheBackendDeleteFileModeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

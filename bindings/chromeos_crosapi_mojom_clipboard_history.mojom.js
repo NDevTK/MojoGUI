@@ -102,7 +102,7 @@ mojo.internal.bindings.crosapi.mojom.ClipboardHistoryDisplayFormat = {
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ClipboardHistoryItemDescriptorSpec, 'crosapi.mojom.ClipboardHistoryItemDescriptor', [
       mojo.internal.StructField('arg_item_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_display_format', 8, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.ClipboardHistoryDisplayFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_display_format', 8, 0, mojo.internal.bindings.crosapi.mojom.ClipboardHistoryDisplayFormatSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_display_text', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_file_count', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],

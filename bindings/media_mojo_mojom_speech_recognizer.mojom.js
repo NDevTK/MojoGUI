@@ -128,7 +128,7 @@ mojo.internal.Struct(
 // Interface: SpeechRecognizer
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.SpeechRecognizer_Start_ParamsSpec, 'media.mojom.SpeechRecognizer_Start_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.StartSpeechRecognitionRequestParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.media.mojom.StartSpeechRecognitionRequestParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -285,7 +285,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Available_ResponseParamsSpec, 'media.mojom.OnDeviceSpeechRecognition_Available_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.AvailabilityStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.AvailabilityStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

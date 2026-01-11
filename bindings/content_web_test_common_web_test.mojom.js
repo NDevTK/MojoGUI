@@ -166,27 +166,27 @@ mojo.internal.Union(
     mojo.internal.bindings.content.mojom.WorkItemSpec, 'content.mojom.WorkItem', {
       'arg_back_forward': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.content.mojom.WorkItemBackForwardSpec.$,
+        'type': mojo.internal.bindings.content.mojom.WorkItemBackForwardSpec.$,
         'nullable': false,
       },
       'arg_load': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.content.mojom.WorkItemLoadSpec.$,
+        'type': mojo.internal.bindings.content.mojom.WorkItemLoadSpec.$,
         'nullable': false,
       },
       'arg_reload': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.content.mojom.WorkItemReloadSpec.$,
+        'type': mojo.internal.bindings.content.mojom.WorkItemReloadSpec.$,
         'nullable': false,
       },
       'arg_loading_script': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.mojo.internal.bindings.content.mojom.WorkItemLoadingScriptSpec.$,
+        'type': mojo.internal.bindings.content.mojom.WorkItemLoadingScriptSpec.$,
         'nullable': false,
       },
       'arg_non_loading_script': {
         'ordinal': 4,
-        'type': mojo.internal.bindings.mojo.internal.bindings.content.mojom.WorkItemNonLoadingScriptSpec.$,
+        'type': mojo.internal.bindings.content.mojom.WorkItemNonLoadingScriptSpec.$,
         'nullable': false,
       },
     });
@@ -274,7 +274,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.WebTestRenderFrame_SetTestConfiguration_ParamsSpec, 'content.mojom.WebTestRenderFrame_SetTestConfiguration_Params', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.WebTestRunTestConfigurationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.content.mojom.WebTestRunTestConfigurationSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_starting_test', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -879,7 +879,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameRequest = mojo.internal.b
 // Interface: WebTestControlHost
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.WebTestControlHost_InitiateCaptureDump_ParamsSpec, 'content.mojom.WebTestControlHost_InitiateCaptureDump_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.WebTestRendererDumpResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.content.mojom.WebTestRendererDumpResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_capture_navigation_history', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_capture_pixels', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -1133,7 +1133,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.WebTestControlHost_SetRegisterProtocolHandlerMode_ParamsSpec, 'content.mojom.WebTestControlHost_SetRegisterProtocolHandlerMode_Params', [
-      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.AutoResponseModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.content.mojom.AutoResponseModeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

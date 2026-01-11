@@ -99,7 +99,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec, 'tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_Params', [
-      mojo.internal.StructField('arg_rule', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tracing.mojom.BackgroundTracingRuleSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rule', 0, 0, mojo.internal.bindings.tracing.mojom.BackgroundTracingRuleSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_flow_id', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_histogram_value_$value', 16, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_histogram_value_$flag', originalFieldName: 'arg_histogram_value' }),
       mojo.internal.StructField('arg_histogram_value_$flag', 20, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_histogram_value_$value', originalFieldName: 'arg_histogram_value' }),
@@ -285,7 +285,7 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClientRequest = mojo.
 // Interface: BackgroundTracingAgent
 mojo.internal.Struct(
     mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec, 'tracing.mojom.BackgroundTracingAgent_SetUMACallback_Params', [
-      mojo.internal.StructField('arg_rule', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tracing.mojom.BackgroundTracingRuleSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rule', 0, 0, mojo.internal.bindings.tracing.mojom.BackgroundTracingRuleSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_histogram_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_histogram_lower_value', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_histogram_upper_value', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -294,7 +294,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec, 'tracing.mojom.BackgroundTracingAgent_ClearUMACallback_Params', [
-      mojo.internal.StructField('arg_rule', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tracing.mojom.BackgroundTracingRuleSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rule', 0, 0, mojo.internal.bindings.tracing.mojom.BackgroundTracingRuleSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

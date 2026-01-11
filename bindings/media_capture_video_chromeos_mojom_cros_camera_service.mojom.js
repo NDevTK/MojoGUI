@@ -150,7 +150,7 @@ mojo.internal.bindings.cros.mojom.KioskVisionError = {
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.KioskVisionDetectionSpec, 'cros.mojom.KioskVisionDetection', [
       mojo.internal.StructField('arg_timestamp_in_us', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_appearances', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.cros.mojom.KioskVisionAppearanceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_appearances', 8, 0, mojo.internal.Array(mojo.internal.bindings.cros.mojom.KioskVisionAppearanceSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -159,7 +159,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.KioskVisionTrackSpec, 'cros.mojom.KioskVisionTrack', [
       mojo.internal.StructField('arg_start_timestamp_in_us', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_end_timestamp_in_us', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_appearances', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.cros.mojom.KioskVisionAppearanceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_appearances', 16, 0, mojo.internal.Array(mojo.internal.bindings.cros.mojom.KioskVisionAppearanceSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_person_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -168,8 +168,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.KioskVisionAppearanceSpec, 'cros.mojom.KioskVisionAppearance', [
       mojo.internal.StructField('arg_timestamp_in_us', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_face', 8, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.KioskVisionFaceDetectionSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_body', 16, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.KioskVisionBodyDetectionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_face', 8, 0, mojo.internal.bindings.cros.mojom.KioskVisionFaceDetectionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_body', 16, 0, mojo.internal.bindings.cros.mojom.KioskVisionBodyDetectionSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_person_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -178,7 +178,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.KioskVisionFaceDetectionSpec, 'cros.mojom.KioskVisionFaceDetection', [
       mojo.internal.StructField('arg_confidence', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_box', 8, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.KioskVisionBoundingBoxSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_box', 8, 0, mojo.internal.bindings.cros.mojom.KioskVisionBoundingBoxSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_roll', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_pan', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_tilt', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
@@ -189,7 +189,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.KioskVisionBodyDetectionSpec, 'cros.mojom.KioskVisionBodyDetection', [
       mojo.internal.StructField('arg_confidence', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_box', 8, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.KioskVisionBoundingBoxSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_box', 8, 0, mojo.internal.bindings.cros.mojom.KioskVisionBoundingBoxSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -206,19 +206,19 @@ mojo.internal.Struct(
 // Interface: KioskVisionObserver
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.KioskVisionObserver_OnFrameProcessed_ParamsSpec, 'cros.mojom.KioskVisionObserver_OnFrameProcessed_Params', [
-      mojo.internal.StructField('arg_detection', 0, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.KioskVisionDetectionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_detection', 0, 0, mojo.internal.bindings.cros.mojom.KioskVisionDetectionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.KioskVisionObserver_OnTrackCompleted_ParamsSpec, 'cros.mojom.KioskVisionObserver_OnTrackCompleted_Params', [
-      mojo.internal.StructField('arg_track', 0, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.KioskVisionTrackSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_track', 0, 0, mojo.internal.bindings.cros.mojom.KioskVisionTrackSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.KioskVisionObserver_OnError_ParamsSpec, 'cros.mojom.KioskVisionObserver_OnError_Params', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.KioskVisionErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.cros.mojom.KioskVisionErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -434,7 +434,7 @@ mojo.internal.bindings.cros.mojom.KioskVisionObserverRequest = mojo.internal.bin
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ParamsSpec, 'cros.mojom.CameraHalDispatcher_RegisterClientWithToken_Params', [
       mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.CameraHalClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.CameraClientTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.cros.mojom.CameraClientTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_auth_token', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -600,7 +600,7 @@ mojo.internal.bindings.cros.mojom.CameraHalDispatcherRequest = mojo.internal.bin
 // Interface: CrosCameraServiceObserver
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CrosCameraServiceObserver_CameraDeviceActivityChange_ParamsSpec, 'cros.mojom.CrosCameraServiceObserver_CameraDeviceActivityChange_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.CameraClientTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.cros.mojom.CameraClientTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_camera_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_opened', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -608,14 +608,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CrosCameraServiceObserver_CameraPrivacySwitchStateChange_ParamsSpec, 'cros.mojom.CrosCameraServiceObserver_CameraPrivacySwitchStateChange_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.CameraPrivacySwitchStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.cros.mojom.CameraPrivacySwitchStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_camera_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CrosCameraServiceObserver_CameraSWPrivacySwitchStateChange_ParamsSpec, 'cros.mojom.CrosCameraServiceObserver_CameraSWPrivacySwitchStateChange_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.CameraPrivacySwitchStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.cros.mojom.CameraPrivacySwitchStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -627,7 +627,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CrosCameraServiceObserver_AutoFramingStateChange_ParamsSpec, 'cros.mojom.CrosCameraServiceObserver_AutoFramingStateChange_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.CameraAutoFramingStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.cros.mojom.CameraAutoFramingStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -906,7 +906,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceObserverRequest = mojo.intern
 // Interface: CrosCameraService
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CrosCameraService_GetCameraModule_ParamsSpec, 'cros.mojom.CrosCameraService_GetCameraModule_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.CameraClientTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.cros.mojom.CameraClientTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -924,7 +924,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CrosCameraService_SetAutoFramingState_ParamsSpec, 'cros.mojom.CrosCameraService_SetAutoFramingState_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.CameraAutoFramingStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.cros.mojom.CameraAutoFramingStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -935,13 +935,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ResponseParamsSpec, 'cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ResponseParams', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.CameraPrivacySwitchStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.cros.mojom.CameraPrivacySwitchStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CrosCameraService_SetCameraSWPrivacySwitchState_ParamsSpec, 'cros.mojom.CrosCameraService_SetCameraSWPrivacySwitchState_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.CameraPrivacySwitchStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.cros.mojom.CameraPrivacySwitchStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

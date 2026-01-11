@@ -116,7 +116,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.WebSocketHandshakeRequestSpec, 'network.mojom.WebSocketHandshakeRequest', [
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_headers', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.network.mojom.HttpHeaderSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_headers', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.HttpHeaderSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_headers_text', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -128,7 +128,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_http_version', 8, 0, mojo.internal.bindings.network.mojom.HttpVersionSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_status_text', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_remote_endpoint', 24, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_headers', 32, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.network.mojom.HttpHeaderSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_headers', 32, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.HttpHeaderSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_headers_text', 40, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_selected_protocol', 48, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_extensions', 56, 0, mojo.internal.String, null, false, 0, undefined),
@@ -306,7 +306,7 @@ mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandlerRequest = moj
 // Interface: WebSocketHandshakeClient
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec, 'network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.WebSocketHandshakeRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.network.mojom.WebSocketHandshakeRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -322,7 +322,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec, 'network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_Params', [
       mojo.internal.StructField('arg_socket', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.WebSocketSpec), null, false, 0, undefined),
       mojo.internal.StructField('arg_client_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.WebSocketClientSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_response', 16, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.WebSocketHandshakeResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 16, 0, mojo.internal.bindings.network.mojom.WebSocketHandshakeResponseSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_readable', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('arg_writable', 32, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
@@ -539,7 +539,7 @@ mojo.internal.bindings.network.mojom.WebSocketHandshakeClientRequest = mojo.inte
 // Interface: WebSocketClient
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.WebSocketClient_OnDataFrame_ParamsSpec, 'network.mojom.WebSocketClient_OnDataFrame_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.WebSocketMessageTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.network.mojom.WebSocketMessageTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_data_length', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_fin', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -769,7 +769,7 @@ mojo.internal.bindings.network.mojom.WebSocketClientRequest = mojo.internal.bind
 // Interface: WebSocket
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.WebSocket_SendMessage_ParamsSpec, 'network.mojom.WebSocket_SendMessage_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.WebSocketMessageTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.network.mojom.WebSocketMessageTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_data_length', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 24]]);

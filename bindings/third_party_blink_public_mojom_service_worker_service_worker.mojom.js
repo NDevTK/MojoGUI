@@ -181,7 +181,7 @@ mojo.internal.Union(
       },
       'arg_error_code': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FocusErrorSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.FocusErrorSpec.$,
         'nullable': false,
       },
     });
@@ -907,7 +907,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_associated_interfaces_from_browser', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_registration_info', 24, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_service_worker_info', 32, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerObjectInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fetch_handler_existence', 40, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FetchHandlerExistenceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fetch_handler_existence', 40, 0, mojo.internal.bindings.blink.mojom.FetchHandlerExistenceSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_ancestor_frame_type', 48, 0, mojo.internal.bindings.blink.mojom.AncestorFrameTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_storage_key', 56, 0, mojo.internal.bindings.blink.mojom.StorageKeySpec.$, null, false, 0, undefined),
     ],
@@ -1142,7 +1142,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ParamsSpec, 'blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_Params', [
-      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ExtendableMessageEventSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.blink.mojom.ExtendableMessageEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -83,17 +83,17 @@ mojo.internal.Union(
     mojo.internal.bindings.chromeos.machine_learning.mojom.ValueListSpec, 'chromeos.machine_learning.mojom.ValueList', {
       'arg_string_list': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.StringListSpec.$,
+        'type': mojo.internal.bindings.chromeos.machine_learning.mojom.StringListSpec.$,
         'nullable': false,
       },
       'arg_float_list': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.FloatListSpec.$,
+        'type': mojo.internal.bindings.chromeos.machine_learning.mojom.FloatListSpec.$,
         'nullable': false,
       },
       'arg_int64_list': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.Int64ListSpec.$,
+        'type': mojo.internal.bindings.chromeos.machine_learning.mojom.Int64ListSpec.$,
         'nullable': false,
       },
     });
@@ -123,6 +123,6 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.TensorSpec, 'chromeos.machine_learning.mojom.Tensor', [
       mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.ValueListSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_shape', 8, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.Int64ListSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_shape', 8, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.Int64ListSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);

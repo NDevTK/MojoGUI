@@ -111,7 +111,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec, 'printing.mojom.PdfToPwgRasterConverter_Convert_Params', [
       mojo.internal.StructField('arg_pdf_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_pdf_settings', 8, 0, mojo.internal.bindings.printing.mojom.PdfRenderSettingsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pwg_raster_settings', 16, 0, mojo.internal.bindings.mojo.internal.bindings.printing.mojom.PwgRasterSettingsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pwg_raster_settings', 16, 0, mojo.internal.bindings.printing.mojom.PwgRasterSettingsSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

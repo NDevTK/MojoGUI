@@ -101,7 +101,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.batch_upload.mojom.DataContainerSpec, 'batch_upload.mojom.DataContainer', [
       mojo.internal.StructField('arg_section_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data_items', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.batch_upload.mojom.DataItemSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_data_items', 8, 0, mojo.internal.Array(mojo.internal.bindings.batch_upload.mojom.DataItemSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_is_theme', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -117,9 +117,9 @@ mojo.internal.Struct(
 // Struct: BatchUploadData
 mojo.internal.Struct(
     mojo.internal.bindings.batch_upload.mojom.BatchUploadDataSpec, 'batch_upload.mojom.BatchUploadData', [
-      mojo.internal.StructField('arg_account_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.batch_upload.mojom.BatchUploadAccountInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_account_info', 0, 0, mojo.internal.bindings.batch_upload.mojom.BatchUploadAccountInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_dialog_subtitle', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data_containers', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.batch_upload.mojom.DataContainerSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_data_containers', 16, 0, mojo.internal.Array(mojo.internal.bindings.batch_upload.mojom.DataContainerSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -504,7 +504,7 @@ mojo.internal.bindings.batch_upload.mojom.PageHandlerRequest = mojo.internal.bin
 // Interface: Page
 mojo.internal.Struct(
     mojo.internal.bindings.batch_upload.mojom.Page_SendBatchUploadData_ParamsSpec, 'batch_upload.mojom.Page_SendBatchUploadData_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.batch_upload.mojom.BatchUploadDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.batch_upload.mojom.BatchUploadDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

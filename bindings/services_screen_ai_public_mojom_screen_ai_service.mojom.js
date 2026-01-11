@@ -137,14 +137,14 @@ mojo.internal.bindings.screen_ai.mojom.MceClientType = {
 // Struct: VisualAnnotation
 mojo.internal.Struct(
     mojo.internal.bindings.screen_ai.mojom.VisualAnnotationSpec, 'screen_ai.mojom.VisualAnnotation', [
-      mojo.internal.StructField('arg_lines', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.screen_ai.mojom.LineBoxSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_lines', 0, 0, mojo.internal.Array(mojo.internal.bindings.screen_ai.mojom.LineBoxSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: LineBox
 mojo.internal.Struct(
     mojo.internal.bindings.screen_ai.mojom.LineBoxSpec, 'screen_ai.mojom.LineBox', [
-      mojo.internal.StructField('arg_words', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.screen_ai.mojom.WordBoxSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_words', 0, 0, mojo.internal.Array(mojo.internal.bindings.screen_ai.mojom.WordBoxSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_text_line', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_language', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_bounding_box', 24, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
@@ -161,7 +161,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_word', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_language', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_bounding_box', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_direction', 24, 0, mojo.internal.bindings.mojo.internal.bindings.screen_ai.mojom.DirectionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_direction', 24, 0, mojo.internal.bindings.screen_ai.mojom.DirectionSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_whitespace_bounding_box', 32, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_bounding_box_angle', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_whitespace_bounding_box_angle', 44, 0, mojo.internal.Float, 0, false, 0, undefined),
@@ -190,13 +190,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec, 'screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParams', [
-      mojo.internal.StructField('arg_visual_annotation', 0, 0, mojo.internal.bindings.mojo.internal.bindings.screen_ai.mojom.VisualAnnotationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visual_annotation', 0, 0, mojo.internal.bindings.screen_ai.mojom.VisualAnnotationSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec, 'screen_ai.mojom.ScreenAIAnnotator_SetClientType_Params', [
-      mojo.internal.StructField('arg_client_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.screen_ai.mojom.OcrClientTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_type', 0, 0, mojo.internal.bindings.screen_ai.mojom.OcrClientTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -604,7 +604,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec, 'screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_Params', [
-      mojo.internal.StructField('arg_client_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.screen_ai.mojom.MceClientTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_type', 0, 0, mojo.internal.bindings.screen_ai.mojom.MceClientTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -267,13 +267,13 @@ mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactoryRequest = mojo.i
 mojo.internal.Struct(
     mojo.internal.bindings.access_code_cast.mojom.PageHandler_AddSink_ParamsSpec, 'access_code_cast.mojom.PageHandler_AddSink_Params', [
       mojo.internal.StructField('arg_access_code', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_discovery_method', 8, 0, mojo.internal.bindings.mojo.internal.bindings.access_code_cast.mojom.CastDiscoveryMethodSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_discovery_method', 8, 0, mojo.internal.bindings.access_code_cast.mojom.CastDiscoveryMethodSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec, 'access_code_cast.mojom.PageHandler_AddSink_ResponseParams', [
-      mojo.internal.StructField('arg_result_code', 0, 0, mojo.internal.bindings.mojo.internal.bindings.access_code_cast.mojom.AddSinkResultCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result_code', 0, 0, mojo.internal.bindings.access_code_cast.mojom.AddSinkResultCodeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

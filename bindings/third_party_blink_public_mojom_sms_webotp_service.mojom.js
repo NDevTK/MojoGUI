@@ -96,7 +96,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebOTPService_Receive_ResponseParamsSpec, 'blink.mojom.WebOTPService_Receive_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SmsStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.SmsStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_otp', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);

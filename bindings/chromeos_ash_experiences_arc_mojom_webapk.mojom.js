@@ -124,7 +124,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_start_url', 40, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_scope', 48, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_icon_hash', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_share_info', 64, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.WebShareTargetInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_share_info', 64, 0, mojo.internal.bindings.arc.mojom.WebShareTargetInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 80]]);
 
@@ -140,7 +140,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.WebApkInstance_InstallWebApk_ResponseParamsSpec, 'arc.mojom.WebApkInstance_InstallWebApk_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.WebApkInstallResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.WebApkInstallResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -152,7 +152,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.WebApkInstance_GetWebApkInfo_ResponseParamsSpec, 'arc.mojom.WebApkInstance_GetWebApkInfo_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.WebApkInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.WebApkInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

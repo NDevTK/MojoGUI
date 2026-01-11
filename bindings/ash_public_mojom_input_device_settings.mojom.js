@@ -224,12 +224,12 @@ mojo.internal.Union(
       },
       'arg_key_event': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.mojom.KeyEventSpec.$,
+        'type': mojo.internal.bindings.ash.mojom.KeyEventSpec.$,
         'nullable': false,
       },
       'arg_static_shortcut_action': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.mojom.StaticShortcutActionSpec.$,
+        'type': mojo.internal.bindings.ash.mojom.StaticShortcutActionSpec.$,
         'nullable': false,
       },
     });
@@ -244,7 +244,7 @@ mojo.internal.Union(
       },
       'arg_customizable_button': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.mojom.CustomizableButtonSpec.$,
+        'type': mojo.internal.bindings.ash.mojom.CustomizableButtonSpec.$,
         'nullable': false,
       },
     });
@@ -264,7 +264,7 @@ mojo.internal.Struct(
 // Struct: InputDeviceSettingsPolicy
 mojo.internal.Struct(
     mojo.internal.bindings.ash.mojom.InputDeviceSettingsPolicySpec, 'ash.mojom.InputDeviceSettingsPolicy', [
-      mojo.internal.StructField('arg_policy_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.PolicyStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_policy_status', 0, 0, mojo.internal.bindings.ash.mojom.PolicyStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_value', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -272,7 +272,7 @@ mojo.internal.Struct(
 // Struct: InputDeviceSettingsFkeyPolicy
 mojo.internal.Struct(
     mojo.internal.bindings.ash.mojom.InputDeviceSettingsFkeyPolicySpec, 'ash.mojom.InputDeviceSettingsFkeyPolicy', [
-      mojo.internal.StructField('arg_policy_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.PolicyStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_policy_status', 0, 0, mojo.internal.bindings.ash.mojom.PolicyStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.ui.mojom.ExtendedFkeysModifierSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -280,7 +280,7 @@ mojo.internal.Struct(
 // Struct: InputDeviceSettingsSixPackKeyPolicy
 mojo.internal.Struct(
     mojo.internal.bindings.ash.mojom.InputDeviceSettingsSixPackKeyPolicySpec, 'ash.mojom.InputDeviceSettingsSixPackKeyPolicy', [
-      mojo.internal.StructField('arg_policy_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.PolicyStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_policy_status', 0, 0, mojo.internal.bindings.ash.mojom.PolicyStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.ui.mojom.SixPackShortcutModifierSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -288,28 +288,28 @@ mojo.internal.Struct(
 // Struct: KeyboardPolicies
 mojo.internal.Struct(
     mojo.internal.bindings.ash.mojom.KeyboardPoliciesSpec, 'ash.mojom.KeyboardPolicies', [
-      mojo.internal.StructField('arg_top_row_are_fkeys_policy', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.InputDeviceSettingsPolicySpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_enable_meta_fkey_rewrites_policy', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.InputDeviceSettingsPolicySpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_f11_key_policy', 16, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.InputDeviceSettingsFkeyPolicySpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_f12_key_policy', 24, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.InputDeviceSettingsFkeyPolicySpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_home_and_end_keys_policy', 32, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.InputDeviceSettingsSixPackKeyPolicySpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_page_up_and_page_down_keys_policy', 40, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.InputDeviceSettingsSixPackKeyPolicySpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_delete_key_policy', 48, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.InputDeviceSettingsSixPackKeyPolicySpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_insert_key_policy', 56, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.InputDeviceSettingsSixPackKeyPolicySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_top_row_are_fkeys_policy', 0, 0, mojo.internal.bindings.ash.mojom.InputDeviceSettingsPolicySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_enable_meta_fkey_rewrites_policy', 8, 0, mojo.internal.bindings.ash.mojom.InputDeviceSettingsPolicySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_f11_key_policy', 16, 0, mojo.internal.bindings.ash.mojom.InputDeviceSettingsFkeyPolicySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_f12_key_policy', 24, 0, mojo.internal.bindings.ash.mojom.InputDeviceSettingsFkeyPolicySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_home_and_end_keys_policy', 32, 0, mojo.internal.bindings.ash.mojom.InputDeviceSettingsSixPackKeyPolicySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_page_up_and_page_down_keys_policy', 40, 0, mojo.internal.bindings.ash.mojom.InputDeviceSettingsSixPackKeyPolicySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_delete_key_policy', 48, 0, mojo.internal.bindings.ash.mojom.InputDeviceSettingsSixPackKeyPolicySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_insert_key_policy', 56, 0, mojo.internal.bindings.ash.mojom.InputDeviceSettingsSixPackKeyPolicySpec.$, null, true, 0, undefined),
     ],
     [[0, 72]]);
 
 // Struct: MousePolicies
 mojo.internal.Struct(
     mojo.internal.bindings.ash.mojom.MousePoliciesSpec, 'ash.mojom.MousePolicies', [
-      mojo.internal.StructField('arg_swap_right_policy', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.InputDeviceSettingsPolicySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_swap_right_policy', 0, 0, mojo.internal.bindings.ash.mojom.InputDeviceSettingsPolicySpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: BatteryInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.mojom.BatteryInfoSpec, 'ash.mojom.BatteryInfo', [
-      mojo.internal.StructField('arg_charge_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.ChargeStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_charge_state', 0, 0, mojo.internal.bindings.ash.mojom.ChargeStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_battery_percentage', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -321,7 +321,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_app_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_action_link', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_icon_url', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 32, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.CompanionAppStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 32, 0, mojo.internal.bindings.ash.mojom.CompanionAppStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -332,10 +332,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_device_key', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_meta_key', 16, 0, mojo.internal.bindings.ui.mojom.MetaKeySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_modifier_keys', 24, 0, mojo.internal.Array(mojo.internal.bindings.ui.mojom.ModifierKeySpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_top_row_action_keys', 32, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.mojom.TopRowActionKeySpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_settings', 40, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.KeyboardSettingsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_battery_info', 48, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.BatteryInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_app_info', 56, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.CompanionAppInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_top_row_action_keys', 32, 0, mojo.internal.Array(mojo.internal.bindings.ash.mojom.TopRowActionKeySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings', 40, 0, mojo.internal.bindings.ash.mojom.KeyboardSettingsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_battery_info', 48, 0, mojo.internal.bindings.ash.mojom.BatteryInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_app_info', 56, 0, mojo.internal.bindings.ash.mojom.CompanionAppInfoSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_id', 64, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_is_external', 68, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -345,7 +345,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.mojom.KeyboardSettingsSpec, 'ash.mojom.KeyboardSettings', [
       mojo.internal.StructField('arg_modifier_remappings', 0, 0, mojo.internal.Map(mojo.internal.bindings.ui.mojom.ModifierKeySpec.$, mojo.internal.bindings.ui.mojom.ModifierKeySpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_six_pack_key_remappings', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.SixPackKeyInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_six_pack_key_remappings', 8, 0, mojo.internal.bindings.ash.mojom.SixPackKeyInfoSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_f11', 16, 0, mojo.internal.bindings.ui.mojom.ExtendedFkeysModifierSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_f12', 24, 0, mojo.internal.bindings.ui.mojom.ExtendedFkeysModifierSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_top_row_are_fkeys', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -358,11 +358,11 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.mojom.MouseSpec, 'ash.mojom.Mouse', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_device_key', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_customization_restriction', 16, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.CustomizationRestrictionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mouse_button_config', 24, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.MouseButtonConfigSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_settings', 32, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.MouseSettingsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_battery_info', 40, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.BatteryInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_app_info', 48, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.CompanionAppInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_customization_restriction', 16, 0, mojo.internal.bindings.ash.mojom.CustomizationRestrictionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mouse_button_config', 24, 0, mojo.internal.bindings.ash.mojom.MouseButtonConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings', 32, 0, mojo.internal.bindings.ash.mojom.MouseSettingsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_battery_info', 40, 0, mojo.internal.bindings.ash.mojom.BatteryInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_app_info', 48, 0, mojo.internal.bindings.ash.mojom.CompanionAppInfoSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_id', 56, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_is_external', 60, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -371,7 +371,7 @@ mojo.internal.Struct(
 // Struct: MouseSettings
 mojo.internal.Struct(
     mojo.internal.bindings.ash.mojom.MouseSettingsSpec, 'ash.mojom.MouseSettings', [
-      mojo.internal.StructField('arg_button_remappings', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.mojom.ButtonRemappingSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_button_remappings', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.mojom.ButtonRemappingSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_swap_right', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_sensitivity', 9, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('arg_reverse_scrolling', 10, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -386,9 +386,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.mojom.TouchpadSpec, 'ash.mojom.Touchpad', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_device_key', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_settings', 16, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.TouchpadSettingsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_battery_info', 24, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.BatteryInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_app_info', 32, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.CompanionAppInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_settings', 16, 0, mojo.internal.bindings.ash.mojom.TouchpadSettingsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_battery_info', 24, 0, mojo.internal.bindings.ash.mojom.BatteryInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_app_info', 32, 0, mojo.internal.bindings.ash.mojom.CompanionAppInfoSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_id', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_is_external', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_haptic', 44, 1, mojo.internal.Bool, false, false, 0, undefined),
@@ -417,7 +417,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.mojom.PointingStickSpec, 'ash.mojom.PointingStick', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_device_key', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_settings', 16, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.PointingStickSettingsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings', 16, 0, mojo.internal.bindings.ash.mojom.PointingStickSettingsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_is_external', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -443,11 +443,11 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.mojom.GraphicsTabletSpec, 'ash.mojom.GraphicsTablet', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_device_key', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_customization_restriction', 16, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.CustomizationRestrictionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_graphics_tablet_button_config', 24, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.GraphicsTabletButtonConfigSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_settings', 32, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.GraphicsTabletSettingsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_battery_info', 40, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.BatteryInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_app_info', 48, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.CompanionAppInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_customization_restriction', 16, 0, mojo.internal.bindings.ash.mojom.CustomizationRestrictionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_graphics_tablet_button_config', 24, 0, mojo.internal.bindings.ash.mojom.GraphicsTabletButtonConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings', 32, 0, mojo.internal.bindings.ash.mojom.GraphicsTabletSettingsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_battery_info', 40, 0, mojo.internal.bindings.ash.mojom.BatteryInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_app_info', 48, 0, mojo.internal.bindings.ash.mojom.CompanionAppInfoSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_id', 56, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 72]]);
@@ -455,8 +455,8 @@ mojo.internal.Struct(
 // Struct: GraphicsTabletSettings
 mojo.internal.Struct(
     mojo.internal.bindings.ash.mojom.GraphicsTabletSettingsSpec, 'ash.mojom.GraphicsTabletSettings', [
-      mojo.internal.StructField('arg_tablet_button_remappings', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.mojom.ButtonRemappingSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_pen_button_remappings', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.mojom.ButtonRemappingSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tablet_button_remappings', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.mojom.ButtonRemappingSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_pen_button_remappings', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.mojom.ButtonRemappingSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -183,7 +183,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_initial_connection_type', 0, 0, mojo.internal.bindings.network.mojom.ConnectionTypeSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('arg_initial_connection_subtype', 8, 0, mojo.internal.bindings.network.mojom.ConnectionSubtypeSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('arg_initial_address_map', 16, 0, mojo.internal.bindings.network.mojom.InitialAddressMapSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_environment', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.network.mojom.EnvironmentVariableSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_environment', 24, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.EnvironmentVariableSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_default_observer', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_system_dns_resolver', 40, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.SystemDnsResolverRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_first_party_sets_enabled', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -363,7 +363,7 @@ mojo.internal.bindings.network.mojom.GssapiLibraryLoadObserverRequest = mojo.int
 // Interface: NetworkService
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkService_SetParams_ParamsSpec, 'network.mojom.NetworkService_SetParams_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.NetworkServiceParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.network.mojom.NetworkServiceParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -415,13 +415,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkService_SetUpHttpAuth_ParamsSpec, 'network.mojom.NetworkService_SetUpHttpAuth_Params', [
-      mojo.internal.StructField('arg_http_auth_static_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.HttpAuthStaticParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_http_auth_static_params', 0, 0, mojo.internal.bindings.network.mojom.HttpAuthStaticParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkService_ConfigureHttpAuthPrefs_ParamsSpec, 'network.mojom.NetworkService_ConfigureHttpAuthPrefs_Params', [
-      mojo.internal.StructField('arg_http_auth_dynamic_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.HttpAuthDynamicParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_http_auth_dynamic_params', 0, 0, mojo.internal.bindings.network.mojom.HttpAuthDynamicParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -514,7 +514,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkService_ConfigureSCTAuditing_ParamsSpec, 'network.mojom.NetworkService_ConfigureSCTAuditing_Params', [
-      mojo.internal.StructField('arg_configuration', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.SCTAuditingConfigurationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_configuration', 0, 0, mojo.internal.bindings.network.mojom.SCTAuditingConfigurationSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2146,7 +2146,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRequest = mojo.internal.bindi
 // Interface: DurableMessageCollector
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.DurableMessageCollector_Configure_ParamsSpec, 'network.mojom.DurableMessageCollector_Configure_Params', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.NetworkDurableMessageConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.network.mojom.NetworkDurableMessageConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

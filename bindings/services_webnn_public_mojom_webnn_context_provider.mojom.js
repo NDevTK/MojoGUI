@@ -93,7 +93,7 @@ mojo.internal.Union(
     mojo.internal.bindings.webnn.mojom.CreateContextResultSpec, 'webnn.mojom.CreateContextResult', {
       'arg_success': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.webnn.mojom.CreateContextSuccessSpec.$,
+        'type': mojo.internal.bindings.webnn.mojom.CreateContextSuccessSpec.$,
         'nullable': false,
       },
       'arg_error': {
@@ -126,7 +126,7 @@ mojo.internal.Struct(
 // Interface: WebNNContextProvider
 mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec, 'webnn.mojom.WebNNContextProvider_CreateWebNNContext_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.mojo.internal.bindings.webnn.mojom.CreateContextOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.webnn.mojom.CreateContextOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

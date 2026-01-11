@@ -96,7 +96,7 @@ mojo.internal.Struct(
 // Interface: ProxyConfigClient
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec, 'network.mojom.ProxyConfigClient_OnProxyConfigUpdated_Params', [
-      mojo.internal.StructField('arg_proxy_config', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ProxyConfigWithAnnotationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_proxy_config', 0, 0, mojo.internal.bindings.network.mojom.ProxyConfigWithAnnotationSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

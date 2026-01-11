@@ -91,7 +91,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsS
 // Struct: ErpHistoryData
 mojo.internal.Struct(
     mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryDataSpec, 'enterprise_reporting.mojom.ErpHistoryData', [
-      mojo.internal.StructField('arg_events', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryEventSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_events', 0, 0, mojo.internal.Array(mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryEventSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -99,7 +99,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryEventSpec, 'enterprise_reporting.mojom.ErpHistoryEvent', [
       mojo.internal.StructField('arg_call', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_parameters', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryEventParameterSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_parameters', 8, 0, mojo.internal.Array(mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryEventParameterSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_status', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_time', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
@@ -290,7 +290,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec, 'enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParams', [
-      mojo.internal.StructField('arg_history_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_history_data', 0, 0, mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -521,7 +521,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerRequest = mojo.inte
 // Interface: Page
 mojo.internal.Struct(
     mojo.internal.bindings.enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec, 'enterprise_reporting.mojom.Page_SetErpHistoryData_Params', [
-      mojo.internal.StructField('arg_history_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_history_data', 0, 0, mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

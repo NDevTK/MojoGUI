@@ -495,7 +495,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHostRequest = 
 // Interface: ServiceWorkerRegistrationObject
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObject_SetServiceWorkerObjects_ParamsSpec, 'blink.mojom.ServiceWorkerRegistrationObject_SetServiceWorkerObjects_Params', [
-      mojo.internal.StructField('arg_changed_mask', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ChangedServiceWorkerObjectsMaskSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_changed_mask', 0, 0, mojo.internal.bindings.blink.mojom.ChangedServiceWorkerObjectsMaskSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_installing', 8, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerObjectInfoSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_waiting', 16, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerObjectInfoSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_active', 24, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerObjectInfoSpec.$, null, true, 0, undefined),

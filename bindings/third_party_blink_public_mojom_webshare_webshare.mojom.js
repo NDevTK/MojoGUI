@@ -93,7 +93,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_files', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SharedFileSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_files', 24, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SharedFileSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 

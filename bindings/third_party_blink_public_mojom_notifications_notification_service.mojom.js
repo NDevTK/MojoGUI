@@ -385,7 +385,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec, 'blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.PersistentNotificationErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.PersistentNotificationErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

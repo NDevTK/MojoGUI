@@ -1075,7 +1075,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec, 'ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_Params', [
-      mojo.internal.StructField('arg_user_flow', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.screens_common.mojom.UserCreationFlowTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_user_flow', 0, 0, mojo.internal.bindings.ash.screens_common.mojom.UserCreationFlowTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1408,7 +1408,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageRequest = mojo.inter
 // Interface: GestureNavigationPageHandler
 mojo.internal.Struct(
     mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec, 'ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.screens_common.mojom.GesturePagesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.bindings.ash.screens_common.mojom.GesturePagesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

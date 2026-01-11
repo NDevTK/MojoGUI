@@ -103,7 +103,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_accept_button_label', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_cancel_button_label', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_verify_button_label', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_account_extensions', 40, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.signout_confirmation.mojom.ExtensionInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_account_extensions', 40, 0, mojo.internal.Array(mojo.internal.bindings.signout_confirmation.mojom.ExtensionInfoSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_has_unsynced_data', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 64]]);
@@ -564,7 +564,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageHandlerRequest = mojo.inte
 // Interface: Page
 mojo.internal.Struct(
     mojo.internal.bindings.signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec, 'signout_confirmation.mojom.Page_SendSignoutConfirmationData_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.signout_confirmation.mojom.SignoutConfirmationDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.signout_confirmation.mojom.SignoutConfirmationDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

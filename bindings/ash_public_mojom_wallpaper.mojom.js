@@ -102,7 +102,7 @@ mojo.internal.Union(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.mojom.WallpaperSettingsSpec, 'ash.mojom.WallpaperSettings', [
       mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_layout', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.WallpaperLayoutSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_layout', 8, 0, mojo.internal.bindings.ash.mojom.WallpaperLayoutSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_filename', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);

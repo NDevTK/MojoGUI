@@ -88,13 +88,13 @@ mojo.internal.Struct(
 // Interface: SyntheticTrialConfiguration
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_ParamsSpec, 'content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_Params', [
-      mojo.internal.StructField('arg_groups', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.content.mojom.SyntheticTrialGroupSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_groups', 0, 0, mojo.internal.Array(mojo.internal.bindings.content.mojom.SyntheticTrialGroupSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec, 'content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_Params', [
-      mojo.internal.StructField('arg_groups', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.content.mojom.SyntheticTrialGroupSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_groups', 0, 0, mojo.internal.Array(mojo.internal.bindings.content.mojom.SyntheticTrialGroupSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

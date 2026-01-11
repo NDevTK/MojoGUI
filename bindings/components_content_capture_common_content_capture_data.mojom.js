@@ -81,6 +81,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_bounds', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_children', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.content_capture.mojom.ContentCaptureDataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_children', 24, 0, mojo.internal.Array(mojo.internal.bindings.content_capture.mojom.ContentCaptureDataSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 40]]);

@@ -96,7 +96,7 @@ mojo.internal.Struct(
 // Interface: CookieAccessObserver
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CookieAccessObserver_OnCookiesAccessed_ParamsSpec, 'network.mojom.CookieAccessObserver_OnCookiesAccessed_Params', [
-      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.network.mojom.CookieAccessDetailsSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.CookieAccessDetailsSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

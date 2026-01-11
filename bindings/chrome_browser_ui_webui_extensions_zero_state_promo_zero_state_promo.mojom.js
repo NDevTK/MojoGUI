@@ -253,7 +253,7 @@ mojo.internal.bindings.zero_state_promo.mojom.PageHandlerFactoryRequest = mojo.i
 // Interface: PageHandler
 mojo.internal.Struct(
     mojo.internal.bindings.zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec, 'zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_Params', [
-      mojo.internal.StructField('arg_link', 0, 0, mojo.internal.bindings.mojo.internal.bindings.zero_state_promo.mojom.WebStoreLinkClickedSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_link', 0, 0, mojo.internal.bindings.zero_state_promo.mojom.WebStoreLinkClickedSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

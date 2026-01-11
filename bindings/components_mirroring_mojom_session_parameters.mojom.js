@@ -86,7 +86,7 @@ mojo.internal.bindings.mirroring.mojom.SessionType = {
 // Struct: SessionParameters
 mojo.internal.Struct(
     mojo.internal.bindings.mirroring.mojom.SessionParametersSpec, 'mirroring.mojom.SessionParameters', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mirroring.mojom.SessionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mirroring.mojom.SessionTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_receiver_address', 8, 0, mojo.internal.bindings.network.mojom.IPAddressSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_receiver_friendly_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_source_id', 24, 0, mojo.internal.String, null, false, 0, undefined),

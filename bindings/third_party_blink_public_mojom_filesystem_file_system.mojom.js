@@ -136,7 +136,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemInfoSpec, 'blink.mojom.FileSystemInfo', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_root_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mount_type', 16, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FileSystemTypeSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_mount_type', 16, 0, mojo.internal.bindings.blink.mojom.FileSystemTypeSpec.$, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -707,7 +707,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemManager_ResolveURL_ResponseParamsSpec, 'blink.mojom.FileSystemManager_ResolveURL_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FileSystemInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_file_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_error_code', 16, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_directory', 24, 0, mojo.internal.Bool, false, false, 0, undefined),

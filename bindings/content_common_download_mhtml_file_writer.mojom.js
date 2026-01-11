@@ -122,13 +122,13 @@ mojo.internal.Struct(
 // Interface: MhtmlFileWriter
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec, 'content.mojom.MhtmlFileWriter_SerializeAsMHTML_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.SerializeAsMHTMLParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.content.mojom.SerializeAsMHTMLParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec, 'content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.MhtmlSaveStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.content.mojom.MhtmlSaveStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_digests_of_uris_to_skip', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.ByteStringSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);

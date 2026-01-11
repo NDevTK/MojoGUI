@@ -95,7 +95,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec, 'chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParams', [
-      mojo.internal.StructField('arg_out', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcherScheduleResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_out', 0, 0, mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcherScheduleResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

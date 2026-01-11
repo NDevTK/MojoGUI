@@ -93,7 +93,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessStatus = {
 // Struct: FileSystemAccessError
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec, 'blink.mojom.FileSystemAccessError', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FileSystemAccessStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_file_error', 8, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],

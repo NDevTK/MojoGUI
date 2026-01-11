@@ -441,7 +441,7 @@ mojo.internal.Struct(
 // Struct: AppKill
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.AppKillSpec, 'arc.mojom.AppKill', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.AppKillTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.arc.mojom.AppKillTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_count', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -449,7 +449,7 @@ mojo.internal.Struct(
 // Struct: LowLatencyStylusLibPredictionTarget
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.LowLatencyStylusLibPredictionTargetSpec, 'arc.mojom.LowLatencyStylusLibPredictionTarget', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.LowLatencyStylusLibraryTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.arc.mojom.LowLatencyStylusLibraryTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_target', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -457,7 +457,7 @@ mojo.internal.Struct(
 // Struct: AppCategoryDataSize
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.AppCategoryDataSizeSpec, 'arc.mojom.AppCategoryDataSize', [
-      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.AndroidAppCategorySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.arc.mojom.AndroidAppCategorySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_data_size_in_mb', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -465,7 +465,7 @@ mojo.internal.Struct(
 // Struct: DataDirectorySize
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.DataDirectorySizeSpec, 'arc.mojom.DataDirectorySize', [
-      mojo.internal.StructField('arg_directory', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.AndroidDataDirectorySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_directory', 0, 0, mojo.internal.bindings.arc.mojom.AndroidDataDirectorySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_size_in_mb', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -473,32 +473,32 @@ mojo.internal.Struct(
 // Interface: MetricsHost
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MetricsHost_ReportBootProgress_ParamsSpec, 'arc.mojom.MetricsHost_ReportBootProgress_Params', [
-      mojo.internal.StructField('arg_events', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.arc.mojom.BootProgressEventSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_boot_type', 8, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.BootTypeSpec.$, null, false, 1, undefined),
+      mojo.internal.StructField('arg_events', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.BootProgressEventSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_boot_type', 8, 0, mojo.internal.bindings.arc.mojom.BootTypeSpec.$, null, false, 1, undefined),
     ],
     [[0, 16], [1, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MetricsHost_ReportNativeBridge_ParamsSpec, 'arc.mojom.MetricsHost_ReportNativeBridge_Params', [
-      mojo.internal.StructField('arg_native_bridge_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.NativeBridgeTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_native_bridge_type', 0, 0, mojo.internal.bindings.arc.mojom.NativeBridgeTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MetricsHost_ReportCompanionLibApiUsage_ParamsSpec, 'arc.mojom.MetricsHost_ReportCompanionLibApiUsage_Params', [
-      mojo.internal.StructField('arg_api_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.CompanionLibApiIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_api_id', 0, 0, mojo.internal.bindings.arc.mojom.CompanionLibApiIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MetricsHost_ReportAppKill_ParamsSpec, 'arc.mojom.MetricsHost_ReportAppKill_Params', [
-      mojo.internal.StructField('arg_app_kill', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.AppKillSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_app_kill', 0, 0, mojo.internal.bindings.arc.mojom.AppKillSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcCorePriAbiMigEvent_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcCorePriAbiMigEvent_Params', [
-      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ArcCorePriAbiMigEventSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.arc.mojom.ArcCorePriAbiMigEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -535,50 +535,50 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MetricsHost_ReportLowLatencyStylusLibApiUsage_ParamsSpec, 'arc.mojom.MetricsHost_ReportLowLatencyStylusLibApiUsage_Params', [
-      mojo.internal.StructField('arg_api_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.LowLatencyStylusLibApiIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_api_id', 0, 0, mojo.internal.bindings.arc.mojom.LowLatencyStylusLibApiIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MetricsHost_ReportLowLatencyStylusLibPredictionTarget_ParamsSpec, 'arc.mojom.MetricsHost_ReportLowLatencyStylusLibPredictionTarget_Params', [
-      mojo.internal.StructField('arg_prediction_target', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.LowLatencyStylusLibPredictionTargetSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_prediction_target', 0, 0, mojo.internal.bindings.arc.mojom.LowLatencyStylusLibPredictionTargetSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MetricsHost_ReportDnsQueryResult_ParamsSpec, 'arc.mojom.MetricsHost_ReportDnsQueryResult_Params', [
-      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ArcDnsQuerySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.arc.mojom.ArcDnsQuerySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MetricsHost_ReportMainAccountHashMigrationMetrics_ParamsSpec, 'arc.mojom.MetricsHost_ReportMainAccountHashMigrationMetrics_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.MainAccountHashMigrationStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.arc.mojom.MainAccountHashMigrationStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcNetworkEvent_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcNetworkEvent_Params', [
-      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ArcNetworkEventSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.arc.mojom.ArcNetworkEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcNetworkError_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcNetworkError_Params', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ArcNetworkErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.arc.mojom.ArcNetworkErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MetricsHost_ReportAppPrimaryAbi_ParamsSpec, 'arc.mojom.MetricsHost_ReportAppPrimaryAbi_Params', [
-      mojo.internal.StructField('arg_abi', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.AppPrimaryAbiSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_abi', 0, 0, mojo.internal.bindings.arc.mojom.AppPrimaryAbiSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MetricsHost_ReportDataRestore_ParamsSpec, 'arc.mojom.MetricsHost_ReportDataRestore_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.DataRestoreStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.arc.mojom.DataRestoreStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_duration_ms', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -596,7 +596,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MetricsHost_ReportWaylandLateTimingEvent_ParamsSpec, 'arc.mojom.MetricsHost_ReportWaylandLateTimingEvent_Params', [
-      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.WaylandTimingEventSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.arc.mojom.WaylandTimingEventSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_duration', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -608,7 +608,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MetricsHost_ReportVpnServiceBuilderCompatApiUsage_ParamsSpec, 'arc.mojom.MetricsHost_ReportVpnServiceBuilderCompatApiUsage_Params', [
-      mojo.internal.StructField('arg_api_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.VpnServiceBuilderCompatApiIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_api_id', 0, 0, mojo.internal.bindings.arc.mojom.VpnServiceBuilderCompatApiIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -626,7 +626,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcKeyMintError_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcKeyMintError_Params', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ArcKeyMintErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.arc.mojom.ArcKeyMintErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -638,7 +638,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MetricsHost_ReportAppErrorDialogType_ParamsSpec, 'arc.mojom.MetricsHost_ReportAppErrorDialogType_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.AppErrorDialogTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.arc.mojom.AppErrorDialogTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -650,26 +650,26 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MetricsHost_ReportAppCategoryDataSizeList_ParamsSpec, 'arc.mojom.MetricsHost_ReportAppCategoryDataSizeList_Params', [
-      mojo.internal.StructField('arg_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.arc.mojom.AppCategoryDataSizeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.AppCategoryDataSizeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MetricsHost_ReportDataDirectorySizeList_ParamsSpec, 'arc.mojom.MetricsHost_ReportDataDirectorySizeList_Params', [
-      mojo.internal.StructField('arg_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.arc.mojom.DataDirectorySizeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.DataDirectorySizeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcKeyMintErrorForOperation_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcKeyMintErrorForOperation_Params', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ArcKeyMintErrorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_operation', 8, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ArcKeyMintLoggedOperationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.arc.mojom.ArcKeyMintErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_operation', 8, 0, mojo.internal.bindings.arc.mojom.ArcKeyMintLoggedOperationSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MetricsHost_ReportCertificateSigningResult_ParamsSpec, 'arc.mojom.MetricsHost_ReportCertificateSigningResult_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.CertificateSigningResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.CertificateSigningResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1861,7 +1861,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MetricsInstance_GetGfxMetrics_ResponseParamsSpec, 'arc.mojom.MetricsInstance_GetGfxMetrics_ResponseParams', [
-      mojo.internal.StructField('arg_metrics', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.GfxMetricsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_metrics', 0, 0, mojo.internal.bindings.arc.mojom.GfxMetricsSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -97,10 +97,10 @@ mojo.internal.bindings.lens.mojom.Phase = {
 // Struct: LatencyLog
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LatencyLogSpec, 'lens.mojom.LatencyLog', [
-      mojo.internal.StructField('arg_phase', 0, 0, mojo.internal.bindings.mojo.internal.bindings.lens.mojom.PhaseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_phase', 0, 0, mojo.internal.bindings.lens.mojom.PhaseSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_original_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_downscaled_size', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_image_format', 24, 0, mojo.internal.bindings.mojo.internal.bindings.lens.mojom.ImageFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_format', 24, 0, mojo.internal.bindings.lens.mojom.ImageFormatSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_time', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_encoded_bytes_size', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],

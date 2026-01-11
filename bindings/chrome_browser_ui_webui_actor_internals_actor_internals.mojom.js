@@ -101,7 +101,7 @@ mojo.internal.Struct(
 // Interface: Page
 mojo.internal.Struct(
     mojo.internal.bindings.actor_internals.mojom.Page_JournalEntryAdded_ParamsSpec, 'actor_internals.mojom.Page_JournalEntryAdded_Params', [
-      mojo.internal.StructField('arg_entry', 0, 0, mojo.internal.bindings.mojo.internal.bindings.actor_internals.mojom.JournalEntrySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_entry', 0, 0, mojo.internal.bindings.actor_internals.mojom.JournalEntrySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

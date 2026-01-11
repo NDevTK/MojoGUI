@@ -105,7 +105,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AudioProcessingConfigSpec, 'media.mojom.AudioProcessingConfig', [
       mojo.internal.StructField('arg_controls_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioProcessorControlsSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_settings', 8, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.AudioProcessingSettingsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings', 8, 0, mojo.internal.bindings.media.mojom.AudioProcessingSettingsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -117,7 +117,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec, 'media.mojom.AudioProcessorControls_GetStats_ResponseParams', [
-      mojo.internal.StructField('arg_stats', 0, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.AudioProcessingStatsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_stats', 0, 0, mojo.internal.bindings.media.mojom.AudioProcessingStatsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

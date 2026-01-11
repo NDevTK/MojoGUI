@@ -165,9 +165,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_scenario_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_upload_rule_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_total_size', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_upload_state', 40, 0, mojo.internal.bindings.mojo.internal.bindings.traces_internals.mojom.ReportUploadStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_upload_state', 40, 0, mojo.internal.bindings.traces_internals.mojom.ReportUploadStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_upload_time', 48, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_skip_reason', 56, 0, mojo.internal.bindings.mojo.internal.bindings.traces_internals.mojom.SkipUploadReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_skip_reason', 56, 0, mojo.internal.bindings.traces_internals.mojom.SkipUploadReasonSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_upload_rule_value_$value', 64, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_upload_rule_value_$flag', originalFieldName: 'arg_upload_rule_value' }),
       mojo.internal.StructField('arg_upload_rule_value_$flag', 68, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_upload_rule_value_$value', originalFieldName: 'arg_upload_rule_value' }),
       mojo.internal.StructField('arg_has_trace_content', 68, 1, mojo.internal.Bool, false, false, 0, undefined),
@@ -179,7 +179,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.traces_internals.mojom.ScenarioSpec, 'traces_internals.mojom.Scenario', [
       mojo.internal.StructField('arg_scenario_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_description', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_current_state', 16, 0, mojo.internal.bindings.mojo.internal.bindings.traces_internals.mojom.TracingScenarioStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_current_state', 16, 0, mojo.internal.bindings.traces_internals.mojom.TracingScenarioStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_local_scenario', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_enabled', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -391,7 +391,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.traces_internals.mojom.PageHandler_GetTrackEventCategories_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_GetTrackEventCategories_ResponseParams', [
-      mojo.internal.StructField('arg_categories', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.traces_internals.mojom.TraceCategorySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_categories', 0, 0, mojo.internal.Array(mojo.internal.bindings.traces_internals.mojom.TraceCategorySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -415,7 +415,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.traces_internals.mojom.PageHandler_GetAllTraceReports_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_GetAllTraceReports_ResponseParams', [
-      mojo.internal.StructField('arg_reports', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.traces_internals.mojom.ClientTraceReportSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_reports', 0, 0, mojo.internal.Array(mojo.internal.bindings.traces_internals.mojom.ClientTraceReportSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -473,7 +473,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.traces_internals.mojom.PageHandler_GetAllScenarios_ResponseParamsSpec, 'traces_internals.mojom.PageHandler_GetAllScenarios_ResponseParams', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.traces_internals.mojom.ScenarioSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.Array(mojo.internal.bindings.traces_internals.mojom.ScenarioSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

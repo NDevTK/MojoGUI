@@ -90,7 +90,7 @@ mojo.internal.bindings.cros.mojom.EntryType = {
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CameraMetadataEntrySpec, 'cros.mojom.CameraMetadataEntry', [
       mojo.internal.StructField('arg_tag', 0, 0, mojo.internal.bindings.cros.mojom.CameraMetadataTagSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.EntryTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.cros.mojom.EntryTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_data', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_index', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_count', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
@@ -100,7 +100,7 @@ mojo.internal.Struct(
 // Struct: CameraMetadata
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CameraMetadataSpec, 'cros.mojom.CameraMetadata', [
-      mojo.internal.StructField('arg_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.cros.mojom.CameraMetadataEntrySpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.cros.mojom.CameraMetadataEntrySpec.$, false), null, true, 0, undefined),
       mojo.internal.StructField('arg_size', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_entry_count', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_entry_capacity', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),

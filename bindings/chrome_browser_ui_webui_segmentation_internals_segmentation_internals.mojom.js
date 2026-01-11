@@ -114,7 +114,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.segmentation_internals.mojom.ClientInfoSpec, 'segmentation_internals.mojom.ClientInfo', [
       mojo.internal.StructField('arg_segmentation_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_selected_segment', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_segment_info', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.segmentation_internals.mojom.SegmentInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_segment_info', 16, 0, mojo.internal.Array(mojo.internal.bindings.segmentation_internals.mojom.SegmentInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -546,7 +546,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.segmentation_internals.mojom.Page_OnClientInfoAvailable_ParamsSpec, 'segmentation_internals.mojom.Page_OnClientInfoAvailable_Params', [
-      mojo.internal.StructField('arg_client_info', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.segmentation_internals.mojom.ClientInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_info', 0, 0, mojo.internal.Array(mojo.internal.bindings.segmentation_internals.mojom.ClientInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

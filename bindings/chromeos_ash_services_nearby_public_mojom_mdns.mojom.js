@@ -99,13 +99,13 @@ mojo.internal.Struct(
 // Interface: MdnsObserver
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec, 'sharing.mojom.MdnsObserver_ServiceFound_Params', [
-      mojo.internal.StructField('arg_service_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.sharing.mojom.NsdServiceInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_service_info', 0, 0, mojo.internal.bindings.sharing.mojom.NsdServiceInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec, 'sharing.mojom.MdnsObserver_ServiceLost_Params', [
-      mojo.internal.StructField('arg_service_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.sharing.mojom.NsdServiceInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_service_info', 0, 0, mojo.internal.bindings.sharing.mojom.NsdServiceInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

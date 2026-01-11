@@ -91,17 +91,17 @@ mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.DataElementSpec, 'blink.mojom.DataElement', {
       'arg_bytes': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.DataElementBytesSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.DataElementBytesSpec.$,
         'nullable': false,
       },
       'arg_file': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.DataElementFileSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.DataElementFileSpec.$,
         'nullable': false,
       },
       'arg_blob': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.DataElementBlobSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.DataElementBlobSpec.$,
         'nullable': false,
       },
     });

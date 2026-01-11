@@ -111,7 +111,7 @@ mojo.internal.Struct(
 // Struct: PlaybackData
 mojo.internal.Struct(
     mojo.internal.bindings.ash.focus_mode.mojom.PlaybackDataSpec, 'ash.focus_mode.mojom.PlaybackData', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.focus_mode.mojom.PlaybackStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.focus_mode.mojom.PlaybackStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_client_current_time', 24, 0, mojo.internal.bindings.mojo_base.mojom.JSTimeSpec.$, null, false, 0, undefined),
@@ -127,7 +127,7 @@ mojo.internal.Struct(
 // Interface: MediaClient
 mojo.internal.Struct(
     mojo.internal.bindings.ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec, 'ash.focus_mode.mojom.MediaClient_StartPlay_Params', [
-      mojo.internal.StructField('arg_track', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.focus_mode.mojom.TrackDefinitionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_track', 0, 0, mojo.internal.bindings.ash.focus_mode.mojom.TrackDefinitionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -283,7 +283,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParamsSpec, 'ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParams', [
-      mojo.internal.StructField('arg_track', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.focus_mode.mojom.TrackDefinitionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_track', 0, 0, mojo.internal.bindings.ash.focus_mode.mojom.TrackDefinitionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -295,7 +295,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_ReportPlayback_ParamsSpec, 'ash.focus_mode.mojom.TrackProvider_ReportPlayback_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.focus_mode.mojom.PlaybackDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.ash.focus_mode.mojom.PlaybackDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

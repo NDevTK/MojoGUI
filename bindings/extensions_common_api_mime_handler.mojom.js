@@ -111,13 +111,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec, 'extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParams', [
-      mojo.internal.StructField('arg_stream_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.extensions.mime_handler.StreamInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_stream_info', 0, 0, mojo.internal.bindings.extensions.mime_handler.StreamInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec, 'extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_Params', [
-      mojo.internal.StructField('arg_pdf_plugin_attributes', 0, 0, mojo.internal.bindings.mojo.internal.bindings.extensions.mime_handler.PdfPluginAttributesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pdf_plugin_attributes', 0, 0, mojo.internal.bindings.extensions.mime_handler.PdfPluginAttributesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

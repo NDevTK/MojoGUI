@@ -87,13 +87,13 @@ mojo.internal.Struct(
 // Struct: OriginMatcherRule
 mojo.internal.Struct(
     mojo.internal.bindings.origin_matcher.mojom.OriginMatcherRuleSpec, 'origin_matcher.mojom.OriginMatcherRule', [
-      mojo.internal.StructField('arg_subdomain_matching_rule', 0, 0, mojo.internal.bindings.mojo.internal.bindings.origin_matcher.mojom.SubdomainMatchingRuleSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_subdomain_matching_rule', 0, 0, mojo.internal.bindings.origin_matcher.mojom.SubdomainMatchingRuleSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: OriginMatcher
 mojo.internal.Struct(
     mojo.internal.bindings.origin_matcher.mojom.OriginMatcherSpec, 'origin_matcher.mojom.OriginMatcher', [
-      mojo.internal.StructField('arg_rules', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.origin_matcher.mojom.OriginMatcherRuleSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_rules', 0, 0, mojo.internal.Array(mojo.internal.bindings.origin_matcher.mojom.OriginMatcherRuleSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

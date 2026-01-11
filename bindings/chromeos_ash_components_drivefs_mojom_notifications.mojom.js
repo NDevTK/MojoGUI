@@ -85,7 +85,7 @@ mojo.internal.Union(
       },
       'arg_mirror_download_deleted': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.drivefs.mojom.MirrorDownloadDeletedNotificationSpec.$,
+        'type': mojo.internal.bindings.drivefs.mojom.MirrorDownloadDeletedNotificationSpec.$,
         'nullable': false,
       },
     });

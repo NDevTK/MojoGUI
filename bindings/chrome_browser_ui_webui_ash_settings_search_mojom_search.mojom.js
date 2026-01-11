@@ -137,8 +137,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_icon', 24, 0, mojo.internal.bindings.ash.settings.mojom.SearchResultIconSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_relevance_score', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_settings_page_hierarchy', 40, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_default_rank', 48, 0, mojo.internal.bindings.mojo.internal.bindings.ash.settings.mojom.SearchResultDefaultRankSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 56, 0, mojo.internal.bindings.mojo.internal.bindings.ash.settings.mojom.SearchResultTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_default_rank', 48, 0, mojo.internal.bindings.ash.settings.mojom.SearchResultDefaultRankSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 56, 0, mojo.internal.bindings.ash.settings.mojom.SearchResultTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_id', 64, 0, mojo.internal.bindings.ash.settings.mojom.SearchResultIdentifierSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_was_generated_from_text_match', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -298,14 +298,14 @@ mojo.internal.bindings.ash.settings.mojom.SearchResultsObserverRequest = mojo.in
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.SearchHandler_Search_ParamsSpec, 'ash.settings.mojom.SearchHandler_Search_Params', [
       mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_parent_result_behavior', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ash.settings.mojom.ParentResultBehaviorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_parent_result_behavior', 8, 0, mojo.internal.bindings.ash.settings.mojom.ParentResultBehaviorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_max_num_results', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.SearchHandler_Search_ResponseParamsSpec, 'ash.settings.mojom.SearchHandler_Search_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.settings.mojom.SearchResultSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.settings.mojom.SearchResultSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

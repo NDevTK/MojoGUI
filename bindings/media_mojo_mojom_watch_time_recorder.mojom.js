@@ -139,7 +139,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec, 'media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_Params', [
-      mojo.internal.StructField('arg_secondary_properties', 0, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.SecondaryPlaybackPropertiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_secondary_properties', 0, 0, mojo.internal.bindings.media.mojom.SecondaryPlaybackPropertiesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

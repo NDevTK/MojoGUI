@@ -259,7 +259,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec, 'mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mantis.mojom.MantisFeatureStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mantis.mojom.MantisFeatureStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -274,7 +274,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ResponseParamsSpec, 'mantis.mojom.MantisService_Initialize_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mantis.mojom.InitializeResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mantis.mojom.InitializeResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

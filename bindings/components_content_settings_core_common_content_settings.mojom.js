@@ -105,7 +105,7 @@ mojo.internal.Struct(
 // Struct: ContentSettingsPattern
 mojo.internal.Struct(
     mojo.internal.bindings.content_settings.mojom.ContentSettingsPatternSpec, 'content_settings.mojom.ContentSettingsPattern', [
-      mojo.internal.StructField('arg_parts', 0, 0, mojo.internal.bindings.mojo.internal.bindings.content_settings.mojom.PatternPartsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_parts', 0, 0, mojo.internal.bindings.content_settings.mojom.PatternPartsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_valid', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -129,10 +129,10 @@ mojo.internal.Struct(
 // Struct: ContentSettingPatternSource
 mojo.internal.Struct(
     mojo.internal.bindings.content_settings.mojom.ContentSettingPatternSourceSpec, 'content_settings.mojom.ContentSettingPatternSource', [
-      mojo.internal.StructField('arg_primary_pattern', 0, 0, mojo.internal.bindings.mojo.internal.bindings.content_settings.mojom.ContentSettingsPatternSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_secondary_pattern', 8, 0, mojo.internal.bindings.mojo.internal.bindings.content_settings.mojom.ContentSettingsPatternSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_primary_pattern', 0, 0, mojo.internal.bindings.content_settings.mojom.ContentSettingsPatternSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_secondary_pattern', 8, 0, mojo.internal.bindings.content_settings.mojom.ContentSettingsPatternSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_setting_value', 16, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_metadata', 24, 0, mojo.internal.bindings.mojo.internal.bindings.content_settings.mojom.RuleMetaDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata', 24, 0, mojo.internal.bindings.content_settings.mojom.RuleMetaDataSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_source', 32, 0, mojo.internal.bindings.content_settings.mojom.ProviderTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_incognito', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -141,6 +141,6 @@ mojo.internal.Struct(
 // Struct: RendererContentSettingRules
 mojo.internal.Struct(
     mojo.internal.bindings.content_settings.mojom.RendererContentSettingRulesSpec, 'content_settings.mojom.RendererContentSettingRules', [
-      mojo.internal.StructField('arg_mixed_content_rules', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.content_settings.mojom.ContentSettingPatternSourceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_mixed_content_rules', 0, 0, mojo.internal.Array(mojo.internal.bindings.content_settings.mojom.ContentSettingPatternSourceSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

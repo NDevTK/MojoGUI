@@ -105,7 +105,7 @@ mojo.internal.bindings.remoting.mojom.TransportRouteType = {
 // Struct: TransportRoute
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.TransportRouteSpec, 'remoting.mojom.TransportRoute', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.remoting.mojom.TransportRouteTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.remoting.mojom.TransportRouteTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_remote_address', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_local_address', 16, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec.$, null, false, 0, undefined),
     ],
@@ -560,7 +560,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientRouteChange_ParamsSpec, 'remoting.mojom.HostStatusObserver_OnClientRouteChange_Params', [
       mojo.internal.StructField('arg_signaling_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_channel_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_route', 16, 0, mojo.internal.bindings.mojo.internal.bindings.remoting.mojom.TransportRouteSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_route', 16, 0, mojo.internal.bindings.remoting.mojom.TransportRouteSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

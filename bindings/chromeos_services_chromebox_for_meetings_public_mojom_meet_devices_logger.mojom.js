@@ -123,7 +123,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.LoggerState = {
 // Struct: LoggerStatus
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.cfm.mojom.LoggerStatusSpec, 'chromeos.cfm.mojom.LoggerStatus', [
-      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.cfm.mojom.LoggerErrorCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.chromeos.cfm.mojom.LoggerErrorCodeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -131,7 +131,7 @@ mojo.internal.Struct(
 // Interface: LoggerStateObserver
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserver_OnNotifyState_ParamsSpec, 'chromeos.cfm.mojom.LoggerStateObserver_OnNotifyState_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -283,13 +283,13 @@ mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserverRequest = mojo.inte
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ParamsSpec, 'chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_Params', [
       mojo.internal.StructField('arg_record', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_priority', 8, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.cfm.mojom.EnqueuePrioritySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_priority', 8, 0, mojo.internal.bindings.chromeos.cfm.mojom.EnqueuePrioritySpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ResponseParamsSpec, 'chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.cfm.mojom.LoggerStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.chromeos.cfm.mojom.LoggerStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -95,7 +95,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_composition', 40, 0, mojo.internal.bindings.gfx.mojom.RangeSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_edit_context_control_bounds', 48, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_edit_context_selection_bounds', 56, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_ime_text_spans_info', 64, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ui.mojom.ImeTextSpanInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_ime_text_spans_info', 64, 0, mojo.internal.Array(mojo.internal.bindings.ui.mojom.ImeTextSpanInfoSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_node_id', 72, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_flags', 76, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_can_compose_inline', 80, 0, mojo.internal.Bool, true, false, 0, undefined),

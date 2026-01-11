@@ -270,7 +270,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpec, 'ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParams', [
-      mojo.internal.StructField('arg_apps', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.extended_updates.mojom.AppSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_apps', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.extended_updates.mojom.AppSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

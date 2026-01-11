@@ -192,17 +192,17 @@ mojo.internal.Union(
     mojo.internal.bindings.gpu.mojom.ContextCreationAttribsSpec, 'gpu.mojom.ContextCreationAttribs', {
       'arg_gles': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.GLESCreationAttribsSpec.$,
+        'type': mojo.internal.bindings.gpu.mojom.GLESCreationAttribsSpec.$,
         'nullable': false,
       },
       'arg_raster': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.RasterCreationAttribsSpec.$,
+        'type': mojo.internal.bindings.gpu.mojom.RasterCreationAttribsSpec.$,
         'nullable': false,
       },
       'arg_webgpu': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.WebGPUCreationAttribsSpec.$,
+        'type': mojo.internal.bindings.gpu.mojom.WebGPUCreationAttribsSpec.$,
         'nullable': false,
       },
     });
@@ -212,7 +212,7 @@ mojo.internal.Union(
     mojo.internal.bindings.gpu.mojom.DeferredRequestParamsSpec, 'gpu.mojom.DeferredRequestParams', {
       'arg_command_buffer_request': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.DeferredCommandBufferRequestSpec.$,
+        'type': mojo.internal.bindings.gpu.mojom.DeferredCommandBufferRequestSpec.$,
         'nullable': false,
       },
       'arg_shared_image_request': {
@@ -232,7 +232,7 @@ mojo.internal.Union(
     mojo.internal.bindings.gpu.mojom.DeferredCommandBufferRequestParamsSpec, 'gpu.mojom.DeferredCommandBufferRequestParams', {
       'arg_async_flush': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.AsyncFlushParamsSpec.$,
+        'type': mojo.internal.bindings.gpu.mojom.AsyncFlushParamsSpec.$,
         'nullable': false,
       },
       'arg_destroy_transfer_buffer': {
@@ -252,17 +252,17 @@ mojo.internal.Union(
       },
       'arg_create_shared_image': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.CreateSharedImageParamsSpec.$,
+        'type': mojo.internal.bindings.gpu.mojom.CreateSharedImageParamsSpec.$,
         'nullable': false,
       },
       'arg_create_shared_image_with_data': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.CreateSharedImageWithDataParamsSpec.$,
+        'type': mojo.internal.bindings.gpu.mojom.CreateSharedImageWithDataParamsSpec.$,
         'nullable': false,
       },
       'arg_create_shared_image_with_buffer': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.CreateSharedImageWithBufferParamsSpec.$,
+        'type': mojo.internal.bindings.gpu.mojom.CreateSharedImageWithBufferParamsSpec.$,
         'nullable': false,
       },
       'arg_register_upload_buffer': {
@@ -272,12 +272,12 @@ mojo.internal.Union(
       },
       'arg_update_shared_image': {
         'ordinal': 5,
-        'type': mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.UpdateSharedImageParamsSpec.$,
+        'type': mojo.internal.bindings.gpu.mojom.UpdateSharedImageParamsSpec.$,
         'nullable': false,
       },
       'arg_copy_to_gpu_memory_buffer': {
         'ordinal': 6,
-        'type': mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.CopyToGpuMemoryBufferParamsSpec.$,
+        'type': mojo.internal.bindings.gpu.mojom.CopyToGpuMemoryBufferParamsSpec.$,
         'nullable': false,
       },
       'arg_destroy_shared_image': {
@@ -287,32 +287,32 @@ mojo.internal.Union(
       },
       'arg_add_reference_to_shared_image': {
         'ordinal': 8,
-        'type': mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.AddReferenceToSharedImageParamsSpec.$,
+        'type': mojo.internal.bindings.gpu.mojom.AddReferenceToSharedImageParamsSpec.$,
         'nullable': false,
       },
       'arg_register_dxgi_fence': {
         'ordinal': 9,
-        'type': mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.RegisterDxgiFenceParamsSpec.$,
+        'type': mojo.internal.bindings.gpu.mojom.RegisterDxgiFenceParamsSpec.$,
         'nullable': false,
       },
       'arg_update_dxgi_fence': {
         'ordinal': 10,
-        'type': mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.UpdateDxgiFenceParamsSpec.$,
+        'type': mojo.internal.bindings.gpu.mojom.UpdateDxgiFenceParamsSpec.$,
         'nullable': false,
       },
       'arg_unregister_dxgi_fence': {
         'ordinal': 11,
-        'type': mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.UnregisterDxgiFenceParamsSpec.$,
+        'type': mojo.internal.bindings.gpu.mojom.UnregisterDxgiFenceParamsSpec.$,
         'nullable': false,
       },
       'arg_create_shared_image_pool': {
         'ordinal': 12,
-        'type': mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.CreateSharedImagePoolParamsSpec.$,
+        'type': mojo.internal.bindings.gpu.mojom.CreateSharedImagePoolParamsSpec.$,
         'nullable': false,
       },
       'arg_destroy_shared_image_pool': {
         'ordinal': 13,
-        'type': mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.DestroySharedImagePoolParamsSpec.$,
+        'type': mojo.internal.bindings.gpu.mojom.DestroySharedImagePoolParamsSpec.$,
         'nullable': false,
       },
     });
@@ -328,7 +328,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.GLESCreationAttribsSpec, 'gpu.mojom.GLESCreationAttribs', [
       mojo.internal.StructField('arg_gpu_preference', 0, 0, mojo.internal.bindings.gl.mojom.GpuPreferenceSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_context_type', 8, 0, mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.ContextTypeSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_context_type', 8, 0, mojo.internal.bindings.gpu.mojom.ContextTypeSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('arg_fail_if_major_perf_caveat', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_lose_context_when_out_of_memory', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -343,7 +343,7 @@ mojo.internal.Struct(
 // Struct: CreateCommandBufferParams
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.CreateCommandBufferParamsSpec, 'gpu.mojom.CreateCommandBufferParams', [
-      mojo.internal.StructField('arg_stream_priority', 0, 0, mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.SchedulingPrioritySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_stream_priority', 0, 0, mojo.internal.bindings.gpu.mojom.SchedulingPrioritySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_attribs', 8, 0, mojo.internal.bindings.gpu.mojom.ContextCreationAttribsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_active_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_label', 24, 0, mojo.internal.String, null, false, 0, undefined),
@@ -402,7 +402,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.CreateSharedImageParamsSpec, 'gpu.mojom.CreateSharedImageParams', [
       mojo.internal.StructField('arg_mailbox', 0, 0, mojo.internal.bindings.gpu.mojom.MailboxSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_si_info', 8, 0, mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.SharedImageInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_si_info', 8, 0, mojo.internal.bindings.gpu.mojom.SharedImageInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_pool_id', 16, 0, mojo.internal.bindings.gpu.mojom.SharedImagePoolIdSpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
@@ -411,7 +411,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.CreateSharedImageWithDataParamsSpec, 'gpu.mojom.CreateSharedImageWithDataParams', [
       mojo.internal.StructField('arg_mailbox', 0, 0, mojo.internal.bindings.gpu.mojom.MailboxSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_si_info', 8, 0, mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.SharedImageInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_si_info', 8, 0, mojo.internal.bindings.gpu.mojom.SharedImageInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_pixel_data_offset', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_pixel_data_size', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_done_with_shm', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -422,7 +422,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.CreateSharedImageWithBufferParamsSpec, 'gpu.mojom.CreateSharedImageWithBufferParams', [
       mojo.internal.StructField('arg_mailbox', 0, 0, mojo.internal.bindings.gpu.mojom.MailboxSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_si_info', 8, 0, mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.SharedImageInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_si_info', 8, 0, mojo.internal.bindings.gpu.mojom.SharedImageInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_buffer_handle', 16, 0, mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_pool_id', 24, 0, mojo.internal.bindings.gpu.mojom.SharedImagePoolIdSpec.$, null, true, 0, undefined),
     ],
@@ -536,7 +536,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.GpuChannel_CreateCommandBuffer_ParamsSpec, 'gpu.mojom.GpuChannel_CreateCommandBuffer_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.CreateCommandBufferParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.gpu.mojom.CreateCommandBufferParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_shared_state', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_receiver', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.gpu.mojom.CommandBufferSpec), null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 24, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.gpu.mojom.CommandBufferClientSpec), null, false, 0, undefined),
@@ -565,7 +565,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.GpuChannel_FlushDeferredRequests_ParamsSpec, 'gpu.mojom.GpuChannel_FlushDeferredRequests_Params', [
-      mojo.internal.StructField('arg_requests', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.DeferredRequestSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_requests', 0, 0, mojo.internal.Array(mojo.internal.bindings.gpu.mojom.DeferredRequestSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_flushed_deferred_message_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -620,7 +620,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.GpuChannel_WaitForTokenInRange_ResponseParamsSpec, 'gpu.mojom.GpuChannel_WaitForTokenInRange_ResponseParams', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.CommandBufferStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.gpu.mojom.CommandBufferStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -635,7 +635,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ResponseParamsSpec, 'gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ResponseParams', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.CommandBufferStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.gpu.mojom.CommandBufferStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1782,7 +1782,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnSignalAck_ParamsSpec, 'gpu.mojom.CommandBufferClient_OnSignalAck_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.CommandBufferStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.gpu.mojom.CommandBufferStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_signal_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

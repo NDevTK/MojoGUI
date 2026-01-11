@@ -111,7 +111,7 @@ mojo.internal.Union(
       },
       'arg_multiplanar_format': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.viz.mojom.MultiplanarFormatSpec.$,
+        'type': mojo.internal.bindings.viz.mojom.MultiplanarFormatSpec.$,
         'nullable': false,
       },
     });
@@ -119,9 +119,9 @@ mojo.internal.Union(
 // Struct: MultiplanarFormat
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.MultiplanarFormatSpec, 'viz.mojom.MultiplanarFormat', [
-      mojo.internal.StructField('arg_plane_config', 0, 0, mojo.internal.bindings.mojo.internal.bindings.viz.mojom.PlaneConfigSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_subsampling', 8, 0, mojo.internal.bindings.mojo.internal.bindings.viz.mojom.SubsamplingSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_channel_format', 16, 0, mojo.internal.bindings.mojo.internal.bindings.viz.mojom.ChannelFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_plane_config', 0, 0, mojo.internal.bindings.viz.mojom.PlaneConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_subsampling', 8, 0, mojo.internal.bindings.viz.mojom.SubsamplingSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_channel_format', 16, 0, mojo.internal.bindings.viz.mojom.ChannelFormatSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_prefers_external_sampler', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);

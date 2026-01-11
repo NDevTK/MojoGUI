@@ -99,7 +99,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ControllerServiceWorkerInfoSpec, 'blink.mojom.ControllerServiceWorkerInfo', [
       mojo.internal.StructField('arg_fetch_handler_bypass_option', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerFetchHandlerBypassOptionSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('arg_sha256_script_checksum', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_router_data', 16, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ServiceWorkerRouterDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_router_data', 16, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerRouterDataSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_remote_controller', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ControllerServiceWorkerSpec), null, true, 0, undefined),
       mojo.internal.StructField('arg_client_id', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_fetch_request_window_id', 40, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),

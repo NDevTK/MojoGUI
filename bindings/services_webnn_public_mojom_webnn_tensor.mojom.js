@@ -113,7 +113,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.TensorInfoSpec, 'webnn.mojom.TensorInfo', [
       mojo.internal.StructField('arg_descriptor', 0, 0, mojo.internal.bindings.webnn.mojom.OperandDescriptorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_usage', 8, 0, mojo.internal.bindings.mojo.internal.bindings.webnn.mojom.TensorUsageSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_usage', 8, 0, mojo.internal.bindings.webnn.mojom.TensorUsageSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

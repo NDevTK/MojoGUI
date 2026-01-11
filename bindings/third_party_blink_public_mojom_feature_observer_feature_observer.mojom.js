@@ -201,7 +201,7 @@ mojo.internal.bindings.blink.mojom.ObservedFeatureRequest = mojo.internal.bindin
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FeatureObserver_Register_ParamsSpec, 'blink.mojom.FeatureObserver_Register_Params', [
       mojo.internal.StructField('arg_feature', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ObservedFeatureSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ObservedFeatureTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.blink.mojom.ObservedFeatureTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

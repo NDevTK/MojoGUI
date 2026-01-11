@@ -172,7 +172,7 @@ mojo.internal.bindings.dlp_internals.mojom.UserType = {
 // Struct: DataTransferEndpoint
 mojo.internal.Struct(
     mojo.internal.bindings.dlp_internals.mojom.DataTransferEndpointSpec, 'dlp_internals.mojom.DataTransferEndpoint', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.dlp_internals.mojom.EndpointTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.dlp_internals.mojom.EndpointTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -180,8 +180,8 @@ mojo.internal.Struct(
 // Struct: ContentRestrictionInfo
 mojo.internal.Struct(
     mojo.internal.bindings.dlp_internals.mojom.ContentRestrictionInfoSpec, 'dlp_internals.mojom.ContentRestrictionInfo', [
-      mojo.internal.StructField('arg_restriction', 0, 0, mojo.internal.bindings.mojo.internal.bindings.dlp_internals.mojom.ContentRestrictionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_level', 8, 0, mojo.internal.bindings.mojo.internal.bindings.dlp_internals.mojom.LevelSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_restriction', 0, 0, mojo.internal.bindings.dlp_internals.mojom.ContentRestrictionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_level', 8, 0, mojo.internal.bindings.dlp_internals.mojom.LevelSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -190,7 +190,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.dlp_internals.mojom.RenderFrameHostInfoSpec, 'dlp_internals.mojom.RenderFrameHostInfo', [
       mojo.internal.StructField('arg_last_committed_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_restrictions_info', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.dlp_internals.mojom.ContentRestrictionInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_restrictions_info', 8, 0, mojo.internal.Array(mojo.internal.bindings.dlp_internals.mojom.ContentRestrictionInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -198,8 +198,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.dlp_internals.mojom.WebContentsInfoSpec, 'dlp_internals.mojom.WebContentsInfo', [
       mojo.internal.StructField('arg_last_committed_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_restrictions_info', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.dlp_internals.mojom.ContentRestrictionInfoSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_frames_info', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.dlp_internals.mojom.RenderFrameHostInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_restrictions_info', 8, 0, mojo.internal.Array(mojo.internal.bindings.dlp_internals.mojom.ContentRestrictionInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_frames_info', 16, 0, mojo.internal.Array(mojo.internal.bindings.dlp_internals.mojom.RenderFrameHostInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -244,7 +244,7 @@ mojo.internal.Struct(
 // Interface: ReportingObserver
 mojo.internal.Struct(
     mojo.internal.bindings.dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec, 'dlp_internals.mojom.ReportingObserver_OnReportEvent_Params', [
-      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.mojo.internal.bindings.dlp_internals.mojom.DlpEventSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.dlp_internals.mojom.DlpEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -400,7 +400,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec, 'dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParams', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.mojo.internal.bindings.dlp_internals.mojom.DataTransferEndpointSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.dlp_internals.mojom.DataTransferEndpointSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -411,7 +411,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec, 'dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParams', [
-      mojo.internal.StructField('arg_web_contents_info', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.dlp_internals.mojom.WebContentsInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_web_contents_info', 0, 0, mojo.internal.Array(mojo.internal.bindings.dlp_internals.mojom.WebContentsInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -428,7 +428,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec, 'dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParams', [
-      mojo.internal.StructField('arg_db_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.dlp_internals.mojom.FileDatabaseEntrySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_db_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.dlp_internals.mojom.FileDatabaseEntrySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

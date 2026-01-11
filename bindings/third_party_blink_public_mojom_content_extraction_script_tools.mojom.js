@@ -87,6 +87,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_description', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_input_schema', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_annotations', 24, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ScriptToolAnnotationsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_annotations', 24, 0, mojo.internal.bindings.blink.mojom.ScriptToolAnnotationsSpec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);

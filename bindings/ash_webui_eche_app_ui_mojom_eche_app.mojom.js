@@ -777,7 +777,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProviderRequest = mojo.inter
 // Interface: SystemInfoObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserver_OnScreenBacklightStateChanged_ParamsSpec, 'ash.eche_app.mojom.SystemInfoObserver_OnScreenBacklightStateChanged_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.eche_app.mojom.ScreenBacklightStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.eche_app.mojom.ScreenBacklightStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1704,7 +1704,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.eche_app.mojom.NotificationGenerator_ShowNotification_ParamsSpec, 'ash.eche_app.mojom.NotificationGenerator_ShowNotification_Params', [
       mojo.internal.StructField('arg_title', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_message', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.mojo.internal.bindings.ash.eche_app.mojom.WebNotificationTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.ash.eche_app.mojom.WebNotificationTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -1898,7 +1898,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandler_OnStreamStatusChanged_ParamsSpec, 'ash.eche_app.mojom.DisplayStreamHandler_OnStreamStatusChanged_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.eche_app.mojom.StreamStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.ash.eche_app.mojom.StreamStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2119,7 +2119,7 @@ mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandlerRequest = mojo.int
 // Interface: StreamActionObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.eche_app.mojom.StreamActionObserver_OnStreamAction_ParamsSpec, 'ash.eche_app.mojom.StreamActionObserver_OnStreamAction_Params', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.eche_app.mojom.StreamActionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.ash.eche_app.mojom.StreamActionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2421,7 +2421,7 @@ mojo.internal.bindings.ash.eche_app.mojom.StreamOrientationObserverRequest = moj
 // Interface: ConnectionStatusObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.eche_app.mojom.ConnectionStatusObserver_OnConnectionStatusChanged_ParamsSpec, 'ash.eche_app.mojom.ConnectionStatusObserver_OnConnectionStatusChanged_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.eche_app.mojom.ConnectionStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.ash.eche_app.mojom.ConnectionStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

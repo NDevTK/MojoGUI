@@ -240,7 +240,7 @@ mojo.internal.bindings.blink.mojom.OomInterventionHostRequest = mojo.internal.bi
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.OomIntervention_StartDetection_ParamsSpec, 'blink.mojom.OomIntervention_StartDetection_Params', [
       mojo.internal.StructField('arg_host', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.OomInterventionHostSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_detection_args', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.DetectionArgsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_detection_args', 8, 0, mojo.internal.bindings.blink.mojom.DetectionArgsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_renderer_pause_enabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_navigate_ads_enabled', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_purge_v8_memory_enabled', 16, 2, mojo.internal.Bool, false, false, 0, undefined),

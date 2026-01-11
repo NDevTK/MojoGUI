@@ -124,7 +124,7 @@ mojo.internal.Union(
     mojo.internal.bindings.mantis.mojom.MantisResultSpec, 'mantis.mojom.MantisResult', {
       'arg_error': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.mantis.mojom.MantisErrorSpec.$,
+        'type': mojo.internal.bindings.mantis.mojom.MantisErrorSpec.$,
         'nullable': false,
       },
       'arg_result_image': {
@@ -193,7 +193,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.mantis.mojom.MantisProcessor_ClassifyImageSafety_ResponseParamsSpec, 'mantis.mojom.MantisProcessor_ClassifyImageSafety_ResponseParams', [
-      mojo.internal.StructField('arg_verdict', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mantis.mojom.SafetyClassifierVerdictSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_verdict', 0, 0, mojo.internal.bindings.mantis.mojom.SafetyClassifierVerdictSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -213,13 +213,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec, 'mantis.mojom.MantisProcessor_InferSegmentationMode_Params', [
-      mojo.internal.StructField('arg_gesture', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.mantis.mojom.TouchPointSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_gesture', 0, 0, mojo.internal.Array(mojo.internal.bindings.mantis.mojom.TouchPointSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.mantis.mojom.MantisProcessor_InferSegmentationMode_ResponseParamsSpec, 'mantis.mojom.MantisProcessor_InferSegmentationMode_ResponseParams', [
-      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mantis.mojom.SegmentationModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.mantis.mojom.SegmentationModeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

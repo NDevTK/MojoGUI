@@ -120,7 +120,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec, 'add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.add_supervision.mojom.OAuthTokenFetchStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.add_supervision.mojom.OAuthTokenFetchStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_oauth_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);

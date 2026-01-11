@@ -184,17 +184,17 @@ mojo.internal.Union(
     mojo.internal.bindings.crosapi.mojom.KeystoreAlgorithmSpec, 'crosapi.mojom.KeystoreAlgorithm', {
       'arg_rsassa_pkcs115': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.KeystoreRsaParamsSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.KeystoreRsaParamsSpec.$,
         'nullable': false,
       },
       'arg_rsa_oaep': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.KeystoreRsaParamsSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.KeystoreRsaParamsSpec.$,
         'nullable': false,
       },
       'arg_ecdsa': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.KeystoreEcdsaParamsSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.KeystoreEcdsaParamsSpec.$,
         'nullable': false,
       },
     });
@@ -269,7 +269,7 @@ mojo.internal.Union(
       },
       'arg_key_stores': {
         'ordinal': 1,
-        'type': mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, false),
+        'type': mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, false),
         'nullable': false,
       },
     });
@@ -284,7 +284,7 @@ mojo.internal.Union(
       },
       'arg_success_result': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.GetPublicKeySuccessResultSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.GetPublicKeySuccessResultSpec.$,
         'nullable': false,
       },
     });
@@ -329,7 +329,7 @@ mojo.internal.Union(
       },
       'arg_success_result': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.GetPublicKeySuccessResultSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.GetPublicKeySuccessResultSpec.$,
         'nullable': false,
       },
     });
@@ -344,7 +344,7 @@ mojo.internal.Union(
       },
       'arg_key_stores': {
         'ordinal': 1,
-        'type': mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, false),
+        'type': mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, false),
         'nullable': false,
       },
     });
@@ -406,10 +406,10 @@ mojo.internal.Struct(
 // Interface: KeystoreService
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ParamsSpec, 'crosapi.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_challenge', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_migrate', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_algorithm', 24, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.KeystoreAlgorithmNameSpec.$, null, false, 17, undefined),
+      mojo.internal.StructField('arg_algorithm', 24, 0, mojo.internal.bindings.crosapi.mojom.KeystoreAlgorithmNameSpec.$, null, false, 17, undefined),
     ],
     [[0, 32], [17, 40]]);
 
@@ -444,7 +444,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.KeystoreService_GetCertificates_ParamsSpec, 'crosapi.mojom.KeystoreService_GetCertificates_Params', [
-      mojo.internal.StructField('arg_keystore', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_keystore', 0, 0, mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -456,7 +456,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.KeystoreService_AddCertificate_ParamsSpec, 'crosapi.mojom.KeystoreService_AddCertificate_Params', [
-      mojo.internal.StructField('arg_keystore', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_keystore', 0, 0, mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_certificate', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -470,7 +470,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.KeystoreService_RemoveCertificate_ParamsSpec, 'crosapi.mojom.KeystoreService_RemoveCertificate_Params', [
-      mojo.internal.StructField('arg_keystore', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_keystore', 0, 0, mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_certificate', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -485,7 +485,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.KeystoreService_GetPublicKey_ParamsSpec, 'crosapi.mojom.KeystoreService_GetPublicKey_Params', [
       mojo.internal.StructField('arg_certificate', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_algorithm_name', 8, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.KeystoreAlgorithmNameSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_algorithm_name', 8, 0, mojo.internal.bindings.crosapi.mojom.KeystoreAlgorithmNameSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -497,7 +497,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.KeystoreService_GenerateKey_ParamsSpec, 'crosapi.mojom.KeystoreService_GenerateKey_Params', [
-      mojo.internal.StructField('arg_keystore', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_keystore', 0, 0, mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_algorithm', 8, 0, mojo.internal.bindings.crosapi.mojom.KeystoreAlgorithmSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -510,7 +510,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.KeystoreService_RemoveKey_ParamsSpec, 'crosapi.mojom.KeystoreService_RemoveKey_Params', [
-      mojo.internal.StructField('arg_keystore', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_keystore', 0, 0, mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_public_key', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -524,9 +524,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.KeystoreService_Sign_ParamsSpec, 'crosapi.mojom.KeystoreService_Sign_Params', [
-      mojo.internal.StructField('arg_keystore', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_keystore', 0, 0, mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_public_key', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_scheme', 16, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.KeystoreSigningSchemeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scheme', 16, 0, mojo.internal.bindings.crosapi.mojom.KeystoreSigningSchemeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_data', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_is_keystore_provided', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -578,9 +578,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.KeystoreService_SetAttributeForKey_ParamsSpec, 'crosapi.mojom.KeystoreService_SetAttributeForKey_Params', [
-      mojo.internal.StructField('arg_keystore', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_keystore', 0, 0, mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_public_key', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_attribute_type', 16, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.KeystoreKeyAttributeTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_attribute_type', 16, 0, mojo.internal.bindings.crosapi.mojom.KeystoreKeyAttributeTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_attribute_value', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -594,7 +594,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ParamsSpec, 'crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_Params', [
-      mojo.internal.StructField('arg_keystore', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_keystore', 0, 0, mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_algorithm', 8, 0, mojo.internal.bindings.crosapi.mojom.KeystoreAlgorithmSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_extension_id', 16, 0, mojo.internal.String, null, true, 5, undefined),
     ],
@@ -608,9 +608,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ExtensionSign_ParamsSpec, 'crosapi.mojom.KeystoreService_DEPRECATED_ExtensionSign_Params', [
-      mojo.internal.StructField('arg_keystore', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_keystore', 0, 0, mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_public_key', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_scheme', 16, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.KeystoreSigningSchemeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scheme', 16, 0, mojo.internal.bindings.crosapi.mojom.KeystoreSigningSchemeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_data', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_extension_id', 32, 0, mojo.internal.String, null, false, 0, undefined),
     ],
@@ -625,7 +625,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetPublicKey_ParamsSpec, 'crosapi.mojom.KeystoreService_DEPRECATED_GetPublicKey_Params', [
       mojo.internal.StructField('arg_certificate', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_algorithm_name', 8, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.KeystoreAlgorithmNameSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_algorithm_name', 8, 0, mojo.internal.bindings.crosapi.mojom.KeystoreAlgorithmNameSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -648,7 +648,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetCertificates_ParamsSpec, 'crosapi.mojom.KeystoreService_DEPRECATED_GetCertificates_Params', [
-      mojo.internal.StructField('arg_keystore', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_keystore', 0, 0, mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -660,7 +660,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_AddCertificate_ParamsSpec, 'crosapi.mojom.KeystoreService_DEPRECATED_AddCertificate_Params', [
-      mojo.internal.StructField('arg_keystore', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_keystore', 0, 0, mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_certificate', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -673,7 +673,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_RemoveCertificate_ParamsSpec, 'crosapi.mojom.KeystoreService_DEPRECATED_RemoveCertificate_Params', [
-      mojo.internal.StructField('arg_keystore', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_keystore', 0, 0, mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_certificate', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -687,7 +687,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_ParamsSpec, 'crosapi.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_Params', [
       mojo.internal.StructField('arg_challenge', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.crosapi.mojom.KeystoreTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_migrate', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);

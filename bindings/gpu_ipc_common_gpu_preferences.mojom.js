@@ -125,11 +125,11 @@ mojo.internal.bindings.gpu.mojom.DawnBackendValidationLevel = {
 // Struct: GpuPreferences
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.GpuPreferencesSpec, 'gpu.mojom.GpuPreferences', [
-      mojo.internal.StructField('arg_gr_context_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.GrContextTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_use_vulkan', 8, 0, mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.VulkanImplementationNameSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_use_webgpu_adapter', 16, 0, mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.WebGPUAdapterNameSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_use_webgpu_power_preference', 24, 0, mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.WebGPUPowerPreferenceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_dawn_backend_validation', 32, 0, mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.DawnBackendValidationLevelSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gr_context_type', 0, 0, mojo.internal.bindings.gpu.mojom.GrContextTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_use_vulkan', 8, 0, mojo.internal.bindings.gpu.mojom.VulkanImplementationNameSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_use_webgpu_adapter', 16, 0, mojo.internal.bindings.gpu.mojom.WebGPUAdapterNameSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_use_webgpu_power_preference', 24, 0, mojo.internal.bindings.gpu.mojom.WebGPUPowerPreferenceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_dawn_backend_validation', 32, 0, mojo.internal.bindings.gpu.mojom.DawnBackendValidationLevelSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_enabled_dawn_features_list', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_disabled_dawn_features_list', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_message_pump_type', 56, 0, mojo.internal.bindings.mojo_base.mojom.MessagePumpTypeSpec.$, null, false, 0, undefined),

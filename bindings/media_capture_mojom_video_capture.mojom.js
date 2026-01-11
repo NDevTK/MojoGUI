@@ -110,7 +110,7 @@ mojo.internal.Union(
     mojo.internal.bindings.media.mojom.VideoCaptureResultSpec, 'media.mojom.VideoCaptureResult', {
       'arg_state': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.media.mojom.VideoCaptureStateSpec.$,
+        'type': mojo.internal.bindings.media.mojom.VideoCaptureStateSpec.$,
         'nullable': false,
       },
       'arg_error_code': {

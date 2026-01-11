@@ -112,7 +112,7 @@ mojo.internal.Struct(
 // Interface: LCPCriticalPathPredictorHost
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_ParamsSpec, 'blink.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_Params', [
-      mojo.internal.StructField('arg_lcp_element', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.LcpElementSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_lcp_element', 0, 0, mojo.internal.bindings.blink.mojom.LcpElementSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

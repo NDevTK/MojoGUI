@@ -110,12 +110,12 @@ mojo.internal.Union(
       },
       'arg_dictionary_value': {
         'ordinal': 6,
-        'type': mojo.internal.bindings.mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec.$,
+        'type': mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec.$,
         'nullable': false,
       },
       'arg_list_value': {
         'ordinal': 7,
-        'type': mojo.internal.bindings.mojo.internal.bindings.mojo_base.mojom.ListValueSpec.$,
+        'type': mojo.internal.bindings.mojo_base.mojom.ListValueSpec.$,
         'nullable': false,
       },
     });

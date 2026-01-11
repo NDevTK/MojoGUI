@@ -90,6 +90,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_icon_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_title', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_item_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_recommendation_type', 40, 0, mojo.internal.bindings.mojo.internal.bindings.file_suggestion.mojom.RecommendationTypeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_recommendation_type', 40, 0, mojo.internal.bindings.file_suggestion.mojom.RecommendationTypeSpec.$, null, true, 0, undefined),
     ],
     [[0, 56]]);

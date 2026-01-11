@@ -375,7 +375,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec, 'ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_Params', [
-      mojo.internal.StructField('arg_step', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdateStepSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_step', 0, 0, mojo.internal.bindings.ash.screens_oobe.mojom.ConsumerUpdateStepSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -217,7 +217,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.CameraService_GetDeviceSupportedFormats_ResponseParamsSpec, 'arc.mojom.CameraService_GetDeviceSupportedFormats_ResponseParams', [
-      mojo.internal.StructField('arg_supported_formats', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.arc.mojom.CameraSupportedFormatSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_supported_formats', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.CameraSupportedFormatSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -228,7 +228,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.CameraService_GetCameraDeviceInfos_ResponseParamsSpec, 'arc.mojom.CameraService_GetCameraDeviceInfos_ResponseParams', [
-      mojo.internal.StructField('arg_device_infos', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.arc.mojom.CameraDeviceInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_infos', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.CameraDeviceInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

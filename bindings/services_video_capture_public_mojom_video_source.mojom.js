@@ -105,7 +105,7 @@ mojo.internal.Union(
     mojo.internal.bindings.video_capture.mojom.CreatePushSubscriptionResultCodeSpec, 'video_capture.mojom.CreatePushSubscriptionResultCode', {
       'arg_success_code': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.video_capture.mojom.CreatePushSubscriptionSuccessCodeSpec.$,
+        'type': mojo.internal.bindings.video_capture.mojom.CreatePushSubscriptionSuccessCodeSpec.$,
         'nullable': false,
       },
       'arg_error_code': {

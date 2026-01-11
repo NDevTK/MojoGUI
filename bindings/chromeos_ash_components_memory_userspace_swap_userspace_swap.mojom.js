@@ -97,7 +97,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_uffd_error', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_uffd_handle', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('arg_mmap_error', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_swap_area', 24, 0, mojo.internal.bindings.mojo.internal.bindings.userspace_swap.mojom.MemoryRegionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_swap_area', 24, 0, mojo.internal.bindings.userspace_swap.mojom.MemoryRegionSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -261,14 +261,14 @@ mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitializationRequest =
 // Interface: UserspaceSwap
 mojo.internal.Struct(
     mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec, 'userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_Params', [
-      mojo.internal.StructField('arg_src', 0, 0, mojo.internal.bindings.mojo.internal.bindings.userspace_swap.mojom.MemoryRegionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_src', 0, 0, mojo.internal.bindings.userspace_swap.mojom.MemoryRegionSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_dest', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec, 'userspace_swap.mojom.UserspaceSwap_MapArea_Params', [
-      mojo.internal.StructField('arg_area', 0, 0, mojo.internal.bindings.mojo.internal.bindings.userspace_swap.mojom.MemoryRegionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_area', 0, 0, mojo.internal.bindings.userspace_swap.mojom.MemoryRegionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -280,7 +280,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec, 'userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParams', [
-      mojo.internal.StructField('arg_superpages', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.userspace_swap.mojom.MemoryRegionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_superpages', 0, 0, mojo.internal.Array(mojo.internal.bindings.userspace_swap.mojom.MemoryRegionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

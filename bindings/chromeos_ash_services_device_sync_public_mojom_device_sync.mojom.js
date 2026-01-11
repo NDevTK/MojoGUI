@@ -184,7 +184,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.device_sync.mojom.DeviceActivityStatusSpec, 'ash.device_sync.mojom.DeviceActivityStatus', [
       mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_last_activity_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_connectivity_status', 16, 0, mojo.internal.bindings.mojo.internal.bindings.ash.device_sync.mojom.ConnectivityStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_connectivity_status', 16, 0, mojo.internal.bindings.ash.device_sync.mojom.ConnectivityStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_last_update_time', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -431,7 +431,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ResponseParamsSpec, 'ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.device_sync.mojom.GroupPrivateKeyStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.ash.device_sync.mojom.GroupPrivateKeyStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -442,7 +442,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ResponseParamsSpec, 'ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.device_sync.mojom.BetterTogetherMetadataStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.ash.device_sync.mojom.BetterTogetherMetadataStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -479,7 +479,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ResponseParamsSpec, 'ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ResponseParams', [
-      mojo.internal.StructField('arg_result_code', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.device_sync.mojom.NetworkRequestResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result_code', 0, 0, mojo.internal.bindings.ash.device_sync.mojom.NetworkRequestResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -487,13 +487,13 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ParamsSpec, 'ash.device_sync.mojom.DeviceSync_SetFeatureStatus_Params', [
       mojo.internal.StructField('arg_device_instance_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_feature', 8, 0, mojo.internal.bindings.ash.multidevice.mojom.SoftwareFeatureSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status_change', 16, 0, mojo.internal.bindings.mojo.internal.bindings.ash.device_sync.mojom.FeatureStatusChangeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status_change', 16, 0, mojo.internal.bindings.ash.device_sync.mojom.FeatureStatusChangeSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ResponseParamsSpec, 'ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ResponseParams', [
-      mojo.internal.StructField('arg_result_code', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.device_sync.mojom.NetworkRequestResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result_code', 0, 0, mojo.internal.bindings.ash.device_sync.mojom.NetworkRequestResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -505,22 +505,22 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ResponseParamsSpec, 'ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ResponseParams', [
-      mojo.internal.StructField('arg_result_code', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.device_sync.mojom.NetworkRequestResultSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_response', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ash.device_sync.mojom.FindEligibleDevicesResponseSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_result_code', 0, 0, mojo.internal.bindings.ash.device_sync.mojom.NetworkRequestResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 8, 0, mojo.internal.bindings.ash.device_sync.mojom.FindEligibleDevicesResponseSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_NotifyDevices_ParamsSpec, 'ash.device_sync.mojom.DeviceSync_NotifyDevices_Params', [
       mojo.internal.StructField('arg_device_instance_ids', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_cryptauth_service', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ash.device_sync.mojom.CryptAuthServiceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cryptauth_service', 8, 0, mojo.internal.bindings.ash.device_sync.mojom.CryptAuthServiceSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_feature', 16, 0, mojo.internal.bindings.ash.multidevice.mojom.SoftwareFeatureSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_NotifyDevices_ResponseParamsSpec, 'ash.device_sync.mojom.DeviceSync_NotifyDevices_ResponseParams', [
-      mojo.internal.StructField('arg_result_code', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.device_sync.mojom.NetworkRequestResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result_code', 0, 0, mojo.internal.bindings.ash.device_sync.mojom.NetworkRequestResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -531,8 +531,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ResponseParamsSpec, 'ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ResponseParams', [
-      mojo.internal.StructField('arg_result_code', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.device_sync.mojom.NetworkRequestResultSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_activity_statuses', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.device_sync.mojom.DeviceActivityStatusSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_result_code', 0, 0, mojo.internal.bindings.ash.device_sync.mojom.NetworkRequestResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_activity_statuses', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.device_sync.mojom.DeviceActivityStatusSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -543,7 +543,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetDebugInfo_ResponseParamsSpec, 'ash.device_sync.mojom.DeviceSync_GetDebugInfo_ResponseParams', [
-      mojo.internal.StructField('arg_debug_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.device_sync.mojom.DebugInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_debug_info', 0, 0, mojo.internal.bindings.ash.device_sync.mojom.DebugInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -106,7 +106,7 @@ mojo.internal.bindings.android_webview.mojom.HitTestDataType = {
 // Struct: HitTestData
 mojo.internal.Struct(
     mojo.internal.bindings.android_webview.mojom.HitTestDataSpec, 'android_webview.mojom.HitTestData', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.android_webview.mojom.HitTestDataTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.android_webview.mojom.HitTestDataTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_extra_data_for_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_href', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_anchor_text', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
@@ -434,7 +434,7 @@ mojo.internal.bindings.android_webview.mojom.LocalMainFrameRequest = mojo.intern
 // Interface: FrameHost
 mojo.internal.Struct(
     mojo.internal.bindings.android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec, 'android_webview.mojom.FrameHost_UpdateHitTestData_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.android_webview.mojom.HitTestDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.android_webview.mojom.HitTestDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -94,12 +94,12 @@ mojo.internal.bindings.network.mojom.IsolationInfoFrameAncestorRelation = {
 // Struct: IsolationInfo
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.IsolationInfoSpec, 'network.mojom.IsolationInfo', [
-      mojo.internal.StructField('arg_request_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.IsolationInfoRequestTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_type', 0, 0, mojo.internal.bindings.network.mojom.IsolationInfoRequestTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_top_frame_origin', 8, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_frame_origin', 16, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_nonce', 24, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_site_for_cookies', 32, 0, mojo.internal.bindings.network.mojom.SiteForCookiesSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_network_isolation_partition', 40, 0, mojo.internal.bindings.network.mojom.NetworkIsolationPartitionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_ancestor_relation', 48, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.IsolationInfoFrameAncestorRelationSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_frame_ancestor_relation', 48, 0, mojo.internal.bindings.network.mojom.IsolationInfoFrameAncestorRelationSpec.$, null, true, 0, undefined),
     ],
     [[0, 64]]);

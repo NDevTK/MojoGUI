@@ -108,7 +108,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.MahiContextMenuRequestSpec, 'crosapi.mojom.MahiContextMenuRequest', [
       mojo.internal.StructField('arg_display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_action_type', 8, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.MahiContextMenuActionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action_type', 8, 0, mojo.internal.bindings.crosapi.mojom.MahiContextMenuActionTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_question', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_mahi_menu_bounds', 24, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, true, 1, undefined),
     ],

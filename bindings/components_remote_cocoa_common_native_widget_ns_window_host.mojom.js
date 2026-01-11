@@ -301,7 +301,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHitTestResult_ResponseParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHitTestResult_ResponseParams', [
-      mojo.internal.StructField('arg_hit_test_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.remote_cocoa.mojom.HitTestResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_hit_test_result', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.HitTestResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -558,7 +558,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_ValidateUserInterfaceItem_ResponseParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindowHost_ValidateUserInterfaceItem_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.remote_cocoa.mojom.ValidateUserInterfaceItemResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.ValidateUserInterfaceItemResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

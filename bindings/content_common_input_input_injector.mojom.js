@@ -139,10 +139,10 @@ mojo.internal.bindings.content.mojom.InputEventPattern = {
 // Struct: SyntheticSmoothDrag
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.SyntheticSmoothDragSpec, 'content.mojom.SyntheticSmoothDrag', [
-      mojo.internal.StructField('arg_gesture_source_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.GestureSourceTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gesture_source_type', 0, 0, mojo.internal.bindings.content.mojom.GestureSourceTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_start_point', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_distances', 16, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.Vector2dFSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_input_event_pattern', 24, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.InputEventPatternSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_event_pattern', 24, 0, mojo.internal.bindings.content.mojom.InputEventPatternSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_speed_in_pixels_s', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_vsync_offset_ms', 36, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
@@ -151,11 +151,11 @@ mojo.internal.Struct(
 // Struct: SyntheticSmoothScroll
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.SyntheticSmoothScrollSpec, 'content.mojom.SyntheticSmoothScroll', [
-      mojo.internal.StructField('arg_gesture_source_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.GestureSourceTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gesture_source_type', 0, 0, mojo.internal.bindings.content.mojom.GestureSourceTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_anchor', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_distances', 16, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.Vector2dFSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_granularity', 24, 0, mojo.internal.bindings.ui.mojom.ScrollGranularitySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_input_event_pattern', 32, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.InputEventPatternSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_event_pattern', 32, 0, mojo.internal.bindings.content.mojom.InputEventPatternSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_speed_in_pixels_s', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_fling_velocity_x', 44, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_fling_velocity_y', 48, 0, mojo.internal.Float, 0, false, 0, undefined),
@@ -169,7 +169,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.SyntheticPinchSpec, 'content.mojom.SyntheticPinch', [
       mojo.internal.StructField('arg_anchor', 0, 0, mojo.internal.bindings.gfx.mojom.PointFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_input_event_pattern', 8, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.InputEventPatternSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_event_pattern', 8, 0, mojo.internal.bindings.content.mojom.InputEventPatternSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_scale_factor', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_relative_pointer_speed_in_pixels_s', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_vsync_offset_ms', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
@@ -179,7 +179,7 @@ mojo.internal.Struct(
 // Struct: SyntheticTap
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.SyntheticTapSpec, 'content.mojom.SyntheticTap', [
-      mojo.internal.StructField('arg_gesture_source_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.GestureSourceTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gesture_source_type', 0, 0, mojo.internal.bindings.content.mojom.GestureSourceTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_position', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_duration_ms', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
@@ -188,9 +188,9 @@ mojo.internal.Struct(
 // Struct: SyntheticPointerActionParams
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.SyntheticPointerActionParamsSpec, 'content.mojom.SyntheticPointerActionParams', [
-      mojo.internal.StructField('arg_pointer_action_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.PointerActionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pointer_action_type', 0, 0, mojo.internal.bindings.content.mojom.PointerActionTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_position', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_button', 16, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.SyntheticButtonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_button', 16, 0, mojo.internal.bindings.content.mojom.SyntheticButtonSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_timestamp', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_duration', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_pointer_id', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
@@ -208,15 +208,15 @@ mojo.internal.Struct(
 // Struct: SyntheticPointerAction
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.SyntheticPointerActionSpec, 'content.mojom.SyntheticPointerAction', [
-      mojo.internal.StructField('arg_gesture_source_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.GestureSourceTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_params', 8, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.content.mojom.SyntheticPointerActionParamsSpec.$, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_gesture_source_type', 0, 0, mojo.internal.bindings.content.mojom.GestureSourceTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 8, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.bindings.content.mojom.SyntheticPointerActionParamsSpec.$, false), false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: InputInjector
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec, 'content.mojom.InputInjector_QueueSyntheticSmoothDrag_Params', [
-      mojo.internal.StructField('arg_drag', 0, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.SyntheticSmoothDragSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_drag', 0, 0, mojo.internal.bindings.content.mojom.SyntheticSmoothDragSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -227,7 +227,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec, 'content.mojom.InputInjector_QueueSyntheticSmoothScroll_Params', [
-      mojo.internal.StructField('arg_scroll', 0, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.SyntheticSmoothScrollSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scroll', 0, 0, mojo.internal.bindings.content.mojom.SyntheticSmoothScrollSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -238,7 +238,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec, 'content.mojom.InputInjector_QueueSyntheticPinch_Params', [
-      mojo.internal.StructField('arg_pinch', 0, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.SyntheticPinchSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pinch', 0, 0, mojo.internal.bindings.content.mojom.SyntheticPinchSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -249,7 +249,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec, 'content.mojom.InputInjector_QueueSyntheticTap_Params', [
-      mojo.internal.StructField('arg_tap', 0, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.SyntheticTapSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tap', 0, 0, mojo.internal.bindings.content.mojom.SyntheticTapSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -260,7 +260,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec, 'content.mojom.InputInjector_QueueSyntheticPointerAction_Params', [
-      mojo.internal.StructField('arg_pointer_action', 0, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.SyntheticPointerActionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pointer_action', 0, 0, mojo.internal.bindings.content.mojom.SyntheticPointerActionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -84,7 +84,7 @@ mojo.internal.Union(
       },
       'arg_shared_memory': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.mojo_base.mojom.BigBufferSharedMemoryRegionSpec.$,
+        'type': mojo.internal.bindings.mojo_base.mojom.BigBufferSharedMemoryRegionSpec.$,
         'nullable': false,
       },
       'arg_invalid_buffer': {

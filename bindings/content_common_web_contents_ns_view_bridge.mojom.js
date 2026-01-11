@@ -558,13 +558,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_OnBecameFirstResponder_ParamsSpec, 'remote_cocoa.mojom.WebContentsNSViewHost_OnBecameFirstResponder_Params', [
-      mojo.internal.StructField('arg_direction', 0, 0, mojo.internal.bindings.mojo.internal.bindings.remote_cocoa.mojom.SelectionDirectionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_direction', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.SelectionDirectionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_OnWindowVisibilityChanged_ParamsSpec, 'remote_cocoa.mojom.WebContentsNSViewHost_OnWindowVisibilityChanged_Params', [
-      mojo.internal.StructField('arg_visibility', 0, 0, mojo.internal.bindings.mojo.internal.bindings.remote_cocoa.mojom.VisibilitySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visibility', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.VisibilitySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -576,7 +576,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ParamsSpec, 'remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_Params', [
-      mojo.internal.StructField('arg_dragging_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.remote_cocoa.mojom.DraggingInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dragging_info', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.DraggingInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -593,7 +593,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ParamsSpec, 'remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_Params', [
-      mojo.internal.StructField('arg_dragging_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.remote_cocoa.mojom.DraggingInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dragging_info', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.DraggingInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -605,7 +605,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ParamsSpec, 'remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_Params', [
-      mojo.internal.StructField('arg_dragging_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.remote_cocoa.mojom.DraggingInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dragging_info', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.DraggingInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

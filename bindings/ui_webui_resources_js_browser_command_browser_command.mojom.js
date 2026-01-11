@@ -272,7 +272,7 @@ mojo.internal.bindings.browser_command.mojom.CommandHandlerFactoryRequest = mojo
 // Interface: CommandHandler
 mojo.internal.Struct(
     mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec, 'browser_command.mojom.CommandHandler_CanExecuteCommand_Params', [
-      mojo.internal.StructField('arg_command_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.browser_command.mojom.CommandSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_command_id', 0, 0, mojo.internal.bindings.browser_command.mojom.CommandSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -284,8 +284,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec, 'browser_command.mojom.CommandHandler_ExecuteCommand_Params', [
-      mojo.internal.StructField('arg_command_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.browser_command.mojom.CommandSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_click_info', 8, 0, mojo.internal.bindings.mojo.internal.bindings.browser_command.mojom.ClickInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_command_id', 0, 0, mojo.internal.bindings.browser_command.mojom.CommandSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_click_info', 8, 0, mojo.internal.bindings.browser_command.mojom.ClickInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

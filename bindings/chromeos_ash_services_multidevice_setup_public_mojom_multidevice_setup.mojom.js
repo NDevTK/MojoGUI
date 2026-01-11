@@ -484,7 +484,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.AccountStatusChangeDelegateRe
 // Interface: HostStatusObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.multidevice_setup.mojom.HostStatusObserver_OnHostStatusChanged_ParamsSpec, 'ash.multidevice_setup.mojom.HostStatusObserver_OnHostStatusChanged_Params', [
-      mojo.internal.StructField('arg_host_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.multidevice_setup.mojom.HostStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_status', 0, 0, mojo.internal.bindings.ash.multidevice_setup.mojom.HostStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_host_device', 8, 0, mojo.internal.bindings.ash.multidevice.mojom.RemoteDeviceSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -636,7 +636,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.HostStatusObserverRequest = m
 // Interface: FeatureStateObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.multidevice_setup.mojom.FeatureStateObserver_OnFeatureStatesChanged_ParamsSpec, 'ash.multidevice_setup.mojom.FeatureStateObserver_OnFeatureStatesChanged_Params', [
-      mojo.internal.StructField('arg_feature_states_map', 0, 0, mojo.internal.Map(mojo.internal.bindings.mojo.internal.bindings.ash.multidevice_setup.mojom.FeatureSpec.$, mojo.internal.bindings.mojo.internal.bindings.ash.multidevice_setup.mojom.FeatureStateSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_feature_states_map', 0, 0, mojo.internal.Map(mojo.internal.bindings.ash.multidevice_setup.mojom.FeatureSpec.$, mojo.internal.bindings.ash.multidevice_setup.mojom.FeatureStateSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -821,7 +821,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ResponseParamsSpec, 'ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ResponseParams', [
-      mojo.internal.StructField('arg_eligible_host_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.multidevice_setup.mojom.HostDeviceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_eligible_host_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.multidevice_setup.mojom.HostDeviceSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -850,14 +850,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ResponseParamsSpec, 'ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ResponseParams', [
-      mojo.internal.StructField('arg_host_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.multidevice_setup.mojom.HostStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_status', 0, 0, mojo.internal.bindings.ash.multidevice_setup.mojom.HostStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_host_device', 8, 0, mojo.internal.bindings.ash.multidevice.mojom.RemoteDeviceSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ParamsSpec, 'ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_Params', [
-      mojo.internal.StructField('arg_feature', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.multidevice_setup.mojom.FeatureSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_feature', 0, 0, mojo.internal.bindings.ash.multidevice_setup.mojom.FeatureSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_auth_token', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_enabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -876,7 +876,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ResponseParamsSpec, 'ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ResponseParams', [
-      mojo.internal.StructField('arg_feature_states_map', 0, 0, mojo.internal.Map(mojo.internal.bindings.mojo.internal.bindings.ash.multidevice_setup.mojom.FeatureSpec.$, mojo.internal.bindings.mojo.internal.bindings.ash.multidevice_setup.mojom.FeatureStateSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_feature_states_map', 0, 0, mojo.internal.Map(mojo.internal.bindings.ash.multidevice_setup.mojom.FeatureSpec.$, mojo.internal.bindings.ash.multidevice_setup.mojom.FeatureStateSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -893,7 +893,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ParamsSpec, 'ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.multidevice_setup.mojom.EventTypeForDebuggingSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ash.multidevice_setup.mojom.EventTypeForDebuggingSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

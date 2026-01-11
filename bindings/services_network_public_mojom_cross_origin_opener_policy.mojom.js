@@ -119,7 +119,7 @@ mojo.internal.Struct(
 // Interface: CrossOriginOpenerPolicyReporter
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec, 'network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_Params', [
-      mojo.internal.StructField('arg_report_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.CoopAccessReportTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_report_type', 0, 0, mojo.internal.bindings.network.mojom.CoopAccessReportTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_property', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_source_location', 16, 0, mojo.internal.bindings.network.mojom.SourceLocationSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_reported_window_url', 24, 0, mojo.internal.String, null, false, 0, undefined),

@@ -255,7 +255,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec, 'ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParams', [
-      mojo.internal.StructField('arg_preferences', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.sample_swa.PreferencesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_preferences', 0, 0, mojo.internal.bindings.ash.mojom.sample_swa.PreferencesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

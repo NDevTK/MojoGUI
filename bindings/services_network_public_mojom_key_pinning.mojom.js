@@ -96,7 +96,7 @@ mojo.internal.Struct(
 // Struct: PinList
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.PinListSpec, 'network.mojom.PinList', [
-      mojo.internal.StructField('arg_pinsets', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.network.mojom.PinSetSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_host_pins', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.network.mojom.PinSetInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_pinsets', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.PinSetSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_pins', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.PinSetInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);

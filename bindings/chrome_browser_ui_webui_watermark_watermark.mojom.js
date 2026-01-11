@@ -243,7 +243,7 @@ mojo.internal.bindings.watermark.mojom.PageHandlerFactoryRequest = mojo.internal
 // Interface: PageHandler
 mojo.internal.Struct(
     mojo.internal.bindings.watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec, 'watermark.mojom.PageHandler_SetWatermarkStyle_Params', [
-      mojo.internal.StructField('arg_style', 0, 0, mojo.internal.bindings.mojo.internal.bindings.watermark.mojom.WatermarkStyleSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_style', 0, 0, mojo.internal.bindings.watermark.mojom.WatermarkStyleSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

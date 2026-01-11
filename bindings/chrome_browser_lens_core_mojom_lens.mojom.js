@@ -465,13 +465,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LensPageHandler_RecordUkmAndTaskCompletionForLensOverlayInteraction_ParamsSpec, 'lens.mojom.LensPageHandler_RecordUkmAndTaskCompletionForLensOverlayInteraction_Params', [
-      mojo.internal.StructField('arg_user_action', 0, 0, mojo.internal.bindings.mojo.internal.bindings.lens.mojom.UserActionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_user_action', 0, 0, mojo.internal.bindings.lens.mojom.UserActionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LensPageHandler_RecordLensOverlaySemanticEvent_ParamsSpec, 'lens.mojom.LensPageHandler_RecordLensOverlaySemanticEvent_Params', [
-      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.mojo.internal.bindings.lens.mojom.SemanticEventSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.lens.mojom.SemanticEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1582,7 +1582,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LensPage_ThemeReceived_ParamsSpec, 'lens.mojom.LensPage_ThemeReceived_Params', [
-      mojo.internal.StructField('arg_theme', 0, 0, mojo.internal.bindings.mojo.internal.bindings.lens.mojom.OverlayThemeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_theme', 0, 0, mojo.internal.bindings.lens.mojom.OverlayThemeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

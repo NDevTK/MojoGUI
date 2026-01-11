@@ -120,7 +120,7 @@ mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleFileSpec, 'blink.mojom.FileSystemAccessAccessHandleFile', {
       'arg_regular_file': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FileSystemAccessRegularFileSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.FileSystemAccessRegularFileSpec.$,
         'nullable': false,
       },
       'arg_incognito_file_delegate': {
@@ -180,7 +180,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_Params', [
-      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FileSystemAccessWritableFileStreamLockModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessWritableFileStreamLockModeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_keep_existing_data', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_auto_close', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -231,7 +231,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ParamsSpec, 'blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_Params', [
-      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleLockModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleLockModeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -103,7 +103,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_remote_endpoint', 112, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_client_address_space', 120, 0, mojo.internal.bindings.network.mojom.IPAddressSpaceSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('arg_response_address_space', 128, 0, mojo.internal.bindings.network.mojom.IPAddressSpaceSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_navigation_delivery_type', 136, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.NavigationDeliveryTypeSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_navigation_delivery_type', 136, 0, mojo.internal.bindings.network.mojom.NavigationDeliveryTypeSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('arg_proxy_chain', 144, 0, mojo.internal.bindings.network.mojom.ProxyChainSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_url_list_via_service_worker', 152, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_initial_service_worker_status', 160, 0, mojo.internal.bindings.network.mojom.ServiceWorkerStatusSpec.$, null, true, 0, undefined),

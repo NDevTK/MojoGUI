@@ -132,7 +132,7 @@ mojo.internal.bindings.device.mojom.NSRawTypeNameFormat = {
 // Struct: NDEFError
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.NDEFErrorSpec, 'device.mojom.NDEFError', [
-      mojo.internal.StructField('arg_error_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.NDEFErrorTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_type', 0, 0, mojo.internal.bindings.device.mojom.NDEFErrorTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_error_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -140,21 +140,21 @@ mojo.internal.Struct(
 // Struct: NDEFRecord
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.NDEFRecordSpec, 'device.mojom.NDEFRecord', [
-      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.NDEFRecordTypeCategorySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.device.mojom.NDEFRecordTypeCategorySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_record_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_media_type', 16, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_id', 24, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_encoding', 32, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_lang', 40, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_data', 48, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_payload_message', 56, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.NDEFMessageSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_payload_message', 56, 0, mojo.internal.bindings.device.mojom.NDEFMessageSpec.$, null, true, 0, undefined),
     ],
     [[0, 72]]);
 
 // Struct: NDEFMessage
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.NDEFMessageSpec, 'device.mojom.NDEFMessage', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.device.mojom.NDEFRecordSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.NDEFRecordSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -164,14 +164,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_identifier', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_payload', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_type', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_type_name_format', 24, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.NSRawTypeNameFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type_name_format', 24, 0, mojo.internal.bindings.device.mojom.NSRawTypeNameFormatSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: NDEFRawMessage
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.NDEFRawMessageSpec, 'device.mojom.NDEFRawMessage', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.device.mojom.NDEFRawRecordSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.NDEFRawRecordSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -191,14 +191,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.NFC_Push_ParamsSpec, 'device.mojom.NFC_Push_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.NDEFMessageSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.NDEFWriteOptionsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.device.mojom.NDEFMessageSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.device.mojom.NDEFWriteOptionsSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.NFC_Push_ResponseParamsSpec, 'device.mojom.NFC_Push_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.NDEFErrorSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.device.mojom.NDEFErrorSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -214,7 +214,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.NFC_MakeReadOnly_ResponseParamsSpec, 'device.mojom.NFC_MakeReadOnly_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.NDEFErrorSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.device.mojom.NDEFErrorSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -231,7 +231,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.NFC_Watch_ResponseParamsSpec, 'device.mojom.NFC_Watch_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.NDEFErrorSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.device.mojom.NDEFErrorSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -606,13 +606,13 @@ mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.NFCClient_OnWatch_ParamsSpec, 'device.mojom.NFCClient_OnWatch_Params', [
       mojo.internal.StructField('arg_watch_ids', 0, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_serial_number', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_message', 16, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.NDEFMessageSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 16, 0, mojo.internal.bindings.device.mojom.NDEFMessageSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.NFCClient_OnError_ParamsSpec, 'device.mojom.NFCClient_OnError_Params', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.NDEFErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.device.mojom.NDEFErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -796,13 +796,13 @@ mojo.internal.bindings.device.mojom.NFCClientRequest = mojo.internal.bindings.de
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.RawNFCClient_OnWatch_ParamsSpec, 'device.mojom.RawNFCClient_OnWatch_Params', [
       mojo.internal.StructField('arg_watch_ids', 0, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.NDEFRawMessageSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.bindings.device.mojom.NDEFRawMessageSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.RawNFCClient_OnError_ParamsSpec, 'device.mojom.RawNFCClient_OnError_Params', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.NDEFErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.device.mojom.NDEFErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

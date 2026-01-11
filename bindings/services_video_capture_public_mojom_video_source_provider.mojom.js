@@ -99,7 +99,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec, 'video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.video_capture.mojom.GetSourceInfosResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.video_capture.mojom.GetSourceInfosResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_source_infos', 8, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.VideoCaptureDeviceInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);

@@ -136,28 +136,28 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BackgroundSyncRegistrationInfoSpec, 'blink.mojom.BackgroundSyncRegistrationInfo', [
       mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, -1, false, 0, undefined),
       mojo.internal.StructField('arg_tag', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sync_type', 16, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.BackgroundSyncTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sync_type', 16, 0, mojo.internal.bindings.blink.mojom.BackgroundSyncTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Interface: OneShotBackgroundSyncService
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ParamsSpec, 'blink.mojom.OneShotBackgroundSyncService_Register_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_service_worker_registration_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec, 'blink.mojom.OneShotBackgroundSyncService_Register_ResponseParams', [
-      mojo.internal.StructField('arg_err', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.BackgroundSyncErrorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_err', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundSyncErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_ParamsSpec, 'blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_Params', [
-      mojo.internal.StructField('arg_registration_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.BackgroundSyncRegistrationInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_registration_info', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundSyncRegistrationInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -169,8 +169,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec, 'blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParams', [
-      mojo.internal.StructField('arg_err', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.BackgroundSyncErrorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_registrations', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_err', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundSyncErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_registrations', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -401,15 +401,15 @@ mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncServiceRequest = mojo.in
 // Interface: PeriodicBackgroundSyncService
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec, 'blink.mojom.PeriodicBackgroundSyncService_Register_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_service_worker_registration_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec, 'blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParams', [
-      mojo.internal.StructField('arg_err', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.BackgroundSyncErrorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_err', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundSyncErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -422,7 +422,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec, 'blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParams', [
-      mojo.internal.StructField('arg_err', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.BackgroundSyncErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_err', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundSyncErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -434,8 +434,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec, 'blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParams', [
-      mojo.internal.StructField('arg_err', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.BackgroundSyncErrorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_registrations', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_err', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundSyncErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_registrations', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

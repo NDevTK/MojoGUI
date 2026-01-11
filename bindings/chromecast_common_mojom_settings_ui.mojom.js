@@ -101,8 +101,8 @@ mojo.internal.bindings.chromecast.mojom.SideSwipeOrigin = {
 // Interface: SettingsClient
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec, 'chromecast.mojom.SettingsClient_HandleSideSwipe_Params', [
-      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromecast.mojom.SideSwipeEventSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_origin', 8, 0, mojo.internal.bindings.mojo.internal.bindings.chromecast.mojom.SideSwipeOriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.chromecast.mojom.SideSwipeEventSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin', 8, 0, mojo.internal.bindings.chromecast.mojom.SideSwipeOriginSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_touch_location', 16, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);

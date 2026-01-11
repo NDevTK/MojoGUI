@@ -88,13 +88,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FrameMetadataSpec, 'blink.mojom.FrameMetadata', [
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_meta_tags', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.MetaTagSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_meta_tags', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.MetaTagSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: PageMetadata
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PageMetadataSpec, 'blink.mojom.PageMetadata', [
-      mojo.internal.StructField('arg_frame_metadata', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FrameMetadataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_metadata', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.FrameMetadataSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

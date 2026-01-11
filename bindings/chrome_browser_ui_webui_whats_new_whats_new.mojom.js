@@ -317,7 +317,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleImpression_ParamsSpec, 'whats_new.mojom.PageHandler_RecordModuleImpression_Params', [
       mojo.internal.StructField('arg_module_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_position', 8, 0, mojo.internal.bindings.mojo.internal.bindings.whats_new.mojom.ModulePositionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_position', 8, 0, mojo.internal.bindings.whats_new.mojom.ModulePositionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -329,7 +329,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.whats_new.mojom.PageHandler_RecordScrollDepth_ParamsSpec, 'whats_new.mojom.PageHandler_RecordScrollDepth_Params', [
-      mojo.internal.StructField('arg_depth', 0, 0, mojo.internal.bindings.mojo.internal.bindings.whats_new.mojom.ScrollDepthSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_depth', 0, 0, mojo.internal.bindings.whats_new.mojom.ScrollDepthSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -342,42 +342,42 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleLinkClicked_ParamsSpec, 'whats_new.mojom.PageHandler_RecordModuleLinkClicked_Params', [
       mojo.internal.StructField('arg_module_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_position', 8, 0, mojo.internal.bindings.mojo.internal.bindings.whats_new.mojom.ModulePositionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_position', 8, 0, mojo.internal.bindings.whats_new.mojom.ModulePositionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleVideoStarted_ParamsSpec, 'whats_new.mojom.PageHandler_RecordModuleVideoStarted_Params', [
       mojo.internal.StructField('arg_module_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_position', 8, 0, mojo.internal.bindings.mojo.internal.bindings.whats_new.mojom.ModulePositionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_position', 8, 0, mojo.internal.bindings.whats_new.mojom.ModulePositionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleVideoEnded_ParamsSpec, 'whats_new.mojom.PageHandler_RecordModuleVideoEnded_Params', [
       mojo.internal.StructField('arg_module_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_position', 8, 0, mojo.internal.bindings.mojo.internal.bindings.whats_new.mojom.ModulePositionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_position', 8, 0, mojo.internal.bindings.whats_new.mojom.ModulePositionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModulePlayClicked_ParamsSpec, 'whats_new.mojom.PageHandler_RecordModulePlayClicked_Params', [
       mojo.internal.StructField('arg_module_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_position', 8, 0, mojo.internal.bindings.mojo.internal.bindings.whats_new.mojom.ModulePositionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_position', 8, 0, mojo.internal.bindings.whats_new.mojom.ModulePositionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModulePauseClicked_ParamsSpec, 'whats_new.mojom.PageHandler_RecordModulePauseClicked_Params', [
       mojo.internal.StructField('arg_module_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_position', 8, 0, mojo.internal.bindings.mojo.internal.bindings.whats_new.mojom.ModulePositionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_position', 8, 0, mojo.internal.bindings.whats_new.mojom.ModulePositionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleRestartClicked_ParamsSpec, 'whats_new.mojom.PageHandler_RecordModuleRestartClicked_Params', [
       mojo.internal.StructField('arg_module_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_position', 8, 0, mojo.internal.bindings.mojo.internal.bindings.whats_new.mojom.ModulePositionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_position', 8, 0, mojo.internal.bindings.whats_new.mojom.ModulePositionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

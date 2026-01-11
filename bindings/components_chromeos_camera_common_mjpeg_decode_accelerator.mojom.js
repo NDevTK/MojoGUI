@@ -124,7 +124,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ParamsSpec, 'chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_Params', [
-      mojo.internal.StructField('arg_input_buffer', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos_camera.mojom.BitstreamBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_buffer', 0, 0, mojo.internal.bindings.chromeos_camera.mojom.BitstreamBufferSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_coded_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_output_handle', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('arg_output_buffer_size', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
@@ -133,7 +133,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ResponseParamsSpec, 'chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos_camera.mojom.DecodeErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.chromeos_camera.mojom.DecodeErrorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_bitstream_buffer_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -150,7 +150,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ResponseParamsSpec, 'chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos_camera.mojom.DecodeErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.chromeos_camera.mojom.DecodeErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -307,17 +307,17 @@ mojo.internal.Union(
     mojo.internal.bindings.ash.camera_app.mojom.RecordTypeDetailsSpec, 'ash.camera_app.mojom.RecordTypeDetails', {
       'arg_normal_video_details': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.NormalVideoDetailsSpec.$,
+        'type': mojo.internal.bindings.ash.camera_app.mojom.NormalVideoDetailsSpec.$,
         'nullable': false,
       },
       'arg_gif_video_details': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.GifVideoDetailsSpec.$,
+        'type': mojo.internal.bindings.ash.camera_app.mojom.GifVideoDetailsSpec.$,
         'nullable': false,
       },
       'arg_timelapse_video_details': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.TimelapseVideoDetailsSpec.$,
+        'type': mojo.internal.bindings.ash.camera_app.mojom.TimelapseVideoDetailsSpec.$,
         'nullable': false,
       },
     });
@@ -327,12 +327,12 @@ mojo.internal.Union(
     mojo.internal.bindings.ash.camera_app.mojom.CaptureDetailsSpec, 'ash.camera_app.mojom.CaptureDetails', {
       'arg_photo_details': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.PhotoDetailsSpec.$,
+        'type': mojo.internal.bindings.ash.camera_app.mojom.PhotoDetailsSpec.$,
         'nullable': false,
       },
       'arg_video_details': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.VideoDetailsSpec.$,
+        'type': mojo.internal.bindings.ash.camera_app.mojom.VideoDetailsSpec.$,
         'nullable': false,
       },
     });
@@ -342,12 +342,12 @@ mojo.internal.Union(
     mojo.internal.bindings.ash.camera_app.mojom.CameraModuleSpec, 'ash.camera_app.mojom.CameraModule', {
       'arg_mipi_camera': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.MipiCameraModuleSpec.$,
+        'type': mojo.internal.bindings.ash.camera_app.mojom.MipiCameraModuleSpec.$,
         'nullable': false,
       },
       'arg_usb_camera': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.UsbCameraModuleSpec.$,
+        'type': mojo.internal.bindings.ash.camera_app.mojom.UsbCameraModuleSpec.$,
         'nullable': false,
       },
     });
@@ -355,7 +355,7 @@ mojo.internal.Union(
 // Struct: StartSessionEventParams
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.StartSessionEventParamsSpec, 'ash.camera_app.mojom.StartSessionEventParams', [
-      mojo.internal.StructField('arg_launch_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.LaunchTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_launch_type', 0, 0, mojo.internal.bindings.ash.camera_app.mojom.LaunchTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -375,7 +375,7 @@ mojo.internal.Struct(
 // Struct: GifVideoDetails
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.GifVideoDetailsSpec, 'ash.camera_app.mojom.GifVideoDetails', [
-      mojo.internal.StructField('arg_gif_result_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.GifResultTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gif_result_type', 0, 0, mojo.internal.bindings.ash.camera_app.mojom.GifResultTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -400,14 +400,14 @@ mojo.internal.Struct(
 // Struct: CaptureEventParams
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.CaptureEventParamsSpec, 'ash.camera_app.mojom.CaptureEventParams', [
-      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.ModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_facing', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.FacingSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_grid_type', 16, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.GridTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_timer_type', 24, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.TimerTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_shutter_type', 32, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.ShutterTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_android_intent_result_type', 40, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.AndroidIntentResultTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_resolution_level', 48, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.ResolutionLevelSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_aspect_ratio_set', 56, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.AspectRatioSetSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.ash.camera_app.mojom.ModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_facing', 8, 0, mojo.internal.bindings.ash.camera_app.mojom.FacingSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_grid_type', 16, 0, mojo.internal.bindings.ash.camera_app.mojom.GridTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timer_type', 24, 0, mojo.internal.bindings.ash.camera_app.mojom.TimerTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_shutter_type', 32, 0, mojo.internal.bindings.ash.camera_app.mojom.ShutterTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_android_intent_result_type', 40, 0, mojo.internal.bindings.ash.camera_app.mojom.AndroidIntentResultTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_resolution_level', 48, 0, mojo.internal.bindings.ash.camera_app.mojom.ResolutionLevelSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_aspect_ratio_set', 56, 0, mojo.internal.bindings.ash.camera_app.mojom.AspectRatioSetSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_capture_details', 64, 0, mojo.internal.bindings.ash.camera_app.mojom.CaptureDetailsSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_zoom_ratio', 72, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_resolution_width', 80, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -421,7 +421,7 @@ mojo.internal.Struct(
 // Struct: AndroidIntentEventParams
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.AndroidIntentEventParamsSpec, 'ash.camera_app.mojom.AndroidIntentEventParams', [
-      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.ModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.ash.camera_app.mojom.ModeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_should_handle_result', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_should_downscale', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_secure', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
@@ -440,14 +440,14 @@ mojo.internal.Struct(
 // Struct: DocScanActionEventParams
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.DocScanActionEventParamsSpec, 'ash.camera_app.mojom.DocScanActionEventParams', [
-      mojo.internal.StructField('arg_action_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.DocScanActionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action_type', 0, 0, mojo.internal.bindings.ash.camera_app.mojom.DocScanActionTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: DocScanResultEventParams
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.DocScanResultEventParamsSpec, 'ash.camera_app.mojom.DocScanResultEventParams', [
-      mojo.internal.StructField('arg_result_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.DocScanResultTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result_type', 0, 0, mojo.internal.bindings.ash.camera_app.mojom.DocScanResultTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_fix_types_mask', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_fix_count', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_page_count', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -477,14 +477,14 @@ mojo.internal.Struct(
 // Struct: LowStorageActionEventParams
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.LowStorageActionEventParamsSpec, 'ash.camera_app.mojom.LowStorageActionEventParams', [
-      mojo.internal.StructField('arg_action_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.LowStorageActionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action_type', 0, 0, mojo.internal.bindings.ash.camera_app.mojom.LowStorageActionTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: BarcodeDetectedEventParams
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.BarcodeDetectedEventParamsSpec, 'ash.camera_app.mojom.BarcodeDetectedEventParams', [
-      mojo.internal.StructField('arg_content_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.BarcodeContentTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_content_type', 0, 0, mojo.internal.bindings.ash.camera_app.mojom.BarcodeContentTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_wifi_security_type', 8, 0, mojo.internal.bindings.ash.camera_app.mojom.WifiSecurityTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -492,9 +492,9 @@ mojo.internal.Struct(
 // Struct: PerfEventParams
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.PerfEventParamsSpec, 'ash.camera_app.mojom.PerfEventParams', [
-      mojo.internal.StructField('arg_event_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.PerfEventTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_facing', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.FacingSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pressure', 16, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.PressureSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_type', 0, 0, mojo.internal.bindings.ash.camera_app.mojom.PerfEventTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_facing', 8, 0, mojo.internal.bindings.ash.camera_app.mojom.FacingSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pressure', 16, 0, mojo.internal.bindings.ash.camera_app.mojom.PressureSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_duration', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_resolution_width', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_resolution_height', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -513,7 +513,7 @@ mojo.internal.Struct(
 // Struct: OcrEventParams
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.OcrEventParamsSpec, 'ash.camera_app.mojom.OcrEventParams', [
-      mojo.internal.StructField('arg_event_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.OcrEventTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_type', 0, 0, mojo.internal.bindings.ash.camera_app.mojom.OcrEventTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_line_count', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_word_count', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_is_primary_language', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -523,61 +523,61 @@ mojo.internal.Struct(
 // Interface: EventsSender
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendStartSessionEvent_ParamsSpec, 'ash.camera_app.mojom.EventsSender_SendStartSessionEvent_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.StartSessionEventParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.ash.camera_app.mojom.StartSessionEventParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendCaptureEvent_ParamsSpec, 'ash.camera_app.mojom.EventsSender_SendCaptureEvent_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.CaptureEventParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.ash.camera_app.mojom.CaptureEventParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendAndroidIntentEvent_ParamsSpec, 'ash.camera_app.mojom.EventsSender_SendAndroidIntentEvent_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.AndroidIntentEventParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.ash.camera_app.mojom.AndroidIntentEventParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendOpenPTZPanelEvent_ParamsSpec, 'ash.camera_app.mojom.EventsSender_SendOpenPTZPanelEvent_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.OpenPTZPanelEventParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.ash.camera_app.mojom.OpenPTZPanelEventParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendDocScanActionEvent_ParamsSpec, 'ash.camera_app.mojom.EventsSender_SendDocScanActionEvent_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.DocScanActionEventParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.ash.camera_app.mojom.DocScanActionEventParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendDocScanResultEvent_ParamsSpec, 'ash.camera_app.mojom.EventsSender_SendDocScanResultEvent_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.DocScanResultEventParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.ash.camera_app.mojom.DocScanResultEventParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendOpenCameraEvent_ParamsSpec, 'ash.camera_app.mojom.EventsSender_SendOpenCameraEvent_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.OpenCameraEventParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.ash.camera_app.mojom.OpenCameraEventParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendLowStorageActionEvent_ParamsSpec, 'ash.camera_app.mojom.EventsSender_SendLowStorageActionEvent_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.LowStorageActionEventParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.ash.camera_app.mojom.LowStorageActionEventParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendBarcodeDetectedEvent_ParamsSpec, 'ash.camera_app.mojom.EventsSender_SendBarcodeDetectedEvent_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.BarcodeDetectedEventParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.ash.camera_app.mojom.BarcodeDetectedEventParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendPerfEvent_ParamsSpec, 'ash.camera_app.mojom.EventsSender_SendPerfEvent_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.PerfEventParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.ash.camera_app.mojom.PerfEventParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -588,13 +588,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.EventsSender_UpdateMemoryUsageEventParams_ParamsSpec, 'ash.camera_app.mojom.EventsSender_UpdateMemoryUsageEventParams_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.MemoryUsageEventParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.ash.camera_app.mojom.MemoryUsageEventParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendOcrEvent_ParamsSpec, 'ash.camera_app.mojom.EventsSender_SendOcrEvent_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.OcrEventParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.ash.camera_app.mojom.OcrEventParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

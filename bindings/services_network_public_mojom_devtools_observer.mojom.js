@@ -146,7 +146,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_headers', 16, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.HttpRawHeaderPairSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_timestamp', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_client_security_state', 32, 0, mojo.internal.bindings.network.mojom.ClientSecurityStateSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_other_partition_info', 40, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.OtherPartitionInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_other_partition_info', 40, 0, mojo.internal.bindings.network.mojom.OtherPartitionInfoSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_applied_network_conditions_id', 48, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
     ],
     [[0, 64]]);
@@ -184,7 +184,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec, 'network.mojom.DevToolsObserver_OnCorsPreflightRequest_Params', [
       mojo.internal.StructField('arg_devtool_request_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_request_headers', 8, 0, mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_info', 16, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.URLRequestDevToolsInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_info', 16, 0, mojo.internal.bindings.network.mojom.URLRequestDevToolsInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_initiator_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_initiator_devtool_request_id', 32, 0, mojo.internal.String, null, false, 0, undefined),
     ],
@@ -194,7 +194,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec, 'network.mojom.DevToolsObserver_OnCorsPreflightResponse_Params', [
       mojo.internal.StructField('arg_devtool_request_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_head', 16, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.URLResponseHeadDevToolsInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_head', 16, 0, mojo.internal.bindings.network.mojom.URLResponseHeadDevToolsInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

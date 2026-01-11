@@ -149,7 +149,7 @@ mojo.internal.Union(
     mojo.internal.bindings.remoting.mojom.KeyActionSpec, 'remoting.mojom.KeyAction', {
       'arg_function': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.remoting.mojom.LayoutKeyFunctionSpec.$,
+        'type': mojo.internal.bindings.remoting.mojom.LayoutKeyFunctionSpec.$,
         'nullable': false,
       },
       'arg_character': {
@@ -169,6 +169,6 @@ mojo.internal.Struct(
 // Struct: KeyboardLayout
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.KeyboardLayoutSpec, 'remoting.mojom.KeyboardLayout', [
-      mojo.internal.StructField('arg_keys', 0, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.bindings.mojo.internal.bindings.remoting.mojom.KeyBehaviorSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_keys', 0, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.bindings.remoting.mojom.KeyBehaviorSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

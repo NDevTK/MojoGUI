@@ -90,7 +90,7 @@ mojo.internal.bindings.arc.mojom.ReclaimType = {
 // Struct: ReclaimRequest
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ReclaimRequestSpec, 'arc.mojom.ReclaimRequest', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ReclaimTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.arc.mojom.ReclaimTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -116,13 +116,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MemoryInstance_Reclaim_ParamsSpec, 'arc.mojom.MemoryInstance_Reclaim_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ReclaimRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.arc.mojom.ReclaimRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MemoryInstance_Reclaim_ResponseParamsSpec, 'arc.mojom.MemoryInstance_Reclaim_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ReclaimResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.ReclaimResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

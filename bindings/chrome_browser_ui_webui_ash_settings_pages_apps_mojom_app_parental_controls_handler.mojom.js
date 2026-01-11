@@ -119,7 +119,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ResponseParamsSpec, 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ResponseParams', [
-      mojo.internal.StructField('arg_apps', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_apps', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -149,7 +149,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ResponseParamsSpec, 'ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.settings.app_parental_controls.mojom.PinValidationResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.settings.app_parental_controls.mojom.PinValidationResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -599,13 +599,13 @@ mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalContr
 // Interface: AppParentalControlsObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppInstalledOrUpdated_ParamsSpec, 'ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppInstalledOrUpdated_Params', [
-      mojo.internal.StructField('arg_app', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_app', 0, 0, mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppUninstalled_ParamsSpec, 'ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppUninstalled_Params', [
-      mojo.internal.StructField('arg_app', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_app', 0, 0, mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

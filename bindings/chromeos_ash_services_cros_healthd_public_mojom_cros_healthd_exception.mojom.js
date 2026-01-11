@@ -98,17 +98,17 @@ mojo.internal.Union(
       },
       'arg_exception': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.ExceptionSpec.$,
+        'type': mojo.internal.bindings.ash.cros_healthd.mojom.ExceptionSpec.$,
         'nullable': false,
       },
       'arg_supported': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.SupportedSpec.$,
+        'type': mojo.internal.bindings.ash.cros_healthd.mojom.SupportedSpec.$,
         'nullable': false,
       },
       'arg_unsupported': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.UnsupportedSpec.$,
+        'type': mojo.internal.bindings.ash.cros_healthd.mojom.UnsupportedSpec.$,
         'nullable': false,
       },
     });

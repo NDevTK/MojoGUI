@@ -94,7 +94,7 @@ mojo.internal.bindings.blink.mojom.CodeCacheType = {
 // Interface: CodeCacheHost
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CodeCacheHost_GetPendingBackend_ParamsSpec, 'blink.mojom.CodeCacheHost_GetPendingBackend_Params', [
-      mojo.internal.StructField('arg_cache_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.CodeCacheTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cache_type', 0, 0, mojo.internal.bindings.blink.mojom.CodeCacheTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -106,7 +106,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CodeCacheHost_DidGenerateCacheableMetadata_ParamsSpec, 'blink.mojom.CodeCacheHost_DidGenerateCacheableMetadata_Params', [
-      mojo.internal.StructField('arg_cache_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.CodeCacheTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cache_type', 0, 0, mojo.internal.bindings.blink.mojom.CodeCacheTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_expected_response_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_data', 24, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
@@ -115,7 +115,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CodeCacheHost_FetchCachedCode_ParamsSpec, 'blink.mojom.CodeCacheHost_FetchCachedCode_Params', [
-      mojo.internal.StructField('arg_cache_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.CodeCacheTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cache_type', 0, 0, mojo.internal.bindings.blink.mojom.CodeCacheTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -129,7 +129,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CodeCacheHost_ClearCodeCacheEntry_ParamsSpec, 'blink.mojom.CodeCacheHost_ClearCodeCacheEntry_Params', [
-      mojo.internal.StructField('arg_cache_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.CodeCacheTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cache_type', 0, 0, mojo.internal.bindings.blink.mojom.CodeCacheTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);

@@ -135,7 +135,7 @@ mojo.internal.Union(
       },
       'arg_signal_bucket': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.auction_worklet.mojom.SignalBucketSpec.$,
+        'type': mojo.internal.bindings.auction_worklet.mojom.SignalBucketSpec.$,
         'nullable': false,
       },
     });
@@ -150,7 +150,7 @@ mojo.internal.Union(
       },
       'arg_signal_value': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.auction_worklet.mojom.SignalValueSpec.$,
+        'type': mojo.internal.bindings.auction_worklet.mojom.SignalValueSpec.$,
         'nullable': false,
       },
     });
@@ -160,12 +160,12 @@ mojo.internal.Union(
     mojo.internal.bindings.auction_worklet.mojom.EventTypeSpec, 'auction_worklet.mojom.EventType', {
       'arg_reserved_non_error': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.auction_worklet.mojom.ReservedNonErrorEventTypeSpec.$,
+        'type': mojo.internal.bindings.auction_worklet.mojom.ReservedNonErrorEventTypeSpec.$,
         'nullable': false,
       },
       'arg_reserved_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.auction_worklet.mojom.ReservedErrorEventTypeSpec.$,
+        'type': mojo.internal.bindings.auction_worklet.mojom.ReservedErrorEventTypeSpec.$,
         'nullable': false,
       },
       'arg_non_reserved': {
@@ -185,7 +185,7 @@ mojo.internal.Union(
       },
       'arg_for_event_contribution': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.auction_worklet.mojom.AggregatableReportForEventContributionSpec.$,
+        'type': mojo.internal.bindings.auction_worklet.mojom.AggregatableReportForEventContributionSpec.$,
         'nullable': false,
       },
     });
@@ -201,16 +201,16 @@ mojo.internal.Struct(
 // Struct: SignalBucket
 mojo.internal.Struct(
     mojo.internal.bindings.auction_worklet.mojom.SignalBucketSpec, 'auction_worklet.mojom.SignalBucket', [
-      mojo.internal.StructField('arg_base_value', 0, 0, mojo.internal.bindings.mojo.internal.bindings.auction_worklet.mojom.BaseValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_base_value', 0, 0, mojo.internal.bindings.auction_worklet.mojom.BaseValueSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_scale', 8, 0, mojo.internal.Double, 1.0, false, 0, undefined),
-      mojo.internal.StructField('arg_offset', 16, 0, mojo.internal.bindings.mojo.internal.bindings.auction_worklet.mojom.BucketOffsetSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_offset', 16, 0, mojo.internal.bindings.auction_worklet.mojom.BucketOffsetSpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: SignalValue
 mojo.internal.Struct(
     mojo.internal.bindings.auction_worklet.mojom.SignalValueSpec, 'auction_worklet.mojom.SignalValue', [
-      mojo.internal.StructField('arg_base_value', 0, 0, mojo.internal.bindings.mojo.internal.bindings.auction_worklet.mojom.BaseValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_base_value', 0, 0, mojo.internal.bindings.auction_worklet.mojom.BaseValueSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_scale', 8, 0, mojo.internal.Double, 1.0, false, 0, undefined),
       mojo.internal.StructField('arg_offset', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],

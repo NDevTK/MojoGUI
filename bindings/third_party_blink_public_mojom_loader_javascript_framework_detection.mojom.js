@@ -97,6 +97,6 @@ mojo.internal.bindings.blink.mojom.JavaScriptFramework = {
 // Struct: JavaScriptFrameworkDetectionResult
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.JavaScriptFrameworkDetectionResultSpec, 'blink.mojom.JavaScriptFrameworkDetectionResult', [
-      mojo.internal.StructField('arg_detected_versions', 0, 0, mojo.internal.Map(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.JavaScriptFrameworkSpec.$, mojo.internal.Int16, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_detected_versions', 0, 0, mojo.internal.Map(mojo.internal.bindings.blink.mojom.JavaScriptFrameworkSpec.$, mojo.internal.Int16, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

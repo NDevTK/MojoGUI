@@ -136,7 +136,7 @@ mojo.internal.Struct(
 // Interface: SpeechSynthesisVoiceListObserver
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec, 'blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_Params', [
-      mojo.internal.StructField('arg_voice_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_voice_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -292,7 +292,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec, 'blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_Params', [
-      mojo.internal.StructField('arg_error_code', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SpeechSynthesisErrorCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_code', 0, 0, mojo.internal.bindings.blink.mojom.SpeechSynthesisErrorCodeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -670,7 +670,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SpeechSynthesis_Speak_ParamsSpec, 'blink.mojom.SpeechSynthesis_Speak_Params', [
-      mojo.internal.StructField('arg_utterance', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SpeechSynthesisUtteranceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_utterance', 0, 0, mojo.internal.bindings.blink.mojom.SpeechSynthesisUtteranceSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.SpeechSynthesisClientSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);

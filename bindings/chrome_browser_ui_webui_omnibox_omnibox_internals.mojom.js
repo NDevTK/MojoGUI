@@ -186,16 +186,16 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_icon', 40, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_image', 48, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_contents', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_contents_class', 64, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.mojom.ACMatchClassificationSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_contents_class', 64, 0, mojo.internal.Array(mojo.internal.bindings.mojom.ACMatchClassificationSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_description', 72, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_description_class', 80, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.mojom.ACMatchClassificationSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_description_class', 80, 0, mojo.internal.Array(mojo.internal.bindings.mojom.ACMatchClassificationSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_answer', 88, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_transition', 96, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_type', 104, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_aqs_type_subtypes', 112, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_associated_keyword', 120, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_keyword', 128, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scoring_signals', 136, 0, mojo.internal.bindings.mojo.internal.bindings.mojom.SignalsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scoring_signals', 136, 0, mojo.internal.bindings.mojom.SignalsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_additional_info', 144, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_relevance', 152, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_duplicates', 156, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -215,7 +215,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.AutocompleteResultsForProviderSpec, 'mojom.AutocompleteResultsForProvider', [
       mojo.internal.StructField('arg_provider_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_results', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.mojom.AutocompleteMatchSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojom.AutocompleteMatchSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -225,8 +225,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_host', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_input_text', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_combined_results', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.mojom.AutocompleteMatchSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_results_by_provider', 32, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.mojom.AutocompleteResultsForProviderSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_combined_results', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojom.AutocompleteMatchSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_results_by_provider', 32, 0, mojo.internal.Array(mojo.internal.bindings.mojom.AutocompleteResultsForProviderSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_cursor_position', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_time_since_omnibox_started_ms', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_done', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -267,7 +267,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ParamsSpec, 'mojom.OmniboxPageHandler_StartMl_Params', [
-      mojo.internal.StructField('arg_signals', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mojom.SignalsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_signals', 0, 0, mojo.internal.bindings.mojom.SignalsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -536,29 +536,29 @@ mojo.internal.bindings.mojom.OmniboxPageHandlerRequest = mojo.internal.bindings.
 // Interface: OmniboxPage
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec, 'mojom.OmniboxPage_HandleNewAutocompleteQuery_Params', [
-      mojo.internal.StructField('arg_autocomplete_controller_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mojom.AutocompleteControllerTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_autocomplete_controller_type', 0, 0, mojo.internal.bindings.mojom.AutocompleteControllerTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_input_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec, 'mojom.OmniboxPage_HandleNewAutocompleteResponse_Params', [
-      mojo.internal.StructField('arg_autocomplete_controller_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mojom.AutocompleteControllerTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_response', 8, 0, mojo.internal.bindings.mojo.internal.bindings.mojom.OmniboxResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_autocomplete_controller_type', 0, 0, mojo.internal.bindings.mojom.AutocompleteControllerTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 8, 0, mojo.internal.bindings.mojom.OmniboxResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec, 'mojom.OmniboxPage_HandleNewMlResponse_Params', [
-      mojo.internal.StructField('arg_autocomplete_controller_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mojom.AutocompleteControllerTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_autocomplete_controller_type', 0, 0, mojo.internal.bindings.mojom.AutocompleteControllerTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_input_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_matches', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.mojom.AutocompleteMatchSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_matches', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojom.AutocompleteMatchSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec, 'mojom.OmniboxPage_HandleAnswerIconImageData_Params', [
-      mojo.internal.StructField('arg_autocomplete_controller_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mojom.AutocompleteControllerTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_autocomplete_controller_type', 0, 0, mojo.internal.bindings.mojom.AutocompleteControllerTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_image_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_image_data', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],

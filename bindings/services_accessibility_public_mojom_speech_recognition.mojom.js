@@ -146,7 +146,7 @@ mojo.internal.Struct(
 // Struct: SpeechRecognitionStartInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.SpeechRecognitionStartInfoSpec, 'ax.mojom.SpeechRecognitionStartInfo', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ax.mojom.SpeechRecognitionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ax.mojom.SpeechRecognitionTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_observer_or_error', 8, 0, mojo.internal.bindings.ax.mojom.ObserverOrErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -159,13 +159,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnResult_ParamsSpec, 'ax.mojom.SpeechRecognitionEventObserver_OnResult_Params', [
-      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ax.mojom.SpeechRecognitionResultEventSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.ax.mojom.SpeechRecognitionResultEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnError_ParamsSpec, 'ax.mojom.SpeechRecognitionEventObserver_OnError_Params', [
-      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ax.mojom.SpeechRecognitionErrorEventSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.ax.mojom.SpeechRecognitionErrorEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -380,19 +380,19 @@ mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserverRequest = mojo.int
 // Interface: SpeechRecognition
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.SpeechRecognition_Start_ParamsSpec, 'ax.mojom.SpeechRecognition_Start_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ax.mojom.StartOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.ax.mojom.StartOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.SpeechRecognition_Start_ResponseParamsSpec, 'ax.mojom.SpeechRecognition_Start_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ax.mojom.SpeechRecognitionStartInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.ax.mojom.SpeechRecognitionStartInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.SpeechRecognition_Stop_ParamsSpec, 'ax.mojom.SpeechRecognition_Stop_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ax.mojom.StopOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.ax.mojom.StopOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

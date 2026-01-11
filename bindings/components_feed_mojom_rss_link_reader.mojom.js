@@ -94,7 +94,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec, 'feed.mojom.RssLinkReader_GetRssLinks_ResponseParams', [
-      mojo.internal.StructField('arg_rss_links', 0, 0, mojo.internal.bindings.mojo.internal.bindings.feed.mojom.RssLinksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rss_links', 0, 0, mojo.internal.bindings.feed.mojom.RssLinksSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

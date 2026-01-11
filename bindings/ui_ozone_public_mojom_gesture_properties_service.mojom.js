@@ -173,7 +173,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec, 'ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ui.ozone.mojom.SetGesturePropErrorCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.ui.ozone.mojom.SetGesturePropErrorCodeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

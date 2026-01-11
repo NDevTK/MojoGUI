@@ -93,17 +93,17 @@ mojo.internal.Union(
     mojo.internal.bindings.remote_cocoa.mojom.MenuItemSpec, 'remote_cocoa.mojom.MenuItem', {
       'arg_separator': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.remote_cocoa.mojom.MenuItemCommonFieldsSpec.$,
+        'type': mojo.internal.bindings.remote_cocoa.mojom.MenuItemCommonFieldsSpec.$,
         'nullable': false,
       },
       'arg_regular': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.remote_cocoa.mojom.MenuItemCommonFieldsSpec.$,
+        'type': mojo.internal.bindings.remote_cocoa.mojom.MenuItemCommonFieldsSpec.$,
         'nullable': false,
       },
       'arg_submenu': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.remote_cocoa.mojom.SubmenuMenuItemSpec.$,
+        'type': mojo.internal.bindings.remote_cocoa.mojom.SubmenuMenuItemSpec.$,
         'nullable': false,
       },
     });
@@ -126,7 +126,7 @@ mojo.internal.Struct(
 // Struct: SubmenuMenuItem
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.SubmenuMenuItemSpec, 'remote_cocoa.mojom.SubmenuMenuItem', [
-      mojo.internal.StructField('arg_common', 0, 0, mojo.internal.bindings.mojo.internal.bindings.remote_cocoa.mojom.MenuItemCommonFieldsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_common', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.MenuItemCommonFieldsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_children', 8, 0, mojo.internal.Array(mojo.internal.bindings.remote_cocoa.mojom.MenuItemSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -151,7 +151,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_items', 0, 0, mojo.internal.Array(mojo.internal.bindings.remote_cocoa.mojom.MenuItemSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_anchor', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_target_view_id', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_params', 24, 0, mojo.internal.bindings.mojo.internal.bindings.remote_cocoa.mojom.MenuControllerParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 24, 0, mojo.internal.bindings.remote_cocoa.mojom.MenuControllerParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

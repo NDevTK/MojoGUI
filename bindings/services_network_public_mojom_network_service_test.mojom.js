@@ -173,7 +173,7 @@ mojo.internal.bindings.network.mojom.ResolverType = {
 // Struct: Rule
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.RuleSpec, 'network.mojom.Rule', [
-      mojo.internal.StructField('arg_resolver_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ResolverTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_resolver_type', 0, 0, mojo.internal.bindings.network.mojom.ResolverTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_host_pattern', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_replacement', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_dns_aliases', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
@@ -578,7 +578,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SimpleCacheEntryEnumerator_GetNext_ResponseParamsSpec, 'network.mojom.SimpleCacheEntryEnumerator_GetNext_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.SimpleCacheOpenEntryResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.network.mojom.SimpleCacheOpenEntryResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1147,7 +1147,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheRequest = mojo.internal.bindings
 // Interface: NetworkServiceTest
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkServiceTest_AddRules_ParamsSpec, 'network.mojom.NetworkServiceTest_AddRules_Params', [
-      mojo.internal.StructField('arg_rules', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.network.mojom.RuleSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_rules', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.RuleSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

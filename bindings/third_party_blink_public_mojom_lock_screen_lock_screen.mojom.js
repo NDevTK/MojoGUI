@@ -107,7 +107,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.LockScreenService_SetData_ResponseParamsSpec, 'blink.mojom.LockScreenService_SetData_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.LockScreenServiceStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.LockScreenServiceStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

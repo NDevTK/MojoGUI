@@ -257,7 +257,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec, 'customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_Params', [
       mojo.internal.StructField('arg_section', 0, 0, mojo.internal.bindings.side_panel.mojom.CustomizeChromeSectionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_trigger', 8, 0, mojo.internal.bindings.mojo.internal.bindings.customize_buttons.mojom.SidePanelOpenTriggerSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_trigger', 8, 0, mojo.internal.bindings.customize_buttons.mojom.SidePanelOpenTriggerSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_visible', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);

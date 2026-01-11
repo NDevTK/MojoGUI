@@ -184,7 +184,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_ParamsSpec, 'chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_Params', [
-      mojo.internal.StructField('arg_form', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chrome.mojom.ImportedPasswordFormSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_form', 0, 0, mojo.internal.bindings.chrome.mojom.ImportedPasswordFormSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

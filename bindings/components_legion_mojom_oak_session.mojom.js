@@ -100,13 +100,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec, 'legion.mojom.OakSession_InitiateHandshake_ResponseParams', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojo.internal.bindings.legion.mojom.HandshakeMessageSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.legion.mojom.HandshakeMessageSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.legion.mojom.OakSession_CompleteHandshake_ParamsSpec, 'legion.mojom.OakSession_CompleteHandshake_Params', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.mojo.internal.bindings.legion.mojom.HandshakeMessageSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.legion.mojom.HandshakeMessageSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

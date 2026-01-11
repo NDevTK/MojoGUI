@@ -103,7 +103,7 @@ mojo.internal.bindings.mirroring.mojom.SessionError = {
 // Interface: SessionObserver
 mojo.internal.Struct(
     mojo.internal.bindings.mirroring.mojom.SessionObserver_OnError_ParamsSpec, 'mirroring.mojom.SessionObserver_OnError_Params', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mirroring.mojom.SessionErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mirroring.mojom.SessionErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

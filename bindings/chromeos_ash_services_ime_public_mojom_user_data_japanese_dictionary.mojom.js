@@ -130,7 +130,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.ime.mojom.JapaneseDictionaryEntrySpec, 'ash.ime.mojom.JapaneseDictionaryEntry', [
       mojo.internal.StructField('arg_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_value', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pos', 16, 0, mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.JpPosTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pos', 16, 0, mojo.internal.bindings.ash.ime.mojom.JpPosTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_comment', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -140,6 +140,6 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.ime.mojom.JapaneseDictionarySpec, 'ash.ime.mojom.JapaneseDictionary', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_entries', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.JapaneseDictionaryEntrySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_entries', 16, 0, mojo.internal.Array(mojo.internal.bindings.ash.ime.mojom.JapaneseDictionaryEntrySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);

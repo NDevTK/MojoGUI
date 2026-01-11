@@ -102,7 +102,7 @@ mojo.internal.bindings.arc.mojom.AnrSource = {
 // Struct: Anr
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.AnrSpec, 'arc.mojom.Anr', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.AnrTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.AnrSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.arc.mojom.AnrTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.arc.mojom.AnrSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);

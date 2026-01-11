@@ -129,7 +129,7 @@ mojo.internal.Union(
       },
       'arg_opaque': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.OpaqueSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.OpaqueSpec.$,
         'nullable': false,
       },
     });
@@ -144,7 +144,7 @@ mojo.internal.Union(
       },
       'arg_opaque': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.OpaqueSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.OpaqueSpec.$,
         'nullable': false,
       },
     });
@@ -159,7 +159,7 @@ mojo.internal.Union(
       },
       'arg_opaque': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.OpaqueSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.OpaqueSpec.$,
         'nullable': false,
       },
     });
@@ -169,12 +169,12 @@ mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.PotentiallyOpaqueAdAuctionDataSpec, 'blink.mojom.PotentiallyOpaqueAdAuctionData', {
       'arg_transparent': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AdAuctionDataSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.AdAuctionDataSpec.$,
         'nullable': false,
       },
       'arg_opaque': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.OpaqueSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.OpaqueSpec.$,
         'nullable': false,
       },
     });
@@ -184,12 +184,12 @@ mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.PotentiallyOpaqueConfigVectorSpec, 'blink.mojom.PotentiallyOpaqueConfigVector', {
       'arg_transparent': {
         'ordinal': 0,
-        'type': mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FencedFrameConfigSpec.$, false),
+        'type': mojo.internal.Array(mojo.internal.bindings.blink.mojom.FencedFrameConfigSpec.$, false),
         'nullable': false,
       },
       'arg_opaque': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.OpaqueSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.OpaqueSpec.$,
         'nullable': false,
       },
     });
@@ -199,12 +199,12 @@ mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.PotentiallyOpaqueURNConfigVectorSpec, 'blink.mojom.PotentiallyOpaqueURNConfigVector', {
       'arg_transparent': {
         'ordinal': 0,
-        'type': mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.URNConfigPairSpec.$, false),
+        'type': mojo.internal.Array(mojo.internal.bindings.blink.mojom.URNConfigPairSpec.$, false),
         'nullable': false,
       },
       'arg_opaque': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.OpaqueSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.OpaqueSpec.$,
         'nullable': false,
       },
     });
@@ -214,12 +214,12 @@ mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.PotentiallyOpaqueSharedStorageBudgetMetadataSpec, 'blink.mojom.PotentiallyOpaqueSharedStorageBudgetMetadata', {
       'arg_transparent': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SharedStorageBudgetMetadataSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.SharedStorageBudgetMetadataSpec.$,
         'nullable': false,
       },
       'arg_opaque': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.OpaqueSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.OpaqueSpec.$,
         'nullable': false,
       },
     });
@@ -236,7 +236,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.URNConfigPairSpec, 'blink.mojom.URNConfigPair', [
       mojo.internal.StructField('arg_urn', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_config', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FencedFrameConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 8, 0, mojo.internal.bindings.blink.mojom.FencedFrameConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -268,9 +268,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_nested_configs', 40, 0, mojo.internal.bindings.blink.mojom.PotentiallyOpaqueConfigVectorSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_shared_storage_budget_metadata', 48, 0, mojo.internal.bindings.blink.mojom.PotentiallyOpaqueSharedStorageBudgetMetadataSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_urn_uuid', 56, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mode', 64, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.DeprecatedFencedFrameModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 64, 0, mojo.internal.bindings.blink.mojom.DeprecatedFencedFrameModeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_effective_enabled_permissions', 72, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.PermissionsPolicyFeatureSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_parent_permissions_info', 80, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ParentPermissionsInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_parent_permissions_info', 80, 0, mojo.internal.bindings.blink.mojom.ParentPermissionsInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 96]]);
 
@@ -284,9 +284,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_ad_auction_data', 32, 0, mojo.internal.bindings.blink.mojom.PotentiallyOpaqueAdAuctionDataSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_nested_urn_config_pairs', 40, 0, mojo.internal.bindings.blink.mojom.PotentiallyOpaqueURNConfigVectorSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_shared_storage_budget_metadata', 48, 0, mojo.internal.bindings.blink.mojom.PotentiallyOpaqueSharedStorageBudgetMetadataSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_mode', 56, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.DeprecatedFencedFrameModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 56, 0, mojo.internal.bindings.blink.mojom.DeprecatedFencedFrameModeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_effective_enabled_permissions', 64, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.PermissionsPolicyFeatureSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_parent_permissions_info', 72, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ParentPermissionsInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_parent_permissions_info', 72, 0, mojo.internal.bindings.blink.mojom.ParentPermissionsInfoSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_can_disable_untrusted_network', 80, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_cross_origin_content', 80, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_allow_cross_origin_event_reporting', 80, 2, mojo.internal.Bool, false, false, 0, undefined),

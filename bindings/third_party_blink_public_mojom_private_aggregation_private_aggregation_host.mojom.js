@@ -101,7 +101,7 @@ mojo.internal.Struct(
 // Struct: DebugModeDetails
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DebugModeDetailsSpec, 'blink.mojom.DebugModeDetails', [
-      mojo.internal.StructField('arg_debug_key', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.DebugKeySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_debug_key', 0, 0, mojo.internal.bindings.blink.mojom.DebugKeySpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_is_enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -115,14 +115,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_ParamsSpec, 'blink.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_Params', [
-      mojo.internal.StructField('arg_error_event', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.PrivateAggregationErrorEventSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_event', 0, 0, mojo.internal.bindings.blink.mojom.PrivateAggregationErrorEventSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_contributions', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AggregatableReportHistogramContributionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PrivateAggregationHost_EnableDebugMode_ParamsSpec, 'blink.mojom.PrivateAggregationHost_EnableDebugMode_Params', [
-      mojo.internal.StructField('arg_debug_key', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.DebugKeySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_debug_key', 0, 0, mojo.internal.bindings.blink.mojom.DebugKeySpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

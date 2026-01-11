@@ -729,20 +729,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec, 'new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_Params', [
-      mojo.internal.StructField('arg_notice', 0, 0, mojo.internal.bindings.mojo.internal.bindings.new_tab_footer.mojom.ManagementNoticeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_notice', 0, 0, mojo.internal.bindings.new_tab_footer.mojom.ManagementNoticeSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec, 'new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_Params', [
-      mojo.internal.StructField('arg_ntp_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.new_tab_footer.mojom.NewTabPageTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ntp_type', 0, 0, mojo.internal.bindings.new_tab_footer.mojom.NewTabPageTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_can_customize_chrome', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec, 'new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_Params', [
-      mojo.internal.StructField('arg_background_image_attribution', 0, 0, mojo.internal.bindings.mojo.internal.bindings.new_tab_footer.mojom.BackgroundAttributionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_background_image_attribution', 0, 0, mojo.internal.bindings.new_tab_footer.mojom.BackgroundAttributionSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

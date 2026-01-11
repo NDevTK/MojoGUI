@@ -125,7 +125,7 @@ mojo.internal.Struct(
 // Struct: InkStroke
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.InkStrokeSpec, 'chromeos.machine_learning.mojom.InkStroke', [
-      mojo.internal.StructField('arg_points', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.InkPointSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_points', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.InkPointSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -140,7 +140,7 @@ mojo.internal.Struct(
 // Struct: RecognitionContext
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.RecognitionContextSpec, 'chromeos.machine_learning.mojom.RecognitionContext', [
-      mojo.internal.StructField('arg_writing_guide', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.WritingGuideSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_writing_guide', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.WritingGuideSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_pre_context', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -148,8 +148,8 @@ mojo.internal.Struct(
 // Struct: HandwritingRecognitionQuery
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognitionQuerySpec, 'chromeos.machine_learning.mojom.HandwritingRecognitionQuery', [
-      mojo.internal.StructField('arg_ink', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.InkStrokeSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_context', 8, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.RecognitionContextSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_ink', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.InkStrokeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_context', 8, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.RecognitionContextSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_max_num_results', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_return_segmentation', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -169,14 +169,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSegmentSpec, 'chromeos.machine_learning.mojom.HandwritingRecognizerSegment', [
       mojo.internal.StructField('arg_sublabel', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ink_ranges', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerInkRangeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_ink_ranges', 8, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerInkRangeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: HandwritingRecognizerSegmentation
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSegmentationSpec, 'chromeos.machine_learning.mojom.HandwritingRecognizerSegmentation', [
-      mojo.internal.StructField('arg_segments', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSegmentSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_segments', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSegmentSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -184,7 +184,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerCandidateSpec, 'chromeos.machine_learning.mojom.HandwritingRecognizerCandidate', [
       mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_segmentation', 8, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSegmentationSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_segmentation', 8, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSegmentationSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_score', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -209,13 +209,13 @@ mojo.internal.Struct(
 // Interface: HandwritingRecognizer
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ParamsSpec, 'chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_Params', [
-      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognitionQuerySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognitionQuerySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ResponseParamsSpec, 'chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -145,19 +145,19 @@ mojo.internal.Struct(
 // Interface: SynchronousCompositor
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec, 'blink.mojom.SynchronousCompositor_DemandDrawHwAsync_Params', [
-      mojo.internal.StructField('arg_draw_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SyncCompositorDemandDrawHwParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_draw_params', 0, 0, mojo.internal.bindings.blink.mojom.SyncCompositorDemandDrawHwParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec, 'blink.mojom.SynchronousCompositor_DemandDrawHw_Params', [
-      mojo.internal.StructField('arg_draw_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SyncCompositorDemandDrawHwParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_draw_params', 0, 0, mojo.internal.bindings.blink.mojom.SyncCompositorDemandDrawHwParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec, 'blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SyncCompositorCommonRendererParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.SyncCompositorCommonRendererParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_local_surface_id', 8, 0, mojo.internal.bindings.viz.mojom.LocalSurfaceIdSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_frame', 16, 0, mojo.internal.bindings.viz.mojom.CompositorFrameSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_hit_test_region_list', 24, 0, mojo.internal.bindings.viz.mojom.HitTestRegionListSpec.$, null, true, 0, undefined),
@@ -174,20 +174,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec, 'blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SyncCompositorCommonRendererParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.SyncCompositorCommonRendererParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec, 'blink.mojom.SynchronousCompositor_DemandDrawSw_Params', [
-      mojo.internal.StructField('arg_draw_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SyncCompositorDemandDrawSwParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_draw_params', 0, 0, mojo.internal.bindings.blink.mojom.SyncCompositorDemandDrawSwParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec, 'blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SyncCompositorCommonRendererParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.SyncCompositorCommonRendererParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_meta_data', 8, 0, mojo.internal.bindings.viz.mojom.CompositorFrameMetadataSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_metadata_version', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
@@ -212,7 +212,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec, 'blink.mojom.SynchronousCompositor_ZoomBy_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SyncCompositorCommonRendererParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.SyncCompositorCommonRendererParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -823,7 +823,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec, 'blink.mojom.SynchronousCompositorHost_UpdateState_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SyncCompositorCommonRendererParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.blink.mojom.SyncCompositorCommonRendererParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1092,7 +1092,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec, 'blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SyncCompositorCommonRendererParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.blink.mojom.SyncCompositorCommonRendererParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

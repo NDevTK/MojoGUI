@@ -128,7 +128,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.SessionStorageControl_GetUsage_ResponseParamsSpec, 'storage.mojom.SessionStorageControl_GetUsage_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.storage.mojom.SessionStorageUsageInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.Array(mojo.internal.bindings.storage.mojom.SessionStorageUsageInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -179,7 +179,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec, 'storage.mojom.SessionStorageControl_CloneNamespace_Params', [
       mojo.internal.StructField('arg_namespace_id_to_clone', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_clone_namespace_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_clone_type', 16, 0, mojo.internal.bindings.mojo.internal.bindings.storage.mojom.SessionStorageCloneTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_clone_type', 16, 0, mojo.internal.bindings.storage.mojom.SessionStorageCloneTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

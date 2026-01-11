@@ -100,7 +100,7 @@ mojo.internal.bindings.viz.mojom.FilterType = {
 // Struct: FilterOperation
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FilterOperationSpec, 'viz.mojom.FilterOperation', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.viz.mojom.FilterTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.viz.mojom.FilterTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_offset', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_drop_shadow_color', 16, 0, mojo.internal.bindings.skia.mojom.SkColor4fSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_image_filter', 24, 0, mojo.internal.bindings.viz.mojom.PaintFilterSpec.$, null, false, 0, undefined),

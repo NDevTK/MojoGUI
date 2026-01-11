@@ -493,8 +493,8 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerRequest = mojo.internal.bi
 // Interface: NtpPromoClient
 mojo.internal.Struct(
     mojo.internal.bindings.ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec, 'ntp_promo.mojom.NtpPromoClient_SetPromos_Params', [
-      mojo.internal.StructField('arg_eligible', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ntp_promo.mojom.PromoSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_completed', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ntp_promo.mojom.PromoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_eligible', 0, 0, mojo.internal.Array(mojo.internal.bindings.ntp_promo.mojom.PromoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_completed', 8, 0, mojo.internal.Array(mojo.internal.bindings.ntp_promo.mojom.PromoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

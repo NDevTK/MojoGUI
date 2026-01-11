@@ -120,7 +120,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.EventListenerSpec, 'extensions.mojom.EventListener', [
       mojo.internal.StructField('arg_listener_owner', 0, 0, mojo.internal.bindings.extensions.mojom.EventListenerOwnerSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_event_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_service_worker_context', 16, 0, mojo.internal.bindings.mojo.internal.bindings.extensions.mojom.ServiceWorkerContextSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_service_worker_context', 16, 0, mojo.internal.bindings.extensions.mojom.ServiceWorkerContextSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_filter', 24, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);
@@ -128,13 +128,13 @@ mojo.internal.Struct(
 // Interface: EventRouter
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.EventRouter_AddListenerForMainThread_ParamsSpec, 'extensions.mojom.EventRouter_AddListenerForMainThread_Params', [
-      mojo.internal.StructField('arg_event_listener', 0, 0, mojo.internal.bindings.mojo.internal.bindings.extensions.mojom.EventListenerSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_listener', 0, 0, mojo.internal.bindings.extensions.mojom.EventListenerSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.EventRouter_AddListenerForServiceWorker_ParamsSpec, 'extensions.mojom.EventRouter_AddListenerForServiceWorker_Params', [
-      mojo.internal.StructField('arg_event_listener', 0, 0, mojo.internal.bindings.mojo.internal.bindings.extensions.mojom.EventListenerSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_listener', 0, 0, mojo.internal.bindings.extensions.mojom.EventListenerSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -166,7 +166,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.EventRouter_AddFilteredListenerForServiceWorker_ParamsSpec, 'extensions.mojom.EventRouter_AddFilteredListenerForServiceWorker_Params', [
       mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.bindings.extensions.mojom.ExtensionIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_event_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_service_worker_context', 16, 0, mojo.internal.bindings.mojo.internal.bindings.extensions.mojom.ServiceWorkerContextSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_service_worker_context', 16, 0, mojo.internal.bindings.extensions.mojom.ServiceWorkerContextSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_filter', 24, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_add_lazy_listener', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -174,13 +174,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.EventRouter_RemoveListenerForMainThread_ParamsSpec, 'extensions.mojom.EventRouter_RemoveListenerForMainThread_Params', [
-      mojo.internal.StructField('arg_event_listener', 0, 0, mojo.internal.bindings.mojo.internal.bindings.extensions.mojom.EventListenerSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_listener', 0, 0, mojo.internal.bindings.extensions.mojom.EventListenerSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.EventRouter_RemoveListenerForServiceWorker_ParamsSpec, 'extensions.mojom.EventRouter_RemoveListenerForServiceWorker_Params', [
-      mojo.internal.StructField('arg_event_listener', 0, 0, mojo.internal.bindings.mojo.internal.bindings.extensions.mojom.EventListenerSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_listener', 0, 0, mojo.internal.bindings.extensions.mojom.EventListenerSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -212,7 +212,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.EventRouter_RemoveFilteredListenerForServiceWorker_ParamsSpec, 'extensions.mojom.EventRouter_RemoveFilteredListenerForServiceWorker_Params', [
       mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.bindings.extensions.mojom.ExtensionIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_event_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_service_worker_context', 16, 0, mojo.internal.bindings.mojo.internal.bindings.extensions.mojom.ServiceWorkerContextSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_service_worker_context', 16, 0, mojo.internal.bindings.extensions.mojom.ServiceWorkerContextSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_filter', 24, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_remove_lazy_listener', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],

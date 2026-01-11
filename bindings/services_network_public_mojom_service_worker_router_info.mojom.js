@@ -98,12 +98,12 @@ mojo.internal.bindings.network.mojom.ServiceWorkerStatus = {
 // Struct: ServiceWorkerRouterInfo
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ServiceWorkerRouterInfoSpec, 'network.mojom.ServiceWorkerRouterInfo', [
-      mojo.internal.StructField('arg_matched_source_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ServiceWorkerRouterSourceTypeSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_actual_source_type', 8, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ServiceWorkerRouterSourceTypeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_matched_source_type', 0, 0, mojo.internal.bindings.network.mojom.ServiceWorkerRouterSourceTypeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_actual_source_type', 8, 0, mojo.internal.bindings.network.mojom.ServiceWorkerRouterSourceTypeSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_route_rule_num', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_router_evaluation_time', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_cache_lookup_time', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_evaluation_worker_status', 40, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ServiceWorkerStatusSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_evaluation_worker_status', 40, 0, mojo.internal.bindings.network.mojom.ServiceWorkerStatusSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_rule_id_matched_$value', 48, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_rule_id_matched_$flag', originalFieldName: 'arg_rule_id_matched' }),
       mojo.internal.StructField('arg_rule_id_matched_$flag', 52, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_rule_id_matched_$value', originalFieldName: 'arg_rule_id_matched' }),
     ],

@@ -86,17 +86,17 @@ mojo.internal.Union(
     mojo.internal.bindings.network.mojom.TrustTokenAccessDetailsSpec, 'network.mojom.TrustTokenAccessDetails', {
       'arg_issuance': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.network.mojom.TrustTokenIssuanceDetailsSpec.$,
+        'type': mojo.internal.bindings.network.mojom.TrustTokenIssuanceDetailsSpec.$,
         'nullable': false,
       },
       'arg_redemption': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.network.mojom.TrustTokenRedemptionDetailsSpec.$,
+        'type': mojo.internal.bindings.network.mojom.TrustTokenRedemptionDetailsSpec.$,
         'nullable': false,
       },
       'arg_signing': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.network.mojom.TrustTokenSigningDetailsSpec.$,
+        'type': mojo.internal.bindings.network.mojom.TrustTokenSigningDetailsSpec.$,
         'nullable': false,
       },
     });

@@ -113,7 +113,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebUsbService_GetPermission_ParamsSpec, 'blink.mojom.WebUsbService_GetPermission_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.WebUsbRequestDeviceOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.blink.mojom.WebUsbRequestDeviceOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -106,7 +106,7 @@ mojo.internal.Struct(
 // Interface: EnhancedCalendarService
 mojo.internal.Struct(
     mojo.internal.bindings.ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ParamsSpec, 'ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_Params', [
-      mojo.internal.StructField('arg_request_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ai.mojom.EnhancedCalendarServiceRequestParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_params', 0, 0, mojo.internal.bindings.ai.mojom.EnhancedCalendarServiceRequestParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -87,6 +87,6 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FetchClientSettingsObjectSpec, 'blink.mojom.FetchClientSettingsObject', [
       mojo.internal.StructField('arg_referrer_policy', 0, 0, mojo.internal.bindings.network.mojom.ReferrerPolicySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_outgoing_referrer', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_insecure_requests_policy', 16, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.InsecureRequestsPolicySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_insecure_requests_policy', 16, 0, mojo.internal.bindings.blink.mojom.InsecureRequestsPolicySpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);

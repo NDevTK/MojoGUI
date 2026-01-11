@@ -100,7 +100,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_disqualified_at', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_mmd', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_current_operator', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_previous_operators', 48, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.network.mojom.PreviousOperatorEntrySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_previous_operators', 48, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.PreviousOperatorEntrySpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_kUnspecified', 56, 0, mojo.internal.Pointer, 0, false, 0, undefined),
       mojo.internal.StructField('arg_val', 64, 0, mojo.internal.Pointer, 1, false, 0, undefined),
       mojo.internal.StructField('arg_val', 72, 0, mojo.internal.Pointer, 2, false, 0, undefined),

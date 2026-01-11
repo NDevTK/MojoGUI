@@ -94,7 +94,7 @@ mojo.internal.Union(
       },
       'arg_shared_image_handle': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.media.mojom.SharedImageBufferHandleSetSpec.$,
+        'type': mojo.internal.bindings.media.mojom.SharedImageBufferHandleSetSpec.$,
         'nullable': false,
       },
       'arg_gpu_memory_buffer_handle': {
@@ -121,7 +121,7 @@ mojo.internal.Struct(
 // Struct: ReadyBuffer
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.ReadyBufferSpec, 'media.mojom.ReadyBuffer', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.VideoFrameInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.media.mojom.VideoFrameInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_buffer_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

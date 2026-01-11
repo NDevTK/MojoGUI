@@ -96,7 +96,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec, 'blink.mojom.DocumentMetadata_GetEntities_ResponseParams', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.WebPageSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.bindings.blink.mojom.WebPageSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

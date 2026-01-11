@@ -205,7 +205,7 @@ mojo.internal.Struct(
 // Struct: DidPreviewPageParams
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.DidPreviewPageParamsSpec, 'printing.mojom.DidPreviewPageParams', [
-      mojo.internal.StructField('arg_content', 0, 0, mojo.internal.bindings.mojo.internal.bindings.printing.mojom.DidPrintContentParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_content', 0, 0, mojo.internal.bindings.printing.mojom.DidPrintContentParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_page_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_document_cookie', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
@@ -214,7 +214,7 @@ mojo.internal.Struct(
 // Struct: DidPreviewDocumentParams
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.DidPreviewDocumentParamsSpec, 'printing.mojom.DidPreviewDocumentParams', [
-      mojo.internal.StructField('arg_content', 0, 0, mojo.internal.bindings.mojo.internal.bindings.printing.mojom.DidPrintContentParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_content', 0, 0, mojo.internal.bindings.printing.mojom.DidPrintContentParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_document_cookie', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_expected_pages_count', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
@@ -258,7 +258,7 @@ mojo.internal.Struct(
 // Struct: PrintPagesParams
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PrintPagesParamsSpec, 'printing.mojom.PrintPagesParams', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.printing.mojom.PrintParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.PrintParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_pages', 8, 0, mojo.internal.Array(mojo.internal.bindings.printing.mojom.PageRangeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -266,7 +266,7 @@ mojo.internal.Struct(
 // Struct: DidPrintDocumentParams
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.DidPrintDocumentParamsSpec, 'printing.mojom.DidPrintDocumentParams', [
-      mojo.internal.StructField('arg_content', 0, 0, mojo.internal.bindings.mojo.internal.bindings.printing.mojom.DidPrintContentParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_content', 0, 0, mojo.internal.bindings.printing.mojom.DidPrintContentParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_page_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_content_area', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_physical_offsets', 24, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, false, 0, undefined),
@@ -288,7 +288,7 @@ mojo.internal.Struct(
 // Struct: PrintWithParamsResultData
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PrintWithParamsResultDataSpec, 'printing.mojom.PrintWithParamsResultData', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.printing.mojom.DidPrintDocumentParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.DidPrintDocumentParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_accessibility_tree', 8, 0, mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_generate_document_outline', 16, 0, mojo.internal.bindings.printing.mojom.GenerateDocumentOutlineSpec.$, 0, false, 0, undefined),
     ],
@@ -462,7 +462,7 @@ mojo.internal.bindings.printing.mojom.PrintRendererRequest = mojo.internal.bindi
 // Interface: PrintPreviewUI
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PrintPreviewUI_SetOptionsFromDocument_ParamsSpec, 'printing.mojom.PrintPreviewUI_SetOptionsFromDocument_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.printing.mojom.OptionsFromDocumentParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.OptionsFromDocumentParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_request_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -476,14 +476,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PrintPreviewUI_DidPreviewPage_ParamsSpec, 'printing.mojom.PrintPreviewUI_DidPreviewPage_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.printing.mojom.DidPreviewPageParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.DidPreviewPageParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_request_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PrintPreviewUI_MetafileReadyForPrinting_ParamsSpec, 'printing.mojom.PrintPreviewUI_MetafileReadyForPrinting_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.printing.mojom.DidPreviewDocumentParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.DidPreviewDocumentParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_request_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -521,7 +521,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PrintPreviewUI_DidStartPreview_ParamsSpec, 'printing.mojom.PrintPreviewUI_DidStartPreview_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.printing.mojom.DidStartPreviewParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.DidStartPreviewParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_request_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -934,7 +934,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintWithParams_ParamsSpec, 'printing.mojom.PrintRenderFrame_PrintWithParams_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.printing.mojom.PrintPagesParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.PrintPagesParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -969,13 +969,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintFrameContent_ParamsSpec, 'printing.mojom.PrintRenderFrame_PrintFrameContent_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.printing.mojom.PrintFrameContentParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.PrintFrameContentParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintFrameContent_ResponseParamsSpec, 'printing.mojom.PrintRenderFrame_PrintFrameContent_ResponseParams', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.printing.mojom.DidPrintContentParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.DidPrintContentParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_document_cookie', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -1483,7 +1483,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ResponseParamsSpec, 'printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ResponseParams', [
-      mojo.internal.StructField('arg_default_settings', 0, 0, mojo.internal.bindings.mojo.internal.bindings.printing.mojom.PrintParamsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_default_settings', 0, 0, mojo.internal.bindings.printing.mojom.PrintParamsSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1494,7 +1494,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PrintManagerHost_DidPrintDocument_ParamsSpec, 'printing.mojom.PrintManagerHost_DidPrintDocument_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.printing.mojom.DidPrintDocumentParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.DidPrintDocumentParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1517,19 +1517,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PrintManagerHost_ScriptedPrint_ParamsSpec, 'printing.mojom.PrintManagerHost_ScriptedPrint_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.printing.mojom.ScriptedPrintParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.ScriptedPrintParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PrintManagerHost_ScriptedPrint_ResponseParamsSpec, 'printing.mojom.PrintManagerHost_ScriptedPrint_ResponseParams', [
-      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.bindings.mojo.internal.bindings.printing.mojom.PrintPagesParamsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.bindings.printing.mojom.PrintPagesParamsSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PrintManagerHost_PrintingFailed_ParamsSpec, 'printing.mojom.PrintManagerHost_PrintingFailed_Params', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.mojo.internal.bindings.printing.mojom.PrintFailureReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.printing.mojom.PrintFailureReasonSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_cookie', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -1542,7 +1542,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PrintManagerHost_UpdatePrintSettings_ResponseParamsSpec, 'printing.mojom.PrintManagerHost_UpdatePrintSettings_ResponseParams', [
-      mojo.internal.StructField('arg_current_settings', 0, 0, mojo.internal.bindings.mojo.internal.bindings.printing.mojom.PrintPagesParamsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_current_settings', 0, 0, mojo.internal.bindings.printing.mojom.PrintPagesParamsSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1564,7 +1564,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PrintManagerHost_RequestPrintPreview_ParamsSpec, 'printing.mojom.PrintManagerHost_RequestPrintPreview_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.printing.mojom.RequestPrintPreviewParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.RequestPrintPreviewParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

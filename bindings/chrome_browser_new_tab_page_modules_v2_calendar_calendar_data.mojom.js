@@ -94,7 +94,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_end_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_location', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_attachments', 40, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ntp.calendar.mojom.AttachmentSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_attachments', 40, 0, mojo.internal.Array(mojo.internal.bindings.ntp.calendar.mojom.AttachmentSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_conference_url', 48, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_is_accepted', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_has_other_attendee', 56, 1, mojo.internal.Bool, false, false, 0, undefined),

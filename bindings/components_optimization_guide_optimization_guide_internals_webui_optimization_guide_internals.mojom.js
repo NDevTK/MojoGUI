@@ -128,7 +128,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec, 'optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParams', [
-      mojo.internal.StructField('arg_downloaded_models_info', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.optimization_guide_internals.mojom.DownloadedModelInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_downloaded_models_info', 0, 0, mojo.internal.Array(mojo.internal.bindings.optimization_guide_internals.mojom.DownloadedModelInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -139,7 +139,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec, 'optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParams', [
-      mojo.internal.StructField('arg_logged_client_ids', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.optimization_guide_internals.mojom.LoggedClientIdsSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_logged_client_ids', 0, 0, mojo.internal.Array(mojo.internal.bindings.optimization_guide_internals.mojom.LoggedClientIdsSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -150,7 +150,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec, 'optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParams', [
-      mojo.internal.StructField('arg_mqls_logs', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.optimization_guide_internals.mojom.MqlsLogSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_mqls_logs', 0, 0, mojo.internal.Array(mojo.internal.bindings.optimization_guide_internals.mojom.MqlsLogSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

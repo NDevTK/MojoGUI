@@ -102,7 +102,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec, 'blink.mojom.LeakDetector_PerformLeakDetection_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.LeakDetectionResultSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.LeakDetectionResultSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

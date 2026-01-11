@@ -94,7 +94,7 @@ mojo.internal.Struct(
 // Struct: InterfaceProviderSpec
 mojo.internal.Struct(
     mojo.internal.bindings.service_manager.mojom.InterfaceProviderSpecSpec, 'service_manager.mojom.InterfaceProviderSpec', [
-      mojo.internal.StructField('arg_provides', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.mojo.internal.bindings.service_manager.mojom.InterfaceSetSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_needs', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.mojo.internal.bindings.service_manager.mojom.CapabilitySetSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_provides', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.service_manager.mojom.InterfaceSetSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_needs', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.service_manager.mojom.CapabilitySetSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);

@@ -108,7 +108,7 @@ mojo.internal.bindings.blink.mojom.PagehideDispatch = {
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PageLifecycleStateSpec, 'blink.mojom.PageLifecycleState', [
       mojo.internal.StructField('arg_visibility', 0, 0, mojo.internal.bindings.blink.mojom.PageVisibilityStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pagehide_dispatch', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.PagehideDispatchSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pagehide_dispatch', 8, 0, mojo.internal.bindings.blink.mojom.PagehideDispatchSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_frozen', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_in_back_forward_cache', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_eviction_enabled', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
@@ -146,8 +146,8 @@ mojo.internal.Struct(
 // Interface: PageBroadcast
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec, 'blink.mojom.PageBroadcast_SetPageLifecycleState_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.PageLifecycleStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_page_restore_params', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.PageRestoreParamsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.blink.mojom.PageLifecycleStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_restore_params', 8, 0, mojo.internal.bindings.blink.mojom.PageRestoreParamsSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -164,7 +164,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PageBroadcast_ActivatePrerenderedPage_ParamsSpec, 'blink.mojom.PageBroadcast_ActivatePrerenderedPage_Params', [
-      mojo.internal.StructField('arg_prerender_page_activation_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.PrerenderPageActivationParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_prerender_page_activation_params', 0, 0, mojo.internal.bindings.blink.mojom.PrerenderPageActivationParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -225,7 +225,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec, 'blink.mojom.PageBroadcast_UpdateColorProviders_Params', [
-      mojo.internal.StructField('arg_color_provider_colors', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ColorProviderColorMapsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_color_provider_colors', 0, 0, mojo.internal.bindings.blink.mojom.ColorProviderColorMapsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

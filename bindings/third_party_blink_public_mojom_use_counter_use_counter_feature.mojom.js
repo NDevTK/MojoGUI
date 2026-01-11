@@ -89,7 +89,7 @@ mojo.internal.bindings.blink.mojom.UseCounterFeatureType = {
 // Struct: UseCounterFeature
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.UseCounterFeatureSpec, 'blink.mojom.UseCounterFeature', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.UseCounterFeatureTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.blink.mojom.UseCounterFeatureTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_value', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

@@ -485,7 +485,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.StorageArea_GetAll_ResponseParamsSpec, 'blink.mojom.StorageArea_GetAll_ResponseParams', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.KeyValueSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.KeyValueSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -87,7 +87,7 @@ mojo.internal.Struct(
 // Interface: TracedProcess
 mojo.internal.Struct(
     mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec, 'tracing.mojom.TracedProcess_ConnectToTracingService_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tracing.mojom.ConnectToTracingRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.tracing.mojom.ConnectToTracingRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -483,7 +483,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_DisplayPopupMenu_ParamsSpec, 'remote_cocoa.mojom.RenderWidgetHostNSView_DisplayPopupMenu_Params', [
-      mojo.internal.StructField('arg_menu', 0, 0, mojo.internal.bindings.mojo.internal.bindings.remote_cocoa.mojom.PopupMenuSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_menu', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.PopupMenuSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

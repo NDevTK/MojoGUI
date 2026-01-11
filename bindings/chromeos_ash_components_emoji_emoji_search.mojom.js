@@ -95,9 +95,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec, 'emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParams', [
-      mojo.internal.StructField('arg_emoji_results', 0, 0, mojo.internal.bindings.mojo.internal.bindings.emoji_search.mojom.SearchResultsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_symbol_results', 8, 0, mojo.internal.bindings.mojo.internal.bindings.emoji_search.mojom.SearchResultsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_emoticon_results', 16, 0, mojo.internal.bindings.mojo.internal.bindings.emoji_search.mojom.SearchResultsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_emoji_results', 0, 0, mojo.internal.bindings.emoji_search.mojom.SearchResultsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_symbol_results', 8, 0, mojo.internal.bindings.emoji_search.mojom.SearchResultsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_emoticon_results', 16, 0, mojo.internal.bindings.emoji_search.mojom.SearchResultsSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

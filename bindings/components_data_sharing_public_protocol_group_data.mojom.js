@@ -92,7 +92,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_gaia_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_display_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_email', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_role', 24, 0, mojo.internal.bindings.mojo.internal.bindings.data_sharing.mojom.MemberRoleSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_role', 24, 0, mojo.internal.bindings.data_sharing.mojom.MemberRoleSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_avatar_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_given_name', 40, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_creation_time', 48, 0, mojo.internal.bindings.mojo_base.mojom.JSTimeSpec.$, null, false, 0, undefined),
@@ -105,8 +105,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.data_sharing.mojom.GroupDataSpec, 'data_sharing.mojom.GroupData', [
       mojo.internal.StructField('arg_group_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_display_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_members', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.data_sharing.mojom.GroupMemberSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_former_members', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.data_sharing.mojom.GroupMemberSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_members', 16, 0, mojo.internal.Array(mojo.internal.bindings.data_sharing.mojom.GroupMemberSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_former_members', 24, 0, mojo.internal.Array(mojo.internal.bindings.data_sharing.mojom.GroupMemberSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_access_token', 32, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 48]]);

@@ -99,7 +99,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.tenor.mojom.GifResponseSpec, 'tenor.mojom.GifResponse', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_content_description', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.mojo.internal.bindings.tenor.mojom.GifUrlsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.tenor.mojom.GifUrlsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_preview_size', 24, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_full_size', 32, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
     ],
@@ -109,6 +109,6 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.tenor.mojom.PaginatedGifResponsesSpec, 'tenor.mojom.PaginatedGifResponses', [
       mojo.internal.StructField('arg_next', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_results', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.tenor.mojom.GifResponseSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 8, 0, mojo.internal.Array(mojo.internal.bindings.tenor.mojom.GifResponseSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);

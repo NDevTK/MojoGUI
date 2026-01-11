@@ -89,7 +89,7 @@ mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.DragItemSpec, 'blink.mojom.DragItem', {
       'arg_string': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.DragItemStringSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.DragItemStringSpec.$,
         'nullable': false,
       },
       'arg_file': {
@@ -99,12 +99,12 @@ mojo.internal.Union(
       },
       'arg_binary': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.DragItemBinarySpec.$,
+        'type': mojo.internal.bindings.blink.mojom.DragItemBinarySpec.$,
         'nullable': false,
       },
       'arg_file_system_file': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.DragItemFileSystemFileSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.DragItemFileSystemFileSpec.$,
         'nullable': false,
       },
     });

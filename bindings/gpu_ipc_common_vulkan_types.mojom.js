@@ -235,11 +235,11 @@ mojo.internal.Struct(
 // Struct: VkPhysicalDeviceProperties
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.VkPhysicalDevicePropertiesSpec, 'gpu.mojom.VkPhysicalDeviceProperties', [
-      mojo.internal.StructField('arg_deviceType', 0, 0, mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_deviceType', 0, 0, mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_deviceName', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_pipelineCacheUUID', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_limits', 24, 0, mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceLimitsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sparseProperties', 32, 0, mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceSparsePropertiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_limits', 24, 0, mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceLimitsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sparseProperties', 32, 0, mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceSparsePropertiesSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_apiVersion', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_driverVersion', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_vendorID', 48, 0, mojo.internal.Uint32, 0, false, 0, undefined),
@@ -320,7 +320,7 @@ mojo.internal.Struct(
 // Struct: VkQueueFamilyProperties
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.VkQueueFamilyPropertiesSpec, 'gpu.mojom.VkQueueFamilyProperties', [
-      mojo.internal.StructField('arg_minImageTransferGranularity', 0, 0, mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.VkExtent3DSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_minImageTransferGranularity', 0, 0, mojo.internal.bindings.gpu.mojom.VkExtent3DSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_queueFlags', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_queueCount', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_timestampValidBits', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),

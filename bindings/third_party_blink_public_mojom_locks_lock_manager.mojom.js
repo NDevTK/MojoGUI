@@ -103,7 +103,7 @@ mojo.internal.bindings.blink.mojom.WaitMode = {
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.LockInfoSpec, 'blink.mojom.LockInfo', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mode', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.LockModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 8, 0, mojo.internal.bindings.blink.mojom.LockModeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_client_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -413,8 +413,8 @@ mojo.internal.bindings.blink.mojom.LockRequestRequest = mojo.internal.bindings.b
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.LockManager_RequestLock_ParamsSpec, 'blink.mojom.LockManager_RequestLock_Params', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mode', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.LockModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_wait', 16, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.WaitModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 8, 0, mojo.internal.bindings.blink.mojom.LockModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_wait', 16, 0, mojo.internal.bindings.blink.mojom.WaitModeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_request', 24, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.LockRequestSpec), null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -426,8 +426,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.LockManager_QueryState_ResponseParamsSpec, 'blink.mojom.LockManager_QueryState_ResponseParams', [
-      mojo.internal.StructField('arg_requested', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.LockInfoSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_held', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.LockInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_requested', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.LockInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_held', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.LockInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

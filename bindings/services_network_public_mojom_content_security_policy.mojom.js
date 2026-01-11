@@ -167,8 +167,8 @@ mojo.internal.Union(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ContentSecurityPolicyHeaderSpec, 'network.mojom.ContentSecurityPolicyHeader', [
       mojo.internal.StructField('arg_header_value', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ContentSecurityPolicyTypeSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_source', 16, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ContentSecurityPolicySourceSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.network.mojom.ContentSecurityPolicyTypeSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 16, 0, mojo.internal.bindings.network.mojom.ContentSecurityPolicySourceSpec.$, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -187,7 +187,7 @@ mojo.internal.Struct(
 // Struct: CSPSourceList
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CSPSourceListSpec, 'network.mojom.CSPSourceList', [
-      mojo.internal.StructField('arg_sources', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.network.mojom.CSPSourceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_sources', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.CSPSourceSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_nonces', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_hashes', 16, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.IntegrityMetadataSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_url_hashes', 24, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.IntegrityMetadataSpec.$, false), null, false, 0, undefined),
@@ -220,13 +220,13 @@ mojo.internal.Struct(
 // Struct: ContentSecurityPolicy
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ContentSecurityPolicySpec, 'network.mojom.ContentSecurityPolicy', [
-      mojo.internal.StructField('arg_self_origin', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.CSPSourceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_raw_directives', 8, 0, mojo.internal.Map(mojo.internal.bindings.mojo.internal.bindings.network.mojom.CSPDirectiveNameSpec.$, mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_directives', 16, 0, mojo.internal.Map(mojo.internal.bindings.mojo.internal.bindings.network.mojom.CSPDirectiveNameSpec.$, mojo.internal.bindings.mojo.internal.bindings.network.mojom.CSPSourceListSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_self_origin', 0, 0, mojo.internal.bindings.network.mojom.CSPSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_raw_directives', 8, 0, mojo.internal.Map(mojo.internal.bindings.network.mojom.CSPDirectiveNameSpec.$, mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_directives', 16, 0, mojo.internal.Map(mojo.internal.bindings.network.mojom.CSPDirectiveNameSpec.$, mojo.internal.bindings.network.mojom.CSPSourceListSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_sandbox', 24, 0, mojo.internal.bindings.network.mojom.WebSandboxFlagsSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_header', 32, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ContentSecurityPolicyHeaderSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_header', 32, 0, mojo.internal.bindings.network.mojom.ContentSecurityPolicyHeaderSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_report_endpoints', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_trusted_types', 48, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.CSPTrustedTypesSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_trusted_types', 48, 0, mojo.internal.bindings.network.mojom.CSPTrustedTypesSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_parsing_errors', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_upgrade_insecure_requests', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_treat_as_public_address', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
@@ -244,7 +244,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_blocked_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_report_endpoints', 32, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_header', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 48, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ContentSecurityPolicyTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 48, 0, mojo.internal.bindings.network.mojom.ContentSecurityPolicyTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_source_location', 56, 0, mojo.internal.bindings.network.mojom.SourceLocationSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_use_reporting_api', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],

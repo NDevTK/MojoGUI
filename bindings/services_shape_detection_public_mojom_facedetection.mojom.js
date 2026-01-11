@@ -93,7 +93,7 @@ mojo.internal.bindings.shape_detection.mojom.LandmarkType = {
 mojo.internal.Struct(
     mojo.internal.bindings.shape_detection.mojom.LandmarkSpec, 'shape_detection.mojom.Landmark', [
       mojo.internal.StructField('arg_locations', 0, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.PointFSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.mojo.internal.bindings.shape_detection.mojom.LandmarkTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.shape_detection.mojom.LandmarkTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -101,7 +101,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.shape_detection.mojom.FaceDetectionResultSpec, 'shape_detection.mojom.FaceDetectionResult', [
       mojo.internal.StructField('arg_bounding_box', 0, 0, mojo.internal.bindings.gfx.mojom.RectFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_landmarks', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.shape_detection.mojom.LandmarkSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_landmarks', 8, 0, mojo.internal.Array(mojo.internal.bindings.shape_detection.mojom.LandmarkSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -122,7 +122,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.shape_detection.mojom.FaceDetection_Detect_ResponseParamsSpec, 'shape_detection.mojom.FaceDetection_Detect_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.shape_detection.mojom.FaceDetectionResultSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.shape_detection.mojom.FaceDetectionResultSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

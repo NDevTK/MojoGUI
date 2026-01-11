@@ -103,7 +103,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.bookmark_bar.mojom.BookmarkDataSpec, 'bookmark_bar.mojom.BookmarkData', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.mojo.internal.bindings.bookmark_bar.mojom.BookmarkTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.bookmark_bar.mojom.BookmarkTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_page_url_for_favicon', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);
@@ -268,7 +268,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec, 'bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParams', [
-      mojo.internal.StructField('arg_bookmarks', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.bookmark_bar.mojom.BookmarkDataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_bookmarks', 0, 0, mojo.internal.Array(mojo.internal.bindings.bookmark_bar.mojom.BookmarkDataSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -470,7 +470,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec, 'bookmark_bar.mojom.Page_FavIconChanged_Params', [
-      mojo.internal.StructField('arg_bookmark_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.bookmark_bar.mojom.BookmarkDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bookmark_data', 0, 0, mojo.internal.bindings.bookmark_bar.mojom.BookmarkDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

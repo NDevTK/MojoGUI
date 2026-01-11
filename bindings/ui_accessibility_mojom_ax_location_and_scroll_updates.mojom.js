@@ -95,7 +95,7 @@ mojo.internal.Struct(
 // Struct: AXLocationAndScrollUpdates
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AXLocationAndScrollUpdatesSpec, 'ax.mojom.AXLocationAndScrollUpdates', [
-      mojo.internal.StructField('arg_location_changes', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ax.mojom.AXLocationChangeSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_scroll_changes', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ax.mojom.AXScrollChangeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_location_changes', 0, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.AXLocationChangeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_scroll_changes', 8, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.AXScrollChangeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);

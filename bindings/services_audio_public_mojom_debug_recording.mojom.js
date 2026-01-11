@@ -94,7 +94,7 @@ mojo.internal.bindings.audio.mojom.DebugRecordingStreamType = {
 // Interface: DebugRecordingFileProvider
 mojo.internal.Struct(
     mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec, 'audio.mojom.DebugRecordingFileProvider_CreateWavFile_Params', [
-      mojo.internal.StructField('arg_stream_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.audio.mojom.DebugRecordingStreamTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_stream_type', 0, 0, mojo.internal.bindings.audio.mojom.DebugRecordingStreamTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

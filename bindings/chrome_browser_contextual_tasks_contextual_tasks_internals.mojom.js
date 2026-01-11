@@ -108,7 +108,7 @@ mojo.internal.Struct(
 // Struct: GetRelevantContextResponse
 mojo.internal.Struct(
     mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextResponseSpec, 'contextual_tasks_internals.mojom.GetRelevantContextResponse', [
-      mojo.internal.StructField('arg_relevant_tabs', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.contextual_tasks_internals.mojom.TabSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_relevant_tabs', 0, 0, mojo.internal.Array(mojo.internal.bindings.contextual_tasks_internals.mojom.TabSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -267,13 +267,13 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
 // Interface: ContextualTasksInternalsPageHandler
 mojo.internal.Struct(
     mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ParamsSpec, 'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec, 'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

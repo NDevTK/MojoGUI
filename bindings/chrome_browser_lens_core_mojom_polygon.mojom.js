@@ -93,7 +93,7 @@ mojo.internal.bindings.lens.mojom.CoordinateType = {
 // Struct: Polygon
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.PolygonSpec, 'lens.mojom.Polygon', [
-      mojo.internal.StructField('arg_vertex', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.lens.mojom.VertexSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_vertex', 0, 0, mojo.internal.Array(mojo.internal.bindings.lens.mojom.VertexSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_kUnspecified', 8, 0, mojo.internal.Pointer, 0, false, 0, undefined),
       mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 1, false, 0, undefined),
       mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, 2, false, 0, undefined),

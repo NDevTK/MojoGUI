@@ -144,7 +144,7 @@ mojo.internal.Struct(
 // Interface: EmbeddedWorkerInstanceClient
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.EmbeddedWorkerStartParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.blink.mojom.EmbeddedWorkerStartParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -368,7 +368,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_Params', [
       mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerStartStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_fetch_handler_type', 8, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerFetchHandlerTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_start_timing', 16, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.EmbeddedWorkerStartTimingSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_start_timing', 16, 0, mojo.internal.bindings.blink.mojom.EmbeddedWorkerStartTimingSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_thread_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_has_hid_event_handlers', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_has_usb_event_handlers', 28, 1, mojo.internal.Bool, false, false, 0, undefined),

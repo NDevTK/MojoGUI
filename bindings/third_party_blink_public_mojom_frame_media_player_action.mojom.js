@@ -87,7 +87,7 @@ mojo.internal.bindings.blink.mojom.MediaPlayerActionType = {
 // Struct: MediaPlayerAction
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MediaPlayerActionSpec, 'blink.mojom.MediaPlayerAction', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.MediaPlayerActionTypeSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.blink.mojom.MediaPlayerActionTypeSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('arg_enable', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);

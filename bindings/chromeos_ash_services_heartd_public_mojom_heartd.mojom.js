@@ -119,7 +119,7 @@ mojo.internal.bindings.ash.heartd.mojom.ActionType = {
 // Struct: HeartbeatServiceArgument
 mojo.internal.Struct(
     mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceArgumentSpec, 'ash.heartd.mojom.HeartbeatServiceArgument', [
-      mojo.internal.StructField('arg_actions', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.heartd.mojom.ActionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_actions', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.heartd.mojom.ActionSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_verification_window_seconds', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -127,7 +127,7 @@ mojo.internal.Struct(
 // Struct: Action
 mojo.internal.Struct(
     mojo.internal.bindings.ash.heartd.mojom.ActionSpec, 'ash.heartd.mojom.Action', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.heartd.mojom.ActionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.ash.heartd.mojom.ActionTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_failure_count', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -145,7 +145,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec, 'ash.heartd.mojom.HeartdControl_RunAction_Params', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.heartd.mojom.ActionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.ash.heartd.mojom.ActionTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -374,8 +374,8 @@ mojo.internal.bindings.ash.heartd.mojom.HeartdControlRequest = mojo.internal.bin
 // Interface: HeartbeatService
 mojo.internal.Struct(
     mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ParamsSpec, 'ash.heartd.mojom.HeartbeatService_Register_Params', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.heartd.mojom.ServiceNameSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_argument', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceArgumentSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.bindings.ash.heartd.mojom.ServiceNameSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_argument', 8, 0, mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceArgumentSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.heartd.mojom.PacemakerSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -546,7 +546,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec, 'ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.heartd.mojom.HeartbeatResponseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.heartd.mojom.HeartbeatResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

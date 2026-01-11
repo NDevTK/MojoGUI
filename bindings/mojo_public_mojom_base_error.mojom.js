@@ -97,7 +97,7 @@ mojo.internal.bindings.mojo_base.mojom.Code = {
 // Struct: Error
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.ErrorSpec, 'mojo_base.mojom.Error', [
-      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mojo_base.mojom.CodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.mojo_base.mojom.CodeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);

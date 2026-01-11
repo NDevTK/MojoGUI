@@ -105,14 +105,14 @@ mojo.internal.Union(
 // Struct: ArcShellExecutionRequest
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ArcShellExecutionRequestSpec, 'arc.mojom.ArcShellExecutionRequest', [
-      mojo.internal.StructField('arg_command', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ArcShellCommandSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_command', 0, 0, mojo.internal.bindings.arc.mojom.ArcShellCommandSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Interface: ArcShellExecutionInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ArcShellExecutionInstance_Exec_ParamsSpec, 'arc.mojom.ArcShellExecutionInstance_Exec_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ArcShellExecutionRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.arc.mojom.ArcShellExecutionRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

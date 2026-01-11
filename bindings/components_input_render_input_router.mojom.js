@@ -117,7 +117,7 @@ mojo.internal.Struct(
 // Interface: RenderInputRouterDelegate
 mojo.internal.Struct(
     mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec, 'input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.input.mojom.TouchTransferStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.input.mojom.TouchTransferStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

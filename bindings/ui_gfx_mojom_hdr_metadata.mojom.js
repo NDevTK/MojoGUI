@@ -113,10 +113,10 @@ mojo.internal.Struct(
 // Struct: HDRMetadata
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.HDRMetadataSpec, 'gfx.mojom.HDRMetadata', [
-      mojo.internal.StructField('arg_smpte_st_2086', 0, 0, mojo.internal.bindings.mojo.internal.bindings.gfx.mojom.HdrMetadataSmpteSt2086Spec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_cta_861_3', 8, 0, mojo.internal.bindings.mojo.internal.bindings.gfx.mojom.HdrMetadataCta861_3Spec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_ndwl', 16, 0, mojo.internal.bindings.mojo.internal.bindings.gfx.mojom.HdrMetadataNdwlSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_extended_range', 24, 0, mojo.internal.bindings.mojo.internal.bindings.gfx.mojom.HdrMetadataExtendedRangeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_smpte_st_2086', 0, 0, mojo.internal.bindings.gfx.mojom.HdrMetadataSmpteSt2086Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_cta_861_3', 8, 0, mojo.internal.bindings.gfx.mojom.HdrMetadataCta861_3Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_ndwl', 16, 0, mojo.internal.bindings.gfx.mojom.HdrMetadataNdwlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_extended_range', 24, 0, mojo.internal.bindings.gfx.mojom.HdrMetadataExtendedRangeSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_agtm_serialized', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],
     [[0, 48]]);

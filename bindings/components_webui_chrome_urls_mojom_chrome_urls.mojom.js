@@ -98,7 +98,7 @@ mojo.internal.Struct(
 // Struct: ChromeUrlsData
 mojo.internal.Struct(
     mojo.internal.bindings.chrome_urls.mojom.ChromeUrlsDataSpec, 'chrome_urls.mojom.ChromeUrlsData', [
-      mojo.internal.StructField('arg_webui_urls', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.chrome_urls.mojom.WebuiUrlInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_webui_urls', 0, 0, mojo.internal.Array(mojo.internal.bindings.chrome_urls.mojom.WebuiUrlInfoSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_command_urls', 8, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_internal_debugging_uis_enabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -264,7 +264,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec, 'chrome_urls.mojom.PageHandler_GetUrls_ResponseParams', [
-      mojo.internal.StructField('arg_urls_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chrome_urls.mojom.ChromeUrlsDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_urls_data', 0, 0, mojo.internal.bindings.chrome_urls.mojom.ChromeUrlsDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

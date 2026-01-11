@@ -103,7 +103,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoFramePool_AddVideoFrame_ParamsSpec, 'arc.mojom.VideoFramePool_AddVideoFrame_Params', [
-      mojo.internal.StructField('arg_video_frame', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.VideoFrameSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_video_frame', 0, 0, mojo.internal.bindings.arc.mojom.VideoFrameSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

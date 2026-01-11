@@ -86,7 +86,7 @@ mojo.internal.Union(
     mojo.internal.bindings.arc.keymint.mojom.KeyDataSpec, 'arc.keymint.mojom.KeyData', {
       'arg_chaps_key_data': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.arc.keymint.mojom.ChapsKeyDataSpec.$,
+        'type': mojo.internal.bindings.arc.keymint.mojom.ChapsKeyDataSpec.$,
         'nullable': false,
       },
     });
@@ -111,7 +111,7 @@ mojo.internal.Struct(
 // Interface: CertStoreInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.keymint.mojom.CertStoreInstance_UpdatePlaceholderKeys_ParamsSpec, 'arc.keymint.mojom.CertStoreInstance_UpdatePlaceholderKeys_Params', [
-      mojo.internal.StructField('arg_keys', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.arc.keymint.mojom.ChromeOsKeySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_keys', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.keymint.mojom.ChromeOsKeySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

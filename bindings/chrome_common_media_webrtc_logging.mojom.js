@@ -93,7 +93,7 @@ mojo.internal.Struct(
 // Interface: WebRtcLoggingClient
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec, 'chrome.mojom.WebRtcLoggingClient_OnAddMessages_Params', [
-      mojo.internal.StructField('arg_messages', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.chrome.mojom.WebRtcLoggingMessageSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_messages', 0, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.WebRtcLoggingMessageSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

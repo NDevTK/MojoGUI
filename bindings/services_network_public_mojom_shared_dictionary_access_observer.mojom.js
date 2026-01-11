@@ -96,7 +96,7 @@ mojo.internal.Struct(
 // Interface: SharedDictionaryAccessObserver
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SharedDictionaryAccessObserver_OnSharedDictionaryAccessed_ParamsSpec, 'network.mojom.SharedDictionaryAccessObserver_OnSharedDictionaryAccessed_Params', [
-      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.SharedDictionaryAccessDetailsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.bindings.network.mojom.SharedDictionaryAccessDetailsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

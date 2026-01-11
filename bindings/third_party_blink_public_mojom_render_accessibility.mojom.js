@@ -326,7 +326,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RenderAccessibility_HitTest_ResponseParamsSpec, 'blink.mojom.RenderAccessibility_HitTest_ResponseParams', [
-      mojo.internal.StructField('arg_hit_test_response', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.HitTestResponseSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_hit_test_response', 0, 0, mojo.internal.bindings.blink.mojom.HitTestResponseSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

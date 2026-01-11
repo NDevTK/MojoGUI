@@ -99,7 +99,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec, 'content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.FrameRoutingInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.content.mojom.FrameRoutingInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -110,7 +110,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec, 'content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParams', [
-      mojo.internal.StructField('arg_info_array', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.content.mojom.FrameRoutingInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_info_array', 0, 0, mojo.internal.Array(mojo.internal.bindings.content.mojom.FrameRoutingInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

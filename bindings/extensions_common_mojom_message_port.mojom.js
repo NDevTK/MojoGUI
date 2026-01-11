@@ -136,7 +136,7 @@ mojo.internal.Union(
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.PortIdSpec, 'extensions.mojom.PortId', [
       mojo.internal.StructField('arg_context_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_serialization_format', 8, 0, mojo.internal.bindings.mojo.internal.bindings.extensions.mojom.SerializationFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_serialization_format', 8, 0, mojo.internal.bindings.extensions.mojom.SerializationFormatSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_port_number', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_is_opener', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -145,7 +145,7 @@ mojo.internal.Struct(
 // Struct: MessagingEndpoint
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.MessagingEndpointSpec, 'extensions.mojom.MessagingEndpoint', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.extensions.mojom.MessagingEndpointTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.extensions.mojom.MessagingEndpointTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_extension_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_native_app_name', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
@@ -164,7 +164,7 @@ mojo.internal.Struct(
 // Struct: ExternalConnectionInfo
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.ExternalConnectionInfoSpec, 'extensions.mojom.ExternalConnectionInfo', [
-      mojo.internal.StructField('arg_source_endpoint', 0, 0, mojo.internal.bindings.mojo.internal.bindings.extensions.mojom.MessagingEndpointSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_endpoint', 0, 0, mojo.internal.bindings.extensions.mojom.MessagingEndpointSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_target_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_source_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_source_origin', 24, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, true, 0, undefined),
@@ -177,7 +177,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.MessageSpec, 'extensions.mojom.Message', [
       mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.extensions.mojom.MessageDataSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_format', 8, 0, mojo.internal.bindings.mojo.internal.bindings.extensions.mojom.SerializationFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_format', 8, 0, mojo.internal.bindings.extensions.mojom.SerializationFormatSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_user_gesture', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_from_privileged_context', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -192,7 +192,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.MessagePort_DeliverMessage_ParamsSpec, 'extensions.mojom.MessagePort_DeliverMessage_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.mojo.internal.bindings.extensions.mojom.MessageSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.extensions.mojom.MessageSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -382,7 +382,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.MessagePortHost_PostMessage_ParamsSpec, 'extensions.mojom.MessagePortHost_PostMessage_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.mojo.internal.bindings.extensions.mojom.MessageSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.extensions.mojom.MessageSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

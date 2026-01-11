@@ -124,8 +124,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_pii_free_device_name', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_persistent_symmetric_key', 40, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_last_update_time', 48, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_software_features', 56, 0, mojo.internal.Map(mojo.internal.bindings.mojo.internal.bindings.ash.multidevice.mojom.SoftwareFeatureSpec.$, mojo.internal.bindings.mojo.internal.bindings.ash.multidevice.mojom.SoftwareFeatureStateSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_beacon_seeds', 64, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.multidevice.mojom.BeaconSeedSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_software_features', 56, 0, mojo.internal.Map(mojo.internal.bindings.ash.multidevice.mojom.SoftwareFeatureSpec.$, mojo.internal.bindings.ash.multidevice.mojom.SoftwareFeatureStateSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_beacon_seeds', 64, 0, mojo.internal.Array(mojo.internal.bindings.ash.multidevice.mojom.BeaconSeedSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_bluetooth_public_address', 72, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 88]]);

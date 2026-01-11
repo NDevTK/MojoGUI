@@ -84,7 +84,7 @@ mojo.internal.bindings.ui.mojom.AcceleratorKeyState = {
 // Struct: Accelerator
 mojo.internal.Struct(
     mojo.internal.bindings.ui.mojom.AcceleratorSpec, 'ui.mojom.Accelerator', [
-      mojo.internal.StructField('arg_key_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ui.mojom.AcceleratorKeyStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_state', 0, 0, mojo.internal.bindings.ui.mojom.AcceleratorKeyStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_time_stamp', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_key_code', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_modifiers', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),

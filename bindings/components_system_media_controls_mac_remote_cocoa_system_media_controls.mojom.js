@@ -140,7 +140,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_ParamsSpec, 'system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.system_media_controls.mojom.PlaybackStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.system_media_controls.mojom.PlaybackStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

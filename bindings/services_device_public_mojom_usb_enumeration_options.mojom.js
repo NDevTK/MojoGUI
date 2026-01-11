@@ -95,6 +95,6 @@ mojo.internal.Struct(
 // Struct: UsbEnumerationOptions
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.UsbEnumerationOptionsSpec, 'device.mojom.UsbEnumerationOptions', [
-      mojo.internal.StructField('arg_filters', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.device.mojom.UsbDeviceFilterSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_filters', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.UsbDeviceFilterSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

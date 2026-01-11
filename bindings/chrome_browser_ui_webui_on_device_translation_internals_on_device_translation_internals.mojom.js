@@ -95,7 +95,7 @@ mojo.internal.bindings.on_device_translation_internals.mojom.LanguagePackStatus 
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_translation_internals.mojom.LanguagePackInfoSpec, 'on_device_translation_internals.mojom.LanguagePackInfo', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.mojo.internal.bindings.on_device_translation_internals.mojom.LanguagePackStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.on_device_translation_internals.mojom.LanguagePackStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -443,7 +443,7 @@ mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerRequest 
 // Interface: Page
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_translation_internals.mojom.Page_OnLanguagePackStatus_ParamsSpec, 'on_device_translation_internals.mojom.Page_OnLanguagePackStatus_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.on_device_translation_internals.mojom.LanguagePackInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.Array(mojo.internal.bindings.on_device_translation_internals.mojom.LanguagePackInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

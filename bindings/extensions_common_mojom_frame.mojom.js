@@ -181,7 +181,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteCode_ParamsSpec, 'extensions.mojom.LocalFrame_ExecuteCode_Params', [
-      mojo.internal.StructField('arg_param', 0, 0, mojo.internal.bindings.mojo.internal.bindings.extensions.mojom.ExecuteCodeParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_param', 0, 0, mojo.internal.bindings.extensions.mojom.ExecuteCodeParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -703,7 +703,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.LocalFrameHost_Request_ParamsSpec, 'extensions.mojom.LocalFrameHost_Request_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.extensions.mojom.RequestParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.extensions.mojom.RequestParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

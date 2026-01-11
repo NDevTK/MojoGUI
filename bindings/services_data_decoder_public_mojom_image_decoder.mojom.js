@@ -101,7 +101,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec, 'data_decoder.mojom.ImageDecoder_DecodeImage_Params', [
       mojo.internal.StructField('arg_encoded_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_codec', 8, 0, mojo.internal.bindings.mojo.internal.bindings.data_decoder.mojom.ImageCodecSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_codec', 8, 0, mojo.internal.bindings.data_decoder.mojom.ImageCodecSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_max_size_in_bytes', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_desired_image_frame_size', 24, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_shrink_to_fit', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -125,7 +125,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec, 'data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParams', [
-      mojo.internal.StructField('arg_decoded_image', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.data_decoder.mojom.AnimationFrameSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_decoded_image', 0, 0, mojo.internal.Array(mojo.internal.bindings.data_decoder.mojom.AnimationFrameSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

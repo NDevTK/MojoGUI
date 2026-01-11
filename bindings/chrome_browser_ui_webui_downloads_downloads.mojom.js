@@ -172,8 +172,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_total', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_by_ext_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_by_ext_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_danger_type', 24, 0, mojo.internal.bindings.mojo.internal.bindings.downloads.mojom.DangerTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tailored_warning_type', 32, 0, mojo.internal.bindings.mojo.internal.bindings.downloads.mojom.TailoredWarningTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_danger_type', 24, 0, mojo.internal.bindings.downloads.mojom.DangerTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tailored_warning_type', 32, 0, mojo.internal.bindings.downloads.mojom.TailoredWarningTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_date_string', 40, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_file_name', 48, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_file_path', 56, 0, mojo.internal.String, null, false, 0, undefined),
@@ -183,10 +183,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_progress_status_text', 88, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_show_in_folder_text', 96, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_since_string', 104, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 112, 0, mojo.internal.bindings.mojo.internal.bindings.downloads.mojom.StateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 112, 0, mojo.internal.bindings.downloads.mojom.StateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_display_initiator_origin', 120, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_url', 128, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_safe_browsing_state', 136, 0, mojo.internal.bindings.mojo.internal.bindings.downloads.mojom.SafeBrowsingStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_safe_browsing_state', 136, 0, mojo.internal.bindings.downloads.mojom.SafeBrowsingStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_percent', 144, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_started', 148, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_file_externally_removed', 152, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -1394,14 +1394,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.downloads.mojom.Page_UpdateItem_ParamsSpec, 'downloads.mojom.Page_UpdateItem_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.downloads.mojom.DataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.downloads.mojom.DataSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_index', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.downloads.mojom.Page_InsertItems_ParamsSpec, 'downloads.mojom.Page_InsertItems_Params', [
-      mojo.internal.StructField('arg_items', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.downloads.mojom.DataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_items', 0, 0, mojo.internal.Array(mojo.internal.bindings.downloads.mojom.DataSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_index', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

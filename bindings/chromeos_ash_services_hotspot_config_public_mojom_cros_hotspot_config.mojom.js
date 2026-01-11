@@ -184,8 +184,8 @@ mojo.internal.bindings.ash.hotspot_config.mojom.DisableReason = {
 // Struct: HotspotConfig
 mojo.internal.Struct(
     mojo.internal.bindings.ash.hotspot_config.mojom.HotspotConfigSpec, 'ash.hotspot_config.mojom.HotspotConfig', [
-      mojo.internal.StructField('arg_security', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.hotspot_config.mojom.WiFiSecurityModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_band', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ash.hotspot_config.mojom.WiFiBandSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_security', 0, 0, mojo.internal.bindings.ash.hotspot_config.mojom.WiFiSecurityModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_band', 8, 0, mojo.internal.bindings.ash.hotspot_config.mojom.WiFiBandSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_ssid', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_passphrase', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_auto_disable', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -196,10 +196,10 @@ mojo.internal.Struct(
 // Struct: HotspotInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.hotspot_config.mojom.HotspotInfoSpec, 'ash.hotspot_config.mojom.HotspotInfo', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.hotspot_config.mojom.HotspotStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_allow_status', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ash.hotspot_config.mojom.HotspotAllowStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_allowed_wifi_security_modes', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.hotspot_config.mojom.WiFiSecurityModeSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_config', 24, 0, mojo.internal.bindings.mojo.internal.bindings.ash.hotspot_config.mojom.HotspotConfigSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.hotspot_config.mojom.HotspotStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_allow_status', 8, 0, mojo.internal.bindings.ash.hotspot_config.mojom.HotspotAllowStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_allowed_wifi_security_modes', 16, 0, mojo.internal.Array(mojo.internal.bindings.ash.hotspot_config.mojom.WiFiSecurityModeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 24, 0, mojo.internal.bindings.ash.hotspot_config.mojom.HotspotConfigSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_client_count', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 48]]);
@@ -224,19 +224,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec, 'ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParams', [
-      mojo.internal.StructField('arg_hotspot_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.hotspot_config.mojom.HotspotInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_hotspot_info', 0, 0, mojo.internal.bindings.ash.hotspot_config.mojom.HotspotInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec, 'ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_Params', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.hotspot_config.mojom.HotspotConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.ash.hotspot_config.mojom.HotspotConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParamsSpec, 'ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.hotspot_config.mojom.SetHotspotConfigResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.hotspot_config.mojom.SetHotspotConfigResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -247,7 +247,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec, 'ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.hotspot_config.mojom.HotspotControlResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.hotspot_config.mojom.HotspotControlResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -258,7 +258,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec, 'ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.hotspot_config.mojom.HotspotControlResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.hotspot_config.mojom.HotspotControlResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -756,7 +756,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSpec, 'ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_Params', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.hotspot_config.mojom.DisableReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.ash.hotspot_config.mojom.DisableReasonSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

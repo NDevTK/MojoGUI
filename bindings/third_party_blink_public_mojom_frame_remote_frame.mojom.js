@@ -183,7 +183,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_owner_properties', 32, 0, mojo.internal.bindings.blink.mojom.FrameOwnerPropertiesSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_devtools_frame_token', 40, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_frame_interfaces', 48, 0, mojo.internal.bindings.blink.mojom.RemoteFrameInterfacesFromBrowserSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_child_params', 56, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.CreateRemoteChildParamsSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_child_params', 56, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.CreateRemoteChildParamsSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_is_loading', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 80]]);
@@ -1215,14 +1215,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_replication_state', 24, 0, mojo.internal.bindings.blink.mojom.FrameReplicationStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_owner_properties', 32, 0, mojo.internal.bindings.blink.mojom.FrameOwnerPropertiesSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_devtools_frame_token', 40, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_remote_frame_interfaces', 48, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.RemoteFrameInterfacesFromBrowserSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_remote_frame_interfaces', 48, 0, mojo.internal.bindings.blink.mojom.RemoteFrameInterfacesFromBrowserSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_loading', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 72]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RemoteFrame_CreateRemoteChildren_ParamsSpec, 'blink.mojom.RemoteFrame_CreateRemoteChildren_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.CreateRemoteChildParamsSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.CreateRemoteChildParamsSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_navigation_metrics_token', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);

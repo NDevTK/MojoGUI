@@ -89,14 +89,14 @@ mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ConnectionAllowlistSpec, 'network.mojom.ConnectionAllowlist', [
       mojo.internal.StructField('arg_allowlist', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_reporting_endpoint', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_issues', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.network.mojom.ConnectionAllowlistIssueSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_issues', 16, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.ConnectionAllowlistIssueSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: ConnectionAllowlists
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ConnectionAllowlistsSpec, 'network.mojom.ConnectionAllowlists', [
-      mojo.internal.StructField('arg_enforced', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ConnectionAllowlistSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_report_only', 8, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ConnectionAllowlistSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_enforced', 0, 0, mojo.internal.bindings.network.mojom.ConnectionAllowlistSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_report_only', 8, 0, mojo.internal.bindings.network.mojom.ConnectionAllowlistSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);

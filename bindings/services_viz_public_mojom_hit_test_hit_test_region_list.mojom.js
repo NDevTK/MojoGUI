@@ -91,7 +91,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.HitTestRegionListSpec, 'viz.mojom.HitTestRegionList', [
       mojo.internal.StructField('arg_bounds', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_transform', 8, 0, mojo.internal.bindings.gfx.mojom.TransformSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_regions', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.viz.mojom.HitTestRegionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_regions', 16, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.HitTestRegionSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_flags', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_async_hit_test_reasons', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],

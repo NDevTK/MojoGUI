@@ -87,7 +87,7 @@ mojo.internal.bindings.viz.mojom.ThreadType = {
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.ThreadSpec, 'viz.mojom.Thread', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.mojo.internal.bindings.viz.mojom.ThreadTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.viz.mojom.ThreadTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);

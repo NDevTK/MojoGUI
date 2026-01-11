@@ -110,14 +110,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.AppPermissionsInstance_GrantPermission_ParamsSpec, 'arc.mojom.AppPermissionsInstance_GrantPermission_Params', [
       mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_permission', 8, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.AppPermissionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_permission', 8, 0, mojo.internal.bindings.arc.mojom.AppPermissionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.AppPermissionsInstance_RevokePermission_ParamsSpec, 'arc.mojom.AppPermissionsInstance_RevokePermission_Params', [
       mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_permission', 8, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.AppPermissionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_permission', 8, 0, mojo.internal.bindings.arc.mojom.AppPermissionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

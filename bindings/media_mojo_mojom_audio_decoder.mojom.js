@@ -106,7 +106,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AudioDecoder_GetSupportedConfigs_ResponseParamsSpec, 'media.mojom.AudioDecoder_GetSupportedConfigs_ResponseParams', [
-      mojo.internal.StructField('arg_supported_configs', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.media.mojom.SupportedAudioDecoderConfigSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_supported_configs', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.SupportedAudioDecoderConfigSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -124,7 +124,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BeginNavigationParamsSpec, 'blink.mojom.BeginNavigationParams', [
       mojo.internal.StructField('arg_initiator_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_headers', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_force_history_push', 16, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ForceHistoryPushSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_force_history_push', 16, 0, mojo.internal.bindings.blink.mojom.ForceHistoryPushSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('arg_searchable_form_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_searchable_form_encoding', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_client_side_redirect_url', 40, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
@@ -151,7 +151,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_initiator_origin', 8, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_initiator_base_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_referrer', 24, 0, mojo.internal.bindings.blink.mojom.ReferrerSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_navigation_type', 32, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.NavigationTypeSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_navigation_type', 32, 0, mojo.internal.bindings.blink.mojom.NavigationTypeSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('arg_download_policy', 40, 0, mojo.internal.bindings.blink.mojom.NavigationDownloadPolicySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_base_url_for_data_url', 48, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_actual_navigation_start', 56, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
@@ -201,7 +201,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_original_method', 56, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_page_state', 64, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_subframe_unique_names', 72, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Bool, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_navigation_timing', 80, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.NavigationTimingSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_navigation_timing', 80, 0, mojo.internal.bindings.blink.mojom.NavigationTimingSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_was_activated', 88, 0, mojo.internal.bindings.blink.mojom.WasActivatedOptionSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('arg_navigation_token', 96, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_prefetched_signed_exchanges', 104, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.PrefetchedSignedExchangeInfoSpec.$, false), null, false, 0, undefined),
@@ -210,7 +210,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_frame_policy', 128, 0, mojo.internal.bindings.blink.mojom.FramePolicySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_force_enabled_origin_trials', 136, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_enabled_client_hints', 144, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.WebClientHintsTypeSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_old_page_info', 152, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.OldPageInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_old_page_info', 152, 0, mojo.internal.bindings.blink.mojom.OldPageInfoSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_navigation_api_history_entry_arrays', 160, 0, mojo.internal.bindings.blink.mojom.NavigationApiHistoryEntryArraysSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_early_hints_preloaded_resources', 168, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_commit_sent', 176, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
@@ -262,6 +262,6 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PageSwapEventParamsSpec, 'blink.mojom.PageSwapEventParams', [
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_page_state', 8, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_navigation_type', 16, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.NavigationTypeForNavigationApiSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_navigation_type', 16, 0, mojo.internal.bindings.blink.mojom.NavigationTypeForNavigationApiSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);

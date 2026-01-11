@@ -81,12 +81,12 @@ mojo.internal.Union(
     mojo.internal.bindings.network.mojom.NetworkIsolationKeySpec, 'network.mojom.NetworkIsolationKey', {
       'arg_empty': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.network.mojom.EmptyNetworkIsolationKeySpec.$,
+        'type': mojo.internal.bindings.network.mojom.EmptyNetworkIsolationKeySpec.$,
         'nullable': false,
       },
       'arg_non_empty': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.network.mojom.NonEmptyNetworkIsolationKeySpec.$,
+        'type': mojo.internal.bindings.network.mojom.NonEmptyNetworkIsolationKeySpec.$,
         'nullable': false,
       },
     });

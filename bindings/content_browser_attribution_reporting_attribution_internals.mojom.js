@@ -128,12 +128,12 @@ mojo.internal.Union(
     mojo.internal.bindings.attribution_internals.mojom.WebUIReportDataSpec, 'attribution_internals.mojom.WebUIReportData', {
       'arg_event_level_data': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.attribution_internals.mojom.WebUIReportEventLevelDataSpec.$,
+        'type': mojo.internal.bindings.attribution_internals.mojom.WebUIReportEventLevelDataSpec.$,
         'nullable': false,
       },
       'arg_aggregatable_attribution_data': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.attribution_internals.mojom.WebUIReportAggregatableAttributionDataSpec.$,
+        'type': mojo.internal.bindings.attribution_internals.mojom.WebUIReportAggregatableAttributionDataSpec.$,
         'nullable': false,
       },
     });
@@ -158,7 +158,7 @@ mojo.internal.Union(
     mojo.internal.bindings.attribution_internals.mojom.ReportStatusSpec, 'attribution_internals.mojom.ReportStatus', {
       'arg_pending': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.attribution_internals.mojom.EmptySpec.$,
+        'type': mojo.internal.bindings.attribution_internals.mojom.EmptySpec.$,
         'nullable': false,
       },
       'arg_replaced_by_higher_priority_report': {
@@ -168,12 +168,12 @@ mojo.internal.Union(
       },
       'arg_prohibited_by_browser_policy': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.attribution_internals.mojom.EmptySpec.$,
+        'type': mojo.internal.bindings.attribution_internals.mojom.EmptySpec.$,
         'nullable': false,
       },
       'arg_expired': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.mojo.internal.bindings.attribution_internals.mojom.EmptySpec.$,
+        'type': mojo.internal.bindings.attribution_internals.mojom.EmptySpec.$,
         'nullable': false,
       },
       'arg_network_status': {
@@ -183,7 +183,7 @@ mojo.internal.Union(
       },
       'arg_failed_to_assemble': {
         'ordinal': 5,
-        'type': mojo.internal.bindings.mojo.internal.bindings.attribution_internals.mojom.EmptySpec.$,
+        'type': mojo.internal.bindings.attribution_internals.mojom.EmptySpec.$,
         'nullable': false,
       },
     });
@@ -193,7 +193,7 @@ mojo.internal.Union(
     mojo.internal.bindings.attribution_internals.mojom.SendAggregatableDebugReportResultSpec, 'attribution_internals.mojom.SendAggregatableDebugReportResult', {
       'arg_assembly_failed': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.attribution_internals.mojom.EmptySpec.$,
+        'type': mojo.internal.bindings.attribution_internals.mojom.EmptySpec.$,
         'nullable': false,
       },
       'arg_network_status': {
@@ -230,7 +230,7 @@ mojo.internal.Struct(
 // Struct: WebUIReportAggregatableAttributionData
 mojo.internal.Struct(
     mojo.internal.bindings.attribution_internals.mojom.WebUIReportAggregatableAttributionDataSpec, 'attribution_internals.mojom.WebUIReportAggregatableAttributionData', [
-      mojo.internal.StructField('arg_contributions', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.attribution_internals.mojom.AggregatableHistogramContributionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_contributions', 0, 0, mojo.internal.Array(mojo.internal.bindings.attribution_internals.mojom.AggregatableHistogramContributionSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_aggregation_coordinator', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_null_report', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -245,7 +245,7 @@ mojo.internal.Struct(
 // Struct: WebUIReport
 mojo.internal.Struct(
     mojo.internal.bindings.attribution_internals.mojom.WebUIReportSpec, 'attribution_internals.mojom.WebUIReport', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.attribution_internals.mojom.ReportIDSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.attribution_internals.mojom.ReportIDSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_report_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_trigger_time', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_report_time', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
@@ -328,7 +328,7 @@ mojo.internal.Struct(
 // Struct: WebUITrigger
 mojo.internal.Struct(
     mojo.internal.bindings.attribution_internals.mojom.WebUITriggerSpec, 'attribution_internals.mojom.WebUITrigger', [
-      mojo.internal.StructField('arg_registration', 0, 0, mojo.internal.bindings.mojo.internal.bindings.attribution_internals.mojom.WebUIRegistrationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_registration', 0, 0, mojo.internal.bindings.attribution_internals.mojom.WebUIRegistrationSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_event_level_result', 8, 0, mojo.internal.bindings.attribution_reporting.mojom.EventLevelResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_aggregatable_result', 16, 0, mojo.internal.bindings.attribution_reporting.mojom.AggregatableResultSpec.$, null, false, 0, undefined),
     ],
@@ -337,7 +337,7 @@ mojo.internal.Struct(
 // Struct: WebUISourceRegistration
 mojo.internal.Struct(
     mojo.internal.bindings.attribution_internals.mojom.WebUISourceRegistrationSpec, 'attribution_internals.mojom.WebUISourceRegistration', [
-      mojo.internal.StructField('arg_registration', 0, 0, mojo.internal.bindings.mojo.internal.bindings.attribution_internals.mojom.WebUIRegistrationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_registration', 0, 0, mojo.internal.bindings.attribution_internals.mojom.WebUIRegistrationSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.attribution_reporting.mojom.SourceTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_status', 16, 0, mojo.internal.bindings.attribution_reporting.mojom.StoreSourceResultSpec.$, null, false, 0, undefined),
     ],
@@ -359,49 +359,49 @@ mojo.internal.Struct(
 // Interface: Observer
 mojo.internal.Struct(
     mojo.internal.bindings.attribution_internals.mojom.Observer_OnSourcesChanged_ParamsSpec, 'attribution_internals.mojom.Observer_OnSourcesChanged_Params', [
-      mojo.internal.StructField('arg_sources', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.attribution_internals.mojom.WebUISourceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_sources', 0, 0, mojo.internal.Array(mojo.internal.bindings.attribution_internals.mojom.WebUISourceSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.attribution_internals.mojom.Observer_OnReportsChanged_ParamsSpec, 'attribution_internals.mojom.Observer_OnReportsChanged_Params', [
-      mojo.internal.StructField('arg_reports', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.attribution_internals.mojom.WebUIReportSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_reports', 0, 0, mojo.internal.Array(mojo.internal.bindings.attribution_internals.mojom.WebUIReportSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.attribution_internals.mojom.Observer_OnSourceHandled_ParamsSpec, 'attribution_internals.mojom.Observer_OnSourceHandled_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.mojo.internal.bindings.attribution_internals.mojom.WebUISourceRegistrationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.attribution_internals.mojom.WebUISourceRegistrationSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.attribution_internals.mojom.Observer_OnReportHandled_ParamsSpec, 'attribution_internals.mojom.Observer_OnReportHandled_Params', [
-      mojo.internal.StructField('arg_report', 0, 0, mojo.internal.bindings.mojo.internal.bindings.attribution_internals.mojom.WebUIReportSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_report', 0, 0, mojo.internal.bindings.attribution_internals.mojom.WebUIReportSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.attribution_internals.mojom.Observer_OnDebugReportSent_ParamsSpec, 'attribution_internals.mojom.Observer_OnDebugReportSent_Params', [
-      mojo.internal.StructField('arg_report', 0, 0, mojo.internal.bindings.mojo.internal.bindings.attribution_internals.mojom.WebUIDebugReportSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_report', 0, 0, mojo.internal.bindings.attribution_internals.mojom.WebUIDebugReportSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.attribution_internals.mojom.Observer_OnAggregatableDebugReportSent_ParamsSpec, 'attribution_internals.mojom.Observer_OnAggregatableDebugReportSent_Params', [
-      mojo.internal.StructField('arg_report', 0, 0, mojo.internal.bindings.mojo.internal.bindings.attribution_internals.mojom.WebUIAggregatableDebugReportSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_report', 0, 0, mojo.internal.bindings.attribution_internals.mojom.WebUIAggregatableDebugReportSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.attribution_internals.mojom.Observer_OnTriggerHandled_ParamsSpec, 'attribution_internals.mojom.Observer_OnTriggerHandled_Params', [
-      mojo.internal.StructField('arg_trigger', 0, 0, mojo.internal.bindings.mojo.internal.bindings.attribution_internals.mojom.WebUITriggerSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_trigger', 0, 0, mojo.internal.bindings.attribution_internals.mojom.WebUITriggerSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.attribution_internals.mojom.Observer_OnOsRegistration_ParamsSpec, 'attribution_internals.mojom.Observer_OnOsRegistration_Params', [
-      mojo.internal.StructField('arg_registration', 0, 0, mojo.internal.bindings.mojo.internal.bindings.attribution_internals.mojom.WebUIOsRegistrationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_registration', 0, 0, mojo.internal.bindings.attribution_internals.mojom.WebUIOsRegistrationSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -826,7 +826,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.attribution_internals.mojom.Handler_SendReport_ParamsSpec, 'attribution_internals.mojom.Handler_SendReport_Params', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.attribution_internals.mojom.ReportIDSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.attribution_internals.mojom.ReportIDSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

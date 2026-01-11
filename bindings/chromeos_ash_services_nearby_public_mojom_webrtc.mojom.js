@@ -110,7 +110,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec, 'sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParams', [
-      mojo.internal.StructField('arg_ice_servers', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.sharing.mojom.IceServerSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_ice_servers', 0, 0, mojo.internal.Array(mojo.internal.bindings.sharing.mojom.IceServerSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

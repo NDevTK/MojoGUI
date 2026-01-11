@@ -367,7 +367,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.webui_browser.mojom.Page_OnFullscreenModeChanged_ParamsSpec, 'webui_browser.mojom.Page_OnFullscreenModeChanged_Params', [
-      mojo.internal.StructField('arg_context', 0, 0, mojo.internal.bindings.mojo.internal.bindings.webui_browser.mojom.FullscreenContextSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_context', 0, 0, mojo.internal.bindings.webui_browser.mojom.FullscreenContextSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_is_fullscreen', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -1256,7 +1256,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.webui_browser.mojom.GuestHandler_GetSecurityIcon_ResponseParamsSpec, 'webui_browser.mojom.GuestHandler_GetSecurityIcon_ResponseParams', [
-      mojo.internal.StructField('arg_security_icon', 0, 0, mojo.internal.bindings.mojo.internal.bindings.webui_browser.mojom.SecurityIconSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_security_icon', 0, 0, mojo.internal.bindings.webui_browser.mojom.SecurityIconSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

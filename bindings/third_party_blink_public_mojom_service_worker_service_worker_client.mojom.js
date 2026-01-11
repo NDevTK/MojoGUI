@@ -95,7 +95,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerClientLifecycleState = {
 // Struct: ServiceWorkerClientQueryOptions
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerClientQueryOptionsSpec, 'blink.mojom.ServiceWorkerClientQueryOptions', [
-      mojo.internal.StructField('arg_client_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ServiceWorkerClientTypeSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_client_type', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerClientTypeSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('arg_include_uncontrolled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -106,8 +106,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_frame_type', 8, 0, mojo.internal.bindings.blink.mojom.RequestContextFrameTypeSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('arg_client_uuid', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_type', 24, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ServiceWorkerClientTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_lifecycle_state', 32, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ServiceWorkerClientLifecycleStateSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_client_type', 24, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerClientTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_lifecycle_state', 32, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerClientLifecycleStateSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('arg_last_focus_time', 40, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_creation_time', 48, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_page_hidden', 56, 0, mojo.internal.Bool, true, false, 0, undefined),

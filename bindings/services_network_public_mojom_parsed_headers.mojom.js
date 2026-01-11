@@ -92,7 +92,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_document_isolation_policy', 40, 0, mojo.internal.bindings.network.mojom.DocumentIsolationPolicySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_integrity_policy', 48, 0, mojo.internal.bindings.network.mojom.IntegrityPolicySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_integrity_policy_report_only', 56, 0, mojo.internal.bindings.network.mojom.IntegrityPolicySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_origin_agent_cluster', 64, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.OriginAgentClusterValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin_agent_cluster', 64, 0, mojo.internal.bindings.network.mojom.OriginAgentClusterValueSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_accept_ch', 72, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.WebClientHintsTypeSpec.$, false), null, true, 0, undefined),
       mojo.internal.StructField('arg_critical_ch', 80, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.WebClientHintsTypeSpec.$, false), null, true, 0, undefined),
       mojo.internal.StructField('arg_xfo', 88, 0, mojo.internal.bindings.network.mojom.XFrameOptionsValueSpec.$, 0, false, 0, undefined),

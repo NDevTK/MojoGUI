@@ -768,7 +768,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.bluetooth.mojom.ServerSocket_Accept_ResponseParamsSpec, 'bluetooth.mojom.ServerSocket_Accept_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.bluetooth.mojom.AcceptConnectionResultSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.bluetooth.mojom.AcceptConnectionResultSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1369,7 +1369,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.bluetooth.mojom.Adapter_ConnectToDevice_ResponseParamsSpec, 'bluetooth.mojom.Adapter_ConnectToDevice_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.bluetooth.mojom.ConnectResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.bluetooth.mojom.ConnectResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_device', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.bluetooth.mojom.DeviceRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -1392,7 +1392,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.bluetooth.mojom.Adapter_GetInfo_ResponseParamsSpec, 'bluetooth.mojom.Adapter_GetInfo_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.bluetooth.mojom.AdapterInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.bluetooth.mojom.AdapterInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1468,7 +1468,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ResponseParamsSpec, 'bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.bluetooth.mojom.ConnectToServiceResultSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.bluetooth.mojom.ConnectToServiceResultSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

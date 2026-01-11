@@ -116,7 +116,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSpec, 'ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParams', [
-      mojo.internal.StructField('arg_apps', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.settings.app_permission.mojom.AppSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_apps', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.settings.app_permission.mojom.AppSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -127,7 +127,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParamsSpec, 'ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParams', [
-      mojo.internal.StructField('arg_apps', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.settings.app_permission.mojom.AppSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_apps', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.settings.app_permission.mojom.AppSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -138,7 +138,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParamsSpec, 'ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParams', [
-      mojo.internal.StructField('arg_apps', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.settings.app_permission.mojom.AppSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_apps', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.settings.app_permission.mojom.AppSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -530,7 +530,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_ParamsSpec, 'ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_Params', [
-      mojo.internal.StructField('arg_app', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.settings.app_permission.mojom.AppSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_app', 0, 0, mojo.internal.bindings.ash.settings.app_permission.mojom.AppSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

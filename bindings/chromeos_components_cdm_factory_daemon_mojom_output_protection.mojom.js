@@ -108,7 +108,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_QueryStatus_ResponseParamsSpec, 'chromeos.cdm.mojom.OutputProtection_QueryStatus_ResponseParams', [
-      mojo.internal.StructField('arg_protection', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.cdm.mojom.ProtectionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_protection', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.ProtectionTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_link_mask', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_success', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -116,7 +116,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_EnableProtection_ParamsSpec, 'chromeos.cdm.mojom.OutputProtection_EnableProtection_Params', [
-      mojo.internal.StructField('arg_desired_protection', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.cdm.mojom.ProtectionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_desired_protection', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.ProtectionTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

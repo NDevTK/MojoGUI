@@ -182,7 +182,7 @@ mojo.internal.Struct(
 // Struct: TouchCalibration
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TouchCalibrationSpec, 'crosapi.mojom.TouchCalibration', [
-      mojo.internal.StructField('arg_pairs', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.TouchCalibrationPairSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_pairs', 0, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.TouchCalibrationPairSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_bounds', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -192,7 +192,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.DisplayLayoutSpec, 'crosapi.mojom.DisplayLayout', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_parent_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_position', 16, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.DisplayLayoutPositionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_position', 16, 0, mojo.internal.bindings.crosapi.mojom.DisplayLayoutPositionSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_offset', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -200,10 +200,10 @@ mojo.internal.Struct(
 // Struct: DisplayLayoutInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.DisplayLayoutInfoSpec, 'crosapi.mojom.DisplayLayoutInfo', [
-      mojo.internal.StructField('arg_layout_mode', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.DisplayLayoutModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_layout_mode', 0, 0, mojo.internal.bindings.crosapi.mojom.DisplayLayoutModeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_mirror_source_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_mirror_destination_ids', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_layouts', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.DisplayLayoutSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_layouts', 24, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.DisplayLayoutSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -219,7 +219,7 @@ mojo.internal.Struct(
 // Struct: DisplayRotation
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.DisplayRotationSpec, 'crosapi.mojom.DisplayRotation', [
-      mojo.internal.StructField('arg_rotation', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.DisplayRotationOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rotation', 0, 0, mojo.internal.bindings.crosapi.mojom.DisplayRotationOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -240,14 +240,14 @@ mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.DisplayUnitInfoSpec, 'crosapi.mojom.DisplayUnitInfo', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_edid', 16, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.EdidSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_edid', 16, 0, mojo.internal.bindings.crosapi.mojom.EdidSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_dpi_x', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_dpi_y', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_rotation_options', 40, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.DisplayRotationOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rotation_options', 40, 0, mojo.internal.bindings.crosapi.mojom.DisplayRotationOptionsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_bounds', 48, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_overscan', 56, 0, mojo.internal.bindings.gfx.mojom.InsetsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_work_area', 64, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_available_display_modes', 72, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.DisplayModeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_available_display_modes', 72, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.DisplayModeSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_display_zoom_factor', 80, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_available_display_zoom_factors', 88, 0, mojo.internal.Array(mojo.internal.Double, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_selected_display_mode_index', 96, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -265,10 +265,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.DisplayConfigPropertiesSpec, 'crosapi.mojom.DisplayConfigProperties', [
       mojo.internal.StructField('arg_overscan', 0, 0, mojo.internal.bindings.gfx.mojom.InsetsSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_rotation', 8, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.DisplayRotationSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_rotation', 8, 0, mojo.internal.bindings.crosapi.mojom.DisplayRotationSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_bounds_origin', 16, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_display_zoom_factor', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_display_mode', 32, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.DisplayModeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_display_mode', 32, 0, mojo.internal.bindings.crosapi.mojom.DisplayModeSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_set_primary', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 56]]);
@@ -287,19 +287,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ResponseParamsSpec, 'crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.DisplayLayoutInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.crosapi.mojom.DisplayLayoutInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ParamsSpec, 'crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_Params', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.DisplayLayoutInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.crosapi.mojom.DisplayLayoutInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ResponseParamsSpec, 'crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.DisplayConfigResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.crosapi.mojom.DisplayConfigResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -311,21 +311,21 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ResponseParamsSpec, 'crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ResponseParams', [
-      mojo.internal.StructField('arg_info_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.DisplayUnitInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_info_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.DisplayUnitInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ParamsSpec, 'crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_Params', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_properties', 8, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.DisplayConfigPropertiesSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source', 16, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.DisplayConfigSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_properties', 8, 0, mojo.internal.bindings.crosapi.mojom.DisplayConfigPropertiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 16, 0, mojo.internal.bindings.crosapi.mojom.DisplayConfigSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ResponseParamsSpec, 'crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.DisplayConfigResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.crosapi.mojom.DisplayConfigResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -338,28 +338,28 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ParamsSpec, 'crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_Params', [
       mojo.internal.StructField('arg_display_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_op', 8, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.DisplayConfigOperationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_op', 8, 0, mojo.internal.bindings.crosapi.mojom.DisplayConfigOperationSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_delta', 16, 0, mojo.internal.bindings.gfx.mojom.InsetsSpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ResponseParamsSpec, 'crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.DisplayConfigResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.crosapi.mojom.DisplayConfigResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ParamsSpec, 'crosapi.mojom.CrosDisplayConfigController_TouchCalibration_Params', [
       mojo.internal.StructField('arg_display_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_op', 8, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.DisplayConfigOperationSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_calibration', 16, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.TouchCalibrationSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_op', 8, 0, mojo.internal.bindings.crosapi.mojom.DisplayConfigOperationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_calibration', 16, 0, mojo.internal.bindings.crosapi.mojom.TouchCalibrationSpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ResponseParamsSpec, 'crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.DisplayConfigResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.crosapi.mojom.DisplayConfigResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

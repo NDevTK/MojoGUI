@@ -87,7 +87,7 @@ mojo.internal.Struct(
 // Struct: OffsetTagValue
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.OffsetTagValueSpec, 'viz.mojom.OffsetTagValue', [
-      mojo.internal.StructField('arg_tag', 0, 0, mojo.internal.bindings.mojo.internal.bindings.viz.mojom.OffsetTagSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tag', 0, 0, mojo.internal.bindings.viz.mojom.OffsetTagSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_offset', 8, 0, mojo.internal.bindings.gfx.mojom.Vector2dFSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -95,7 +95,7 @@ mojo.internal.Struct(
 // Struct: OffsetTagDefinition
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.OffsetTagDefinitionSpec, 'viz.mojom.OffsetTagDefinition', [
-      mojo.internal.StructField('arg_tag', 0, 0, mojo.internal.bindings.mojo.internal.bindings.viz.mojom.OffsetTagSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tag', 0, 0, mojo.internal.bindings.viz.mojom.OffsetTagSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_provider', 8, 0, mojo.internal.bindings.viz.mojom.SurfaceRangeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_min_offset', 16, 0, mojo.internal.bindings.gfx.mojom.Vector2dFSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_max_offset', 24, 0, mojo.internal.bindings.gfx.mojom.Vector2dFSpec.$, null, false, 0, undefined),

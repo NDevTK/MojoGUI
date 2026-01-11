@@ -132,9 +132,9 @@ mojo.internal.Struct(
 // Struct: FrameInfo
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.FrameInfoSpec, 'mojom.FrameInfo', [
-      mojo.internal.StructField('arg_site_instance', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mojom.SiteInstanceInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_site_instance', 0, 0, mojo.internal.bindings.mojom.SiteInstanceInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_last_committed_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_subframes', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.mojom.FrameInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_subframes', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojom.FrameInfoSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_kActive', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('arg_val', 40, 0, mojo.internal.Pointer, null, false, 0, undefined),
@@ -148,9 +148,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.WebContentsInfoSpec, 'mojom.WebContentsInfo', [
       mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_root_frame', 8, 0, mojo.internal.bindings.mojo.internal.bindings.mojom.FrameInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bfcached_root_frames', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.mojom.FrameInfoSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_prerender_root_frames', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.mojom.FrameInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_root_frame', 8, 0, mojo.internal.bindings.mojom.FrameInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bfcached_root_frames', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojom.FrameInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_prerender_root_frames', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojom.FrameInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -170,7 +170,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec, 'mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mojom.ProcessCountInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.mojom.ProcessCountInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -225,7 +225,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec, 'mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParams', [
-      mojo.internal.StructField('arg_isolated_origins', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.mojom.IsolatedOriginInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_isolated_origins', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojom.IsolatedOriginInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -236,7 +236,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec, 'mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParams', [
-      mojo.internal.StructField('arg_infos', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.mojom.WebContentsInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_infos', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojom.WebContentsInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
