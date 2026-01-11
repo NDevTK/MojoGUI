@@ -264,15 +264,11 @@
     <!-- Scripts -->
     <!-- Mojo runtime (order matters: mojo_bindings.js defines mojo namespace first) -->
     <script src="bindings/mojo_bindings.js"></script>
-    <script src="bindings/mojo_public_interfaces_bindings_pipe_control_messages.mojom.js"></script>
-    <script src="bindings/mojo_public_interfaces_bindings_interface_control_messages.mojom.js"></script>
+    <script src="bindings/bindings_lite.js"></script>
     <script>
-        // Initialize namespaces and fix name mismatches in the Lite bindings
+        // Core polyfills needed by mojom dependencies
         if (typeof mojo !== 'undefined') {
             mojo.internal = mojo.internal || {};
-            mojo.internal.interfaceSupport = mojo.internal.interfaceSupport || {};
-
-            // Lite bindings Union polyfill (missing in bindings_lite.js)
             mojo.internal.Union = function (objectToBlessAsType, name, fields) {
                 const unionSpec = { name, fields };
                 objectToBlessAsType.$ = {
@@ -289,10 +285,16 @@
                     arrayElementSize: nullable => 16,
                 };
             };
-
+        }
+    </script>
+    <script src="bindings/mojo_public_interfaces_bindings_pipe_control_messages.mojom.js"></script>
+    <script src="bindings/mojo_public_interfaces_bindings_interface_control_messages.mojom.js"></script>
+    <script>
+        // Post-load aliasing (bridges internal Mojom paths to short names expected by interface_support.js)
+        if (typeof mojo !== 'undefined') {
             const b = mojo.internal.bindings && mojo.internal.bindings.mojo;
 
-            // Map pipe_control to the short name expected by interface_support.js
+            // Pipe Control
             if (b && b.pipe_control) {
                 mojo.pipeControl = b.pipe_control;
                 mojo.pipeControl.RUN_OR_CLOSE_PIPE_MESSAGE_ID = b.pipe_control.kRunOrClosePipeMessageId || 0xFFFFFFFE;
@@ -300,7 +302,7 @@
                 mojo.pipeControl = mojo.pipeControl || { RUN_OR_CLOSE_PIPE_MESSAGE_ID: 0xFFFFFFFE };
             }
 
-            // Map interface_control
+            // Interface Control
             if (b && b.interface_control) {
                 mojo.interfaceControl = b.interface_control;
                 mojo.interfaceControl.RUN_MESSAGE_ID = b.interface_control.kRunMessageId || 0xFFFFFFFF;
@@ -313,7 +315,6 @@
             }
         }
     </script>
-    <script src="bindings/bindings_lite.js"></script>
     <script src="bindings/interface_support.js"></script>
     <script src="bindings/index.js"></script>
     <script src="parser.js"></script>
