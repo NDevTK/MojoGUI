@@ -221,11 +221,35 @@ jobs:
                   result['enums'].append({'name': enum_name, 'values': values})
 
               # Extract structs (regular and native ;)
-              struct_pattern = r'struct\s+(\w+)\s*(?:\{([^}]*)\}|;)'
-              for match in re.finditer(struct_pattern, content_no_comments, re.DOTALL):
+              # Fix: Use manual brace counting to handle nested enums/structs correctly
+              struct_start_pattern = r'struct\s+(\w+)[^{]*\{'
+              for match in re.finditer(struct_start_pattern, content_no_comments):
                   struct_name = match.group(1)
-                  struct_body = match.group(2)
-                  fields = parse_params(struct_body) if struct_body else []
+                  start_pos = match.end()
+                  
+                  brace_count = 1
+                  end_pos = start_pos
+                  while brace_count > 0 and end_pos < len(content_no_comments):
+                      if content_no_comments[end_pos] == '{':
+                          brace_count += 1
+                      elif content_no_comments[end_pos] == '}':
+                          brace_count -= 1
+                      end_pos += 1
+                  
+                  struct_body = content_no_comments[start_pos:end_pos-1]
+                  
+                  # Remove nested definitions from body before parsing fields
+                  # We don't need to parse them recursively here, just ignore them for field parsing
+                  body_clean = struct_body
+                  while True:
+                      nested_match = re.search(r'(enum|struct|union)\s+\w+\s*\{[^{}]*\}', body_clean)
+                      if not nested_match: break
+                      # Replace with empty string or semicolon to maintain separation
+                      body_clean = body_clean[:nested_match.start()] + ";" + body_clean[nested_match.end():]
+                  
+                  # Also handle natives which don't have body (regex for native not needed if we iterate headers)
+                  
+                  fields = parse_params(body_clean) if body_clean else []
                   result['structs'].append({'name': struct_name, 'fields': fields})
 
               # Extract constants (module level)

@@ -247,29 +247,14 @@
                 iface = state.interfaces.find(i => i.name === shortName);
             }
 
-            // Special handling for VibrationManager which is often 'VibrationManager' requested but 'device.mojom.VibrationManager' in list
-            if (!iface && interfaceName === 'VibrationManager') {
-                iface = state.interfaces.find(i => i.name === 'device.mojom.VibrationManager');
-            }
-
-            // Hybrid Loading Strategy: Ensure critical foundation types are always present 
-            // while relying on automated recursive discovery for everything else.
-            // MojoBindings.loadBinding deduplicates loads, so this is safe and efficient.
-            if (typeof MojoBindings !== 'undefined') {
-                const foundationFiles = [
-                    'mojo_public_mojom_base_string16.mojom.js',
-                    'mojo_public_mojom_base_big_buffer.mojom.js',
-                    'mojo_public_mojom_base_file.mojom.js', // Includes ReadOnlyFile
-                    'mojo_public_mojom_base_read_only_buffer.mojom.js',
-                    'mojo_public_mojom_base_time.mojom.js',
-                    'ui_gfx_range_mojom_range.mojom.js',
-                    'ui_gfx_geometry_mojom_geometry.mojom.js'
-                ];
-                for (const file of foundationFiles) {
-                    try { await MojoBindings.loadBinding(file); } catch (e) { }
+            // Universal Fuzzy Match: If exact match fails, try suffix match
+            if (!iface) {
+                const suffix = '.' + interfaceName;
+                iface = state.interfaces.find(i => i.name.endsWith(suffix));
+                if (iface) {
+                    console.log(`[MojoLoader] Fuzzy resolved '${interfaceName}' to '${iface.name}'`);
                 }
             }
-
 
             if (iface && iface.file && typeof MojoBindings !== 'undefined') {
                 try {
