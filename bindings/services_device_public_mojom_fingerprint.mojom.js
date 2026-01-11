@@ -966,9 +966,7 @@ mojo.internal.bindings.device.mojom.FingerprintReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.Fingerprint_GetRecordsForUser_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.Fingerprint_GetRecordsForUser_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetRecordsForUser FAILED:', e));
           }
           break;
@@ -988,9 +986,7 @@ mojo.internal.bindings.device.mojom.FingerprintReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.Fingerprint_CancelCurrentEnrollSession_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.Fingerprint_CancelCurrentEnrollSession_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CancelCurrentEnrollSession FAILED:', e));
           }
           break;
@@ -1003,9 +999,7 @@ mojo.internal.bindings.device.mojom.FingerprintReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.Fingerprint_RequestRecordLabel_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.Fingerprint_RequestRecordLabel_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestRecordLabel FAILED:', e));
           }
           break;
@@ -1018,9 +1012,7 @@ mojo.internal.bindings.device.mojom.FingerprintReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.Fingerprint_SetRecordLabel_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.Fingerprint_SetRecordLabel_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetRecordLabel FAILED:', e));
           }
           break;
@@ -1033,9 +1025,7 @@ mojo.internal.bindings.device.mojom.FingerprintReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.Fingerprint_RemoveRecord_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.Fingerprint_RemoveRecord_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RemoveRecord FAILED:', e));
           }
           break;
@@ -1055,9 +1045,7 @@ mojo.internal.bindings.device.mojom.FingerprintReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.Fingerprint_EndCurrentAuthSession_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.Fingerprint_EndCurrentAuthSession_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EndCurrentAuthSession FAILED:', e));
           }
           break;
@@ -1070,9 +1058,7 @@ mojo.internal.bindings.device.mojom.FingerprintReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.Fingerprint_DestroyAllRecords_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.Fingerprint_DestroyAllRecords_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DestroyAllRecords FAILED:', e));
           }
           break;
@@ -1092,9 +1078,7 @@ mojo.internal.bindings.device.mojom.FingerprintReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.Fingerprint_RequestType_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.Fingerprint_RequestType_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestType FAILED:', e));
           }
           break;

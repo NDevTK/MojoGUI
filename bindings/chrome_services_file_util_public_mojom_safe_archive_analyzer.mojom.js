@@ -455,9 +455,7 @@ mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AnalyzeZipFile FAILED:', e));
           }
           break;
@@ -470,9 +468,7 @@ mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AnalyzeDmgFile FAILED:', e));
           }
           break;
@@ -485,9 +481,7 @@ mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AnalyzeRarFile FAILED:', e));
           }
           break;
@@ -500,9 +494,7 @@ mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AnalyzeSevenZipFile FAILED:', e));
           }
           break;
@@ -515,9 +507,7 @@ mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AnalyzeObfuscatedZipFile FAILED:', e));
           }
           break;
@@ -530,9 +520,7 @@ mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AnalyzeObfuscatedRarFile FAILED:', e));
           }
           break;
@@ -698,9 +686,7 @@ mojo.internal.bindings.chrome.mojom.TemporaryFileGetterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestTemporaryFile FAILED:', e));
           }
           break;

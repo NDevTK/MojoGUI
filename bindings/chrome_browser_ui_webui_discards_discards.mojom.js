@@ -588,9 +588,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetTabDiscardsInfo FAILED:', e));
           }
           break;
@@ -603,9 +601,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.discards.mojom.DetailsProvider_SetAutoDiscardable_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.discards.mojom.DetailsProvider_SetAutoDiscardable_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetAutoDiscardable FAILED:', e));
           }
           break;
@@ -618,9 +614,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.discards.mojom.DetailsProvider_DiscardById_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.discards.mojom.DetailsProvider_DiscardById_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DiscardById FAILED:', e));
           }
           break;
@@ -647,9 +641,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.discards.mojom.DetailsProvider_Discard_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.discards.mojom.DetailsProvider_Discard_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Discard FAILED:', e));
           }
           break;
@@ -1365,9 +1357,7 @@ mojo.internal.bindings.discards.mojom.GraphDumpReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestNodeDescriptions FAILED:', e));
           }
           break;

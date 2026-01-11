@@ -339,9 +339,7 @@ mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxyReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AllowIndexedDB FAILED:', e));
           }
           break;
@@ -354,9 +352,7 @@ mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxyReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AllowCacheStorage FAILED:', e));
           }
           break;
@@ -369,9 +365,7 @@ mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxyReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AllowWebLocks FAILED:', e));
           }
           break;
@@ -384,9 +378,7 @@ mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxyReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestFileSystemAccessSync FAILED:', e));
           }
           break;

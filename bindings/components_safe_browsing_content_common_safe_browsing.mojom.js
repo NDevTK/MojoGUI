@@ -385,9 +385,7 @@ mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateCheckerAndCheck FAILED:', e));
           }
           break;
@@ -560,9 +558,7 @@ mojo.internal.bindings.safe_browsing.mojom.ThreatReporterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetThreatDOMDetails FAILED:', e));
           }
           break;
@@ -731,9 +727,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingDetectorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StartPhishingDetection FAILED:', e));
           }
           break;
@@ -1053,9 +1047,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetTestObserver FAILED:', e));
           }
           break;
@@ -1377,9 +1369,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetectorReceiver
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StartImageEmbedding FAILED:', e));
           }
           break;

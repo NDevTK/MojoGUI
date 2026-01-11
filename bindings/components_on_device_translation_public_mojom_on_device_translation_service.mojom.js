@@ -313,9 +313,7 @@ mojo.internal.bindings.on_device_translation.mojom.FileOperationProxyReceiver = 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_translation.mojom.FileOperationProxy_FileExists_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.on_device_translation.mojom.FileOperationProxy_FileExists_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FileExists FAILED:', e));
           }
           break;
@@ -328,9 +326,7 @@ mojo.internal.bindings.on_device_translation.mojom.FileOperationProxyReceiver = 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_translation.mojom.FileOperationProxy_Open_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.on_device_translation.mojom.FileOperationProxy_Open_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Open FAILED:', e));
           }
           break;
@@ -575,9 +571,7 @@ mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationServiceRec
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateTranslator FAILED:', e));
           }
           break;
@@ -590,9 +584,7 @@ mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationServiceRec
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CanTranslate FAILED:', e));
           }
           break;

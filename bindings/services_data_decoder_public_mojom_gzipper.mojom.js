@@ -345,9 +345,7 @@ mojo.internal.bindings.data_decoder.mojom.GzipperReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Deflate FAILED:', e));
           }
           break;
@@ -360,9 +358,7 @@ mojo.internal.bindings.data_decoder.mojom.GzipperReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Inflate FAILED:', e));
           }
           break;
@@ -375,9 +371,7 @@ mojo.internal.bindings.data_decoder.mojom.GzipperReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Compress FAILED:', e));
           }
           break;
@@ -390,9 +384,7 @@ mojo.internal.bindings.data_decoder.mojom.GzipperReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Uncompress FAILED:', e));
           }
           break;

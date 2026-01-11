@@ -653,9 +653,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadModel FAILED:', e));
           }
           break;
@@ -668,9 +666,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetCapabilities FAILED:', e));
           }
           break;
@@ -690,9 +686,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDeviceAndPerformanceInfo FAILED:', e));
           }
           break;
@@ -1012,9 +1006,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceReceive
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadPlatformModel FAILED:', e));
           }
           break;
@@ -1027,9 +1019,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceReceive
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPlatformModelState FAILED:', e));
           }
           break;
@@ -1042,9 +1032,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceReceive
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetEstimatedPerformanceClass FAILED:', e));
           }
           break;
@@ -1057,9 +1045,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceReceive
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FormatInput FAILED:', e));
           }
           break;
@@ -1072,9 +1058,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceReceive
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ValidateSafetyResult FAILED:', e));
           }
           break;

@@ -502,9 +502,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceReceiver = 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDisplayedNotifications FAILED:', e));
           }
           break;
@@ -538,9 +536,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceReceiver = 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OkayToTerminateService FAILED:', e));
           }
           break;

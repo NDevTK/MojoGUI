@@ -338,9 +338,7 @@ mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestUrlAccessRemote FAILED:', e));
           }
           break;
@@ -353,9 +351,7 @@ mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestUrlAccessLocal FAILED:', e));
           }
           break;
@@ -368,9 +364,7 @@ mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_LearnMore_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_LearnMore_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LearnMore FAILED:', e));
           }
           break;

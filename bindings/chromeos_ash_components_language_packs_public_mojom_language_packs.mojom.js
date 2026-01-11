@@ -589,9 +589,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.language.mojom.LanguagePacks_GetPackInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.language.mojom.LanguagePacks_GetPackInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPackInfo FAILED:', e));
           }
           break;
@@ -604,9 +602,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallPack_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallPack_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] InstallPack FAILED:', e));
           }
           break;
@@ -619,9 +615,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallBasePack_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallBasePack_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] InstallBasePack FAILED:', e));
           }
           break;
@@ -634,9 +628,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.language.mojom.LanguagePacks_UninstallPack_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.language.mojom.LanguagePacks_UninstallPack_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UninstallPack FAILED:', e));
           }
           break;

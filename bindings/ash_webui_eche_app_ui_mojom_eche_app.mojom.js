@@ -773,9 +773,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSystemInfo FAILED:', e));
           }
           break;
@@ -1256,9 +1254,7 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProviderReceiver = class 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsAccessibilityEnabled FAILED:', e));
           }
           break;
@@ -1538,9 +1534,7 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserverReceiver = class 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_PerformAction_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_PerformAction_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PerformAction FAILED:', e));
           }
           break;
@@ -1553,9 +1547,7 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserverReceiver = class 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RefreshWithExtraData FAILED:', e));
           }
           break;
@@ -1721,9 +1713,7 @@ mojo.internal.bindings.ash.eche_app.mojom.UidGeneratorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.eche_app.mojom.UidGenerator_GetUid_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.eche_app.mojom.UidGenerator_GetUid_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetUid FAILED:', e));
           }
           break;

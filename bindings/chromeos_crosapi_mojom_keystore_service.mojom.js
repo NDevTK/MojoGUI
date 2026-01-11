@@ -1360,9 +1360,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ChallengeAttestationOnlyKeystore FAILED:', e));
           }
           break;
@@ -1375,9 +1373,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_GetKeyStores_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.KeystoreService_GetKeyStores_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetKeyStores FAILED:', e));
           }
           break;
@@ -1390,9 +1386,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_SelectClientCertificates_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.KeystoreService_SelectClientCertificates_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SelectClientCertificates FAILED:', e));
           }
           break;
@@ -1405,9 +1399,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_GetCertificates_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.KeystoreService_GetCertificates_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetCertificates FAILED:', e));
           }
           break;
@@ -1420,9 +1412,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_AddCertificate_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.KeystoreService_AddCertificate_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AddCertificate FAILED:', e));
           }
           break;
@@ -1435,9 +1425,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_RemoveCertificate_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.KeystoreService_RemoveCertificate_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RemoveCertificate FAILED:', e));
           }
           break;
@@ -1450,9 +1438,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_GetPublicKey_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.KeystoreService_GetPublicKey_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPublicKey FAILED:', e));
           }
           break;
@@ -1465,9 +1451,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_GenerateKey_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.KeystoreService_GenerateKey_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GenerateKey FAILED:', e));
           }
           break;
@@ -1480,9 +1464,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_RemoveKey_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.KeystoreService_RemoveKey_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RemoveKey FAILED:', e));
           }
           break;
@@ -1495,9 +1477,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_Sign_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.KeystoreService_Sign_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Sign FAILED:', e));
           }
           break;
@@ -1510,9 +1490,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_GetKeyTags_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.KeystoreService_GetKeyTags_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetKeyTags FAILED:', e));
           }
           break;
@@ -1525,9 +1503,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_AddKeyTags_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.KeystoreService_AddKeyTags_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AddKeyTags FAILED:', e));
           }
           break;
@@ -1540,9 +1516,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_CanUserGrantPermissionForKey_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.KeystoreService_CanUserGrantPermissionForKey_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CanUserGrantPermissionForKey FAILED:', e));
           }
           break;
@@ -1555,9 +1529,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_SetAttributeForKey_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.KeystoreService_SetAttributeForKey_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetAttributeForKey FAILED:', e));
           }
           break;
@@ -1570,9 +1542,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DEPRECATED_ExtensionGenerateKey FAILED:', e));
           }
           break;
@@ -1585,9 +1555,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ExtensionSign_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ExtensionSign_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DEPRECATED_ExtensionSign FAILED:', e));
           }
           break;
@@ -1600,9 +1568,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetPublicKey_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetPublicKey_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DEPRECATED_GetPublicKey FAILED:', e));
           }
           break;
@@ -1615,9 +1581,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetKeyStores_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetKeyStores_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DEPRECATED_GetKeyStores FAILED:', e));
           }
           break;
@@ -1630,9 +1594,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetCertificates_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetCertificates_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DEPRECATED_GetCertificates FAILED:', e));
           }
           break;
@@ -1645,9 +1607,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_AddCertificate_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_AddCertificate_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DEPRECATED_AddCertificate FAILED:', e));
           }
           break;
@@ -1660,9 +1620,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_RemoveCertificate_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_RemoveCertificate_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DEPRECATED_RemoveCertificate FAILED:', e));
           }
           break;
@@ -1675,9 +1633,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DEPRECATED_ChallengeAttestationOnlyKeystore FAILED:', e));
           }
           break;

@@ -527,9 +527,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetProcessCountInfo FAILED:', e));
           }
           break;
@@ -542,9 +540,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetIsolationMode FAILED:', e));
           }
           break;
@@ -557,9 +553,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetProcessPerSiteMode FAILED:', e));
           }
           break;
@@ -572,9 +566,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetUserTriggeredIsolatedOrigins FAILED:', e));
           }
           break;
@@ -587,9 +579,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetWebTriggeredIsolatedOrigins FAILED:', e));
           }
           break;
@@ -602,9 +592,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetGloballyIsolatedOrigins FAILED:', e));
           }
           break;
@@ -617,9 +605,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAllWebContentsInfo FAILED:', e));
           }
           break;

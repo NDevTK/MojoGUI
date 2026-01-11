@@ -706,9 +706,7 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.Login_REMOVED_0_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.Login_REMOVED_0_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] REMOVED_0 FAILED:', e));
           }
           break;
@@ -721,9 +719,7 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.Login_REMOVED_4_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.Login_REMOVED_4_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] REMOVED_4 FAILED:', e));
           }
           break;
@@ -736,9 +732,7 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.Login_REMOVED_5_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.Login_REMOVED_5_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] REMOVED_5 FAILED:', e));
           }
           break;
@@ -751,9 +745,7 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.Login_REMOVED_6_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.Login_REMOVED_6_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] REMOVED_6 FAILED:', e));
           }
           break;
@@ -766,9 +758,7 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.Login_REMOVED_7_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.Login_REMOVED_7_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] REMOVED_7 FAILED:', e));
           }
           break;
@@ -781,9 +771,7 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.Login_REMOVED_10_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.Login_REMOVED_10_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] REMOVED_10 FAILED:', e));
           }
           break;
@@ -796,9 +784,7 @@ mojo.internal.bindings.crosapi.mojom.LoginReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.Login_REMOVED_12_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.Login_REMOVED_12_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] REMOVED_12 FAILED:', e));
           }
           break;

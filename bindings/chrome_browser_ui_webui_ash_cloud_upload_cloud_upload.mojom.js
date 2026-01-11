@@ -1004,9 +1004,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDialogArgs FAILED:', e));
           }
           break;
@@ -1019,9 +1017,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsOfficeWebAppInstalled FAILED:', e));
           }
           break;
@@ -1034,9 +1030,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] InstallOfficeWebApp FAILED:', e));
           }
           break;
@@ -1049,9 +1043,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsODFSMounted FAILED:', e));
           }
           break;
@@ -1064,9 +1056,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SignInToOneDrive FAILED:', e));
           }
           break;
@@ -1100,9 +1090,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAlwaysMoveOfficeFilesToDrive FAILED:', e));
           }
           break;
@@ -1122,9 +1110,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAlwaysMoveOfficeFilesToOneDrive FAILED:', e));
           }
           break;
@@ -1144,9 +1130,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOfficeMoveConfirmationShownForDrive FAILED:', e));
           }
           break;
@@ -1159,9 +1143,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOfficeMoveConfirmationShownForOneDrive FAILED:', e));
           }
           break;

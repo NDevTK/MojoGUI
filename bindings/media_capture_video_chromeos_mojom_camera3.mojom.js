@@ -653,9 +653,7 @@ mojo.internal.bindings.cros.mojom.Camera3CallbackOpsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.Camera3CallbackOps_RequestStreamBuffers_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.Camera3CallbackOps_RequestStreamBuffers_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestStreamBuffers FAILED:', e));
           }
           break;
@@ -1227,9 +1225,7 @@ mojo.internal.bindings.cros.mojom.Camera3DeviceOpsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.Camera3DeviceOps_Initialize_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.Camera3DeviceOps_Initialize_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Initialize FAILED:', e));
           }
           break;
@@ -1242,9 +1238,7 @@ mojo.internal.bindings.cros.mojom.Camera3DeviceOpsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.Camera3DeviceOps_ConfigureStreams_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.Camera3DeviceOps_ConfigureStreams_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ConfigureStreams FAILED:', e));
           }
           break;
@@ -1257,9 +1251,7 @@ mojo.internal.bindings.cros.mojom.Camera3DeviceOpsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.Camera3DeviceOps_ConstructDefaultRequestSettings_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.Camera3DeviceOps_ConstructDefaultRequestSettings_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ConstructDefaultRequestSettings FAILED:', e));
           }
           break;
@@ -1272,9 +1264,7 @@ mojo.internal.bindings.cros.mojom.Camera3DeviceOpsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.Camera3DeviceOps_ProcessCaptureRequest_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.Camera3DeviceOps_ProcessCaptureRequest_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ProcessCaptureRequest FAILED:', e));
           }
           break;
@@ -1294,9 +1284,7 @@ mojo.internal.bindings.cros.mojom.Camera3DeviceOpsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.Camera3DeviceOps_Flush_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.Camera3DeviceOps_Flush_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Flush FAILED:', e));
           }
           break;
@@ -1309,9 +1297,7 @@ mojo.internal.bindings.cros.mojom.Camera3DeviceOpsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.Camera3DeviceOps_RegisterBuffer_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.Camera3DeviceOps_RegisterBuffer_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RegisterBuffer FAILED:', e));
           }
           break;
@@ -1324,9 +1310,7 @@ mojo.internal.bindings.cros.mojom.Camera3DeviceOpsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.Camera3DeviceOps_Close_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.Camera3DeviceOps_Close_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Close FAILED:', e));
           }
           break;
@@ -1339,9 +1323,7 @@ mojo.internal.bindings.cros.mojom.Camera3DeviceOpsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.Camera3DeviceOps_ConfigureStreamsAndGetAllocatedBuffers_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.Camera3DeviceOps_ConfigureStreamsAndGetAllocatedBuffers_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ConfigureStreamsAndGetAllocatedBuffers FAILED:', e));
           }
           break;
@@ -1361,9 +1343,7 @@ mojo.internal.bindings.cros.mojom.Camera3DeviceOpsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.Camera3DeviceOps_OnNewBuffer_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.Camera3DeviceOps_OnNewBuffer_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OnNewBuffer FAILED:', e));
           }
           break;

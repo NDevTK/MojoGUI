@@ -631,9 +631,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteCode_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteCode_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ExecuteCode FAILED:', e));
           }
           break;
@@ -660,9 +658,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.extensions.mojom.LocalFrame_DispatchOnConnect_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.extensions.mojom.LocalFrame_DispatchOnConnect_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DispatchOnConnect FAILED:', e));
           }
           break;
@@ -1234,9 +1230,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestScriptInjectionPermission FAILED:', e));
           }
           break;
@@ -1249,9 +1243,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.extensions.mojom.LocalFrameHost_GetAppInstallState_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.extensions.mojom.LocalFrameHost_GetAppInstallState_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAppInstallState FAILED:', e));
           }
           break;
@@ -1264,9 +1256,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.extensions.mojom.LocalFrameHost_Request_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.extensions.mojom.LocalFrameHost_Request_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Request FAILED:', e));
           }
           break;

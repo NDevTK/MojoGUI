@@ -499,9 +499,7 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PassFormData FAILED:', e));
           }
           break;
@@ -514,9 +512,7 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PassFormFieldData FAILED:', e));
           }
           break;
@@ -529,9 +525,7 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PassFormDataPredictions FAILED:', e));
           }
           break;
@@ -544,9 +538,7 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PassFormFieldDataPredictions FAILED:', e));
           }
           break;
@@ -559,9 +551,7 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PassPasswordFormFillData FAILED:', e));
           }
           break;
@@ -574,9 +564,7 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PassPasswordFormGenerationData FAILED:', e));
           }
           break;
@@ -589,9 +577,7 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PassPasswordGenerationUIData FAILED:', e));
           }
           break;
@@ -604,9 +590,7 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PassPasswordSuggestionRequest FAILED:', e));
           }
           break;

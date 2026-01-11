@@ -686,9 +686,7 @@ mojo.internal.bindings.dlp_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetClipboardDataSource FAILED:', e));
           }
           break;
@@ -701,9 +699,7 @@ mojo.internal.bindings.dlp_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetContentRestrictionsInfo FAILED:', e));
           }
           break;
@@ -723,9 +719,7 @@ mojo.internal.bindings.dlp_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetFilesDatabaseEntries FAILED:', e));
           }
           break;
@@ -738,9 +732,7 @@ mojo.internal.bindings.dlp_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFileInode_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFileInode_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetFileInode FAILED:', e));
           }
           break;

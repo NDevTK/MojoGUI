@@ -671,9 +671,7 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsSupported_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsSupported_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsSupported FAILED:', e));
           }
           break;
@@ -686,9 +684,7 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsConfigured_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsConfigured_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsConfigured FAILED:', e));
           }
           break;
@@ -701,9 +697,7 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_GetManagementType_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_GetManagementType_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetManagementType FAILED:', e));
           }
           break;
@@ -716,9 +710,7 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsEditable_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsEditable_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsEditable FAILED:', e));
           }
           break;
@@ -893,9 +885,7 @@ mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Configure FAILED:', e));
           }
           break;
@@ -1213,9 +1203,7 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_SetPin_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_SetPin_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetPin FAILED:', e));
           }
           break;
@@ -1228,9 +1216,7 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_UpdatePin_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_UpdatePin_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UpdatePin FAILED:', e));
           }
           break;
@@ -1243,9 +1229,7 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_RemovePin_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_RemovePin_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RemovePin FAILED:', e));
           }
           break;
@@ -1258,9 +1242,7 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetConfiguredPinFactor FAILED:', e));
           }
           break;
@@ -1273,9 +1255,7 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CheckPinComplexity FAILED:', e));
           }
           break;
@@ -1631,9 +1611,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UpdateOrSetLocalPassword FAILED:', e));
           }
           break;
@@ -1646,9 +1624,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UpdateOrSetOnlinePassword FAILED:', e));
           }
           break;
@@ -1661,9 +1637,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetLocalPassword FAILED:', e));
           }
           break;
@@ -1676,9 +1650,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetOnlinePassword FAILED:', e));
           }
           break;
@@ -1691,9 +1663,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CheckLocalPasswordComplexity FAILED:', e));
           }
           break;
@@ -1706,9 +1676,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_RemovePassword_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_RemovePassword_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RemovePassword FAILED:', e));
           }
           break;

@@ -661,9 +661,7 @@ mojo.internal.bindings.cros.mojom.VendorTagOpsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagCount_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagCount_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetTagCount FAILED:', e));
           }
           break;
@@ -676,9 +674,7 @@ mojo.internal.bindings.cros.mojom.VendorTagOpsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.VendorTagOps_GetAllTags_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.VendorTagOps_GetAllTags_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAllTags FAILED:', e));
           }
           break;
@@ -691,9 +687,7 @@ mojo.internal.bindings.cros.mojom.VendorTagOpsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.VendorTagOps_GetSectionName_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.VendorTagOps_GetSectionName_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSectionName FAILED:', e));
           }
           break;
@@ -706,9 +700,7 @@ mojo.internal.bindings.cros.mojom.VendorTagOpsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagName_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagName_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetTagName FAILED:', e));
           }
           break;
@@ -721,9 +713,7 @@ mojo.internal.bindings.cros.mojom.VendorTagOpsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagType_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagType_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetTagType FAILED:', e));
           }
           break;
@@ -1149,9 +1139,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CameraModule_OpenDevice_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CameraModule_OpenDevice_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OpenDevice FAILED:', e));
           }
           break;
@@ -1164,9 +1152,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CameraModule_GetNumberOfCameras_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CameraModule_GetNumberOfCameras_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNumberOfCameras FAILED:', e));
           }
           break;
@@ -1179,9 +1165,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CameraModule_GetCameraInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CameraModule_GetCameraInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetCameraInfo FAILED:', e));
           }
           break;
@@ -1194,9 +1178,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacks_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacks_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetCallbacks FAILED:', e));
           }
           break;
@@ -1209,9 +1191,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CameraModule_SetTorchMode_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CameraModule_SetTorchMode_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetTorchMode FAILED:', e));
           }
           break;
@@ -1224,9 +1204,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CameraModule_Init_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CameraModule_Init_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
           }
           break;
@@ -1239,9 +1217,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CameraModule_GetVendorTagOps_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CameraModule_GetVendorTagOps_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetVendorTagOps FAILED:', e));
           }
           break;
@@ -1254,9 +1230,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacksAssociated_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacksAssociated_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetCallbacksAssociated FAILED:', e));
           }
           break;

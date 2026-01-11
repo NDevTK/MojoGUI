@@ -2306,9 +2306,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_GetMetadata_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.drivefs.mojom.DriveFs_GetMetadata_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetMetadata FAILED:', e));
           }
           break;
@@ -2321,9 +2319,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_SetPinned_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.drivefs.mojom.DriveFs_SetPinned_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetPinned FAILED:', e));
           }
           break;
@@ -2343,9 +2339,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_ResetCache_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.drivefs.mojom.DriveFs_ResetCache_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ResetCache FAILED:', e));
           }
           break;
@@ -2358,9 +2352,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_GetThumbnail_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.drivefs.mojom.DriveFs_GetThumbnail_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetThumbnail FAILED:', e));
           }
           break;
@@ -2373,9 +2365,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_CopyFile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.drivefs.mojom.DriveFs_CopyFile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CopyFile FAILED:', e));
           }
           break;
@@ -2409,9 +2399,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_SendNativeMessageRequest_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.drivefs.mojom.DriveFs_SendNativeMessageRequest_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendNativeMessageRequest FAILED:', e));
           }
           break;
@@ -2424,9 +2412,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_SetStartupArguments_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.drivefs.mojom.DriveFs_SetStartupArguments_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetStartupArguments FAILED:', e));
           }
           break;
@@ -2439,9 +2425,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_GetStartupArguments_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.drivefs.mojom.DriveFs_GetStartupArguments_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetStartupArguments FAILED:', e));
           }
           break;
@@ -2496,9 +2480,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_LocateFilesByItemIds_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.drivefs.mojom.DriveFs_LocateFilesByItemIds_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LocateFilesByItemIds FAILED:', e));
           }
           break;
@@ -2511,9 +2493,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_GetQuotaUsage_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.drivefs.mojom.DriveFs_GetQuotaUsage_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetQuotaUsage FAILED:', e));
           }
           break;
@@ -2526,9 +2506,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_ToggleMirroring_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.drivefs.mojom.DriveFs_ToggleMirroring_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ToggleMirroring FAILED:', e));
           }
           break;
@@ -2541,9 +2519,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_ToggleSyncForPath_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.drivefs.mojom.DriveFs_ToggleSyncForPath_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ToggleSyncForPath FAILED:', e));
           }
           break;
@@ -2556,9 +2532,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_GetSyncingPaths_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.drivefs.mojom.DriveFs_GetSyncingPaths_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSyncingPaths FAILED:', e));
           }
           break;
@@ -2578,9 +2552,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_GetPooledQuotaUsage_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.drivefs.mojom.DriveFs_GetPooledQuotaUsage_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPooledQuotaUsage FAILED:', e));
           }
           break;
@@ -2593,9 +2565,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_SetPinnedByStableId_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.drivefs.mojom.DriveFs_SetPinnedByStableId_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetPinnedByStableId FAILED:', e));
           }
           break;
@@ -2608,9 +2578,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_GetMetadataByStableId_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.drivefs.mojom.DriveFs_GetMetadataByStableId_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetMetadataByStableId FAILED:', e));
           }
           break;
@@ -2630,9 +2598,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetDocsOfflineEnabled FAILED:', e));
           }
           break;
@@ -2645,9 +2611,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOfflineFilesSpaceUsage FAILED:', e));
           }
           break;
@@ -2660,9 +2624,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_ClearOfflineFiles_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.drivefs.mojom.DriveFs_ClearOfflineFiles_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ClearOfflineFiles FAILED:', e));
           }
           break;
@@ -2675,9 +2637,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_ImmediatelyUpload_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.drivefs.mojom.DriveFs_ImmediatelyUpload_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ImmediatelyUpload FAILED:', e));
           }
           break;
@@ -2690,9 +2650,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_UpdateFromPairedDoc_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.drivefs.mojom.DriveFs_UpdateFromPairedDoc_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UpdateFromPairedDoc FAILED:', e));
           }
           break;
@@ -2705,9 +2663,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_GetItemFromCloudStore_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.drivefs.mojom.DriveFs_GetItemFromCloudStore_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetItemFromCloudStore FAILED:', e));
           }
           break;
@@ -2720,9 +2676,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_GetDocsOfflineStats_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.drivefs.mojom.DriveFs_GetDocsOfflineStats_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDocsOfflineStats FAILED:', e));
           }
           break;
@@ -2735,9 +2689,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetMirrorSyncStatusForFile FAILED:', e));
           }
           break;
@@ -2750,9 +2702,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetMirrorSyncStatusForDirectory FAILED:', e));
           }
           break;
@@ -3539,9 +3489,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_GetAccessToken_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_GetAccessToken_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAccessToken FAILED:', e));
           }
           break;
@@ -3617,9 +3565,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_ConnectToExtension_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_ConnectToExtension_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ConnectToExtension FAILED:', e));
           }
           break;
@@ -3632,9 +3578,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DisplayConfirmDialog FAILED:', e));
           }
           break;
@@ -3654,9 +3598,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_GetMachineRootID_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_GetMachineRootID_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetMachineRootID FAILED:', e));
           }
           break;
@@ -3690,9 +3632,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAccessTokenWithExpiry FAILED:', e));
           }
           break;
@@ -3873,9 +3813,7 @@ mojo.internal.bindings.drivefs.mojom.SearchQueryReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.drivefs.mojom.SearchQuery_GetNextPage_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.drivefs.mojom.SearchQuery_GetNextPage_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNextPage FAILED:', e));
           }
           break;

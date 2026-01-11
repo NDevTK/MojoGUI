@@ -1340,9 +1340,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.IntentHelperHost_OnOpenCustomTab_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.IntentHelperHost_OnOpenCustomTab_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OnOpenCustomTab FAILED:', e));
           }
           break;
@@ -1411,9 +1409,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.IntentHelperHost_IsChromeAppEnabled_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.IntentHelperHost_IsChromeAppEnabled_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsChromeAppEnabled FAILED:', e));
           }
           break;
@@ -2168,9 +2164,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.IntentHelperInstance_Init_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.IntentHelperInstance_Init_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
           }
           break;
@@ -2183,9 +2177,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestActivityIcons_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestActivityIcons_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestActivityIcons FAILED:', e));
           }
           break;
@@ -2198,9 +2190,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestIntentHandlerList FAILED:', e));
           }
           break;
@@ -2213,9 +2203,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestUrlHandlerList FAILED:', e));
           }
           break;
@@ -2228,9 +2216,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestUrlListHandlerList FAILED:', e));
           }
           break;
@@ -2250,9 +2236,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestTextSelectionActions FAILED:', e));
           }
           break;
@@ -2265,9 +2249,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.IntentHelperInstance_HandleCameraResult_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.IntentHelperInstance_HandleCameraResult_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] HandleCameraResult FAILED:', e));
           }
           break;

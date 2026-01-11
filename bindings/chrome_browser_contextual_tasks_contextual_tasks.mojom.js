@@ -760,9 +760,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetThreadUrl_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetThreadUrl_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetThreadUrl FAILED:', e));
           }
           break;
@@ -775,9 +773,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetUrlForTask_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetUrlForTask_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetUrlForTask FAILED:', e));
           }
           break;
@@ -797,9 +793,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.contextual_tasks.mojom.PageHandler_IsZeroState_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.contextual_tasks.mojom.PageHandler_IsZeroState_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsZeroState FAILED:', e));
           }
           break;
@@ -833,9 +827,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.contextual_tasks.mojom.PageHandler_IsShownInTab_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.contextual_tasks.mojom.PageHandler_IsShownInTab_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsShownInTab FAILED:', e));
           }
           break;
@@ -890,9 +882,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetCommonSearchParams FAILED:', e));
           }
           break;

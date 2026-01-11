@@ -373,9 +373,7 @@ mojo.internal.bindings.device_signals.mojom.SystemSignalsServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetFileSystemSignals FAILED:', e));
           }
           break;
@@ -388,9 +386,7 @@ mojo.internal.bindings.device_signals.mojom.SystemSignalsServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAntiVirusSignals FAILED:', e));
           }
           break;
@@ -403,9 +399,7 @@ mojo.internal.bindings.device_signals.mojom.SystemSignalsServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetHotfixSignals FAILED:', e));
           }
           break;

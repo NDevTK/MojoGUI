@@ -307,9 +307,7 @@ mojo.internal.bindings.heap_profiling.mojom.ProfilingClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StartProfiling FAILED:', e));
           }
           break;
@@ -322,9 +320,7 @@ mojo.internal.bindings.heap_profiling.mojom.ProfilingClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RetrieveHeapProfile FAILED:', e));
           }
           break;

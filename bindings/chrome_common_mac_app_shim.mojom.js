@@ -643,9 +643,7 @@ mojo.internal.bindings.chrome.mojom.AppShimReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestNotificationPermission FAILED:', e));
           }
           break;
@@ -1315,9 +1313,7 @@ mojo.internal.bindings.chrome.mojom.AppShimHostBootstrapReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OnShimConnected FAILED:', e));
           }
           break;

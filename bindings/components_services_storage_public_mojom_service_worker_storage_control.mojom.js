@@ -563,9 +563,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReaderReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ReadResponseHead FAILED:', e));
           }
           break;
@@ -578,9 +576,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReaderReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PrepareReadData FAILED:', e));
           }
           break;
@@ -593,9 +589,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReaderReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReader_ReadData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReader_ReadData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ReadData FAILED:', e));
           }
           break;
@@ -799,9 +793,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriterReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] WriteResponseHead FAILED:', e));
           }
           break;
@@ -814,9 +806,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriterReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriter_WriteData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriter_WriteData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] WriteData FAILED:', e));
           }
           break;
@@ -983,9 +973,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerResourceMetadataWriterReceiver
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] WriteMetadata FAILED:', e));
           }
           break;
@@ -2721,9 +2709,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_Disable_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_Disable_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Disable FAILED:', e));
           }
           break;
@@ -2736,9 +2722,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_Delete_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_Delete_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Delete FAILED:', e));
           }
           break;
@@ -2751,9 +2735,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_Recover_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_Recover_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Recover FAILED:', e));
           }
           break;
@@ -2766,9 +2748,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetRegisteredStorageKeys FAILED:', e));
           }
           break;
@@ -2781,9 +2761,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FindRegistrationForClientUrl FAILED:', e));
           }
           break;
@@ -2796,9 +2774,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FindRegistrationForScope FAILED:', e));
           }
           break;
@@ -2811,9 +2787,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FindRegistrationForId FAILED:', e));
           }
           break;
@@ -2826,9 +2800,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetRegistrationsForStorageKey FAILED:', e));
           }
           break;
@@ -2841,9 +2813,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetUsageForStorageKey FAILED:', e));
           }
           break;
@@ -2856,9 +2826,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAllRegistrationsDeprecated FAILED:', e));
           }
           break;
@@ -2871,9 +2839,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetFakeRegistrationForClientUrl FAILED:', e));
           }
           break;
@@ -2886,9 +2852,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StoreRegistration FAILED:', e));
           }
           break;
@@ -2901,9 +2865,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeleteRegistration FAILED:', e));
           }
           break;
@@ -2916,9 +2878,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UpdateToActiveState FAILED:', e));
           }
           break;
@@ -2931,9 +2891,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UpdateLastUpdateCheckTime FAILED:', e));
           }
           break;
@@ -2946,9 +2904,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UpdateNavigationPreloadEnabled FAILED:', e));
           }
           break;
@@ -2961,9 +2917,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UpdateNavigationPreloadHeader FAILED:', e));
           }
           break;
@@ -2976,9 +2930,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UpdateFetchHandlerType FAILED:', e));
           }
           break;
@@ -2991,9 +2943,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UpdateResourceSha256Checksums FAILED:', e));
           }
           break;
@@ -3006,9 +2956,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNewRegistrationId FAILED:', e));
           }
           break;
@@ -3021,9 +2969,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNewVersionId FAILED:', e));
           }
           break;
@@ -3036,9 +2982,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNewResourceId FAILED:', e));
           }
           break;
@@ -3072,9 +3016,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StoreUncommittedResourceId FAILED:', e));
           }
           break;
@@ -3087,9 +3029,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DoomUncommittedResources FAILED:', e));
           }
           break;
@@ -3102,9 +3042,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetUserData FAILED:', e));
           }
           break;
@@ -3117,9 +3055,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreUserData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreUserData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StoreUserData FAILED:', e));
           }
           break;
@@ -3132,9 +3068,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ClearUserData FAILED:', e));
           }
           break;
@@ -3147,9 +3081,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetUserDataByKeyPrefix FAILED:', e));
           }
           break;
@@ -3162,9 +3094,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetUserKeysAndDataByKeyPrefix FAILED:', e));
           }
           break;
@@ -3177,9 +3107,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ClearUserDataByKeyPrefixes FAILED:', e));
           }
           break;
@@ -3192,9 +3120,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetUserDataForAllRegistrations FAILED:', e));
           }
           break;
@@ -3207,9 +3133,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetUserDataForAllRegistrationsByKeyPrefix FAILED:', e));
           }
           break;
@@ -3222,9 +3146,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ClearUserDataForAllRegistrationsByKeyPrefix FAILED:', e));
           }
           break;
@@ -3237,9 +3159,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PerformStorageCleanup FAILED:', e));
           }
           break;
@@ -3252,9 +3172,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ApplyPolicyUpdates FAILED:', e));
           }
           break;
@@ -3267,9 +3185,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPurgingResourceIdsForTest FAILED:', e));
           }
           break;
@@ -3282,9 +3198,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPurgingResourceIdsForLiveVersionForTest FAILED:', e));
           }
           break;
@@ -3297,9 +3211,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPurgeableResourceIdsForTest FAILED:', e));
           }
           break;
@@ -3312,9 +3224,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetUncommittedResourceIdsForTest FAILED:', e));
           }
           break;
@@ -3327,9 +3237,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetPurgingCompleteCallbackForTest FAILED:', e));
           }
           break;

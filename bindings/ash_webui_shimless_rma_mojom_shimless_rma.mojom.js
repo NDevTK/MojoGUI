@@ -4972,9 +4972,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetCurrentState FAILED:', e));
           }
           break;
@@ -4987,9 +4985,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetStateProperties FAILED:', e));
           }
           break;
@@ -5002,9 +4998,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] TransitionPreviousState FAILED:', e));
           }
           break;
@@ -5017,9 +5011,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AbortRma FAILED:', e));
           }
           break;
@@ -5032,9 +5024,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] BeginFinalization FAILED:', e));
           }
           break;
@@ -5054,9 +5044,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] NetworkSelectionComplete FAILED:', e));
           }
           break;
@@ -5069,9 +5057,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetCurrentOsVersion FAILED:', e));
           }
           break;
@@ -5084,9 +5070,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CheckForOsUpdates FAILED:', e));
           }
           break;
@@ -5099,9 +5083,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UpdateOs FAILED:', e));
           }
           break;
@@ -5114,9 +5096,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UpdateOsSkipped FAILED:', e));
           }
           break;
@@ -5129,9 +5109,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetSameOwner FAILED:', e));
           }
           break;
@@ -5144,9 +5122,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetDifferentOwner FAILED:', e));
           }
           break;
@@ -5159,9 +5135,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetWipeDevice FAILED:', e));
           }
           break;
@@ -5174,9 +5148,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetManuallyDisableWriteProtect FAILED:', e));
           }
           break;
@@ -5189,9 +5161,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetRsuDisableWriteProtect FAILED:', e));
           }
           break;
@@ -5204,9 +5174,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetRsuDisableWriteProtectChallenge FAILED:', e));
           }
           break;
@@ -5219,9 +5187,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetRsuDisableWriteProtectHwid FAILED:', e));
           }
           break;
@@ -5234,9 +5200,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetRsuDisableWriteProtectChallengeQrCode FAILED:', e));
           }
           break;
@@ -5249,9 +5213,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetRsuDisableWriteProtectCode FAILED:', e));
           }
           break;
@@ -5264,9 +5226,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] WriteProtectManuallyDisabled FAILED:', e));
           }
           break;
@@ -5279,9 +5239,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetWriteProtectDisableCompleteAction FAILED:', e));
           }
           break;
@@ -5294,9 +5252,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ConfirmManualWpDisableComplete FAILED:', e));
           }
           break;
@@ -5309,9 +5265,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetComponentList FAILED:', e));
           }
           break;
@@ -5324,9 +5278,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetComponentList FAILED:', e));
           }
           break;
@@ -5339,9 +5291,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ReworkMainboard FAILED:', e));
           }
           break;
@@ -5354,9 +5304,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RoFirmwareUpdateComplete FAILED:', e));
           }
           break;
@@ -5369,9 +5317,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ShutdownForRestock FAILED:', e));
           }
           break;
@@ -5384,9 +5330,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ContinueFinalizationAfterRestock FAILED:', e));
           }
           break;
@@ -5399,9 +5343,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetRegionList FAILED:', e));
           }
           break;
@@ -5414,9 +5356,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSkuList FAILED:', e));
           }
           break;
@@ -5429,9 +5369,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetCustomLabelList FAILED:', e));
           }
           break;
@@ -5444,9 +5382,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSkuDescriptionList FAILED:', e));
           }
           break;
@@ -5459,9 +5395,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOriginalSerialNumber FAILED:', e));
           }
           break;
@@ -5474,9 +5408,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOriginalRegion FAILED:', e));
           }
           break;
@@ -5489,9 +5421,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOriginalSku FAILED:', e));
           }
           break;
@@ -5504,9 +5434,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOriginalCustomLabel FAILED:', e));
           }
           break;
@@ -5519,9 +5447,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOriginalDramPartNumber FAILED:', e));
           }
           break;
@@ -5534,9 +5460,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOriginalFeatureLevel FAILED:', e));
           }
           break;
@@ -5549,9 +5473,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetDeviceInformation FAILED:', e));
           }
           break;
@@ -5564,9 +5486,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetCalibrationComponentList FAILED:', e));
           }
           break;
@@ -5579,9 +5499,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetCalibrationSetupInstructions FAILED:', e));
           }
           break;
@@ -5594,9 +5512,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StartCalibration FAILED:', e));
           }
           break;
@@ -5609,9 +5525,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunCalibrationStep FAILED:', e));
           }
           break;
@@ -5624,9 +5538,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ContinueCalibration FAILED:', e));
           }
           break;
@@ -5639,9 +5551,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CalibrationComplete FAILED:', e));
           }
           break;
@@ -5654,9 +5564,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RetryProvisioning FAILED:', e));
           }
           break;
@@ -5669,9 +5577,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ProvisioningComplete FAILED:', e));
           }
           break;
@@ -5684,9 +5590,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RetryFinalization FAILED:', e));
           }
           break;
@@ -5699,9 +5603,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FinalizationComplete FAILED:', e));
           }
           break;
@@ -5714,9 +5616,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] WriteProtectManuallyEnabled FAILED:', e));
           }
           break;
@@ -5729,9 +5629,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetLog FAILED:', e));
           }
           break;
@@ -5744,9 +5642,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SaveLog FAILED:', e));
           }
           break;
@@ -5759,9 +5655,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPowerwashRequired FAILED:', e));
           }
           break;
@@ -5781,9 +5675,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EndRma FAILED:', e));
           }
           break;
@@ -5803,9 +5695,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CriticalErrorExitToLogin FAILED:', e));
           }
           break;
@@ -5818,9 +5708,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CriticalErrorReboot FAILED:', e));
           }
           break;
@@ -5833,9 +5721,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Get3pDiagnosticsProvider FAILED:', e));
           }
           break;
@@ -5848,9 +5734,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetInstallable3pDiagnosticsAppPath FAILED:', e));
           }
           break;
@@ -5863,9 +5747,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] InstallLastFound3pDiagnosticsApp FAILED:', e));
           }
           break;
@@ -5878,9 +5760,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CompleteLast3pDiagnosticsInstallation FAILED:', e));
           }
           break;
@@ -5893,9 +5773,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Show3pDiagnosticsApp FAILED:', e));
           }
           break;

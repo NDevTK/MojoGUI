@@ -1201,9 +1201,7 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.AdAuctionService_CreateAdRequest_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.AdAuctionService_CreateAdRequest_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateAdRequest FAILED:', e));
           }
           break;
@@ -1216,9 +1214,7 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.AdAuctionService_FinalizeAd_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.AdAuctionService_FinalizeAd_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FinalizeAd FAILED:', e));
           }
           break;
@@ -1231,9 +1227,7 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.AdAuctionService_RunAdAuction_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.AdAuctionService_RunAdAuction_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunAdAuction FAILED:', e));
           }
           break;
@@ -1246,9 +1240,7 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.AdAuctionService_JoinInterestGroup_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.AdAuctionService_JoinInterestGroup_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] JoinInterestGroup FAILED:', e));
           }
           break;
@@ -1261,9 +1253,7 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.AdAuctionService_LeaveInterestGroup_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.AdAuctionService_LeaveInterestGroup_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LeaveInterestGroup FAILED:', e));
           }
           break;
@@ -1283,9 +1273,7 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ClearOriginJoinedInterestGroups FAILED:', e));
           }
           break;
@@ -1305,9 +1293,7 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeprecatedGetURLFromURN FAILED:', e));
           }
           break;
@@ -1320,9 +1306,7 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeprecatedReplaceInURN FAILED:', e));
           }
           break;
@@ -1335,9 +1319,7 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetInterestGroupAdAuctionData FAILED:', e));
           }
           break;

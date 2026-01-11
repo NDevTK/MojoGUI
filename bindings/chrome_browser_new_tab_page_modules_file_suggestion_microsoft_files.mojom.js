@@ -287,9 +287,7 @@ mojo.internal.bindings.file_suggestion.mojom.MicrosoftFilesPageHandlerReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetFiles FAILED:', e));
           }
           break;

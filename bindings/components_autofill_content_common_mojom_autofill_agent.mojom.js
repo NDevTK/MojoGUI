@@ -773,9 +773,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] TriggerFormExtractionWithResponse FAILED:', e));
           }
           break;
@@ -802,9 +800,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.autofill.mojom.AutofillAgent_ExtractFormWithField_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.autofill.mojom.AutofillAgent_ExtractFormWithField_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ExtractFormWithField FAILED:', e));
           }
           break;
@@ -817,9 +813,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ExtractLabeledTextNodeValue FAILED:', e));
           }
           break;
@@ -888,9 +882,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPotentialLastFourCombinationsForStandaloneCvc FAILED:', e));
           }
           break;
@@ -1476,9 +1468,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FillPasswordSuggestion FAILED:', e));
           }
           break;
@@ -1526,9 +1516,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillField_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillField_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FillField FAILED:', e));
           }
           break;
@@ -1541,9 +1529,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FillChangePasswordForm FAILED:', e));
           }
           break;
@@ -1577,9 +1563,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CheckViewAreaVisible FAILED:', e));
           }
           break;
@@ -1881,9 +1865,7 @@ mojo.internal.bindings.autofill.mojom.PasswordGenerationAgentReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] TriggeredGeneratePassword FAILED:', e));
           }
           break;

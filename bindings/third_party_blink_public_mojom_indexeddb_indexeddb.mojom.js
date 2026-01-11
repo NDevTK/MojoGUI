@@ -1398,9 +1398,7 @@ mojo.internal.bindings.blink.mojom.IDBCursorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.IDBCursor_Advance_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.IDBCursor_Advance_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Advance FAILED:', e));
           }
           break;
@@ -1413,9 +1411,7 @@ mojo.internal.bindings.blink.mojom.IDBCursorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.IDBCursor_Continue_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.IDBCursor_Continue_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Continue FAILED:', e));
           }
           break;
@@ -1428,9 +1424,7 @@ mojo.internal.bindings.blink.mojom.IDBCursorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.IDBCursor_Prefetch_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.IDBCursor_Prefetch_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Prefetch FAILED:', e));
           }
           break;
@@ -1781,9 +1775,7 @@ mojo.internal.bindings.blink.mojom.IDBTransactionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.IDBTransaction_Put_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.IDBTransaction_Put_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Put FAILED:', e));
           }
           break;
@@ -2723,9 +2715,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.IDBDatabase_Get_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.IDBDatabase_Get_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Get FAILED:', e));
           }
           break;
@@ -2738,9 +2728,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.IDBDatabase_GetAll_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.IDBDatabase_GetAll_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAll FAILED:', e));
           }
           break;
@@ -2753,9 +2741,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.IDBDatabase_OpenCursor_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.IDBDatabase_OpenCursor_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OpenCursor FAILED:', e));
           }
           break;
@@ -2768,9 +2754,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.IDBDatabase_Count_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.IDBDatabase_Count_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Count FAILED:', e));
           }
           break;
@@ -2783,9 +2767,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.IDBDatabase_DeleteRange_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.IDBDatabase_DeleteRange_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeleteRange FAILED:', e));
           }
           break;
@@ -2798,9 +2780,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.IDBDatabase_GetKeyGeneratorCurrentNumber_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.IDBDatabase_GetKeyGeneratorCurrentNumber_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetKeyGeneratorCurrentNumber FAILED:', e));
           }
           break;
@@ -2813,9 +2793,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.IDBDatabase_Clear_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.IDBDatabase_Clear_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Clear FAILED:', e));
           }
           break;
@@ -3094,9 +3072,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.IDBFactory_GetDatabaseInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.IDBFactory_GetDatabaseInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDatabaseInfo FAILED:', e));
           }
           break;

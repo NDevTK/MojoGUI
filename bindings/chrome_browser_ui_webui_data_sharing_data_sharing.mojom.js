@@ -809,9 +809,7 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.data_sharing.mojom.PageHandler_MakeTabGroupShared_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.data_sharing.mojom.PageHandler_MakeTabGroupShared_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] MakeTabGroupShared FAILED:', e));
           }
           break;
@@ -824,9 +822,7 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.data_sharing.mojom.PageHandler_GetShareLink_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.data_sharing.mojom.PageHandler_GetShareLink_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetShareLink FAILED:', e));
           }
           break;
@@ -839,9 +835,7 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.data_sharing.mojom.PageHandler_GetTabGroupPreview_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.data_sharing.mojom.PageHandler_GetTabGroupPreview_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetTabGroupPreview FAILED:', e));
           }
           break;
@@ -1185,9 +1179,7 @@ mojo.internal.bindings.data_sharing.mojom.PageReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.data_sharing.mojom.Page_ReadGroups_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.data_sharing.mojom.Page_ReadGroups_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ReadGroups FAILED:', e));
           }
           break;
@@ -1200,9 +1192,7 @@ mojo.internal.bindings.data_sharing.mojom.PageReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.data_sharing.mojom.Page_ReadGroupWithToken_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.data_sharing.mojom.Page_ReadGroupWithToken_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ReadGroupWithToken FAILED:', e));
           }
           break;
@@ -1215,9 +1205,7 @@ mojo.internal.bindings.data_sharing.mojom.PageReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.data_sharing.mojom.Page_DeleteGroup_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.data_sharing.mojom.Page_DeleteGroup_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeleteGroup FAILED:', e));
           }
           break;
@@ -1230,9 +1218,7 @@ mojo.internal.bindings.data_sharing.mojom.PageReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.data_sharing.mojom.Page_LeaveGroup_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.data_sharing.mojom.Page_LeaveGroup_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LeaveGroup FAILED:', e));
           }
           break;

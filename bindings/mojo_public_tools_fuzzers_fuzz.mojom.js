@@ -750,9 +750,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicResp_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicResp_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FuzzBasicResp FAILED:', e));
           }
           break;
@@ -765,9 +763,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FuzzBasicSyncResp FAILED:', e));
           }
           break;
@@ -787,9 +783,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsResp_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsResp_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FuzzArgsResp FAILED:', e));
           }
           break;
@@ -802,9 +796,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FuzzArgsSyncResp FAILED:', e));
           }
           break;

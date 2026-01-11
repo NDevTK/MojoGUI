@@ -651,9 +651,7 @@ mojo.internal.bindings.printing.mojom.PrintCompositorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.printing.mojom.PrintCompositor_CompositePage_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.printing.mojom.PrintCompositor_CompositePage_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CompositePage FAILED:', e));
           }
           break;
@@ -666,9 +664,7 @@ mojo.internal.bindings.printing.mojom.PrintCompositorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.printing.mojom.PrintCompositor_CompositeDocument_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.printing.mojom.PrintCompositor_CompositeDocument_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CompositeDocument FAILED:', e));
           }
           break;
@@ -681,9 +677,7 @@ mojo.internal.bindings.printing.mojom.PrintCompositorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.printing.mojom.PrintCompositor_PrepareToCompositeDocument_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.printing.mojom.PrintCompositor_PrepareToCompositeDocument_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PrepareToCompositeDocument FAILED:', e));
           }
           break;
@@ -696,9 +690,7 @@ mojo.internal.bindings.printing.mojom.PrintCompositorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.printing.mojom.PrintCompositor_FinishDocumentComposition_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.printing.mojom.PrintCompositor_FinishDocumentComposition_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FinishDocumentComposition FAILED:', e));
           }
           break;

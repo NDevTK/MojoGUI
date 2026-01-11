@@ -716,9 +716,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadBuiltinModel FAILED:', e));
           }
           break;
@@ -731,9 +729,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadFlatBufferModel FAILED:', e));
           }
           break;
@@ -746,9 +742,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadTextClassifier FAILED:', e));
           }
           break;
@@ -761,9 +755,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadHandwritingModel FAILED:', e));
           }
           break;
@@ -776,9 +768,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadSpeechRecognizer FAILED:', e));
           }
           break;
@@ -791,9 +781,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadGrammarChecker FAILED:', e));
           }
           break;
@@ -806,9 +794,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadTextSuggester FAILED:', e));
           }
           break;
@@ -821,9 +807,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadWebPlatformHandwritingModel FAILED:', e));
           }
           break;
@@ -836,9 +820,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadDocumentScanner FAILED:', e));
           }
           break;
@@ -851,9 +833,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadImageAnnotator FAILED:', e));
           }
           break;
@@ -866,9 +846,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadHeatmapPalmRejection FAILED:', e));
           }
           break;
@@ -881,9 +859,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRec
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] REMOVED_4 FAILED:', e));
           }
           break;

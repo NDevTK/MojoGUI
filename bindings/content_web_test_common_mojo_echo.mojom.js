@@ -1351,9 +1351,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromUnion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromUnion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EchoBoolFromUnion FAILED:', e));
           }
           break;
@@ -1366,9 +1364,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32FromUnion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32FromUnion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EchoInt32FromUnion FAILED:', e));
           }
           break;
@@ -1381,9 +1377,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromUnion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromUnion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EchoStringFromUnion FAILED:', e));
           }
           break;
@@ -1396,9 +1390,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsUnion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsUnion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EchoBoolAsUnion FAILED:', e));
           }
           break;
@@ -1411,9 +1403,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32AsUnion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32AsUnion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EchoInt32AsUnion FAILED:', e));
           }
           break;
@@ -1426,9 +1416,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsUnion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsUnion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EchoStringAsUnion FAILED:', e));
           }
           break;
@@ -1441,9 +1429,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.MojoEcho_EchoNullFromOptionalUnion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MojoEcho_EchoNullFromOptionalUnion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EchoNullFromOptionalUnion FAILED:', e));
           }
           break;
@@ -1456,9 +1442,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EchoBoolFromOptionalUnion FAILED:', e));
           }
           break;
@@ -1471,9 +1455,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EchoInt32FromOptionalUnion FAILED:', e));
           }
           break;
@@ -1486,9 +1468,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromOptionalUnion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromOptionalUnion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EchoStringFromOptionalUnion FAILED:', e));
           }
           break;
@@ -1501,9 +1481,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.MojoEcho_EchoNullAsOptionalUnion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MojoEcho_EchoNullAsOptionalUnion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EchoNullAsOptionalUnion FAILED:', e));
           }
           break;
@@ -1516,9 +1494,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EchoBoolAsOptionalUnion FAILED:', e));
           }
           break;
@@ -1531,9 +1507,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EchoInt32AsOptionalUnion FAILED:', e));
           }
           break;
@@ -1546,9 +1520,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsOptionalUnion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsOptionalUnion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EchoStringAsOptionalUnion FAILED:', e));
           }
           break;
@@ -1561,9 +1533,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8FromNestedUnion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8FromNestedUnion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EchoInt8FromNestedUnion FAILED:', e));
           }
           break;
@@ -1576,9 +1546,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromNestedUnion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromNestedUnion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EchoBoolFromNestedUnion FAILED:', e));
           }
           break;
@@ -1591,9 +1559,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromNestedUnion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromNestedUnion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EchoStringFromNestedUnion FAILED:', e));
           }
           break;
@@ -1606,9 +1572,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8AsNestedUnion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8AsNestedUnion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EchoInt8AsNestedUnion FAILED:', e));
           }
           break;
@@ -1621,9 +1585,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsNestedUnion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsNestedUnion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EchoBoolAsNestedUnion FAILED:', e));
           }
           break;
@@ -1636,9 +1598,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsNestedUnion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsNestedUnion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EchoStringAsNestedUnion FAILED:', e));
           }
           break;
@@ -1651,9 +1611,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EchoNullFromOptionalNestedUnion FAILED:', e));
           }
           break;
@@ -1666,9 +1624,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EchoInt8FromOptionalNestedUnion FAILED:', e));
           }
           break;
@@ -1681,9 +1637,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EchoBoolFromOptionalNestedUnion FAILED:', e));
           }
           break;
@@ -1696,9 +1650,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EchoStringFromOptionalNestedUnion FAILED:', e));
           }
           break;
@@ -1711,9 +1663,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EchoNullAsOptionalNestedUnion FAILED:', e));
           }
           break;
@@ -1726,9 +1676,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EchoInt8AsOptionalNestedUnion FAILED:', e));
           }
           break;
@@ -1741,9 +1689,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EchoBoolAsOptionalNestedUnion FAILED:', e));
           }
           break;
@@ -1756,9 +1702,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EchoStringAsOptionalNestedUnion FAILED:', e));
           }
           break;
@@ -1771,9 +1715,7 @@ mojo.internal.bindings.content.mojom.MojoEchoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolArray_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolArray_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EchoBoolArray FAILED:', e));
           }
           break;

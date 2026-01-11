@@ -630,9 +630,7 @@ mojo.internal.bindings.media.mojom.VideoDecoderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media.mojom.VideoDecoder_GetSupportedConfigs_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.VideoDecoder_GetSupportedConfigs_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSupportedConfigs FAILED:', e));
           }
           break;
@@ -652,9 +650,7 @@ mojo.internal.bindings.media.mojom.VideoDecoderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media.mojom.VideoDecoder_Initialize_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.VideoDecoder_Initialize_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Initialize FAILED:', e));
           }
           break;
@@ -667,9 +663,7 @@ mojo.internal.bindings.media.mojom.VideoDecoderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media.mojom.VideoDecoder_Decode_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.VideoDecoder_Decode_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Decode FAILED:', e));
           }
           break;
@@ -682,9 +676,7 @@ mojo.internal.bindings.media.mojom.VideoDecoderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media.mojom.VideoDecoder_Reset_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.VideoDecoder_Reset_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Reset FAILED:', e));
           }
           break;

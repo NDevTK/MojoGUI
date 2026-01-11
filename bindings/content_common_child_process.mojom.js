@@ -287,9 +287,7 @@ mojo.internal.bindings.content.mojom.ChildProcessHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.ChildProcessHost_Ping_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.ChildProcessHost_Ping_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Ping FAILED:', e));
           }
           break;
@@ -874,9 +872,7 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.ChildProcess_GetTaskPort_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.ChildProcess_GetTaskPort_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetTaskPort FAILED:', e));
           }
           break;
@@ -938,9 +934,7 @@ mojo.internal.bindings.content.mojom.ChildProcessReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.ChildProcess_WriteClangProfilingProfile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.ChildProcess_WriteClangProfilingProfile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] WriteClangProfilingProfile FAILED:', e));
           }
           break;

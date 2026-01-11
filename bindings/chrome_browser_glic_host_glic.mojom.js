@@ -1704,9 +1704,7 @@ mojo.internal.bindings.glic.mojom.GlicPreloadHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.GlicPreloadHandler_PrepareForClient_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.GlicPreloadHandler_PrepareForClient_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PrepareForClient FAILED:', e));
           }
           break;
@@ -2513,9 +2511,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.PageHandler_PrepareForClient_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.PageHandler_PrepareForClient_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PrepareForClient FAILED:', e));
           }
           break;
@@ -2535,9 +2531,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.PageHandler_ClosePanel_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.PageHandler_ClosePanel_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ClosePanel FAILED:', e));
           }
           break;
@@ -2571,9 +2565,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.PageHandler_ResizeWidget_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.PageHandler_ResizeWidget_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ResizeWidget FAILED:', e));
           }
           break;
@@ -2600,9 +2592,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.PageHandler_GetProfileEnablement_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.PageHandler_GetProfileEnablement_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetProfileEnablement FAILED:', e));
           }
           break;
@@ -5777,9 +5767,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_WebClientCreated_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_WebClientCreated_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] WebClientCreated FAILED:', e));
           }
           break;
@@ -5806,9 +5794,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_CreateTab_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_CreateTab_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateTab FAILED:', e));
           }
           break;
@@ -5884,9 +5870,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_GetModelQualityClientId_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_GetModelQualityClientId_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetModelQualityClientId FAILED:', e));
           }
           break;
@@ -5899,9 +5883,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_GetContextFromFocusedTab_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_GetContextFromFocusedTab_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetContextFromFocusedTab FAILED:', e));
           }
           break;
@@ -5914,9 +5896,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_GetContextFromTab_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_GetContextFromTab_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetContextFromTab FAILED:', e));
           }
           break;
@@ -5929,9 +5909,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_GetContextForActorFromTab_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_GetContextForActorFromTab_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetContextForActorFromTab FAILED:', e));
           }
           break;
@@ -5944,9 +5922,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetMaximumNumberOfPinnedTabs FAILED:', e));
           }
           break;
@@ -5959,9 +5935,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_PinTabs_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_PinTabs_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PinTabs FAILED:', e));
           }
           break;
@@ -5974,9 +5948,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_UnpinTabs_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_UnpinTabs_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UnpinTabs FAILED:', e));
           }
           break;
@@ -5996,9 +5968,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_CreateSkill_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_CreateSkill_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateSkill FAILED:', e));
           }
           break;
@@ -6011,9 +5981,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_UpdateSkill_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_UpdateSkill_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UpdateSkill FAILED:', e));
           }
           break;
@@ -6026,9 +5994,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_GetSkill_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_GetSkill_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSkill FAILED:', e));
           }
           break;
@@ -6062,9 +6028,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_CancelActions_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_CancelActions_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CancelActions FAILED:', e));
           }
           break;
@@ -6091,9 +6055,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_ResumeActorTask_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_ResumeActorTask_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ResumeActorTask FAILED:', e));
           }
           break;
@@ -6120,9 +6082,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_CreateActorTab_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_CreateActorTab_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateActorTab FAILED:', e));
           }
           break;
@@ -6142,9 +6102,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_ResizeWidget_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_ResizeWidget_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ResizeWidget FAILED:', e));
           }
           break;
@@ -6157,9 +6115,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_CaptureScreenshot_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_CaptureScreenshot_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CaptureScreenshot FAILED:', e));
           }
           break;
@@ -6179,9 +6135,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_SetAudioDucking_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_SetAudioDucking_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetAudioDucking FAILED:', e));
           }
           break;
@@ -6194,9 +6148,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_SetPanelDraggableAreas_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_SetPanelDraggableAreas_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetPanelDraggableAreas FAILED:', e));
           }
           break;
@@ -6216,9 +6168,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_SetMicrophonePermissionState_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_SetMicrophonePermissionState_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetMicrophonePermissionState FAILED:', e));
           }
           break;
@@ -6231,9 +6181,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_SetLocationPermissionState_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_SetLocationPermissionState_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetLocationPermissionState FAILED:', e));
           }
           break;
@@ -6246,9 +6194,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_SetTabContextPermissionState_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_SetTabContextPermissionState_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetTabContextPermissionState FAILED:', e));
           }
           break;
@@ -6261,9 +6207,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_SetClosedCaptioningSetting_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_SetClosedCaptioningSetting_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetClosedCaptioningSetting FAILED:', e));
           }
           break;
@@ -6276,9 +6220,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_SetActuationOnWebSetting_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_SetActuationOnWebSetting_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetActuationOnWebSetting FAILED:', e));
           }
           break;
@@ -6291,9 +6233,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ShouldAllowMediaPermissionRequest FAILED:', e));
           }
           break;
@@ -6306,9 +6246,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ShouldAllowGeolocationPermissionRequest FAILED:', e));
           }
           break;
@@ -6328,9 +6266,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_GetUserProfileInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_GetUserProfileInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetUserProfileInfo FAILED:', e));
           }
           break;
@@ -6343,9 +6279,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_SyncCookies_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_SyncCookies_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SyncCookies FAILED:', e));
           }
           break;
@@ -6386,9 +6320,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_JournalSnapshot_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_JournalSnapshot_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] JournalSnapshot FAILED:', e));
           }
           break;
@@ -6506,9 +6438,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_ScrollTo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_ScrollTo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ScrollTo FAILED:', e));
           }
           break;
@@ -6542,9 +6472,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOsMicrophonePermissionStatus FAILED:', e));
           }
           break;
@@ -6557,9 +6485,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetZeroStateSuggestionsAndSubscribe FAILED:', e));
           }
           break;
@@ -6572,9 +6498,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetZeroStateSuggestionsForFocusedTab FAILED:', e));
           }
           break;
@@ -6594,9 +6518,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_IsDebuggerAttached_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_IsDebuggerAttached_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsDebuggerAttached FAILED:', e));
           }
           break;
@@ -6616,9 +6538,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_SubscribeToPageMetadata_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_SubscribeToPageMetadata_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SubscribeToPageMetadata FAILED:', e));
           }
           break;
@@ -6631,9 +6551,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_SwitchConversation_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_SwitchConversation_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SwitchConversation FAILED:', e));
           }
           break;
@@ -6646,9 +6564,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_RegisterConversation_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClientHandler_RegisterConversation_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RegisterConversation FAILED:', e));
           }
           break;
@@ -8007,9 +7923,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClient_NotifyPanelWillOpen_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClient_NotifyPanelWillOpen_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] NotifyPanelWillOpen FAILED:', e));
           }
           break;
@@ -8022,9 +7936,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClient_NotifyPanelWasClosed_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClient_NotifyPanelWasClosed_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] NotifyPanelWasClosed FAILED:', e));
           }
           break;
@@ -8198,9 +8110,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestToShowCredentialSelectionDialog FAILED:', e));
           }
           break;
@@ -8213,9 +8123,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestToShowAutofillSuggestionsDialog FAILED:', e));
           }
           break;
@@ -8228,9 +8136,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestToShowUserConfirmationDialog FAILED:', e));
           }
           break;
@@ -8243,9 +8149,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.glic.mojom.WebClient_RequestToConfirmNavigation_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.glic.mojom.WebClient_RequestToConfirmNavigation_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestToConfirmNavigation FAILED:', e));
           }
           break;

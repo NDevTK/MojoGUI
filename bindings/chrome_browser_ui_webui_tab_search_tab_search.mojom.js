@@ -1713,9 +1713,7 @@ mojo.internal.bindings.tab_search.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.tab_search.mojom.PageHandler_GetProfileData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.tab_search.mojom.PageHandler_GetProfileData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetProfileData FAILED:', e));
           }
           break;
@@ -1728,9 +1726,7 @@ mojo.internal.bindings.tab_search.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.tab_search.mojom.PageHandler_GetUnusedTabs_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.tab_search.mojom.PageHandler_GetUnusedTabs_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetUnusedTabs FAILED:', e));
           }
           break;
@@ -1743,9 +1739,7 @@ mojo.internal.bindings.tab_search.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.tab_search.mojom.PageHandler_GetTabSearchSection_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.tab_search.mojom.PageHandler_GetTabSearchSection_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetTabSearchSection FAILED:', e));
           }
           break;
@@ -1758,9 +1752,7 @@ mojo.internal.bindings.tab_search.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.tab_search.mojom.PageHandler_GetTabOrganizationFeature_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.tab_search.mojom.PageHandler_GetTabOrganizationFeature_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetTabOrganizationFeature FAILED:', e));
           }
           break;
@@ -1773,9 +1765,7 @@ mojo.internal.bindings.tab_search.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.tab_search.mojom.PageHandler_GetTabOrganizationSession_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.tab_search.mojom.PageHandler_GetTabOrganizationSession_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetTabOrganizationSession FAILED:', e));
           }
           break;
@@ -1788,9 +1778,7 @@ mojo.internal.bindings.tab_search.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.tab_search.mojom.PageHandler_GetTabOrganizationModelStrategy_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.tab_search.mojom.PageHandler_GetTabOrganizationModelStrategy_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetTabOrganizationModelStrategy FAILED:', e));
           }
           break;
@@ -1803,9 +1791,7 @@ mojo.internal.bindings.tab_search.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.tab_search.mojom.PageHandler_GetIsSplit_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.tab_search.mojom.PageHandler_GetIsSplit_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetIsSplit FAILED:', e));
           }
           break;

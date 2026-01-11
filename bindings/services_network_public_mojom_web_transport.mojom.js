@@ -605,9 +605,7 @@ mojo.internal.bindings.network.mojom.WebTransportReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.WebTransport_SendDatagram_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.WebTransport_SendDatagram_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendDatagram FAILED:', e));
           }
           break;
@@ -620,9 +618,7 @@ mojo.internal.bindings.network.mojom.WebTransportReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.WebTransport_CreateStream_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.WebTransport_CreateStream_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateStream FAILED:', e));
           }
           break;
@@ -635,9 +631,7 @@ mojo.internal.bindings.network.mojom.WebTransportReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.WebTransport_AcceptBidirectionalStream_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.WebTransport_AcceptBidirectionalStream_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AcceptBidirectionalStream FAILED:', e));
           }
           break;
@@ -650,9 +644,7 @@ mojo.internal.bindings.network.mojom.WebTransportReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.WebTransport_AcceptUnidirectionalStream_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.WebTransport_AcceptUnidirectionalStream_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AcceptUnidirectionalStream FAILED:', e));
           }
           break;
@@ -693,9 +685,7 @@ mojo.internal.bindings.network.mojom.WebTransportReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.WebTransport_GetStats_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.WebTransport_GetStats_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetStats FAILED:', e));
           }
           break;

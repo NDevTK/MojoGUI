@@ -349,9 +349,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHostReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Read_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Read_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Read FAILED:', e));
           }
           break;
@@ -364,9 +362,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHostReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Write_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Write_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Write FAILED:', e));
           }
           break;
@@ -379,9 +375,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHostReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetLength FAILED:', e));
           }
           break;
@@ -394,9 +388,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHostReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetLength FAILED:', e));
           }
           break;

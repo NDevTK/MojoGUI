@@ -872,9 +872,7 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EnumerateStoragesAndSetClient FAILED:', e));
           }
           break;
@@ -887,9 +885,7 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetStorageInfo FAILED:', e));
           }
           break;
@@ -902,9 +898,7 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetStorageInfoFromDevice FAILED:', e));
           }
           break;
@@ -917,9 +911,7 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.MtpManager_OpenStorage_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.MtpManager_OpenStorage_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OpenStorage FAILED:', e));
           }
           break;
@@ -932,9 +924,7 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.MtpManager_CloseStorage_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.MtpManager_CloseStorage_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CloseStorage FAILED:', e));
           }
           break;
@@ -947,9 +937,7 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.MtpManager_CreateDirectory_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.MtpManager_CreateDirectory_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateDirectory FAILED:', e));
           }
           break;
@@ -962,9 +950,7 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ReadDirectoryEntryIds FAILED:', e));
           }
           break;
@@ -977,9 +963,7 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.MtpManager_ReadFileChunk_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.MtpManager_ReadFileChunk_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ReadFileChunk FAILED:', e));
           }
           break;
@@ -992,9 +976,7 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.MtpManager_GetFileInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.MtpManager_GetFileInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetFileInfo FAILED:', e));
           }
           break;
@@ -1007,9 +989,7 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.MtpManager_RenameObject_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.MtpManager_RenameObject_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RenameObject FAILED:', e));
           }
           break;
@@ -1022,9 +1002,7 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.MtpManager_CopyFileFromLocal_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.MtpManager_CopyFileFromLocal_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CopyFileFromLocal FAILED:', e));
           }
           break;
@@ -1037,9 +1015,7 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.MtpManager_DeleteObject_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.MtpManager_DeleteObject_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeleteObject FAILED:', e));
           }
           break;

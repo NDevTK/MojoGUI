@@ -399,9 +399,7 @@ mojo.internal.bindings.media.mojom.MediaDrmStorageReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Initialize FAILED:', e));
           }
           break;
@@ -414,9 +412,7 @@ mojo.internal.bindings.media.mojom.MediaDrmStorageReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media.mojom.MediaDrmStorage_OnProvisioned_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.MediaDrmStorage_OnProvisioned_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OnProvisioned FAILED:', e));
           }
           break;
@@ -429,9 +425,7 @@ mojo.internal.bindings.media.mojom.MediaDrmStorageReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media.mojom.MediaDrmStorage_SavePersistentSession_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.MediaDrmStorage_SavePersistentSession_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SavePersistentSession FAILED:', e));
           }
           break;
@@ -444,9 +438,7 @@ mojo.internal.bindings.media.mojom.MediaDrmStorageReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadPersistentSession FAILED:', e));
           }
           break;
@@ -459,9 +451,7 @@ mojo.internal.bindings.media.mojom.MediaDrmStorageReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media.mojom.MediaDrmStorage_RemovePersistentSession_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.MediaDrmStorage_RemovePersistentSession_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RemovePersistentSession FAILED:', e));
           }
           break;

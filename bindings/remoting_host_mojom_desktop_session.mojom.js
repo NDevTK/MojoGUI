@@ -1150,9 +1150,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionAgentReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.remoting.mojom.DesktopSessionAgent_Start_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.remoting.mojom.DesktopSessionAgent_Start_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Start FAILED:', e));
           }
           break;
@@ -1355,9 +1353,7 @@ mojo.internal.bindings.remoting.mojom.FileWriterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.remoting.mojom.FileWriter_WriteChunk_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.remoting.mojom.FileWriter_WriteChunk_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] WriteChunk FAILED:', e));
           }
           break;
@@ -1370,9 +1366,7 @@ mojo.internal.bindings.remoting.mojom.FileWriterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.remoting.mojom.FileWriter_CloseFile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.remoting.mojom.FileWriter_CloseFile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CloseFile FAILED:', e));
           }
           break;
@@ -1539,9 +1533,7 @@ mojo.internal.bindings.remoting.mojom.FileReaderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.remoting.mojom.FileReader_ReadChunk_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.remoting.mojom.FileReader_ReadChunk_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ReadChunk FAILED:', e));
           }
           break;
@@ -2117,9 +2109,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateVideoCapturer FAILED:', e));
           }
           break;
@@ -2202,9 +2192,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.remoting.mojom.DesktopSessionControl_BeginFileRead_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.remoting.mojom.DesktopSessionControl_BeginFileRead_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] BeginFileRead FAILED:', e));
           }
           break;
@@ -2217,9 +2205,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.remoting.mojom.DesktopSessionControl_BeginFileWrite_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.remoting.mojom.DesktopSessionControl_BeginFileWrite_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] BeginFileWrite FAILED:', e));
           }
           break;

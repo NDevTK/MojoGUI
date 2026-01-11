@@ -874,9 +874,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPermissionStatus FAILED:', e));
           }
           break;
@@ -889,9 +887,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestPermission FAILED:', e));
           }
           break;
@@ -904,9 +900,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetFile FAILED:', e));
           }
           break;
@@ -919,9 +913,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDirectory FAILED:', e));
           }
           break;
@@ -941,9 +933,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Rename_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Rename_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Rename FAILED:', e));
           }
           break;
@@ -956,9 +946,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Move_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Move_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Move FAILED:', e));
           }
           break;
@@ -971,9 +959,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Remove_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Remove_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Remove FAILED:', e));
           }
           break;
@@ -986,9 +972,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RemoveEntry FAILED:', e));
           }
           break;
@@ -1001,9 +985,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Resolve FAILED:', e));
           }
           break;
@@ -1023,9 +1005,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetUniqueId FAILED:', e));
           }
           break;
@@ -1038,9 +1018,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetCloudIdentifiers FAILED:', e));
           }
           break;

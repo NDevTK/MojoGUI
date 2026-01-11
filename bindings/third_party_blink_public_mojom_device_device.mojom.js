@@ -557,9 +557,7 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDirectoryId FAILED:', e));
           }
           break;
@@ -572,9 +570,7 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetHostname FAILED:', e));
           }
           break;
@@ -587,9 +583,7 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSerialNumber FAILED:', e));
           }
           break;
@@ -602,9 +596,7 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAnnotatedAssetId FAILED:', e));
           }
           break;
@@ -617,9 +609,7 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAnnotatedLocation FAILED:', e));
           }
           break;
@@ -817,9 +807,7 @@ mojo.internal.bindings.blink.mojom.ManagedConfigurationServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetManagedConfiguration FAILED:', e));
           }
           break;

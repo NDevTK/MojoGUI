@@ -560,9 +560,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestChromeMemoryDump FAILED:', e));
           }
           break;
@@ -575,9 +573,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestOSMemoryDump FAILED:', e));
           }
           break;
@@ -745,9 +741,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DumpProcessesForTracing FAILED:', e));
           }
           break;
@@ -914,9 +908,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetVmRegionsForHeapProfiler FAILED:', e));
           }
           break;
@@ -1204,9 +1196,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorReceiver = class 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestGlobalMemoryDump FAILED:', e));
           }
           break;
@@ -1219,9 +1209,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorReceiver = class 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestGlobalMemoryDumpForPid FAILED:', e));
           }
           break;
@@ -1234,9 +1222,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorReceiver = class 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestPrivateMemoryFootprint FAILED:', e));
           }
           break;
@@ -1249,9 +1235,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorReceiver = class 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestGlobalMemoryDumpAndAppendToTrace FAILED:', e));
           }
           break;

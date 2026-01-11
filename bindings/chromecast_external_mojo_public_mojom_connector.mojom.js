@@ -564,9 +564,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnectorReceiver 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] QueryServiceList FAILED:', e));
           }
           break;

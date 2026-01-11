@@ -547,9 +547,7 @@ mojo.internal.bindings.chromeos.connectivity.mojom.PasspointServiceReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPasspointSubscription FAILED:', e));
           }
           break;
@@ -562,9 +560,7 @@ mojo.internal.bindings.chromeos.connectivity.mojom.PasspointServiceReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ListPasspointSubscriptions FAILED:', e));
           }
           break;
@@ -577,9 +573,7 @@ mojo.internal.bindings.chromeos.connectivity.mojom.PasspointServiceReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeletePasspointSubscription FAILED:', e));
           }
           break;

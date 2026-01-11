@@ -679,9 +679,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.TestService_DoSomething_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.TestService_DoSomething_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DoSomething FAILED:', e));
           }
           break;
@@ -694,9 +692,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.TestService_DoTerminateProcess_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.TestService_DoTerminateProcess_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DoTerminateProcess FAILED:', e));
           }
           break;
@@ -709,9 +705,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.TestService_DoCrashImmediately_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.TestService_DoCrashImmediately_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DoCrashImmediately FAILED:', e));
           }
           break;
@@ -724,9 +718,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.TestService_CreateFolder_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.TestService_CreateFolder_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateFolder FAILED:', e));
           }
           break;
@@ -739,9 +731,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.TestService_GetRequestorName_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.TestService_GetRequestorName_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetRequestorName FAILED:', e));
           }
           break;
@@ -754,9 +744,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateReadOnlySharedMemoryRegion FAILED:', e));
           }
           break;
@@ -769,9 +757,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.TestService_CreateWritableSharedMemoryRegion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.TestService_CreateWritableSharedMemoryRegion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateWritableSharedMemoryRegion FAILED:', e));
           }
           break;
@@ -784,9 +770,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateUnsafeSharedMemoryRegion FAILED:', e));
           }
           break;
@@ -799,9 +783,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.TestService_CloneSharedMemoryContents_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.TestService_CloneSharedMemoryContents_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CloneSharedMemoryContents FAILED:', e));
           }
           break;
@@ -814,9 +796,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.TestService_IsProcessSandboxed_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.TestService_IsProcessSandboxed_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsProcessSandboxed FAILED:', e));
           }
           break;
@@ -829,9 +809,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.TestService_PseudonymizeString_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.TestService_PseudonymizeString_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PseudonymizeString FAILED:', e));
           }
           break;
@@ -844,9 +822,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.TestService_PassWriteableFile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.TestService_PassWriteableFile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PassWriteableFile FAILED:', e));
           }
           break;

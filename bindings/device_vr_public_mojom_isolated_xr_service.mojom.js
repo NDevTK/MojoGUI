@@ -725,9 +725,7 @@ mojo.internal.bindings.device.mojom.XRRuntimeReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.XRRuntime_RequestSession_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.XRRuntime_RequestSession_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestSession FAILED:', e));
           }
           break;
@@ -740,9 +738,7 @@ mojo.internal.bindings.device.mojom.XRRuntimeReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.XRRuntime_ShutdownSession_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.XRRuntime_ShutdownSession_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ShutdownSession FAILED:', e));
           }
           break;
@@ -1023,9 +1019,7 @@ mojo.internal.bindings.device.mojom.ImmersiveOverlayReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestNextOverlayPose FAILED:', e));
           }
           break;
@@ -1038,9 +1032,7 @@ mojo.internal.bindings.device.mojom.ImmersiveOverlayReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SubmitOverlayTexture FAILED:', e));
           }
           break;
@@ -1060,9 +1052,7 @@ mojo.internal.bindings.device.mojom.ImmersiveOverlayReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestNotificationOnWebXrSubmitted FAILED:', e));
           }
           break;

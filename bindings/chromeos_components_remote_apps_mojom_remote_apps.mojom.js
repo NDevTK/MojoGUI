@@ -428,9 +428,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddFolder_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddFolder_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AddFolder FAILED:', e));
           }
           break;
@@ -443,9 +441,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddApp_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddApp_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AddApp FAILED:', e));
           }
           break;
@@ -458,9 +454,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeleteApp FAILED:', e));
           }
           break;
@@ -473,9 +467,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SortLauncherWithRemoteAppsFirst FAILED:', e));
           }
           break;
@@ -488,9 +480,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetPinnedApps FAILED:', e));
           }
           break;

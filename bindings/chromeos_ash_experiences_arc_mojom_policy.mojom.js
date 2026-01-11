@@ -362,9 +362,7 @@ mojo.internal.bindings.arc.mojom.PolicyHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.PolicyHost_GetPolicies_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.PolicyHost_GetPolicies_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPolicies FAILED:', e));
           }
           break;
@@ -377,9 +375,7 @@ mojo.internal.bindings.arc.mojom.PolicyHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.PolicyHost_ReportCompliance_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.PolicyHost_ReportCompliance_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ReportCompliance FAILED:', e));
           }
           break;
@@ -626,9 +622,7 @@ mojo.internal.bindings.arc.mojom.PolicyInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.PolicyInstance_Init_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.PolicyInstance_Init_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
           }
           break;
@@ -648,9 +642,7 @@ mojo.internal.bindings.arc.mojom.PolicyInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.PolicyInstance_OnCommandReceived_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.PolicyInstance_OnCommandReceived_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OnCommandReceived FAILED:', e));
           }
           break;

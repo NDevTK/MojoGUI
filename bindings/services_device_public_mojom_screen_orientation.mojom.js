@@ -262,9 +262,7 @@ mojo.internal.bindings.device.mojom.ScreenOrientationReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LockOrientation FAILED:', e));
           }
           break;
@@ -437,9 +435,7 @@ mojo.internal.bindings.device.mojom.ScreenOrientationListenerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsAutoRotateEnabledByUser FAILED:', e));
           }
           break;

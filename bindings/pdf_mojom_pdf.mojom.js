@@ -281,9 +281,7 @@ mojo.internal.bindings.pdf.mojom.SaveDataBufferHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.pdf.mojom.SaveDataBufferHandler_Read_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.pdf.mojom.SaveDataBufferHandler_Read_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Read FAILED:', e));
           }
           break;
@@ -678,9 +676,7 @@ mojo.internal.bindings.pdf.mojom.PdfListenerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.pdf.mojom.PdfListener_GetPdfBytes_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.pdf.mojom.PdfListener_GetPdfBytes_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPdfBytes FAILED:', e));
           }
           break;
@@ -693,9 +689,7 @@ mojo.internal.bindings.pdf.mojom.PdfListenerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.pdf.mojom.PdfListener_GetPageText_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.pdf.mojom.PdfListener_GetPageText_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPageText FAILED:', e));
           }
           break;
@@ -708,9 +702,7 @@ mojo.internal.bindings.pdf.mojom.PdfListenerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.pdf.mojom.PdfListener_GetMostVisiblePageIndex_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.pdf.mojom.PdfListener_GetMostVisiblePageIndex_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetMostVisiblePageIndex FAILED:', e));
           }
           break;
@@ -723,9 +715,7 @@ mojo.internal.bindings.pdf.mojom.PdfListenerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSaveDataBufferHandlerForDrive FAILED:', e));
           }
           break;

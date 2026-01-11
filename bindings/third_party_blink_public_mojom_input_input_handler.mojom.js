@@ -876,9 +876,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestMouseLock FAILED:', e));
           }
           break;
@@ -2114,9 +2112,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] HandleStylusWritingGestureAction FAILED:', e));
           }
           break;
@@ -2241,9 +2237,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SelectAroundCaret FAILED:', e));
           }
           break;
@@ -2270,9 +2264,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] WaitForPageScaleAnimationForTesting FAILED:', e));
           }
           break;
@@ -2306,9 +2298,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RectForEditFieldChars FAILED:', e));
           }
           break;
@@ -3003,9 +2993,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.WidgetInputHandler_ImeSetComposition_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.WidgetInputHandler_ImeSetComposition_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ImeSetComposition FAILED:', e));
           }
           break;
@@ -3018,9 +3006,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.WidgetInputHandler_ImeCommitText_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.WidgetInputHandler_ImeCommitText_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ImeCommitText FAILED:', e));
           }
           break;
@@ -3054,9 +3040,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.WidgetInputHandler_DispatchEvent_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.WidgetInputHandler_DispatchEvent_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DispatchEvent FAILED:', e));
           }
           break;
@@ -3076,9 +3060,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.WidgetInputHandler_WaitForInputProcessed_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.WidgetInputHandler_WaitForInputProcessed_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] WaitForInputProcessed FAILED:', e));
           }
           break;
@@ -3091,9 +3073,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.WidgetInputHandler_PingMainThread_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.WidgetInputHandler_PingMainThread_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PingMainThread FAILED:', e));
           }
           break;

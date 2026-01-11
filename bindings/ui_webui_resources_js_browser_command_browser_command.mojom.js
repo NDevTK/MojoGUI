@@ -462,9 +462,7 @@ mojo.internal.bindings.browser_command.mojom.CommandHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CanExecuteCommand FAILED:', e));
           }
           break;
@@ -477,9 +475,7 @@ mojo.internal.bindings.browser_command.mojom.CommandHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ExecuteCommand FAILED:', e));
           }
           break;

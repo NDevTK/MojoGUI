@@ -743,9 +743,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadModel_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadModel_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadModel FAILED:', e));
           }
           break;
@@ -758,9 +756,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadPlatformModel_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadPlatformModel_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadPlatformModel FAILED:', e));
           }
           break;
@@ -773,9 +769,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDeviceAndPerformanceInfo FAILED:', e));
           }
           break;
@@ -788,9 +782,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDefaultModelPath FAILED:', e));
           }
           break;
@@ -810,9 +802,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPageData FAILED:', e));
           }
           break;
@@ -832,9 +822,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DecodeBitmap FAILED:', e));
           }
           break;

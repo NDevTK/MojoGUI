@@ -993,9 +993,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.PermissionService_HasPermission_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.PermissionService_HasPermission_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] HasPermission FAILED:', e));
           }
           break;
@@ -1015,9 +1013,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestPageEmbeddedPermission FAILED:', e));
           }
           break;
@@ -1030,9 +1026,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestPermission FAILED:', e));
           }
           break;
@@ -1045,9 +1039,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestPermissions FAILED:', e));
           }
           break;
@@ -1060,9 +1052,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RevokePermission FAILED:', e));
           }
           break;

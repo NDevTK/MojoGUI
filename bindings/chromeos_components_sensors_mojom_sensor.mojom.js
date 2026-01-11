@@ -405,9 +405,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDeviceIds_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDeviceIds_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDeviceIds FAILED:', e));
           }
           break;
@@ -420,9 +418,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAllDeviceIds FAILED:', e));
           }
           break;
@@ -843,9 +839,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAttributes_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAttributes_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAttributes FAILED:', e));
           }
           break;
@@ -858,9 +852,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetFrequency_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetFrequency_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetFrequency FAILED:', e));
           }
           break;
@@ -887,9 +879,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAllChannelIds FAILED:', e));
           }
           break;
@@ -902,9 +892,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetChannelsEnabled FAILED:', e));
           }
           break;
@@ -917,9 +905,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetChannelsAttributes FAILED:', e));
           }
           break;

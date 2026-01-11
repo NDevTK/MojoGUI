@@ -762,9 +762,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ForceClose FAILED:', e));
           }
           break;
@@ -777,9 +775,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DownloadBucketData FAILED:', e));
           }
           break;
@@ -792,9 +788,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAllBucketsDetails FAILED:', e));
           }
           break;
@@ -807,9 +801,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.IndexedDBControl_StartMetadataRecording_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.IndexedDBControl_StartMetadataRecording_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StartMetadataRecording FAILED:', e));
           }
           break;
@@ -822,9 +814,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StopMetadataRecording FAILED:', e));
           }
           break;

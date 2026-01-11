@@ -2053,9 +2053,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBool_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBool_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendNullBool FAILED:', e));
           }
           break;
@@ -2068,9 +2066,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint8_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint8_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendNullUint8 FAILED:', e));
           }
           break;
@@ -2083,9 +2079,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt8_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt8_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendNullInt8 FAILED:', e));
           }
           break;
@@ -2098,9 +2092,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint16_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint16_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendNullUint16 FAILED:', e));
           }
           break;
@@ -2113,9 +2105,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendNullInt16 FAILED:', e));
           }
           break;
@@ -2128,9 +2118,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendNullUint32 FAILED:', e));
           }
           break;
@@ -2143,9 +2131,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt32_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt32_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendNullInt32 FAILED:', e));
           }
           break;
@@ -2158,9 +2144,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint64_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint64_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendNullUint64 FAILED:', e));
           }
           break;
@@ -2173,9 +2157,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt64_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt64_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendNullInt64 FAILED:', e));
           }
           break;
@@ -2188,9 +2170,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullFloat_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullFloat_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendNullFloat FAILED:', e));
           }
           break;
@@ -2203,9 +2183,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDouble_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDouble_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendNullDouble FAILED:', e));
           }
           break;
@@ -2218,9 +2196,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnum_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnum_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendNullEnum FAILED:', e));
           }
           break;
@@ -2233,9 +2209,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBools_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBools_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendNullBools FAILED:', e));
           }
           break;
@@ -2248,9 +2222,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendNullInt16s FAILED:', e));
           }
           break;
@@ -2263,9 +2235,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendNullUint32s FAILED:', e));
           }
           break;
@@ -2278,9 +2248,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendNullDoubles FAILED:', e));
           }
           break;
@@ -2293,9 +2261,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnums_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnums_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendNullEnums FAILED:', e));
           }
           break;
@@ -2308,9 +2274,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendNullBoolMap FAILED:', e));
           }
           break;
@@ -2323,9 +2287,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendNullDoubleMap FAILED:', e));
           }
           break;
@@ -2338,9 +2300,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendNullEnumMap FAILED:', e));
           }
           break;
@@ -2353,9 +2313,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendOptionalBool FAILED:', e));
           }
           break;
@@ -2368,9 +2326,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendOptionalUint8 FAILED:', e));
           }
           break;
@@ -2383,9 +2339,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendOptionalInt8 FAILED:', e));
           }
           break;
@@ -2398,9 +2352,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendOptionalUint16 FAILED:', e));
           }
           break;
@@ -2413,9 +2365,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendOptionalInt16 FAILED:', e));
           }
           break;
@@ -2428,9 +2378,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendOptionalUint32 FAILED:', e));
           }
           break;
@@ -2443,9 +2391,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendOptionalInt32 FAILED:', e));
           }
           break;
@@ -2458,9 +2404,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendOptionalUint64 FAILED:', e));
           }
           break;
@@ -2473,9 +2417,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendOptionalInt64 FAILED:', e));
           }
           break;
@@ -2488,9 +2430,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendOptionalFloat FAILED:', e));
           }
           break;
@@ -2503,9 +2443,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendOptionalDouble FAILED:', e));
           }
           break;
@@ -2518,9 +2456,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendOptionalEnum FAILED:', e));
           }
           break;
@@ -2533,9 +2469,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendOptionalBools FAILED:', e));
           }
           break;
@@ -2548,9 +2482,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendOptionalInt16s FAILED:', e));
           }
           break;
@@ -2563,9 +2495,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendOptionalUint32s FAILED:', e));
           }
           break;
@@ -2578,9 +2508,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendOptionalDoubles FAILED:', e));
           }
           break;
@@ -2593,9 +2521,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendOptionalEnums FAILED:', e));
           }
           break;
@@ -2608,9 +2534,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendOptionalBoolMap FAILED:', e));
           }
           break;
@@ -2623,9 +2547,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendOptionalDoubleMap FAILED:', e));
           }
           break;
@@ -2638,9 +2560,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendOptionalEnumMap FAILED:', e));
           }
           break;
@@ -2653,9 +2573,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendNullStructWithOptionalNumerics FAILED:', e));
           }
           break;
@@ -2668,9 +2586,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendStructWithNullOptionalNumerics FAILED:', e));
           }
           break;
@@ -2683,9 +2599,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendStructWithOptionalNumerics FAILED:', e));
           }
           break;
@@ -4420,9 +4334,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNullBool FAILED:', e));
           }
           break;
@@ -4435,9 +4347,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNullUint8 FAILED:', e));
           }
           break;
@@ -4450,9 +4360,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNullInt8 FAILED:', e));
           }
           break;
@@ -4465,9 +4373,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNullUint16 FAILED:', e));
           }
           break;
@@ -4480,9 +4386,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNullInt16 FAILED:', e));
           }
           break;
@@ -4495,9 +4399,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNullUint32 FAILED:', e));
           }
           break;
@@ -4510,9 +4412,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNullInt32 FAILED:', e));
           }
           break;
@@ -4525,9 +4425,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNullUint64 FAILED:', e));
           }
           break;
@@ -4540,9 +4438,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNullInt64 FAILED:', e));
           }
           break;
@@ -4555,9 +4451,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNullFloat FAILED:', e));
           }
           break;
@@ -4570,9 +4464,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNullDouble FAILED:', e));
           }
           break;
@@ -4585,9 +4477,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNullEnum FAILED:', e));
           }
           break;
@@ -4600,9 +4490,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNullBools FAILED:', e));
           }
           break;
@@ -4615,9 +4503,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNullInt16s FAILED:', e));
           }
           break;
@@ -4630,9 +4516,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNullUint32s FAILED:', e));
           }
           break;
@@ -4645,9 +4529,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNullDoubles FAILED:', e));
           }
           break;
@@ -4660,9 +4542,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNullEnums FAILED:', e));
           }
           break;
@@ -4675,9 +4555,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNullBoolMap FAILED:', e));
           }
           break;
@@ -4690,9 +4568,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNullInt32Map FAILED:', e));
           }
           break;
@@ -4705,9 +4581,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNullEnumMap FAILED:', e));
           }
           break;
@@ -4720,9 +4594,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOptionalBool FAILED:', e));
           }
           break;
@@ -4735,9 +4607,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOptionalUint8 FAILED:', e));
           }
           break;
@@ -4750,9 +4620,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOptionalInt8 FAILED:', e));
           }
           break;
@@ -4765,9 +4633,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOptionalUint16 FAILED:', e));
           }
           break;
@@ -4780,9 +4646,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOptionalInt16 FAILED:', e));
           }
           break;
@@ -4795,9 +4659,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOptionalUint32 FAILED:', e));
           }
           break;
@@ -4810,9 +4672,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOptionalInt32 FAILED:', e));
           }
           break;
@@ -4825,9 +4685,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOptionalUint64 FAILED:', e));
           }
           break;
@@ -4840,9 +4698,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOptionalInt64 FAILED:', e));
           }
           break;
@@ -4855,9 +4711,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOptionalFloat FAILED:', e));
           }
           break;
@@ -4870,9 +4724,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOptionalDouble FAILED:', e));
           }
           break;
@@ -4885,9 +4737,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOptionalEnum FAILED:', e));
           }
           break;
@@ -4900,9 +4750,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOptionalBools FAILED:', e));
           }
           break;
@@ -4915,9 +4763,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOptionalInt16s FAILED:', e));
           }
           break;
@@ -4930,9 +4776,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOptionalUint32s FAILED:', e));
           }
           break;
@@ -4945,9 +4789,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOptionalDoubles FAILED:', e));
           }
           break;
@@ -4960,9 +4802,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOptionalEnums FAILED:', e));
           }
           break;
@@ -4975,9 +4815,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOptionalBoolMap FAILED:', e));
           }
           break;
@@ -4990,9 +4828,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOptionalFloatMap FAILED:', e));
           }
           break;
@@ -5005,9 +4841,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOptionalEnumMap FAILED:', e));
           }
           break;
@@ -5020,9 +4854,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNullStructWithOptionalNumerics FAILED:', e));
           }
           break;
@@ -5035,9 +4867,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetStructWithNullOptionalNumerics FAILED:', e));
           }
           break;
@@ -5050,9 +4880,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetStructWithOptionalNumerics FAILED:', e));
           }
           break;
@@ -5254,9 +5082,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0Recei
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] MethodWithVersionedParams FAILED:', e));
           }
           break;
@@ -5269,9 +5095,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0Recei
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] MethodWithVersionedStruct FAILED:', e));
           }
           break;
@@ -5519,9 +5343,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2Recei
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] MethodWithVersionedParams FAILED:', e));
           }
           break;
@@ -5534,9 +5356,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2Recei
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] MethodWithVersionedStruct FAILED:', e));
           }
           break;

@@ -267,9 +267,7 @@ mojo.internal.bindings.chromecast.mojom.ApiBindingsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAll FAILED:', e));
           }
           break;

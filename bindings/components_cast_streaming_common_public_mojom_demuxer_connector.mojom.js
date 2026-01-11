@@ -345,9 +345,7 @@ mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequesterReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetBuffer FAILED:', e));
           }
           break;
@@ -360,9 +358,7 @@ mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequesterReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EnableBitstreamConverter FAILED:', e));
           }
           break;
@@ -564,9 +560,7 @@ mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequesterReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetBuffer FAILED:', e));
           }
           break;
@@ -579,9 +573,7 @@ mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequesterReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EnableBitstreamConverter FAILED:', e));
           }
           break;
@@ -778,9 +770,7 @@ mojo.internal.bindings.cast_streaming.mojom.DemuxerConnectorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_EnableReceiver_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_EnableReceiver_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EnableReceiver FAILED:', e));
           }
           break;

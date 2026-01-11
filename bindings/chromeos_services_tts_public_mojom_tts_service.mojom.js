@@ -310,9 +310,7 @@ mojo.internal.bindings.chromeos.tts.mojom.TtsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] BindPlaybackTtsStream FAILED:', e));
           }
           break;
@@ -676,9 +674,7 @@ mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStreamReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] InstallVoice FAILED:', e));
           }
           break;
@@ -691,9 +687,7 @@ mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStreamReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SelectVoice FAILED:', e));
           }
           break;
@@ -706,9 +700,7 @@ mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStreamReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Speak_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Speak_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Speak FAILED:', e));
           }
           break;
@@ -1056,9 +1048,7 @@ mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStreamReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Play FAILED:', e));
           }
           break;

@@ -332,9 +332,7 @@ mojo.internal.bindings.smbfs.mojom.SmbFsBootstrapReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] MountShare FAILED:', e));
           }
           break;
@@ -537,9 +535,7 @@ mojo.internal.bindings.smbfs.mojom.SmbFsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RemoveSavedCredentials FAILED:', e));
           }
           break;
@@ -552,9 +548,7 @@ mojo.internal.bindings.smbfs.mojom.SmbFsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeleteRecursively FAILED:', e));
           }
           break;
@@ -720,9 +714,7 @@ mojo.internal.bindings.smbfs.mojom.SmbFsDelegateReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestCredentials FAILED:', e));
           }
           break;

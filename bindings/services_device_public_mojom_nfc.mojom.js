@@ -537,9 +537,7 @@ mojo.internal.bindings.device.mojom.NFCReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.NFC_Push_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.NFC_Push_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Push FAILED:', e));
           }
           break;
@@ -559,9 +557,7 @@ mojo.internal.bindings.device.mojom.NFCReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.NFC_MakeReadOnly_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.NFC_MakeReadOnly_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] MakeReadOnly FAILED:', e));
           }
           break;
@@ -581,9 +577,7 @@ mojo.internal.bindings.device.mojom.NFCReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.NFC_Watch_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.NFC_Watch_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Watch FAILED:', e));
           }
           break;

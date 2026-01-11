@@ -647,9 +647,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetIsShoppingListEligible FAILED:', e));
           }
           break;
@@ -669,9 +667,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetProductInfoForUrl FAILED:', e));
           }
           break;
@@ -684,9 +680,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSubscriptionDetails FAILED:', e));
           }
           break;
@@ -699,9 +693,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetProductSpecificationsDetails FAILED:', e));
           }
           break;
@@ -721,9 +713,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetShoppingEligibilityDetails FAILED:', e));
           }
           break;

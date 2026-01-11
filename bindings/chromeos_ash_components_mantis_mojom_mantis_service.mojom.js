@@ -445,9 +445,7 @@ mojo.internal.bindings.mantis.mojom.MantisServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetMantisFeatureStatus FAILED:', e));
           }
           break;
@@ -460,9 +458,7 @@ mojo.internal.bindings.mantis.mojom.MantisServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Initialize FAILED:', e));
           }
           break;

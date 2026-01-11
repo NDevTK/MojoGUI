@@ -283,9 +283,7 @@ mojo.internal.bindings.ash.ime.mojom.InputEngineManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ConnectToImeEngine FAILED:', e));
           }
           break;
@@ -298,9 +296,7 @@ mojo.internal.bindings.ash.ime.mojom.InputEngineManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] InitializeConnectionFactory FAILED:', e));
           }
           break;
@@ -468,9 +464,7 @@ mojo.internal.bindings.ash.ime.mojom.PlatformAccessProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DownloadImeFileTo FAILED:', e));
           }
           break;

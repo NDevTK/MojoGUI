@@ -1575,9 +1575,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_GetAvailableRoutines_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_GetAvailableRoutines_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAvailableRoutines FAILED:', e));
           }
           break;
@@ -1590,9 +1588,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetRoutineUpdate FAILED:', e));
           }
           break;
@@ -1605,9 +1601,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunBatteryCapacityRoutine FAILED:', e));
           }
           break;
@@ -1620,9 +1614,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunBatteryHealthRoutine FAILED:', e));
           }
           break;
@@ -1635,9 +1627,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunSmartctlCheckRoutine FAILED:', e));
           }
           break;
@@ -1650,9 +1640,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunAcPowerRoutine FAILED:', e));
           }
           break;
@@ -1665,9 +1653,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunCpuCacheRoutine_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunCpuCacheRoutine_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunCpuCacheRoutine FAILED:', e));
           }
           break;
@@ -1680,9 +1666,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunCpuStressRoutine_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunCpuStressRoutine_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunCpuStressRoutine FAILED:', e));
           }
           break;
@@ -1695,9 +1679,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunFloatingPointAccuracyRoutine FAILED:', e));
           }
           break;
@@ -1710,9 +1692,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DEPRECATED_RunNvmeWearLevelRoutine FAILED:', e));
           }
           break;
@@ -1725,9 +1705,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunNvmeSelfTestRoutine FAILED:', e));
           }
           break;
@@ -1740,9 +1718,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDiskReadRoutine_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDiskReadRoutine_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunDiskReadRoutine FAILED:', e));
           }
           break;
@@ -1755,9 +1731,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPrimeSearchRoutine_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPrimeSearchRoutine_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunPrimeSearchRoutine FAILED:', e));
           }
           break;
@@ -1770,9 +1744,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunBatteryDischargeRoutine FAILED:', e));
           }
           break;
@@ -1785,9 +1757,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunBatteryChargeRoutine FAILED:', e));
           }
           break;
@@ -1800,9 +1770,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunMemoryRoutine FAILED:', e));
           }
           break;
@@ -1815,9 +1783,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunLanConnectivityRoutine FAILED:', e));
           }
           break;
@@ -1830,9 +1796,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunDnsResolutionRoutine FAILED:', e));
           }
           break;
@@ -1845,9 +1809,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunSignalStrengthRoutine FAILED:', e));
           }
           break;
@@ -1860,9 +1822,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunGatewayCanBePingedRoutine FAILED:', e));
           }
           break;
@@ -1875,9 +1835,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunDnsResolverPresentRoutine FAILED:', e));
           }
           break;
@@ -1890,9 +1848,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunSensitiveSensorRoutine FAILED:', e));
           }
           break;
@@ -1905,9 +1861,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunFingerprintAliveRoutine FAILED:', e));
           }
           break;
@@ -1920,9 +1874,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunEmmcLifetimeRoutine FAILED:', e));
           }
           break;
@@ -1935,9 +1887,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunBluetoothPowerRoutine FAILED:', e));
           }
           break;
@@ -1950,9 +1900,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunUfsLifetimeRoutine FAILED:', e));
           }
           break;
@@ -1965,9 +1913,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunPowerButtonRoutine FAILED:', e));
           }
           break;
@@ -1980,9 +1926,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunAudioDriverRoutine FAILED:', e));
           }
           break;
@@ -1995,9 +1939,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunBluetoothDiscoveryRoutine FAILED:', e));
           }
           break;
@@ -2010,9 +1952,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunBluetoothScanningRoutine FAILED:', e));
           }
           break;
@@ -2025,9 +1965,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunBluetoothPairingRoutine FAILED:', e));
           }
           break;
@@ -2040,9 +1978,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFanRoutine_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFanRoutine_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunFanRoutine FAILED:', e));
           }
           break;

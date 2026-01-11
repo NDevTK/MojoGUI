@@ -945,9 +945,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.Authenticator_MakeCredential_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.Authenticator_MakeCredential_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] MakeCredential FAILED:', e));
           }
           break;
@@ -960,9 +958,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.Authenticator_GetCredential_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.Authenticator_GetCredential_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetCredential FAILED:', e));
           }
           break;
@@ -975,9 +971,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsUserVerifyingPlatformAuthenticatorAvailable FAILED:', e));
           }
           break;
@@ -990,9 +984,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsConditionalMediationAvailable FAILED:', e));
           }
           break;
@@ -1005,9 +997,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.Authenticator_Report_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.Authenticator_Report_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Report FAILED:', e));
           }
           break;
@@ -1020,9 +1010,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetClientCapabilities FAILED:', e));
           }
           break;

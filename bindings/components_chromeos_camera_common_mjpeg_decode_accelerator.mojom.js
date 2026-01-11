@@ -371,9 +371,7 @@ mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Initialize FAILED:', e));
           }
           break;
@@ -386,9 +384,7 @@ mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Decode FAILED:', e));
           }
           break;
@@ -401,9 +397,7 @@ mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DecodeWithDmaBuf FAILED:', e));
           }
           break;

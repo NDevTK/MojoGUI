@@ -634,9 +634,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAvailableEuiccs FAILED:', e));
           }
           break;
@@ -987,9 +985,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.EuiccReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_GetProperties_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_GetProperties_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetProperties FAILED:', e));
           }
           break;
@@ -1002,9 +998,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.EuiccReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_GetProfileList_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_GetProfileList_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetProfileList FAILED:', e));
           }
           break;
@@ -1017,9 +1011,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.EuiccReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestAvailableProfiles FAILED:', e));
           }
           break;
@@ -1032,9 +1024,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.EuiccReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RefreshInstalledProfiles FAILED:', e));
           }
           break;
@@ -1047,9 +1037,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.EuiccReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] InstallProfileFromActivationCode FAILED:', e));
           }
           break;
@@ -1062,9 +1050,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.EuiccReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_GetEidQRCode_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_GetEidQRCode_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetEidQRCode FAILED:', e));
           }
           break;
@@ -1340,9 +1326,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfileReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_GetProperties_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_GetProperties_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetProperties FAILED:', e));
           }
           break;
@@ -1355,9 +1339,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfileReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_InstallProfile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_InstallProfile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] InstallProfile FAILED:', e));
           }
           break;
@@ -1370,9 +1352,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfileReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UninstallProfile FAILED:', e));
           }
           break;
@@ -1385,9 +1365,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfileReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetProfileNickname FAILED:', e));
           }
           break;

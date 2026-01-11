@@ -989,9 +989,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_AddObserver_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_AddObserver_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AddObserver FAILED:', e));
           }
           break;
@@ -1004,9 +1002,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ForceEnrollmentNow FAILED:', e));
           }
           break;
@@ -1019,9 +1015,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_ForceSyncNow_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_ForceSyncNow_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ForceSyncNow FAILED:', e));
           }
           break;
@@ -1034,9 +1028,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetGroupPrivateKeyStatus FAILED:', e));
           }
           break;
@@ -1049,9 +1041,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetBetterTogetherMetadataStatus FAILED:', e));
           }
           break;
@@ -1064,9 +1054,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSyncedDevices FAILED:', e));
           }
           break;
@@ -1079,9 +1067,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetLocalDeviceMetadata FAILED:', e));
           }
           break;
@@ -1094,9 +1080,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetSoftwareFeatureState FAILED:', e));
           }
           break;
@@ -1109,9 +1093,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetFeatureStatus FAILED:', e));
           }
           break;
@@ -1124,9 +1106,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FindEligibleDevices FAILED:', e));
           }
           break;
@@ -1139,9 +1119,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_NotifyDevices_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_NotifyDevices_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] NotifyDevices FAILED:', e));
           }
           break;
@@ -1154,9 +1132,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDevicesActivityStatus FAILED:', e));
           }
           break;
@@ -1169,9 +1145,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetDebugInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetDebugInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDebugInfo FAILED:', e));
           }
           break;

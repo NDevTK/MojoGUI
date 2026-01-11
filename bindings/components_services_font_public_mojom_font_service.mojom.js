@@ -525,9 +525,7 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.font_service.mojom.FontService_MatchFamilyName_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.font_service.mojom.FontService_MatchFamilyName_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] MatchFamilyName FAILED:', e));
           }
           break;
@@ -540,9 +538,7 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.font_service.mojom.FontService_OpenStream_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.font_service.mojom.FontService_OpenStream_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OpenStream FAILED:', e));
           }
           break;
@@ -555,9 +551,7 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.font_service.mojom.FontService_FallbackFontForCharacter_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.font_service.mojom.FontService_FallbackFontForCharacter_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FallbackFontForCharacter FAILED:', e));
           }
           break;
@@ -570,9 +564,7 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.font_service.mojom.FontService_FontRenderStyleForStrike_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.font_service.mojom.FontService_FontRenderStyleForStrike_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FontRenderStyleForStrike FAILED:', e));
           }
           break;
@@ -585,9 +577,7 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] MatchFontByPostscriptNameOrFullFontName FAILED:', e));
           }
           break;
@@ -600,9 +590,7 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.font_service.mojom.FontService_ListFamilies_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.font_service.mojom.FontService_ListFamilies_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ListFamilies FAILED:', e));
           }
           break;
@@ -615,9 +603,7 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.font_service.mojom.FontService_MatchFontWithFallback_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.font_service.mojom.FontService_MatchFontWithFallback_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] MatchFontWithFallback FAILED:', e));
           }
           break;

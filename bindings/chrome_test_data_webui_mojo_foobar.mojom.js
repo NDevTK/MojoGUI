@@ -235,9 +235,7 @@ mojo.internal.bindings.test.mojom.FooReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.test.mojom.Foo_GetFoo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.test.mojom.Foo_GetFoo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetFoo FAILED:', e));
           }
           break;
@@ -403,9 +401,7 @@ mojo.internal.bindings.test.mojom.BarReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.test.mojom.Bar_GetBar_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.test.mojom.Bar_GetBar_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetBar FAILED:', e));
           }
           break;
@@ -571,9 +567,7 @@ mojo.internal.bindings.test.mojom.BazReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.test.mojom.Baz_GetBaz_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.test.mojom.Baz_GetBaz_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetBaz FAILED:', e));
           }
           break;

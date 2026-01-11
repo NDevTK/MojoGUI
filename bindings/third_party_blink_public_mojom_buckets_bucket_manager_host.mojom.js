@@ -630,9 +630,7 @@ mojo.internal.bindings.blink.mojom.BucketHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.BucketHost_Persist_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.BucketHost_Persist_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Persist FAILED:', e));
           }
           break;
@@ -645,9 +643,7 @@ mojo.internal.bindings.blink.mojom.BucketHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.BucketHost_Persisted_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.BucketHost_Persisted_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Persisted FAILED:', e));
           }
           break;
@@ -660,9 +656,7 @@ mojo.internal.bindings.blink.mojom.BucketHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.BucketHost_Estimate_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.BucketHost_Estimate_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Estimate FAILED:', e));
           }
           break;
@@ -675,9 +669,7 @@ mojo.internal.bindings.blink.mojom.BucketHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.BucketHost_Durability_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.BucketHost_Durability_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Durability FAILED:', e));
           }
           break;
@@ -690,9 +682,7 @@ mojo.internal.bindings.blink.mojom.BucketHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.BucketHost_SetExpires_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.BucketHost_SetExpires_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetExpires FAILED:', e));
           }
           break;
@@ -705,9 +695,7 @@ mojo.internal.bindings.blink.mojom.BucketHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.BucketHost_Expires_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.BucketHost_Expires_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Expires FAILED:', e));
           }
           break;
@@ -741,9 +729,7 @@ mojo.internal.bindings.blink.mojom.BucketHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.BucketHost_GetDirectory_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.BucketHost_GetDirectory_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDirectory FAILED:', e));
           }
           break;
@@ -756,9 +742,7 @@ mojo.internal.bindings.blink.mojom.BucketHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.BucketHost_GetDirectoryForDevtools_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.BucketHost_GetDirectoryForDevtools_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDirectoryForDevtools FAILED:', e));
           }
           break;
@@ -1033,9 +1017,7 @@ mojo.internal.bindings.blink.mojom.BucketManagerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.BucketManagerHost_OpenBucket_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.BucketManagerHost_OpenBucket_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OpenBucket FAILED:', e));
           }
           break;
@@ -1055,9 +1037,7 @@ mojo.internal.bindings.blink.mojom.BucketManagerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.BucketManagerHost_Keys_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.BucketManagerHost_Keys_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Keys FAILED:', e));
           }
           break;
@@ -1070,9 +1050,7 @@ mojo.internal.bindings.blink.mojom.BucketManagerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.BucketManagerHost_DeleteBucket_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.BucketManagerHost_DeleteBucket_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeleteBucket FAILED:', e));
           }
           break;

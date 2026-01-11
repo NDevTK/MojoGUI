@@ -995,9 +995,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileName_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileName_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetFileName FAILED:', e));
           }
           break;
@@ -1010,9 +1008,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileSize_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileSize_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetFileSize FAILED:', e));
           }
           break;
@@ -1025,9 +1021,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemHost_GetLastModified_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.FileSystemHost_GetLastModified_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetLastModified FAILED:', e));
           }
           break;
@@ -1040,9 +1034,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileType_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileType_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetFileType FAILED:', e));
           }
           break;
@@ -1069,9 +1061,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemHost_GetVirtualFileId_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.FileSystemHost_GetVirtualFileId_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetVirtualFileId FAILED:', e));
           }
           break;
@@ -1084,9 +1074,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemHost_HandleIdReleased_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.FileSystemHost_HandleIdReleased_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] HandleIdReleased FAILED:', e));
           }
           break;
@@ -1099,9 +1087,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemHost_OpenFileToRead_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.FileSystemHost_OpenFileToRead_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OpenFileToRead FAILED:', e));
           }
           break;
@@ -1114,9 +1100,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemHost_SelectFiles_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.FileSystemHost_SelectFiles_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SelectFiles FAILED:', e));
           }
           break;
@@ -1129,9 +1113,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemHost_OnFileSelectorEvent_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.FileSystemHost_OnFileSelectorEvent_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OnFileSelectorEvent FAILED:', e));
           }
           break;
@@ -1144,9 +1126,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileSelectorElements_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileSelectorElements_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetFileSelectorElements FAILED:', e));
           }
           break;
@@ -1166,9 +1146,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemHost_CreateMoniker_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.FileSystemHost_CreateMoniker_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateMoniker FAILED:', e));
           }
           break;
@@ -1181,9 +1159,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemHost_DestroyMoniker_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.FileSystemHost_DestroyMoniker_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DestroyMoniker FAILED:', e));
           }
           break;
@@ -2156,9 +2132,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_AddWatcher_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.FileSystemInstance_AddWatcher_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AddWatcher FAILED:', e));
           }
           break;
@@ -2171,9 +2145,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_GetChildDocuments_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.FileSystemInstance_GetChildDocuments_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetChildDocuments FAILED:', e));
           }
           break;
@@ -2186,9 +2158,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_GetDocument_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.FileSystemInstance_GetDocument_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDocument FAILED:', e));
           }
           break;
@@ -2201,9 +2171,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_GetFileSize_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.FileSystemInstance_GetFileSize_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetFileSize FAILED:', e));
           }
           break;
@@ -2216,9 +2184,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_GetMimeType_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.FileSystemInstance_GetMimeType_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetMimeType FAILED:', e));
           }
           break;
@@ -2231,9 +2197,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_GetRecentDocuments_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.FileSystemInstance_GetRecentDocuments_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetRecentDocuments FAILED:', e));
           }
           break;
@@ -2246,9 +2210,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_GetRoots_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.FileSystemInstance_GetRoots_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetRoots FAILED:', e));
           }
           break;
@@ -2261,9 +2223,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_GetRootSize_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.FileSystemInstance_GetRootSize_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetRootSize FAILED:', e));
           }
           break;
@@ -2276,9 +2236,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_DeleteDocument_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.FileSystemInstance_DeleteDocument_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeleteDocument FAILED:', e));
           }
           break;
@@ -2291,9 +2249,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_RenameDocument_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.FileSystemInstance_RenameDocument_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RenameDocument FAILED:', e));
           }
           break;
@@ -2306,9 +2262,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_CreateDocument_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.FileSystemInstance_CreateDocument_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateDocument FAILED:', e));
           }
           break;
@@ -2321,9 +2275,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_CopyDocument_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.FileSystemInstance_CopyDocument_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CopyDocument FAILED:', e));
           }
           break;
@@ -2336,9 +2288,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_MoveDocument_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.FileSystemInstance_MoveDocument_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] MoveDocument FAILED:', e));
           }
           break;
@@ -2351,9 +2301,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_Init_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.FileSystemInstance_Init_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
           }
           break;
@@ -2366,9 +2314,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenThumbnail_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenThumbnail_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OpenThumbnail FAILED:', e));
           }
           break;
@@ -2388,9 +2334,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenFileSessionToWrite_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenFileSessionToWrite_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OpenFileSessionToWrite FAILED:', e));
           }
           break;
@@ -2403,9 +2347,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenFileSessionToRead_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenFileSessionToRead_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OpenFileSessionToRead FAILED:', e));
           }
           break;
@@ -2418,9 +2360,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_RemoveWatcher_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.FileSystemInstance_RemoveWatcher_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RemoveWatcher FAILED:', e));
           }
           break;
@@ -2454,9 +2394,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenUrlsWithPermissionAndWindowInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenUrlsWithPermissionAndWindowInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OpenUrlsWithPermissionAndWindowInfo FAILED:', e));
           }
           break;

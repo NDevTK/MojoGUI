@@ -282,9 +282,7 @@ mojo.internal.bindings.network.mojom.FileEnumeratorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.FileEnumerator_GetNext_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.FileEnumerator_GetNext_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNext FAILED:', e));
           }
           break;
@@ -746,9 +744,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateDirectory FAILED:', e));
           }
           break;
@@ -761,9 +757,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_PathExists_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_PathExists_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PathExists FAILED:', e));
           }
           break;
@@ -776,9 +770,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DirectoryExists FAILED:', e));
           }
           break;
@@ -791,9 +783,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_OpenFile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_OpenFile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OpenFile FAILED:', e));
           }
           break;
@@ -806,9 +796,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DeleteFile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DeleteFile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeleteFile FAILED:', e));
           }
           break;
@@ -821,9 +809,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_RenameFile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_RenameFile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RenameFile FAILED:', e));
           }
           break;
@@ -836,9 +822,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetFileInfo FAILED:', e));
           }
           break;
@@ -858,9 +842,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CleanupDirectory FAILED:', e));
           }
           break;

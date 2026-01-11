@@ -493,9 +493,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PerformOcrAndReturnAXTreeUpdate FAILED:', e));
           }
           break;
@@ -508,9 +506,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PerformOcrAndReturnAnnotation FAILED:', e));
           }
           break;
@@ -530,9 +526,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetMaxImageDimension FAILED:', e));
           }
           break;
@@ -552,9 +546,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsOCRBusy FAILED:', e));
           }
           break;
@@ -827,9 +819,7 @@ mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ExtractMainContent FAILED:', e));
           }
           break;
@@ -842,9 +832,7 @@ mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ExtractMainNode FAILED:', e));
           }
           break;
@@ -857,9 +845,7 @@ mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IdentifyMainNode FAILED:', e));
           }
           break;

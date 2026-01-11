@@ -718,9 +718,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestToken_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestToken_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestToken FAILED:', e));
           }
           break;
@@ -733,9 +731,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestUserInfo FAILED:', e));
           }
           break;
@@ -755,9 +751,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ResolveTokenRequest FAILED:', e));
           }
           break;
@@ -770,9 +764,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetIdpSigninStatus FAILED:', e));
           }
           break;
@@ -785,9 +777,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RegisterIdP_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RegisterIdP_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RegisterIdP FAILED:', e));
           }
           break;
@@ -800,9 +790,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.FederatedAuthRequest_UnregisterIdP_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FederatedAuthRequest_UnregisterIdP_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UnregisterIdP FAILED:', e));
           }
           break;
@@ -822,9 +810,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.FederatedAuthRequest_PreventSilentAccess_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FederatedAuthRequest_PreventSilentAccess_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PreventSilentAccess FAILED:', e));
           }
           break;
@@ -837,9 +823,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.FederatedAuthRequest_Disconnect_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FederatedAuthRequest_Disconnect_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Disconnect FAILED:', e));
           }
           break;

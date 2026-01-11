@@ -904,9 +904,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_GetVersion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.updater.mojom.UpdateService_GetVersion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetVersion FAILED:', e));
           }
           break;
@@ -919,9 +917,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_FetchPolicies_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.updater.mojom.UpdateService_FetchPolicies_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FetchPolicies FAILED:', e));
           }
           break;
@@ -934,9 +930,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_RegisterApp_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.updater.mojom.UpdateService_RegisterApp_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RegisterApp FAILED:', e));
           }
           break;
@@ -949,9 +943,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_GetAppStates_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.updater.mojom.UpdateService_GetAppStates_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAppStates FAILED:', e));
           }
           break;
@@ -964,9 +956,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_RunPeriodicTasks_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.updater.mojom.UpdateService_RunPeriodicTasks_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunPeriodicTasks FAILED:', e));
           }
           break;
@@ -979,9 +969,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_UpdateAll_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.updater.mojom.UpdateService_UpdateAll_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UpdateAll FAILED:', e));
           }
           break;
@@ -994,9 +982,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_Update_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.updater.mojom.UpdateService_Update_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Update FAILED:', e));
           }
           break;
@@ -1009,9 +995,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_Install_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.updater.mojom.UpdateService_Install_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Install FAILED:', e));
           }
           break;
@@ -1031,9 +1015,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_RunInstaller_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.updater.mojom.UpdateService_RunInstaller_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunInstaller FAILED:', e));
           }
           break;
@@ -1046,9 +1028,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_CheckForUpdate_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.updater.mojom.UpdateService_CheckForUpdate_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CheckForUpdate FAILED:', e));
           }
           break;
@@ -1061,9 +1041,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterState_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterState_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetUpdaterState FAILED:', e));
           }
           break;
@@ -1076,9 +1054,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterPolicies_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterPolicies_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetUpdaterPolicies FAILED:', e));
           }
           break;
@@ -1091,9 +1067,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_GetAppPolicies_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.updater.mojom.UpdateService_GetAppPolicies_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAppPolicies FAILED:', e));
           }
           break;

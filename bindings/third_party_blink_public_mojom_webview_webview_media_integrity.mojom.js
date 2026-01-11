@@ -260,9 +260,7 @@ mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityServiceReceiver = class 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetIntegrityProvider FAILED:', e));
           }
           break;
@@ -429,9 +427,7 @@ mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityProviderReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestToken FAILED:', e));
           }
           break;

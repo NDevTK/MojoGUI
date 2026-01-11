@@ -456,9 +456,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetApps FAILED:', e));
           }
           break;
@@ -471,9 +469,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSystemAppsThatUseCamera FAILED:', e));
           }
           break;
@@ -486,9 +482,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSystemAppsThatUseMicrophone FAILED:', e));
           }
           break;

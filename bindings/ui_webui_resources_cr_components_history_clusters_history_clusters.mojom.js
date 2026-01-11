@@ -826,9 +826,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.history_clusters.mojom.PageHandler_ToggleVisibility_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.history_clusters.mojom.PageHandler_ToggleVisibility_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ToggleVisibility FAILED:', e));
           }
           break;
@@ -855,9 +853,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.history_clusters.mojom.PageHandler_HideVisits_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.history_clusters.mojom.PageHandler_HideVisits_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] HideVisits FAILED:', e));
           }
           break;
@@ -870,9 +866,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisits_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisits_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RemoveVisits FAILED:', e));
           }
           break;
@@ -885,9 +879,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RemoveVisitByUrlAndTime FAILED:', e));
           }
           break;

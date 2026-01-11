@@ -447,9 +447,7 @@ mojo.internal.bindings.printing.mojom.PrintRendererReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.printing.mojom.PrintRenderer_CreatePreviewDocument_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.printing.mojom.PrintRenderer_CreatePreviewDocument_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreatePreviewDocument FAILED:', e));
           }
           break;
@@ -1443,9 +1441,7 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintFrameContent_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintFrameContent_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PrintFrameContent FAILED:', e));
           }
           break;
@@ -2047,9 +2043,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDefaultPrintSettings FAILED:', e));
           }
           break;
@@ -2069,9 +2063,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.printing.mojom.PrintManagerHost_DidPrintDocument_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.printing.mojom.PrintManagerHost_DidPrintDocument_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DidPrintDocument FAILED:', e));
           }
           break;
@@ -2084,9 +2076,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.printing.mojom.PrintManagerHost_IsPrintingEnabled_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.printing.mojom.PrintManagerHost_IsPrintingEnabled_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsPrintingEnabled FAILED:', e));
           }
           break;
@@ -2099,9 +2089,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.printing.mojom.PrintManagerHost_ScriptedPrint_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.printing.mojom.PrintManagerHost_ScriptedPrint_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ScriptedPrint FAILED:', e));
           }
           break;
@@ -2121,9 +2109,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.printing.mojom.PrintManagerHost_UpdatePrintSettings_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.printing.mojom.PrintManagerHost_UpdatePrintSettings_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UpdatePrintSettings FAILED:', e));
           }
           break;
@@ -2136,9 +2122,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetupScriptedPrintPreview FAILED:', e));
           }
           break;
@@ -2165,9 +2149,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.printing.mojom.PrintManagerHost_CheckForCancel_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.printing.mojom.PrintManagerHost_CheckForCancel_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CheckForCancel FAILED:', e));
           }
           break;

@@ -1765,9 +1765,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_AuthenticateWebview_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.boca.mojom.PageHandler_AuthenticateWebview_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AuthenticateWebview FAILED:', e));
           }
           break;
@@ -1780,9 +1778,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_GetWindowsTabsList_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.boca.mojom.PageHandler_GetWindowsTabsList_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetWindowsTabsList FAILED:', e));
           }
           break;
@@ -1795,9 +1791,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_ListCourses_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.boca.mojom.PageHandler_ListCourses_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ListCourses FAILED:', e));
           }
           break;
@@ -1810,9 +1804,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_ListStudents_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.boca.mojom.PageHandler_ListStudents_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ListStudents FAILED:', e));
           }
           break;
@@ -1825,9 +1817,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_ListAssignments_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.boca.mojom.PageHandler_ListAssignments_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ListAssignments FAILED:', e));
           }
           break;
@@ -1840,9 +1830,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_CreateSession_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.boca.mojom.PageHandler_CreateSession_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateSession FAILED:', e));
           }
           break;
@@ -1855,9 +1843,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_GetSession_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.boca.mojom.PageHandler_GetSession_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSession FAILED:', e));
           }
           break;
@@ -1870,9 +1856,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_EndSession_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.boca.mojom.PageHandler_EndSession_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EndSession FAILED:', e));
           }
           break;
@@ -1885,9 +1869,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_ExtendSessionDuration_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.boca.mojom.PageHandler_ExtendSessionDuration_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ExtendSessionDuration FAILED:', e));
           }
           break;
@@ -1900,9 +1882,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_RemoveStudent_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.boca.mojom.PageHandler_RemoveStudent_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RemoveStudent FAILED:', e));
           }
           break;
@@ -1915,9 +1895,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_RenotifyStudent_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.boca.mojom.PageHandler_RenotifyStudent_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RenotifyStudent FAILED:', e));
           }
           break;
@@ -1930,9 +1908,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_AddStudents_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.boca.mojom.PageHandler_AddStudents_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AddStudents FAILED:', e));
           }
           break;
@@ -1945,9 +1921,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UpdateOnTaskConfig FAILED:', e));
           }
           break;
@@ -1960,9 +1934,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_UpdateCaptionConfig_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.boca.mojom.PageHandler_UpdateCaptionConfig_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UpdateCaptionConfig FAILED:', e));
           }
           break;
@@ -1975,9 +1947,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_SetFloatMode_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.boca.mojom.PageHandler_SetFloatMode_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetFloatMode FAILED:', e));
           }
           break;
@@ -1990,9 +1960,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_SubmitAccessCode_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.boca.mojom.PageHandler_SubmitAccessCode_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SubmitAccessCode FAILED:', e));
           }
           break;
@@ -2005,9 +1973,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_ViewStudentScreen_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.boca.mojom.PageHandler_ViewStudentScreen_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ViewStudentScreen FAILED:', e));
           }
           break;
@@ -2020,9 +1986,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_EndViewScreenSession_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.boca.mojom.PageHandler_EndViewScreenSession_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EndViewScreenSession FAILED:', e));
           }
           break;
@@ -2035,9 +1999,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetViewScreenSessionActive FAILED:', e));
           }
           break;
@@ -2050,9 +2012,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_GetUserPref_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.boca.mojom.PageHandler_GetUserPref_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetUserPref FAILED:', e));
           }
           break;
@@ -2065,9 +2025,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_SetUserPref_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.boca.mojom.PageHandler_SetUserPref_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetUserPref FAILED:', e));
           }
           break;
@@ -2080,9 +2038,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_SetSitePermission_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.boca.mojom.PageHandler_SetSitePermission_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetSitePermission FAILED:', e));
           }
           break;
@@ -2095,9 +2051,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_CloseTab_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.boca.mojom.PageHandler_CloseTab_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CloseTab FAILED:', e));
           }
           break;
@@ -2110,9 +2064,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.boca.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OpenFeedbackDialog FAILED:', e));
           }
           break;
@@ -2125,9 +2077,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_RefreshWorkbook_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.boca.mojom.PageHandler_RefreshWorkbook_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RefreshWorkbook FAILED:', e));
           }
           break;
@@ -2140,9 +2090,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSpeechRecognitionInstallationStatus FAILED:', e));
           }
           break;
@@ -2155,9 +2103,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_StartSpotlight_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.boca.mojom.PageHandler_StartSpotlight_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StartSpotlight FAILED:', e));
           }
           break;
@@ -2170,9 +2116,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_PresentStudentScreen_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.boca.mojom.PageHandler_PresentStudentScreen_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PresentStudentScreen FAILED:', e));
           }
           break;
@@ -2185,9 +2129,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StopPresentingStudentScreen FAILED:', e));
           }
           break;
@@ -2200,9 +2142,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_PresentOwnScreen_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.boca.mojom.PageHandler_PresentOwnScreen_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PresentOwnScreen FAILED:', e));
           }
           break;
@@ -2215,9 +2155,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StopPresentingOwnScreen FAILED:', e));
           }
           break;

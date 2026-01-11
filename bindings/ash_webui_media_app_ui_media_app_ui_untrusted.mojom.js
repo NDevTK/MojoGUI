@@ -421,9 +421,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactoryReceiver = 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsMantisAvailable FAILED:', e));
           }
           break;
@@ -436,9 +434,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactoryReceiver = 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateMantisUntrustedService FAILED:', e));
           }
           break;
@@ -899,9 +895,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPageReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestBitmap FAILED:', e));
           }
           break;
@@ -1387,9 +1381,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPageReceiver = class 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPdfContent FAILED:', e));
           }
           break;
@@ -1749,9 +1741,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = c
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SegmentImage FAILED:', e));
           }
           break;
@@ -1764,9 +1754,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = c
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GenerativeFillImage FAILED:', e));
           }
           break;
@@ -1779,9 +1767,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = c
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] InpaintImage FAILED:', e));
           }
           break;
@@ -1794,9 +1780,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = c
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OutpaintImage FAILED:', e));
           }
           break;
@@ -1809,9 +1793,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = c
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ClassifyImageSafety FAILED:', e));
           }
           break;
@@ -1824,9 +1806,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = c
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] InferSegmentationMode FAILED:', e));
           }
           break;

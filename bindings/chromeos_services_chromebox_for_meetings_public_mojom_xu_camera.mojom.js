@@ -438,9 +438,7 @@ mojo.internal.bindings.ash.cfm.mojom.XuCameraReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetUnitId_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetUnitId_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetUnitId FAILED:', e));
           }
           break;
@@ -453,9 +451,7 @@ mojo.internal.bindings.ash.cfm.mojom.XuCameraReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.cfm.mojom.XuCamera_MapCtrl_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cfm.mojom.XuCamera_MapCtrl_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] MapCtrl FAILED:', e));
           }
           break;
@@ -468,9 +464,7 @@ mojo.internal.bindings.ash.cfm.mojom.XuCameraReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetCtrl_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetCtrl_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetCtrl FAILED:', e));
           }
           break;
@@ -483,9 +477,7 @@ mojo.internal.bindings.ash.cfm.mojom.XuCameraReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.cfm.mojom.XuCamera_SetCtrl_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cfm.mojom.XuCamera_SetCtrl_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetCtrl FAILED:', e));
           }
           break;

@@ -1303,9 +1303,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.viz.mojom.GpuService_EstablishGpuChannel_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.viz.mojom.GpuService_EstablishGpuChannel_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EstablishGpuChannel FAILED:', e));
           }
           break;
@@ -1367,9 +1365,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RegisterDCOMPSurfaceHandle FAILED:', e));
           }
           break;
@@ -1403,9 +1399,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.viz.mojom.GpuService_GetVideoMemoryUsageStats_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.viz.mojom.GpuService_GetVideoMemoryUsageStats_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetVideoMemoryUsageStats FAILED:', e));
           }
           break;
@@ -1425,9 +1419,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.viz.mojom.GpuService_GetPeakMemoryUsage_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.viz.mojom.GpuService_GetPeakMemoryUsage_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPeakMemoryUsage FAILED:', e));
           }
           break;
@@ -1440,9 +1432,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.viz.mojom.GpuService_RequestDXGIInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.viz.mojom.GpuService_RequestDXGIInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestDXGIInfo FAILED:', e));
           }
           break;
@@ -1532,9 +1522,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.viz.mojom.GpuService_CommitCATransaction_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.viz.mojom.GpuService_CommitCATransaction_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CommitCATransaction FAILED:', e));
           }
           break;
@@ -1547,9 +1535,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.viz.mojom.GpuService_WriteClangProfilingProfile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.viz.mojom.GpuService_WriteClangProfilingProfile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] WriteClangProfilingProfile FAILED:', e));
           }
           break;
@@ -1562,9 +1548,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.viz.mojom.GpuService_GetDawnInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.viz.mojom.GpuService_GetDawnInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDawnInfo FAILED:', e));
           }
           break;

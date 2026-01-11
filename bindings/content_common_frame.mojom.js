@@ -962,9 +962,7 @@ mojo.internal.bindings.content.mojom.FrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.Frame_CommitSameDocumentNavigation_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.Frame_CommitSameDocumentNavigation_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CommitSameDocumentNavigation FAILED:', e));
           }
           break;
@@ -1019,9 +1017,7 @@ mojo.internal.bindings.content.mojom.FrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.Frame_SnapshotAccessibilityTree_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.Frame_SnapshotAccessibilityTree_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SnapshotAccessibilityTree FAILED:', e));
           }
           break;
@@ -2072,9 +2068,7 @@ mojo.internal.bindings.content.mojom.FrameHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.FrameHost_CreateNewWindow_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.FrameHost_CreateNewWindow_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateNewWindow FAILED:', e));
           }
           break;

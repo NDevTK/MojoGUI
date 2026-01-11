@@ -890,9 +890,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.orca.mojom.EditorClient_GetPresetTextQueries_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.orca.mojom.EditorClient_GetPresetTextQueries_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPresetTextQueries FAILED:', e));
           }
           break;
@@ -905,9 +903,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestPresetRewrite_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestPresetRewrite_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestPresetRewrite FAILED:', e));
           }
           break;
@@ -920,9 +916,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformRewrite_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformRewrite_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestFreeformRewrite FAILED:', e));
           }
           break;
@@ -935,9 +929,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformWrite_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformWrite_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestFreeformWrite FAILED:', e));
           }
           break;
@@ -1006,9 +998,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.orca.mojom.EditorClient_PreviewFeedback_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.orca.mojom.EditorClient_PreviewFeedback_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PreviewFeedback FAILED:', e));
           }
           break;
@@ -1961,9 +1951,7 @@ mojo.internal.bindings.ash.orca.mojom.TextQueryProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.orca.mojom.TextQueryProvider_Process_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.orca.mojom.TextQueryProvider_Process_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Process FAILED:', e));
           }
           break;

@@ -1193,9 +1193,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_StartTraceSession_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.traces_internals.mojom.PageHandler_StartTraceSession_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StartTraceSession FAILED:', e));
           }
           break;
@@ -1208,9 +1206,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_CloneTraceSession_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.traces_internals.mojom.PageHandler_CloneTraceSession_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CloneTraceSession FAILED:', e));
           }
           break;
@@ -1223,9 +1219,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_StopTraceSession_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.traces_internals.mojom.PageHandler_StopTraceSession_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StopTraceSession FAILED:', e));
           }
           break;
@@ -1238,9 +1232,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_GetTrackEventCategories_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.traces_internals.mojom.PageHandler_GetTrackEventCategories_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetTrackEventCategories FAILED:', e));
           }
           break;
@@ -1253,9 +1245,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_GetBufferUsage_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.traces_internals.mojom.PageHandler_GetBufferUsage_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetBufferUsage FAILED:', e));
           }
           break;
@@ -1268,9 +1258,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_GetAllTraceReports_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.traces_internals.mojom.PageHandler_GetAllTraceReports_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAllTraceReports FAILED:', e));
           }
           break;
@@ -1283,9 +1271,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_DeleteSingleTrace_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.traces_internals.mojom.PageHandler_DeleteSingleTrace_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeleteSingleTrace FAILED:', e));
           }
           break;
@@ -1298,9 +1284,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_DeleteAllTraces_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.traces_internals.mojom.PageHandler_DeleteAllTraces_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeleteAllTraces FAILED:', e));
           }
           break;
@@ -1313,9 +1297,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_UserUploadSingleTrace_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.traces_internals.mojom.PageHandler_UserUploadSingleTrace_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UserUploadSingleTrace FAILED:', e));
           }
           break;
@@ -1328,9 +1310,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_DownloadTrace_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.traces_internals.mojom.PageHandler_DownloadTrace_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DownloadTrace FAILED:', e));
           }
           break;
@@ -1343,9 +1323,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_GetAllScenarios_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.traces_internals.mojom.PageHandler_GetAllScenarios_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAllScenarios FAILED:', e));
           }
           break;
@@ -1358,9 +1336,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_SetEnabledScenarios_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.traces_internals.mojom.PageHandler_SetEnabledScenarios_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetEnabledScenarios FAILED:', e));
           }
           break;
@@ -1373,9 +1349,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetScenariosConfigFromString FAILED:', e));
           }
           break;
@@ -1388,9 +1362,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetScenariosConfigFromBuffer FAILED:', e));
           }
           break;
@@ -1403,9 +1375,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPrivacyFilterEnabled FAILED:', e));
           }
           break;
@@ -1425,9 +1395,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_GetSystemTracingState_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.traces_internals.mojom.PageHandler_GetSystemTracingState_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSystemTracingState FAILED:', e));
           }
           break;
@@ -1440,9 +1408,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSecurityShieldIconUrl FAILED:', e));
           }
           break;
@@ -1455,9 +1421,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_EnableSystemTracing_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.traces_internals.mojom.PageHandler_EnableSystemTracing_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EnableSystemTracing FAILED:', e));
           }
           break;
@@ -1470,9 +1434,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.traces_internals.mojom.PageHandler_DisableSystemTracing_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.traces_internals.mojom.PageHandler_DisableSystemTracing_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DisableSystemTracing FAILED:', e));
           }
           break;

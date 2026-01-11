@@ -406,9 +406,7 @@ mojo.internal.bindings.infobar_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetInfoBars FAILED:', e));
           }
           break;
@@ -421,9 +419,7 @@ mojo.internal.bindings.infobar_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] TriggerInfoBar FAILED:', e));
           }
           break;

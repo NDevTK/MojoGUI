@@ -1230,9 +1230,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServiceReceiver
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsRoutineArgumentSupported FAILED:', e));
           }
           break;
@@ -1459,9 +1457,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_GetState_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_GetState_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetState FAILED:', e));
           }
           break;

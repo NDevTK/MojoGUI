@@ -771,9 +771,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.WebTestRenderFrame_SynchronouslyCompositeAfterTest_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.WebTestRenderFrame_SynchronouslyCompositeAfterTest_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SynchronouslyCompositeAfterTest FAILED:', e));
           }
           break;
@@ -786,9 +784,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.WebTestRenderFrame_DumpFrameLayout_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.WebTestRenderFrame_DumpFrameLayout_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DumpFrameLayout FAILED:', e));
           }
           break;
@@ -2352,9 +2348,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetBluetoothManualChooserEvents FAILED:', e));
           }
           break;
@@ -2402,9 +2396,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.WebTestControlHost_GetWritableDirectory_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.WebTestControlHost_GetWritableDirectory_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetWritableDirectory FAILED:', e));
           }
           break;
@@ -2424,9 +2416,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateSubresourceFilterRulesetFile FAILED:', e));
           }
           break;
@@ -2446,9 +2436,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.WebTestControlHost_SetTrustTokenKeyCommitments_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.WebTestControlHost_SetTrustTokenKeyCommitments_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetTrustTokenKeyCommitments FAILED:', e));
           }
           break;
@@ -2461,9 +2449,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.WebTestControlHost_ClearTrustTokenState_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.WebTestControlHost_ClearTrustTokenState_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ClearTrustTokenState FAILED:', e));
           }
           break;
@@ -2504,9 +2490,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RegisterIsolatedFileSystem FAILED:', e));
           }
           break;

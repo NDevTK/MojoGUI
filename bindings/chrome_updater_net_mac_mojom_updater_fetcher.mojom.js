@@ -766,9 +766,7 @@ mojo.internal.bindings.updater.mojom.FetchServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PostRequest FAILED:', e));
           }
           break;
@@ -781,9 +779,7 @@ mojo.internal.bindings.updater.mojom.FetchServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DownloadToFile FAILED:', e));
           }
           break;

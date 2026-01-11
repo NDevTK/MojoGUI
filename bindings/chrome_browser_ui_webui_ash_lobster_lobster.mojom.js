@@ -626,9 +626,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestCandidates FAILED:', e));
           }
           break;
@@ -641,9 +639,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DownloadCandidate FAILED:', e));
           }
           break;
@@ -656,9 +652,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CommitAsInsert FAILED:', e));
           }
           break;
@@ -671,9 +665,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CommitAsDownload FAILED:', e));
           }
           break;
@@ -686,9 +678,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PreviewFeedback FAILED:', e));
           }
           break;
@@ -701,9 +691,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SubmitFeedback FAILED:', e));
           }
           break;

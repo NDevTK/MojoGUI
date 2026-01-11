@@ -2385,9 +2385,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.AppInstance_Init_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.AppInstance_Init_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
           }
           break;
@@ -2442,9 +2440,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.AppInstance_RequestAppIcon_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.AppInstance_RequestAppIcon_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestAppIcon FAILED:', e));
           }
           break;
@@ -2457,9 +2453,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.AppInstance_GetAppIcon_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.AppInstance_GetAppIcon_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAppIcon FAILED:', e));
           }
           break;
@@ -2472,9 +2466,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.AppInstance_RequestShortcutIcon_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.AppInstance_RequestShortcutIcon_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestShortcutIcon FAILED:', e));
           }
           break;
@@ -2487,9 +2479,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutIcon_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutIcon_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAppShortcutIcon FAILED:', e));
           }
           break;
@@ -2502,9 +2492,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.AppInstance_RequestPackageIcon_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.AppInstance_RequestPackageIcon_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestPackageIcon FAILED:', e));
           }
           break;
@@ -2517,9 +2505,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.AppInstance_GetPackageIcon_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.AppInstance_GetPackageIcon_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPackageIcon FAILED:', e));
           }
           break;
@@ -2574,9 +2560,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.AppInstance_StartPaiFlow_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.AppInstance_StartPaiFlow_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StartPaiFlow FAILED:', e));
           }
           break;
@@ -2610,9 +2594,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.AppInstance_GetAndroidId_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.AppInstance_GetAndroidId_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAndroidId FAILED:', e));
           }
           break;
@@ -2625,9 +2607,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAppShortcutGlobalQueryItems FAILED:', e));
           }
           break;
@@ -2640,9 +2620,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutItems_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutItems_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAppShortcutItems FAILED:', e));
           }
           break;
@@ -2655,9 +2633,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetRecentAndSuggestedAppsFromPlayStore FAILED:', e));
           }
           break;
@@ -2670,9 +2646,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.AppInstance_IsInstallable_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.AppInstance_IsInstallable_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsInstallable FAILED:', e));
           }
           break;
@@ -2685,9 +2659,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.AppInstance_GetAppCategory_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.AppInstance_GetAppCategory_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAppCategory FAILED:', e));
           }
           break;

@@ -843,9 +843,7 @@ mojo.internal.bindings.viz.mojom.GpuHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.viz.mojom.GpuHost_GetIsolationKey_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.viz.mojom.GpuHost_GetIsolationKey_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetIsolationKey FAILED:', e));
           }
           break;
@@ -872,9 +870,7 @@ mojo.internal.bindings.viz.mojom.GpuHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EnsureWebNNExecutionProvidersReady FAILED:', e));
           }
           break;
@@ -887,9 +883,7 @@ mojo.internal.bindings.viz.mojom.GpuHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateWebNNWeightsFile FAILED:', e));
           }
           break;

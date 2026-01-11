@@ -259,9 +259,7 @@ mojo.internal.bindings.blink.mojom.WidgetCompositorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.WidgetCompositor_VisualStateRequest_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.WidgetCompositor_VisualStateRequest_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] VisualStateRequest FAILED:', e));
           }
           break;
@@ -1079,9 +1077,7 @@ mojo.internal.bindings.blink.mojom.WidgetReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.Widget_ForceRedraw_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.Widget_ForceRedraw_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ForceRedraw FAILED:', e));
           }
           break;
@@ -1101,9 +1097,7 @@ mojo.internal.bindings.blink.mojom.WidgetReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.Widget_UpdateScreenRects_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.Widget_UpdateScreenRects_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UpdateScreenRects FAILED:', e));
           }
           break;

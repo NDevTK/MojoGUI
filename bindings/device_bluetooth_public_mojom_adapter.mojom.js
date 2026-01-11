@@ -374,9 +374,7 @@ mojo.internal.bindings.bluetooth.mojom.AdvertisementReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.bluetooth.mojom.Advertisement_Unregister_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.bluetooth.mojom.Advertisement_Unregister_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Unregister FAILED:', e));
           }
           break;
@@ -578,9 +576,7 @@ mojo.internal.bindings.bluetooth.mojom.DiscoverySessionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.bluetooth.mojom.DiscoverySession_IsActive_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.bluetooth.mojom.DiscoverySession_IsActive_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsActive FAILED:', e));
           }
           break;
@@ -593,9 +589,7 @@ mojo.internal.bindings.bluetooth.mojom.DiscoverySessionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.bluetooth.mojom.DiscoverySession_Stop_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.bluetooth.mojom.DiscoverySession_Stop_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Stop FAILED:', e));
           }
           break;
@@ -760,9 +754,7 @@ mojo.internal.bindings.bluetooth.mojom.SocketReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.bluetooth.mojom.Socket_Disconnect_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.bluetooth.mojom.Socket_Disconnect_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Disconnect FAILED:', e));
           }
           break;
@@ -963,9 +955,7 @@ mojo.internal.bindings.bluetooth.mojom.ServerSocketReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.bluetooth.mojom.ServerSocket_Accept_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.bluetooth.mojom.ServerSocket_Accept_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Accept FAILED:', e));
           }
           break;
@@ -978,9 +968,7 @@ mojo.internal.bindings.bluetooth.mojom.ServerSocketReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.bluetooth.mojom.ServerSocket_Disconnect_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.bluetooth.mojom.ServerSocket_Disconnect_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Disconnect FAILED:', e));
           }
           break;
@@ -1185,9 +1173,7 @@ mojo.internal.bindings.bluetooth.mojom.GattServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.bluetooth.mojom.GattService_CreateCharacteristic_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.bluetooth.mojom.GattService_CreateCharacteristic_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateCharacteristic FAILED:', e));
           }
           break;
@@ -1200,9 +1186,7 @@ mojo.internal.bindings.bluetooth.mojom.GattServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.bluetooth.mojom.GattService_Register_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.bluetooth.mojom.GattService_Register_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Register FAILED:', e));
           }
           break;
@@ -1372,9 +1356,7 @@ mojo.internal.bindings.bluetooth.mojom.GattServiceObserverReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OnLocalCharacteristicRead FAILED:', e));
           }
           break;
@@ -1952,9 +1934,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.bluetooth.mojom.Adapter_ConnectToDevice_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.bluetooth.mojom.Adapter_ConnectToDevice_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ConnectToDevice FAILED:', e));
           }
           break;
@@ -1967,9 +1947,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.bluetooth.mojom.Adapter_GetDevices_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.bluetooth.mojom.Adapter_GetDevices_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDevices FAILED:', e));
           }
           break;
@@ -1982,9 +1960,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.bluetooth.mojom.Adapter_GetInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.bluetooth.mojom.Adapter_GetInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetInfo FAILED:', e));
           }
           break;
@@ -1997,9 +1973,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.bluetooth.mojom.Adapter_AddObserver_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.bluetooth.mojom.Adapter_AddObserver_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AddObserver FAILED:', e));
           }
           break;
@@ -2012,9 +1986,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.bluetooth.mojom.Adapter_RegisterAdvertisement_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.bluetooth.mojom.Adapter_RegisterAdvertisement_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RegisterAdvertisement FAILED:', e));
           }
           break;
@@ -2027,9 +1999,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.bluetooth.mojom.Adapter_SetDiscoverable_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.bluetooth.mojom.Adapter_SetDiscoverable_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetDiscoverable FAILED:', e));
           }
           break;
@@ -2042,9 +2012,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.bluetooth.mojom.Adapter_SetName_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.bluetooth.mojom.Adapter_SetName_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetName FAILED:', e));
           }
           break;
@@ -2057,9 +2025,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.bluetooth.mojom.Adapter_StartDiscoverySession_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.bluetooth.mojom.Adapter_StartDiscoverySession_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StartDiscoverySession FAILED:', e));
           }
           break;
@@ -2072,9 +2038,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ConnectToServiceInsecurely FAILED:', e));
           }
           break;
@@ -2087,9 +2051,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateRfcommServiceInsecurely FAILED:', e));
           }
           break;
@@ -2102,9 +2064,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.bluetooth.mojom.Adapter_CreateLocalGattService_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.bluetooth.mojom.Adapter_CreateLocalGattService_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateLocalGattService FAILED:', e));
           }
           break;
@@ -2117,9 +2077,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsLeScatternetDualRoleSupported FAILED:', e));
           }
           break;

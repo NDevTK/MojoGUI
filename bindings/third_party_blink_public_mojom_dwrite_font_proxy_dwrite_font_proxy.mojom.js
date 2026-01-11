@@ -457,9 +457,7 @@ mojo.internal.bindings.blink.mojom.DWriteFontProxyReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.DWriteFontProxy_FindFamily_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.DWriteFontProxy_FindFamily_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FindFamily FAILED:', e));
           }
           break;
@@ -472,9 +470,7 @@ mojo.internal.bindings.blink.mojom.DWriteFontProxyReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyCount_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyCount_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetFamilyCount FAILED:', e));
           }
           break;
@@ -487,9 +483,7 @@ mojo.internal.bindings.blink.mojom.DWriteFontProxyReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyNames_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyNames_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetFamilyNames FAILED:', e));
           }
           break;
@@ -502,9 +496,7 @@ mojo.internal.bindings.blink.mojom.DWriteFontProxyReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFontFileHandles_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFontFileHandles_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetFontFileHandles FAILED:', e));
           }
           break;
@@ -517,9 +509,7 @@ mojo.internal.bindings.blink.mojom.DWriteFontProxyReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.DWriteFontProxy_MatchUniqueFont_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.DWriteFontProxy_MatchUniqueFont_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] MatchUniqueFont FAILED:', e));
           }
           break;
@@ -532,9 +522,7 @@ mojo.internal.bindings.blink.mojom.DWriteFontProxyReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.DWriteFontProxy_MapCharacters_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.DWriteFontProxy_MapCharacters_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] MapCharacters FAILED:', e));
           }
           break;

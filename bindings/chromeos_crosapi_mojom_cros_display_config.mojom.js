@@ -747,9 +747,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDisplayLayoutInfo FAILED:', e));
           }
           break;
@@ -762,9 +760,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetDisplayLayoutInfo FAILED:', e));
           }
           break;
@@ -777,9 +773,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDisplayUnitInfoList FAILED:', e));
           }
           break;
@@ -792,9 +786,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetDisplayProperties FAILED:', e));
           }
           break;
@@ -814,9 +806,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OverscanCalibration FAILED:', e));
           }
           break;
@@ -829,9 +819,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] TouchCalibration FAILED:', e));
           }
           break;

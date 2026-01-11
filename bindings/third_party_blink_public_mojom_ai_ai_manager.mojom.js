@@ -1439,9 +1439,7 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.AIManager_CanCreateLanguageModel_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.AIManager_CanCreateLanguageModel_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CanCreateLanguageModel FAILED:', e));
           }
           break;
@@ -1461,9 +1459,7 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.AIManager_CanCreateSummarizer_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.AIManager_CanCreateSummarizer_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CanCreateSummarizer FAILED:', e));
           }
           break;
@@ -1483,9 +1479,7 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.AIManager_GetLanguageModelParams_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.AIManager_GetLanguageModelParams_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetLanguageModelParams FAILED:', e));
           }
           break;
@@ -1498,9 +1492,7 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.AIManager_CanCreateWriter_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.AIManager_CanCreateWriter_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CanCreateWriter FAILED:', e));
           }
           break;
@@ -1520,9 +1512,7 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.AIManager_CanCreateRewriter_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.AIManager_CanCreateRewriter_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CanCreateRewriter FAILED:', e));
           }
           break;
@@ -1542,9 +1532,7 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.AIManager_CanCreateProofreader_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.AIManager_CanCreateProofreader_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CanCreateProofreader FAILED:', e));
           }
           break;

@@ -1312,9 +1312,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetEnabled_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetEnabled_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetEnabled FAILED:', e));
           }
           break;
@@ -1334,9 +1332,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_IsOnboardingComplete_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_IsOnboardingComplete_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsOnboardingComplete FAILED:', e));
           }
           break;
@@ -1356,9 +1352,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetFastInitiationNotificationState_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetFastInitiationNotificationState_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetFastInitiationNotificationState FAILED:', e));
           }
           break;
@@ -1378,9 +1372,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetIsFastInitiationHardwareSupported_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetIsFastInitiationHardwareSupported_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetIsFastInitiationHardwareSupported FAILED:', e));
           }
           break;
@@ -1393,9 +1385,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetDeviceName_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetDeviceName_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDeviceName FAILED:', e));
           }
           break;
@@ -1408,9 +1398,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ValidateDeviceName FAILED:', e));
           }
           break;
@@ -1423,9 +1411,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetDeviceName_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetDeviceName_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetDeviceName FAILED:', e));
           }
           break;
@@ -1438,9 +1424,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetDataUsage_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetDataUsage_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDataUsage FAILED:', e));
           }
           break;
@@ -1460,9 +1444,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetVisibility_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetVisibility_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetVisibility FAILED:', e));
           }
           break;
@@ -1482,9 +1464,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetAllowedContacts_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetAllowedContacts_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAllowedContacts FAILED:', e));
           }
           break;

@@ -506,9 +506,7 @@ mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerReceiver = class 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetUserEmailAddress FAILED:', e));
           }
           break;
@@ -521,9 +519,7 @@ mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerReceiver = class 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ConnectToOneDrive FAILED:', e));
           }
           break;
@@ -536,9 +532,7 @@ mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerReceiver = class 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DisconnectFromOneDrive FAILED:', e));
           }
           break;
@@ -551,9 +545,7 @@ mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandlerReceiver = class 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OpenOneDriveFolder FAILED:', e));
           }
           break;

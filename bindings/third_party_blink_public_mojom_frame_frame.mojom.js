@@ -3170,9 +3170,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrameHost_EnterFullscreen_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LocalFrameHost_EnterFullscreen_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EnterFullscreen FAILED:', e));
           }
           break;
@@ -3451,9 +3449,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrameHost_RunModalAlertDialog_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LocalFrameHost_RunModalAlertDialog_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunModalAlertDialog FAILED:', e));
           }
           break;
@@ -3466,9 +3462,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrameHost_RunModalConfirmDialog_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LocalFrameHost_RunModalConfirmDialog_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunModalConfirmDialog FAILED:', e));
           }
           break;
@@ -3481,9 +3475,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrameHost_RunModalPromptDialog_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LocalFrameHost_RunModalPromptDialog_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunModalPromptDialog FAILED:', e));
           }
           break;
@@ -3496,9 +3488,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrameHost_RunBeforeUnloadConfirm_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LocalFrameHost_RunBeforeUnloadConfirm_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunBeforeUnloadConfirm FAILED:', e));
           }
           break;
@@ -3672,9 +3662,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrameHost_DisableUntrustedNetworkInFencedFrame_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LocalFrameHost_DisableUntrustedNetworkInFencedFrame_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DisableUntrustedNetworkInFencedFrame FAILED:', e));
           }
           break;
@@ -3687,9 +3675,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrameHost_ExemptUrlFromNetworkRevocationForTesting_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LocalFrameHost_ExemptUrlFromNetworkRevocationForTesting_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ExemptUrlFromNetworkRevocationForTesting FAILED:', e));
           }
           break;
@@ -3786,9 +3772,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportStorage_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LocalFrameHost_InitializeCrashReportStorage_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] InitializeCrashReportStorage FAILED:', e));
           }
           break;
@@ -5911,9 +5895,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_GetTextSurroundingSelection_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LocalFrame_GetTextSurroundingSelection_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetTextSurroundingSelection FAILED:', e));
           }
           break;
@@ -6045,9 +6027,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_BeforeUnload_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LocalFrame_BeforeUnload_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] BeforeUnload FAILED:', e));
           }
           break;
@@ -6067,9 +6047,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_RequestVideoFrameAtWithBoundsHint_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LocalFrame_RequestVideoFrameAtWithBoundsHint_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestVideoFrameAtWithBoundsHint FAILED:', e));
           }
           break;
@@ -6131,9 +6109,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_JavaScriptMethodExecuteRequest_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LocalFrame_JavaScriptMethodExecuteRequest_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] JavaScriptMethodExecuteRequest FAILED:', e));
           }
           break;
@@ -6146,9 +6122,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_JavaScriptExecuteRequest_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LocalFrame_JavaScriptExecuteRequest_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] JavaScriptExecuteRequest FAILED:', e));
           }
           break;
@@ -6161,9 +6135,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_JavaScriptExecuteRequestForTests_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LocalFrame_JavaScriptExecuteRequestForTests_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] JavaScriptExecuteRequestForTests FAILED:', e));
           }
           break;
@@ -6176,9 +6148,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_JavaScriptExecuteRequestInIsolatedWorld_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LocalFrame_JavaScriptExecuteRequestInIsolatedWorld_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] JavaScriptExecuteRequestInIsolatedWorld FAILED:', e));
           }
           break;
@@ -6205,9 +6175,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_GetStringForRange_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LocalFrame_GetStringForRange_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetStringForRange FAILED:', e));
           }
           break;
@@ -6234,9 +6202,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_GetSavableResourceLinks_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LocalFrame_GetSavableResourceLinks_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSavableResourceLinks FAILED:', e));
           }
           break;
@@ -6263,9 +6229,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_ExtractSmartClipData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LocalFrame_ExtractSmartClipData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ExtractSmartClipData FAILED:', e));
           }
           break;
@@ -6285,9 +6249,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_GetCanonicalUrlForSharing_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LocalFrame_GetCanonicalUrlForSharing_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetCanonicalUrlForSharing FAILED:', e));
           }
           break;
@@ -6300,9 +6262,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_GetOpenGraphMetadata_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LocalFrame_GetOpenGraphMetadata_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOpenGraphMetadata FAILED:', e));
           }
           break;
@@ -6322,9 +6282,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_UpdatePrerenderURL_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LocalFrame_UpdatePrerenderURL_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UpdatePrerenderURL FAILED:', e));
           }
           break;
@@ -6358,9 +6316,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_SnapshotDocumentForViewTransition_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LocalFrame_SnapshotDocumentForViewTransition_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SnapshotDocumentForViewTransition FAILED:', e));
           }
           break;
@@ -6394,9 +6350,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_GetScrollPosition_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LocalFrame_GetScrollPosition_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetScrollPosition FAILED:', e));
           }
           break;
@@ -6937,9 +6891,7 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.LocalMainFrame_ClosePage_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LocalMainFrame_ClosePage_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ClosePage FAILED:', e));
           }
           break;
@@ -6952,9 +6904,7 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.LocalMainFrame_GetFullPageSize_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LocalMainFrame_GetFullPageSize_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetFullPageSize FAILED:', e));
           }
           break;
@@ -7009,9 +6959,7 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.LocalMainFrame_Discard_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LocalMainFrame_Discard_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Discard FAILED:', e));
           }
           break;
@@ -7721,9 +7669,7 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.LocalMainFrameHost_UpdateTargetURL_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LocalMainFrameHost_UpdateTargetURL_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UpdateTargetURL FAILED:', e));
           }
           break;
@@ -7743,9 +7689,7 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.LocalMainFrameHost_ShowCreatedWindow_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LocalMainFrameHost_ShowCreatedWindow_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ShowCreatedWindow FAILED:', e));
           }
           break;
@@ -7758,9 +7702,7 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.LocalMainFrameHost_SetWindowRect_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LocalMainFrameHost_SetWindowRect_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetWindowRect FAILED:', e));
           }
           break;

@@ -335,9 +335,7 @@ mojo.internal.bindings.webnn.mojom.WebNNContextReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateTensor FAILED:', e));
           }
           break;
@@ -350,9 +348,7 @@ mojo.internal.bindings.webnn.mojom.WebNNContextReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateTensorFromMailbox FAILED:', e));
           }
           break;

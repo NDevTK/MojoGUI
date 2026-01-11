@@ -445,9 +445,7 @@ mojo.internal.bindings.echo.mojom.EchoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.echo.mojom.EchoService_EchoString_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.echo.mojom.EchoService_EchoString_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EchoString FAILED:', e));
           }
           break;
@@ -488,9 +486,7 @@ mojo.internal.bindings.echo.mojom.EchoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadNativeLibrary FAILED:', e));
           }
           break;
@@ -503,9 +499,7 @@ mojo.internal.bindings.echo.mojom.EchoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DecryptEncrypt FAILED:', e));
           }
           break;

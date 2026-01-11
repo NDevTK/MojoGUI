@@ -1064,9 +1064,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AcceptComposeResult FAILED:', e));
           }
           break;
@@ -1079,9 +1077,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestInitialState FAILED:', e));
           }
           break;
@@ -1094,9 +1090,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Undo FAILED:', e));
           }
           break;
@@ -1109,9 +1103,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RecoverFromErrorState FAILED:', e));
           }
           break;
@@ -1124,9 +1116,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Redo FAILED:', e));
           }
           break;
@@ -1181,9 +1171,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerReceiver 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EditResult FAILED:', e));
           }
           break;

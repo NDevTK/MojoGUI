@@ -403,9 +403,7 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestClose FAILED:', e));
           }
           break;
@@ -418,9 +416,7 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetInstalledArcApps FAILED:', e));
           }
           break;
@@ -433,9 +429,7 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOAuthToken FAILED:', e));
           }
           break;

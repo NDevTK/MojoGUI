@@ -322,9 +322,7 @@ mojo.internal.bindings.blink.mojom.KeyboardLockServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.KeyboardLockService_RequestKeyboardLock_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.KeyboardLockService_RequestKeyboardLock_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestKeyboardLock FAILED:', e));
           }
           break;
@@ -344,9 +342,7 @@ mojo.internal.bindings.blink.mojom.KeyboardLockServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetKeyboardLayoutMap FAILED:', e));
           }
           break;

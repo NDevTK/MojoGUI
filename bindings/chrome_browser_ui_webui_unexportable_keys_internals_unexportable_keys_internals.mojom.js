@@ -448,9 +448,7 @@ mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandlerReceiver = c
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetUnexportableKeysInfo FAILED:', e));
           }
           break;
@@ -463,9 +461,7 @@ mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandlerReceiver = c
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeleteKey FAILED:', e));
           }
           break;

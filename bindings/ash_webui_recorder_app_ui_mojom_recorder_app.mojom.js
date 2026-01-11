@@ -1208,9 +1208,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetModelInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetModelInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetModelInfo FAILED:', e));
           }
           break;
@@ -1223,9 +1221,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_LoadModel_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_LoadModel_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadModel FAILED:', e));
           }
           break;
@@ -1238,9 +1234,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_FormatModelInput_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_FormatModelInput_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FormatModelInput FAILED:', e));
           }
           break;
@@ -1253,9 +1247,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ValidateSafetyResult FAILED:', e));
           }
           break;
@@ -1268,9 +1260,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddModelMonitor_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddModelMonitor_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AddModelMonitor FAILED:', e));
           }
           break;
@@ -1283,9 +1273,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAvailableLangPacks FAILED:', e));
           }
           break;
@@ -1298,9 +1286,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDefaultLanguage FAILED:', e));
           }
           break;
@@ -1313,9 +1299,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AddSodaMonitor FAILED:', e));
           }
           break;
@@ -1328,9 +1312,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_InstallSoda_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_InstallSoda_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] InstallSoda FAILED:', e));
           }
           break;
@@ -1343,9 +1325,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadSpeechRecognizer FAILED:', e));
           }
           break;
@@ -1365,9 +1345,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetMicrophoneInfo FAILED:', e));
           }
           break;
@@ -1380,9 +1358,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AddQuietModeMonitor FAILED:', e));
           }
           break;
@@ -1402,9 +1378,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CanUseSpeakerLabel FAILED:', e));
           }
           break;
@@ -1424,9 +1398,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CanCaptureSystemAudioWithLoopback FAILED:', e));
           }
           break;

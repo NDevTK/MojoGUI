@@ -1155,9 +1155,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OnFocus FAILED:', e));
           }
           break;
@@ -1177,9 +1175,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.ime.mojom.InputMethod_ProcessKeyEvent_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.ime.mojom.InputMethod_ProcessKeyEvent_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ProcessKeyEvent FAILED:', e));
           }
           break;
@@ -1220,9 +1216,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.ime.mojom.InputMethod_IsReadyForTesting_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.ime.mojom.InputMethod_IsReadyForTesting_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsReadyForTesting FAILED:', e));
           }
           break;

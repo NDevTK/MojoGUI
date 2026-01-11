@@ -737,9 +737,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseIntegrityBlock_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseIntegrityBlock_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ParseIntegrityBlock FAILED:', e));
           }
           break;
@@ -752,9 +750,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseMetadata_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseMetadata_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ParseMetadata FAILED:', e));
           }
           break;
@@ -767,9 +763,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseResponse_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseResponse_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ParseResponse FAILED:', e));
           }
           break;
@@ -782,9 +776,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.web_package.mojom.WebBundleParser_Close_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.web_package.mojom.WebBundleParser_Close_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Close FAILED:', e));
           }
           break;
@@ -1059,9 +1051,7 @@ mojo.internal.bindings.web_package.mojom.BundleDataSourceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.web_package.mojom.BundleDataSource_Read_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.web_package.mojom.BundleDataSource_Read_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Read FAILED:', e));
           }
           break;
@@ -1074,9 +1064,7 @@ mojo.internal.bindings.web_package.mojom.BundleDataSourceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.web_package.mojom.BundleDataSource_Length_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.web_package.mojom.BundleDataSource_Length_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Length FAILED:', e));
           }
           break;
@@ -1089,9 +1077,7 @@ mojo.internal.bindings.web_package.mojom.BundleDataSourceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.web_package.mojom.BundleDataSource_IsRandomAccessContext_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.web_package.mojom.BundleDataSource_IsRandomAccessContext_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsRandomAccessContext FAILED:', e));
           }
           break;
@@ -1104,9 +1090,7 @@ mojo.internal.bindings.web_package.mojom.BundleDataSourceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.web_package.mojom.BundleDataSource_Close_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.web_package.mojom.BundleDataSource_Close_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Close FAILED:', e));
           }
           break;

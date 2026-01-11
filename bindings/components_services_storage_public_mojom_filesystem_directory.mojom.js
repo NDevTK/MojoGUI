@@ -297,9 +297,7 @@ mojo.internal.bindings.storage.mojom.FileLockReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.FileLock_Release_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.FileLock_Release_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Release FAILED:', e));
           }
           break;
@@ -808,9 +806,7 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.Directory_PathExists_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.Directory_PathExists_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PathExists FAILED:', e));
           }
           break;
@@ -823,9 +819,7 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.Directory_GetEntries_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.Directory_GetEntries_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetEntries FAILED:', e));
           }
           break;
@@ -838,9 +832,7 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.Directory_OpenFile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.Directory_OpenFile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OpenFile FAILED:', e));
           }
           break;
@@ -853,9 +845,7 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.Directory_CreateDirectory_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.Directory_CreateDirectory_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateDirectory FAILED:', e));
           }
           break;
@@ -868,9 +858,7 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.Directory_DeleteFile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.Directory_DeleteFile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeleteFile FAILED:', e));
           }
           break;
@@ -883,9 +871,7 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.Directory_GetFileInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.Directory_GetFileInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetFileInfo FAILED:', e));
           }
           break;
@@ -898,9 +884,7 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.Directory_GetPathAccess_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.Directory_GetPathAccess_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPathAccess FAILED:', e));
           }
           break;
@@ -913,9 +897,7 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.Directory_RenameFile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.Directory_RenameFile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RenameFile FAILED:', e));
           }
           break;
@@ -928,9 +910,7 @@ mojo.internal.bindings.storage.mojom.DirectoryReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.Directory_LockFile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.Directory_LockFile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LockFile FAILED:', e));
           }
           break;

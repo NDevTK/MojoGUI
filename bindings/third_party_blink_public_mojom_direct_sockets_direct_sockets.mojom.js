@@ -424,9 +424,7 @@ mojo.internal.bindings.blink.mojom.DirectSocketsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OpenTCPSocket FAILED:', e));
           }
           break;
@@ -439,9 +437,7 @@ mojo.internal.bindings.blink.mojom.DirectSocketsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OpenConnectedUDPSocket FAILED:', e));
           }
           break;
@@ -454,9 +450,7 @@ mojo.internal.bindings.blink.mojom.DirectSocketsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OpenBoundUDPSocket FAILED:', e));
           }
           break;
@@ -469,9 +463,7 @@ mojo.internal.bindings.blink.mojom.DirectSocketsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OpenTCPServerSocket FAILED:', e));
           }
           break;

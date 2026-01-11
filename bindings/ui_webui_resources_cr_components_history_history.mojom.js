@@ -741,9 +741,7 @@ mojo.internal.bindings.history.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.history.mojom.PageHandler_QueryHistory_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.history.mojom.PageHandler_QueryHistory_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] QueryHistory FAILED:', e));
           }
           break;
@@ -756,9 +754,7 @@ mojo.internal.bindings.history.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.history.mojom.PageHandler_QueryHistoryContinuation_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.history.mojom.PageHandler_QueryHistoryContinuation_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] QueryHistoryContinuation FAILED:', e));
           }
           break;
@@ -771,9 +767,7 @@ mojo.internal.bindings.history.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.history.mojom.PageHandler_RemoveVisits_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.history.mojom.PageHandler_RemoveVisits_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RemoveVisits FAILED:', e));
           }
           break;
@@ -814,9 +808,7 @@ mojo.internal.bindings.history.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.history.mojom.PageHandler_RequestAccountInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.history.mojom.PageHandler_RequestAccountInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestAccountInfo FAILED:', e));
           }
           break;
@@ -836,9 +828,7 @@ mojo.internal.bindings.history.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ShouldShowHistoryPageHistorySyncPromo FAILED:', e));
           }
           break;

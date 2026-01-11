@@ -410,9 +410,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionContextReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media.mojom.SpeechRecognitionContext_BindRecognizer_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.SpeechRecognitionContext_BindRecognizer_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] BindRecognizer FAILED:', e));
           }
           break;
@@ -984,9 +982,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionRecognizerClientReceiver = c
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionRecognitionEvent_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionRecognitionEvent_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OnSpeechRecognitionRecognitionEvent FAILED:', e));
           }
           break;
@@ -1441,9 +1437,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionSurfaceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media.mojom.SpeechRecognitionSurface_GetBounds_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.SpeechRecognitionSurface_GetBounds_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetBounds FAILED:', e));
           }
           break;

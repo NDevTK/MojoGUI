@@ -3591,9 +3591,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_InitializeDeprecated_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_InitializeDeprecated_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] InitializeDeprecated FAILED:', e));
           }
           break;
@@ -3606,9 +3604,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_Initialize_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_Initialize_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Initialize FAILED:', e));
           }
           break;
@@ -3621,9 +3617,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_Terminate_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_Terminate_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Terminate FAILED:', e));
           }
           break;
@@ -3636,9 +3630,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_OpenSession_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_OpenSession_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OpenSession FAILED:', e));
           }
           break;
@@ -3651,9 +3643,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_CloseSession_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_CloseSession_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CloseSession FAILED:', e));
           }
           break;
@@ -3666,9 +3656,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GenerateDerivedKeys_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_GenerateDerivedKeys_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GenerateDerivedKeys FAILED:', e));
           }
           break;
@@ -3681,9 +3669,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GenerateNonce_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_GenerateNonce_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GenerateNonce FAILED:', e));
           }
           break;
@@ -3696,9 +3682,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GenerateSignature_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_GenerateSignature_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GenerateSignature FAILED:', e));
           }
           break;
@@ -3711,9 +3695,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadKeysV11OrV12_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadKeysV11OrV12_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadKeysV11OrV12 FAILED:', e));
           }
           break;
@@ -3726,9 +3708,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_RefreshKeysV14_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_RefreshKeysV14_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RefreshKeysV14 FAILED:', e));
           }
           break;
@@ -3741,9 +3721,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_QueryKeyControl_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_QueryKeyControl_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] QueryKeyControl FAILED:', e));
           }
           break;
@@ -3756,9 +3734,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_SelectKeyV13_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_SelectKeyV13_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SelectKeyV13 FAILED:', e));
           }
           break;
@@ -3771,9 +3747,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_DecryptCencV15_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_DecryptCencV15_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DecryptCencV15 FAILED:', e));
           }
           break;
@@ -3786,9 +3760,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GenericEncrypt_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_GenericEncrypt_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GenericEncrypt FAILED:', e));
           }
           break;
@@ -3801,9 +3773,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GenericDecrypt_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_GenericDecrypt_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GenericDecrypt FAILED:', e));
           }
           break;
@@ -3816,9 +3786,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GenericSign_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_GenericSign_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GenericSign FAILED:', e));
           }
           break;
@@ -3831,9 +3799,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GenericVerify_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_GenericVerify_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GenericVerify FAILED:', e));
           }
           break;
@@ -3846,9 +3812,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_CopyBufferV14_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_CopyBufferV14_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CopyBufferV14 FAILED:', e));
           }
           break;
@@ -3861,9 +3825,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadTestKeyboxV13_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadTestKeyboxV13_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadTestKeyboxV13 FAILED:', e));
           }
           break;
@@ -3876,9 +3838,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_IsRootKeyCertificateValid_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_IsRootKeyCertificateValid_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsRootKeyCertificateValid FAILED:', e));
           }
           break;
@@ -3891,9 +3851,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GetDeviceId_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_GetDeviceId_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDeviceId FAILED:', e));
           }
           break;
@@ -3906,9 +3864,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GetKeyData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_GetKeyData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetKeyData FAILED:', e));
           }
           break;
@@ -3921,9 +3877,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GetRandom_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_GetRandom_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetRandom FAILED:', e));
           }
           break;
@@ -3936,9 +3890,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GetNumberOfOpenSessions_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_GetNumberOfOpenSessions_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNumberOfOpenSessions FAILED:', e));
           }
           break;
@@ -3951,9 +3903,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GetMaxNumberOfSessions_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_GetMaxNumberOfSessions_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetMaxNumberOfSessions FAILED:', e));
           }
           break;
@@ -3966,9 +3916,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_RewrapDeviceRsaKey_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_RewrapDeviceRsaKey_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RewrapDeviceRsaKey FAILED:', e));
           }
           break;
@@ -3981,9 +3929,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadDeviceRsaKey_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadDeviceRsaKey_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadDeviceRsaKey FAILED:', e));
           }
           break;
@@ -3996,9 +3942,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GenerateRsaSignature_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_GenerateRsaSignature_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GenerateRsaSignature FAILED:', e));
           }
           break;
@@ -4011,9 +3955,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_DeriveKeysFromSessionKey_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_DeriveKeysFromSessionKey_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeriveKeysFromSessionKey FAILED:', e));
           }
           break;
@@ -4026,9 +3968,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_SecurityPatchLevel_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_SecurityPatchLevel_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SecurityPatchLevel FAILED:', e));
           }
           break;
@@ -4041,9 +3981,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GetHdcpCapability_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_GetHdcpCapability_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetHdcpCapability FAILED:', e));
           }
           break;
@@ -4056,9 +3994,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_UpdateUsageTable_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_UpdateUsageTable_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UpdateUsageTable FAILED:', e));
           }
           break;
@@ -4071,9 +4007,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_DeactivateUsageEntryV12_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_DeactivateUsageEntryV12_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeactivateUsageEntryV12 FAILED:', e));
           }
           break;
@@ -4086,9 +4020,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_ReportUsage_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_ReportUsage_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ReportUsage FAILED:', e));
           }
           break;
@@ -4101,9 +4033,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_DeleteUsageEntry_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_DeleteUsageEntry_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeleteUsageEntry FAILED:', e));
           }
           break;
@@ -4116,9 +4046,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_ForceDeleteUsageEntry_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_ForceDeleteUsageEntry_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ForceDeleteUsageEntry FAILED:', e));
           }
           break;
@@ -4131,9 +4059,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_DeleteOldUsageTable_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_DeleteOldUsageTable_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeleteOldUsageTable FAILED:', e));
           }
           break;
@@ -4146,9 +4072,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GetProvisioningMethod_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_GetProvisioningMethod_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetProvisioningMethod FAILED:', e));
           }
           break;
@@ -4161,9 +4085,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_SupportedCertificates_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_SupportedCertificates_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SupportedCertificates FAILED:', e));
           }
           break;
@@ -4176,9 +4098,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_IsSrmUpdateSupported_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_IsSrmUpdateSupported_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsSrmUpdateSupported FAILED:', e));
           }
           break;
@@ -4191,9 +4111,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GetCurrentSrmVersion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_GetCurrentSrmVersion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetCurrentSrmVersion FAILED:', e));
           }
           break;
@@ -4206,9 +4124,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadSrm_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadSrm_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadSrm FAILED:', e));
           }
           break;
@@ -4221,9 +4137,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_RemoveSrm_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_RemoveSrm_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RemoveSrm FAILED:', e));
           }
           break;
@@ -4236,9 +4150,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_CreateUsageTableHeader_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_CreateUsageTableHeader_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateUsageTableHeader FAILED:', e));
           }
           break;
@@ -4251,9 +4163,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadUsageTableHeader_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadUsageTableHeader_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadUsageTableHeader FAILED:', e));
           }
           break;
@@ -4266,9 +4176,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_CreateNewUsageEntry_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_CreateNewUsageEntry_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateNewUsageEntry FAILED:', e));
           }
           break;
@@ -4281,9 +4189,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadUsageEntry_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadUsageEntry_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadUsageEntry FAILED:', e));
           }
           break;
@@ -4296,9 +4202,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_UpdateUsageEntry_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_UpdateUsageEntry_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UpdateUsageEntry FAILED:', e));
           }
           break;
@@ -4311,9 +4215,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_DeactivateUsageEntry_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_DeactivateUsageEntry_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeactivateUsageEntry FAILED:', e));
           }
           break;
@@ -4326,9 +4228,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_ShrinkUsageTableHeader_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_ShrinkUsageTableHeader_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ShrinkUsageTableHeader FAILED:', e));
           }
           break;
@@ -4341,9 +4241,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_MoveEntry_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_MoveEntry_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] MoveEntry FAILED:', e));
           }
           break;
@@ -4356,9 +4254,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_CopyOldUsageEntry_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_CopyOldUsageEntry_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CopyOldUsageEntry FAILED:', e));
           }
           break;
@@ -4371,9 +4267,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_CreateOldUsageEntry_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_CreateOldUsageEntry_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateOldUsageEntry FAILED:', e));
           }
           break;
@@ -4386,9 +4280,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GetAnalogOutputFlags_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_GetAnalogOutputFlags_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAnalogOutputFlags FAILED:', e));
           }
           break;
@@ -4401,9 +4293,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadTestKeybox_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadTestKeybox_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadTestKeybox FAILED:', e));
           }
           break;
@@ -4416,9 +4306,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadEntitledContentKeysV14_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadEntitledContentKeysV14_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadEntitledContentKeysV14 FAILED:', e));
           }
           break;
@@ -4431,9 +4319,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_SelectKey_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_SelectKey_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SelectKey FAILED:', e));
           }
           break;
@@ -4446,9 +4332,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadKeysV14_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadKeysV14_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadKeysV14 FAILED:', e));
           }
           break;
@@ -4461,9 +4345,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadKeys_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadKeys_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadKeys FAILED:', e));
           }
           break;
@@ -4476,9 +4358,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_ResourceRatingTier_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_ResourceRatingTier_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ResourceRatingTier FAILED:', e));
           }
           break;
@@ -4491,9 +4371,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_BuildInformation_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_BuildInformation_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] BuildInformation FAILED:', e));
           }
           break;
@@ -4506,9 +4384,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_RefreshKeys_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_RefreshKeys_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RefreshKeys FAILED:', e));
           }
           break;
@@ -4521,9 +4397,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadEntitledContentKeys_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadEntitledContentKeys_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadEntitledContentKeys FAILED:', e));
           }
           break;
@@ -4536,9 +4410,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_GetOemPublicCertificate_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_GetOemPublicCertificate_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOemPublicCertificate FAILED:', e));
           }
           break;
@@ -4551,9 +4423,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_MaximumUsageTableHeaderSize_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_MaximumUsageTableHeaderSize_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] MaximumUsageTableHeaderSize FAILED:', e));
           }
           break;
@@ -4566,9 +4436,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_IsAntiRollbackHwPresent_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_IsAntiRollbackHwPresent_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsAntiRollbackHwPresent FAILED:', e));
           }
           break;
@@ -4581,9 +4449,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_MinorApiVersion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_MinorApiVersion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] MinorApiVersion FAILED:', e));
           }
           break;
@@ -4596,9 +4462,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_PrepAndSignLicenseRequest_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_PrepAndSignLicenseRequest_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PrepAndSignLicenseRequest FAILED:', e));
           }
           break;
@@ -4611,9 +4475,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_PrepAndSignRenewalRequest_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_PrepAndSignRenewalRequest_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PrepAndSignRenewalRequest FAILED:', e));
           }
           break;
@@ -4626,9 +4488,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_PrepAndSignProvisioningRequest_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_PrepAndSignProvisioningRequest_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PrepAndSignProvisioningRequest FAILED:', e));
           }
           break;
@@ -4641,9 +4501,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadLicense_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadLicense_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadLicense FAILED:', e));
           }
           break;
@@ -4656,9 +4514,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadRenewal_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadRenewal_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadRenewal FAILED:', e));
           }
           break;
@@ -4671,9 +4527,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadProvisioning_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadProvisioning_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadProvisioning FAILED:', e));
           }
           break;
@@ -4686,9 +4540,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadOemPrivateKey_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadOemPrivateKey_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadOemPrivateKey FAILED:', e));
           }
           break;
@@ -4701,9 +4553,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadDrmPrivateKey_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_LoadDrmPrivateKey_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadDrmPrivateKey FAILED:', e));
           }
           break;
@@ -4716,9 +4566,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_DecryptCenc_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_DecryptCenc_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DecryptCenc FAILED:', e));
           }
           break;
@@ -4731,9 +4579,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoService_CopyBuffer_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoService_CopyBuffer_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CopyBuffer FAILED:', e));
           }
           break;
@@ -5054,9 +4900,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.OemCryptoInstance_Init_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.OemCryptoInstance_Init_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
           }
           break;

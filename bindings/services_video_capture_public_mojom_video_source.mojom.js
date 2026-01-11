@@ -506,9 +506,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Suspend_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Suspend_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Suspend FAILED:', e));
           }
           break;
@@ -528,9 +526,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPhotoState FAILED:', e));
           }
           break;
@@ -543,9 +539,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetPhotoOptions FAILED:', e));
           }
           break;
@@ -558,9 +552,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] TakePhoto FAILED:', e));
           }
           break;
@@ -573,9 +565,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Close_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Close_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Close FAILED:', e));
           }
           break;
@@ -753,9 +743,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreatePushSubscription FAILED:', e));
           }
           break;

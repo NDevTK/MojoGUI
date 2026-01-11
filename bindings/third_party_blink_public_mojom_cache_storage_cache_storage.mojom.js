@@ -545,9 +545,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageCacheReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.CacheStorageCache_Batch_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.CacheStorageCache_Batch_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Batch FAILED:', e));
           }
           break;
@@ -560,9 +558,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageCacheReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.CacheStorageCache_WriteSideData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.CacheStorageCache_WriteSideData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] WriteSideData FAILED:', e));
           }
           break;
@@ -872,9 +868,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.CacheStorage_Has_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.CacheStorage_Has_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Has FAILED:', e));
           }
           break;
@@ -887,9 +881,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.CacheStorage_Delete_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.CacheStorage_Delete_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Delete FAILED:', e));
           }
           break;
@@ -902,9 +894,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.CacheStorage_Keys_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.CacheStorage_Keys_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Keys FAILED:', e));
           }
           break;

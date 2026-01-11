@@ -474,9 +474,7 @@ mojo.internal.bindings.device.mojom.SerialPortManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.SerialPortManager_GetDevices_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SerialPortManager_GetDevices_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDevices FAILED:', e));
           }
           break;
@@ -489,9 +487,7 @@ mojo.internal.bindings.device.mojom.SerialPortManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.SerialPortManager_OpenPort_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SerialPortManager_OpenPort_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OpenPort FAILED:', e));
           }
           break;
@@ -1181,9 +1177,7 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.SerialPort_Flush_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SerialPort_Flush_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Flush FAILED:', e));
           }
           break;
@@ -1196,9 +1190,7 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.SerialPort_Drain_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SerialPort_Drain_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Drain FAILED:', e));
           }
           break;
@@ -1211,9 +1203,7 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.SerialPort_GetControlSignals_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SerialPort_GetControlSignals_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetControlSignals FAILED:', e));
           }
           break;
@@ -1226,9 +1216,7 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.SerialPort_SetControlSignals_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SerialPort_SetControlSignals_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetControlSignals FAILED:', e));
           }
           break;
@@ -1241,9 +1229,7 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.SerialPort_ConfigurePort_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SerialPort_ConfigurePort_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ConfigurePort FAILED:', e));
           }
           break;
@@ -1256,9 +1242,7 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.SerialPort_GetPortInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SerialPort_GetPortInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPortInfo FAILED:', e));
           }
           break;
@@ -1271,9 +1255,7 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.SerialPort_Close_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SerialPort_Close_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Close FAILED:', e));
           }
           break;

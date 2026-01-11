@@ -481,9 +481,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataSourceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.cfm.mojom.DataSource_Fetch_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cfm.mojom.DataSource_Fetch_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Fetch FAILED:', e));
           }
           break;
@@ -496,9 +494,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataSourceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.cfm.mojom.DataSource_AddWatchDog_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cfm.mojom.DataSource_AddWatchDog_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AddWatchDog FAILED:', e));
           }
           break;
@@ -748,9 +744,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataAggregatorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDataSourceNames FAILED:', e));
           }
           break;
@@ -763,9 +757,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataAggregatorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddDataSource_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddDataSource_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AddDataSource FAILED:', e));
           }
           break;
@@ -778,9 +770,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataAggregatorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddWatchDog_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddWatchDog_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AddWatchDog FAILED:', e));
           }
           break;

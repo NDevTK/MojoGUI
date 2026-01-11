@@ -358,9 +358,7 @@ mojo.internal.bindings.ash.heartd.mojom.HeartdControlReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunAction FAILED:', e));
           }
           break;
@@ -529,9 +527,7 @@ mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Register FAILED:', e));
           }
           break;
@@ -732,9 +728,7 @@ mojo.internal.bindings.ash.heartd.mojom.PacemakerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendHeartbeat FAILED:', e));
           }
           break;
@@ -747,9 +741,7 @@ mojo.internal.bindings.ash.heartd.mojom.PacemakerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StopMonitor FAILED:', e));
           }
           break;

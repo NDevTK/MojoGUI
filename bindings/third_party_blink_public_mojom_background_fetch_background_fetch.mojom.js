@@ -689,9 +689,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Fetch FAILED:', e));
           }
           break;
@@ -704,9 +702,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetRegistration FAILED:', e));
           }
           break;
@@ -719,9 +715,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDeveloperIds FAILED:', e));
           }
           break;
@@ -734,9 +728,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetIconDisplaySize FAILED:', e));
           }
           break;
@@ -1010,9 +1002,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceReceiver = 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UpdateUI FAILED:', e));
           }
           break;
@@ -1025,9 +1015,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceReceiver = 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Abort FAILED:', e));
           }
           break;
@@ -1040,9 +1028,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceReceiver = 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] MatchRequests FAILED:', e));
           }
           break;

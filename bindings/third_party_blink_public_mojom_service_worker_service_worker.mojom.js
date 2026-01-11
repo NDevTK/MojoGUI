@@ -758,9 +758,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerHost_GetClients_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorkerHost_GetClients_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetClients FAILED:', e));
           }
           break;
@@ -773,9 +771,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerHost_GetClient_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorkerHost_GetClient_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetClient FAILED:', e));
           }
           break;
@@ -788,9 +784,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerHost_OpenNewTab_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorkerHost_OpenNewTab_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OpenNewTab FAILED:', e));
           }
           break;
@@ -803,9 +797,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OpenPaymentHandlerWindow FAILED:', e));
           }
           break;
@@ -825,9 +817,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerHost_FocusClient_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorkerHost_FocusClient_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FocusClient FAILED:', e));
           }
           break;
@@ -840,9 +830,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerHost_NavigateClient_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorkerHost_NavigateClient_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] NavigateClient FAILED:', e));
           }
           break;
@@ -855,9 +843,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerHost_SkipWaiting_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorkerHost_SkipWaiting_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SkipWaiting FAILED:', e));
           }
           break;
@@ -870,9 +856,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerHost_ClaimClients_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorkerHost_ClaimClients_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ClaimClients FAILED:', e));
           }
           break;
@@ -885,9 +869,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerHost_AddRoutes_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorkerHost_AddRoutes_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AddRoutes FAILED:', e));
           }
           break;
@@ -2010,9 +1992,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchInstallEvent_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchInstallEvent_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DispatchInstallEvent FAILED:', e));
           }
           break;
@@ -2025,9 +2005,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchActivateEvent_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchActivateEvent_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DispatchActivateEvent FAILED:', e));
           }
           break;
@@ -2040,9 +2018,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DispatchBackgroundFetchAbortEvent FAILED:', e));
           }
           break;
@@ -2055,9 +2031,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DispatchBackgroundFetchClickEvent FAILED:', e));
           }
           break;
@@ -2070,9 +2044,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DispatchBackgroundFetchFailEvent FAILED:', e));
           }
           break;
@@ -2085,9 +2057,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DispatchBackgroundFetchSuccessEvent FAILED:', e));
           }
           break;
@@ -2100,9 +2070,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DispatchCookieChangeEvent FAILED:', e));
           }
           break;
@@ -2115,9 +2083,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DispatchFetchEventForMainResource FAILED:', e));
           }
           break;
@@ -2130,9 +2096,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DispatchNotificationClickEvent FAILED:', e));
           }
           break;
@@ -2145,9 +2109,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DispatchNotificationCloseEvent FAILED:', e));
           }
           break;
@@ -2160,9 +2122,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushEvent_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushEvent_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DispatchPushEvent FAILED:', e));
           }
           break;
@@ -2175,9 +2135,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DispatchPushEventRecordingNetworkRequests FAILED:', e));
           }
           break;
@@ -2190,9 +2148,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DispatchPushSubscriptionChangeEvent FAILED:', e));
           }
           break;
@@ -2205,9 +2161,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchSyncEvent_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchSyncEvent_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DispatchSyncEvent FAILED:', e));
           }
           break;
@@ -2220,9 +2174,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DispatchPeriodicSyncEvent FAILED:', e));
           }
           break;
@@ -2235,9 +2187,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DispatchAbortPaymentEvent FAILED:', e));
           }
           break;
@@ -2250,9 +2200,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DispatchCanMakePaymentEvent FAILED:', e));
           }
           break;
@@ -2265,9 +2213,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DispatchPaymentRequestEvent FAILED:', e));
           }
           break;
@@ -2280,9 +2226,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DispatchExtendableMessageEvent FAILED:', e));
           }
           break;
@@ -2295,9 +2239,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DispatchContentDeleteEvent FAILED:', e));
           }
           break;
@@ -2310,9 +2252,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_Ping_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorker_Ping_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Ping FAILED:', e));
           }
           break;
@@ -2353,9 +2293,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorker_ExecuteScriptForTest_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorker_ExecuteScriptForTest_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ExecuteScriptForTest FAILED:', e));
           }
           break;

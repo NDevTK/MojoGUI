@@ -1250,9 +1250,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ClipboardHost_GetSequenceNumber_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ClipboardHost_GetSequenceNumber_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSequenceNumber FAILED:', e));
           }
           break;
@@ -1265,9 +1263,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ClipboardHost_IsFormatAvailable_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ClipboardHost_IsFormatAvailable_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsFormatAvailable FAILED:', e));
           }
           break;
@@ -1280,9 +1276,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ClipboardHost_ReadAvailableTypes_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ClipboardHost_ReadAvailableTypes_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ReadAvailableTypes FAILED:', e));
           }
           break;
@@ -1295,9 +1289,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ClipboardHost_ReadText_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ClipboardHost_ReadText_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ReadText FAILED:', e));
           }
           break;
@@ -1310,9 +1302,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ClipboardHost_ReadHtml_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ClipboardHost_ReadHtml_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ReadHtml FAILED:', e));
           }
           break;
@@ -1325,9 +1315,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ClipboardHost_ReadSvg_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ClipboardHost_ReadSvg_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ReadSvg FAILED:', e));
           }
           break;
@@ -1340,9 +1328,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ClipboardHost_ReadRtf_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ClipboardHost_ReadRtf_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ReadRtf FAILED:', e));
           }
           break;
@@ -1355,9 +1341,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ClipboardHost_ReadPng_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ClipboardHost_ReadPng_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ReadPng FAILED:', e));
           }
           break;
@@ -1370,9 +1354,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ClipboardHost_ReadFiles_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ClipboardHost_ReadFiles_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ReadFiles FAILED:', e));
           }
           break;
@@ -1385,9 +1367,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ClipboardHost_ReadDataTransferCustomData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ClipboardHost_ReadDataTransferCustomData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ReadDataTransferCustomData FAILED:', e));
           }
           break;
@@ -1400,9 +1380,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ReadAvailableCustomAndStandardFormats FAILED:', e));
           }
           break;
@@ -1415,9 +1393,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ReadUnsanitizedCustomFormat FAILED:', e));
           }
           break;
@@ -1500,9 +1476,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ClipboardHost_GetPlatformPermissionState_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ClipboardHost_GetPlatformPermissionState_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPlatformPermissionState FAILED:', e));
           }
           break;

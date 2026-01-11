@@ -1185,9 +1185,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_CreateFolder_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_CreateFolder_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateFolder FAILED:', e));
           }
           break;
@@ -1200,9 +1198,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_DropBookmarks_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_DropBookmarks_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DropBookmarks FAILED:', e));
           }
           break;
@@ -1313,9 +1309,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RemoveBookmarks FAILED:', e));
           }
           break;
@@ -1356,9 +1350,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAllBookmarks FAILED:', e));
           }
           break;

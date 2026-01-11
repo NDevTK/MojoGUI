@@ -422,9 +422,7 @@ mojo.internal.bindings.network.mojom.NetworkContextClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.NetworkContextClient_OnFileUploadRequested_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkContextClient_OnFileUploadRequested_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OnFileUploadRequested FAILED:', e));
           }
           break;
@@ -437,9 +435,7 @@ mojo.internal.bindings.network.mojom.NetworkContextClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendReportingReports_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendReportingReports_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OnCanSendReportingReports FAILED:', e));
           }
           break;
@@ -452,9 +448,7 @@ mojo.internal.bindings.network.mojom.NetworkContextClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OnCanSendDomainReliabilityUpload FAILED:', e));
           }
           break;
@@ -467,9 +461,7 @@ mojo.internal.bindings.network.mojom.NetworkContextClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OnGenerateHttpNegotiateAuthToken FAILED:', e));
           }
           break;
@@ -482,9 +474,7 @@ mojo.internal.bindings.network.mojom.NetworkContextClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OnCanSendSCTAuditingReport FAILED:', e));
           }
           break;

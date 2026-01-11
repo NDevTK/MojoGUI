@@ -538,9 +538,7 @@ mojo.internal.bindings.media.mojom.DecryptorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media.mojom.Decryptor_Decrypt_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.Decryptor_Decrypt_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Decrypt FAILED:', e));
           }
           break;
@@ -560,9 +558,7 @@ mojo.internal.bindings.media.mojom.DecryptorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media.mojom.Decryptor_InitializeAudioDecoder_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.Decryptor_InitializeAudioDecoder_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] InitializeAudioDecoder FAILED:', e));
           }
           break;
@@ -575,9 +571,7 @@ mojo.internal.bindings.media.mojom.DecryptorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media.mojom.Decryptor_InitializeVideoDecoder_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.Decryptor_InitializeVideoDecoder_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] InitializeVideoDecoder FAILED:', e));
           }
           break;
@@ -590,9 +584,7 @@ mojo.internal.bindings.media.mojom.DecryptorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DecryptAndDecodeAudio FAILED:', e));
           }
           break;
@@ -605,9 +597,7 @@ mojo.internal.bindings.media.mojom.DecryptorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DecryptAndDecodeVideo FAILED:', e));
           }
           break;

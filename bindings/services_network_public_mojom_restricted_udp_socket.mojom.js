@@ -394,9 +394,7 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocketReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] JoinGroup FAILED:', e));
           }
           break;
@@ -409,9 +407,7 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocketReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LeaveGroup FAILED:', e));
           }
           break;
@@ -431,9 +427,7 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocketReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Send FAILED:', e));
           }
           break;
@@ -446,9 +440,7 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocketReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendTo FAILED:', e));
           }
           break;

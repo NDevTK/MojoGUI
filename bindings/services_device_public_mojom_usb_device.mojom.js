@@ -980,9 +980,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.UsbDevice_Open_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDevice_Open_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Open FAILED:', e));
           }
           break;
@@ -995,9 +993,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.UsbDevice_Close_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDevice_Close_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Close FAILED:', e));
           }
           break;
@@ -1010,9 +1006,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.UsbDevice_SetConfiguration_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDevice_SetConfiguration_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetConfiguration FAILED:', e));
           }
           break;
@@ -1025,9 +1019,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.UsbDevice_ClaimInterface_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDevice_ClaimInterface_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ClaimInterface FAILED:', e));
           }
           break;
@@ -1040,9 +1032,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.UsbDevice_ReleaseInterface_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDevice_ReleaseInterface_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ReleaseInterface FAILED:', e));
           }
           break;
@@ -1055,9 +1045,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.UsbDevice_SetInterfaceAlternateSetting_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDevice_SetInterfaceAlternateSetting_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetInterfaceAlternateSetting FAILED:', e));
           }
           break;
@@ -1070,9 +1058,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.UsbDevice_Reset_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDevice_Reset_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Reset FAILED:', e));
           }
           break;
@@ -1085,9 +1071,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.UsbDevice_ClearHalt_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDevice_ClearHalt_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ClearHalt FAILED:', e));
           }
           break;
@@ -1100,9 +1084,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferIn_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferIn_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ControlTransferIn FAILED:', e));
           }
           break;
@@ -1115,9 +1097,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferOut_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferOut_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ControlTransferOut FAILED:', e));
           }
           break;
@@ -1130,9 +1110,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferIn_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferIn_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GenericTransferIn FAILED:', e));
           }
           break;
@@ -1145,9 +1123,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferOut_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferOut_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GenericTransferOut FAILED:', e));
           }
           break;
@@ -1160,9 +1136,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferIn_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferIn_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsochronousTransferIn FAILED:', e));
           }
           break;
@@ -1175,9 +1149,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferOut_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferOut_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsochronousTransferOut FAILED:', e));
           }
           break;

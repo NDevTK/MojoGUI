@@ -541,9 +541,7 @@ mojo.internal.bindings.device.mojom.SmartCardTransactionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.SmartCardTransaction_EndTransaction_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SmartCardTransaction_EndTransaction_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EndTransaction FAILED:', e));
           }
           break;
@@ -933,9 +931,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.SmartCardConnection_Disconnect_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SmartCardConnection_Disconnect_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Disconnect FAILED:', e));
           }
           break;
@@ -948,9 +944,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.SmartCardConnection_Transmit_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SmartCardConnection_Transmit_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Transmit FAILED:', e));
           }
           break;
@@ -963,9 +957,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.SmartCardConnection_Control_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SmartCardConnection_Control_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Control FAILED:', e));
           }
           break;
@@ -978,9 +970,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.SmartCardConnection_GetAttrib_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SmartCardConnection_GetAttrib_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAttrib FAILED:', e));
           }
           break;
@@ -993,9 +983,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.SmartCardConnection_SetAttrib_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SmartCardConnection_SetAttrib_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetAttrib FAILED:', e));
           }
           break;
@@ -1008,9 +996,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.SmartCardConnection_Status_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SmartCardConnection_Status_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Status FAILED:', e));
           }
           break;
@@ -1023,9 +1009,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.SmartCardConnection_BeginTransaction_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SmartCardConnection_BeginTransaction_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] BeginTransaction FAILED:', e));
           }
           break;
@@ -1459,9 +1443,7 @@ mojo.internal.bindings.device.mojom.SmartCardContextReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.SmartCardContext_ListReaders_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SmartCardContext_ListReaders_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ListReaders FAILED:', e));
           }
           break;
@@ -1474,9 +1456,7 @@ mojo.internal.bindings.device.mojom.SmartCardContextReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.SmartCardContext_GetStatusChange_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SmartCardContext_GetStatusChange_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetStatusChange FAILED:', e));
           }
           break;
@@ -1489,9 +1469,7 @@ mojo.internal.bindings.device.mojom.SmartCardContextReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.SmartCardContext_Cancel_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SmartCardContext_Cancel_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Cancel FAILED:', e));
           }
           break;
@@ -1504,9 +1482,7 @@ mojo.internal.bindings.device.mojom.SmartCardContextReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.SmartCardContext_Connect_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SmartCardContext_Connect_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Connect FAILED:', e));
           }
           break;
@@ -1672,9 +1648,7 @@ mojo.internal.bindings.device.mojom.SmartCardContextFactoryReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.SmartCardContextFactory_CreateContext_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SmartCardContextFactory_CreateContext_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateContext FAILED:', e));
           }
           break;

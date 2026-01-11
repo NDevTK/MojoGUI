@@ -506,9 +506,7 @@ mojo.internal.bindings.content.mojom.InputInjectorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothDrag_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothDrag_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] QueueSyntheticSmoothDrag FAILED:', e));
           }
           break;
@@ -521,9 +519,7 @@ mojo.internal.bindings.content.mojom.InputInjectorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothScroll_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothScroll_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] QueueSyntheticSmoothScroll FAILED:', e));
           }
           break;
@@ -536,9 +532,7 @@ mojo.internal.bindings.content.mojom.InputInjectorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPinch_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPinch_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] QueueSyntheticPinch FAILED:', e));
           }
           break;
@@ -551,9 +545,7 @@ mojo.internal.bindings.content.mojom.InputInjectorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticTap_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticTap_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] QueueSyntheticTap FAILED:', e));
           }
           break;
@@ -566,9 +558,7 @@ mojo.internal.bindings.content.mojom.InputInjectorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPointerAction_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPointerAction_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] QueueSyntheticPointerAction FAILED:', e));
           }
           break;

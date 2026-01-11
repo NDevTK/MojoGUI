@@ -522,9 +522,7 @@ mojo.internal.bindings.network.mojom.SSLPrivateKeyReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.SSLPrivateKey_Sign_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.SSLPrivateKey_Sign_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Sign FAILED:', e));
           }
           break;
@@ -1233,9 +1231,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverReceiver = c
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OnSSLCertificateError FAILED:', e));
           }
           break;
@@ -1262,9 +1258,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverReceiver = c
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OnLocalNetworkAccessPermissionRequired FAILED:', e));
           }
           break;
@@ -1277,9 +1271,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverReceiver = c
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OnClearSiteData FAILED:', e));
           }
           break;
@@ -1292,9 +1284,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverReceiver = c
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OnLoadingStateUpdate FAILED:', e));
           }
           break;
@@ -1314,9 +1304,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverReceiver = c
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OnSharedStorageHeaderReceived FAILED:', e));
           }
           break;

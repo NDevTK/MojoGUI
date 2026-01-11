@@ -537,9 +537,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_Register_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Register FAILED:', e));
           }
           break;
@@ -552,9 +550,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistration_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetRegistration FAILED:', e));
           }
           break;
@@ -567,9 +563,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrations_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetRegistrations FAILED:', e));
           }
           break;
@@ -582,9 +576,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_GetRegistrationForReady_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetRegistrationForReady FAILED:', e));
           }
           break;
@@ -618,9 +610,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHost_EnsureFileAccess_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EnsureFileAccess FAILED:', e));
           }
           break;

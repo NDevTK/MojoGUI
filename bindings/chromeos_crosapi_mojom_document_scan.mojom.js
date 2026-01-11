@@ -810,9 +810,7 @@ mojo.internal.bindings.crosapi.mojom.DocumentScanReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DocumentScan_OpenScanner_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DocumentScan_OpenScanner_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OpenScanner FAILED:', e));
           }
           break;
@@ -825,9 +823,7 @@ mojo.internal.bindings.crosapi.mojom.DocumentScanReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DocumentScan_CloseScanner_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DocumentScan_CloseScanner_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CloseScanner FAILED:', e));
           }
           break;
@@ -840,9 +836,7 @@ mojo.internal.bindings.crosapi.mojom.DocumentScanReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DocumentScan_StartPreparedScan_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DocumentScan_StartPreparedScan_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StartPreparedScan FAILED:', e));
           }
           break;
@@ -855,9 +849,7 @@ mojo.internal.bindings.crosapi.mojom.DocumentScanReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DocumentScan_ReadScanData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DocumentScan_ReadScanData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ReadScanData FAILED:', e));
           }
           break;
@@ -870,9 +862,7 @@ mojo.internal.bindings.crosapi.mojom.DocumentScanReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DocumentScan_SetOptions_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DocumentScan_SetOptions_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetOptions FAILED:', e));
           }
           break;
@@ -885,9 +875,7 @@ mojo.internal.bindings.crosapi.mojom.DocumentScanReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOptionGroups FAILED:', e));
           }
           break;
@@ -900,9 +888,7 @@ mojo.internal.bindings.crosapi.mojom.DocumentScanReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.DocumentScan_CancelScan_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DocumentScan_CancelScan_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CancelScan FAILED:', e));
           }
           break;

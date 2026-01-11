@@ -511,9 +511,7 @@ mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetContentCacheSize FAILED:', e));
           }
           break;
@@ -526,9 +524,7 @@ mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ClearPinnedFiles FAILED:', e));
           }
           break;

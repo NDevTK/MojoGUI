@@ -1365,9 +1365,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.CookieManager_GetAllCookies_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.CookieManager_GetAllCookies_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAllCookies FAILED:', e));
           }
           break;
@@ -1380,9 +1378,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.CookieManager_GetAllCookiesWithAccessSemantics_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.CookieManager_GetAllCookiesWithAccessSemantics_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAllCookiesWithAccessSemantics FAILED:', e));
           }
           break;
@@ -1395,9 +1391,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.CookieManager_GetCookieList_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.CookieManager_GetCookieList_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetCookieList FAILED:', e));
           }
           break;
@@ -1410,9 +1404,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.CookieManager_SetCanonicalCookie_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.CookieManager_SetCanonicalCookie_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetCanonicalCookie FAILED:', e));
           }
           break;
@@ -1425,9 +1417,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.CookieManager_DeleteCanonicalCookie_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.CookieManager_DeleteCanonicalCookie_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeleteCanonicalCookie FAILED:', e));
           }
           break;
@@ -1440,9 +1430,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.CookieManager_DeleteCookies_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.CookieManager_DeleteCookies_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeleteCookies FAILED:', e));
           }
           break;
@@ -1455,9 +1443,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.CookieManager_DeleteSessionOnlyCookies_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.CookieManager_DeleteSessionOnlyCookies_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeleteSessionOnlyCookies FAILED:', e));
           }
           break;
@@ -1470,9 +1456,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.CookieManager_DeleteStaleSessionOnlyCookies_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.CookieManager_DeleteStaleSessionOnlyCookies_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeleteStaleSessionOnlyCookies FAILED:', e));
           }
           break;
@@ -1506,9 +1490,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.CookieManager_FlushCookieStore_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.CookieManager_FlushCookieStore_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FlushCookieStore FAILED:', e));
           }
           break;
@@ -1521,9 +1503,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.CookieManager_AllowFileSchemeCookies_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.CookieManager_AllowFileSchemeCookies_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AllowFileSchemeCookies FAILED:', e));
           }
           break;
@@ -1536,9 +1516,7 @@ mojo.internal.bindings.network.mojom.CookieManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.CookieManager_SetContentSettings_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.CookieManager_SetContentSettings_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetContentSettings FAILED:', e));
           }
           break;

@@ -2150,9 +2150,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StartAdvertising_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StartAdvertising_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StartAdvertising FAILED:', e));
           }
           break;
@@ -2165,9 +2163,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StopAdvertising_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StopAdvertising_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StopAdvertising FAILED:', e));
           }
           break;
@@ -2180,9 +2176,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StartDiscovery_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StartDiscovery_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StartDiscovery FAILED:', e));
           }
           break;
@@ -2195,9 +2189,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StopDiscovery_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StopDiscovery_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StopDiscovery FAILED:', e));
           }
           break;
@@ -2210,9 +2202,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] InjectBluetoothEndpoint FAILED:', e));
           }
           break;
@@ -2225,9 +2215,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RequestConnection_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RequestConnection_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestConnection FAILED:', e));
           }
           break;
@@ -2240,9 +2228,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_AcceptConnection_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_AcceptConnection_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AcceptConnection FAILED:', e));
           }
           break;
@@ -2255,9 +2241,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RejectConnection_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RejectConnection_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RejectConnection FAILED:', e));
           }
           break;
@@ -2270,9 +2254,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DisconnectFromEndpoint FAILED:', e));
           }
           break;
@@ -2285,9 +2267,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_SendPayload_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_SendPayload_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendPayload FAILED:', e));
           }
           break;
@@ -2300,9 +2280,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_CancelPayload_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_CancelPayload_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CancelPayload FAILED:', e));
           }
           break;
@@ -2315,9 +2293,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StopAllEndpoints FAILED:', e));
           }
           break;
@@ -2330,9 +2306,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] InitiateBandwidthUpgrade FAILED:', e));
           }
           break;
@@ -2345,9 +2319,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RegisterPayloadFile FAILED:', e));
           }
           break;
@@ -2360,9 +2332,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestConnectionV3 FAILED:', e));
           }
           break;
@@ -2375,9 +2345,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AcceptConnectionV3 FAILED:', e));
           }
           break;
@@ -2390,9 +2358,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RejectConnectionV3 FAILED:', e));
           }
           break;
@@ -2405,9 +2371,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DisconnectFromDeviceV3 FAILED:', e));
           }
           break;

@@ -546,9 +546,7 @@ mojo.internal.bindings.arc.mojom.CameraServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.CameraService_Connect_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.CameraService_Connect_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Connect FAILED:', e));
           }
           break;
@@ -561,9 +559,7 @@ mojo.internal.bindings.arc.mojom.CameraServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.CameraService_Disconnect_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.CameraService_Disconnect_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Disconnect FAILED:', e));
           }
           break;
@@ -576,9 +572,7 @@ mojo.internal.bindings.arc.mojom.CameraServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.CameraService_StreamOn_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.CameraService_StreamOn_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StreamOn FAILED:', e));
           }
           break;
@@ -591,9 +585,7 @@ mojo.internal.bindings.arc.mojom.CameraServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.CameraService_StreamOff_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.CameraService_StreamOff_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StreamOff FAILED:', e));
           }
           break;
@@ -606,9 +598,7 @@ mojo.internal.bindings.arc.mojom.CameraServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.CameraService_GetNextFrameBuffer_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.CameraService_GetNextFrameBuffer_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNextFrameBuffer FAILED:', e));
           }
           break;
@@ -621,9 +611,7 @@ mojo.internal.bindings.arc.mojom.CameraServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.CameraService_ReuseFrameBuffer_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.CameraService_ReuseFrameBuffer_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ReuseFrameBuffer FAILED:', e));
           }
           break;
@@ -636,9 +624,7 @@ mojo.internal.bindings.arc.mojom.CameraServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.CameraService_GetDeviceSupportedFormats_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.CameraService_GetDeviceSupportedFormats_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDeviceSupportedFormats FAILED:', e));
           }
           break;
@@ -651,9 +637,7 @@ mojo.internal.bindings.arc.mojom.CameraServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.CameraService_GetCameraDeviceInfos_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.CameraService_GetCameraDeviceInfos_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetCameraDeviceInfos FAILED:', e));
           }
           break;
@@ -887,9 +871,7 @@ mojo.internal.bindings.arc.mojom.CameraHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.CameraHost_StartCameraService_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.CameraHost_StartCameraService_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StartCameraService FAILED:', e));
           }
           break;
@@ -909,9 +891,7 @@ mojo.internal.bindings.arc.mojom.CameraHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClient_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.CameraHost_RegisterCameraHalClient_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RegisterCameraHalClient FAILED:', e));
           }
           break;
@@ -1077,9 +1057,7 @@ mojo.internal.bindings.arc.mojom.CameraInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.CameraInstance_Init_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.CameraInstance_Init_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
           }
           break;

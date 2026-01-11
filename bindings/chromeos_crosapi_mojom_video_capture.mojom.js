@@ -1411,9 +1411,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_GetPhotoState_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_GetPhotoState_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPhotoState FAILED:', e));
           }
           break;
@@ -1426,9 +1424,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_SetPhotoOptions_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_SetPhotoOptions_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetPhotoOptions FAILED:', e));
           }
           break;
@@ -1441,9 +1437,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_TakePhoto_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_TakePhoto_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] TakePhoto FAILED:', e));
           }
           break;
@@ -1661,9 +1655,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactoryReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactory_GetDeviceInfos_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactory_GetDeviceInfos_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDeviceInfos FAILED:', e));
           }
           break;
@@ -1676,9 +1668,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactoryReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactory_CreateDevice_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactory_CreateDevice_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateDevice FAILED:', e));
           }
           break;

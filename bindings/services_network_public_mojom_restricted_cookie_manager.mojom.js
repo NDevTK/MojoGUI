@@ -497,9 +497,7 @@ mojo.internal.bindings.network.mojom.RestrictedCookieManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetAllForUrl_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetAllForUrl_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAllForUrl FAILED:', e));
           }
           break;
@@ -512,9 +510,7 @@ mojo.internal.bindings.network.mojom.RestrictedCookieManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCanonicalCookie_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCanonicalCookie_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetCanonicalCookie FAILED:', e));
           }
           break;
@@ -527,9 +523,7 @@ mojo.internal.bindings.network.mojom.RestrictedCookieManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.RestrictedCookieManager_AddChangeListener_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.RestrictedCookieManager_AddChangeListener_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AddChangeListener FAILED:', e));
           }
           break;
@@ -542,9 +536,7 @@ mojo.internal.bindings.network.mojom.RestrictedCookieManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetCookieFromString FAILED:', e));
           }
           break;
@@ -557,9 +549,7 @@ mojo.internal.bindings.network.mojom.RestrictedCookieManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetCookiesString_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetCookiesString_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetCookiesString FAILED:', e));
           }
           break;
@@ -572,9 +562,7 @@ mojo.internal.bindings.network.mojom.RestrictedCookieManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.RestrictedCookieManager_CookiesEnabledFor_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.RestrictedCookieManager_CookiesEnabledFor_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CookiesEnabledFor FAILED:', e));
           }
           break;

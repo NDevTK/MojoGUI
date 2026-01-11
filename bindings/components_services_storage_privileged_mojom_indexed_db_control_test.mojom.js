@@ -711,9 +711,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetBaseDataPathForTesting FAILED:', e));
           }
           break;
@@ -726,9 +724,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetFilePathForTesting FAILED:', e));
           }
           break;
@@ -741,9 +737,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ResetCachesForTesting FAILED:', e));
           }
           break;
@@ -756,9 +750,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPathForBlobForTesting FAILED:', e));
           }
           break;
@@ -771,9 +763,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FlushBackingStoreForTesting FAILED:', e));
           }
           break;
@@ -786,9 +776,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FlushBucketSequenceForTesting FAILED:', e));
           }
           break;
@@ -801,9 +789,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetUsageForTesting FAILED:', e));
           }
           break;
@@ -823,9 +809,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ForceInitializeFromFilesForTesting FAILED:', e));
           }
           break;

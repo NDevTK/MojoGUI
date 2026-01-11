@@ -417,9 +417,7 @@ mojo.internal.bindings.content.mojom.SandboxSupportReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.SandboxSupport_GetSystemColors_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.SandboxSupport_GetSystemColors_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSystemColors FAILED:', e));
           }
           break;
@@ -432,9 +430,7 @@ mojo.internal.bindings.content.mojom.SandboxSupportReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LcidAndFirstDayOfWeek FAILED:', e));
           }
           break;
@@ -447,9 +443,7 @@ mojo.internal.bindings.content.mojom.SandboxSupportReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DigitsAndSigns FAILED:', e));
           }
           break;
@@ -462,9 +456,7 @@ mojo.internal.bindings.content.mojom.SandboxSupportReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LocaleString FAILED:', e));
           }
           break;
@@ -477,9 +469,7 @@ mojo.internal.bindings.content.mojom.SandboxSupportReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LocaleStrings FAILED:', e));
           }
           break;

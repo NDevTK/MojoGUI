@@ -910,9 +910,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintHost_GetServer_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.keymint.KeyMintHost_GetServer_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetServer FAILED:', e));
           }
           break;
@@ -1078,9 +1076,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintInstance_Init_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.keymint.KeyMintInstance_Init_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
           }
           break;
@@ -2201,9 +2197,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_AddRngEntropy_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_AddRngEntropy_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AddRngEntropy FAILED:', e));
           }
           break;
@@ -2216,9 +2210,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateKey_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateKey_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GenerateKey FAILED:', e));
           }
           break;
@@ -2231,9 +2223,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ImportKey_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ImportKey_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ImportKey FAILED:', e));
           }
           break;
@@ -2246,9 +2236,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ImportWrappedKey_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ImportWrappedKey_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ImportWrappedKey FAILED:', e));
           }
           break;
@@ -2261,9 +2249,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_UpgradeKey_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_UpgradeKey_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UpgradeKey FAILED:', e));
           }
           break;
@@ -2276,9 +2262,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeleteKey_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeleteKey_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeleteKey FAILED:', e));
           }
           break;
@@ -2291,9 +2275,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeleteAllKeys_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeleteAllKeys_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeleteAllKeys FAILED:', e));
           }
           break;
@@ -2306,9 +2288,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DestroyAttestationIds_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DestroyAttestationIds_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DestroyAttestationIds FAILED:', e));
           }
           break;
@@ -2321,9 +2301,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Begin_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Begin_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Begin FAILED:', e));
           }
           break;
@@ -2336,9 +2314,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeviceLocked_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeviceLocked_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeviceLocked FAILED:', e));
           }
           break;
@@ -2351,9 +2327,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_EarlyBootEnded_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_EarlyBootEnded_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EarlyBootEnded FAILED:', e));
           }
           break;
@@ -2366,9 +2340,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ConvertStorageKeyToEphemeral_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ConvertStorageKeyToEphemeral_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ConvertStorageKeyToEphemeral FAILED:', e));
           }
           break;
@@ -2381,9 +2353,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetKeyCharacteristics FAILED:', e));
           }
           break;
@@ -2396,9 +2366,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetRootOfTrustChallenge_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetRootOfTrustChallenge_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetRootOfTrustChallenge FAILED:', e));
           }
           break;
@@ -2411,9 +2379,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetRootOfTrust FAILED:', e));
           }
           break;
@@ -2426,9 +2392,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_SendRootOfTrust_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_SendRootOfTrust_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendRootOfTrust FAILED:', e));
           }
           break;
@@ -2441,9 +2405,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_UpdateAad_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_UpdateAad_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UpdateAad FAILED:', e));
           }
           break;
@@ -2456,9 +2418,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Update_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Update_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Update FAILED:', e));
           }
           break;
@@ -2471,9 +2431,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Finish_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Finish_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Finish FAILED:', e));
           }
           break;
@@ -2486,9 +2444,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Abort_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Abort_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Abort FAILED:', e));
           }
           break;
@@ -2501,9 +2457,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetSharedSecretParameters_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetSharedSecretParameters_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSharedSecretParameters FAILED:', e));
           }
           break;
@@ -2516,9 +2470,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ComputeSharedSecret FAILED:', e));
           }
           break;
@@ -2531,9 +2483,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GenerateTimeStamp FAILED:', e));
           }
           break;
@@ -2546,9 +2496,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GenerateEcdsaP256KeyPair FAILED:', e));
           }
           break;
@@ -2561,9 +2509,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GenerateCertificateRequest FAILED:', e));
           }
           break;

@@ -275,9 +275,7 @@ mojo.internal.bindings.remoting.mojom.WebAuthnRequestCancellerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Cancel FAILED:', e));
           }
           break;
@@ -519,9 +517,7 @@ mojo.internal.bindings.remoting.mojom.WebAuthnProxyReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsUserVerifyingPlatformAuthenticatorAvailable FAILED:', e));
           }
           break;
@@ -534,9 +530,7 @@ mojo.internal.bindings.remoting.mojom.WebAuthnProxyReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Create FAILED:', e));
           }
           break;
@@ -549,9 +543,7 @@ mojo.internal.bindings.remoting.mojom.WebAuthnProxyReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Get FAILED:', e));
           }
           break;

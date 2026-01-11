@@ -590,9 +590,7 @@ mojo.internal.bindings.tracing.mojom.ProducerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.tracing.mojom.ProducerHost_CommitData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.tracing.mojom.ProducerHost_CommitData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CommitData FAILED:', e));
           }
           break;
@@ -922,9 +920,7 @@ mojo.internal.bindings.tracing.mojom.ProducerClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StartDataSource FAILED:', e));
           }
           break;
@@ -937,9 +933,7 @@ mojo.internal.bindings.tracing.mojom.ProducerClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.tracing.mojom.ProducerClient_StopDataSource_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.tracing.mojom.ProducerClient_StopDataSource_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StopDataSource FAILED:', e));
           }
           break;
@@ -1324,9 +1318,7 @@ mojo.internal.bindings.tracing.mojom.ConsumerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CloneSession FAILED:', e));
           }
           break;
@@ -1643,9 +1635,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.tracing.mojom.TracingSessionHost_ReadBuffers_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.tracing.mojom.TracingSessionHost_ReadBuffers_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ReadBuffers FAILED:', e));
           }
           break;
@@ -1658,9 +1648,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestBufferUsage FAILED:', e));
           }
           break;
@@ -1673,9 +1661,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DisableTracingAndEmitJson FAILED:', e));
           }
           break;

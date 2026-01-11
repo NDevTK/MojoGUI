@@ -544,9 +544,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.HandlerReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetReports FAILED:', e));
           }
           break;
@@ -559,9 +557,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.HandlerReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendReports FAILED:', e));
           }
           break;
@@ -574,9 +570,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.HandlerReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.private_aggregation_internals.mojom.Handler_ClearStorage_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.private_aggregation_internals.mojom.Handler_ClearStorage_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ClearStorage FAILED:', e));
           }
           break;

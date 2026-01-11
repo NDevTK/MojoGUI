@@ -763,9 +763,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.StorageArea_Put_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.StorageArea_Put_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Put FAILED:', e));
           }
           break;
@@ -778,9 +776,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.StorageArea_Delete_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.StorageArea_Delete_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Delete FAILED:', e));
           }
           break;
@@ -793,9 +789,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.StorageArea_DeleteAll_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.StorageArea_DeleteAll_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeleteAll FAILED:', e));
           }
           break;
@@ -808,9 +802,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.StorageArea_Get_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.StorageArea_Get_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Get FAILED:', e));
           }
           break;
@@ -823,9 +815,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.StorageArea_GetAll_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.StorageArea_GetAll_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAll FAILED:', e));
           }
           break;

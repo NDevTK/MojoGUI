@@ -635,9 +635,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetHwKeyData FAILED:', e));
           }
           break;
@@ -657,9 +655,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwConfigData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwConfigData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetHwConfigData FAILED:', e));
           }
           break;
@@ -672,9 +668,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetScreenResolutions FAILED:', e));
           }
           break;
@@ -687,9 +681,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AllocateSecureBuffer FAILED:', e));
           }
           break;
@@ -702,9 +694,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ParseEncryptedSliceHeader FAILED:', e));
           }
           break;
@@ -717,9 +707,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DecryptVideoBuffer FAILED:', e));
           }
           break;

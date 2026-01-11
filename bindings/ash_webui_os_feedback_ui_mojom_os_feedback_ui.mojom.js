@@ -380,9 +380,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProviderReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetHelpContents FAILED:', e));
           }
           break;
@@ -927,9 +925,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetFeedbackContext FAILED:', e));
           }
           break;
@@ -942,9 +938,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetScreenshotPng FAILED:', e));
           }
           break;
@@ -957,9 +951,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendReport FAILED:', e));
           }
           break;

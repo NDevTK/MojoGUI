@@ -341,9 +341,7 @@ mojo.internal.bindings.storage.mojom.QuotaClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetBucketUsage FAILED:', e));
           }
           break;
@@ -356,9 +354,7 @@ mojo.internal.bindings.storage.mojom.QuotaClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDefaultStorageKeys FAILED:', e));
           }
           break;
@@ -371,9 +367,7 @@ mojo.internal.bindings.storage.mojom.QuotaClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeleteBucketData FAILED:', e));
           }
           break;
@@ -386,9 +380,7 @@ mojo.internal.bindings.storage.mojom.QuotaClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.QuotaClient_PerformStorageCleanup_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.QuotaClient_PerformStorageCleanup_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PerformStorageCleanup FAILED:', e));
           }
           break;

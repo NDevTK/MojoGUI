@@ -1832,9 +1832,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FetchCollections FAILED:', e));
           }
           break;
@@ -1847,9 +1845,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FetchImagesForCollection FAILED:', e));
           }
           break;
@@ -1862,9 +1858,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FetchGooglePhotosAlbums FAILED:', e));
           }
           break;
@@ -1877,9 +1871,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FetchGooglePhotosSharedAlbums FAILED:', e));
           }
           break;
@@ -1892,9 +1884,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FetchGooglePhotosEnabled FAILED:', e));
           }
           break;
@@ -1907,9 +1897,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FetchGooglePhotosPhotos FAILED:', e));
           }
           break;
@@ -1922,9 +1910,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetLocalImages FAILED:', e));
           }
           break;
@@ -1937,9 +1923,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDefaultImageThumbnail FAILED:', e));
           }
           break;
@@ -1952,9 +1936,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetLocalImageThumbnail FAILED:', e));
           }
           break;
@@ -1974,9 +1956,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SelectWallpaper FAILED:', e));
           }
           break;
@@ -1989,9 +1969,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SelectDefaultImage FAILED:', e));
           }
           break;
@@ -2004,9 +1982,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SelectLocalImage FAILED:', e));
           }
           break;
@@ -2019,9 +1995,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SelectGooglePhotosPhoto FAILED:', e));
           }
           break;
@@ -2034,9 +2008,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SelectGooglePhotosAlbum FAILED:', e));
           }
           break;
@@ -2049,9 +2021,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetGooglePhotosDailyRefreshAlbumId FAILED:', e));
           }
           break;
@@ -2071,9 +2041,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetDailyRefreshCollectionId FAILED:', e));
           }
           break;
@@ -2086,9 +2054,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDailyRefreshCollectionId FAILED:', e));
           }
           break;
@@ -2101,9 +2067,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UpdateDailyRefreshWallpaper FAILED:', e));
           }
           break;
@@ -2116,9 +2080,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsInTabletMode FAILED:', e));
           }
           break;
@@ -2145,9 +2107,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ShouldShowTimeOfDayWallpaperDialog FAILED:', e));
           }
           break;
@@ -3141,9 +3101,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetColorScheme FAILED:', e));
           }
           break;
@@ -3156,9 +3114,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetStaticColor FAILED:', e));
           }
           break;
@@ -3171,9 +3127,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GenerateSampleColorSchemes FAILED:', e));
           }
           break;
@@ -3186,9 +3140,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsColorModeAutoScheduleEnabled FAILED:', e));
           }
           break;
@@ -3201,9 +3153,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsDarkModeEnabled FAILED:', e));
           }
           break;
@@ -3216,9 +3166,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsGeolocationEnabledForSystemServices FAILED:', e));
           }
           break;
@@ -3231,9 +3179,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsGeolocationUserModifiable FAILED:', e));
           }
           break;
@@ -3894,9 +3840,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_GetUserInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_GetUserInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetUserInfo FAILED:', e));
           }
           break;
@@ -3909,9 +3853,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDefaultUserImages FAILED:', e));
           }
           break;
@@ -5087,9 +5029,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderReceiver = c
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsAmbientModeEnabled FAILED:', e));
           }
           break;
@@ -5172,9 +5112,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderReceiver = c
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ShouldShowTimeOfDayBanner FAILED:', e));
           }
           break;
@@ -5194,9 +5132,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderReceiver = c
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsGeolocationEnabledForSystemServices FAILED:', e));
           }
           break;
@@ -5209,9 +5145,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderReceiver = c
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsGeolocationUserModifiable FAILED:', e));
           }
           break;
@@ -5722,9 +5656,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProviderRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ShouldShowNudge FAILED:', e));
           }
           break;

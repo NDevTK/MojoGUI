@@ -399,9 +399,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetCameraAppDevice FAILED:', e));
           }
           break;
@@ -414,9 +412,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_IsSupported_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_IsSupported_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsSupported FAILED:', e));
           }
           break;
@@ -429,9 +425,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsDeviceInUse FAILED:', e));
           }
           break;
@@ -710,9 +704,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceBridgeReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetCameraAppDevice FAILED:', e));
           }
           break;
@@ -725,9 +717,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceBridgeReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_IsSupported_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_IsSupported_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsSupported FAILED:', e));
           }
           break;
@@ -740,9 +730,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceBridgeReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetVirtualDeviceEnabled FAILED:', e));
           }
           break;
@@ -755,9 +743,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceBridgeReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsDeviceInUse FAILED:', e));
           }
           break;
@@ -1357,9 +1343,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CameraAppDevice_TakePortraitModePhoto_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CameraAppDevice_TakePortraitModePhoto_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] TakePortraitModePhoto FAILED:', e));
           }
           break;
@@ -1372,9 +1356,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CameraAppDevice_SetFpsRange_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CameraAppDevice_SetFpsRange_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetFpsRange FAILED:', e));
           }
           break;
@@ -1387,9 +1369,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CameraAppDevice_SetStillCaptureResolution_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CameraAppDevice_SetStillCaptureResolution_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetStillCaptureResolution FAILED:', e));
           }
           break;
@@ -1402,9 +1382,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCaptureIntent_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCaptureIntent_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetCaptureIntent FAILED:', e));
           }
           break;
@@ -1417,9 +1395,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CameraAppDevice_AddResultMetadataObserver_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CameraAppDevice_AddResultMetadataObserver_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AddResultMetadataObserver FAILED:', e));
           }
           break;
@@ -1432,9 +1408,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CameraAppDevice_AddCameraEventObserver_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CameraAppDevice_AddCameraEventObserver_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AddCameraEventObserver FAILED:', e));
           }
           break;
@@ -1447,9 +1421,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetCameraFrameRotationEnabledAtSource FAILED:', e));
           }
           break;
@@ -1462,9 +1434,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CameraAppDevice_GetCameraFrameRotation_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CameraAppDevice_GetCameraFrameRotation_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetCameraFrameRotation FAILED:', e));
           }
           break;
@@ -1477,9 +1447,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CameraAppDevice_RegisterDocumentCornersObserver_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CameraAppDevice_RegisterDocumentCornersObserver_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RegisterDocumentCornersObserver FAILED:', e));
           }
           break;
@@ -1492,9 +1460,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CameraAppDevice_SetMultipleStreamsEnabled_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CameraAppDevice_SetMultipleStreamsEnabled_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetMultipleStreamsEnabled FAILED:', e));
           }
           break;
@@ -1507,9 +1473,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CameraAppDevice_RegisterCameraInfoObserver_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CameraAppDevice_RegisterCameraInfoObserver_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RegisterCameraInfoObserver FAILED:', e));
           }
           break;
@@ -1522,9 +1486,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCropRegion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCropRegion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetCropRegion FAILED:', e));
           }
           break;
@@ -1537,9 +1499,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CameraAppDevice_ResetCropRegion_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CameraAppDevice_ResetCropRegion_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ResetCropRegion FAILED:', e));
           }
           break;

@@ -631,9 +631,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNewScreencastPrecondition FAILED:', e));
           }
           break;
@@ -646,9 +644,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ShouldDownloadSoda FAILED:', e));
           }
           break;
@@ -661,9 +657,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] InstallSoda FAILED:', e));
           }
           break;
@@ -676,9 +670,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPendingScreencasts FAILED:', e));
           }
           break;
@@ -691,9 +683,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetUserPref FAILED:', e));
           }
           break;
@@ -706,9 +696,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetUserPref FAILED:', e));
           }
           break;
@@ -721,9 +709,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OpenFeedbackDialog FAILED:', e));
           }
           break;
@@ -736,9 +722,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StartProjectorSession FAILED:', e));
           }
           break;
@@ -751,9 +735,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendXhr FAILED:', e));
           }
           break;
@@ -766,9 +748,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAccounts FAILED:', e));
           }
           break;
@@ -781,9 +761,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetVideo FAILED:', e));
           }
           break;

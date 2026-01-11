@@ -431,9 +431,7 @@ mojo.internal.bindings.data_sharing_internals.mojom.PageHandlerReceiver = class 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.data_sharing_internals.mojom.PageHandler_IsEmptyService_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.data_sharing_internals.mojom.PageHandler_IsEmptyService_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsEmptyService FAILED:', e));
           }
           break;
@@ -446,9 +444,7 @@ mojo.internal.bindings.data_sharing_internals.mojom.PageHandlerReceiver = class 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.data_sharing_internals.mojom.PageHandler_GetAllGroups_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.data_sharing_internals.mojom.PageHandler_GetAllGroups_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAllGroups FAILED:', e));
           }
           break;

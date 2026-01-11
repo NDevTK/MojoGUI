@@ -798,9 +798,7 @@ mojo.internal.bindings.ash.scanning.mojom.ScanServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetScanners FAILED:', e));
           }
           break;
@@ -813,9 +811,7 @@ mojo.internal.bindings.ash.scanning.mojom.ScanServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetScannerCapabilities FAILED:', e));
           }
           break;
@@ -828,9 +824,7 @@ mojo.internal.bindings.ash.scanning.mojom.ScanServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StartScan FAILED:', e));
           }
           break;
@@ -843,9 +837,7 @@ mojo.internal.bindings.ash.scanning.mojom.ScanServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StartMultiPageScan FAILED:', e));
           }
           break;
@@ -1120,9 +1112,7 @@ mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ScanNextPage FAILED:', e));
           }
           break;
@@ -1142,9 +1132,7 @@ mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RescanPage FAILED:', e));
           }
           break;

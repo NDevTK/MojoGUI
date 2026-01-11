@@ -1788,9 +1788,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinters_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinters_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPrinters FAILED:', e));
           }
           break;
@@ -1803,9 +1801,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetCapability_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetCapability_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetCapability FAILED:', e));
           }
           break;
@@ -1818,9 +1814,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetEulaUrl_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetEulaUrl_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetEulaUrl FAILED:', e));
           }
           break;
@@ -1833,9 +1827,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetStatus_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetStatus_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetStatus FAILED:', e));
           }
           break;
@@ -1848,9 +1840,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ShowSystemPrintSettings FAILED:', e));
           }
           break;
@@ -1863,9 +1853,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_CreatePrintJob_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.LocalPrinter_CreatePrintJob_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreatePrintJob FAILED:', e));
           }
           break;
@@ -1878,9 +1866,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_CancelPrintJob_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.LocalPrinter_CancelPrintJob_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CancelPrintJob FAILED:', e));
           }
           break;
@@ -1893,9 +1879,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrintServersConfig_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrintServersConfig_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPrintServersConfig FAILED:', e));
           }
           break;
@@ -1908,9 +1892,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_ChoosePrintServers_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.LocalPrinter_ChoosePrintServers_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ChoosePrintServers FAILED:', e));
           }
           break;
@@ -1923,9 +1905,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintServerObserver_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintServerObserver_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AddPrintServerObserver FAILED:', e));
           }
           break;
@@ -1938,9 +1918,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPolicies_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPolicies_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPolicies FAILED:', e));
           }
           break;
@@ -1953,9 +1931,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetUsernamePerPolicy FAILED:', e));
           }
           break;
@@ -1968,9 +1944,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPrinterTypeDenyList FAILED:', e));
           }
           break;
@@ -1983,9 +1957,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintJobObserver_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintJobObserver_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AddPrintJobObserver FAILED:', e));
           }
           break;
@@ -1998,9 +1970,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOAuthAccessToken FAILED:', e));
           }
           break;
@@ -2013,9 +1983,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetIppClientInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetIppClientInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetIppClientInfo FAILED:', e));
           }
           break;
@@ -2028,9 +1996,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AddLocalPrintersObserver FAILED:', e));
           }
           break;

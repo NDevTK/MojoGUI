@@ -249,9 +249,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporterRecei
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OnSearchPerformed FAILED:', e));
           }
           break;
@@ -421,9 +419,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchServiceReceiver
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] BindIndex FAILED:', e));
           }
           break;

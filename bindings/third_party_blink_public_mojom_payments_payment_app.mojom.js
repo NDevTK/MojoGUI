@@ -665,9 +665,7 @@ mojo.internal.bindings.payments.mojom.PaymentManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeletePaymentInstrument FAILED:', e));
           }
           break;
@@ -680,9 +678,7 @@ mojo.internal.bindings.payments.mojom.PaymentManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPaymentInstrument FAILED:', e));
           }
           break;
@@ -695,9 +691,7 @@ mojo.internal.bindings.payments.mojom.PaymentManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] KeysOfPaymentInstruments FAILED:', e));
           }
           break;
@@ -710,9 +704,7 @@ mojo.internal.bindings.payments.mojom.PaymentManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] HasPaymentInstrument FAILED:', e));
           }
           break;
@@ -725,9 +717,7 @@ mojo.internal.bindings.payments.mojom.PaymentManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetPaymentInstrument FAILED:', e));
           }
           break;
@@ -740,9 +730,7 @@ mojo.internal.bindings.payments.mojom.PaymentManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ClearPaymentInstruments FAILED:', e));
           }
           break;
@@ -762,9 +750,7 @@ mojo.internal.bindings.payments.mojom.PaymentManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.payments.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.payments.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EnableDelegations FAILED:', e));
           }
           break;

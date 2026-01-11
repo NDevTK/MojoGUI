@@ -328,9 +328,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerFactoryReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetTabStripInset FAILED:', e));
           }
           break;
@@ -1113,9 +1111,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.webui_browser.mojom.PageHandler_GetGuestIdForTabId_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.webui_browser.mojom.PageHandler_GetGuestIdForTabId_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetGuestIdForTabId FAILED:', e));
           }
           break;
@@ -1128,9 +1124,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.webui_browser.mojom.PageHandler_LoadTabSearch_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.webui_browser.mojom.PageHandler_LoadTabSearch_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadTabSearch FAILED:', e));
           }
           break;
@@ -1619,9 +1613,7 @@ mojo.internal.bindings.webui_browser.mojom.GuestHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.webui_browser.mojom.GuestHandler_CanGoBack_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.webui_browser.mojom.GuestHandler_CanGoBack_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CanGoBack FAILED:', e));
           }
           break;
@@ -1641,9 +1633,7 @@ mojo.internal.bindings.webui_browser.mojom.GuestHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.webui_browser.mojom.GuestHandler_CanGoForward_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.webui_browser.mojom.GuestHandler_CanGoForward_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CanGoForward FAILED:', e));
           }
           break;
@@ -1684,9 +1674,7 @@ mojo.internal.bindings.webui_browser.mojom.GuestHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.webui_browser.mojom.GuestHandler_GetSecurityIcon_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.webui_browser.mojom.GuestHandler_GetSecurityIcon_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSecurityIcon FAILED:', e));
           }
           break;

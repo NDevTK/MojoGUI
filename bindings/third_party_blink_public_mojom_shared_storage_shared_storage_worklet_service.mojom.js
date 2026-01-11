@@ -776,9 +776,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientReceiver = c
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageUpdate_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageUpdate_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SharedStorageUpdate FAILED:', e));
           }
           break;
@@ -791,9 +789,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientReceiver = c
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageBatchUpdate_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageBatchUpdate_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SharedStorageBatchUpdate FAILED:', e));
           }
           break;
@@ -806,9 +802,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientReceiver = c
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SharedStorageGet FAILED:', e));
           }
           break;
@@ -835,9 +829,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientReceiver = c
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageLength_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageLength_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SharedStorageLength FAILED:', e));
           }
           break;
@@ -850,9 +842,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientReceiver = c
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageRemainingBudget_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageRemainingBudget_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SharedStorageRemainingBudget FAILED:', e));
           }
           break;
@@ -865,9 +855,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientReceiver = c
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_GetInterestGroups_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_GetInterestGroups_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetInterestGroups FAILED:', e));
           }
           break;
@@ -1171,9 +1159,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_Initialize_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_Initialize_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Initialize FAILED:', e));
           }
           break;
@@ -1186,9 +1172,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_AddModule_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_AddModule_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AddModule FAILED:', e));
           }
           break;
@@ -1201,9 +1185,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_RunURLSelectionOperation_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_RunURLSelectionOperation_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunURLSelectionOperation FAILED:', e));
           }
           break;
@@ -1216,9 +1198,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_RunOperation_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_RunOperation_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RunOperation FAILED:', e));
           }
           break;

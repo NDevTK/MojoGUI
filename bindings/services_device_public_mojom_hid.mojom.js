@@ -911,9 +911,7 @@ mojo.internal.bindings.device.mojom.HidManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.HidManager_GetDevicesAndSetClient_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.HidManager_GetDevicesAndSetClient_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDevicesAndSetClient FAILED:', e));
           }
           break;
@@ -926,9 +924,7 @@ mojo.internal.bindings.device.mojom.HidManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.HidManager_GetDevices_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.HidManager_GetDevices_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDevices FAILED:', e));
           }
           break;
@@ -941,9 +937,7 @@ mojo.internal.bindings.device.mojom.HidManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.HidManager_Connect_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.HidManager_Connect_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Connect FAILED:', e));
           }
           break;
@@ -1232,9 +1226,7 @@ mojo.internal.bindings.device.mojom.HidConnectionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.HidConnection_Read_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.HidConnection_Read_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Read FAILED:', e));
           }
           break;
@@ -1247,9 +1239,7 @@ mojo.internal.bindings.device.mojom.HidConnectionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.HidConnection_Write_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.HidConnection_Write_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Write FAILED:', e));
           }
           break;
@@ -1262,9 +1252,7 @@ mojo.internal.bindings.device.mojom.HidConnectionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.HidConnection_GetFeatureReport_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.HidConnection_GetFeatureReport_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetFeatureReport FAILED:', e));
           }
           break;
@@ -1277,9 +1265,7 @@ mojo.internal.bindings.device.mojom.HidConnectionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.HidConnection_SendFeatureReport_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.HidConnection_SendFeatureReport_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendFeatureReport FAILED:', e));
           }
           break;

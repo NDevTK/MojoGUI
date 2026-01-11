@@ -1111,9 +1111,7 @@ mojo.internal.bindings.on_device_model.mojom.SessionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_model.mojom.Session_GetSizeInTokens_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.on_device_model.mojom.Session_GetSizeInTokens_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSizeInTokens FAILED:', e));
           }
           break;
@@ -1126,9 +1124,7 @@ mojo.internal.bindings.on_device_model.mojom.SessionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_model.mojom.Session_Score_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.on_device_model.mojom.Session_Score_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Score FAILED:', e));
           }
           break;
@@ -1148,9 +1144,7 @@ mojo.internal.bindings.on_device_model.mojom.SessionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_model.mojom.Session_GetProbabilitiesBlocking_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.on_device_model.mojom.Session_GetProbabilitiesBlocking_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetProbabilitiesBlocking FAILED:', e));
           }
           break;
@@ -1445,9 +1439,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_ClassifyTextSafety_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_ClassifyTextSafety_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ClassifyTextSafety FAILED:', e));
           }
           break;
@@ -1460,9 +1452,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_DetectLanguage_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_DetectLanguage_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DetectLanguage FAILED:', e));
           }
           break;
@@ -1475,9 +1465,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_LoadAdaptation_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_LoadAdaptation_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] LoadAdaptation FAILED:', e));
           }
           break;
@@ -1712,9 +1700,7 @@ mojo.internal.bindings.on_device_model.mojom.TextSafetySessionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_model.mojom.TextSafetySession_ClassifyTextSafety_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.on_device_model.mojom.TextSafetySession_ClassifyTextSafety_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ClassifyTextSafety FAILED:', e));
           }
           break;
@@ -1727,9 +1713,7 @@ mojo.internal.bindings.on_device_model.mojom.TextSafetySessionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_model.mojom.TextSafetySession_DetectLanguage_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.on_device_model.mojom.TextSafetySession_DetectLanguage_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DetectLanguage FAILED:', e));
           }
           break;

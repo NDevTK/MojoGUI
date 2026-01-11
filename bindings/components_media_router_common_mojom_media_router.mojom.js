@@ -799,9 +799,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media_router.mojom.MediaRouteProvider_CreateRoute_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media_router.mojom.MediaRouteProvider_CreateRoute_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateRoute FAILED:', e));
           }
           break;
@@ -814,9 +812,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media_router.mojom.MediaRouteProvider_JoinRoute_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media_router.mojom.MediaRouteProvider_JoinRoute_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] JoinRoute FAILED:', e));
           }
           break;
@@ -829,9 +825,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media_router.mojom.MediaRouteProvider_TerminateRoute_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media_router.mojom.MediaRouteProvider_TerminateRoute_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] TerminateRoute FAILED:', e));
           }
           break;
@@ -893,9 +887,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media_router.mojom.MediaRouteProvider_BindMediaController_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media_router.mojom.MediaRouteProvider_BindMediaController_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] BindMediaController FAILED:', e));
           }
           break;
@@ -908,9 +900,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media_router.mojom.MediaRouteProvider_GetState_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media_router.mojom.MediaRouteProvider_GetState_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetState FAILED:', e));
           }
           break;
@@ -1487,9 +1477,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetMediaSinkServiceStatus FAILED:', e));
           }
           break;
@@ -1516,9 +1504,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media_router.mojom.MediaRouter_GetLogsAsString_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media_router.mojom.MediaRouter_GetLogsAsString_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetLogsAsString FAILED:', e));
           }
           break;

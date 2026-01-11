@@ -275,9 +275,7 @@ mojo.internal.bindings.extensions.mojom.GuestViewReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CanExecuteContentScript FAILED:', e));
           }
           break;
@@ -544,9 +542,7 @@ mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManagerReceiver 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateBeforeUnloadControl FAILED:', e));
           }
           break;

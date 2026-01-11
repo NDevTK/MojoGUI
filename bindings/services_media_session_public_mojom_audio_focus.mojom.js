@@ -582,9 +582,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusRequestClientReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient_RequestAudioFocus_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient_RequestAudioFocus_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestAudioFocus FAILED:', e));
           }
           break;
@@ -1136,9 +1134,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestAudioFocus_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestAudioFocus_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestAudioFocus FAILED:', e));
           }
           break;
@@ -1151,9 +1147,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestGroupedAudioFocus FAILED:', e));
           }
           break;
@@ -1166,9 +1160,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetFocusRequests_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetFocusRequests_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetFocusRequests FAILED:', e));
           }
           break;
@@ -1209,9 +1201,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetSourceFocusRequests_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetSourceFocusRequests_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSourceFocusRequests FAILED:', e));
           }
           break;
@@ -1245,9 +1235,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media_session.mojom.AudioFocusManager_FlushForTesting_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media_session.mojom.AudioFocusManager_FlushForTesting_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FlushForTesting FAILED:', e));
           }
           break;
@@ -1414,9 +1402,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebugReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDebugInfoForRequest FAILED:', e));
           }
           break;

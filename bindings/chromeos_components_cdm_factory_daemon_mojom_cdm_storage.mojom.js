@@ -386,9 +386,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Read_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Read_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Read FAILED:', e));
           }
           break;
@@ -401,9 +399,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Write_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Write_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Write FAILED:', e));
           }
           break;
@@ -416,9 +412,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Exists_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Exists_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Exists FAILED:', e));
           }
           break;
@@ -431,9 +425,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_GetSize_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_GetSize_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSize FAILED:', e));
           }
           break;
@@ -446,9 +438,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Remove_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Remove_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Remove FAILED:', e));
           }
           break;

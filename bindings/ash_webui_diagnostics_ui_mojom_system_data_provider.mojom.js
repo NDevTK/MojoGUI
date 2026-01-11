@@ -1131,9 +1131,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderReceiver = class 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSystemInfo FAILED:', e));
           }
           break;
@@ -1146,9 +1144,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderReceiver = class 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetBatteryInfo FAILED:', e));
           }
           break;

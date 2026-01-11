@@ -746,9 +746,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestBitmapForContextNode FAILED:', e));
           }
           break;
@@ -761,9 +759,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestBitmapForContextNodeWithBoundsHint FAILED:', e));
           }
           break;
@@ -776,9 +772,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestBoundsHintForAllImages FAILED:', e));
           }
           break;
@@ -791,9 +785,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestImageForContextNode FAILED:', e));
           }
           break;
@@ -820,9 +812,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetMediaFeedURL FAILED:', e));
           }
           break;
@@ -849,9 +839,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_InvokeTool_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_InvokeTool_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] InvokeTool FAILED:', e));
           }
           break;

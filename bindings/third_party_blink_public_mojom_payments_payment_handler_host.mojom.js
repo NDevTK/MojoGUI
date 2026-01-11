@@ -335,9 +335,7 @@ mojo.internal.bindings.payments.mojom.PaymentHandlerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ChangePaymentMethod FAILED:', e));
           }
           break;
@@ -350,9 +348,7 @@ mojo.internal.bindings.payments.mojom.PaymentHandlerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ChangeShippingOption FAILED:', e));
           }
           break;
@@ -365,9 +361,7 @@ mojo.internal.bindings.payments.mojom.PaymentHandlerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ChangeShippingAddress FAILED:', e));
           }
           break;

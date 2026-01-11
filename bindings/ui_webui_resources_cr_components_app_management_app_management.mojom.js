@@ -1190,9 +1190,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.app_management.mojom.PageHandler_GetApps_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.app_management.mojom.PageHandler_GetApps_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetApps FAILED:', e));
           }
           break;
@@ -1205,9 +1203,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.app_management.mojom.PageHandler_GetApp_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.app_management.mojom.PageHandler_GetApp_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetApp FAILED:', e));
           }
           break;
@@ -1220,9 +1216,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.app_management.mojom.PageHandler_GetSubAppToParentMap_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.app_management.mojom.PageHandler_GetSubAppToParentMap_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSubAppToParentMap FAILED:', e));
           }
           break;
@@ -1235,9 +1229,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetExtensionAppPermissionMessages FAILED:', e));
           }
           break;
@@ -1292,9 +1284,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.app_management.mojom.PageHandler_GetOverlappingPreferredApps_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.app_management.mojom.PageHandler_GetOverlappingPreferredApps_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOverlappingPreferredApps FAILED:', e));
           }
           break;

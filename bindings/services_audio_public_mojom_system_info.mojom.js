@@ -498,9 +498,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetInputStreamParameters FAILED:', e));
           }
           break;
@@ -513,9 +511,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOutputStreamParameters FAILED:', e));
           }
           break;
@@ -528,9 +524,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.audio.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.audio.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] HasInputDevices FAILED:', e));
           }
           break;
@@ -543,9 +537,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.audio.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.audio.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] HasOutputDevices FAILED:', e));
           }
           break;
@@ -558,9 +550,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetInputDeviceDescriptions FAILED:', e));
           }
           break;
@@ -573,9 +563,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOutputDeviceDescriptions FAILED:', e));
           }
           break;
@@ -588,9 +576,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAssociatedOutputDeviceID FAILED:', e));
           }
           break;
@@ -603,9 +589,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetInputDeviceInfo FAILED:', e));
           }
           break;

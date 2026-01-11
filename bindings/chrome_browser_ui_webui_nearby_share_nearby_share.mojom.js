@@ -1061,9 +1061,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StartDiscovery FAILED:', e));
           }
           break;
@@ -1076,9 +1074,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StopDiscovery_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StopDiscovery_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StopDiscovery FAILED:', e));
           }
           break;
@@ -1091,9 +1087,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SelectShareTarget FAILED:', e));
           }
           break;
@@ -1106,9 +1100,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPayloadPreview FAILED:', e));
           }
           break;
@@ -1346,9 +1338,7 @@ mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Accept FAILED:', e));
           }
           break;
@@ -1361,9 +1351,7 @@ mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Reject_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Reject_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Reject FAILED:', e));
           }
           break;
@@ -1376,9 +1364,7 @@ mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Cancel FAILED:', e));
           }
           break;
@@ -2027,9 +2013,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsInHighVisibility FAILED:', e));
           }
           break;
@@ -2042,9 +2026,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RegisterForegroundReceiveSurface FAILED:', e));
           }
           break;
@@ -2057,9 +2039,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UnregisterForegroundReceiveSurface FAILED:', e));
           }
           break;
@@ -2072,9 +2052,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Accept_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Accept_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Accept FAILED:', e));
           }
           break;
@@ -2087,9 +2065,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Reject_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Reject_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Reject FAILED:', e));
           }
           break;

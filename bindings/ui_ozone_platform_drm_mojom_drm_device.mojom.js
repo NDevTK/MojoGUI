@@ -904,9 +904,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ui.ozone.mojom.DrmDevice_TakeDisplayControl_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ui.ozone.mojom.DrmDevice_TakeDisplayControl_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] TakeDisplayControl FAILED:', e));
           }
           break;
@@ -919,9 +917,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RelinquishDisplayControl FAILED:', e));
           }
           break;
@@ -934,9 +930,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RefreshNativeDisplays FAILED:', e));
           }
           break;
@@ -963,9 +957,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ShouldDisplayEventTriggerConfiguration FAILED:', e));
           }
           break;
@@ -978,9 +970,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ConfigureNativeDisplays FAILED:', e));
           }
           break;
@@ -993,9 +983,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetHdcpKeyProp FAILED:', e));
           }
           break;
@@ -1008,9 +996,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetHDCPState FAILED:', e));
           }
           break;
@@ -1023,9 +1009,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHDCPState_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHDCPState_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetHDCPState FAILED:', e));
           }
           break;
@@ -1059,9 +1043,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetPrivacyScreen FAILED:', e));
           }
           break;
@@ -1074,9 +1056,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSeamlessRefreshRates FAILED:', e));
           }
           break;

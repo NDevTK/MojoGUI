@@ -589,9 +589,7 @@ mojo.internal.bindings.cros.mojom.CameraHalDispatcherReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RegisterClientWithToken FAILED:', e));
           }
           break;
@@ -1333,9 +1331,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CrosCameraService_GetCameraModule_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CrosCameraService_GetCameraModule_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetCameraModule FAILED:', e));
           }
           break;
@@ -1362,9 +1358,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetCameraSWPrivacySwitchState FAILED:', e));
           }
           break;
@@ -1384,9 +1378,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CrosCameraService_GetAutoFramingSupported_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CrosCameraService_GetAutoFramingSupported_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAutoFramingSupported FAILED:', e));
           }
           break;
@@ -1399,9 +1391,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CrosCameraService_SetCameraEffect_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CrosCameraService_SetCameraEffect_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetCameraEffect FAILED:', e));
           }
           break;

@@ -429,9 +429,7 @@ mojo.internal.bindings.chrome.mojom.MediaParserReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ParseMediaMetadata FAILED:', e));
           }
           break;
@@ -444,9 +442,7 @@ mojo.internal.bindings.chrome.mojom.MediaParserReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chrome.mojom.MediaParser_ExtractVideoFrame_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.MediaParser_ExtractVideoFrame_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ExtractVideoFrame FAILED:', e));
           }
           break;
@@ -459,9 +455,7 @@ mojo.internal.bindings.chrome.mojom.MediaParserReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CheckMediaFile FAILED:', e));
           }
           break;
@@ -474,9 +468,7 @@ mojo.internal.bindings.chrome.mojom.MediaParserReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetCpuInfo FAILED:', e));
           }
           break;
@@ -644,9 +636,7 @@ mojo.internal.bindings.chrome.mojom.MediaParserFactoryReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateMediaParser FAILED:', e));
           }
           break;
@@ -814,9 +804,7 @@ mojo.internal.bindings.chrome.mojom.MediaDataSourceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Read FAILED:', e));
           }
           break;

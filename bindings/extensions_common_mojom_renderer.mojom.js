@@ -1017,9 +1017,7 @@ mojo.internal.bindings.extensions.mojom.RendererReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.extensions.mojom.Renderer_SuspendExtension_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.extensions.mojom.Renderer_SuspendExtension_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SuspendExtension FAILED:', e));
           }
           break;
@@ -1095,9 +1093,7 @@ mojo.internal.bindings.extensions.mojom.RendererReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.extensions.mojom.Renderer_ShouldSuspend_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.extensions.mojom.Renderer_ShouldSuspend_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ShouldSuspend FAILED:', e));
           }
           break;
@@ -1110,9 +1106,7 @@ mojo.internal.bindings.extensions.mojom.RendererReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.extensions.mojom.Renderer_TransferBlobs_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.extensions.mojom.Renderer_TransferBlobs_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] TransferBlobs FAILED:', e));
           }
           break;

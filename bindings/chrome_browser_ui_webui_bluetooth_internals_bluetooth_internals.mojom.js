@@ -656,9 +656,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetAdapter_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetAdapter_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAdapter FAILED:', e));
           }
           break;
@@ -671,9 +669,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDebugLogsChangeHandler FAILED:', e));
           }
           break;
@@ -686,9 +682,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.mojom.BluetoothInternalsHandler_CheckSystemPermissions_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mojom.BluetoothInternalsHandler_CheckSystemPermissions_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CheckSystemPermissions FAILED:', e));
           }
           break;
@@ -701,9 +695,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestSystemPermissions_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestSystemPermissions_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestSystemPermissions FAILED:', e));
           }
           break;
@@ -716,9 +708,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestLocationServices_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestLocationServices_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestLocationServices FAILED:', e));
           }
           break;
@@ -731,9 +721,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RestartSystemBluetooth FAILED:', e));
           }
           break;
@@ -746,9 +734,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StartBtsnoop FAILED:', e));
           }
           break;
@@ -761,9 +747,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsBtsnoopFeatureEnabled FAILED:', e));
           }
           break;
@@ -929,9 +913,7 @@ mojo.internal.bindings.mojom.BluetoothBtsnoopReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.mojom.BluetoothBtsnoop_Stop_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mojom.BluetoothBtsnoop_Stop_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Stop FAILED:', e));
           }
           break;

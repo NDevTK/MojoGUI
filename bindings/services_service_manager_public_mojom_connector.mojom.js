@@ -576,9 +576,7 @@ mojo.internal.bindings.service_manager.mojom.ConnectorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.service_manager.mojom.Connector_BindInterface_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.service_manager.mojom.Connector_BindInterface_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] BindInterface FAILED:', e));
           }
           break;
@@ -591,9 +589,7 @@ mojo.internal.bindings.service_manager.mojom.ConnectorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.service_manager.mojom.Connector_QueryService_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.service_manager.mojom.Connector_QueryService_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] QueryService FAILED:', e));
           }
           break;
@@ -606,9 +602,7 @@ mojo.internal.bindings.service_manager.mojom.ConnectorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.service_manager.mojom.Connector_WarmService_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.service_manager.mojom.Connector_WarmService_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] WarmService FAILED:', e));
           }
           break;
@@ -621,9 +615,7 @@ mojo.internal.bindings.service_manager.mojom.ConnectorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.service_manager.mojom.Connector_RegisterServiceInstance_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.service_manager.mojom.Connector_RegisterServiceInstance_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RegisterServiceInstance FAILED:', e));
           }
           break;

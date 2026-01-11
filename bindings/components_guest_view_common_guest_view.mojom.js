@@ -382,9 +382,7 @@ mojo.internal.bindings.guest_view.mojom.GuestViewHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AttachToEmbedderFrame FAILED:', e));
           }
           break;

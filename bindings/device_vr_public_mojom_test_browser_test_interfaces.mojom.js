@@ -641,9 +641,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device_test.mojom.XRTestHook_OnFrameSubmitted_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device_test.mojom.XRTestHook_OnFrameSubmitted_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OnFrameSubmitted FAILED:', e));
           }
           break;
@@ -656,9 +654,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] WaitGetDeviceConfig FAILED:', e));
           }
           break;
@@ -671,9 +667,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] WaitGetPresentingPose FAILED:', e));
           }
           break;
@@ -686,9 +680,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] WaitGetMagicWindowPose FAILED:', e));
           }
           break;
@@ -701,9 +693,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] WaitGetControllerRoleForTrackedDeviceIndex FAILED:', e));
           }
           break;
@@ -716,9 +706,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] WaitGetControllerData FAILED:', e));
           }
           break;
@@ -731,9 +719,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] WaitGetEventData FAILED:', e));
           }
           break;
@@ -746,9 +732,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] WaitGetCanCreateSession FAILED:', e));
           }
           break;
@@ -761,9 +745,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] WaitGetVisibilityMask FAILED:', e));
           }
           break;
@@ -964,9 +946,7 @@ mojo.internal.bindings.device_test.mojom.XRServiceTestHookReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device_test.mojom.XRServiceTestHook_SetTestHook_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device_test.mojom.XRServiceTestHook_SetTestHook_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetTestHook FAILED:', e));
           }
           break;
@@ -979,9 +959,7 @@ mojo.internal.bindings.device_test.mojom.XRServiceTestHookReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] TerminateDeviceServiceProcessForTesting FAILED:', e));
           }
           break;

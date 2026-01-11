@@ -468,9 +468,7 @@ mojo.internal.bindings.device.mojom.SensorProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSensor FAILED:', e));
           }
           break;
@@ -483,9 +481,7 @@ mojo.internal.bindings.device.mojom.SensorProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateVirtualSensor FAILED:', e));
           }
           break;
@@ -498,9 +494,7 @@ mojo.internal.bindings.device.mojom.SensorProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UpdateVirtualSensor FAILED:', e));
           }
           break;
@@ -513,9 +507,7 @@ mojo.internal.bindings.device.mojom.SensorProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.SensorProvider_RemoveVirtualSensor_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SensorProvider_RemoveVirtualSensor_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RemoveVirtualSensor FAILED:', e));
           }
           break;
@@ -528,9 +520,7 @@ mojo.internal.bindings.device.mojom.SensorProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetVirtualSensorInformation FAILED:', e));
           }
           break;

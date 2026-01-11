@@ -312,9 +312,7 @@ mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandlerReceiver
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Connect_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Connect_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Connect FAILED:', e));
           }
           break;
@@ -327,9 +325,7 @@ mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandlerReceiver
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Close_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Close_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Close FAILED:', e));
           }
           break;
@@ -342,9 +338,7 @@ mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandlerReceiver
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendRequest FAILED:', e));
           }
           break;

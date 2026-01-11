@@ -450,9 +450,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] BeginSeparatedFrameComposite FAILED:', e));
           }
           break;
@@ -465,9 +463,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] BitmapForSeparatedFrame FAILED:', e));
           }
           break;
@@ -480,9 +476,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] BeginMainFrameComposite FAILED:', e));
           }
           break;
@@ -495,9 +489,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] BitmapForMainFrame FAILED:', e));
           }
           break;
@@ -745,9 +737,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollectionRecei
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateCompositor FAILED:', e));
           }
           break;
@@ -760,9 +750,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollectionRecei
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ListCompositors FAILED:', e));
           }
           break;

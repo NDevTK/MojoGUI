@@ -540,9 +540,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetHotspotInfo FAILED:', e));
           }
           break;
@@ -555,9 +553,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetHotspotConfig FAILED:', e));
           }
           break;
@@ -570,9 +566,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EnableHotspot FAILED:', e));
           }
           break;
@@ -585,9 +579,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DisableHotspot FAILED:', e));
           }
           break;

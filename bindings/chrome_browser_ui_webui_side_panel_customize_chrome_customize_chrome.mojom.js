@@ -1445,9 +1445,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetBackgroundCollections FAILED:', e));
           }
           break;
@@ -1460,9 +1458,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetReplacementCollectionPreviewImage FAILED:', e));
           }
           break;
@@ -1475,9 +1471,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetBackgroundImages FAILED:', e));
           }
           break;
@@ -1532,9 +1526,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ChooseLocalCustomBackground FAILED:', e));
           }
           break;

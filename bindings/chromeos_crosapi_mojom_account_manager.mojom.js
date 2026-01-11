@@ -940,9 +940,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.AccountManager_IsInitialized_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.AccountManager_IsInitialized_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsInitialized FAILED:', e));
           }
           break;
@@ -955,9 +953,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.AccountManager_AddObserver_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.AccountManager_AddObserver_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AddObserver FAILED:', e));
           }
           break;
@@ -970,9 +966,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.AccountManager_GetAccounts_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.AccountManager_GetAccounts_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAccounts FAILED:', e));
           }
           break;
@@ -985,9 +979,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.AccountManager_ShowAddAccountDialog_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.AccountManager_ShowAddAccountDialog_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ShowAddAccountDialog FAILED:', e));
           }
           break;
@@ -1000,9 +992,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.AccountManager_ShowReauthAccountDialog_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.AccountManager_ShowReauthAccountDialog_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ShowReauthAccountDialog FAILED:', e));
           }
           break;
@@ -1022,9 +1012,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPersistentErrorForAccount FAILED:', e));
           }
           break;
@@ -1037,9 +1025,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateAccessTokenFetcher FAILED:', e));
           }
           break;
@@ -1213,9 +1199,7 @@ mojo.internal.bindings.crosapi.mojom.AccessTokenFetcherReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.AccessTokenFetcher_Start_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.AccessTokenFetcher_Start_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Start FAILED:', e));
           }
           break;

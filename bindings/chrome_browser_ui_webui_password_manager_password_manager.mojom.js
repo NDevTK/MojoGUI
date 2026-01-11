@@ -841,9 +841,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeleteAllPasswordManagerData FAILED:', e));
           }
           break;
@@ -856,9 +854,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CopyPlaintextBackupPassword FAILED:', e));
           }
           break;
@@ -878,9 +874,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetActorLoginPermissions FAILED:', e));
           }
           break;
@@ -900,9 +894,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.password_manager.mojom.PageHandler_ChangePasswordManagerPin_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.password_manager.mojom.PageHandler_ChangePasswordManagerPin_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ChangePasswordManagerPin FAILED:', e));
           }
           break;
@@ -922,9 +914,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.password_manager.mojom.PageHandler_IsAccountStorageEnabled_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.password_manager.mojom.PageHandler_IsAccountStorageEnabled_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsAccountStorageEnabled FAILED:', e));
           }
           break;
@@ -944,9 +934,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ShouldShowAccountStorageSettingToggle FAILED:', e));
           }
           break;
@@ -959,9 +947,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsPasswordManagerPinAvailable FAILED:', e));
           }
           break;
@@ -974,9 +960,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SwitchBiometricAuthBeforeFillingState FAILED:', e));
           }
           break;

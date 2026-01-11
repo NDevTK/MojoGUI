@@ -432,9 +432,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.ChannelReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.secure_channel.mojom.Channel_SendMessage_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.secure_channel.mojom.Channel_SendMessage_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SendMessage FAILED:', e));
           }
           break;
@@ -447,9 +445,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.ChannelReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RegisterPayloadFile FAILED:', e));
           }
           break;
@@ -462,9 +458,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.ChannelReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetConnectionMetadata FAILED:', e));
           }
           break;
@@ -1339,9 +1333,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetLastSeenTimestamp FAILED:', e));
           }
           break;

@@ -327,9 +327,7 @@ mojo.internal.bindings.network.mojom.TCPBoundSocketReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.TCPBoundSocket_Listen_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.TCPBoundSocket_Listen_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Listen FAILED:', e));
           }
           break;
@@ -342,9 +340,7 @@ mojo.internal.bindings.network.mojom.TCPBoundSocketReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.TCPBoundSocket_Connect_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.TCPBoundSocket_Connect_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Connect FAILED:', e));
           }
           break;
@@ -667,9 +663,7 @@ mojo.internal.bindings.network.mojom.TCPConnectedSocketReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UpgradeToTLS FAILED:', e));
           }
           break;
@@ -682,9 +676,7 @@ mojo.internal.bindings.network.mojom.TCPConnectedSocketReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetSendBufferSize_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetSendBufferSize_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetSendBufferSize FAILED:', e));
           }
           break;
@@ -697,9 +689,7 @@ mojo.internal.bindings.network.mojom.TCPConnectedSocketReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetReceiveBufferSize FAILED:', e));
           }
           break;
@@ -712,9 +702,7 @@ mojo.internal.bindings.network.mojom.TCPConnectedSocketReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetNoDelay_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetNoDelay_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetNoDelay FAILED:', e));
           }
           break;
@@ -727,9 +715,7 @@ mojo.internal.bindings.network.mojom.TCPConnectedSocketReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetKeepAlive_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetKeepAlive_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetKeepAlive FAILED:', e));
           }
           break;
@@ -1093,9 +1079,7 @@ mojo.internal.bindings.network.mojom.TCPServerSocketReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.TCPServerSocket_Accept_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.TCPServerSocket_Accept_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Accept FAILED:', e));
           }
           break;

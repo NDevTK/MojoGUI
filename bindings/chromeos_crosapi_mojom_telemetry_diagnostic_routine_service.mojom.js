@@ -801,9 +801,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControlReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetState FAILED:', e));
           }
           break;
@@ -1179,9 +1177,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesServiceReceiver 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsRoutineArgumentSupported FAILED:', e));
           }
           break;

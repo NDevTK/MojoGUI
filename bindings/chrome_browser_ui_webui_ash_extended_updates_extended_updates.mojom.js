@@ -467,9 +467,7 @@ mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OptInToExtendedUpdates FAILED:', e));
           }
           break;
@@ -489,9 +487,7 @@ mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetInstalledAndroidApps FAILED:', e));
           }
           break;

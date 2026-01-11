@@ -582,9 +582,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsPinnedToTaskbar FAILED:', e));
           }
           break;
@@ -597,9 +595,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chrome.mojom.UtilWin_UnpinShortcuts_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.UtilWin_UnpinShortcuts_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UnpinShortcuts FAILED:', e));
           }
           break;
@@ -612,9 +608,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateOrUpdateShortcuts FAILED:', e));
           }
           break;
@@ -627,9 +621,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CallExecuteSelectFile FAILED:', e));
           }
           break;
@@ -642,9 +634,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] InspectModule FAILED:', e));
           }
           break;
@@ -657,9 +647,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAntiVirusProducts FAILED:', e));
           }
           break;
@@ -672,9 +660,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetTpmIdentifier FAILED:', e));
           }
           break;
@@ -839,9 +825,7 @@ mojo.internal.bindings.chrome.mojom.ProcessorMetricsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RecordProcessorMetrics FAILED:', e));
           }
           break;

@@ -1266,9 +1266,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GenerateStreams FAILED:', e));
           }
           break;
@@ -1302,9 +1300,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_OpenDevice_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_OpenDevice_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OpenDevice FAILED:', e));
           }
           break;
@@ -1331,9 +1327,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ApplySubCaptureTarget FAILED:', e));
           }
           break;
@@ -1353,9 +1347,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] UpdateZoomLevel FAILED:', e));
           }
           break;
@@ -1368,9 +1360,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestCapturedSurfaceControlPermission FAILED:', e));
           }
           break;
@@ -1383,9 +1373,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetOpenDevice FAILED:', e));
           }
           break;
@@ -1398,9 +1386,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] KeepDeviceAliveForTransfer FAILED:', e));
           }
           break;

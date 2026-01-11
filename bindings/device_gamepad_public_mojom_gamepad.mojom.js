@@ -680,9 +680,7 @@ mojo.internal.bindings.device.mojom.GamepadMonitorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GamepadStartPolling FAILED:', e));
           }
           break;
@@ -695,9 +693,7 @@ mojo.internal.bindings.device.mojom.GamepadMonitorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStopPolling_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStopPolling_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GamepadStopPolling FAILED:', e));
           }
           break;
@@ -910,9 +906,7 @@ mojo.internal.bindings.device.mojom.GamepadHapticsManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PlayVibrationEffectOnce FAILED:', e));
           }
           break;
@@ -925,9 +919,7 @@ mojo.internal.bindings.device.mojom.GamepadHapticsManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ResetVibrationActuator FAILED:', e));
           }
           break;

@@ -449,9 +449,7 @@ mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetCurrentBorderGlowVisibility FAILED:', e));
           }
           break;
@@ -766,9 +764,7 @@ mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] MoveCursorTo FAILED:', e));
           }
           break;
@@ -781,9 +777,7 @@ mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] TriggerClickAnimation FAILED:', e));
           }
           break;

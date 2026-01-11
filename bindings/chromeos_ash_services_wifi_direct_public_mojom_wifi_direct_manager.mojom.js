@@ -364,9 +364,7 @@ mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateWifiDirectGroup FAILED:', e));
           }
           break;
@@ -379,9 +377,7 @@ mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ConnectToWifiDirectGroup FAILED:', e));
           }
           break;
@@ -394,9 +390,7 @@ mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetWifiP2PCapabilities FAILED:', e));
           }
           break;
@@ -599,9 +593,7 @@ mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnectionReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetProperties FAILED:', e));
           }
           break;
@@ -614,9 +606,7 @@ mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnectionReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AssociateSocket FAILED:', e));
           }
           break;

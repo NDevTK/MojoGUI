@@ -345,9 +345,7 @@ mojo.internal.bindings.blink.mojom.CredentialManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.CredentialManager_Store_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.CredentialManager_Store_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Store FAILED:', e));
           }
           break;
@@ -360,9 +358,7 @@ mojo.internal.bindings.blink.mojom.CredentialManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.CredentialManager_PreventSilentAccess_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.CredentialManager_PreventSilentAccess_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] PreventSilentAccess FAILED:', e));
           }
           break;
@@ -375,9 +371,7 @@ mojo.internal.bindings.blink.mojom.CredentialManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.CredentialManager_Get_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.CredentialManager_Get_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Get FAILED:', e));
           }
           break;

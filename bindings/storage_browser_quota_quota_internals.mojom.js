@@ -429,9 +429,7 @@ mojo.internal.bindings.storage.mojom.QuotaInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDiskAvailabilityAndTempPoolSize FAILED:', e));
           }
           break;
@@ -444,9 +442,7 @@ mojo.internal.bindings.storage.mojom.QuotaInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetStatistics_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetStatistics_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetStatistics FAILED:', e));
           }
           break;
@@ -466,9 +462,7 @@ mojo.internal.bindings.storage.mojom.QuotaInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RetrieveBucketsTable FAILED:', e));
           }
           break;
@@ -481,9 +475,7 @@ mojo.internal.bindings.storage.mojom.QuotaInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetGlobalUsageForInternals FAILED:', e));
           }
           break;
@@ -496,9 +488,7 @@ mojo.internal.bindings.storage.mojom.QuotaInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsSimulateStoragePressureAvailable FAILED:', e));
           }
           break;

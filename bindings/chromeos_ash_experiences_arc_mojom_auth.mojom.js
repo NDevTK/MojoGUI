@@ -880,9 +880,7 @@ mojo.internal.bindings.arc.mojom.AuthHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.AuthHost_RequestPrimaryAccount_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.AuthHost_RequestPrimaryAccount_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestPrimaryAccount FAILED:', e));
           }
           break;
@@ -895,9 +893,7 @@ mojo.internal.bindings.arc.mojom.AuthHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.AuthHost_RequestPrimaryAccountInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.AuthHost_RequestPrimaryAccountInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestPrimaryAccountInfo FAILED:', e));
           }
           break;
@@ -910,9 +906,7 @@ mojo.internal.bindings.arc.mojom.AuthHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.AuthHost_RequestAccountInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.AuthHost_RequestAccountInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestAccountInfo FAILED:', e));
           }
           break;
@@ -925,9 +919,7 @@ mojo.internal.bindings.arc.mojom.AuthHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.AuthHost_IsAccountManagerAvailable_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.AuthHost_IsAccountManagerAvailable_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsAccountManagerAvailable FAILED:', e));
           }
           break;
@@ -1256,9 +1248,7 @@ mojo.internal.bindings.arc.mojom.AuthInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.AuthInstance_Init_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.AuthInstance_Init_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
           }
           break;
@@ -1278,9 +1268,7 @@ mojo.internal.bindings.arc.mojom.AuthInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.AuthInstance_GetGoogleAccounts_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.AuthInstance_GetGoogleAccounts_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetGoogleAccounts FAILED:', e));
           }
           break;
@@ -1293,9 +1281,7 @@ mojo.internal.bindings.arc.mojom.AuthInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetMainAccountResolutionStatus FAILED:', e));
           }
           break;

@@ -618,9 +618,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OpenFeedbackDialog FAILED:', e));
           }
           break;
@@ -633,9 +631,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ToggleBrowserFullscreenMode FAILED:', e));
           }
           break;
@@ -648,9 +644,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] MaybeTriggerPdfHats FAILED:', e));
           }
           break;
@@ -663,9 +657,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsFileArcWritable FAILED:', e));
           }
           break;
@@ -678,9 +670,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsFileBrowserWritable FAILED:', e));
           }
           break;
@@ -693,9 +683,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_EditInPhotos_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_EditInPhotos_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EditInPhotos FAILED:', e));
           }
           break;
@@ -708,9 +696,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_SubmitForm_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_SubmitForm_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SubmitForm FAILED:', e));
           }
           break;

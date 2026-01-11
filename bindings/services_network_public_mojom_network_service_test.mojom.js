@@ -498,9 +498,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheEntryReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.SimpleCacheEntry_WriteData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.SimpleCacheEntry_WriteData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] WriteData FAILED:', e));
           }
           break;
@@ -513,9 +511,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheEntryReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.SimpleCacheEntry_ReadData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.SimpleCacheEntry_ReadData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ReadData FAILED:', e));
           }
           break;
@@ -528,9 +524,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheEntryReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.SimpleCacheEntry_WriteSparseData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.SimpleCacheEntry_WriteSparseData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] WriteSparseData FAILED:', e));
           }
           break;
@@ -543,9 +537,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheEntryReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.SimpleCacheEntry_ReadSparseData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.SimpleCacheEntry_ReadSparseData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ReadSparseData FAILED:', e));
           }
           break;
@@ -558,9 +550,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheEntryReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.SimpleCacheEntry_Close_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.SimpleCacheEntry_Close_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Close FAILED:', e));
           }
           break;
@@ -726,9 +716,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheEntryEnumeratorReceiver = class 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.SimpleCacheEntryEnumerator_GetNext_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.SimpleCacheEntryEnumerator_GetNext_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNext FAILED:', e));
           }
           break;
@@ -1073,9 +1061,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.SimpleCache_CreateEntry_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.SimpleCache_CreateEntry_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateEntry FAILED:', e));
           }
           break;
@@ -1088,9 +1074,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.SimpleCache_OpenEntry_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.SimpleCache_OpenEntry_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OpenEntry FAILED:', e));
           }
           break;
@@ -1103,9 +1087,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.SimpleCache_DoomEntry_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.SimpleCache_DoomEntry_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DoomEntry FAILED:', e));
           }
           break;
@@ -1118,9 +1100,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.SimpleCache_DoomAllEntries_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.SimpleCache_DoomAllEntries_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DoomAllEntries FAILED:', e));
           }
           break;
@@ -1140,9 +1120,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.SimpleCache_Detach_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.SimpleCache_Detach_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Detach FAILED:', e));
           }
           break;
@@ -2307,9 +2285,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.NetworkServiceTest_AddRules_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkServiceTest_AddRules_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AddRules FAILED:', e));
           }
           break;
@@ -2322,9 +2298,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.NetworkServiceTest_SimulateNetworkChange_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkServiceTest_SimulateNetworkChange_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SimulateNetworkChange FAILED:', e));
           }
           break;
@@ -2337,9 +2311,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.NetworkServiceTest_SimulateNetworkQualityChange_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkServiceTest_SimulateNetworkQualityChange_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SimulateNetworkQualityChange FAILED:', e));
           }
           break;
@@ -2352,9 +2324,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.NetworkServiceTest_ForceNetworkQualityEstimatorReportWifiAsSlow2G_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkServiceTest_ForceNetworkQualityEstimatorReportWifiAsSlow2G_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ForceNetworkQualityEstimatorReportWifiAsSlow2G FAILED:', e));
           }
           break;
@@ -2374,9 +2344,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.NetworkServiceTest_MockCertVerifierSetDefaultResult_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkServiceTest_MockCertVerifierSetDefaultResult_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] MockCertVerifierSetDefaultResult FAILED:', e));
           }
           break;
@@ -2389,9 +2357,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.NetworkServiceTest_MockCertVerifierAddResultForCertAndHost_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkServiceTest_MockCertVerifierAddResultForCertAndHost_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] MockCertVerifierAddResultForCertAndHost FAILED:', e));
           }
           break;
@@ -2404,9 +2370,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.NetworkServiceTest_SetTransportSecurityStateTestSource_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkServiceTest_SetTransportSecurityStateTestSource_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetTransportSecurityStateTestSource FAILED:', e));
           }
           break;
@@ -2419,9 +2383,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.NetworkServiceTest_SetAllowNetworkAccessToHostResolutions_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkServiceTest_SetAllowNetworkAccessToHostResolutions_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetAllowNetworkAccessToHostResolutions FAILED:', e));
           }
           break;
@@ -2434,9 +2396,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.NetworkServiceTest_ReplaceSystemDnsConfig_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkServiceTest_ReplaceSystemDnsConfig_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ReplaceSystemDnsConfig FAILED:', e));
           }
           break;
@@ -2449,9 +2409,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.NetworkServiceTest_SetTestDohConfig_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkServiceTest_SetTestDohConfig_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetTestDohConfig FAILED:', e));
           }
           break;
@@ -2478,9 +2436,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetLatestMemoryPressureLevel FAILED:', e));
           }
           break;
@@ -2493,9 +2449,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPeerToPeerConnectionsCountChange FAILED:', e));
           }
           break;
@@ -2508,9 +2462,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetEnvironmentVariableValue FAILED:', e));
           }
           break;
@@ -2523,9 +2475,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.NetworkServiceTest_Log_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkServiceTest_Log_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Log FAILED:', e));
           }
           break;
@@ -2545,9 +2495,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.NetworkServiceTest_SetSCTAuditingRetryDelay_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkServiceTest_SetSCTAuditingRetryDelay_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetSCTAuditingRetryDelay FAILED:', e));
           }
           break;
@@ -2560,9 +2508,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.NetworkServiceTest_OpenFile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkServiceTest_OpenFile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] OpenFile FAILED:', e));
           }
           break;
@@ -2575,9 +2521,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.NetworkServiceTest_EnumerateFiles_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkServiceTest_EnumerateFiles_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EnumerateFiles FAILED:', e));
           }
           break;
@@ -2590,9 +2534,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.NetworkServiceTest_CreateSimpleCache_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkServiceTest_CreateSimpleCache_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateSimpleCache FAILED:', e));
           }
           break;
@@ -2605,9 +2547,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.NetworkServiceTest_MakeRequestToServer_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkServiceTest_MakeRequestToServer_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] MakeRequestToServer FAILED:', e));
           }
           break;
@@ -2620,9 +2560,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ResolveOwnHostnameWithSystemDns FAILED:', e));
           }
           break;
@@ -2635,9 +2573,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.NetworkServiceTest_SetIPv6ProbeResult_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkServiceTest_SetIPv6ProbeResult_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetIPv6ProbeResult FAILED:', e));
           }
           break;
@@ -2650,9 +2586,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAddressMapCacheLinux FAILED:', e));
           }
           break;
@@ -2665,9 +2599,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AllowsGSSAPILibraryLoad FAILED:', e));
           }
           break;
@@ -2680,9 +2612,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.NetworkServiceTest_DisableExclusiveCookieDatabaseLockingForTesting_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkServiceTest_DisableExclusiveCookieDatabaseLockingForTesting_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DisableExclusiveCookieDatabaseLockingForTesting FAILED:', e));
           }
           break;
@@ -2695,9 +2625,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.NetworkServiceTest_IsHappyEyeballsV3Enabled_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetworkServiceTest_IsHappyEyeballsV3Enabled_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsHappyEyeballsV3Enabled FAILED:', e));
           }
           break;

@@ -264,9 +264,7 @@ mojo.internal.bindings.unzip.mojom.UnzipFilterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ShouldUnzipFile FAILED:', e));
           }
           break;
@@ -704,9 +702,7 @@ mojo.internal.bindings.unzip.mojom.UnzipperReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Unzip FAILED:', e));
           }
           break;
@@ -719,9 +715,7 @@ mojo.internal.bindings.unzip.mojom.UnzipperReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DetectEncoding FAILED:', e));
           }
           break;
@@ -734,9 +728,7 @@ mojo.internal.bindings.unzip.mojom.UnzipperReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetExtractedInfo FAILED:', e));
           }
           break;
@@ -749,9 +741,7 @@ mojo.internal.bindings.unzip.mojom.UnzipperReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DecodeXz FAILED:', e));
           }
           break;

@@ -1108,9 +1108,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.viz.mojom.FrameSinkManager_InvalidateFrameSinkId_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.viz.mojom.FrameSinkManager_InvalidateFrameSinkId_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] InvalidateFrameSinkId FAILED:', e));
           }
           break;
@@ -1158,9 +1156,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.viz.mojom.FrameSinkManager_DestroyCompositorFrameSink_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.viz.mojom.FrameSinkManager_DestroyCompositorFrameSink_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DestroyCompositorFrameSink FAILED:', e));
           }
           break;
@@ -1243,9 +1239,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.viz.mojom.FrameSinkManager_EvictBackBuffer_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.viz.mojom.FrameSinkManager_EvictBackBuffer_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] EvictBackBuffer FAILED:', e));
           }
           break;
@@ -1672,9 +1666,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkManagerClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.viz.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.viz.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] VerifyThreadIdsDoNotBelongToHost FAILED:', e));
           }
           break;

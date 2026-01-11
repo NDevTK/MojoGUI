@@ -738,9 +738,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasClient_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasClient_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] HasClient FAILED:', e));
           }
           break;
@@ -753,9 +751,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasInputContext_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasInputContext_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] HasInputContext FAILED:', e));
           }
           break;
@@ -768,9 +764,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsRTL_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsRTL_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsRTL FAILED:', e));
           }
           break;
@@ -783,9 +777,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionRange_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionRange_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSelectionRange FAILED:', e));
           }
           break;
@@ -798,9 +790,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionText_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionText_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSelectionText FAILED:', e));
           }
           break;
@@ -841,9 +831,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasCompositionText_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasCompositionText_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] HasCompositionText FAILED:', e));
           }
           break;
@@ -856,9 +844,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetCompositionTextRange FAILED:', e));
           }
           break;
@@ -871,9 +857,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAttributedSubstringForRange FAILED:', e));
           }
           break;
@@ -886,9 +870,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetFirstRectForRange FAILED:', e));
           }
           break;
@@ -901,9 +883,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] IsTextEditCommandEnabled FAILED:', e));
           }
           break;

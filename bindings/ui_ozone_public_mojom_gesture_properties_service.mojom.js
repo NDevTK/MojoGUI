@@ -389,9 +389,7 @@ mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ListDevices FAILED:', e));
           }
           break;
@@ -404,9 +402,7 @@ mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ListProperties FAILED:', e));
           }
           break;
@@ -419,9 +415,7 @@ mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetProperty FAILED:', e));
           }
           break;
@@ -434,9 +428,7 @@ mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetProperty FAILED:', e));
           }
           break;

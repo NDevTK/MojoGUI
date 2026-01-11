@@ -258,9 +258,7 @@ mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandlerReceiver 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetPageImageUrl FAILED:', e));
           }
           break;

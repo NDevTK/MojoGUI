@@ -1263,9 +1263,7 @@ mojo.internal.bindings.device.mojom.VRServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.VRService_RequestSession_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.VRService_RequestSession_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestSession FAILED:', e));
           }
           break;
@@ -1278,9 +1276,7 @@ mojo.internal.bindings.device.mojom.VRServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.VRService_SupportsSession_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.VRService_SupportsSession_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SupportsSession FAILED:', e));
           }
           break;
@@ -1293,9 +1289,7 @@ mojo.internal.bindings.device.mojom.VRServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.VRService_ExitPresent_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.VRService_ExitPresent_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ExitPresent FAILED:', e));
           }
           break;
@@ -1315,9 +1309,7 @@ mojo.internal.bindings.device.mojom.VRServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.VRService_MakeXrCompatible_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.VRService_MakeXrCompatible_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] MakeXrCompatible FAILED:', e));
           }
           break;
@@ -1935,9 +1927,7 @@ mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderReceiver = c
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SubscribeToHitTest FAILED:', e));
           }
           break;
@@ -1950,9 +1940,7 @@ mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderReceiver = c
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SubscribeToHitTestForTransientInput FAILED:', e));
           }
           break;
@@ -1972,9 +1960,7 @@ mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderReceiver = c
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateAnchor FAILED:', e));
           }
           break;
@@ -2179,9 +2165,7 @@ mojo.internal.bindings.device.mojom.XRFrameDataProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.XRFrameDataProvider_GetFrameData_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.XRFrameDataProvider_GetFrameData_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetFrameData FAILED:', e));
           }
           break;
@@ -3188,9 +3172,7 @@ mojo.internal.bindings.device.mojom.XRLayerManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.XRLayerManager_CreateCompositionLayer_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.XRLayerManager_CreateCompositionLayer_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateCompositionLayer FAILED:', e));
           }
           break;

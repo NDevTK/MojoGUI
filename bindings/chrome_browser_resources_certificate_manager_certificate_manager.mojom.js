@@ -743,9 +743,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetCertificates FAILED:', e));
           }
           break;
@@ -758,9 +756,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetCertManagementMetadata FAILED:', e));
           }
           break;
@@ -787,9 +783,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ImportCertificate FAILED:', e));
           }
           break;
@@ -802,9 +796,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ImportAndBindCertificate FAILED:', e));
           }
           break;
@@ -817,9 +809,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] DeleteCertificate FAILED:', e));
           }
           break;
@@ -1098,9 +1088,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageReceiver 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AskForImportPassword FAILED:', e));
           }
           break;
@@ -1113,9 +1101,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageReceiver 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] AskForConfirmation FAILED:', e));
           }
           break;

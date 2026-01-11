@@ -556,9 +556,7 @@ mojo.internal.bindings.arc.mojom.ProcessInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.ProcessInstance_RequestProcessList_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.ProcessInstance_RequestProcessList_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestProcessList FAILED:', e));
           }
           break;
@@ -571,9 +569,7 @@ mojo.internal.bindings.arc.mojom.ProcessInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestApplicationProcessMemoryInfo FAILED:', e));
           }
           break;
@@ -586,9 +582,7 @@ mojo.internal.bindings.arc.mojom.ProcessInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestSystemProcessMemoryInfo FAILED:', e));
           }
           break;
@@ -601,9 +595,7 @@ mojo.internal.bindings.arc.mojom.ProcessInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ApplyHostMemoryPressureDeprecated FAILED:', e));
           }
           break;
@@ -616,9 +608,7 @@ mojo.internal.bindings.arc.mojom.ProcessInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ApplyHostMemoryPressure FAILED:', e));
           }
           break;
@@ -631,9 +621,7 @@ mojo.internal.bindings.arc.mojom.ProcessInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestLowMemoryKillCounts FAILED:', e));
           }
           break;

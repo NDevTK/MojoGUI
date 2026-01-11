@@ -394,9 +394,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierReceiver = 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_Annotate_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_Annotate_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Annotate FAILED:', e));
           }
           break;
@@ -409,9 +407,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierReceiver = 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] FindLanguages FAILED:', e));
           }
           break;
@@ -424,9 +420,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierReceiver = 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] REMOVED_1 FAILED:', e));
           }
           break;

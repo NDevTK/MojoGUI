@@ -2463,9 +2463,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNetworkState FAILED:', e));
           }
           break;
@@ -2478,9 +2476,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNetworkStateList FAILED:', e));
           }
           break;
@@ -2493,9 +2489,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetDeviceStateList FAILED:', e));
           }
           break;
@@ -2508,9 +2502,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetManagedProperties FAILED:', e));
           }
           break;
@@ -2523,9 +2515,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetProperties FAILED:', e));
           }
           break;
@@ -2538,9 +2528,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ConfigureNetwork FAILED:', e));
           }
           break;
@@ -2553,9 +2541,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] ForgetNetwork FAILED:', e));
           }
           break;
@@ -2568,9 +2554,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetNetworkTypeEnabledState FAILED:', e));
           }
           break;
@@ -2583,9 +2567,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetCellularSimState FAILED:', e));
           }
           break;
@@ -2598,9 +2580,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SelectCellularMobileNetwork FAILED:', e));
           }
           break;
@@ -2620,9 +2600,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetGlobalPolicy FAILED:', e));
           }
           break;
@@ -2635,9 +2613,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StartConnect FAILED:', e));
           }
           break;
@@ -2650,9 +2626,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] StartDisconnect FAILED:', e));
           }
           break;
@@ -2672,9 +2646,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetVpnProviders FAILED:', e));
           }
           break;
@@ -2687,9 +2659,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetNetworkCertificates FAILED:', e));
           }
           break;
@@ -2702,9 +2672,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetAlwaysOnVpn FAILED:', e));
           }
           break;
@@ -2724,9 +2692,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetSupportedVpnTypes FAILED:', e));
           }
           break;
@@ -2739,9 +2705,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] RequestTrafficCounters FAILED:', e));
           }
           break;
@@ -2761,9 +2725,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] SetTrafficCountersResetDay FAILED:', e));
           }
           break;
@@ -2776,9 +2738,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateCustomApn FAILED:', e));
           }
           break;
@@ -2791,9 +2751,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CreateExclusivelyEnabledCustomApn FAILED:', e));
           }
           break;

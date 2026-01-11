@@ -352,9 +352,7 @@ mojo.internal.bindings.legion.mojom.OakSessionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] InitiateHandshake FAILED:', e));
           }
           break;
@@ -367,9 +365,7 @@ mojo.internal.bindings.legion.mojom.OakSessionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] CompleteHandshake FAILED:', e));
           }
           break;
@@ -382,9 +378,7 @@ mojo.internal.bindings.legion.mojom.OakSessionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.legion.mojom.OakSession_Encrypt_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.legion.mojom.OakSession_Encrypt_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Encrypt FAILED:', e));
           }
           break;
@@ -397,9 +391,7 @@ mojo.internal.bindings.legion.mojom.OakSessionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.legion.mojom.OakSession_Decrypt_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.legion.mojom.OakSession_Decrypt_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] Decrypt FAILED:', e));
           }
           break;

@@ -703,9 +703,7 @@ mojo.internal.bindings.blink.mojom.RemoteObjectReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.RemoteObject_HasMethod_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.RemoteObject_HasMethod_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] HasMethod FAILED:', e));
           }
           break;
@@ -718,9 +716,7 @@ mojo.internal.bindings.blink.mojom.RemoteObjectReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.RemoteObject_GetMethods_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.RemoteObject_GetMethods_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] GetMethods FAILED:', e));
           }
           break;
@@ -733,9 +729,7 @@ mojo.internal.bindings.blink.mojom.RemoteObjectReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.RemoteObject_InvokeMethod_ResponseParamsSpec, header, rawHeader);
-               responder(response);
+              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.RemoteObject_InvokeMethod_ResponseParamsSpec, response);
             }).catch(e => console.error('[GeneratedReceiver] InvokeMethod FAILED:', e));
           }
           break;
