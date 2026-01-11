@@ -311,9 +311,14 @@
         if (isMonitoring) {
             // Stop monitoring
             state.interfaces.forEach(iface => {
-                // Only stop if currently in LOG mode to avoid disrupting active intercepts
+                // Stop short name
                 if (InterceptorManager.getMode(iface.name) === 'LOG') {
                     InterceptorManager.stop(iface.name);
+                }
+                // Stop full name
+                const fqn = iface.module ? `${iface.module}.${iface.name}` : null;
+                if (fqn && fqn !== iface.name && InterceptorManager.getMode(fqn) === 'LOG') {
+                    InterceptorManager.stop(fqn);
                 }
             });
             btn.classList.remove('active');
@@ -322,13 +327,25 @@
             // Start monitoring all
             let count = 0;
             state.interfaces.forEach(iface => {
+                let started = false;
+
+                // Start short name
                 if (!InterceptorManager.isActive(iface.name)) {
-                    InterceptorManager.start(iface.name, 'LOG');
-                    count++;
+                    if (InterceptorManager.start(iface.name, 'LOG')) started = true;
                 }
+
+                // Start full name (FQN)
+                // Browser internals often request the full name (e.g. device.mojom.VibrationManager)
+                // while existing lists might only have VibrationManager.
+                const fqn = iface.module ? `${iface.module}.${iface.name}` : null;
+                if (fqn && fqn !== iface.name && !InterceptorManager.isActive(fqn)) {
+                    if (InterceptorManager.start(fqn, 'LOG')) started = true;
+                }
+
+                if (started) count++;
             });
             btn.classList.add('active');
-            showToast(`Started monitoring ${count} interfaces`, 'success');
+            showToast(`Started monitoring ${count} interfaces (including FQNs)`, 'success');
             showInterceptorPanel(true);
         }
     }
