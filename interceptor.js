@@ -309,28 +309,44 @@
                     // Fix: Unbind any Mojo Remotes/Receivers to release their handles for forwarding via realRemote.
                     // IMPORTANT: We must re-wrap the handle in a fresh instance of the same class (e.g. Remote),
                     // because the serializer (bindings_lite.js) expects an object with an 'unbind()' method.
-                    const forwardedArgs = args.map((arg) => {
+                    const forwardedArgs = args.map((arg, idx) => {
                         try {
                             if (arg && typeof arg === 'object') {
+                                let h = null;
+                                let objClass = null;
+
                                 // Case 1: Remote (InterfaceProxy)
                                 if (arg.proxy && typeof arg.proxy.unbind === 'function') {
-                                    const h = arg.proxy.unbind();
-                                    if (h && arg.constructor) {
-                                        return new arg.constructor(h);
-                                    }
-                                    return h || arg;
+                                    h = arg.proxy.unbind();
+                                    objClass = arg.constructor;
                                 }
                                 // Case 2: PendingReceiver or InterfaceRequest
-                                if (typeof arg.unbind === 'function') {
-                                    const h = arg.unbind();
-                                    if (h && arg.constructor) {
-                                        return new arg.constructor(h);
+                                else if (typeof arg.unbind === 'function') {
+                                    h = arg.unbind();
+                                    objClass = arg.constructor;
+                                }
+
+                                if (h) {
+                                    // DEEP EXTRACTION: If h is an Endpoint, get the raw handle.
+                                    // Mojo JS bindings are inconsistent: sometimes unbind() returns the raw handle (integer),
+                                    // sometimes it returns an Endpoint object. serializing an Endpoint fails.
+                                    let rawHandle = h;
+                                    if (typeof h === 'object') {
+                                        if (h.handle) rawHandle = h.handle;
+                                        else if (h.router_ && h.router_.connector_) rawHandle = h.router_.connector_.handle_;
+                                        // Some endpoints might keep handle in other props?
                                     }
-                                    return h || arg;
+
+                                    console.log(`[MojoProxy] Arg[${idx}] extracted raw handle:`, rawHandle);
+
+                                    if (objClass) {
+                                        return new objClass(rawHandle);
+                                    }
+                                    return rawHandle;
                                 }
                             }
                         } catch (err) {
-                            console.error(`[MojoProxy] Error re-wrapping arg:`, err);
+                            console.error(`[MojoProxy] Error re-wrapping arg[${idx}]:`, err);
                         }
                         return arg;
                     });
@@ -395,28 +411,41 @@
 
                     // Fix: Unbind any Mojo Remotes/Receivers to release their handles for forwarding via realRemote.
                     // We must re-wrap the handle in a fresh instance of the same class.
-                    const forwardedArgs = argsToUse.map((arg) => {
+                    const forwardedArgs = argsToUse.map((arg, idx) => {
                         try {
                             if (arg && typeof arg === 'object') {
+                                let h = null;
+                                let objClass = null;
+
                                 // Case 1: Remote (InterfaceProxy)
                                 if (arg.proxy && typeof arg.proxy.unbind === 'function') {
-                                    const h = arg.proxy.unbind();
-                                    if (h && arg.constructor) {
-                                        return new arg.constructor(h);
-                                    }
-                                    return h || arg;
+                                    h = arg.proxy.unbind();
+                                    objClass = arg.constructor;
                                 }
                                 // Case 2: PendingReceiver or InterfaceRequest
-                                if (typeof arg.unbind === 'function') {
-                                    const h = arg.unbind();
-                                    if (h && arg.constructor) {
-                                        return new arg.constructor(h);
+                                else if (typeof arg.unbind === 'function') {
+                                    h = arg.unbind();
+                                    objClass = arg.constructor;
+                                }
+
+                                if (h) {
+                                    // DEEP EXTRACTION: If h is an Endpoint, get the raw handle.
+                                    let rawHandle = h;
+                                    if (typeof h === 'object') {
+                                        if (h.handle) rawHandle = h.handle;
+                                        else if (h.router_ && h.router_.connector_) rawHandle = h.router_.connector_.handle_;
                                     }
-                                    return h || arg;
+
+                                    console.log(`[MojoProxy] Resume Arg[${idx}] extracted raw handle:`, rawHandle);
+
+                                    if (objClass) {
+                                        return new objClass(rawHandle);
+                                    }
+                                    return rawHandle;
                                 }
                             }
                         } catch (err) {
-                            console.error(`[MojoProxy] Error re-wrapping Resume arg:`, err);
+                            console.error(`[MojoProxy] Error re-wrapping Resume arg[${idx}]:`, err);
                         }
                         return arg;
                     });
